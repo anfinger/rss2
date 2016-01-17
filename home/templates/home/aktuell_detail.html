@@ -1,0 +1,21 @@
+{% extends 'home/base.html' %}
+
+{% block content %}
+  <div class="aktuelles">
+    {% if user.is_authenticated %}
+      {% if aktuell.published_date %}
+        <div class="date">
+          {{ aktuell.published_date }}
+        </div>
+      {% else %}
+        <a class="btn btn-default" href="{% url "home.views.aktuell_publish" pk=aktuell.pk %}">Veröffentlichen</a>
+      {% endif %}
+      <a class="btn btn-default" href="{% url 'aktuell_edit' pk=aktuell.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+      <a class="btn btn-default" href="{% url "aktuell_remove" pk=aktuell.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
+    {% else %}
+      <a href="{% url "django.contrib.auth.views.login" %}" class="top-menu"><span class="glyphicon glyphicon-lock"></a>
+    {% endif %}
+    <h1>{{ aktuell.title }}</h1>
+    <p>{{ aktuell.text|linebreaks }}</p>
+  </div>
+{% endblock %}

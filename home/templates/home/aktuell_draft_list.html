@@ -1,0 +1,10 @@
+{% extends "home/base.html" %}
+{% block content %}
+{% for aktuell in aktuelles %}
+<div class="aktuelles">
+  <p class="date">created: {{ aktuell.created_date|date:"d-m-Y" }}</p>
+  <h1><a href="{% url "home.views.aktuell_detail" pk=aktuell.pk %}">{{ aktuell.title }}</a></h1>
+  <p>{{ aktuell.text|truncatechars:200 }}</p>
+</div>
+{% endfor %}
+{% endblock %}

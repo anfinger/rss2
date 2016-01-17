@@ -1,0 +1,15 @@
+{% extends 'home/base.html' %}
+
+{% block content %}
+  {% for aktuell in aktuelles %}
+  <div class="aktuelles">
+    <div class="date">
+      <p>published: {{ aktuell.published_date }}</p>
+    </div>
+    <h3><a href="{% url 'aktuell_detail' pk=aktuell.pk %}">{{ aktuell.title }}</a></h3>
+    <p>{{ aktuell.text|linebreaks }}</p>
+    Details zur Reise finden Sie
+    <a href="{{aktuell.reiselink}}">hier</a>.
+  </div>
+  {% endfor %}
+{% endblock %}
