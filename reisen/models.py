@@ -6,8 +6,48 @@ from django.db import models
 import django.utils.encoding
 from django.utils.encoding import python_2_unicode_compatible
 from django.contrib.auth.models import User
-
+import re
 import uuid
+from django.core.validators import MinValueValidator #, MaxValueValidator
+
+###########
+# Bild    #
+###########
+@python_2_unicode_compatible # For Python 3.4 and 2.7
+class Bild(models.Model):
+
+    # Titel für das Admin Backend
+    class Meta:
+        verbose_name = "Bild"
+        verbose_name_plural = "Bilder"
+
+    # Attribute
+    bildID = models.UUIDField(
+        primary_key=True,
+        default=uuid.uuid4,
+        editable=False)
+    bild = models.ImageField(upload_to = 'images')#, default = 'images/None/no-img.jpg')
+    titel = models.CharField(
+        max_length=256,
+        blank = True,
+        default = '',
+        verbose_name = "Bildtitel",
+        help_text = "Geben Sie hier den Titel des Bildes ein.")
+    beschreibung = models.TextField(
+        blank = True,
+        default = '',
+        verbose_name = "Bildbeschreibung",
+        help_text = "Geben Sie hier eine Bildbeschreibung ein.")
+    bildquelle = models.CharField(
+        max_length=256,
+        blank = True,
+        default = '',
+        verbose_name = "Bildquelle",
+        help_text = "Geben Sie hier den Bildquelle ein. (privat, Kunde, Internet, BildDB)")
+
+    # Bildtitel als Rückgabestring
+    def __str__(self):
+        return self.titel + ' ID: ' + str(self.bildID)
 
 ###########
 # Hinweis #
@@ -246,6 +286,7 @@ class Reisetage(models.Model):
     class Meta:
         verbose_name = "Reisetag"
         verbose_name_plural = "Reisetage"
+        ordering = ['tagnummer']
 
     # Attribute
     reisetagID = models.UUIDField(
@@ -256,6 +297,7 @@ class Reisetage(models.Model):
         Reise,
         on_delete=models.CASCADE)
     tagnummer = models.PositiveSmallIntegerField(
+        validators=[MinValueValidator(1)],
         null = True,
         verbose_name = "Tagesnummer zum Ordnen")
     titel = models.CharField(
@@ -277,7 +319,7 @@ class Reisetage(models.Model):
 
     # Titel Tagesbeschreibung als Rückgabestring
     def __str__(self):
-        return self.titel
+        return str(self.tagnummer) + '. Tag: ' + self.titel
 
 ################
 # Reisetermine #
@@ -289,6 +331,7 @@ class Reisetermine(models.Model):
     class Meta:
         verbose_name = "Reisetermin"
         verbose_name_plural = "Reisetermine"
+        ordering = ['datum_beginn']
 
     # Attribute
     reiseterminID = models.UUIDField(
@@ -333,6 +376,7 @@ class LeistungenReise(models.Model):
     class Meta:
         verbose_name = "Reiseleistung"
         verbose_name_plural = "Reiseleistungen"
+        ordering = ['position']
 
     # Attribute
     leistung_reiseID = models.UUIDField(
@@ -366,6 +410,7 @@ class Fruehbucherrabatt(models.Model):
     class Meta:
         verbose_name = "Frühbucherrabatt"
         verbose_name_plural = "Frühbucherrabatte"
+        ordering = ['position']
 
     # Attribute
     fruehbucherrabattID = models.UUIDField(
@@ -404,6 +449,7 @@ class Zusatzleistung(models.Model):
     class Meta:
         verbose_name = "Zusatzleistung"
         verbose_name_plural = "Zusatzleistungen"
+        ordering = ['position']
 
     # Attribute
     zusatzleistungID = models.UUIDField(
@@ -442,6 +488,7 @@ class Reisehinweise(models.Model):
     class Meta:
         verbose_name = "Reisehinweis"
         verbose_name_plural = "Reisehinweise"
+        ordering = ['position']
 
     # Attribute
     reisehinweiseID = models.UUIDField(
@@ -468,6 +515,49 @@ class Reisehinweise(models.Model):
     def __str__(self):
         return self.titel
 
+##############################
+# Bilder zur Reise           #
+##############################
+@python_2_unicode_compatible # For Python 3.4 and 2.7
+class Reisebilder(models.Model):
+
+    # Titel für das Admin Backend
+    class Meta:
+        verbose_name = "Reisebild"
+        verbose_name_plural = "Reisebilder"
+        ordering = ['position']
+
+    # Attribute
+    reisebildID = models.UUIDField(
+        primary_key=True,
+        default=uuid.uuid4,
+        editable=False)
+    reise_id = models.ForeignKey(
+        Reise,
+        on_delete=models.CASCADE)
+    bild_id = models.ForeignKey(
+        Bild,
+        on_delete=models.CASCADE)
+    titel = models.TextField(
+        blank = True,
+        default = '',
+        verbose_name = "optionaler Titel",
+        help_text="Geben Sie hier einen optionalen Titel ein. (Überschreibt Standard Bildtitel)")
+    zu_verwenden_in = models.CharField(
+        max_length=256,
+        blank = True,
+        default = '',
+        verbose_name = "Bild verwenden in ...",
+        help_text = "Geben Sie an ob das Bild etwa im Katalog, Internet, Katalogvorstellung, Reisetagebuch, etc. veröffentlicht werden soll. (kommaseparierte Liste)")
+    position = models.IntegerField(
+        null = True,
+        verbose_name = "position",
+        help_text = "Position zur Bestimmung der Reihenfolge der Bilder bei der Darstellung")
+
+    # titel Text als Rückgabestring
+    def __str__(self):
+        return str(self.position)
+
 ###########################
 # Kategorien zur Reise    #
 ###########################
@@ -478,6 +568,7 @@ class Reisekategorien(models.Model):
     class Meta:
         verbose_name = "Reisekategorie"
         verbose_name_plural = "Reisekategorien"
+        ordering = ['position']
 
     # Attribute
     reisekategorienID = models.UUIDField(
@@ -509,6 +600,7 @@ class Reisezielregionen(models.Model):
     class Meta:
         verbose_name = "Zielregion"
         verbose_name_plural = "Zielregionen"
+        ordering = ['position']
 
     # Attribute
     reisezielregionenID = models.UUIDField(
@@ -540,6 +632,7 @@ class Ausflugspakete(models.Model):
     class Meta:
         verbose_name = "Ausflugspaket"
         verbose_name_plural = "Ausflugspakete"
+        ordering = ['position']
 
     # Attribute
     ausflugspaketID = models.UUIDField(
@@ -586,6 +679,7 @@ class LeistungenAusflugspaket(models.Model):
     class Meta:
         verbose_name = "Leistung zum Ausflugspaket"
         verbose_name_plural = "Leistungen zum Ausflugspaket"
+        ordering = ['position']
 
     # Attribute
     leistung_ausflugspaketID = models.UUIDField(
@@ -619,6 +713,7 @@ class Ausflugspaketpreise(models.Model):
     class Meta:
         verbose_name = "Ausflugspaketpreis"
         verbose_name_plural = "Ausflugspaketpreise"
+        ordering = ['position']
 
     # Attribute
     ausflugspaketpreiseID = models.UUIDField(
@@ -648,7 +743,7 @@ class Ausflugspaketpreise(models.Model):
 
     # titel Text als Rückgabestring
     def __str__(self):
-        return str(self.position)
+        return 'Preis ' + str(self.ausflugspaket_id) +  ': ' + str(self.preis) + ' &euro;'
 
 ###################################
 # Ausflugspakete zu Reisetagen    #
@@ -660,6 +755,7 @@ class AusflugspaketeZuReisetagen(models.Model):
     class Meta:
         verbose_name = "Zuordnung von Ausflugspaket zu Reisetag"
         verbose_name_plural = "Zuordnung von Ausflugspaketen zu Reisetagen"
+        ordering = ['position']
 
     # Attribute
     ausflugspakete_zu_reisetagenID = models.UUIDField(
@@ -689,7 +785,10 @@ class AusflugspaketeZuReisetagen(models.Model):
 
     # titel Text als Rückgabestring
     def __str__(self):
-        return str(self.position)
+        #return 'Ausflugspaket zu ' + str(self.reisetag_id) + ' (erscheint im ' + self.erscheint_in + ')'
+        #return 'Ausflugspaket zu ' + re.sub(r'\W+', ' ', str(self.reisetag_id)) + ' (erscheint in Tag-' + self.erscheint_in + ')'
+        return 'Ausflugspaket zu ' + re.sub(r'[^a-zA-Z0-9_ ."-]', '', str(self.reisetag_id)) + ' (erscheint in Tag-' + self.erscheint_in + ')'
+
 
 #############################
 # Preise zur Reise          #
@@ -701,6 +800,7 @@ class Reisepreise(models.Model):
     class Meta:
         verbose_name = "Reisepreis"
         verbose_name_plural = "Reisepreise"
+        ordering = ['position']
 
     # Attribute
     reisepreisID = models.UUIDField(
@@ -730,7 +830,7 @@ class Reisepreise(models.Model):
 
     # titel Text als Rückgabestring
     def __str__(self):
-        return str(self.position)
+        return str(self.position) + '. ' + str(self.preis_id) + ': ' + str(self.preis) + ' &euro;' + self.kommentar
 
 #############################
 # Detailpreise zur Reise    #
@@ -742,6 +842,7 @@ class ReisepreisZusatz(models.Model):
     class Meta:
         verbose_name = "Preisdetail"
         verbose_name_plural = "Preisdetails"
+        ordering = ['position']
 
     # Attribute
     reisepreis_zusatzID = models.UUIDField(
@@ -771,4 +872,4 @@ class ReisepreisZusatz(models.Model):
 
     # titel Text als Rückgabestring
     def __str__(self):
-        return str(self.position)
+        return str(self.position) + '. ' + str(self.preis_id) + ': ' + str(self.preis) + ' &euro;' # + self.kommentar

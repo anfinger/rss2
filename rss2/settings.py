@@ -32,18 +32,27 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = (
     #'suit',
+    #'tabbed_admin',
     'nested_admin',
+    'django.contrib.contenttypes',
+    #'grappelli.dashboard',
+    'grappelli',
+    'filebrowser',
     'django.contrib.admin',
     'django.contrib.auth',
-    'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'home',
     'reisen',
+    'debug_toolbar',
+    #'imagestore',
+    #'mptt',
+    #'media_tree',
 )
 
 MIDDLEWARE_CLASSES = (
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -67,6 +76,9 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.core.context_processors.request',
+                'django.template.context_processors.media',
+                'django.template.context_processors.static',
             ],
         },
     },
@@ -109,4 +121,20 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+STATIC_ROOT = "./static/"
+
 LOGIN_REDIRECT_URL = '/'
+
+MEDIA_ROOT = './media/'
+
+MEDIA_URL = '/media/'
+
+TABBED_ADMIN_USE_JQUERY_UI = True
+
+GRAPPELLI_ADMIN_TITLE = 'Reiseservice Schwerin GmbH'
+
+GRAPPELLI_SWITCH_USER = True
+
+DEBUG_TOOLBAR_PATCH_SETTINGS = False
+
+#INTERNAL_IPS = ['127.0.0.1','::1',]

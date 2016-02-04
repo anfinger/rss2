@@ -3,5 +3,7 @@ __pycache__
 myvenv
 db.sqlite3
 /static
+/media
+db.json
+reisen.json
 .DS_Store
-
