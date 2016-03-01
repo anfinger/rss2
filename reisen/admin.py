@@ -5,8 +5,6 @@ from django.utils import timezone
 from django.forms import TextInput, Textarea
 from django.db import models
 from django.db import connection
-#from nested_inline.admin import NestedStackedInline, NestedModelAdmin
-from tabbed_admin import TabbedModelAdmin
 import nested_admin
 from .models import Reise
 from .models import Reisetermine
@@ -115,19 +113,6 @@ class AusflugspaketeZuReisetagenInline(nested_admin.NestedStackedInline):
     #    'fk': ['reisetag_id'],
     #}
 
-#class AusflugspaketeAdmin(nested_admin.NestedAdmin):
-#
-#    form = AusflugspaketeForm
-#
-#    list_display = ('titel', 'position')
-#
-#    formfield_overrides = {
-#        models.CharField: {'widget': TextInput(attrs={'size':'60'})},
-#        models.TextField: {'widget': Textarea(attrs={'rows':4, 'cols':60})},
-#    }
-#
-#    filter_horizontal = ('gehoert_zu_reisetagen',)
-
 class AusflugspaketInline(nested_admin.NestedStackedInline):
     model = Ausflugspakete
     form = AusflugspaketeForm
@@ -156,9 +141,6 @@ class ReisepreiseInline(nested_admin.NestedStackedInline):
 # Adminoberflächen                                                             #
 ################################################################################
 
-#class ReiseAdmin(admin.ModelAdmin):
-#class ReiseAdmin(NestedModelAdmin):
-#class ReiseAdmin(nested_admin.NestedAdmin):
 class ReiseAdmin(nested_admin.NestedAdmin): #TabbedModelAdmin,
 
     form = ReiseForm
@@ -173,42 +155,20 @@ class ReiseAdmin(nested_admin.NestedAdmin): #TabbedModelAdmin,
     search_fields = ['titel',]
     #filter_vertical = ('hinweise',)
 
-    #def reisetermine(self, obj):
-    #    str_termin = ''
-    #    for termin in Reisetermine.objects.select_related('reise_id').filter(reise_id=obj.reiseID).order_by('datum_beginn'):
-    #        str_termin = str_termin + str(termin) + '\n'
-    #    return str_termin
-        #return Reisetermine.objects.select_related('reise_id').filter(reise_id=obj.reiseID).order_by('datum_beginn')[0]
-
     #reisetermine.admin_order_field = 'datum_beginn'
 
     def reisetermine(self, obj):
         cursor = connection.cursor()
-        cursor.execute("SELECT MIN(datum_beginn) as min_datum, group_concat(DISTINCT CONCAT_WS(' - ', DATE_FORMAT(datum_beginn,'%d.'), DATE_FORMAT(datum_ende,'%d. %m. %Y')) ORDER BY datum_beginn ASC SEPARATOR ' ::: ') AS reise_termine FROM reisen_reisetermine INNER JOIN reisen_reise ON (reise_id_id = reiseID) WHERE reise_id_id ='" + str(obj.reiseID).replace('-','') + "' GROUP BY reise_id_id ORDER BY datum_beginn;");
+        cursor.execute("SELECT MIN(datum_beginn) as min_datum, group_concat(DISTINCT CONCAT_WS(' - ', DATE_FORMAT(datum_beginn,'%d.'), DATE_FORMAT(datum_ende,'%d. %m. %Y')) ORDER BY datum_beginn ASC SEPARATOR ' ::: ') AS reise_termine FROM reisen_reisetermine INNER JOIN reisen_reise ON (reise_id_id = reiseID) WHERE reise_id_id ='" + str(obj.reiseID).replace('-','') + "' GROUP BY reise_id_id ORDER BY min_datum;");
         termine = namedtuplefetchall(cursor)
         cursor.close()
         return termine[0].reise_termine
-        #return termine
-
-    #def reisetermine_ordnung(self, obj):
-    #    cursor = connection.cursor()
-    #    cursor.execute("SELECT MIN(datum_beginn) as min_datum, group_concat(DISTINCT CONCAT_WS(' - ', DATE_FORMAT(datum_beginn,'%d.'), DATE_FORMAT(datum_ende,'%d. %m. %Y')) ORDER BY datum_beginn ASC SEPARATOR '\n') AS reise_termine FROM reisen_reisetermine INNER JOIN reisen_reise ON (reise_id_id = reiseID) WHERE reise_id_id ='" + str(obj.reiseID).replace('-','') + "' GROUP BY reise_id_id ORDER BY datum_beginn;");
-    #    termine = namedtuplefetchall(cursor)
-    #    cursor.close()
-    #    return termine[0].min_datum
-        #return termine
-
-    #rt = str(type(rtt))
-    #reisetermine.admin_order_field = 'reisetermine_ordnung'
 
     prepopulated_fields = { 'slug': ['titel'] }
     readonly_fields = ('zuletzt_bearbeitet', 'zuletzt_bearbeitet_von', 'autor_id', 'datum_erzeugung')
 
     formfield_overrides = {
-        #models.CharField: {'widget': TextInput(attrs={'size':'80'})},
-        #models.TextField: {'widget': Textarea(attrs={'rows':'4', 'cols':'10'})},
         models.CharField: {'widget': TextInput(attrs={'size':'80', 'class': "vTextField"})},
-        #models.TextField: {'widget': TextInput(attrs={'rows':'50', 'class': "vLargeTextField"})},
     }
 
     fieldsets = ((
@@ -270,6 +230,3 @@ admin.site.register(Kategorie)
 admin.site.register(Zielregion)
 admin.site.register(Preis)
 admin.site.register(Bild)
-#admin.site.register(Reisetage)
-#admin.site.register(AusflugspaketeZuReisetagen)
-#admin.site.register(Ausflugspakete, AusflugspaketeAdmin)

@@ -32,12 +32,11 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = (
     #'suit',
-    #'tabbed_admin',
     'nested_admin',
     'django.contrib.contenttypes',
     #'grappelli.dashboard',
     'grappelli',
-    'filebrowser',
+    #'filebrowser',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.sessions',
@@ -45,14 +44,13 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'home',
     'reisen',
-    'debug_toolbar',
+    #'debug_toolbar',
     #'imagestore',
     #'mptt',
     #'media_tree',
 )
 
 MIDDLEWARE_CLASSES = (
-    'debug_toolbar.middleware.DebugToolbarMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -95,7 +93,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'rss2',
         'USER': 'django',
-        'PASSWORD': 'MMu9U30iL',
+        'PASSWORD': 'MMu9U30iL!',
         'HOST': '127.0.0.1',
         'PORT': '3306',
     }
@@ -121,11 +119,11 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATIC_ROOT = "./static/"
+STATIC_ROOT = "/var/www/reiseservice-schwerin/rss2/static/"
 
-LOGIN_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = '/rss2'
 
-MEDIA_ROOT = './media/'
+MEDIA_ROOT = '/var/www/reiseservice-schwerin/rss2/media/'
 
 MEDIA_URL = '/media/'
 
