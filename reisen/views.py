@@ -9,6 +9,8 @@ from django import db
 from collections import namedtuple
 from django.db import connection
 from itertools import chain
+from django.core import serializers
+
 
 # Create your views here.
 
@@ -48,6 +50,19 @@ def index(request):
 # Detail Seite, Reisedetails                                     #
 ##################################################################
 def reise_detail(request, pk):
+
+    #data = serializers.serialize("xml", Reisetermine.objects.filter(reise_id=pk).order_by('datum_beginn'))
+
+    qs = Reisetermine.objects.filter(reise_id=pk).order_by('datum_beginn')
+
+    XMLSerializer = serializers.get_serializer("xml")
+    xml_serializer = XMLSerializer()
+    xml_serializer.serialize(qs)
+    data = xml_serializer.getvalue()
+
+    with open("./file.xml", "w") as out:
+        xml_serializer.serialize(qs, stream=out)
+
     dibug = 'NIX PASSIERT'
     reise = get_object_or_404(Reise, pk=pk)
     termine = Reisetermine.objects.filter(reise_id=pk).order_by('datum_beginn')

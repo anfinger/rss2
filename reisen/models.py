@@ -394,7 +394,7 @@ class LeistungenReise(models.Model):
     position = models.IntegerField(
         null = True,
         verbose_name = "position",
-        help_text = "Position zur Bestimmung der Reihenfolge der Leistung bei der Darstellung")
+        help_text = "Position zur Sortierung")
 
     # Leistung Text als Rückgabestring
     def __str__(self):
@@ -509,7 +509,7 @@ class Reisehinweise(models.Model):
     position = models.IntegerField(
         null = True,
         verbose_name = "position",
-        help_text = "Position zur Bestimmung der Reihenfolge der Reisehinweise bei der Darstellung")
+        help_text = "Position zur Sortierung")
 
     # titel Text als Rückgabestring
     def __str__(self):

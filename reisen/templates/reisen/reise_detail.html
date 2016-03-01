@@ -6,6 +6,15 @@
   <div class="aktuelles">
     <p><h3><a href="{% url 'index' %}">zurück</a></h3></p></br>
 
+    {% if data %}
+    <font color="#FF0000">
+      <p>
+        <b>XML Export{{ data|length|pluralize:"e" }}:</b></br>
+        {{ data }}
+      </p>
+    </font>
+    {% endif %}
+
     {% if reise.korrektur_bemerkung_intern %}
     <font color="#FF0000">
       <p>
@@ -14,7 +23,6 @@
       </p>
     </font>
     {% endif %}
-
 
     <!--
     {% if bilder %}

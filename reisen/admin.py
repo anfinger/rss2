@@ -8,6 +8,7 @@ from django.db import connection
 #from nested_inline.admin import NestedStackedInline, NestedModelAdmin
 from tabbed_admin import TabbedModelAdmin
 import nested_admin
+#from grappelli.forms import GrappelliSortableHiddenMixin
 from .models import Reise
 from .models import Reisetermine
 from .models import Hinweis
@@ -53,7 +54,9 @@ class ReisetermineInline(admin.TabularInline):
 
 class LeistungenReiseInline(admin.TabularInline):
     model = LeistungenReise
-    ordering = ("position",)
+    #fields = ("leistung" , "position",)
+    #ordering = ("position",)
+    sortable_field_name = "position"
     classes = ('grp-collapse grp-closed',)
     extra = 0
 
@@ -71,7 +74,8 @@ class ZusatzleistungInline(admin.TabularInline):
 
 class ReisehinweiseInline(admin.TabularInline):
     model = Reisehinweise
-    ordering = ("position",)
+    #ordering = ("position",)
+    sortable_field_name = "position"
     classes = ('grp-collapse grp-closed',)
     extra = 0
 
@@ -184,7 +188,8 @@ class ReiseAdmin(nested_admin.NestedAdmin): #TabbedModelAdmin,
 
     def reisetermine(self, obj):
         cursor = connection.cursor()
-        cursor.execute("SELECT MIN(datum_beginn) as min_datum, group_concat(DISTINCT CONCAT_WS(' - ', DATE_FORMAT(datum_beginn,'%d.'), DATE_FORMAT(datum_ende,'%d. %m. %Y')) ORDER BY datum_beginn ASC SEPARATOR ' ::: ') AS reise_termine FROM reisen_reisetermine INNER JOIN reisen_reise ON (reise_id_id = reiseID) WHERE reise_id_id ='" + str(obj.reiseID).replace('-','') + "' GROUP BY reise_id_id ORDER BY datum_beginn;");
+        #cursor.execute("SELECT MIN(datum_beginn) as min_datum, group_concat(DISTINCT CONCAT_WS(' - ', DATE_FORMAT(datum_beginn,'%d.'), DATE_FORMAT(datum_ende,'%d. %m. %Y')) ORDER BY datum_beginn ASC SEPARATOR ' ::: ') AS reise_termine FROM reisen_reisetermine INNER JOIN reisen_reise ON (reise_id_id = reiseID) WHERE reise_id_id ='" + str(obj.reiseID).replace('-','') + "' GROUP BY reise_id_id ORDER BY datum_beginn;");
+        cursor.execute("SELECT MIN(datum_beginn) as min_datum, group_concat(DISTINCT CONCAT_WS(' - ', DATE_FORMAT(datum_beginn,'%d.'), DATE_FORMAT(datum_ende,'%d. %m. %Y')) ORDER BY datum_beginn ASC SEPARATOR ' ::: ') AS reise_termine FROM reisen_reisetermine INNER JOIN reisen_reise ON (reise_id_id = reiseID) WHERE reise_id_id ='" + str(obj.reiseID).replace('-','') + "' GROUP BY reise_id_id ORDER BY min_datum;");
         termine = namedtuplefetchall(cursor)
         cursor.close()
         return termine[0].reise_termine
