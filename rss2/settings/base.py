@@ -77,22 +77,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'rss2.wsgi.application'
 
-
-# Database
-# https://docs.djangoproject.com/en/1.8/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'rss2',
-        'USER': 'django',
-        'PASSWORD': 'MMu9U30iL',
-        'HOST': '127.0.0.1',
-        'PORT': '3306',
-    }
-}
-
-
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
 
