@@ -11,16 +11,6 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-#config_mode = os.getenv('DJANGO_CONFIG_MODE', 'base')
-
-#config_dict = {
-#    'base': 'settings.base'
-#    'local': 'settings.local'
-#    'production': 'settings.production'
-#}
-
-#os.environ.setdefault('DJANGO_SETTINGS_MODULE', config_dict[config_mode])
-
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "rss2.settings")
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "rss2.settings.production")
 
 application = get_wsgi_application()
