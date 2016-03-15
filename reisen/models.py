@@ -267,6 +267,12 @@ class Reise(models.Model):
     #fruehbucherrabatt = models.DecimalField(max_digits=6, decimal_places=2, null = True, verbose_name = "Frühbucherrabatt")
     #fruehbucherrabatt_bis = models.DateTimeField(blank=True, null=True, verbose_name = "Verfallsdatum")
 
+    STATUS_CHOICES = (
+        ('e', 'Entwurf'),
+        ('r', 'veröffentlicht'),
+        ('w', 'Withdrawn'),
+    )
+
     # funktioniert nicht?
     def publish(self):
         self.datum_veroeffentlichung = timezone.now()
