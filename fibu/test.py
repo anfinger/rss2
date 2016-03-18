@@ -27,8 +27,8 @@ import decimal
 #data = MT940('D:/users/Reiseservice/===DELATAPLANEXPORTE/STARMONEY/2016-01-04/mt940/STA_315080200EUR_13070024_EUR_20160226_144738.sta')
 #data = MT940('C:/Users/af/Downloads/20160313-401062147-umsMT940.TXT')
 #data = MT940('C:/Users/af/Downloads/test_mt940_privat.TXT')
-#data = MT940('D:/users/Reiseservice/===DELATAPLANEXPORTE/STARMONEY/2016-03-11/STA_315080200EUR_13070024_EUR_20160311_145002.sta')
-data = MT940('D:/users/Reiseservice/===DELATAPLANEXPORTE/STARMONEY/2016-02/STA_315080200EUR_13070024_EUR_20160315_134702.sta')
+data = MT940('D:/users/Reiseservice/===DELATAPLANEXPORTE/STARMONEY/2016-03-14/STA_315080200EUR_13070024_EUR_20160315_175542.sta')
+#data = MT940('D:/users/Reiseservice/===DELATAPLANEXPORTE/STARMONEY/2016-02/STA_315080200EUR_13070024_EUR_20160315_134702.sta')
 #texte = [stm[7] for stm in data.statements[0][4]]
 #print('statements:')
 #print(data.statements)
@@ -171,7 +171,7 @@ with open('D:/users/Reiseservice/===DELATAPLANEXPORTE/STARMONEY/2016-03-11/test.
         fibuwriter.writerow(data_csv_tmp)
         i = i + 1
 
-with open('D:/users/Reiseservice/===DELATAPLANEXPORTE/STARMONEY/2016-02/mt940.csv', 'wb') as csvfile:
+with open('D:/users/Reiseservice/===DELATAPLANEXPORTE/STARMONEY/2016-03-14/mt940.csv', 'wb') as csvfile:
     agendawriter = csv.writer(csvfile, delimiter=';', quotechar='"', quoting=csv.QUOTE_MINIMAL)
     agendawriter.writerow(['Start-Saldo', data.statements[0][3][0], data.statements[0][3][1], data.statements[0][3][2]])
     agendawriter.writerow(['End-Saldo', data.statements[0][5][0], data.statements[0][5][1], data.statements[0][5][2]])
