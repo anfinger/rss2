@@ -48,10 +48,10 @@ def reise_detail(request, pk):
 
     qs = Reisetermine.objects.filter(reise_id=pk).order_by('datum_beginn')
 
-    XMLSerializer = serializers.get_serializer("xml")
-    xml_serializer = XMLSerializer()
-    xml_serializer.serialize(qs)
-    data = xml_serializer.getvalue()
+    #XMLSerializer = serializers.get_serializer("xml")
+    #xml_serializer = XMLSerializer()
+    #xml_serializer.serialize(qs)
+    #data = xml_serializer.getvalue()
 
     #with open("./file.xml", "w") as out:
     #    xml_serializer.serialize(qs, stream=out)

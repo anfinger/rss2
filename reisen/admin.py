@@ -100,13 +100,14 @@ class ReisezielregionenInline(admin.TabularInline):
 class ReisebilderInline(admin.TabularInline):
     model = Reisebilder
     ordering = ("position",)
+    fields = ('position', 'titel', 'zu_verwenden_in', 'bild_id')
     classes = ('grp-collapse grp-closed',)
     extra = 0
 
 class ReiseangeboteInline(admin.TabularInline):
     model = Reiseangebote
     ordering = ("position",)
-    fields = ('position', 'ausflugspaket_text', 'erscheint_in', 'reisetag_id')
+    fields = ('position', 'titel', 'angebot_id')
     classes = ('grp-collapse grp-closed',)
     extra = 0
 
