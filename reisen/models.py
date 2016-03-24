@@ -62,6 +62,34 @@ class Bild(models.Model):
     def __str__(self):
         return self.titel + ' ID: ' + str(self.bildID)
 
+###############
+# Angebot     #
+###############
+@python_2_unicode_compatible # For Python 3.4 and 2.7
+class Angebot(models.Model):
+
+    # Titel für das Admin Backend
+    class Meta:
+        verbose_name = "Angebot"
+        verbose_name_plural = "Angebote"
+
+    # Attribute
+    angebotID = models.UUIDField(
+        primary_key=True,
+        default=uuid.uuid4,
+        editable=False)
+    angebot = models.FileField(upload_to = 'angebote')#, default = 'images/None/no-img.jpg')
+    titel = models.CharField(
+        max_length=256,
+        blank = True,
+        default = '',
+        verbose_name = "Angebottitel",
+        help_text = "Geben Sie hier den Titel des Angebots ein.")
+
+    # Angebottitel als Rückgabestring
+    def __str__(self):
+        return self.titel + ' ID: ' + str(self.angebotID)
+
 ###########
 # Hinweis #
 ###########
@@ -396,12 +424,12 @@ class Reisetermine(models.Model):
     def __str__(self):
         return str(self.datum_beginn)
 
-    @property
-    def id(self):
-        return self.reiseterminID
-
-    def related_label(self):
-        return u"%s (%s)" % (self.datum_beginn, self.id)
+    # @property
+    # def id(self):
+    #     return self.reiseterminID
+    #
+    # def related_label(self):
+    #     return u"%s (%s)" % (self.datum_beginn, self.id)
 
 ########################
 # Leistungen der Reise #
@@ -592,6 +620,43 @@ class Reisebilder(models.Model):
         null = True,
         verbose_name = "position",
         help_text = "Position zur Bestimmung der Reihenfolge der Bilder bei der Darstellung")
+
+    # titel Text als Rückgabestring
+    def __str__(self):
+        return str(self.position)
+
+##############################
+# Angebote zur Reise         #
+##############################
+@python_2_unicode_compatible # For Python 3.4 and 2.7
+class Reiseangebote(models.Model):
+
+    # Titel für das Admin Backend
+    class Meta:
+        verbose_name = "Reiseangebot"
+        verbose_name_plural = "Reiseangebote"
+        ordering = ['position']
+
+    # Attribute
+    reiseangebotID = models.UUIDField(
+        primary_key=True,
+        default=uuid.uuid4,
+        editable=False)
+    reise_id = models.ForeignKey(
+        Reise,
+        on_delete=models.CASCADE)
+    angebot_id = models.ForeignKey(
+        Angebot,
+        on_delete=models.CASCADE)
+    titel = models.TextField(
+        blank = True,
+        default = '',
+        verbose_name = "optionaler Titel",
+        help_text="Geben Sie hier einen optionalen Titel ein. (Überschreibt Standard Angebottitel)")
+    position = models.IntegerField(
+        null = True,
+        verbose_name = "position",
+        help_text = "Position zur Bestimmung der Reihenfolge der Angebote bei der Darstellung")
 
     # titel Text als Rückgabestring
     def __str__(self):

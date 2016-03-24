@@ -8,7 +8,7 @@ from django.db import connection
 import nested_admin
 #from grappelli.forms import GrappelliSortableHiddenMixin
 from .models import Reise
-from .models import Reisetermine
+from .models import Reiseterminei
 from .models import Hinweis
 from .models import Kategorie
 from .models import Zielregion
@@ -28,6 +28,8 @@ from .models import AusflugspaketeZuReisetagen
 from .models import ReisepreisZusatz
 from .models import Bild
 from .models import Reisebilder
+from .models import Angebot
+from .models import Reiseangebote
 
 from .views import namedtuplefetchall
 
@@ -97,6 +99,12 @@ class ReisezielregionenInline(admin.TabularInline):
 
 class ReisebilderInline(admin.TabularInline):
     model = Reisebilder
+    ordering = ("position",)
+    classes = ('grp-collapse grp-closed',)
+    extra = 0
+
+class ReiseangeboteInline(admin.TabularInline):
+    model = Reiseangebote
     ordering = ("position",)
     classes = ('grp-collapse grp-closed',)
     extra = 0
@@ -390,6 +398,7 @@ class ReiseAdmin(nested_admin.NestedAdmin): #TabbedModelAdmin,
         AusflugspaketInline,
         ReisepreiseInline,
         ReisebilderInline,
+        ReiseangeboteInline,
     )
 
     def save_model(self, request, obj, form, change):
