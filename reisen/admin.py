@@ -44,7 +44,7 @@ class ReisetageInline(admin.StackedInline):
     ordering = ("tagnummer",)
     #sortable_field_name = "tagnummer"
     classes = ('grp-collapse grp-closed',)
-    can_delete = True
+    #can_delete = True
     extra = 0
 
 class ReisetermineInline(admin.TabularInline):
@@ -338,7 +338,10 @@ class ReiseAdmin(nested_admin.NestedAdmin): #TabbedModelAdmin,
         cursor.execute("SELECT MIN(datum_beginn) as min_datum, group_concat(DISTINCT CONCAT_WS(' - ', DATE_FORMAT(datum_beginn,'%d.'), DATE_FORMAT(datum_ende,'%d. %m. %Y')) ORDER BY datum_beginn ASC SEPARATOR ' ::: ') AS reise_termine FROM reisen_reisetermine INNER JOIN reisen_reise ON (reise_id_id = reiseID) WHERE reise_id_id ='" + str(obj.reiseID).replace('-','') + "' GROUP BY reise_id_id ORDER BY min_datum;");
         termine = namedtuplefetchall(cursor)
         cursor.close()
-        return termine[0].reise_termine
+        if len(termine) > 0:
+            return termine[0].reise_termine
+        else:
+            return ''
 
     prepopulated_fields = { 'slug': ['titel'] }
     readonly_fields = ('zuletzt_bearbeitet', 'zuletzt_bearbeitet_von', 'autor_id', 'datum_erzeugung')
