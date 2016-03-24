@@ -8,7 +8,7 @@ from django.db import connection
 import nested_admin
 #from grappelli.forms import GrappelliSortableHiddenMixin
 from .models import Reise
-from .models import Reiseterminei
+from .models import Reisetermine
 from .models import Hinweis
 from .models import Kategorie
 from .models import Zielregion
@@ -106,6 +106,7 @@ class ReisebilderInline(admin.TabularInline):
 class ReiseangeboteInline(admin.TabularInline):
     model = Reiseangebote
     ordering = ("position",)
+    fields = ('position', 'ausflugspaket_text', 'erscheint_in', 'reisetag_id')
     classes = ('grp-collapse grp-closed',)
     extra = 0
 
@@ -143,12 +144,6 @@ class AusflugspaketeZuReisetagenInline(nested_admin.NestedStackedInline):
             kwargs["queryset"] = Reisetage.objects.filter(reise_id=parent_obj_id)
             #kwargs["queryset"] = Reisetage.objects.filter(reise_id='0045c00949724a9ebfd0dd3bca286aff')
         return super(AusflugspaketeZuReisetagenInline, self).formfield_for_foreignkey(db_field, request, **kwargs)
-
-    # def formfield_for_manytomany(self, db_field, request, **kwargs):
-    #     if db_field.name == "reisetageID":
-    #         kwargs["queryset"] = Reisetage.objects.filter(owner=request.user)
-    #     return super(MyModelAdmin, self).formfield_for_manytomany(db_field, request, **kwargs)
-
 
 class AusflugspaketInline(nested_admin.NestedStackedInline):
     model = Ausflugspakete
