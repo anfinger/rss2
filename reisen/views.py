@@ -53,8 +53,8 @@ def reise_detail(request, pk):
     xml_serializer.serialize(qs)
     data = xml_serializer.getvalue()
 
-    with open("./file.xml", "w") as out:
-        xml_serializer.serialize(qs, stream=out)
+    #with open("./file.xml", "w") as out:
+    #    xml_serializer.serialize(qs, stream=out)
 
     dibug = 'NIX PASSIERT'
     reise = get_object_or_404(Reise, pk=pk)
