@@ -44,6 +44,7 @@ class ReisetageInline(admin.StackedInline):
     ordering = ("tagnummer",)
     #sortable_field_name = "tagnummer"
     classes = ('grp-collapse grp-closed',)
+    can_delete = True
     extra = 0
 
 class ReisetermineInline(admin.TabularInline):
