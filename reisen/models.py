@@ -275,7 +275,7 @@ class Reise(models.Model):
         default = 'i',
         max_length = 1,
         choices = STATUS_CHOICES,
-        verbose_name = "Status einer Reise",
+        verbose_name = "Status der Reise",
         help_text = "Hier den Status einer Reise wählen."
     )
     welcher_katalog = models.CharField(
