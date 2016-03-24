@@ -10,6 +10,19 @@ import re
 import uuid
 from django.core.validators import MinValueValidator #, MaxValueValidator
 
+STATUS_CHOICES = (
+    ('i', 'Idee'),
+    ('e', 'Entwurf'),
+    ('f', 'fertiggestellt'),
+)
+
+KATALOG_CHOICES = (
+    ('w', 'Winterkatalog'),
+    ('s', 'Sommerkatalog'),
+    ('a', 'Winter- und Sommerkatalog'),
+    ('n', 'nicht zugeordnet'),
+)
+
 ###########
 # Bild    #
 ###########
@@ -97,7 +110,7 @@ class Kategorie(models.Model):
         verbose_name = "Kategorie",
         help_text = "Geben Sie hier die Kategorie ein.")
 
-    # hinweis Text als Rückgabestring
+    # Kategorie Text als Rückgabestring
     def __str__(self):
         return self.kategorie
 
@@ -246,16 +259,32 @@ class Reise(models.Model):
         blank = True,
         default = '',
         verbose_name = "Korrekturfeld",
-        help_text="Wird nur intern dargestellt und dient Notizen die Reise betreffend, Korrekturbemerkungen, etc.")
+        help_text="Wird nur intern dargestellt und dient Notizen die Reise betreffend, Korrekturbemerkungen, etc."
+    )
     zubucher = models.CharField(
         max_length=128,
         blank = True,
         default = '',
-        verbose_name = "Text Zubucherreise, falls nötig. (etwa 40-70 Zeichen)")
+        verbose_name = "Text Zubucherreise, falls nötig. (etwa 40-70 Zeichen)"
+    )
     hinweise = models.ManyToManyField(
         Hinweis,
-        through='Reisehinweise')
-
+        through='Reisehinweise'
+    )
+    status = models.CharField(
+        default = 'i',
+        max_length = 1,
+        choices = STATUS_CHOICES,
+        verbose_name = "Status einer Reise",
+        help_text = "Hier den Status einer Reise wählen."
+    )
+    welcher_katalog = models.CharField(
+        default = 'n',
+        max_length = 1,
+        choices = KATALOG_CHOICES,
+        verbose_name = "Welcher Katalog?",
+        help_text = "Hier Katalog für eine Reise wählen."
+    )
 
     #tage = models.ManyToManyField(Tag, through='Reisetage')
     #preis = models.DecimalField(max_digits=6, decimal_places=2, null = True, verbose_name = "Reisepreis")
@@ -267,16 +296,10 @@ class Reise(models.Model):
     #fruehbucherrabatt = models.DecimalField(max_digits=6, decimal_places=2, null = True, verbose_name = "Frühbucherrabatt")
     #fruehbucherrabatt_bis = models.DateTimeField(blank=True, null=True, verbose_name = "Verfallsdatum")
 
-    STATUS_CHOICES = (
-        ('e', 'Entwurf'),
-        ('r', 'veröffentlicht'),
-        ('w', 'Withdrawn'),
-    )
-
     # funktioniert nicht?
-    def publish(self):
-        self.datum_veroeffentlichung = timezone.now()
-        self.save()
+    #def publish(self):
+    #    self.datum_veroeffentlichung = timezone.now()
+    #    self.save()
 
     # Reisetitel als Rückgabestring
     def __str__(self):
@@ -346,6 +369,7 @@ class Reisetermine(models.Model):
         editable=False)
     reise_id  = models.ForeignKey(
         Reise,
+        #related_name = '+',
         on_delete=models.CASCADE)
     markierung = models.CharField(
         max_length=20,
@@ -371,6 +395,13 @@ class Reisetermine(models.Model):
     # Start Datum als Rückgabestring
     def __str__(self):
         return str(self.datum_beginn)
+
+    @property
+    def id(self):
+        return self.reiseterminID
+
+    def related_label(self):
+        return u"%s (%s)" % (self.datum_beginn, self.id)
 
 ########################
 # Leistungen der Reise #
@@ -506,6 +537,8 @@ class Reisehinweise(models.Model):
         on_delete=models.CASCADE)
     hinweis_id = models.ForeignKey(
         Hinweis,
+        verbose_name = "Hinweis",
+        help_text = "Suchen Sie hier einen Hinweistext aus.",
         on_delete=models.CASCADE)
     titel = models.TextField(
         blank = True,
@@ -586,6 +619,8 @@ class Reisekategorien(models.Model):
         on_delete=models.CASCADE)
     kategorie_id = models.ForeignKey(
         Kategorie,
+        verbose_name = "Reisekategorie",
+        help_text = "Suchen Sie hier eine Reisekategorie aus.",
         on_delete=models.CASCADE)
     position = models.IntegerField(
         null = True,
@@ -618,6 +653,8 @@ class Reisezielregionen(models.Model):
         on_delete=models.CASCADE)
     zielregion_id = models.ForeignKey(
         Zielregion,
+        verbose_name = "Zielregion",
+        help_text = "Suchen Sie hier eine Zielregion aus.",
         on_delete=models.CASCADE)
     position = models.IntegerField(
         null = True,
@@ -770,6 +807,8 @@ class AusflugspaketeZuReisetagen(models.Model):
         editable=False)
     reisetag_id = models.ForeignKey(
         Reisetage,
+        verbose_name = "Reisetag",
+        help_text = "Wählen hier Sie die Zuordnung zu einem Reisetag.",
         on_delete=models.CASCADE)
     ausflugspaket_id = models.ForeignKey(
         Ausflugspakete,
@@ -818,6 +857,8 @@ class Reisepreise(models.Model):
         on_delete=models.CASCADE)
     preis_id = models.ForeignKey(
         Preis,
+        verbose_name = "Bezeichnung Preis",
+        help_text = "Wählen Sie hier die Art des Preises aus.",
         on_delete=models.CASCADE)
     preis = models.DecimalField(
         max_digits=6,
@@ -860,6 +901,8 @@ class ReisepreisZusatz(models.Model):
         on_delete=models.CASCADE)
     preis_id = models.ForeignKey(
         Preis,
+        verbose_name = "Bezeichnung Preis",
+        help_text = "Wählen Sie hier die Art des Preises aus.",
         on_delete=models.CASCADE)
     preis = models.DecimalField(
         max_digits=6,
