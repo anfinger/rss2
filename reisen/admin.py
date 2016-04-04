@@ -142,9 +142,16 @@ class AusflugspaketeZuReisetagenInline(nested_admin.NestedStackedInline):
 
     def formfield_for_foreignkey(self, db_field, request, **kwargs):
         if db_field.name == "reisetag_id":
-            parent_obj_id = request.resolver_match.args[0]
-            kwargs["queryset"] = Reisetage.objects.filter(reise_id=parent_obj_id)
+            #try:
+            if len(request.resolver_match.args) > 0:
+                parent_obj_id = request.resolver_match.args[0]
+                #kwargs["queryset"] = Reisetage.objects.filter(reise_id = parent_obj_id)
+            else:
+            #except:
+                parent_obj_id = None
+                #kwargs["queryset"] = Reisetage.objects.filter(reise_id = parent_obj_id)
             #kwargs["queryset"] = Reisetage.objects.filter(reise_id='0045c00949724a9ebfd0dd3bca286aff')
+            kwargs["queryset"] = Reisetage.objects.filter(reise_id = parent_obj_id)
         return super(AusflugspaketeZuReisetagenInline, self).formfield_for_foreignkey(db_field, request, **kwargs)
 
 class AusflugspaketInline(nested_admin.NestedStackedInline):

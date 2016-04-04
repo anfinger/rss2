@@ -29,7 +29,8 @@ def index(request):
     dibug = ''
 
     cursor = connection.cursor()
-    cursor.execute("SELECT reise_id_id, MIN(datum_beginn) AS min_datum, group_concat(DISTINCT CONCAT_WS(' - ', DATE_FORMAT(datum_beginn,'%d. %m. %Y'), DATE_FORMAT(datum_ende,'%d. %m. %Y')) ORDER BY datum_beginn ASC SEPARATOR '\n') AS reisetermine, reiseID, titel, untertitel, einleitung, reisetyp, katalogseite  FROM reisen_reisetermine INNER JOIN reisen_reise ON (reise_id_id = reiseID) GROUP BY reise_id_id ORDER BY min_datum;");
+    #cursor.execute("SELECT reise_id_id, MIN(datum_beginn) AS min_datum, group_concat(DISTINCT CONCAT_WS(' - ', DATE_FORMAT(datum_beginn,'%d. %m. %Y'), DATE_FORMAT(datum_ende,'%d. %m. %Y')) ORDER BY datum_beginn ASC SEPARATOR '\n') AS reisetermine, reiseID, titel, untertitel, einleitung, reisetyp, katalogseite  FROM reisen_reisetermine LEFT OUTER JOIN reisen_reise ON (reise_id_id = reiseID) GROUP BY reise_id_id ORDER BY min_datum;");
+    cursor.execute("SELECT reiseID, untertitel, einleitung, reisetyp, katalogseite, RT.reise_id_id, titel, RT.min_datum, RT.reisetermine FROM reisen_reise LEFT JOIN (SELECT reise_id_id, MIN(datum_beginn) AS min_datum, group_concat(DISTINCT CONCAT_WS(' - ', DATE_FORMAT(datum_beginn,'%d. %m. %Y'), DATE_FORMAT(datum_ende,'%d. %m. %Y')) ORDER BY datum_beginn ASC SEPARATOR '\n') AS reisetermine FROM reisen_reisetermine GROUP BY reise_id_id ORDER BY min_datum) AS RT ON (RT.reise_id_id = reiseID);");
     termine = namedtuplefetchall(cursor)
     cursor.close()
     dibug = termine

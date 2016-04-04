@@ -8,3 +8,4 @@ db.json
 reisen.json
 .DS_Store
 *~
+*/migrations/*
