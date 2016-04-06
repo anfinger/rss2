@@ -91,6 +91,49 @@ class Angebot(models.Model):
         return self.titel + ' ID: ' + str(self.angebotID)
 
 ###########
+# Katalog #
+###########
+@python_2_unicode_compatible # For Python 3.4 and 2.7
+class Katalog(models.Model):
+
+    # Titel für das Admin Backend
+    class Meta:
+        verbose_name = "Katalog"
+        verbose_name_plural = "Kataloge"
+
+    # Attribute
+    katalogID = models.UUIDField(
+        primary_key=True,
+        default=uuid.uuid4,
+        editable=False)
+    titel = models.TextField(
+        blank = True,
+        default = '',
+        verbose_name = "Katalogtitel",
+        help_text = "Geben Sie hier den Titel des Katalogs ein.")
+    untertitel = models.TextField(
+        blank = True,
+        default = '',
+        verbose_name = "Kataloguntertitel",
+        help_text = "Geben Sie hier den Untertitel des Katalogs ein.")
+    datum_beginn = models.DateTimeField(
+        blank=True,
+        null=True,
+        verbose_name = "Katalogstartdatum")
+    datum_ende = models.DateTimeField(
+        blank=True,
+        null=True,
+        verbose_name = "Katalogendedatum")
+    katalogseitenanzahl = models.PositiveSmallIntegerField(
+        null = True,
+        blank=True,
+        verbose_name = "Anzahl der Katalogseiten")
+
+    # hinweis Text als Rückgabestring
+    def __str__(self):
+        return self.titel
+
+###########
 # Hinweis #
 ###########
 @python_2_unicode_compatible # For Python 3.4 and 2.7
@@ -260,14 +303,6 @@ class Reise(models.Model):
         blank=True,
         null=True,
         verbose_name = "Verfallsdatum")
-    katalogseite = models.PositiveSmallIntegerField(
-        null = True,
-        blank=True,
-        verbose_name = "Katalogseite")
-    anzahl_seiten_im_katalog = models.PositiveSmallIntegerField(
-        null = True,
-        blank=True,
-        verbose_name = "Anzahl der Seiten für diese Reise im Katalog")
     leistungen_kommentar = models.CharField(
         max_length=128,
         blank = True,
@@ -456,7 +491,7 @@ class LeistungenReise(models.Model):
         blank = True,
         verbose_name = "Leistung",
         help_text = "einzelne Leistung zur Reise")
-    position = models.IntegerField(
+    position = models.PositiveSmallIntegerField(
         null = True,
         verbose_name = "position",
         help_text = "Position zur Sortierung")
@@ -495,7 +530,7 @@ class Fruehbucherrabatt(models.Model):
         decimal_places=2,
         null = True,
         verbose_name = "Rabatt")
-    position = models.IntegerField(
+    position = models.PositiveSmallIntegerField(
         null = True,
         verbose_name = "position",
         help_text = "Position zur Bestimmung der Reihenfolge der Leistung bei der Darstellung")
@@ -534,7 +569,7 @@ class Zusatzleistung(models.Model):
         decimal_places=2,
         null = True,
         verbose_name = "Preis")
-    position = models.IntegerField(
+    position = models.PositiveSmallIntegerField(
         null = True,
         verbose_name = "position",
         help_text = "Position zur Bestimmung der Reihenfolge der Leistung bei der Darstellung")
@@ -542,6 +577,53 @@ class Zusatzleistung(models.Model):
     # datum_bis Text als Rückgabestring
     def __str__(self):
         return self.titel
+
+##############################
+# Reisekatalogzugehoerigkeit #
+##############################
+@python_2_unicode_compatible # For Python 3.4 and 2.7
+class Reisekatalogzugehoerigkeit(models.Model):
+
+    # Titel für das Admin Backend
+    class Meta:
+        verbose_name = "Welcher Katalog?"
+        verbose_name_plural = "Welche Kataloge"
+        ordering = ['position']
+
+    # Attribute
+    reisekatalog_zugehoerigkeitID = models.UUIDField(
+        primary_key=True,
+        default=uuid.uuid4,
+        editable=False)
+    reise_id = models.ForeignKey(
+        Reise,
+        on_delete=models.CASCADE)
+    katalog_id = models.ForeignKey(
+        Katalog,
+        verbose_name = "Katalog",
+        help_text = "Suchen Sie hier einen Katalog aus.",
+        on_delete=models.CASCADE)
+    katalogseite = models.PositiveSmallIntegerField(
+        null = True,
+        blank=True,
+        verbose_name = "Katalogseite")
+    anzahl_seiten_im_katalog = models.PositiveSmallIntegerField(
+        null = True,
+        blank=True,
+        verbose_name = "Anzahl der Seiten für diese Reise im Katalog")
+    titel = models.TextField(
+        blank = True,
+        default = '',
+        verbose_name = "optionaler Titel",
+        help_text="Geben Sie hier einen optionalen Titel ein. (Ersetzt Katalogtitel)")
+    position = models.PositiveSmallIntegerField(
+        null = True,
+        verbose_name = "position",
+        help_text = "Position zur Sortierung")
+
+    # titel Text als Rückgabestring
+    def __str__(self):
+        return str(self.position)
 
 ##############################
 # Reisehinweise zur Reise    #
@@ -573,7 +655,7 @@ class Reisehinweise(models.Model):
         default = '',
         verbose_name = "optionaler Titel",
         help_text="Geben Sie hier einen optionalen Titel ein.")
-    position = models.IntegerField(
+    position = models.PositiveSmallIntegerField(
         null = True,
         verbose_name = "position",
         help_text = "Position zur Sortierung")
@@ -616,7 +698,7 @@ class Reisebilder(models.Model):
         default = '',
         verbose_name = "Bild verwenden in ...",
         help_text = "Geben Sie an ob das Bild etwa im Katalog, Internet, Katalogvorstellung, Reisetagebuch, etc. veröffentlicht werden soll. (kommaseparierte Liste)")
-    position = models.IntegerField(
+    position = models.PositiveSmallIntegerField(
         null = True,
         verbose_name = "position",
         help_text = "Position zur Bestimmung der Reihenfolge der Bilder bei der Darstellung")
@@ -653,7 +735,7 @@ class Reiseangebote(models.Model):
         default = '',
         verbose_name = "optionaler Titel",
         help_text="Geben Sie hier einen optionalen Titel ein. (Überschreibt Standard Angebottitel)")
-    position = models.IntegerField(
+    position = models.PositiveSmallIntegerField(
         null = True,
         verbose_name = "position",
         help_text = "Position zur Bestimmung der Reihenfolge der Angebote bei der Darstellung")
@@ -687,7 +769,7 @@ class Reisekategorien(models.Model):
         verbose_name = "Reisekategorie",
         help_text = "Suchen Sie hier eine Reisekategorie aus.",
         on_delete=models.CASCADE)
-    position = models.IntegerField(
+    position = models.PositiveSmallIntegerField(
         null = True,
         verbose_name = "Position",
         help_text = "Position zur Bestimmung der Reihenfolge der Kategorien bei der Darstellung")
@@ -721,7 +803,7 @@ class Reisezielregionen(models.Model):
         verbose_name = "Zielregion",
         help_text = "Suchen Sie hier eine Zielregion aus.",
         on_delete=models.CASCADE)
-    position = models.IntegerField(
+    position = models.PositiveSmallIntegerField(
         null = True,
         verbose_name = "Position",
         help_text = "Position zur Bestimmung der Reihenfolge der Zielregionen bei der Darstellung")
@@ -768,7 +850,7 @@ class Ausflugspakete(models.Model):
         blank = True,
         verbose_name = "kommentar Ausflugspaket",
         help_text = "Hier den Kommentar zum Ausflugspaket eingeben")
-    position = models.IntegerField(
+    position = models.PositiveSmallIntegerField(
         null = True,
         verbose_name = "position",
         help_text = "Position zur Bestimmung der Reihenfolge der Leistung bei der Darstellung")
@@ -802,7 +884,7 @@ class LeistungenAusflugspaket(models.Model):
         blank = True,
         verbose_name = "Leistung Ausflugspaket",
         help_text = "Hier die Leistung zum Ausflugspaket eingeben")
-    position = models.IntegerField(
+    position = models.PositiveSmallIntegerField(
         null = True,
         verbose_name = "position",
         help_text = "Position zur Bestimmung der Reihenfolge der Leistung bei der Darstellung")
@@ -844,7 +926,7 @@ class Ausflugspaketpreise(models.Model):
     #    blank = True,
     #    verbose_name = "Bemerkung zum Preis",
     #    help_text = "Hier Bemerkung zum Preis eingeben")
-    position = models.IntegerField(
+    position = models.PositiveSmallIntegerField(
         null = True,
         verbose_name = "Position",
         help_text = "Position zur Bestimmung der Reihenfolge der Ausflugspaketpreise bei der Darstellung")
@@ -888,7 +970,7 @@ class AusflugspaketeZuReisetagen(models.Model):
         blank = True,
         verbose_name = "Text Ausflugspaket",
         help_text = "Bitte Text zum Ausflugspaket eingeben.")
-    position = models.IntegerField(
+    position = models.PositiveSmallIntegerField(
         null = True,
         verbose_name = "Position",
         help_text = "Position zur Bestimmung der Reihenfolge der Ausflugspakete bei der Darstellung")
@@ -935,14 +1017,14 @@ class Reisepreise(models.Model):
         blank = True,
         verbose_name = "Bemerkung zum Preis",
         help_text = "Hier Bemerkung zum Preis eingeben")
-    position = models.IntegerField(
+    position = models.PositiveSmallIntegerField(
         null = True,
         verbose_name = "Position",
         help_text = "Position zur Bestimmung der Reihenfolge der Reisepreise bei der Darstellung")
 
     # titel Text als Rückgabestring
     def __str__(self):
-        return str(self.position) + '. ' + str(self.preis_id) + ': ' + str(self.preis) + ' &euro;' + self.kommentar
+        return str(self.position+1) + '. ' + str(self.preis_id) + ': ' + str(self.preis) + ' &euro;' + self.kommentar
 
 #############################
 # Detailpreise zur Reise    #
@@ -979,7 +1061,7 @@ class ReisepreisZusatz(models.Model):
     #    blank = True,
     #    verbose_name = "Bemerkung zum Preis",
     #    help_text = "Hier Bemerkung zum Preis eingeben")
-    position = models.IntegerField(
+    position = models.PositiveSmallIntegerField(
         null = True,
         verbose_name = "Position",
         help_text = "Position zur Bestimmung der Reihenfolge der Reisepreisdetails bei der Darstellung")

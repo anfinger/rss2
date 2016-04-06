@@ -32,6 +32,8 @@ INSTALLED_APPS = (
     'nested_admin',
     'django.contrib.contenttypes',
     #'grappelli.dashboard',
+    #'super_inlines',
+    #'super_inlines.grappelli_integration',
     'grappelli',
     'filebrowser',
     'django.contrib.admin',

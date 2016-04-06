@@ -1,4 +1,4 @@
-from django.forms import ModelForm#, inlineformset_factory
+from django.forms import CharField, ModelForm, Textarea#, inlineformset_factory
 from django.contrib.auth.models import User
 from .models import Reise, Ausflugspakete
 
@@ -6,6 +6,7 @@ class ReiseForm(ModelForm):
     class Meta:
         model = Reise
         fields = "__all__"
+        #korrektur_bemerkung_intern  = CharField(label='Bemerkungen', widget=Textarea(attrs={'class': 'mceEditor'}))
 
     def clean_author(self):
         if not self.cleaned_data['autor']:

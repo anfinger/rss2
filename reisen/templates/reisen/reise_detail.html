@@ -58,7 +58,14 @@
 
     <p><h1>{{ reise.titel }}</h1></p>
     <p><h4>{{ reise.untertitel|linebreaks }}</h4></p>
-    <p><h5>{{ reise.reisetyp }} (Diese Reise finden Sie im Druckexemplar auf Seite {{ reise.katalogseite }}.)</h5></p>
+    <p><h5>{{ reise.reisetyp }}</br>
+      {% for katalog in kataloge %}
+        Diese Reise finden Sie im Druckexemplar unseres Kataloges "{{ katalog.titel }}" auf Seite {{ katalog.katalogseite }}.
+        {% if forloop.counter > 1 %}
+          </br>
+        {% endif %}
+      {% endfor %}
+    </h5></p>
     <p><b>Reisetermine:</b></br>
       {% for termin in termine %}
         {% if forloop.counter > 1 %}
@@ -77,7 +84,7 @@
     <p><h4>Reiseablauf:</h4>
       {% for tag in tage %}
         {% if aps %}
-          <b>{{ tag.tagnummer }}. Tag: {{ tag.titel }}
+          <b>{{ tag.nummerntext }}. Tag: {{ tag.titel }}
           {% for ap in aps %}
             {% if ap.reisetag_id_id == tag.reisetagID %}
               {% if ap.erscheint_in == 'Titel' %}
@@ -95,7 +102,7 @@
           {% endfor %}
           {{ tag.beschreibung }}</br>
         {% else %}
-          <b>{{ tag.tagnummer }}. Tag: {{ tag.titel }}</b></br>
+          <b>{{ tag.nummerntext }}. Tag: {{ tag.titel }}</b></br>
           {{ tag.beschreibung }}</br>
         {% endif %}
       {% endfor %}

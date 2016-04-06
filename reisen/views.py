@@ -14,7 +14,7 @@ from django.core import serializers
 
 # Create your views here.
 
-from .models import Reise, Reisetermine, LeistungenReise, Reisetage, Reisepreise, Preis, ReisepreisZusatz, Zusatzleistung, Fruehbucherrabatt, Reisebilder
+from .models import Reise, Reisetermine, LeistungenReise, Reisetage, Reisepreise, Preis, ReisepreisZusatz, Zusatzleistung, Fruehbucherrabatt, Reisebilder, Reisekatalogzugehoerigkeit, Katalog
 
 def namedtuplefetchall(cursor):
     "Return all rows from a cursor as a namedtuple"
@@ -27,17 +27,12 @@ def namedtuplefetchall(cursor):
 ##################################################################
 def index(request):
     dibug = ''
-
     cursor = connection.cursor()
-    #cursor.execute("SELECT reise_id_id, MIN(datum_beginn) AS min_datum, group_concat(DISTINCT CONCAT_WS(' - ', DATE_FORMAT(datum_beginn,'%d. %m. %Y'), DATE_FORMAT(datum_ende,'%d. %m. %Y')) ORDER BY datum_beginn ASC SEPARATOR '\n') AS reisetermine, reiseID, titel, untertitel, einleitung, reisetyp, katalogseite  FROM reisen_reisetermine LEFT OUTER JOIN reisen_reise ON (reise_id_id = reiseID) GROUP BY reise_id_id ORDER BY min_datum;");
-    cursor.execute("SELECT reiseID, untertitel, einleitung, reisetyp, katalogseite, RT.reise_id_id, titel, RT.min_datum, RT.reisetermine FROM reisen_reise LEFT JOIN (SELECT reise_id_id, MIN(datum_beginn) AS min_datum, group_concat(DISTINCT CONCAT_WS(' - ', DATE_FORMAT(datum_beginn,'%d. %m. %Y'), DATE_FORMAT(datum_ende,'%d. %m. %Y')) ORDER BY datum_beginn ASC SEPARATOR '\n') AS reisetermine FROM reisen_reisetermine GROUP BY reise_id_id ORDER BY min_datum) AS RT ON (RT.reise_id_id = reiseID);");
+    cursor.execute("SELECT reiseID, reisen_reise.untertitel, einleitung, reisetyp, KT.katalogseiten, RT.reise_id_id, reisen_reise.titel, RT.min_datum, RT.reisetermine FROM reisen_reise LEFT JOIN (SELECT reise_id_id, MIN(datum_beginn) AS min_datum, group_concat(DISTINCT CONCAT_WS(' - ', DATE_FORMAT(datum_beginn,'%d. %m. %Y'), DATE_FORMAT(datum_ende,'%d. %m. %Y')) ORDER BY datum_beginn ASC SEPARATOR '\n') AS reisetermine FROM reisen_reisetermine GROUP BY reise_id_id ORDER BY min_datum) AS RT ON (RT.reise_id_id = reiseID) LEFT JOIN (SELECT reise_id_id, group_concat(DISTINCT CONCAT_WS(' auf Seite ', reisen_katalog.titel, katalogseite) ORDER BY position ASC SEPARATOR '\n') AS katalogseiten FROM reisen_reisekatalogzugehoerigkeit LEFT JOIN reisen_katalog ON (reisen_katalog.katalogID = reisen_reisekatalogzugehoerigkeit.katalog_id_id) GROUP BY reise_id_id) as KT ON (KT.reise_id_id = reiseID);")
+    #cursor.execute("SELECT reiseID, reisen_reise.untertitel, einleitung, reisetyp, katalogseite, RT.reise_id_id, reisen_reise.titel, RT.min_datum, RT.reisetermine FROM reisen_reise LEFT JOIN (SELECT reise_id_id, MIN(datum_beginn) AS min_datum, group_concat(DISTINCT CONCAT_WS(' - ', DATE_FORMAT(datum_beginn,'%d. %m. %Y'), DATE_FORMAT(datum_ende,'%d. %m. %Y')) ORDER BY datum_beginn ASC SEPARATOR '\n') AS reisetermine FROM reisen_reisetermine GROUP BY reise_id_id ORDER BY min_datum) AS RT ON (RT.reise_id_id = reiseID) LEFT JOIN reisen_reisekatalogzugehoerigkeit ON (reisen_reisekatalogzugehoerigkeit.reise_id_id = reiseID) LEFT JOIN reisen_katalog ON (reisen_katalog.katalogID = reisen_reisekatalogzugehoerigkeit.katalog_id_id);");
     termine = namedtuplefetchall(cursor)
     cursor.close()
     dibug = termine
-    #if termine.exists():
-    #    for termin in termine:
-    #        termin
-
     return render(request, 'reisen/index.html', {'termine': termine, 'dibug': dibug})
 
 ##################################################################
@@ -64,8 +59,14 @@ def reise_detail(request, pk):
     zusatzleistungen = Zusatzleistung.objects.filter(reise_id=pk).order_by('position')
     fruehbucherrabatte = Fruehbucherrabatt.objects.filter(reise_id=pk).order_by('datum_bis')
     tage = Reisetage.objects.filter(reise_id=pk).order_by('tagnummer')
-    for tag in tage:
+    # Tagnummerntext erzeugen, bei Beschreibungen für mehrere Tage, Tagnummer x. - y. Tag erzeugen
+    for idx, tag in enumerate(tage):
         tag.reisetagID = str(tag.reisetagID).replace('-','')
+        naechster_tag = tage[(idx+1) % len(tage)]
+        if (naechster_tag.tagnummer == (tag.tagnummer + 1)) or (idx == (len(tage)-1)) :
+            tag.nummerntext = str(tag.tagnummer)
+        else:
+            tag.nummerntext = str(tag.tagnummer) + '. - ' + str(naechster_tag.tagnummer-1)
     #preise = Reisepreise.objects.filter(reise_id=pk).order_by('position')
     #preistitel = Preis.objects.filter(reise_id=pk).order_by('position')
     #preiszusatz = ReisepreisZusatz
@@ -104,6 +105,11 @@ def reise_detail(request, pk):
     bilder = namedtuplefetchall(cursor)
     cursor.close()
 
+    cursor = connection.cursor()
+    cursor.execute("SELECT anzahl_seiten_im_katalog, katalogseite, reisen_katalog.titel FROM reisen_reisekatalogzugehoerigkeit LEFT JOIN reisen_katalog ON (reisen_katalog.katalogID = reisen_reisekatalogzugehoerigkeit.katalog_id_id) WHERE reisen_reisekatalogzugehoerigkeit.reise_id_id = '" + str(pk) + "' ORDER BY position;");
+    kataloge = namedtuplefetchall(cursor)
+    cursor.close()
+
     dibug = '' #querystring
     return render(
         request,
@@ -122,5 +128,6 @@ def reise_detail(request, pk):
             'zusatzleistungen': zusatzleistungen,
             'fruehbucherrabatte': fruehbucherrabatte,
             'bilder': bilder,
+            'kataloge': kataloge,
             'dibug': dibug
         })
