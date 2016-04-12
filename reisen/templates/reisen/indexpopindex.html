@@ -1,0 +1,24 @@
+{% extends 'reisen/base.html' %}
+
+<script>
+    console.log({{ reisen }})
+</script>
+{% block content %}
+  {% for termin in termine %}
+  <div class="aktuelles">
+    <div class="date">
+        <p>
+        {% for termin in termin.alle_termine %}
+            {{ termin.0 }} - {{ termin.1 }}<br/>
+        {% endfor %}
+        </p>
+    </div>
+      <p><h3><a href="{% url 'reise_detail' pk=termin.reise_id %}">{{ termin.titel }}</a></h3></p>
+{#    <p><h4>{{ termin.untertitel }}</h4></p>#}
+{#    <p><h4>{{ termin.reise_id__untertitel }}</h4></p>#}
+{#    <p><h5>{{ termin.reisetyp }}</h5></p>#}
+{#    <p>{{ termin.einleitung|linebreaks }}</p>#}
+{#    <p>Diese Reise finden Sie im Druckexemplar unseres Kataloges auf Seite {{ termin.katalogseite }}.</p>#}
+  </div>
+  {% endfor %}
+{% endblock %}

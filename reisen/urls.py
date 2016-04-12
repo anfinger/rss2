@@ -2,10 +2,11 @@ from django.conf.urls import include, url
 from filebrowser.sites import site
 import nested_admin
 
-from . import views
+from . import views, bastel_views
 
 urlpatterns = [
     url(r'^$', views.index, name='index'),
+    url(r'^bastel/', bastel_views.index, name='indexpopindex'),
     url(r'^reise/(?P<pk>[\w]+)/$', views.reise_detail, name='reise_detail'),
     #url(r'^reise/(?P<slug>[-_\w]+)/', views.reise_detail, name='reise_detail'),
     url(r'^grappelli/', include('grappelli.urls')), # grappelli URLS
