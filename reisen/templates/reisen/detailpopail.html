@@ -1,0 +1,225 @@
+{% extends 'reisen/base.html' %}
+{% load static %}
+
+{% block content %}
+
+  <div class="aktuelles">
+    <p><h3><a href="{% url 'indexpopindex' %}">zurück</a></h3></p></br>
+
+    {% if data %}
+    <font color="#FF0000">
+      <p>
+        <b>XML Export{{ data|length|pluralize:"e" }}:</b></br>
+        {{ data }}
+      </p>
+    </font>
+    {% endif %}
+
+    {% if reise.korrektur_bemerkung_intern %}
+    <font color="#FF0000">
+      <p>
+        <b>Korrektur{{ reise.korrektur_bemerkung_intern|length|pluralize:"en" }}:</b></br>
+        {{ reise.korrektur_bemerkung_intern }}
+      </p>
+    </font>
+    {% endif %}
+
+    <!--
+    {% if bilder %}
+      <p>
+        <b>Bild{{ bilder|length|pluralize:"er" }}:</b></br>
+        <div class="galleria">
+          {% for bild in bilder %}
+          {% endfor %}
+        </div>
+      </p>
+    {% endif %}
+    -->
+
+    {% if bilder %}
+      <p>
+        <!-- wenn mehr als ein Element Plural in Überschrift verwenden -->
+        <!-- <b>Bild{{ bilder|length|pluralize:"er" }} 2:</b></br>-->
+
+        <div class="flexslider" style="width: 400px">
+          <ul class="slides">
+            {% for bild in bilder %}
+              <li>
+                <img src="{{ MEDIA_URL }}{{ bild.bild }}" />
+                <!-- <p class="flex-caption">{{ bild.titel1 }} ({{ bild.titel2 }}): {{ bild.beschreibung }}</p>-->
+                <!-- ODER SO .. -->
+                <!-- <img src="{% get_media_prefix %}{{ bild.bild }}" /></br> -->
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </p>
+    {% endif %}
+
+    <p><h1>{{ reise.titel }}</h1></p>
+    <p><h4>{{ reise.untertitel|linebreaks }}</h4></p>
+    <p><h5>{{ reise.reisetyp }}</br>
+      {% for katalog in kataloge %}
+        Diese Reise finden Sie im Druckexemplar unseres Kataloges "{{ katalog.titel }}" auf Seite {{ katalog.katalogseite }}.
+        {% if forloop.counter > 1 %}
+          </br>
+        {% endif %}
+      {% endfor %}
+    </h5></p>
+    <p><b>Reisetermine:</b></br>
+      {% for termin in termine %}
+        {% if forloop.counter > 1 %}
+          </br>
+        {% endif %}
+        {{ termin.datum_beginn|date:"d." }} - {{ termin.datum_ende|date:"d. m. Y" }}{{ termin.markierung }}</br>
+        {{ termin.kommentar }}
+      {% endfor %}
+    </p>
+    {% for preis in preise %}
+      <b>{{ preis.titel }}: {{ preis.preis }} &euro;{{ preis.kommentar }}</b></br>
+{#      {{ preis.zpreis|linebreaks  }}#}
+        {% for pzp in preis.zpreis %}
+            {{ pzp }}<br>
+        {% endfor %}
+    </p>
+    {% endfor %}
+    <p><b>{{ reise.einleitung|linebreaks }}</b></p>
+    <p><h4>Reiseablauf:</h4>
+      {% for tag in tage %}
+        {% if aps %}
+          <b>{{ tag.nummerntext }}. Tag: {{ tag.titel }}
+          {% for ap in aps %}
+            {% if ap.reisetag_id_id == tag.reisetagID %}
+              {% if ap.erscheint_in == 'Titel' %}
+                {{ ap.ausflugspaket_text }}
+              {% endif %}
+            {% endif %}
+          {% endfor %}
+          </b></br>
+          {% for ap in aps %}
+            {% if ap.reisetag_id_id == tag.reisetagID %}
+              {% if ap.erscheint_in == 'Text' %}
+                <b>{{ ap.ausflugspaket_text }}</b>
+              {% endif %}
+            {% endif %}
+          {% endfor %}
+          {{ tag.beschreibung }}</br>
+        {% else %}
+          <b>{{ tag.nummerntext }}. Tag: {{ tag.titel }}</b></br>
+          {{ tag.beschreibung }}</br>
+        {% endif %}
+      {% endfor %}
+    </p>
+
+    <p><b>Leistungen:</b></br>
+      <ul>
+        {% for leistung in leistungen %}
+          <li>{{ leistung.leistung }}</li>
+        {% endfor %}
+      </ul>
+    </p>
+
+    {% if aps %}
+      <p>
+        <!-- wenn mehr als ein Element Plural in Überschrift verwenden -->
+        </br><b>Ausflugspaket{{ aps|length|pluralize:"e" }}:</b></br></br>
+        {% for ap in aps_distinct %}
+          <b>{{ ap.aptitel }}</b>
+          <b>{{ ap.preis }} &euro;</b></br>
+          <i>{{ ap.kommentar_titel }}</i>
+          {{ ap.leistungen|linebreaks }}
+          <i>{{ ap.kommentar }}</i></br></br>
+        {% endfor %}
+      </p>
+    {% endif %}
+
+    {% if zusatzleistungen %}
+      <p>
+        <!-- wenn mehr als ein Element Plural in Überschrift verwenden -->
+        <b>Zusatzleistung{{ zusatzleistungen|length|pluralize:"en" }}:</b></br>
+        {% for zusatzleistung in zusatzleistungen %}
+          {{ zusatzleistung.titel }}: {{ zusatzleistung.preis }} &euro;</br>
+        {% endfor %}
+      </p>
+    {% endif %}
+
+    {% if hinweise %}
+      <p>
+        <!-- wenn mehr als ein Element Plural in Überschrift verwenden -->
+        <b>Hinweis{{ hinweise|length|pluralize:"e" }}:</b></br>
+        {% for hinweis in hinweise %}
+          {{ hinweis.hinweis }}</br>
+        {% endfor %}
+      </p>
+    {% endif %}
+
+    {% if kategorien %}
+      <p>
+        <!-- wenn mehr als ein Element Plural in Überschrift verwenden -->
+        <b>Kategorie{{ kategorien|length|pluralize:"n" }}:</b></br>
+        {% for kategorie in kategorien %}
+          {{ kategorie.kategorie }}</br>
+        {% endfor %}
+      </p>
+    {% endif %}
+
+    {% if zielregionen %}
+      <p>
+        <!-- wenn mehr als ein Element Plural in Überschrift verwenden -->
+        <b>Zielregion{{ zielregionen|length|pluralize:"en" }}:</b></br>
+        {% for zielregion in zielregionen %}
+          {{ zielregion.name }}</br>
+        {% endfor %}
+      </p>
+    {% endif %}
+
+    {% if fruehbucherrabatte %}
+      <p>
+        <!-- wenn mehr als ein Element Plural in Überschrift verwenden -->
+        <b>Frühbucherrabatt{{ fruehbucherrabatte|length|pluralize:"e" }}:</b></br>
+        {% for fruehbucherrabatt in fruehbucherrabatte %}
+          {{ fruehbucherrabatt.rabatt }} &euro; bis zum {{ fruehbucherrabatt.datum_bis }}</br>
+        {% endfor %}
+      </p>
+    {% endif %}
+
+    <!-- <p>{{ dibug }}</p> -->
+    <p><h3><a href="{% url 'index' %}">zurück</a></h3></p></br>
+  </div>
+
+  <!-- jQuery -->
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="js/libs/jquery-1.7.min.js">\x3C/script>')</script>
+  <!-- Galleria -->
+  <!--
+  <script src="{% static 'galleria/galleria-1.4.2.min.js' %}"></script>
+
+  <script>
+    //Galleria.loadTheme('galleria/themes/classic/galleria.classic.min.js');
+    Galleria.loadTheme({{ STATIC_URL }} + 'galleria/themes/classic/galleria.classic.js');
+    console.log({{ STATIC_URL }} + 'galleria/themes/classic/galleria.classic.js');
+    //Galleria.run('.galleria');
+    Galleria.run('.galleria', {responsive:true,height:0.5625});
+  </script>
+  -->
+
+  <!-- Flexslider -->
+  <script src="{% static 'flexslider/jquery.flexslider.js' %}"></script>
+
+  <script>
+    // Can also be used with $(document).ready()
+    $(window).load(function(){
+      $('.flexslider').flexslider({
+        animation: "fade",
+        //animation: "fade",
+        animationLoop: "True",
+        smoothHeight: "True",
+        slideshow: "True",
+        slideshowSpeed: "4000",
+        //start: function(slider){
+        //  $('body').removeClass('loading');
+        //}
+      });
+    });  </script>
+
+{% endblock %}
