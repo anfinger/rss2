@@ -2,9 +2,9 @@
 
 import dateutil.parser as dup
 
-from django.db.models import Min
+from django.db.models import Min, F, Value as V
+from django.db.models.functions import Concat
 from django.db.models.expressions import RawSQL
-from django.db.models import Value as V
 
 from django_mysql.models import GroupConcat
 from django_mysql.models.functions import ConcatWS
@@ -236,4 +236,58 @@ def get_index_queryset_v3():
     return res
 
 
+def get_detail_hinweise_queryset(pk):
+    """
+    Zwei Möglichkeiten:
+        1.  nur den Hinweistext "transparent" durch das 'through'-Model (via 'Hinweis.__str()__')
+        2.  zus. Attribute aus 'Reisehinweise' (='through') via '.reisehinweise_set...'
+    :param pk:
+    :return:
+    """
 
+    # 1.
+    #
+    # qs = Reise.objects.filter(pk=pk)
+    # return qs.annotate(hinweis=F('hinweise__hinweis')).values('hinweis')
+
+    # 2.
+    #
+    reise = Reise.objects.get(pk=pk)
+    reise = reise.reisehinweise_set.annotate(hinweis=F('hinweis_id__hinweis'))
+    return reise.values('position', 'titel', 'hinweis')
+
+
+def get_detail_preise_queryset(pk):
+    """
+    Bleiben Fragen zur Formatierung ...
+        - hier oder im Template
+        - Bsp. 'Preis': ohne 'Concat' kommt 'Decimal'-Objekt zurück und wird im Template durch Magic mit ','
+          gerändert
+    :param pk:
+    :return:
+    """
+
+    preise = Reise.objects.get(pk=pk)
+    # nochma der Versuch mit 'django-mysql' ('GroupConcat')
+    # ('ordering' und 'separator' zusammen gehen immer noch nicht ...)
+    #
+    preise = preise.reisepreise_set.annotate(zpreis=GroupConcat(Concat('reisepreiszusatz__position', V('__'),
+                                                                       'reisepreiszusatz__preis_id__titel', V(': '),
+                                                                       # 'EUR' hier oder im Template ?
+                                                                       #
+                                                                       'reisepreiszusatz__preis', V(' EUR')),
+                                                                separator='||'),
+                                                                # ordering='asc'),
+                                             titel=F('preis_id__titel'))
+    preise = preise.values('titel', 'preis', 'kommentar', 'zpreis')
+
+    # Formatierungs-Gerödel von Nöten ... (wg. Sorteirung etc.)
+    #
+    for r in preise:
+        # mache Liste (vgl. 'separator=...' oben)
+        #
+        r['zpreis'] = r['zpreis'].split('||')
+        r['zpreis'].sort()
+        r['zpreis'] = [p.split('__')[1] for p in r['zpreis']]
+
+    return preise
