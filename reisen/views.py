@@ -11,10 +11,19 @@ from django.db import connection
 from itertools import chain
 from django.core import serializers
 
+#from django.core.files.storage import DefaultStorage
+#from filebrowser.sites import FileBrowserSite
+#from filebrowser.sites import site
+
+#from django.core.files.storage import FileSystemStorage
+
+from .models import Reise, Reisetermine, LeistungenReise, Reisetage, Reisepreise, Preis, ReisepreisZusatz, Zusatzleistung, Fruehbucherrabatt, Reisebilder, Reisekatalogzugehoerigkeit, Katalog
 
 # Create your views here.
 
-from .models import Reise, Reisetermine, LeistungenReise, Reisetage, Reisepreise, Preis, ReisepreisZusatz, Zusatzleistung, Fruehbucherrabatt, Reisebilder, Reisekatalogzugehoerigkeit, Katalog
+#site = FileBrowserSite(name='huhu', storage=DefaultStorage())
+#site.directory = "/images/"
+#site.storage.location = DefaultStorage().location
 
 def namedtuplefetchall(cursor):
     "Return all rows from a cursor as a namedtuple"
@@ -22,17 +31,29 @@ def namedtuplefetchall(cursor):
     nt_result = namedtuple('Result', [col[0] for col in desc])
     return [nt_result(*row) for row in cursor.fetchall()]
 
-##################################################################
+################################################################t.META.HTTP_REFERER }}
 # Index Seite, Reisen Übersicht                                  #
 ##################################################################
 def index(request):
     dibug = ''
     cursor = connection.cursor()
-    cursor.execute("SELECT reiseID, reisen_reise.untertitel, einleitung, reisetyp, KT.katalogseiten, RT.reise_id_id, reisen_reise.titel, RT.min_datum, RT.reisetermine FROM reisen_reise LEFT JOIN (SELECT reise_id_id, MIN(datum_beginn) AS min_datum, group_concat(DISTINCT CONCAT_WS(' - ', DATE_FORMAT(datum_beginn,'%d. %m. %Y'), DATE_FORMAT(datum_ende,'%d. %m. %Y')) ORDER BY datum_beginn ASC SEPARATOR '\n') AS reisetermine FROM reisen_reisetermine GROUP BY reise_id_id ORDER BY min_datum) AS RT ON (RT.reise_id_id = reiseID) LEFT JOIN (SELECT reise_id_id, group_concat(DISTINCT CONCAT_WS(' auf Seite ', reisen_katalog.titel, katalogseite) ORDER BY position ASC SEPARATOR '\n') AS katalogseiten FROM reisen_reisekatalogzugehoerigkeit LEFT JOIN reisen_katalog ON (reisen_katalog.katalogID = reisen_reisekatalogzugehoerigkeit.katalog_id_id) GROUP BY reise_id_id) as KT ON (KT.reise_id_id = reiseID);")
+    cursor.execute("SELECT reiseID, reisen_reise.untertitel, einleitung, reisetyp, KT.katalogseiten, RT.reise_id_id, reisen_reise.titel, RT.min_datum, RT.reisetermine FROM reisen_reise LEFT JOIN (SELECT reise_id_id, MIN(datum_beginn) AS min_datum, group_concat(DISTINCT CONCAT_WS(' - ', DATE_FORMAT(datum_beginn,'%d. %m. %Y'), DATE_FORMAT(datum_ende,'%d. %m. %Y')) ORDER BY datum_beginn ASC SEPARATOR '\n') AS reisetermine FROM reisen_reisetermine GROUP BY reise_id_id ORDER BY min_datum) AS RT ON (RT.reise_id_id = reiseID) LEFT JOIN (SELECT reise_id_id, group_concat(DISTINCT CONCAT_WS(' auf der Seite ', reisen_katalog.titel, katalogseite) ORDER BY position ASC SEPARATOR ' und im Katalog ') AS katalogseiten FROM reisen_reisekatalogzugehoerigkeit LEFT JOIN reisen_katalog ON (reisen_katalog.katalogID = reisen_reisekatalogzugehoerigkeit.katalog_id_id) GROUP BY reise_id_id) as KT ON (KT.reise_id_id = reiseID) ORDER BY RT.min_datum;")
     #cursor.execute("SELECT reiseID, reisen_reise.untertitel, einleitung, reisetyp, katalogseite, RT.reise_id_id, reisen_reise.titel, RT.min_datum, RT.reisetermine FROM reisen_reise LEFT JOIN (SELECT reise_id_id, MIN(datum_beginn) AS min_datum, group_concat(DISTINCT CONCAT_WS(' - ', DATE_FORMAT(datum_beginn,'%d. %m. %Y'), DATE_FORMAT(datum_ende,'%d. %m. %Y')) ORDER BY datum_beginn ASC SEPARATOR '\n') AS reisetermine FROM reisen_reisetermine GROUP BY reise_id_id ORDER BY min_datum) AS RT ON (RT.reise_id_id = reiseID) LEFT JOIN reisen_reisekatalogzugehoerigkeit ON (reisen_reisekatalogzugehoerigkeit.reise_id_id = reiseID) LEFT JOIN reisen_katalog ON (reisen_katalog.katalogID = reisen_reisekatalogzugehoerigkeit.katalog_id_id);");
     termine = namedtuplefetchall(cursor)
     cursor.close()
-    dibug = termine
+    dibug = ''#DefaultStorage().location + '  :::  ' + site.storage.location + site.directory + '  :::  ' + str(FileSystemStorage().directory_permissions_mode)
+    return render(request, 'reisen/index.html', {'termine': termine, 'dibug': dibug})
+
+##################################################################
+# Winterreisen 2016 2017                                         #
+##################################################################
+def winter2016_17(request):
+    dibug = ''
+    cursor = connection.cursor()
+    cursor.execute("SELECT reiseID, reisen_reise.untertitel, korrektur_bemerkung_intern, einleitung, reisetyp, KT.katalogseiten, RT.reise_id_id, reisen_reise.titel, RT.min_datum, RT.reisetermine FROM reisen_reise LEFT JOIN (SELECT reise_id_id, MIN(datum_beginn) AS min_datum, group_concat(DISTINCT CONCAT_WS(' - ', DATE_FORMAT(datum_beginn,'%d. %m. %Y'), DATE_FORMAT(datum_ende,'%d. %m. %Y')) ORDER BY datum_beginn ASC SEPARATOR '\n') AS reisetermine FROM reisen_reisetermine GROUP BY reise_id_id ORDER BY min_datum) AS RT ON (RT.reise_id_id = reiseID) LEFT JOIN (SELECT reise_id_id, group_concat(DISTINCT CONCAT_WS(' auf der Seite ', reisen_katalog.titel, katalogseite) ORDER BY position ASC SEPARATOR ' und im Katalog ') AS katalogseiten FROM reisen_reisekatalogzugehoerigkeit LEFT JOIN reisen_katalog ON (reisen_katalog.katalogID = reisen_reisekatalogzugehoerigkeit.katalog_id_id) GROUP BY reise_id_id) as KT ON (KT.reise_id_id = reiseID) LEFT JOIN reisen_reisekatalogzugehoerigkeit ON (reisen_reisekatalogzugehoerigkeit.reise_id_id = reisen_reise.reiseID) WHERE reisen_reisekatalogzugehoerigkeit.katalog_id_id = '5fcadf9947314b82ac79802e92585c39' ORDER BY RT.min_datum;")
+    termine = namedtuplefetchall(cursor)
+    cursor.close()
+    dibug = ''#DefaultStorage().location + '  :::  ' + site.storage.location + site.directory + '  :::  ' + str(FileSystemStorage().directory_permissions_mode)
     return render(request, 'reisen/index.html', {'termine': termine, 'dibug': dibug})
 
 ##################################################################
@@ -63,16 +84,18 @@ def reise_detail(request, pk):
     for idx, tag in enumerate(tage):
         tag.reisetagID = str(tag.reisetagID).replace('-','')
         naechster_tag = tage[(idx+1) % len(tage)]
-        if (naechster_tag.tagnummer == (tag.tagnummer + 1)) or (idx == (len(tage)-1)) :
-            tag.nummerntext = str(tag.tagnummer)
+        if len(tage) == 1:
+            tag.nummerntext = ''
+        elif (naechster_tag.tagnummer == (tag.tagnummer + 1)) or (idx == (len(tage)-1)):
+            tag.nummerntext = str(tag.tagnummer) + '. Tag: '
         else:
-            tag.nummerntext = str(tag.tagnummer) + '. - ' + str(naechster_tag.tagnummer-1)
+            tag.nummerntext = str(tag.tagnummer) + '. - ' + str(naechster_tag.tagnummer-1) + '. Tag: '
     #preise = Reisepreise.objects.filter(reise_id=pk).order_by('position')
     #preistitel = Preis.objects.filter(reise_id=pk).order_by('position')
     #preiszusatz = ReisepreisZusatz
 
     cursor = connection.cursor()
-    cursor.execute("SELECT reise_id_id, reisepreisID, hauptpreis.titel, reisen_reisepreise.preis, kommentar, subpreise.zpreis FROM reisen_reisepreise LEFT JOIN reisen_preis AS hauptpreis ON (hauptpreis.preisID = reisen_reisepreise.preis_id_id) INNER JOIN (SELECT reisepreis_id_id, GROUP_CONCAT(CONCAT(CONCAT_WS(': ', subpreis.titel, replace(reisen_reisepreiszusatz.preis, '.', ',')), ' EUR') ORDER BY reisen_reisepreiszusatz.position ASC SEPARATOR '\n') as zpreis from reisen_reisepreiszusatz LEFT JOIN reisen_preis AS subpreis ON (subpreis.preisID = reisen_reisepreiszusatz.preis_id_id) GROUP BY reisepreis_id_id) AS subpreise ON (reisepreisID = reisepreis_id_id) WHERE	reisen_reisepreise.reise_id_id = '" + str(pk) + "' ORDER BY reisen_reisepreise.position;");
+    cursor.execute("SELECT reise_id_id, reisepreisID, hauptpreis.titel, reisen_reisepreise.preis, kommentar, subpreise.zpreis FROM reisen_reisepreise LEFT JOIN reisen_preis AS hauptpreis ON (hauptpreis.preisID = reisen_reisepreise.preis_id_id) LEFT JOIN (SELECT reisepreis_id_id, GROUP_CONCAT(CONCAT(CONCAT_WS(': ', subpreis.titel, replace(reisen_reisepreiszusatz.preis, '.', ',')), ' EUR') ORDER BY reisen_reisepreiszusatz.position ASC SEPARATOR '\n') as zpreis from reisen_reisepreiszusatz LEFT JOIN reisen_preis AS subpreis ON (subpreis.preisID = reisen_reisepreiszusatz.preis_id_id) GROUP BY reisepreis_id_id) AS subpreise ON (reisepreisID = reisepreis_id_id) WHERE	reisen_reisepreise.reise_id_id = '" + str(pk) + "' ORDER BY reisen_reisepreise.position;");
     preise = namedtuplefetchall(cursor)
     cursor.close()
 
@@ -106,7 +129,7 @@ def reise_detail(request, pk):
     cursor.close()
 
     cursor = connection.cursor()
-    cursor.execute("SELECT anzahl_seiten_im_katalog, katalogseite, reisen_katalog.titel FROM reisen_reisekatalogzugehoerigkeit LEFT JOIN reisen_katalog ON (reisen_katalog.katalogID = reisen_reisekatalogzugehoerigkeit.katalog_id_id) WHERE reisen_reisekatalogzugehoerigkeit.reise_id_id = '" + str(pk) + "' ORDER BY position;");
+    cursor.execute("SELECT katalog_pdf, anzahl_seiten_im_katalog, katalogseite, reisen_katalog.titel FROM reisen_reisekatalogzugehoerigkeit LEFT JOIN reisen_katalog ON (reisen_katalog.katalogID = reisen_reisekatalogzugehoerigkeit.katalog_id_id) WHERE reisen_reisekatalogzugehoerigkeit.reise_id_id = '" + str(pk) + "' ORDER BY position;");
     kataloge = namedtuplefetchall(cursor)
     cursor.close()
 

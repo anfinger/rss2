@@ -12,6 +12,9 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
+from django.conf import settings
+
+#os.environ['DJANGO_SETTINGS_MODULE'] = 'rss2.settings.production'
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -29,13 +32,18 @@ ALLOWED_HOSTS = ['*']
 INSTALLED_APPS = (
     #'suit',
     #'tabbed_admin',
+    #'front',
+    'inplaceeditform',
+    'grappelli',
+    'easy_thumbnails',
+    'filer',
+    'mptt',
+    'filebrowser',
     'nested_admin',
     'django.contrib.contenttypes',
     #'grappelli.dashboard',
     #'super_inlines',
     #'super_inlines.grappelli_integration',
-    'grappelli',
-    'filebrowser',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.sessions',
@@ -44,6 +52,7 @@ INSTALLED_APPS = (
     'home',
     'reisen',
     'fibu',
+    'test_without_migrations',
     #'imagestore',
     #'mptt',
     #'media_tree',
@@ -108,7 +117,8 @@ STATIC_ROOT = "./static/"
 
 LOGIN_REDIRECT_URL = '/'
 
-MEDIA_ROOT = './media/'
+MEDIA_ROOT = '/var/www/reiseservice-schwerin/rss2/media/'
+#MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 MEDIA_URL = '/media/'
 
@@ -118,6 +128,69 @@ GRAPPELLI_ADMIN_TITLE = 'Reiseservice Schwerin GmbH'
 
 GRAPPELLI_SWITCH_USER = True
 
+#FILEBROWSER_DIRECTORY = 'media/'
+
+#DIRECTORY = getattr(settings, "FILEBROWSER_DIRECTORY", 'media/')
+
+#FILEBROWSER_DEBUG = True
+
+#DIRECTORY = '/var/www/reiseservice-schwerin/rss2/media/'
+
+FILEBROWSER_DIRECTORY = ''
+
+THUMBNAIL_HIGH_RESOLUTION = True
+
+THUMBNAIL_PROCESSORS = (
+    'easy_thumbnails.processors.colorspace',
+    'easy_thumbnails.processors.autocrop',
+    #'easy_thumbnails.processors.scale_and_crop',
+    'filer.thumbnail_processors.scale_and_crop_with_subject_location',
+    'easy_thumbnails.processors.filters',
+)
+
+#site.directory = 'media/'
+
+#DIRECTORY = getattr(settings, "FILEBROWSER_DIRECTORY", 'uploads/')
+
+FILEBROWSER_VERSIONS_BASEDIR = MEDIA_ROOT + '_versionen/'
+#FILEBROWSER_VERSIONS_BASEDIR = '_versions/'
+
 #DEBUG_TOOLBAR_PATCH_SETTINGS = False
 
 #INTERNAL_IPS = ['127.0.0.1','::1',]
+
+#class DisableMigrations(object):
+#
+#    def __contains__(self, item):
+#        return True
+#
+#    def __getitem__(self, item):
+#        return "notmigrations"
+#
+#
+#TESTS_IN_PROGRESS = False
+#if 'test' in sys.argv[1:] or 'jenkins' in sys.argv[1:]:
+#    logging.disable(logging.CRITICAL)
+#    PASSWORD_HASHERS = (
+#        'django.contrib.auth.hashers.MD5PasswordHasher',
+#    )
+#    DEBUG = False
+#    TEMPLATE_DEBUG = False
+#    OWSER_DEBUG=TrueS = True
+#    MIGRATION_MODULES = DisableMigrations()
+
+
+#INPLACEEDIT_EDIT_EMPTY_VALUE = 'Doppelklick zum editieren'
+#INPLACEEDIT_AUTO_SAVE = True
+#INPLACEEDIT_EVENT = "dblclick"
+#INPLACEEDIT_DISABLE_CLICK = True  # For inplace edit text into a link tag
+#INPLACEEDIT_EDIT_MESSAGE_TRANSLATION = 'Schreiben Sie eine Uebersetzung' # transmeta option
+#INPLACEEDIT_SUCCESS_TEXT = 'Erfolgreich gespeichert!'
+#INPLACEEDIT_UNSAVED_TEXT = 'Sie haben ungesicherte Aenderungen!'
+#INPLACE_ENABLE_CLASS = 'enable'
+#DEFAULT_INPLACE_EDIT_OPTIONS = {} # dictionnary of the optionals parameters that the templatetag can receive to change its behavior (see the Advanced usage section)
+#DEFAULT_INPLACE_EDIT_OPTIONS_ONE_BY_ONE = True # modify the behavior of the DEFAULT_INPLACE_EDIT_OPTIONS usage, if True then it use the default values not specified in your template, if False it uses these options only when the dictionnary is empty (when you do put any options in your template)
+#ADAPTOR_INPLACEEDIT_EDIT = 'app_name.perms.MyAdaptorEditInline' # Explain in Permission Adaptor API
+#ADAPTOR_INPLACEEDIT = {'myadaptor': 'app_name.fields.MyAdaptor'} # Explain in Adaptor API
+#INPLACE_GET_FIELD_URL = None # to change the url where django-inplaceedit use to get a field
+#INPLACE_SAVE_URL = None # to change the url where django-inplaceedit use to save a field

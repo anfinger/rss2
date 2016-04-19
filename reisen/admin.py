@@ -1,5 +1,8 @@
 # -*- coding: utf8 -*-
 
+from django.core.files.storage import DefaultStorage
+#from filebrowser.sites import FileBrowserSite
+
 from django.contrib import admin
 from django.utils import timezone
 from django.forms import TextInput, Textarea
@@ -34,8 +37,15 @@ from .models import Reiseangebote
 from .models import Katalog
 from .models import Reisekatalogzugehoerigkeit
 
-from .views import namedtuplefetchall
 from .forms import ReiseForm, AusflugspaketeForm
+
+from .views import namedtuplefetchall
+
+# Default FileBrowser site
+#site = FileBrowserSite(name='filebrowser', storage=DefaultStorage())
+#site.storage.location = "www.reiseservice-schwerin.de/media"
+
+#print 'DEBUG' + site.storage.location + site.directory
 
 ################################################################################
 # Inline Klassendefinitionen (könnten auch nach admin.py wandern)              #
@@ -93,7 +103,7 @@ class ReisekatalogzugehoerigkeitInline(GrappelliSortableHiddenMixin, admin.Tabul
     model = Reisekatalogzugehoerigkeit
     #ordering = ("position",)
     #sortable_field_name = "position"
-    fields = ('position', 'katalog_id', 'katalogseite', 'anzahl_seiten_im_katalog', 'titel')
+    fields = ('position', 'katalog_id', 'katalogseite', 'anzahl_seiten_im_katalog', 'titel', 'katalog_pdf')
     classes = ('grp-collapse grp-closed',)
     extra = 0
 
@@ -366,7 +376,7 @@ class ReiseAdmin(nested_admin.NestedAdmin): #TabbedModelAdmin,
 
     def reisetermine(self, obj):
         cursor = connection.cursor()
-        cursor.execute("SELECT MIN(datum_beginn) as min_datum, group_concat(DISTINCT CONCAT_WS(' - ', DATE_FORMAT(datum_beginn,'%d.'), DATE_FORMAT(datum_ende,'%d. %m. %Y')) ORDER BY datum_beginn ASC SEPARATOR ' ::: ') AS reise_termine FROM reisen_reisetermine INNER JOIN reisen_reise ON (reise_id_id = reiseID) WHERE reise_id_id ='" + str(obj.reiseID).replace('-','') + "' GROUP BY reise_id_id ORDER BY min_datum;");
+        cursor.execute("SELECT MIN(datum_beginn) as min_datum, group_concat(DISTINCT CONCAT_WS(' - ', DATE_FORMAT(datum_beginn,'%d. %m. %Y'), DATE_FORMAT(datum_ende,'%d. %m. %Y')) ORDER BY datum_beginn ASC SEPARATOR ' ::: ') AS reise_termine FROM reisen_reisetermine INNER JOIN reisen_reise ON (reise_id_id = reiseID) WHERE reise_id_id ='" + str(obj.reiseID).replace('-','') + "' GROUP BY reise_id_id ORDER BY min_datum;");
         termine = namedtuplefetchall(cursor)
         cursor.close()
         if len(termine) > 0:

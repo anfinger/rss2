@@ -16,16 +16,26 @@ Including another URLconf
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
 from django.conf import settings
+from filebrowser.sites import site
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 admin.autodiscover()
 admin.site.site_header = 'Reiseservice Schwerin GmbH - Seitenverwaltung'
 admin.site.site_title = 'Reiseservice Schwerin GmbH - Seitenverwaltung'
-from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+
+js_info_dict = {
+    'packages': ('django.conf',),
+}
 
 urlpatterns = patterns('',
     url(r'^$', include('home.urls')),
     url(r'^home/', include('home.urls')),
     url(r'^reisen/', include('reisen.urls')),
+    url(r'^filer/', include('filer.urls')),
+    url(r'^inplaceeditform/', include('inplaceeditform.urls')),
+    url(r'^jsi18n$', 'django.views.i18n.javascript_catalog', js_info_dict),
+    url(r'^admin/filebrowser/', include(site.urls)),
+    url(r'^grappelli/', include('grappelli.urls')),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^accounts/login/$', 'django.contrib.auth.views.login'),
     url(r'^accounts/logout/$', 'django.contrib.auth.views.logout', {'next_page': '/'}),
