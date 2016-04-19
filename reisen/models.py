@@ -353,6 +353,7 @@ class Reise(models.Model):
     )
     hinweise = models.ManyToManyField(
         Hinweis,
+        blank = True,
         through='Reisehinweise'
     )
     status = models.CharField(
