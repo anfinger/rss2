@@ -291,3 +291,10 @@ def get_detail_preise_queryset(pk):
         r['zpreis'] = [p.split('__')[1] for p in r['zpreis']]
 
     return preise
+
+
+def get_detail_angebote_queryset(pk):
+    reise = Reise.objects.get(pk=pk)
+    reise = reise.reiseangebote_set.annotate(angebot=F('angebot_id__angebot'))
+    return reise.values('position', 'titel', 'angebot')
+

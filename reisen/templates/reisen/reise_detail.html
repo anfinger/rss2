@@ -20,7 +20,7 @@
     <font color="#FF0000">
       <p>
         <b>Korrektur{{ reise.korrektur_bemerkung_intern|length|pluralize:"en" }}:</b></br>
-          {% inplace_edit "reise.korrektur_bemerkung_intern" %}
+          {% inplace_edit "reise.korrektur_bemerkung_intern|linebreaksbr" %}
       </p>
     </font>
     {% endif %}
@@ -193,6 +193,16 @@
         <b>Frühbucherrabatt{{ fruehbucherrabatte|length|pluralize:"e" }}:</b></br>
         {% for fruehbucherrabatt in fruehbucherrabatte %}
           {{ fruehbucherrabatt.rabatt }} &euro; bis zum {{ fruehbucherrabatt.datum_bis }}</br>
+        {% endfor %}
+      </p>
+    {% endif %}
+
+    {% if angebote %}
+      <p>
+        <!-- wenn mehr als ein Element Plural in Überschrift verwenden -->
+        <b>Angebot{{ angebote|length|pluralize:"e" }}:</b></br>
+        {% for angebot in angebote %}
+          <a href="{{ MEDIA_URL }}{{ angebot.angebot }}">{{ angebot.titel }} [{{ angebot.angebot }}]</a></br>
         {% endfor %}
       </p>
     {% endif %}
