@@ -19,6 +19,8 @@ from django.core import serializers
 
 from .models import Reise, Reisetermine, LeistungenReise, Reisetage, Reisepreise, Preis, ReisepreisZusatz, Zusatzleistung, Fruehbucherrabatt, Reisebilder, Reisekatalogzugehoerigkeit, Katalog
 
+from .querysets import get_detail_hinweise_queryset, get_detail_angebote_queryset
+
 # Create your views here.
 
 #site = FileBrowserSite(name='huhu', storage=DefaultStorage())
@@ -133,6 +135,8 @@ def reise_detail(request, pk):
     kataloge = namedtuplefetchall(cursor)
     cursor.close()
 
+    angebote = get_detail_angebote_queryset(pk)
+
     dibug = '' #querystring
     return render(
         request,
@@ -152,5 +156,6 @@ def reise_detail(request, pk):
             'fruehbucherrabatte': fruehbucherrabatte,
             'bilder': bilder,
             'kataloge': kataloge,
+            'angebote': angebote,
             'dibug': dibug
         })

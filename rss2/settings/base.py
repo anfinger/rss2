@@ -180,14 +180,14 @@ FILEBROWSER_VERSIONS_BASEDIR = MEDIA_ROOT + '_versionen/'
 #    MIGRATION_MODULES = DisableMigrations()
 
 
-#INPLACEEDIT_EDIT_EMPTY_VALUE = 'Doppelklick zum editieren'
-#INPLACEEDIT_AUTO_SAVE = True
-#INPLACEEDIT_EVENT = "dblclick"
-#INPLACEEDIT_DISABLE_CLICK = True  # For inplace edit text into a link tag
+INPLACEEDIT_EDIT_EMPTY_VALUE = 'Doppelklick zum editieren'
+INPLACEEDIT_AUTO_SAVE = True
+INPLACEEDIT_EVENT = "dblclick"
+INPLACEEDIT_DISABLE_CLICK = True  # For inplace edit text into a link tag
 #INPLACEEDIT_EDIT_MESSAGE_TRANSLATION = 'Schreiben Sie eine Uebersetzung' # transmeta option
-#INPLACEEDIT_SUCCESS_TEXT = 'Erfolgreich gespeichert!'
-#INPLACEEDIT_UNSAVED_TEXT = 'Sie haben ungesicherte Aenderungen!'
-#INPLACE_ENABLE_CLASS = 'enable'
+INPLACEEDIT_SUCCESS_TEXT = 'Erfolgreich gespeichert!'
+INPLACEEDIT_UNSAVED_TEXT = 'Sie haben ungesicherte Aenderungen!'
+INPLACE_ENABLE_CLASS = 'enable'
 #DEFAULT_INPLACE_EDIT_OPTIONS = {} # dictionnary of the optionals parameters that the templatetag can receive to change its behavior (see the Advanced usage section)
 #DEFAULT_INPLACE_EDIT_OPTIONS_ONE_BY_ONE = True # modify the behavior of the DEFAULT_INPLACE_EDIT_OPTIONS usage, if True then it use the default values not specified in your template, if False it uses these options only when the dictionnary is empty (when you do put any options in your template)
 #ADAPTOR_INPLACEEDIT_EDIT = 'app_name.perms.MyAdaptorEditInline' # Explain in Permission Adaptor API
