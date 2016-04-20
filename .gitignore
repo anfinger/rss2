@@ -3,6 +3,7 @@ __pycache__
 myvenv
 db.sqlite3
 /static
+/static_OLD
 /media
 db.json
 reisen.json

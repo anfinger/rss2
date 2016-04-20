@@ -1,10 +1,11 @@
 {% extends 'reisen/base.html' %}
 {% load static %}
+{% load inplace_edit %}
 
 {% block content %}
-
   <div class="aktuelles">
-    <p><h3><a href="{% url 'index' %}">zurück</a></h3></p></br>
+    <p><h3><a href="{{ request.META.HTTP_REFERER }}">zurück</a></h3></p></br>
+    <!-- <p><h3><a href="{% url 'index' %}">zurück</a></h3></p></br> -->
 
     {% if data %}
     <font color="#FF0000">
@@ -19,7 +20,7 @@
     <font color="#FF0000">
       <p>
         <b>Korrektur{{ reise.korrektur_bemerkung_intern|length|pluralize:"en" }}:</b></br>
-        {{ reise.korrektur_bemerkung_intern }}
+          {% inplace_edit "reise.korrektur_bemerkung_intern" %}
       </p>
     </font>
     {% endif %}
@@ -58,33 +59,49 @@
 
     <p><h1>{{ reise.titel }}</h1></p>
     <p><h4>{{ reise.untertitel|linebreaks }}</h4></p>
-    <p><h5>{{ reise.reisetyp }}</br>
+    <p><h5>{{ reise.reisetyp }}</br></br>
       {% for katalog in kataloge %}
-        Diese Reise finden Sie im Druckexemplar unseres Kataloges "{{ katalog.titel }}" auf Seite {{ katalog.katalogseite }}.
-        {% if forloop.counter > 1 %}
-          </br>
+        Diese Reise finden Sie im Druckexemplar unseres Kataloges "{{ katalog.titel }}" auf Seite {{ katalog.katalogseite }}.</br>
+        Link: {{ katalog.katalog_pdf }} {{ site.storage.location }}
+        {% if forloop.counter > 0 %}
+          </br></br>
         {% endif %}
       {% endfor %}
     </h5></p>
-    <p><b>Reisetermine:</b></br>
+    {% if termine %}
+      <p><b>Reisetermin{{ termine|length|pluralize:"e" }}:</b></br>        
       {% for termin in termine %}
         {% if forloop.counter > 1 %}
           </br>
         {% endif %}
-        {{ termin.datum_beginn|date:"d." }} - {{ termin.datum_ende|date:"d. m. Y" }}{{ termin.markierung }}</br>
+        {% if termin.datum_ende %}
+          {{ termin.datum_beginn|date:"d." }} - {{ termin.datum_ende|date:"d. m. Y" }}{{ termin.markierung }}</br>
+        {% else %}
+          {{ termin.datum_beginn|date:"d. m. Y" }}</br>
+        {% endif %}
         {{ termin.kommentar }}
       {% endfor %}
+    {% else %}
+      <p><b>Reisetermine sind noch nicht bekannt!</b>
+    {% endif %}
     </p>
-    {% for preis in preise %}
-      <b>{{ preis.titel }}: {{ preis.preis }} &euro;{{ preis.kommentar }}</b></br>
-      {{ preis.zpreis|linebreaks  }}
-    </p>
-    {% endfor %}
+    {% if preise %}
+      <p>
+        {% for preis in preise %}
+          <b>{{ preis.titel }}: {{ preis.preis }} &euro;{{ preis.kommentar }}</b></br>
+          {% if preis.zpreis %}
+            {{ preis.zpreis|linebreaks }}
+          {% endif %}
+        {% endfor %}
+      </p>
+    {% else %}
+      <p><b>Preis: </b>Der Preis ist noch nicht bekannt.</p>  
+    {% endif %}
     <p><b>{{ reise.einleitung|linebreaks }}</b></p>
     <p><h4>Reiseablauf:</h4>
       {% for tag in tage %}
         {% if aps %}
-          <b>{{ tag.nummerntext }}. Tag: {{ tag.titel }}
+          <b>{{ tag.nummerntext }}{{ tag.titel }}
           {% for ap in aps %}
             {% if ap.reisetag_id_id == tag.reisetagID %}
               {% if ap.erscheint_in == 'Titel' %}
@@ -100,10 +117,10 @@
               {% endif %}
             {% endif %}
           {% endfor %}
-          {{ tag.beschreibung }}</br>
+          {{ tag.beschreibung|linebreaks }}</br>
         {% else %}
-          <b>{{ tag.nummerntext }}. Tag: {{ tag.titel }}</b></br>
-          {{ tag.beschreibung }}</br>
+          <b>{{ tag.nummerntext }}{{ tag.titel }}</b></br>
+          {{ tag.beschreibung|linebreaks }}</br>
         {% endif %}
       {% endfor %}
     </p>
@@ -217,6 +234,10 @@
         //  $('body').removeClass('loading');
         //}
       });
-    });  </script>
+    });
+  </script>
+
+  <script src="//code.jquery.com/jquery-2.1.4.js" type="text/javascript"></script>
+  {% inplace_js 1 1 %} {% comment %} or inplace_js 1 0 {% endcomment %}
 
 {% endblock %}

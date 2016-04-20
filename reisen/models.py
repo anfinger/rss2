@@ -10,18 +10,35 @@ import re
 import uuid
 from django.core.validators import MinValueValidator #, MaxValueValidator
 
+#from django.core.files.storage import FileSystemStorage
+#from django.core.files.storage import DefaultStorage
+#from filebrowser.sites import FileBrowserSite
+#from filebrowser.sites import site
+#from filebrowser.fields import FileBrowseField
+#from filer.fields.image import FilerImageField
+#from filer.fields.file import FilerFileField
+
+#site = FileBrowserSite(name='bild_id', storage=DefaultStorage())
+#site.directory = "/images/"
+#print 'MODELS  : ' + site.storage.location + site.directory
+
+#site = FileBrowserSite(name='filebrowser', storage=DefaultStorage())
+#site.directory = 'images/'
+#site.storage.location = DefaultStorage().location
+# = FileSystemStorage(location='/var/www/reiseservice-schwerin/rss2', base_url='/media/')
+
 STATUS_CHOICES = (
     ('i', 'Idee'),
     ('e', 'Entwurf'),
     ('f', 'fertiggestellt'),
 )
 
-KATALOG_CHOICES = (
-    ('w', 'Winterkatalog'),
-    ('s', 'Sommerkatalog'),
-    ('a', 'Winter- und Sommerkatalog'),
-    ('n', 'nicht zugeordnet'),
-)
+#KATALOG_CHOICES = (
+#    ('w', 'Winterkatalog'),
+#    ('s', 'Sommerkatalog'),
+#    ('a', 'Winter- und Sommerkatalog'),
+#    ('n', 'nicht zugeordnet'),
+#)
 
 ###########
 # Bild    #
@@ -39,7 +56,10 @@ class Bild(models.Model):
         primary_key=True,
         default=uuid.uuid4,
         editable=False)
-    bild = models.ImageField(upload_to = 'images')#, default = 'images/None/no-img.jpg')
+    bild = models.ImageField(upload_to = 'images', blank = True, default = '' )#, default = 'images/None/no-img.jpg')
+    #bild = FileBrowseField('filebrowser', max_length=200, directory="images/", extensions=[".jpg",".jpeg",".tif",".png",".tiff"], blank=True, null=True)#, default = 'images/None/no-img.jpg')
+    #bild = FileBrowseField('id_bild', directory = '/images/', max_length=200, blank=True, null=True)#, default = 'images/None/no-img.jpg')
+    #bild = FilerImageField(null=True, blank=True, related_name="reisen_bilder")
     titel = models.CharField(
         max_length=256,
         blank = True,
@@ -78,7 +98,8 @@ class Angebot(models.Model):
         primary_key=True,
         default=uuid.uuid4,
         editable=False)
-    angebot = models.FileField(upload_to = 'angebote')#, default = 'images/None/no-img.jpg')
+    #angebot = FileBrowseField(max_length=200, directory="angebote/", extensions=[".pdf",".doc",".docx"], blank=True, null=True)#, default = 'images/None/no-img.jpg')
+    angebot = models.FileField(upload_to = 'angebote', blank = True, default = '')#, default = 'images/None/no-img.jpg')
     titel = models.CharField(
         max_length=256,
         blank = True,
@@ -332,6 +353,7 @@ class Reise(models.Model):
     )
     hinweise = models.ManyToManyField(
         Hinweis,
+        blank = True,
         through='Reisehinweise'
     )
     status = models.CharField(
@@ -341,13 +363,13 @@ class Reise(models.Model):
         verbose_name = "Status der Reise",
         help_text = "Hier den Status einer Reise wählen."
     )
-    welcher_katalog = models.CharField(
-        default = 'n',
-        max_length = 1,
-        choices = KATALOG_CHOICES,
-        verbose_name = "Welcher Katalog?",
-        help_text = "Hier Katalog für eine Reise wählen."
-    )
+#    welcher_katalog = models.CharField(
+#        default = 'n',
+#        max_length = 1,
+#        choices = KATALOG_CHOICES,
+#        verbose_name = "Welcher Katalog?",
+#        help_text = "Hier Katalog für eine Reise wählen."
+#    )
 
     #tage = models.ManyToManyField(Tag, through='Reisetage')
     #preis = models.DecimalField(max_digits=6, decimal_places=2, null = True, verbose_name = "Reisepreis")
@@ -611,6 +633,8 @@ class Reisekatalogzugehoerigkeit(models.Model):
         null = True,
         blank=True,
         verbose_name = "Anzahl der Seiten für diese Reise im Katalog")
+    #katalog_pdf = FileBrowseField(max_length=200, directory="kataloge/", extensions=[".pdf"], blank=True, null=True)#, default = 'images/None/no-img.jpg')
+    katalog_pdf = models.FileField(upload_to = 'kataloge', blank = True, default = '')#, default = 'images/None/no-img.jpg')
     titel = models.TextField(
         blank = True,
         default = '',

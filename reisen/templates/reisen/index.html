@@ -10,7 +10,16 @@
     <!-- <p>{{ termine }}</p> -->
     <!-- <p><h3>{{ termin.reise_id.titel }}</h3></p> -->
     <!-- <p><h3>{{ termin.reise_id__titel }}</h3></p> -->
-    <p><h3><a href="{% url 'reise_detail' pk=termin.reise_id_id %}">{{ termin.titel }}</a></h3></p>
+    <p><h3>
+      <a href="{% url 'reise_detail' pk=termin.reiseID %}">
+        {% if termin.korrektur_bemerkung_intern %}
+          <font color="red">
+            {{ termin.titel }}
+          </font>
+      {% else %}
+          {{ termin.titel }}
+      {% endif %}
+    </a></h3></p>
     <p><h4>{{ termin.untertitel }}</h4></p>
     <p><h4>{{ termin.reise_id__untertitel }}</h4></p>
     <!-- <p><h5>{{ termin.reise_id.reisetyp }}</h5></p> -->
