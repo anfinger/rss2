@@ -1,0 +1,4089 @@
+[
+  {
+    "model": "reisen.bild",
+    "pk": "27916a75-2374-4226-8a91-9d0d1de44c28",
+    "fields": {
+      "bild": "images/portugal_3.jpg",
+      "titel": "Portugal",
+      "beschreibung": "irgend so ein bogen",
+      "bildquelle": "Katalog"
+    }
+  },
+  {
+    "model": "reisen.bild",
+    "pk": "30b2d063-85b9-4bd1-8446-b9f0b5f52950",
+    "fields": {
+      "bild": "1",
+      "titel": "d",
+      "beschreibung": "sft",
+      "bildquelle": "tert"
+    }
+  },
+  {
+    "model": "reisen.bild",
+    "pk": "38dbeeec-2a71-4b0e-b227-42e6d83158e8",
+    "fields": {
+      "bild": "images/buero.jpg",
+      "titel": "Reiseb\u00fcro",
+      "beschreibung": "Siehennn",
+      "bildquelle": "WEB"
+    }
+  },
+  {
+    "model": "reisen.bild",
+    "pk": "76d2a71b-2de2-4d7c-bdf5-a5cdca8299c6",
+    "fields": {
+      "bild": "images/portugal_1.jpg",
+      "titel": "Portugal",
+      "beschreibung": "Zu sehen ist das Panorama von Lissabon.",
+      "bildquelle": "BildDB"
+    }
+  },
+  {
+    "model": "reisen.bild",
+    "pk": "9d7c0ef0-b540-4366-8e6d-c18b6a4a7011",
+    "fields": {
+      "bild": "images/Spanien00034690.jpg",
+      "titel": "Spanien",
+      "beschreibung": "Spanien",
+      "bildquelle": "WEB"
+    }
+  },
+  {
+    "model": "reisen.bild",
+    "pk": "a22870e2-c2c1-4c4f-8b0c-53834336aa62",
+    "fields": {
+      "bild": "images/portugal_2.jpg",
+      "titel": "Portugal",
+      "beschreibung": "koah ahnung",
+      "bildquelle": "Katalog"
+    }
+  },
+  {
+    "model": "reisen.katalog",
+    "pk": "32a0652f-fc2a-4cdc-97dd-ca7f13db989b",
+    "fields": {
+      "titel": "2015/16 Weihnachten und Silvester Winter und Fr\u00fchjahr",
+      "untertitel": "und vieles mehr ...",
+      "datum_beginn": "2015-11-26T23:00:00Z",
+      "datum_ende": "2016-11-13T23:00:00Z",
+      "katalogseitenanzahl": 32
+    }
+  },
+  {
+    "model": "reisen.katalog",
+    "pk": "5fcadf99-4731-4b82-ac79-802e92585c39",
+    "fields": {
+      "titel": "Winterreisen 2016/2017",
+      "untertitel": "Von der Haust\u00fcr und zur\u00fcck in bester Gesellschaft!",
+      "datum_beginn": "2016-06-30T22:00:00Z",
+      "datum_ende": "2017-06-29T22:00:00Z",
+      "katalogseitenanzahl": null
+    }
+  },
+  {
+    "model": "reisen.katalog",
+    "pk": "c42103d9-b430-479f-93d5-a26817715491",
+    "fields": {
+      "titel": "Tagesfahrten",
+      "untertitel": "",
+      "datum_beginn": null,
+      "datum_ende": null,
+      "katalogseitenanzahl": null
+    }
+  },
+  {
+    "model": "reisen.katalog",
+    "pk": "ce05afee-d6cd-4b0c-aa26-b24d7aef0c24",
+    "fields": {
+      "titel": "Reisetr\u00e4ume 2016",
+      "untertitel": "",
+      "datum_beginn": "2016-01-29T23:00:00Z",
+      "datum_ende": "2016-11-13T23:00:00Z",
+      "katalogseitenanzahl": 116
+    }
+  },
+  {
+    "model": "reisen.katalog",
+    "pk": "fa81408e-2b69-4884-98ac-e5b91737d187",
+    "fields": {
+      "titel": "Sommer 2017",
+      "untertitel": "",
+      "datum_beginn": null,
+      "datum_ende": null,
+      "katalogseitenanzahl": null
+    }
+  },
+  {
+    "model": "reisen.hinweis",
+    "pk": "36ee1549-340b-45be-a283-a4815c012bd3",
+    "fields": {
+      "hinweis": "F\u00fcr diese Reise gibt es keine Treuepunkte!"
+    }
+  },
+  {
+    "model": "reisen.hinweis",
+    "pk": "3dcbbee2-8b23-4974-aa22-6b715f87ecd8",
+    "fields": {
+      "hinweis": "\u00c4nderungen im Reiseablauf vorbehalten!"
+    }
+  },
+  {
+    "model": "reisen.hinweis",
+    "pk": "7b1e08ad-7f91-4f85-a5e2-56aaf0296470",
+    "fields": {
+      "hinweis": "Ja achtung"
+    }
+  },
+  {
+    "model": "reisen.hinweis",
+    "pk": "80eaf70c-1867-48a9-bd8c-26c60840fc86",
+    "fields": {
+      "hinweis": "\u00c4nderungen im Reiseablauf und der Ausflugsprogramme vorbehalten!"
+    }
+  },
+  {
+    "model": "reisen.hinweis",
+    "pk": "90e221ce-2b06-4147-ae81-6b3a1e8d5098",
+    "fields": {
+      "hinweis": "HUHU"
+    }
+  },
+  {
+    "model": "reisen.hinweis",
+    "pk": "a86aeedb-c389-4923-aa12-8cfc7d15d368",
+    "fields": {
+      "hinweis": "G\u00fcltiger Personalausweis erforderlich!"
+    }
+  },
+  {
+    "model": "reisen.hinweis",
+    "pk": "fb790ab6-c3c4-4174-803a-9526a35085c2",
+    "fields": {
+      "hinweis": "Badesachen nicht vergessen!"
+    }
+  },
+  {
+    "model": "reisen.kategorie",
+    "pk": "1002cf9b-6ea0-4f93-9730-727b9c4da313",
+    "fields": {
+      "kategorie": "Skireise"
+    }
+  },
+  {
+    "model": "reisen.kategorie",
+    "pk": "1fc6ab88-bc40-4059-bc00-d9d89ddd1d04",
+    "fields": {
+      "kategorie": "Winterreise"
+    }
+  },
+  {
+    "model": "reisen.kategorie",
+    "pk": "3f718d66-b65c-450f-bbf2-decce099bbc8",
+    "fields": {
+      "kategorie": "Silvester"
+    }
+  },
+  {
+    "model": "reisen.kategorie",
+    "pk": "4969741b-c25d-48c7-a4b9-a87bc76debfa",
+    "fields": {
+      "kategorie": "Kurreise"
+    }
+  },
+  {
+    "model": "reisen.kategorie",
+    "pk": "4988eb12-a458-4fbe-a28f-87d2274434bd",
+    "fields": {
+      "kategorie": "Individualreise"
+    }
+  },
+  {
+    "model": "reisen.kategorie",
+    "pk": "62367c8e-1913-497e-a697-c214d8d6486d",
+    "fields": {
+      "kategorie": "Musicals & Shows"
+    }
+  },
+  {
+    "model": "reisen.kategorie",
+    "pk": "876d3315-2bb7-4328-af4f-89b4a635b172",
+    "fields": {
+      "kategorie": "Weihnachten"
+    }
+  },
+  {
+    "model": "reisen.kategorie",
+    "pk": "9597cc1c-019a-4a6f-a83a-0dcaf73a93dc",
+    "fields": {
+      "kategorie": "Flugreise"
+    }
+  },
+  {
+    "model": "reisen.kategorie",
+    "pk": "afec7f30-38b4-4c59-9d3e-832fb2f2b7b7",
+    "fields": {
+      "kategorie": "Spa\u00dfreisen"
+    }
+  },
+  {
+    "model": "reisen.kategorie",
+    "pk": "bfea65b9-d5fe-4b0d-ab6d-4dd5b0575d3e",
+    "fields": {
+      "kategorie": "Schiffreise"
+    }
+  },
+  {
+    "model": "reisen.kategorie",
+    "pk": "e06aa442-5711-44d2-b3c2-1fcc479372d9",
+    "fields": {
+      "kategorie": "Busreise"
+    }
+  },
+  {
+    "model": "reisen.zielregion",
+    "pk": "68e4d098-d78a-450c-8e2b-b166ca9c5250",
+    "fields": {
+      "name": "Portugal"
+    }
+  },
+  {
+    "model": "reisen.zielregion",
+    "pk": "aa1bf882-a54a-4bad-a52c-2e54ece380c7",
+    "fields": {
+      "name": "Europa"
+    }
+  },
+  {
+    "model": "reisen.zielregion",
+    "pk": "deb53901-5a50-4d0b-8036-50e0ec91fe59",
+    "fields": {
+      "name": "Deutschland"
+    }
+  },
+  {
+    "model": "reisen.zielregion",
+    "pk": "eac832de-2c27-418b-9f28-bbe7a2b7e434",
+    "fields": {
+      "name": "\u00d6sterreich"
+    }
+  },
+  {
+    "model": "reisen.preis",
+    "pk": "5549d9bd-3c16-4853-a8fa-cbfb1e262268",
+    "fields": {
+      "titel": "[LEER]"
+    }
+  },
+  {
+    "model": "reisen.preis",
+    "pk": "5dede2c4-da71-48d7-904c-d5904733a89b",
+    "fields": {
+      "titel": "Anz. bei Buchung"
+    }
+  },
+  {
+    "model": "reisen.preis",
+    "pk": "beed9f65-4cfa-4a02-b474-3875cc5c8af9",
+    "fields": {
+      "titel": "EZ-Zuschlag"
+    }
+  },
+  {
+    "model": "reisen.preis",
+    "pk": "f7c26dc7-3cf7-4354-a3d8-3719e739d99d",
+    "fields": {
+      "titel": "Preis"
+    }
+  },
+  {
+    "model": "reisen.preis",
+    "pk": "f9616002-4147-4703-bef6-ba4ee1e1da89",
+    "fields": {
+      "titel": "Preis p.P."
+    }
+  },
+  {
+    "model": "reisen.reise",
+    "pk": "0045c009-4972-4a9e-bfd0-dd3bca286aff",
+    "fields": {
+      "slug": "saisoneroeffnungsfahrt",
+      "autor_id": 1,
+      "reisetyp": "4-TAGE-BUSREISE",
+      "titel": "Saisoner\u00f6ffnungsfahrt",
+      "untertitel": "Liebliches Taubertal \u00b7 Romantische Stra\u00dfe",
+      "einleitung": "An der \u201eRomantischen Stra\u00dfe\u201d, Deutschlands beliebtester Ferienstra\u00dfe, und im Taubertal gibt es vieles zu entdecken. Zahlreiche Burgen und Schl\u00f6sser, Kloster und mittelalterliche St\u00e4dte und Orte wie Weikersheim, Creglingen und Rothenburg ob der Tauber werden Sie w\u00e4hrend der Saisoner\u00f6ffungsfahrt kennen lernen.",
+      "datum_erzeugung": "2016-01-15T11:40:42Z",
+      "zuletzt_bearbeitet": "2016-01-22T08:00:33Z",
+      "zuletzt_bearbeitet_von": 1,
+      "datum_veroeffentlichung": "2016-01-15T11:38:03Z",
+      "datum_verfall": null,
+      "leistungen_kommentar": "",
+      "zusatzleistungen_titel": "",
+      "zusatzleistungen_kommentar": "",
+      "korrektur_bemerkung_intern": "",
+      "zubucher": "",
+      "status": "i"
+    }
+  },
+  {
+    "model": "reisen.reise",
+    "pk": "012482ee-180b-4ed4-87e1-f7870290012a",
+    "fields": {
+      "slug": "weihnachten-erzgebirge",
+      "autor_id": 1,
+      "reisetyp": "",
+      "titel": "Weihnachten im Erzgebirge",
+      "untertitel": "",
+      "einleitung": "",
+      "datum_erzeugung": "2016-04-15T13:29:26Z",
+      "zuletzt_bearbeitet": "2016-04-15T13:29:26Z",
+      "zuletzt_bearbeitet_von": 1,
+      "datum_veroeffentlichung": null,
+      "datum_verfall": null,
+      "leistungen_kommentar": "",
+      "zusatzleistungen_titel": "",
+      "zusatzleistungen_kommentar": "",
+      "korrektur_bemerkung_intern": "Reisedetails",
+      "zubucher": "",
+      "status": "e"
+    }
+  },
+  {
+    "model": "reisen.reise",
+    "pk": "07e14950-1215-42c3-9f59-7e393a1ccbd8",
+    "fields": {
+      "slug": "silvester-leipzig",
+      "autor_id": 1,
+      "reisetyp": "",
+      "titel": "Silvester Leipzig",
+      "untertitel": "",
+      "einleitung": "",
+      "datum_erzeugung": "2016-04-15T13:25:41Z",
+      "zuletzt_bearbeitet": "2016-04-15T13:25:41Z",
+      "zuletzt_bearbeitet_von": 1,
+      "datum_veroeffentlichung": null,
+      "datum_verfall": null,
+      "leistungen_kommentar": "",
+      "zusatzleistungen_titel": "",
+      "zusatzleistungen_kommentar": "",
+      "korrektur_bemerkung_intern": "Reisedetails",
+      "zubucher": "",
+      "status": "e"
+    }
+  },
+  {
+    "model": "reisen.reise",
+    "pk": "1210aa45-8e79-4204-b81e-5327fc00deb3",
+    "fields": {
+      "slug": "silvester-lahntal",
+      "autor_id": 1,
+      "reisetyp": "",
+      "titel": "Silvester Lahntal",
+      "untertitel": "",
+      "einleitung": "",
+      "datum_erzeugung": "2016-04-15T13:21:36Z",
+      "zuletzt_bearbeitet": "2016-04-15T13:21:36Z",
+      "zuletzt_bearbeitet_von": 1,
+      "datum_veroeffentlichung": null,
+      "datum_verfall": null,
+      "leistungen_kommentar": "",
+      "zusatzleistungen_titel": "",
+      "zusatzleistungen_kommentar": "",
+      "korrektur_bemerkung_intern": "Reisedetails",
+      "zubucher": "",
+      "status": "e"
+    }
+  },
+  {
+    "model": "reisen.reise",
+    "pk": "1972473d-358d-4ae9-9d1f-10a01741e739",
+    "fields": {
+      "slug": "sellin-auf-rugen",
+      "autor_id": 1,
+      "reisetyp": "",
+      "titel": "Sellin auf R\u00fcgen",
+      "untertitel": "Cliff Hotel Wochenende",
+      "einleitung": "",
+      "datum_erzeugung": "2016-04-15T13:12:03Z",
+      "zuletzt_bearbeitet": "2016-04-15T13:16:45Z",
+      "zuletzt_bearbeitet_von": 1,
+      "datum_veroeffentlichung": null,
+      "datum_verfall": null,
+      "leistungen_kommentar": "",
+      "zusatzleistungen_titel": "",
+      "zusatzleistungen_kommentar": "",
+      "korrektur_bemerkung_intern": "Termine finden f\u00fcr im November Januar M\u00e4rz",
+      "zubucher": "",
+      "status": "e"
+    }
+  },
+  {
+    "model": "reisen.reise",
+    "pk": "1972f5d7-95f4-4006-bf66-266c73209050",
+    "fields": {
+      "slug": "3-haselnusse-fur-aschenbrodel",
+      "autor_id": 1,
+      "reisetyp": "TAGESFAHRT",
+      "titel": "3 Haseln\u00fcsse f\u00fcr Aschenbr\u00f6del",
+      "untertitel": "Das Kultm\u00e4rchen als Pferdeshow in Bad Bevensen",
+      "einleitung": "",
+      "datum_erzeugung": "2016-04-06T11:54:44Z",
+      "zuletzt_bearbeitet": "2016-04-06T16:31:40Z",
+      "zuletzt_bearbeitet_von": 1,
+      "datum_veroeffentlichung": "2015-11-26T23:00:00Z",
+      "datum_verfall": "2016-11-13T23:00:00Z",
+      "leistungen_kommentar": "",
+      "zusatzleistungen_titel": "",
+      "zusatzleistungen_kommentar": "",
+      "korrektur_bemerkung_intern": "",
+      "zubucher": "",
+      "status": "f"
+    }
+  },
+  {
+    "model": "reisen.reise",
+    "pk": "30754d93-d8a5-44a1-81b0-da4314343e04",
+    "fields": {
+      "slug": "winterspass-matrei-am-brenner",
+      "autor_id": 1,
+      "reisetyp": "",
+      "titel": "Winterspass in Matrei am Brenner mit individuellem Aufenthalt",
+      "untertitel": "",
+      "einleitung": "",
+      "datum_erzeugung": "2016-04-15T14:11:17Z",
+      "zuletzt_bearbeitet": "2016-04-15T14:11:17Z",
+      "zuletzt_bearbeitet_von": 1,
+      "datum_veroeffentlichung": null,
+      "datum_verfall": null,
+      "leistungen_kommentar": "",
+      "zusatzleistungen_titel": "",
+      "zusatzleistungen_kommentar": "",
+      "korrektur_bemerkung_intern": "Reisedetails",
+      "zubucher": "",
+      "status": "e"
+    }
+  },
+  {
+    "model": "reisen.reise",
+    "pk": "38695224-05a8-4858-945f-356a24f557a7",
+    "fields": {
+      "slug": "kurztrip-auf-helgoland",
+      "autor_id": 1,
+      "reisetyp": "3-TAGE-BUSREISE",
+      "titel": "Kurztrip auf Helgoland",
+      "untertitel": "mit der Katamaranf\u00e4hre auf die Hochseeinsel",
+      "einleitung": "Helgoland wird nicht zu unrecht die Sonneninsel Deutschlands genannt, denn die Sonne scheint hier \u00f6fter als anderswo. Nach Helgoland fahren hei\u00dft \"Abschied nehmen\" von L\u00e4rm, Hektik und schlechter Luft, denn auf Helgoland riecht es nach Salz und Meer. Ein unvergessliches Erlebnis ist es, den Sonnenauf- und Sonnenuntergang von der Steilk\u00fcste aus zu genie\u00dfen.",
+      "datum_erzeugung": "2016-01-17T00:29:54Z",
+      "zuletzt_bearbeitet": "2016-03-29T16:27:36Z",
+      "zuletzt_bearbeitet_von": 1,
+      "datum_veroeffentlichung": "2016-11-23T23:00:00Z",
+      "datum_verfall": "2017-11-29T23:00:00Z",
+      "leistungen_kommentar": "",
+      "zusatzleistungen_titel": "Zus\u00e4tzlich angebotene Leistung:",
+      "zusatzleistungen_kommentar": "",
+      "korrektur_bemerkung_intern": "Noch offen:\r\nKatalogseite\r\nPreis zusatzleistung\r\nreisetermine\r\npreis tipp erfragen\r\nreisepreis",
+      "zubucher": "",
+      "status": "e"
+    }
+  },
+  {
+    "model": "reisen.reise",
+    "pk": "3af12d23-d4af-418b-9c67-02451ac6771e",
+    "fields": {
+      "slug": "grune-woche",
+      "autor_id": 1,
+      "reisetyp": "",
+      "titel": "Gr\u00fcne Woche",
+      "untertitel": "",
+      "einleitung": "",
+      "datum_erzeugung": "2016-04-15T13:37:13Z",
+      "zuletzt_bearbeitet": "2016-04-15T13:49:43Z",
+      "zuletzt_bearbeitet_von": 1,
+      "datum_veroeffentlichung": null,
+      "datum_verfall": null,
+      "leistungen_kommentar": "",
+      "zusatzleistungen_titel": "",
+      "zusatzleistungen_kommentar": "",
+      "korrektur_bemerkung_intern": "Ist eine Tagesfahrt -> Katalog Tagesfahrten -> Problem der genauen Abfahrtszeiten",
+      "zubucher": "",
+      "status": "e"
+    }
+  },
+  {
+    "model": "reisen.reise",
+    "pk": "3df6d835-afa7-4224-b887-f39223ba735c",
+    "fields": {
+      "slug": "test",
+      "autor_id": 3,
+      "reisetyp": "",
+      "titel": "test",
+      "untertitel": "",
+      "einleitung": "",
+      "datum_erzeugung": "2016-04-01T16:30:16Z",
+      "zuletzt_bearbeitet": "2016-04-04T13:04:52Z",
+      "zuletzt_bearbeitet_von": 1,
+      "datum_veroeffentlichung": null,
+      "datum_verfall": null,
+      "leistungen_kommentar": "",
+      "zusatzleistungen_titel": "",
+      "zusatzleistungen_kommentar": "",
+      "korrektur_bemerkung_intern": "",
+      "zubucher": "",
+      "status": "i"
+    }
+  },
+  {
+    "model": "reisen.reise",
+    "pk": "45abcde0-cf1b-41c2-a003-ebbad2759218",
+    "fields": {
+      "slug": "advent-sachsen",
+      "autor_id": 1,
+      "reisetyp": "",
+      "titel": "Advent einmal anders ... Dresden, Pirna, ....",
+      "untertitel": "",
+      "einleitung": "",
+      "datum_erzeugung": "2016-04-15T13:28:08Z",
+      "zuletzt_bearbeitet": "2016-04-15T13:28:08Z",
+      "zuletzt_bearbeitet_von": 1,
+      "datum_veroeffentlichung": null,
+      "datum_verfall": null,
+      "leistungen_kommentar": "",
+      "zusatzleistungen_titel": "",
+      "zusatzleistungen_kommentar": "",
+      "korrektur_bemerkung_intern": "Reisedetails",
+      "zubucher": "",
+      "status": "e"
+    }
+  },
+  {
+    "model": "reisen.reise",
+    "pk": "62a515bc-cdea-46aa-bccf-d8e065799ad9",
+    "fields": {
+      "slug": "ostern-lissabon",
+      "autor_id": 1,
+      "reisetyp": "4-TAGE-FLUGREISE",
+      "titel": "Ostern in Lissabon",
+      "untertitel": "Die Perle Portugals",
+      "einleitung": "Lissabon geh\u00f6rt zu den sch\u00f6nsten St\u00e4dten Europas und begeistert durch die reizvolle Lage direkt am Ufer des Flusses Tejo. Lissabon hat eine Menge zu bieten: die Burg, aus der die Stadt entstand, gro\u00dfe an das Zeitalter der Entdeckungen erinnernde Baudenkm\u00e4ler, die sieben H\u00fcgel, \u00fcber die bergauf, bergab die Stra\u00dfenbahnen rattern, sch\u00f6ne Fassaden an den H\u00e4usern und die melancholischen Fadoges\u00e4nge, die abends bei Kerzenschein erklingen. Die auf sieben H\u00fcgeln erbaute Stadt wird nicht zu unrecht auch \"die portugiesische Sch\u00f6ne\" bezeichnet.",
+      "datum_erzeugung": "2016-01-16T19:17:01Z",
+      "zuletzt_bearbeitet": "2016-03-24T09:01:52Z",
+      "zuletzt_bearbeitet_von": 1,
+      "datum_veroeffentlichung": "2016-01-16T19:30:53Z",
+      "datum_verfall": null,
+      "leistungen_kommentar": "",
+      "zusatzleistungen_titel": "",
+      "zusatzleistungen_kommentar": "",
+      "korrektur_bemerkung_intern": "",
+      "zubucher": "",
+      "status": "e"
+    }
+  },
+  {
+    "model": "reisen.reise",
+    "pk": "6b36ca58-5024-4fa5-ad0e-41cc80d61a9e",
+    "fields": {
+      "slug": "silvester-hagen",
+      "autor_id": 1,
+      "reisetyp": "",
+      "titel": "Silvester Hagen",
+      "untertitel": "",
+      "einleitung": "",
+      "datum_erzeugung": "2016-04-15T13:22:35Z",
+      "zuletzt_bearbeitet": "2016-04-15T13:22:35Z",
+      "zuletzt_bearbeitet_von": 1,
+      "datum_veroeffentlichung": null,
+      "datum_verfall": null,
+      "leistungen_kommentar": "",
+      "zusatzleistungen_titel": "",
+      "zusatzleistungen_kommentar": "",
+      "korrektur_bemerkung_intern": "Reisedetails",
+      "zubucher": "",
+      "status": "e"
+    }
+  },
+  {
+    "model": "reisen.reise",
+    "pk": "7139f686-2f25-40b3-8699-01881454508c",
+    "fields": {
+      "slug": "advent-quedlinburg",
+      "autor_id": 1,
+      "reisetyp": "",
+      "titel": "Adventsreise Quedlinburg",
+      "untertitel": "",
+      "einleitung": "",
+      "datum_erzeugung": "2016-04-15T13:22:28Z",
+      "zuletzt_bearbeitet": "2016-04-15T13:24:08Z",
+      "zuletzt_bearbeitet_von": 1,
+      "datum_veroeffentlichung": null,
+      "datum_verfall": null,
+      "leistungen_kommentar": "",
+      "zusatzleistungen_titel": "",
+      "zusatzleistungen_kommentar": "",
+      "korrektur_bemerkung_intern": "Reisedetails",
+      "zubucher": "",
+      "status": "e"
+    }
+  },
+  {
+    "model": "reisen.reise",
+    "pk": "80bd657f-1f34-4f6a-8899-b8d7dfc33e09",
+    "fields": {
+      "slug": "kurztrip-auf-helgoland",
+      "autor_id": 1,
+      "reisetyp": "3-TAGE-BUSREISE",
+      "titel": "Kurztrip auf Helgoland 2",
+      "untertitel": "mit der Katamaranf\u00e4hre auf die Hochseeinsel",
+      "einleitung": "Helgoland wird nicht zu unrecht die Sonneninsel Deutschlands genannt, denn die Sonne scheint hier \u00f6fter als anderswo. Nach Helgoland fahren hei\u00dft \"Abschied nehmen\" von L\u00e4rm, Hektik und schlechter Luft, denn auf Helgoland riecht es nach Salz und Meer. Ein unvergessliches Erlebnis ist es, den Sonnenauf- und Sonnenuntergang von der Steilk\u00fcste aus zu genie\u00dfen.",
+      "datum_erzeugung": "2016-03-24T09:33:09Z",
+      "zuletzt_bearbeitet": "2016-03-24T12:16:13Z",
+      "zuletzt_bearbeitet_von": 1,
+      "datum_veroeffentlichung": "2016-11-23T23:00:00Z",
+      "datum_verfall": "2017-11-29T23:00:00Z",
+      "leistungen_kommentar": "",
+      "zusatzleistungen_titel": "Zus\u00e4tzlich angebotene Leistung:",
+      "zusatzleistungen_kommentar": "",
+      "korrektur_bemerkung_intern": "Noch offen:\r\nKatalogseite\r\nPreis zusatzleistung\r\nreisetermine\r\npreis tipp erfragen\r\nreisepreis",
+      "zubucher": "",
+      "status": "e"
+    }
+  },
+  {
+    "model": "reisen.reise",
+    "pk": "95031968-f9f8-46b6-baa9-94f1438806c0",
+    "fields": {
+      "slug": "weihnachten-im-erzgebirge",
+      "autor_id": 1,
+      "reisetyp": "5-TAGE-BUSREISE",
+      "titel": "Weihnachten im Erzgebirge",
+      "untertitel": "",
+      "einleitung": "",
+      "datum_erzeugung": "2016-04-06T16:36:00Z",
+      "zuletzt_bearbeitet": "2016-04-08T08:46:30Z",
+      "zuletzt_bearbeitet_von": 1,
+      "datum_veroeffentlichung": "2015-11-26T23:00:00Z",
+      "datum_verfall": "2016-11-13T23:00:00Z",
+      "leistungen_kommentar": "",
+      "zusatzleistungen_titel": "",
+      "zusatzleistungen_kommentar": "",
+      "korrektur_bemerkung_intern": "",
+      "zubucher": "",
+      "status": "f"
+    }
+  },
+  {
+    "model": "reisen.reise",
+    "pk": "9fc34808-d2b7-4e5b-8de4-0d18093754ca",
+    "fields": {
+      "slug": "weihnachten-silvester-erzgebirge",
+      "autor_id": 1,
+      "reisetyp": "",
+      "titel": "Weihnachten und Silvester im Erzgebirge",
+      "untertitel": "",
+      "einleitung": "",
+      "datum_erzeugung": "2016-04-15T13:30:32Z",
+      "zuletzt_bearbeitet": "2016-04-15T13:30:32Z",
+      "zuletzt_bearbeitet_von": 1,
+      "datum_veroeffentlichung": null,
+      "datum_verfall": null,
+      "leistungen_kommentar": "",
+      "zusatzleistungen_titel": "",
+      "zusatzleistungen_kommentar": "",
+      "korrektur_bemerkung_intern": "Reisedetails",
+      "zubucher": "",
+      "status": "e"
+    }
+  },
+  {
+    "model": "reisen.reise",
+    "pk": "a101ed63-fb23-4298-a1b1-ecf7f11aad2c",
+    "fields": {
+      "slug": "madeira",
+      "autor_id": null,
+      "reisetyp": "8-TAGE-FLUG- UND BUSREISE",
+      "titel": "Madeira",
+      "untertitel": "Blumeninsel im Atlantik",
+      "einleitung": "Madeira, die Blumeninsel im Atlantik. Folgen Sie uns auf die Insel des ewigen Fr\u00fchlings, die Hunderte von Kilometern s\u00fcdlich des portugiesischen Festlandes liegt. Durch den warmen Golfstrom herrscht hier ganzj\u00e4hrig ein mildes Klima. Die stabile Wetterlage,  aber auch die atemberaubenden Landschaften von eindrucksvollen Steilk\u00fcsten bis hin zu gr\u00fcnen K\u00fcsten- und Gebirgsregionen lassen Ihren Aufenthalt zu einem unvergesslichen Erlebnis werden.",
+      "datum_erzeugung": "2016-04-15T14:11:44Z",
+      "zuletzt_bearbeitet": "2016-04-19T13:36:40Z",
+      "zuletzt_bearbeitet_von": 1,
+      "datum_veroeffentlichung": "2016-06-30T22:00:00Z",
+      "datum_verfall": "2017-06-29T22:00:00Z",
+      "leistungen_kommentar": "",
+      "zusatzleistungen_titel": "",
+      "zusatzleistungen_kommentar": "",
+      "korrektur_bemerkung_intern": "Reisedetails</br>\nasdasd</br>\nasda</br>\ndasdqsgafha",
+      "zubucher": "",
+      "status": "e"
+    }
+  },
+  {
+    "model": "reisen.reise",
+    "pk": "ad6934b6-6857-4075-9504-6d9b7ef3e318",
+    "fields": {
+      "slug": "weihnachten-silvester-kolberg",
+      "autor_id": 3,
+      "reisetyp": "4-TAGE-FLUGREISE",
+      "titel": "Weihnachten und Silvester an der Polnischen Ostseek\u00fcste in Kolberg",
+      "untertitel": "Lahntal \u2022 Mittelrheintal \u2022 Erlebnis Geysir",
+      "einleitung": "Lissabon geh\u00f6rt zu den sch\u00f6nsten St\u00e4dten Europas und begeistert durch die reizvolle Lage direkt am Ufer des Flusses Tejo. Lissabon hat eine Menge zu bieten: die Burg, aus der die Stadt entstand, gro\u00dfe an das Zeitalter der Entdeckungen erinnernde Baudenkm\u00e4ler, die sieben H\u00fcgel, \u00fcber die bergauf, bergab die Stra\u00dfenbahnen rattern, sch\u00f6ne Fassaden an den H\u00e4usern und die melancholischen Fadoges\u00e4nge, die abends bei Kerzenschein erklingen. Die auf sieben H\u00fcgeln erbaute Stadt wird nicht zu unrecht auch \"die portugiesische Sch\u00f6ne\" bezeichnet.",
+      "datum_erzeugung": "2016-04-01T16:31:06Z",
+      "zuletzt_bearbeitet": "2016-04-01T16:31:06Z",
+      "zuletzt_bearbeitet_von": 3,
+      "datum_veroeffentlichung": "2016-01-16T19:30:53Z",
+      "datum_verfall": null,
+      "leistungen_kommentar": "",
+      "zusatzleistungen_titel": "",
+      "zusatzleistungen_kommentar": "",
+      "korrektur_bemerkung_intern": "",
+      "zubucher": "",
+      "status": "e"
+    }
+  },
+  {
+    "model": "reisen.reise",
+    "pk": "b511423f-c637-4531-95de-002feffe7e79",
+    "fields": {
+      "slug": "silvester-erzgebirge",
+      "autor_id": 1,
+      "reisetyp": "",
+      "titel": "Silvester im Erzgebirge",
+      "untertitel": "",
+      "einleitung": "",
+      "datum_erzeugung": "2016-04-15T13:31:13Z",
+      "zuletzt_bearbeitet": "2016-04-15T13:31:14Z",
+      "zuletzt_bearbeitet_von": 1,
+      "datum_veroeffentlichung": null,
+      "datum_verfall": null,
+      "leistungen_kommentar": "",
+      "zusatzleistungen_titel": "",
+      "zusatzleistungen_kommentar": "",
+      "korrektur_bemerkung_intern": "Reisedetails",
+      "zubucher": "",
+      "status": "e"
+    }
+  },
+  {
+    "model": "reisen.reise",
+    "pk": "c09cf204-0482-4d4f-a817-54ecf09bfa97",
+    "fields": {
+      "slug": "advent-naumburg",
+      "autor_id": 1,
+      "reisetyp": "",
+      "titel": "Adventsreise Naumburg",
+      "untertitel": "",
+      "einleitung": "",
+      "datum_erzeugung": "2016-04-15T13:26:35Z",
+      "zuletzt_bearbeitet": "2016-04-15T13:26:35Z",
+      "zuletzt_bearbeitet_von": 1,
+      "datum_veroeffentlichung": null,
+      "datum_verfall": null,
+      "leistungen_kommentar": "",
+      "zusatzleistungen_titel": "",
+      "zusatzleistungen_kommentar": "",
+      "korrektur_bemerkung_intern": "Reisedetails",
+      "zubucher": "",
+      "status": "e"
+    }
+  },
+  {
+    "model": "reisen.reise",
+    "pk": "c2a6db7f-76df-475d-a51d-b97707284896",
+    "fields": {
+      "slug": "holiday-on-ice",
+      "autor_id": 1,
+      "reisetyp": "TAGESFAHRT",
+      "titel": "\"HOLIDAY ON ICE\"",
+      "untertitel": "& Rostocker Weihnachtsmarkt",
+      "einleitung": "",
+      "datum_erzeugung": "2016-04-06T15:30:19Z",
+      "zuletzt_bearbeitet": "2016-04-06T16:31:24Z",
+      "zuletzt_bearbeitet_von": 1,
+      "datum_veroeffentlichung": "2015-11-26T23:00:00Z",
+      "datum_verfall": "2016-11-13T23:00:00Z",
+      "leistungen_kommentar": "",
+      "zusatzleistungen_titel": "",
+      "zusatzleistungen_kommentar": "",
+      "korrektur_bemerkung_intern": "",
+      "zubucher": "",
+      "status": "f"
+    }
+  },
+  {
+    "model": "reisen.reise",
+    "pk": "c3b8cb8e-780e-421a-8624-6a9e764bb15b",
+    "fields": {
+      "slug": "ostfriesland",
+      "autor_id": 1,
+      "reisetyp": "",
+      "titel": "Ostfriesland",
+      "untertitel": "",
+      "einleitung": "",
+      "datum_erzeugung": "2016-04-15T13:19:47Z",
+      "zuletzt_bearbeitet": "2016-04-15T13:19:48Z",
+      "zuletzt_bearbeitet_von": 1,
+      "datum_veroeffentlichung": null,
+      "datum_verfall": null,
+      "leistungen_kommentar": "",
+      "zusatzleistungen_titel": "",
+      "zusatzleistungen_kommentar": "",
+      "korrektur_bemerkung_intern": "Reisedetails",
+      "zubucher": "",
+      "status": "e"
+    }
+  },
+  {
+    "model": "reisen.reise",
+    "pk": "c91bfed2-e259-4c15-b125-a3accf51c471",
+    "fields": {
+      "slug": "silvester-liegnitz",
+      "autor_id": 1,
+      "reisetyp": "",
+      "titel": "Silvester in Liegnitz (Polen)",
+      "untertitel": "",
+      "einleitung": "",
+      "datum_erzeugung": "2016-04-15T13:32:52Z",
+      "zuletzt_bearbeitet": "2016-04-15T13:32:52Z",
+      "zuletzt_bearbeitet_von": 1,
+      "datum_veroeffentlichung": null,
+      "datum_verfall": null,
+      "leistungen_kommentar": "",
+      "zusatzleistungen_titel": "",
+      "zusatzleistungen_kommentar": "",
+      "korrektur_bemerkung_intern": "Reisedetails",
+      "zubucher": "",
+      "status": "e"
+    }
+  },
+  {
+    "model": "reisen.reise",
+    "pk": "cf8cf7c5-70a2-4897-af05-91640217f043",
+    "fields": {
+      "slug": "saisonabschluss",
+      "autor_id": 1,
+      "reisetyp": "4-TAGE-FLUGREISE",
+      "titel": "Saisonabschlussfahrt",
+      "untertitel": "Lahntal \u2022 Mittelrheintal \u2022 Erlebnis Geysir",
+      "einleitung": "Lissabon geh\u00f6rt zu den sch\u00f6nsten St\u00e4dten Europas und begeistert durch die reizvolle Lage direkt am Ufer des Flusses Tejo. Lissabon hat eine Menge zu bieten: die Burg, aus der die Stadt entstand, gro\u00dfe an das Zeitalter der Entdeckungen erinnernde Baudenkm\u00e4ler, die sieben H\u00fcgel, \u00fcber die bergauf, bergab die Stra\u00dfenbahnen rattern, sch\u00f6ne Fassaden an den H\u00e4usern und die melancholischen Fadoges\u00e4nge, die abends bei Kerzenschein erklingen. Die auf sieben H\u00fcgeln erbaute Stadt wird nicht zu unrecht auch \"die portugiesische Sch\u00f6ne\" bezeichnet.",
+      "datum_erzeugung": "2016-04-01T14:23:04Z",
+      "zuletzt_bearbeitet": "2016-04-01T15:20:11Z",
+      "zuletzt_bearbeitet_von": 3,
+      "datum_veroeffentlichung": "2016-01-16T19:30:53Z",
+      "datum_verfall": null,
+      "leistungen_kommentar": "",
+      "zusatzleistungen_titel": "",
+      "zusatzleistungen_kommentar": "",
+      "korrektur_bemerkung_intern": "",
+      "zubucher": "",
+      "status": "e"
+    }
+  },
+  {
+    "model": "reisen.reise",
+    "pk": "d59163c9-0eed-4411-a2d4-928f82126afc",
+    "fields": {
+      "slug": "dubai",
+      "autor_id": 1,
+      "reisetyp": "",
+      "titel": "Dubai",
+      "untertitel": "",
+      "einleitung": "",
+      "datum_erzeugung": "2016-04-15T11:57:42Z",
+      "zuletzt_bearbeitet": "2016-04-15T11:58:11Z",
+      "zuletzt_bearbeitet_von": 1,
+      "datum_veroeffentlichung": null,
+      "datum_verfall": null,
+      "leistungen_kommentar": "",
+      "zusatzleistungen_titel": "",
+      "zusatzleistungen_kommentar": "",
+      "korrektur_bemerkung_intern": "Reisetitel \u00e4ndern",
+      "zubucher": "",
+      "status": "e"
+    }
+  },
+  {
+    "model": "reisen.reise",
+    "pk": "da99a734-d8a2-4607-af1c-a32a19599c4c",
+    "fields": {
+      "slug": "flugreise-ostern",
+      "autor_id": 1,
+      "reisetyp": "",
+      "titel": "Flugreise Ostern Wohin?",
+      "untertitel": "",
+      "einleitung": "",
+      "datum_erzeugung": "2016-04-15T13:33:40Z",
+      "zuletzt_bearbeitet": "2016-04-15T13:33:40Z",
+      "zuletzt_bearbeitet_von": 1,
+      "datum_veroeffentlichung": null,
+      "datum_verfall": null,
+      "leistungen_kommentar": "",
+      "zusatzleistungen_titel": "",
+      "zusatzleistungen_kommentar": "",
+      "korrektur_bemerkung_intern": "Reisedetails",
+      "zubucher": "",
+      "status": "e"
+    }
+  },
+  {
+    "model": "reisen.reise",
+    "pk": "e2fe3840-ee34-40a1-8fa4-a4a1deeb9825",
+    "fields": {
+      "slug": "reise_test",
+      "autor_id": 1,
+      "reisetyp": "4-TAGE-FLUGREISE",
+      "titel": "REISE TEST",
+      "untertitel": "Die Perle Portugals",
+      "einleitung": "Lissabon geh\u00f6rt zu den sch\u00f6nsten St\u00e4dten Europas und begeistert durch die reizvolle Lage direkt am Ufer des Flusses Tejo. Lissabon hat eine Menge zu bieten: die Burg, aus der die Stadt entstand, gro\u00dfe an das Zeitalter der Entdeckungen erinnernde Baudenkm\u00e4ler, die sieben H\u00fcgel, \u00fcber die bergauf, bergab die Stra\u00dfenbahnen rattern, sch\u00f6ne Fassaden an den H\u00e4usern und die melancholischen Fadoges\u00e4nge, die abends bei Kerzenschein erklingen. Die auf sieben H\u00fcgeln erbaute Stadt wird nicht zu unrecht auch \"die portugiesische Sch\u00f6ne\" bezeichnet.",
+      "datum_erzeugung": "2016-01-24T15:55:06Z",
+      "zuletzt_bearbeitet": "2016-04-05T12:37:24Z",
+      "zuletzt_bearbeitet_von": 1,
+      "datum_veroeffentlichung": "2016-01-16T19:30:53Z",
+      "datum_verfall": "2016-02-01T15:46:28Z",
+      "leistungen_kommentar": "Ja dies ist ein Kommentar zu den Leistungen",
+      "zusatzleistungen_titel": "Titel f\u00fcr Zus\u00e4tzliche Leistung",
+      "zusatzleistungen_kommentar": "Kommentar f\u00fcr zus\u00e4tzliche Leistung",
+      "korrektur_bemerkung_intern": "Hier k\u00f6nnen alle Korrekturen rein",
+      "zubucher": "Hier bei handelt es sich um eine Zubucherreise",
+      "status": "i"
+    }
+  },
+  {
+    "model": "reisen.reise",
+    "pk": "edd20d5d-717f-456c-97c0-c736d08bca90",
+    "fields": {
+      "slug": "winterspass-matrei-am-brenner",
+      "autor_id": 1,
+      "reisetyp": "7-TAGE-BUSREISE",
+      "titel": "Winterspass in Matrei am Brenner  mit individuellem Aufenthalt",
+      "untertitel": "",
+      "einleitung": "",
+      "datum_erzeugung": "2016-04-05T12:48:46Z",
+      "zuletzt_bearbeitet": "2016-04-05T13:01:50Z",
+      "zuletzt_bearbeitet_von": 1,
+      "datum_veroeffentlichung": "2015-11-26T23:00:00Z",
+      "datum_verfall": "2016-11-13T23:00:00Z",
+      "leistungen_kommentar": "",
+      "zusatzleistungen_titel": "",
+      "zusatzleistungen_kommentar": "",
+      "korrektur_bemerkung_intern": "",
+      "zubucher": "",
+      "status": "f"
+    }
+  },
+  {
+    "model": "reisen.reise",
+    "pk": "ee751131-36e9-4fa5-bcc0-420e5987eadb",
+    "fields": {
+      "slug": "uberraschungsreise",
+      "autor_id": 1,
+      "reisetyp": "",
+      "titel": "\u00dcberraschungsreise",
+      "untertitel": "",
+      "einleitung": "",
+      "datum_erzeugung": "2016-04-15T14:10:35Z",
+      "zuletzt_bearbeitet": "2016-04-15T14:10:35Z",
+      "zuletzt_bearbeitet_von": 1,
+      "datum_veroeffentlichung": null,
+      "datum_verfall": null,
+      "leistungen_kommentar": "",
+      "zusatzleistungen_titel": "",
+      "zusatzleistungen_kommentar": "",
+      "korrektur_bemerkung_intern": "Reisedetails",
+      "zubucher": "",
+      "status": "e"
+    }
+  },
+  {
+    "model": "reisen.reise",
+    "pk": "febd2949-829b-4d03-aafd-0309c3a65558",
+    "fields": {
+      "slug": "weihnachten-quedlinburg",
+      "autor_id": 1,
+      "reisetyp": "",
+      "titel": "Weihnachten in Quedlinburg",
+      "untertitel": "",
+      "einleitung": "",
+      "datum_erzeugung": "2016-04-15T13:32:06Z",
+      "zuletzt_bearbeitet": "2016-04-15T13:32:06Z",
+      "zuletzt_bearbeitet_von": 1,
+      "datum_veroeffentlichung": null,
+      "datum_verfall": null,
+      "leistungen_kommentar": "",
+      "zusatzleistungen_titel": "",
+      "zusatzleistungen_kommentar": "",
+      "korrektur_bemerkung_intern": "Reisedetails",
+      "zubucher": "",
+      "status": "e"
+    }
+  },
+  {
+    "model": "reisen.reisetage",
+    "pk": "045bcc43-a84d-47b0-9066-1e7f204330a4",
+    "fields": {
+      "reise_id": "38695224-05a8-4858-945f-356a24f557a7",
+      "tagnummer": 2,
+      "titel": "Helgoland individuell",
+      "beschreibung": "Genie\u00dfen Sie Helgoland und erkunden Sie die Insel auf eigene Faust. Vielleicht machen Sie einen Spaziergang zum Lummenfelsen oder erleben Sie die Helgol\u00e4nder Geschichte, Natur und Kultur auf den Themenwegen der Insel.",
+      "zusatz": "Tipp: Ausflug auf die D\u00fcneninsel. Die vorgelagerte D\u00fcne ist ein Paradies f\u00fcr Sonnenhungrige und Naturfreunde. An manchen Tagen tummeln sich hier bis zu 350 Seehunde und Kegelrobben am Strand. Die D\u00fcnenf\u00e4hre pendelt mehrmals t\u00e4glich zwischen der Hauptinsel und der D\u00fcne (Preis ca. 5,00 \u20ac)."
+    }
+  },
+  {
+    "model": "reisen.reisetage",
+    "pk": "20ff6905-686e-4a31-a4f0-2f937e527476",
+    "fields": {
+      "reise_id": "62a515bc-cdea-46aa-bccf-d8e065799ad9",
+      "tagnummer": 2,
+      "titel": "Freizeit oder Ausflug \"Alcobaca - Nazar\u00e9 - F\u00e1tima\"",
+      "beschreibung": "Der Tag steht zur freien Verf\u00fcgung. Bucher des Ausflugspaketes erwartet ein Ausflug in n\u00f6rdliche Richtung. \u00dcber Alcoba\u00e7a mit Halt am gr\u00f6\u00dften Zisterzienserkloster des Landes, das Sie besuchen werden, fahren Sie an die Atlantikk\u00fcste. In Nazar\u00e9, dem buntesten der portugiesischen Fischerd\u00f6rfer, machen Sie wieder eine Pause, bevor Sie anschlie\u00dfend nach F\u00e1tima fahren, einer der wichtigsten Wallfahrtsorte der Katholiken. Nach einem Rundgang geht es zur\u00fcck nach Lissabon zum Hotel.",
+      "zusatz": ""
+    }
+  },
+  {
+    "model": "reisen.reisetage",
+    "pk": "252f3971-638c-4810-8d2b-17398b7da3c3",
+    "fields": {
+      "reise_id": "e2fe3840-ee34-40a1-8fa4-a4a1deeb9825",
+      "tagnummer": 1,
+      "titel": "Transfer Flughafen - Flug Lissabon - Stadtbesichtigung",
+      "beschreibung": "Bustransfer zum Flughafen Hamburg und Flug nach Lisabon. Nach der Ankunft erwartet Sie eine halbt\u00e4gige Stadtf\u00fchrung. Zu den bedeutendsten Sehensw\u00fcrdigkeiten Lissabons z\u00e4hlen die Pra\u00e7a do Com\u00e9rcio als das Herz von Lissabon mit seinen geometrischen Stra\u00dfen, der Fluss Tejo, die bizarre Festung Torre de Bel\u00e9m, der Rossio und die Fassade des Klosters von Jer\u00f3nimos. Anschlie\u00dfend Transfer zum Hotel \u2013 genie\u00dfen Sie hier die atemberaubende Aussicht auf Lissabon und den Fluss Tejo.",
+      "zusatz": "Tipp: Hier geht es echt ab: In der Bar zur goldenen Kehle l\u00e4uft das Bier wie \u00d6l den Hals hinunter."
+    }
+  },
+  {
+    "model": "reisen.reisetage",
+    "pk": "2e3dd0ff-5e9a-4347-bbb6-07251643d855",
+    "fields": {
+      "reise_id": "cf8cf7c5-70a2-4897-af05-91640217f043",
+      "tagnummer": 2,
+      "titel": "Freizeit oder Ausflug \"Alcobaca - Nazar\u00e9 - F\u00e1tima\"",
+      "beschreibung": "Der Tag steht zur freien Verf\u00fcgung. Bucher des Ausflugspaketes erwartet ein Ausflug in n\u00f6rdliche Richtung. \u00dcber Alcoba\u00e7a mit Halt am gr\u00f6\u00dften Zisterzienserkloster des Landes, das Sie besuchen werden, fahren Sie an die Atlantikk\u00fcste. In Nazar\u00e9, dem buntesten der portugiesischen Fischerd\u00f6rfer, machen Sie wieder eine Pause, bevor Sie anschlie\u00dfend nach F\u00e1tima fahren, einer der wichtigsten Wallfahrtsorte der Katholiken. Nach einem Rundgang geht es zur\u00fcck nach Lissabon zum Hotel.",
+      "zusatz": ""
+    }
+  },
+  {
+    "model": "reisen.reisetage",
+    "pk": "3cae8e8f-01e9-4ac5-97ad-1ecd0b28b986",
+    "fields": {
+      "reise_id": "38695224-05a8-4858-945f-356a24f557a7",
+      "tagnummer": 1,
+      "titel": "Anreise \u00b7 Hamburg \u00b7 Helgoland",
+      "beschreibung": "Anreise nach Hamburg zur F\u00e4hr\u00fcberfahrt auf die Insel Helgoland. Bei Ankunft auf der Insel erfolgt der Gep\u00e4cktransfer zum Hotel und Sie erwartet ein Reiseleiter, der Ihnen bei einem gef\u00fchrten Inselrundgang Helgoland n\u00e4her bringt. Er begleitet Sie anschlie\u00dfend zu Ihrem gebuchten Hotel.",
+      "zusatz": ""
+    }
+  },
+  {
+    "model": "reisen.reisetage",
+    "pk": "3e11a2db-70fb-4c7f-9905-aab81e825e7a",
+    "fields": {
+      "reise_id": "95031968-f9f8-46b6-baa9-94f1438806c0",
+      "tagnummer": 1,
+      "titel": "Anreise \u00b7 Oberwiesenthal",
+      "beschreibung": "Anreise in's Erzgebirge nach Oberwiesenthal zum Panorama Hotel, am Fu\u00dfe des Fichtelberges gelegen. Vorher besuchen Sie den erzgebirgischen Erlebnishof \"Zum Weihrichkarzl\".",
+      "zusatz": ""
+    }
+  },
+  {
+    "model": "reisen.reisetage",
+    "pk": "43d22df6-8954-4fb4-b3f5-f01222101740",
+    "fields": {
+      "reise_id": "0045c009-4972-4a9e-bfd0-dd3bca286aff",
+      "tagnummer": 3,
+      "titel": "\"Romantische Stra\u00dfe\"",
+      "beschreibung": "Heute steht eine Ausflugsfahrt mit Reiseleiter an die \"Romantische Stra\u00dfe\" auf dem Programm. In Feuchtwangen haben 1200 Jahre Geschichte ein faszinierendes Bild hinterlassen. Das am vertr\u00e4umten Fl\u00fcssRiemenschneichen W\u00f6rnitz liegende Dinkelsb\u00fchl wartet mit einer noch bestens erhaltenen mittelalterlichen Altstadt rund um eine der sch\u00f6nsten gotischen Hallenkirchen von Deutschland auf. Und N\u00f6rdlingens mittelalterlicher Stadtkern ist wohl einzigartig auf der Welt. Die rundum begehbare Stadtmauer, der Kirchturm \u201eDaniel\u201c, von dem nach wie vor jeden Abend vom T\u00fcrmer der W\u00e4chterruf ert\u00f6nt, und das mittelalterliche Stadtbild werden einen bleibenden Eindruck bei Ihnen hinterlassen.",
+      "zusatz": ""
+    }
+  },
+  {
+    "model": "reisen.reisetage",
+    "pk": "4aa1b897-aa66-400c-9823-cca920a3c6b8",
+    "fields": {
+      "reise_id": "e2fe3840-ee34-40a1-8fa4-a4a1deeb9825",
+      "tagnummer": 2,
+      "titel": "Freizeit oder Ausflug \"Alcobaca - Nazar\u00e9 - F\u00e1tima\"",
+      "beschreibung": "Der Tag steht zur freien Verf\u00fcgung. Bucher des Ausflugspaketes erwartet ein Ausflug in n\u00f6rdliche Richtung. \u00dcber Alcoba\u00e7a mit Halt am gr\u00f6\u00dften Zisterzienserkloster des Landes, das Sie besuchen werden, fahren Sie an die Atlantikk\u00fcste. In Nazar\u00e9, dem buntesten der portugiesischen Fischerd\u00f6rfer, machen Sie wieder eine Pause, bevor Sie anschlie\u00dfend nach F\u00e1tima fahren, einer der wichtigsten Wallfahrtsorte der Katholiken. Nach einem Rundgang geht es zur\u00fcck nach Lissabon zum Hotel.",
+      "zusatz": ""
+    }
+  },
+  {
+    "model": "reisen.reisetage",
+    "pk": "4deb548a-2eb3-465b-b035-c97840fc6daf",
+    "fields": {
+      "reise_id": "a101ed63-fb23-4298-a1b1-ecf7f11aad2c",
+      "tagnummer": 2,
+      "titel": "Freizeit oder Funchal",
+      "beschreibung": "Der Tag steht zur freien Verf\u00fcgung. Bucher des Ausflugspaketes unternehmen eine Stadtrundfahrt durch Funchal mit Besuch der Markthalle mit ihrem pr\u00e4chtigen Angebot an exotischen Blumen und tropischen Fr\u00fcchten. In der Fischhalle k\u00f6nnen Sie das Angebot unz\u00e4hliger Fischsorten bewundern. Auch die Besichtigung der gr\u00f6\u00dften Stickerei der Insel steht auf dem Programm. Anschlie\u00dfend besuchen Sie den Botanischen Garten auf einer Anh\u00f6he am Stadtrand. Er bietet herrliche Aussichten \u00fcber die Bucht von Funchal. Zum Abschluss kosten Sie den lieblichen Madeira-Wein in der \u00e4ltesten Weinkellerei Funchals.",
+      "zusatz": ""
+    }
+  },
+  {
+    "model": "reisen.reisetage",
+    "pk": "4fb3ad8a-385e-4d80-83e6-66f7251537e4",
+    "fields": {
+      "reise_id": "e2fe3840-ee34-40a1-8fa4-a4a1deeb9825",
+      "tagnummer": 4,
+      "titel": "Freizeit in Lissabon - Flug Lissabon - Hamburg - R\u00fccktransfer",
+      "beschreibung": "Der Vormittag steht Ihnen zur freien Verf\u00fcgung. Eine Fahrt mit der historischen Stra\u00dfenbahn (verkehrt auf der Stra\u00dfenbahnlinie 28) ist ein touristisches Highlight, dass Sie sich nicht entgehen lassen sollten. Am Nachmittag Transfer zum Flughafen und R\u00fcckflug nach Hamburg, wo Sie am Flughafen der Bus zum R\u00fccktransfer nach Schwerin erwartet.",
+      "zusatz": ""
+    }
+  },
+  {
+    "model": "reisen.reisetage",
+    "pk": "515502ed-01d1-46aa-819d-64852c2531f3",
+    "fields": {
+      "reise_id": "62a515bc-cdea-46aa-bccf-d8e065799ad9",
+      "tagnummer": 3,
+      "titel": "Freizeit oder Ausflug \"Sintra - Cabo da Roca - Estoril\"",
+      "beschreibung": "Der Tag steht zur freien Verf\u00fcgung. Bucher des Ausflugspaketes fahren heute zu den K\u00f6nigspal\u00e4sten. Einen ersten Stopp machen Sie in Queluz. Hier besichtigen Sie den K\u00f6nigspalast und fahren anschlie\u00dfend weiter nach Sintra. Sintra war einst die Sommerresidenz der portugiesischen Monarchen. Nach der Mittagspause geht es weiter bis nach Cabo Roca \u2013 hier befindet sich der westlichste Punkt Europas. Entlang der K\u00fcstenstra\u00dfe fahren Sie anschlie\u00dfend \u00fcber Estoril, ein bekannter Badeort ca. 25 km westlich von Lissabon, zur\u00fcck zum Hotel.",
+      "zusatz": ""
+    }
+  },
+  {
+    "model": "reisen.reisetage",
+    "pk": "59e3df71-057e-4a8b-b84f-3d015fe17693",
+    "fields": {
+      "reise_id": "0045c009-4972-4a9e-bfd0-dd3bca286aff",
+      "tagnummer": 1,
+      "titel": "Anreise \u00b7 Rothenburg o.d.Tauber",
+      "beschreibung": "Anreise nach Rothenburg zum Hotel, das sich vor dem \u201eGalgentor\u201c der historischen Altstadt befindet. Am Abend erwartet Sie der Rothenburger Nachtw\u00e4chter zu einem Spaziergang durch das mittelalterliche Rothenburg mit pr\u00e4chtigen Patrizierh\u00e4usern, verwinkelten Gassen und einer bestens erhaltenen Stadtmauer. Lassen Sie sich dabei in die Vergangenheit zur\u00fcckversetzen.",
+      "zusatz": ""
+    }
+  },
+  {
+    "model": "reisen.reisetage",
+    "pk": "62480918-392c-4137-acfe-ea499c3a5f50",
+    "fields": {
+      "reise_id": "95031968-f9f8-46b6-baa9-94f1438806c0",
+      "tagnummer": 2,
+      "titel": "Fichtelberg \u00b7 Annaberg \u00b7 Heiligabend",
+      "beschreibung": "Nach einem Abstecher auf den Fichtelberg geht die heutige Reise in die heimliche Hauptstadt des Erzgebirges, nach Annaberg-Buchholz. Nach einem gef\u00fchrten Stadtrundgang bleibt Zeit zum Bummeln durch die vielen Volkskunststuben. Freuen Sie sich nach der R\u00fcckankunft im Hotel auf einen musikalischen Weihnachtsnachmittag mit dem traditionellen Bleigie\u00dfen, Kaffee und Stollen, Weihnachtsgeschichten, Weihnachtsengel sowie kleinem Weihnachtsgeschenk. Zum Abendessen serviert man Ihnen das traditionelle erzgebirgische \u201eNeiner-laa\u201c.",
+      "zusatz": ""
+    }
+  },
+  {
+    "model": "reisen.reisetage",
+    "pk": "65da01ef-1b3e-4850-b979-c7dcd372c05d",
+    "fields": {
+      "reise_id": "edd20d5d-717f-456c-97c0-c736d08bca90",
+      "tagnummer": 1,
+      "titel": "Anreise Matrei",
+      "beschreibung": "Anreise nach Matrei am Brenner zum Hotel \u201eStolz\u201c.",
+      "zusatz": ""
+    }
+  },
+  {
+    "model": "reisen.reisetage",
+    "pk": "66bc793c-f6d2-4201-8882-063389f823e0",
+    "fields": {
+      "reise_id": "95031968-f9f8-46b6-baa9-94f1438806c0",
+      "tagnummer": 3,
+      "titel": "\"Zwischen Fr\u00fchst\u00fcck und G\u00e4nsebraten\"",
+      "beschreibung": "Ein musikalischer Fr\u00fchschoppen \"zwischen Fr\u00fchst\u00fcck und G\u00e4nsebraten\" erwartet Sie am heutigen 1. Weihnachtstag. Zum Mittagessen kredenzt der K\u00fcchenchef Gans mit Rotkraut und gr\u00fcnen Kl\u00f6\u00dfen. Der Nachmittag steht f\u00fcr eigene Entdeckungen zur Verf\u00fcgung. Der Tag klingt mit einem \"Gutguschn\u201c - Essen und Weihnachtstanz im Hotel aus.",
+      "zusatz": ""
+    }
+  },
+  {
+    "model": "reisen.reisetage",
+    "pk": "7f28cd81-b8cb-45a7-9967-3efd06ce0094",
+    "fields": {
+      "reise_id": "38695224-05a8-4858-945f-356a24f557a7",
+      "tagnummer": 3,
+      "titel": "Freizeit \u00b7 R\u00fcckreise",
+      "beschreibung": "Bis zur F\u00e4hrabfahrt 16:30 Uhr haben Sie Freizeit. Am Nachmittag geht es mit dem Katamaran bis nach Hamburg. Hier erwartet Sie\r\nunser Bus zur Heimreise.",
+      "zusatz": ""
+    }
+  },
+  {
+    "model": "reisen.reisetage",
+    "pk": "812fbf91-5965-47ae-8004-e69fa2de8f93",
+    "fields": {
+      "reise_id": "edd20d5d-717f-456c-97c0-c736d08bca90",
+      "tagnummer": 2,
+      "titel": "Matrei individuell",
+      "beschreibung": "Nutzen Sie die Zeit f\u00fcr aktiven Wintersport, zum Skilaufen und Schlittenfahren oder zu erholsamen Wanderungen durch die Winterlandschaft. Sie haben auch die M\u00f6glichkeit gegen einen Aufpreis am Ausflugsprogramm vor Ort teilzunehmen.",
+      "zusatz": ""
+    }
+  },
+  {
+    "model": "reisen.reisetage",
+    "pk": "9b115f0c-2ce1-4c4e-94a5-f98cc49c5094",
+    "fields": {
+      "reise_id": "0045c009-4972-4a9e-bfd0-dd3bca286aff",
+      "tagnummer": 2,
+      "titel": "\"Liebliches Taubertal\"",
+      "beschreibung": "Eine Tagesfahrt mit Reiseleiter ins Taubertal erwartet Sie. Dabei besuchen Sie in Creglingen die Herrgottskirche mit dem ber\u00fchmten Marien- Altar von Tilman Riemenschneider. Im tauberfr\u00e4nkischen Weikersheim lernen Sie die historische Altstadt mit dem prunkvollen Renaissanceschloss kennen. Nach einer Mittagspause geht es dann nach Bad Mergentheim und nach einem kleinen Rundgang durch den beliebten Kurort fahren Sie durch das Jagsttal und die Hohenloher Ebene zur\u00fcck nach Rothenburg. Der Tag klingt in gem\u00fctlicher Runde mit einem Tanzabend im Hotel aus.",
+      "zusatz": ""
+    }
+  },
+  {
+    "model": "reisen.reisetage",
+    "pk": "a4a8e50f-da81-417c-baa4-ee2914f76703",
+    "fields": {
+      "reise_id": "1972f5d7-95f4-4006-bf66-266c73209050",
+      "tagnummer": 1,
+      "titel": "",
+      "beschreibung": "13.00 Uhr Abfahrt Hbf. Schwerin, \r\n13.20 Uhr HST v. Stauffenberg Str.\r\n\r\n16.30 Uhr Beginn der Show \"3 Haseln\u00fcsse f\u00fcr Aschenbr\u00f6del - Das Kultm\u00e4rchen als Pferdeshow\" auf dem Klosterhof Medingen in Bad Bevensen. Zum einen wird in sch\u00f6nen Bildern das M\u00e4rchen \"3 Haseln\u00fcsse f\u00fcr Aschenbr\u00f6del\" erz\u00e4hlt, zum anderen erleben die Zuschauer  auch komische, spektakul\u00e4re und moderne Aktionen. Diese Inszenierung ist nicht nur eine Pferdeshow im herk\u00f6mmlichen Sinne. Der Erfolg der Produktion beruht auf dem gro\u00dfartigen Zusammenspiel eines wundervollen Teams aus Reitern, Schauspielern, Musikern, T\u00e4nzern und einer hochklassigen Technik-Crew. Es erwartet Sie eine einzigartige Produktion mit \u00fcber 60 Akteuren, 25 Pferden, Hunden und r Eule \"Rosalie\".",
+      "zusatz": ""
+    }
+  },
+  {
+    "model": "reisen.reisetage",
+    "pk": "a8850972-385e-4a89-b043-a87b913deab5",
+    "fields": {
+      "reise_id": "80bd657f-1f34-4f6a-8899-b8d7dfc33e09",
+      "tagnummer": 3,
+      "titel": "Freizeit \u00b7 R\u00fcckreise",
+      "beschreibung": "Bis zur F\u00e4hrabfahrt 16:30 Uhr haben Sie Freizeit. Am Nachmittag geht es mit dem Katamaran bis nach Hamburg. Hier erwartet Sie\r\nunser Bus zur Heimreise.",
+      "zusatz": ""
+    }
+  },
+  {
+    "model": "reisen.reisetage",
+    "pk": "ae905f30-0f61-439d-98e5-9ae855e2852b",
+    "fields": {
+      "reise_id": "0045c009-4972-4a9e-bfd0-dd3bca286aff",
+      "tagnummer": 4,
+      "titel": "R\u00fcckreise",
+      "beschreibung": "Am Morgen beginnt die Heimreise.",
+      "zusatz": ""
+    }
+  },
+  {
+    "model": "reisen.reisetage",
+    "pk": "b35c21e3-13e6-48ef-b33a-f90bd5d869b4",
+    "fields": {
+      "reise_id": "cf8cf7c5-70a2-4897-af05-91640217f043",
+      "tagnummer": 1,
+      "titel": "Transfer Flughafen - Flug Lissabon - Stadtbesichtigung",
+      "beschreibung": "Bustransfer zum Flughafen Hamburg und Flug nach Lisabon. Nach der Ankunft erwartet Sie eine halbt\u00e4gige Stadtf\u00fchrung. Zu den bedeutendsten Sehensw\u00fcrdigkeiten Lissabons z\u00e4hlen die Pra\u00e7a do Com\u00e9rcio als das Herz von Lissabon mit seinen geometrischen Stra\u00dfen, der Fluss Tejo, die bizarre Festung Torre de Bel\u00e9m, der Rossio und die Fassade des Klosters von Jer\u00f3nimos. Anschlie\u00dfend Transfer zum Hotel \u2013 genie\u00dfen Sie hier die atemberaubende Aussicht auf Lissabon und den Fluss Tejo.",
+      "zusatz": ""
+    }
+  },
+  {
+    "model": "reisen.reisetage",
+    "pk": "bc16d5e7-aa10-47f6-bcb2-09b58889a98f",
+    "fields": {
+      "reise_id": "62a515bc-cdea-46aa-bccf-d8e065799ad9",
+      "tagnummer": 1,
+      "titel": "Transfer Flughafen - Flug Lissabon - Stadtbesichtigung",
+      "beschreibung": "Bustransfer zum Flughafen Hamburg und Flug nach Lisabon. Nach der Ankunft erwartet Sie eine halbt\u00e4gige Stadtf\u00fchrung. Zu den bedeutendsten Sehensw\u00fcrdigkeiten Lissabons z\u00e4hlen die Pra\u00e7a do Com\u00e9rcio als das Herz von Lissabon mit seinen geometrischen Stra\u00dfen, der Fluss Tejo, die bizarre Festung Torre de Bel\u00e9m, der Rossio und die Fassade des Klosters von Jer\u00f3nimos. Anschlie\u00dfend Transfer zum Hotel \u2013 genie\u00dfen Sie hier die atemberaubende Aussicht auf Lissabon und den Fluss Tejo.",
+      "zusatz": ""
+    }
+  },
+  {
+    "model": "reisen.reisetage",
+    "pk": "c6fa3637-f350-43b6-a175-69fe053ba33c",
+    "fields": {
+      "reise_id": "c2a6db7f-76df-475d-a51d-b97707284896",
+      "tagnummer": 1,
+      "titel": "",
+      "beschreibung": "10.00 Uhr Abfahrt Hbf Schwerin\r\n10.20 Uhr HST v. Stauffenberg Str.\r\n\r\n13.00 Uhr Beginn der Show \u201eHoliday on Ice\u201c in der Rostocker Stadthalle.\r\nNach der ca. 2-st\u00fcndigen Vorstellung bleibt noch Zeit, um auf dem Rostocker Weihnachtsmarkt zu bummeln. Anschlie\u00dfend erfolgt der R\u00fccktransfer nach Schwerin.",
+      "zusatz": ""
+    }
+  },
+  {
+    "model": "reisen.reisetage",
+    "pk": "de652167-91fc-4a31-b478-03c82b7a6566",
+    "fields": {
+      "reise_id": "62a515bc-cdea-46aa-bccf-d8e065799ad9",
+      "tagnummer": 4,
+      "titel": "Freizeit in Lissabon - Flug Lissabon - Hamburg - R\u00fccktransfer",
+      "beschreibung": "Der Vormittag steht Ihnen zur freien Verf\u00fcgung. Eine Fahrt mit der historischen Stra\u00dfenbahn (verkehrt auf der Stra\u00dfenbahnlinie 28) ist ein touristisches Highlight, dass Sie sich nicht entgehen lassen sollten. Am Nachmittag Transfer zum Flughafen und R\u00fcckflug nach Hamburg, wo Sie am Flughafen der Bus zum R\u00fccktransfer nach Schwerin erwartet.",
+      "zusatz": ""
+    }
+  },
+  {
+    "model": "reisen.reisetage",
+    "pk": "df5161e6-ddb8-4dab-b72a-6684992dbd68",
+    "fields": {
+      "reise_id": "80bd657f-1f34-4f6a-8899-b8d7dfc33e09",
+      "tagnummer": 1,
+      "titel": "Anreise \u00b7 Hamburg \u00b7 Helgoland",
+      "beschreibung": "Anreise nach Hamburg zur F\u00e4hr\u00fcberfahrt auf die Insel Helgoland. Bei Ankunft auf der Insel erfolgt der Gep\u00e4cktransfer zum Hotel und Sie erwartet ein Reiseleiter, der Ihnen bei einem gef\u00fchrten Inselrundgang Helgoland n\u00e4her bringt. Er begleitet Sie anschlie\u00dfend zu Ihrem gebuchten Hotel.",
+      "zusatz": ""
+    }
+  },
+  {
+    "model": "reisen.reisetage",
+    "pk": "eaff49bc-5fc2-4d39-af32-1360e86f1c58",
+    "fields": {
+      "reise_id": "edd20d5d-717f-456c-97c0-c736d08bca90",
+      "tagnummer": 7,
+      "titel": "R\u00fcckreise",
+      "beschreibung": "Nach dem Fr\u00fchst\u00fcck beginnt die Heimreise.",
+      "zusatz": ""
+    }
+  },
+  {
+    "model": "reisen.reisetage",
+    "pk": "f09b6bc5-0551-4418-a387-a41e5671a396",
+    "fields": {
+      "reise_id": "95031968-f9f8-46b6-baa9-94f1438806c0",
+      "tagnummer": 4,
+      "titel": "Auf Entdeckungsreise im geheimnisvollen Teil des Erzgebirges",
+      "beschreibung": "Rauchende Meiler, flinke Sticker, leuchtende Schwibb\u00f6gen, das Maskottchen \u201eWurzelrudi\u201c und traumhafte Aussichten erwarten Sie heute. Mit einer Reiseleitung entdecken Sie die Bergstadt Eibenstock und besuchen die gr\u00f6\u00dfte deutsche Stickereischauwerkstatt. Der Nachmittag f\u00fchrt nach Schneebergin das \u201eSilberne Herz Sachsens\u201c. Sie h\u00f6ren die Geschichte vom Brotm\u00e4nnelhaus, k\u00f6nnen die m\u00e4chtige Kirche bestaunen und haben die M\u00f6glichkeit, das Museum f\u00fcr bergm\u00e4nnische Volkskunst zu besuchen. (Eintritt exklusive). Zur\u00fcck nach Oberwiesenthal erwartet Sie eine romantische Lichterfahrt.",
+      "zusatz": ""
+    }
+  },
+  {
+    "model": "reisen.reisetage",
+    "pk": "f11b3ed7-cb56-49cb-85c7-e86fd53bb4d9",
+    "fields": {
+      "reise_id": "e2fe3840-ee34-40a1-8fa4-a4a1deeb9825",
+      "tagnummer": 3,
+      "titel": "Freizeit oder Ausflug \"Sintra - Cabo da Roca - Estoril\"",
+      "beschreibung": "Der Tag steht zur freien Verf\u00fcgung. Bucher des Ausflugspaketes fahren heute zu den K\u00f6nigspal\u00e4sten. Einen ersten Stopp machen Sie in Queluz. Hier besichtigen Sie den K\u00f6nigspalast und fahren anschlie\u00dfend weiter nach Sintra. Sintra war einst die Sommerresidenz der portugiesischen Monarchen. Nach der Mittagspause geht es weiter bis nach Cabo Roca \u2013 hier befindet sich der westlichste Punkt Europas. Entlang der K\u00fcstenstra\u00dfe fahren Sie anschlie\u00dfend \u00fcber Estoril, ein bekannter Badeort ca. 25 km westlich von Lissabon, zur\u00fcck zum Hotel.",
+      "zusatz": ""
+    }
+  },
+  {
+    "model": "reisen.reisetage",
+    "pk": "f18dff15-adc9-4bcf-995f-96f235625563",
+    "fields": {
+      "reise_id": "80bd657f-1f34-4f6a-8899-b8d7dfc33e09",
+      "tagnummer": 2,
+      "titel": "Helgoland individuell",
+      "beschreibung": "Genie\u00dfen Sie Helgoland und erkunden Sie die Insel auf eigene Faust. Vielleicht machen Sie einen Spaziergang zum Lummenfelsen oder erleben Sie die Helgol\u00e4nder Geschichte, Natur und Kultur auf den Themenwegen der Insel.",
+      "zusatz": "Tipp: Ausflug auf die D\u00fcneninsel. Die vorgelagerte D\u00fcne ist ein Paradies f\u00fcr Sonnenhungrige und Naturfreunde. An manchen Tagen tummeln sich hier bis zu 350 Seehunde und Kegelrobben am Strand. Die D\u00fcnenf\u00e4hre pendelt mehrmals t\u00e4glich zwischen der Hauptinsel und der D\u00fcne (Preis ca. 5,00 \u20ac)."
+    }
+  },
+  {
+    "model": "reisen.reisetage",
+    "pk": "f300bf1d-4681-43b7-9af0-1a0530b6424d",
+    "fields": {
+      "reise_id": "95031968-f9f8-46b6-baa9-94f1438806c0",
+      "tagnummer": 5,
+      "titel": "R\u00fcckreise",
+      "beschreibung": "Nach dem Fr\u00fchst\u00fcck beginnt die Heimreise.",
+      "zusatz": ""
+    }
+  },
+  {
+    "model": "reisen.reisetage",
+    "pk": "f39b8436-6538-4725-80af-1b4b934ab112",
+    "fields": {
+      "reise_id": "cf8cf7c5-70a2-4897-af05-91640217f043",
+      "tagnummer": 3,
+      "titel": "Freizeit oder Ausflug \"Sintra - Cabo da Roca - Estoril\"",
+      "beschreibung": "Der Tag steht zur freien Verf\u00fcgung. Bucher des Ausflugspaketes fahren heute zu den K\u00f6nigspal\u00e4sten. Einen ersten Stopp machen Sie in Queluz. Hier besichtigen Sie den K\u00f6nigspalast und fahren anschlie\u00dfend weiter nach Sintra. Sintra war einst die Sommerresidenz der portugiesischen Monarchen. Nach der Mittagspause geht es weiter bis nach Cabo Roca \u2013 hier befindet sich der westlichste Punkt Europas. Entlang der K\u00fcstenstra\u00dfe fahren Sie anschlie\u00dfend \u00fcber Estoril, ein bekannter Badeort ca. 25 km westlich von Lissabon, zur\u00fcck zum Hotel.",
+      "zusatz": ""
+    }
+  },
+  {
+    "model": "reisen.reisetage",
+    "pk": "fb559d7c-a4cf-437a-89a2-4d635003549a",
+    "fields": {
+      "reise_id": "a101ed63-fb23-4298-a1b1-ecf7f11aad2c",
+      "tagnummer": 1,
+      "titel": "Transfer Flughafen \u00b7 Flug Funchal",
+      "beschreibung": "Bustransfer zum Flughafen und Flug nach Funchal. Transfer zum Hotel.",
+      "zusatz": ""
+    }
+  },
+  {
+    "model": "reisen.reisetermine",
+    "pk": "004118c6-a319-4426-9486-6cf5f9c4957e",
+    "fields": {
+      "reise_id": "6b36ca58-5024-4fa5-ad0e-41cc80d61a9e",
+      "markierung": "",
+      "kommentar": "",
+      "datum_beginn": "2016-12-30",
+      "datum_ende": "2017-01-02"
+    }
+  },
+  {
+    "model": "reisen.reisetermine",
+    "pk": "044d4adc-5967-44e0-a08e-03b8c95f1402",
+    "fields": {
+      "reise_id": "3af12d23-d4af-418b-9c67-02451ac6771e",
+      "markierung": "",
+      "kommentar": "",
+      "datum_beginn": "2017-01-24",
+      "datum_ende": null
+    }
+  },
+  {
+    "model": "reisen.reisetermine",
+    "pk": "15f3519e-19bf-46b7-95ad-7bbeea25be18",
+    "fields": {
+      "reise_id": "80bd657f-1f34-4f6a-8899-b8d7dfc33e09",
+      "markierung": "",
+      "kommentar": "",
+      "datum_beginn": "2016-05-31",
+      "datum_ende": "2016-06-02"
+    }
+  },
+  {
+    "model": "reisen.reisetermine",
+    "pk": "1bc2a8f3-2793-44db-9580-17f222eec0a1",
+    "fields": {
+      "reise_id": "3af12d23-d4af-418b-9c67-02451ac6771e",
+      "markierung": "",
+      "kommentar": "",
+      "datum_beginn": "2017-01-27",
+      "datum_ende": null
+    }
+  },
+  {
+    "model": "reisen.reisetermine",
+    "pk": "1ebf986e-0eb8-4acf-aab9-89974c5832a4",
+    "fields": {
+      "reise_id": "3af12d23-d4af-418b-9c67-02451ac6771e",
+      "markierung": "",
+      "kommentar": "",
+      "datum_beginn": "2017-01-26",
+      "datum_ende": null
+    }
+  },
+  {
+    "model": "reisen.reisetermine",
+    "pk": "2439f590-5af0-430e-b8cc-7c6667c36165",
+    "fields": {
+      "reise_id": "edd20d5d-717f-456c-97c0-c736d08bca90",
+      "markierung": "",
+      "kommentar": "",
+      "datum_beginn": "2016-01-31",
+      "datum_ende": "2016-02-06"
+    }
+  },
+  {
+    "model": "reisen.reisetermine",
+    "pk": "2f3f7f16-24a4-4212-af26-8eedbad5bdbb",
+    "fields": {
+      "reise_id": "45abcde0-cf1b-41c2-a003-ebbad2759218",
+      "markierung": "",
+      "kommentar": "",
+      "datum_beginn": "2016-11-24",
+      "datum_ende": "2016-11-27"
+    }
+  },
+  {
+    "model": "reisen.reisetermine",
+    "pk": "367cda5b-c12d-4341-8556-fdb19f8d8bc3",
+    "fields": {
+      "reise_id": "c3b8cb8e-780e-421a-8624-6a9e764bb15b",
+      "markierung": "",
+      "kommentar": "",
+      "datum_beginn": "2016-11-17",
+      "datum_ende": "2016-11-20"
+    }
+  },
+  {
+    "model": "reisen.reisetermine",
+    "pk": "43f79edc-088e-4ae2-aae3-895dfd97a81a",
+    "fields": {
+      "reise_id": "012482ee-180b-4ed4-87e1-f7870290012a",
+      "markierung": "",
+      "kommentar": "",
+      "datum_beginn": "2016-12-23",
+      "datum_ende": "2016-12-27"
+    }
+  },
+  {
+    "model": "reisen.reisetermine",
+    "pk": "50666dba-2cf2-46c2-9786-d9e6a9c0faab",
+    "fields": {
+      "reise_id": "3af12d23-d4af-418b-9c67-02451ac6771e",
+      "markierung": "",
+      "kommentar": "",
+      "datum_beginn": "2017-01-28",
+      "datum_ende": null
+    }
+  },
+  {
+    "model": "reisen.reisetermine",
+    "pk": "595efa54-b2e3-4287-9cb0-b313b6a077c8",
+    "fields": {
+      "reise_id": "3af12d23-d4af-418b-9c67-02451ac6771e",
+      "markierung": "",
+      "kommentar": "",
+      "datum_beginn": "2017-01-21",
+      "datum_ende": null
+    }
+  },
+  {
+    "model": "reisen.reisetermine",
+    "pk": "5eb5f8f1-4a6e-4cfd-9f4d-c1afdf51a7c3",
+    "fields": {
+      "reise_id": "1972f5d7-95f4-4006-bf66-266c73209050",
+      "markierung": "",
+      "kommentar": "",
+      "datum_beginn": "2015-11-29",
+      "datum_ende": null
+    }
+  },
+  {
+    "model": "reisen.reisetermine",
+    "pk": "606b86f6-b8ea-44d7-b19b-62fca8d6a4aa",
+    "fields": {
+      "reise_id": "9fc34808-d2b7-4e5b-8de4-0d18093754ca",
+      "markierung": "",
+      "kommentar": "",
+      "datum_beginn": "2016-12-23",
+      "datum_ende": "2017-01-02"
+    }
+  },
+  {
+    "model": "reisen.reisetermine",
+    "pk": "61803e37-cad9-4cce-85a1-d65531373ec6",
+    "fields": {
+      "reise_id": "62a515bc-cdea-46aa-bccf-d8e065799ad9",
+      "markierung": "",
+      "kommentar": "",
+      "datum_beginn": "2016-03-25",
+      "datum_ende": "2016-03-28"
+    }
+  },
+  {
+    "model": "reisen.reisetermine",
+    "pk": "65dcb8ca-bb0a-497c-aec5-7f485499fe19",
+    "fields": {
+      "reise_id": "0045c009-4972-4a9e-bfd0-dd3bca286aff",
+      "markierung": "",
+      "kommentar": "",
+      "datum_beginn": "2016-03-10",
+      "datum_ende": "2016-03-13"
+    }
+  },
+  {
+    "model": "reisen.reisetermine",
+    "pk": "716bc40b-c2ef-4a46-953c-acd027e6de6c",
+    "fields": {
+      "reise_id": "3af12d23-d4af-418b-9c67-02451ac6771e",
+      "markierung": "",
+      "kommentar": "",
+      "datum_beginn": "2017-01-29",
+      "datum_ende": null
+    }
+  },
+  {
+    "model": "reisen.reisetermine",
+    "pk": "7b720cdb-a5b7-438c-8182-2b721f1453ef",
+    "fields": {
+      "reise_id": "3af12d23-d4af-418b-9c67-02451ac6771e",
+      "markierung": "",
+      "kommentar": "",
+      "datum_beginn": "2017-01-25",
+      "datum_ende": null
+    }
+  },
+  {
+    "model": "reisen.reisetermine",
+    "pk": "840c5a04-3e29-41e0-89e8-2c85c2044866",
+    "fields": {
+      "reise_id": "febd2949-829b-4d03-aafd-0309c3a65558",
+      "markierung": "",
+      "kommentar": "",
+      "datum_beginn": "2016-12-23",
+      "datum_ende": "2016-12-27"
+    }
+  },
+  {
+    "model": "reisen.reisetermine",
+    "pk": "878e4b27-2f9a-4e35-8544-bff69410b3e3",
+    "fields": {
+      "reise_id": "95031968-f9f8-46b6-baa9-94f1438806c0",
+      "markierung": "",
+      "kommentar": "",
+      "datum_beginn": "2015-12-23",
+      "datum_ende": "2015-12-27"
+    }
+  },
+  {
+    "model": "reisen.reisetermine",
+    "pk": "8ae3065c-ff7a-44c4-952c-aa5b84148f81",
+    "fields": {
+      "reise_id": "b511423f-c637-4531-95de-002feffe7e79",
+      "markierung": "",
+      "kommentar": "",
+      "datum_beginn": "2016-12-28",
+      "datum_ende": "2017-01-02"
+    }
+  },
+  {
+    "model": "reisen.reisetermine",
+    "pk": "938f00ef-4c31-430f-93bc-a124e83b315d",
+    "fields": {
+      "reise_id": "ad6934b6-6857-4075-9504-6d9b7ef3e318",
+      "markierung": "",
+      "kommentar": "",
+      "datum_beginn": "2016-03-25",
+      "datum_ende": "2016-03-28"
+    }
+  },
+  {
+    "model": "reisen.reisetermine",
+    "pk": "99cf93a1-1ac6-498f-8363-b6d1b2838f2e",
+    "fields": {
+      "reise_id": "1210aa45-8e79-4204-b81e-5327fc00deb3",
+      "markierung": "",
+      "kommentar": "",
+      "datum_beginn": "2016-12-30",
+      "datum_ende": "2017-01-02"
+    }
+  },
+  {
+    "model": "reisen.reisetermine",
+    "pk": "9a4a91e7-8c14-4037-b85b-dc178d994bcd",
+    "fields": {
+      "reise_id": "7139f686-2f25-40b3-8699-01881454508c",
+      "markierung": "",
+      "kommentar": "",
+      "datum_beginn": "2016-12-02",
+      "datum_ende": "2016-12-04"
+    }
+  },
+  {
+    "model": "reisen.reisetermine",
+    "pk": "a4698b85-1a27-4614-b3e2-deb62b43ec83",
+    "fields": {
+      "reise_id": "c2a6db7f-76df-475d-a51d-b97707284896",
+      "markierung": "",
+      "kommentar": "",
+      "datum_beginn": "2015-12-05",
+      "datum_ende": null
+    }
+  },
+  {
+    "model": "reisen.reisetermine",
+    "pk": "a6a2c534-4070-4c6a-baab-dc4e979becbf",
+    "fields": {
+      "reise_id": "c91bfed2-e259-4c15-b125-a3accf51c471",
+      "markierung": "",
+      "kommentar": "",
+      "datum_beginn": "2016-12-29",
+      "datum_ende": "2017-01-02"
+    }
+  },
+  {
+    "model": "reisen.reisetermine",
+    "pk": "b89109a0-6fd0-4d28-86fb-8be7f6a09ae3",
+    "fields": {
+      "reise_id": "3af12d23-d4af-418b-9c67-02451ac6771e",
+      "markierung": "",
+      "kommentar": "",
+      "datum_beginn": "2017-01-22",
+      "datum_ende": null
+    }
+  },
+  {
+    "model": "reisen.reisetermine",
+    "pk": "c0c8db0d-fd2f-4a4d-bc6e-fdd7766fcca2",
+    "fields": {
+      "reise_id": "e2fe3840-ee34-40a1-8fa4-a4a1deeb9825",
+      "markierung": "**",
+      "kommentar": "REISETERMINKOMMENTAR",
+      "datum_beginn": "2016-06-14",
+      "datum_ende": "2016-06-18"
+    }
+  },
+  {
+    "model": "reisen.reisetermine",
+    "pk": "c0fc6e18-93c3-47b8-850f-e839583868fe",
+    "fields": {
+      "reise_id": "e2fe3840-ee34-40a1-8fa4-a4a1deeb9825",
+      "markierung": "*",
+      "kommentar": "REISETERMINKOMMENTAR",
+      "datum_beginn": "2016-03-25",
+      "datum_ende": "2016-03-28"
+    }
+  },
+  {
+    "model": "reisen.reisetermine",
+    "pk": "c22ca64f-0f4a-474a-bf7f-b7731aa482f2",
+    "fields": {
+      "reise_id": "07e14950-1215-42c3-9f59-7e393a1ccbd8",
+      "markierung": "",
+      "kommentar": "",
+      "datum_beginn": "2016-12-30",
+      "datum_ende": "2017-01-02"
+    }
+  },
+  {
+    "model": "reisen.reisetermine",
+    "pk": "d4992b61-f4b8-4b99-b206-524eefa210af",
+    "fields": {
+      "reise_id": "cf8cf7c5-70a2-4897-af05-91640217f043",
+      "markierung": "",
+      "kommentar": "",
+      "datum_beginn": "2016-03-25",
+      "datum_ende": "2016-03-28"
+    }
+  },
+  {
+    "model": "reisen.reisetermine",
+    "pk": "d57b511d-6964-4c30-9958-e336c1449dfd",
+    "fields": {
+      "reise_id": "ee751131-36e9-4fa5-bcc0-420e5987eadb",
+      "markierung": "",
+      "kommentar": "",
+      "datum_beginn": "2017-02-16",
+      "datum_ende": "2017-02-19"
+    }
+  },
+  {
+    "model": "reisen.reisetermine",
+    "pk": "db367ea0-425e-421a-aa90-4990e221855f",
+    "fields": {
+      "reise_id": "3af12d23-d4af-418b-9c67-02451ac6771e",
+      "markierung": "",
+      "kommentar": "",
+      "datum_beginn": "2017-01-20",
+      "datum_ende": null
+    }
+  },
+  {
+    "model": "reisen.reisetermine",
+    "pk": "dce4ec63-cc7e-473b-9a75-55497d76943f",
+    "fields": {
+      "reise_id": "c09cf204-0482-4d4f-a817-54ecf09bfa97",
+      "markierung": "",
+      "kommentar": "",
+      "datum_beginn": "2016-12-02",
+      "datum_ende": "2016-12-04"
+    }
+  },
+  {
+    "model": "reisen.reisetermine",
+    "pk": "ffd6c052-6d6d-4772-bdbe-5a99b51da5f4",
+    "fields": {
+      "reise_id": "3af12d23-d4af-418b-9c67-02451ac6771e",
+      "markierung": "",
+      "kommentar": "",
+      "datum_beginn": "2017-01-23",
+      "datum_ende": null
+    }
+  },
+  {
+    "model": "reisen.leistungenreise",
+    "pk": "0364c0cc-2012-43ff-9393-6db6361f8334",
+    "fields": {
+      "reise_id": "cf8cf7c5-70a2-4897-af05-91640217f043",
+      "leistung": "Bustransfer bis/ab Flughafen Hamburg",
+      "position": 0
+    }
+  },
+  {
+    "model": "reisen.leistungenreise",
+    "pk": "049539ef-8f26-422a-b250-130961a8a0a1",
+    "fields": {
+      "reise_id": "cf8cf7c5-70a2-4897-af05-91640217f043",
+      "leistung": "Transfer Flughafen - Hotel - Flughafen inkl. Transferassistenz",
+      "position": 3
+    }
+  },
+  {
+    "model": "reisen.leistungenreise",
+    "pk": "077a1dfd-352e-4393-a976-2b26f3ae41bd",
+    "fields": {
+      "reise_id": "e2fe3840-ee34-40a1-8fa4-a4a1deeb9825",
+      "leistung": "Bustransfer bis/ab Flughafen Hamburg",
+      "position": 1
+    }
+  },
+  {
+    "model": "reisen.leistungenreise",
+    "pk": "09f8771b-8d7b-4ed1-b605-3ad73a180255",
+    "fields": {
+      "reise_id": "62a515bc-cdea-46aa-bccf-d8e065799ad9",
+      "leistung": "Mini-Reisef\u00fchrer pro gebuchtes Zimmer",
+      "position": 7
+    }
+  },
+  {
+    "model": "reisen.leistungenreise",
+    "pk": "0bedbca1-e030-40d8-a170-d1097655a6ed",
+    "fields": {
+      "reise_id": "ad6934b6-6857-4075-9504-6d9b7ef3e318",
+      "leistung": "Flughafen-Sicherheitsgeb\u00fchren (Stand April 2015)",
+      "position": 2
+    }
+  },
+  {
+    "model": "reisen.leistungenreise",
+    "pk": "0db3a23e-cdc6-4e53-9166-68fb5898e5a3",
+    "fields": {
+      "reise_id": "80bd657f-1f34-4f6a-8899-b8d7dfc33e09",
+      "leistung": "2 \u00dcbernachtungen/Fr\u00fchst\u00fccksb\u00fcffet im gebuchten Hotel auf Helgoland im DZ mit Du/WC",
+      "position": 1
+    }
+  },
+  {
+    "model": "reisen.leistungenreise",
+    "pk": "0df03d0e-4773-4f50-9e80-ce397cef2208",
+    "fields": {
+      "reise_id": "e2fe3840-ee34-40a1-8fa4-a4a1deeb9825",
+      "leistung": "Flughafen-Sicherheitsgeb\u00fchren (Stand April 2015)",
+      "position": 3
+    }
+  },
+  {
+    "model": "reisen.leistungenreise",
+    "pk": "0e278882-bb71-42e6-8185-e6247ec1f228",
+    "fields": {
+      "reise_id": "ad6934b6-6857-4075-9504-6d9b7ef3e318",
+      "leistung": "Flug Hamburg \u2013 Lissabon \u2013 Hamburg",
+      "position": 1
+    }
+  },
+  {
+    "model": "reisen.leistungenreise",
+    "pk": "1288cbb4-e40d-4d1c-b234-d0cfb3347fcd",
+    "fields": {
+      "reise_id": "c2a6db7f-76df-475d-a51d-b97707284896",
+      "leistung": "Eintrittskarte Eistanzrevue  PK1",
+      "position": 1
+    }
+  },
+  {
+    "model": "reisen.leistungenreise",
+    "pk": "139f7429-0f3c-4c52-b46f-dd65465102f4",
+    "fields": {
+      "reise_id": "95031968-f9f8-46b6-baa9-94f1438806c0",
+      "leistung": "Gansessen zum Mittag am 1. Weihnachtstag",
+      "position": 4
+    }
+  },
+  {
+    "model": "reisen.leistungenreise",
+    "pk": "14f2a237-554f-449f-97c4-7b09bdc85882",
+    "fields": {
+      "reise_id": "80bd657f-1f34-4f6a-8899-b8d7dfc33e09",
+      "leistung": "F\u00e4hr\u00fcberfahrt mit dem Katamaran Hamburg \u2013 Helgoland \u2013 Hamburg",
+      "position": 3
+    }
+  },
+  {
+    "model": "reisen.leistungenreise",
+    "pk": "1960f5e3-2db6-437e-bb91-0a232685ed47",
+    "fields": {
+      "reise_id": "80bd657f-1f34-4f6a-8899-b8d7dfc33e09",
+      "leistung": "Busfahrt bis/ab Hamburg",
+      "position": 0
+    }
+  },
+  {
+    "model": "reisen.leistungenreise",
+    "pk": "19b1390a-0b10-4dc5-b816-18eaf6886f61",
+    "fields": {
+      "reise_id": "62a515bc-cdea-46aa-bccf-d8e065799ad9",
+      "leistung": "Flug Hamburg \u2013 Lissabon \u2013 Hamburg",
+      "position": 2
+    }
+  },
+  {
+    "model": "reisen.leistungenreise",
+    "pk": "1e7ec250-13ba-49bb-9a3b-00412c849341",
+    "fields": {
+      "reise_id": "95031968-f9f8-46b6-baa9-94f1438806c0",
+      "leistung": "\"Lichtl Men\u00fc\" am Anreisetag",
+      "position": 2
+    }
+  },
+  {
+    "model": "reisen.leistungenreise",
+    "pk": "2366357e-740a-4c1e-96ea-d11cd59fe579",
+    "fields": {
+      "reise_id": "95031968-f9f8-46b6-baa9-94f1438806c0",
+      "leistung": "erzgebirgisches \"Neinerlaa\"-Buffet am Heiligabend",
+      "position": 3
+    }
+  },
+  {
+    "model": "reisen.leistungenreise",
+    "pk": "238eef8e-a1af-4330-9231-bea1dd98f403",
+    "fields": {
+      "reise_id": "95031968-f9f8-46b6-baa9-94f1438806c0",
+      "leistung": "Eintritt und F\u00fchrung Stickereimuseum",
+      "position": 11
+    }
+  },
+  {
+    "model": "reisen.leistungenreise",
+    "pk": "23c2dd06-54c0-4c20-b152-88a2bfee8984",
+    "fields": {
+      "reise_id": "62a515bc-cdea-46aa-bccf-d8e065799ad9",
+      "leistung": "3 \u00dcbernachtungen/Fr\u00fchst\u00fcck im 4****Hotel Altis Park in Lissabon im DZ mit Du/WC",
+      "position": 5
+    }
+  },
+  {
+    "model": "reisen.leistungenreise",
+    "pk": "256b1bf5-11c5-43c3-90d0-a37676bcd82a",
+    "fields": {
+      "reise_id": "cf8cf7c5-70a2-4897-af05-91640217f043",
+      "leistung": "Flughafen-Sicherheitsgeb\u00fchren (Stand April 2015)",
+      "position": 2
+    }
+  },
+  {
+    "model": "reisen.leistungenreise",
+    "pk": "27ff1dc5-193a-4ae0-8724-574c874ce222",
+    "fields": {
+      "reise_id": "ad6934b6-6857-4075-9504-6d9b7ef3e318",
+      "leistung": "Bustransfer bis/ab Flughafen Hamburg",
+      "position": 0
+    }
+  },
+  {
+    "model": "reisen.leistungenreise",
+    "pk": "2877d9b2-e489-4ad2-bc46-c224b153c536",
+    "fields": {
+      "reise_id": "e2fe3840-ee34-40a1-8fa4-a4a1deeb9825",
+      "leistung": "Transfer Flughafen - Hotel - Flughafen inkl. Transferassistenz",
+      "position": 4
+    }
+  },
+  {
+    "model": "reisen.leistungenreise",
+    "pk": "2a5aa571-73b3-4927-b3ca-095c2c9b7d62",
+    "fields": {
+      "reise_id": "edd20d5d-717f-456c-97c0-c736d08bca90",
+      "leistung": "Fackelwanderung mit Gl\u00fchweintrinken",
+      "position": 8
+    }
+  },
+  {
+    "model": "reisen.leistungenreise",
+    "pk": "2a754e8b-cdb8-4908-9cf3-a1bc80896e1c",
+    "fields": {
+      "reise_id": "edd20d5d-717f-456c-97c0-c736d08bca90",
+      "leistung": "Musikabend im Hotel",
+      "position": 10
+    }
+  },
+  {
+    "model": "reisen.leistungenreise",
+    "pk": "2b036071-be88-40ab-b06d-e703a7a3f41c",
+    "fields": {
+      "reise_id": "e2fe3840-ee34-40a1-8fa4-a4a1deeb9825",
+      "leistung": "3 \u00dcbernachtungen/Fr\u00fchst\u00fcck im 4****Hotel Altis Park in Lissabon im DZ mit Du/WC",
+      "position": 5
+    }
+  },
+  {
+    "model": "reisen.leistungenreise",
+    "pk": "2d17cbd7-bc07-4f5f-9994-e0860c244d23",
+    "fields": {
+      "reise_id": "e2fe3840-ee34-40a1-8fa4-a4a1deeb9825",
+      "leistung": "Reisebegleitung ab/an Schwerin",
+      "position": 0
+    }
+  },
+  {
+    "model": "reisen.leistungenreise",
+    "pk": "2ec602ca-efad-45d1-b716-481fd7acdc68",
+    "fields": {
+      "reise_id": "edd20d5d-717f-456c-97c0-c736d08bca90",
+      "leistung": "Begr\u00fc\u00dfungsschnapserl",
+      "position": 6
+    }
+  },
+  {
+    "model": "reisen.leistungenreise",
+    "pk": "2f82a4b5-8951-419b-b478-41b0df905d20",
+    "fields": {
+      "reise_id": "ad6934b6-6857-4075-9504-6d9b7ef3e318",
+      "leistung": "Mini-Reisef\u00fchrer pro gebuchtes Zimmer",
+      "position": 6
+    }
+  },
+  {
+    "model": "reisen.leistungenreise",
+    "pk": "2fc1f75d-e58e-4ddd-89c1-38fc11a7eaeb",
+    "fields": {
+      "reise_id": "95031968-f9f8-46b6-baa9-94f1438806c0",
+      "leistung": "kostenlose W-Lan Nutzung im Hotel",
+      "position": 13
+    }
+  },
+  {
+    "model": "reisen.leistungenreise",
+    "pk": "32ddedb0-d84c-4676-9ba5-6aee73f6fd06",
+    "fields": {
+      "reise_id": "95031968-f9f8-46b6-baa9-94f1438806c0",
+      "leistung": "Besuch im Erlebnishof \"Zum Weihrichkarzl\"",
+      "position": 6
+    }
+  },
+  {
+    "model": "reisen.leistungenreise",
+    "pk": "3bc8e8ab-947e-4f85-aa56-b02b233b0b9a",
+    "fields": {
+      "reise_id": "e2fe3840-ee34-40a1-8fa4-a4a1deeb9825",
+      "leistung": "3-st\u00fcndige Stadtbesichtigung in Lissabon mit Reiseleitung",
+      "position": 6
+    }
+  },
+  {
+    "model": "reisen.leistungenreise",
+    "pk": "3bdcf313-118b-4252-833d-807058a0f689",
+    "fields": {
+      "reise_id": "c2a6db7f-76df-475d-a51d-b97707284896",
+      "leistung": "Bustransfer Schwerin - Rostock - Schwerin",
+      "position": 0
+    }
+  },
+  {
+    "model": "reisen.leistungenreise",
+    "pk": "3d1afed9-d840-40ed-be86-c0729becad2a",
+    "fields": {
+      "reise_id": "95031968-f9f8-46b6-baa9-94f1438806c0",
+      "leistung": "Fahrt im Reisebus",
+      "position": 0
+    }
+  },
+  {
+    "model": "reisen.leistungenreise",
+    "pk": "4467e1b2-f5f2-49a6-8d3d-c62b40689728",
+    "fields": {
+      "reise_id": "ad6934b6-6857-4075-9504-6d9b7ef3e318",
+      "leistung": "3 \u00dcbernachtungen/Fr\u00fchst\u00fcck im 4****Hotel Altis Park in Lissabon im DZ mit Du/WC",
+      "position": 4
+    }
+  },
+  {
+    "model": "reisen.leistungenreise",
+    "pk": "4746d085-7638-4445-a4ce-d5060208ce48",
+    "fields": {
+      "reise_id": "62a515bc-cdea-46aa-bccf-d8e065799ad9",
+      "leistung": "Flughafen-Sicherheitsgeb\u00fchren (Stand April 2015)",
+      "position": 3
+    }
+  },
+  {
+    "model": "reisen.leistungenreise",
+    "pk": "47abf958-f3a4-4462-89a9-6b7f72ef3d42",
+    "fields": {
+      "reise_id": "95031968-f9f8-46b6-baa9-94f1438806c0",
+      "leistung": "\"Gut guschn-Essen\" und Weihnachtstanz am 2. Weihnachtstag",
+      "position": 5
+    }
+  },
+  {
+    "model": "reisen.leistungenreise",
+    "pk": "49ec204d-907c-4972-a1ad-1db20d9159ad",
+    "fields": {
+      "reise_id": "38695224-05a8-4858-945f-356a24f557a7",
+      "leistung": "Gep\u00e4cktransfer ab F\u00e4hre auf Helgoland bis Hotel/ab Hotel bis F\u00e4hre",
+      "position": 4
+    }
+  },
+  {
+    "model": "reisen.leistungenreise",
+    "pk": "4fe9ddc5-c9d1-4a85-aa12-9e1681159bc7",
+    "fields": {
+      "reise_id": "95031968-f9f8-46b6-baa9-94f1438806c0",
+      "leistung": "Ausflug Westerzgebirge mit Reiseleitung",
+      "position": 10
+    }
+  },
+  {
+    "model": "reisen.leistungenreise",
+    "pk": "566c9b96-106c-4057-a7d8-af86942dc3b0",
+    "fields": {
+      "reise_id": "edd20d5d-717f-456c-97c0-c736d08bca90",
+      "leistung": "1 x Fondue Abend",
+      "position": 4
+    }
+  },
+  {
+    "model": "reisen.leistungenreise",
+    "pk": "5ef2abef-d2dd-457f-83f3-7cd4a608c08b",
+    "fields": {
+      "reise_id": "3df6d835-afa7-4224-b887-f39223ba735c",
+      "leistung": "qefwaef",
+      "position": 1
+    }
+  },
+  {
+    "model": "reisen.leistungenreise",
+    "pk": "60703029-d3fc-45af-90b3-b8fe61fc74f9",
+    "fields": {
+      "reise_id": "80bd657f-1f34-4f6a-8899-b8d7dfc33e09",
+      "leistung": "Inself\u00fchrung",
+      "position": 2
+    }
+  },
+  {
+    "model": "reisen.leistungenreise",
+    "pk": "6281a152-af8b-443e-9e1a-b6159f3c603f",
+    "fields": {
+      "reise_id": "0045c009-4972-4a9e-bfd0-dd3bca286aff",
+      "leistung": "abendlicher Spaziergang mit dem Rothenburger Nachtw\u00e4chter",
+      "position": 3
+    }
+  },
+  {
+    "model": "reisen.leistungenreise",
+    "pk": "65343005-c589-4526-a141-6fac9216fd8a",
+    "fields": {
+      "reise_id": "edd20d5d-717f-456c-97c0-c736d08bca90",
+      "leistung": "Freie Nutzung von Sauna und Dampfbad",
+      "position": 11
+    }
+  },
+  {
+    "model": "reisen.leistungenreise",
+    "pk": "6ae2422d-93ca-47b5-8ebf-59b7b5e0444d",
+    "fields": {
+      "reise_id": "cf8cf7c5-70a2-4897-af05-91640217f043",
+      "leistung": "Mini-Reisef\u00fchrer pro gebuchtes Zimmer",
+      "position": 6
+    }
+  },
+  {
+    "model": "reisen.leistungenreise",
+    "pk": "6cc3022b-35e7-4941-8bb2-f366f8a4b31c",
+    "fields": {
+      "reise_id": "edd20d5d-717f-456c-97c0-c736d08bca90",
+      "leistung": "1 x Tiroler Spezialit\u00e4tenabendessen",
+      "position": 5
+    }
+  },
+  {
+    "model": "reisen.leistungenreise",
+    "pk": "708eeb7c-4a83-4d79-b276-57a1028f5c6a",
+    "fields": {
+      "reise_id": "95031968-f9f8-46b6-baa9-94f1438806c0",
+      "leistung": "musikalischer Fr\u00fchschoppen zwischen \"Fr\u00fchst\u00fcck und G\u00e4nsebraten\"",
+      "position": 9
+    }
+  },
+  {
+    "model": "reisen.leistungenreise",
+    "pk": "72153f61-f295-4403-a0b4-4a30a4829e14",
+    "fields": {
+      "reise_id": "1972f5d7-95f4-4006-bf66-266c73209050",
+      "leistung": "Bustransfer Schwerin - Bad Bevensen - Schwerin",
+      "position": 0
+    }
+  },
+  {
+    "model": "reisen.leistungenreise",
+    "pk": "76fec2ac-3e6f-4825-a17e-c18f77d32d18",
+    "fields": {
+      "reise_id": "38695224-05a8-4858-945f-356a24f557a7",
+      "leistung": "F\u00e4hr\u00fcberfahrt mit dem Katamaran Hamburg \u2013 Helgoland \u2013 Hamburg",
+      "position": 3
+    }
+  },
+  {
+    "model": "reisen.leistungenreise",
+    "pk": "7768ed2e-c175-4ba9-9776-813d3ee42a45",
+    "fields": {
+      "reise_id": "3df6d835-afa7-4224-b887-f39223ba735c",
+      "leistung": "asdasd",
+      "position": 0
+    }
+  },
+  {
+    "model": "reisen.leistungenreise",
+    "pk": "7926c0c6-36f5-409f-8afe-f3fad80d7095",
+    "fields": {
+      "reise_id": "1972f5d7-95f4-4006-bf66-266c73209050",
+      "leistung": "Eintrittskarte PK1",
+      "position": 1
+    }
+  },
+  {
+    "model": "reisen.leistungenreise",
+    "pk": "7b634f45-cb9e-45c0-9ece-6a740319bf84",
+    "fields": {
+      "reise_id": "0045c009-4972-4a9e-bfd0-dd3bca286aff",
+      "leistung": "Tanzabend im Hotel mit DJ oder Alleinunterhalter",
+      "position": 6
+    }
+  },
+  {
+    "model": "reisen.leistungenreise",
+    "pk": "7ea9b272-d8c7-4bdd-b212-07a81574a1a4",
+    "fields": {
+      "reise_id": "80bd657f-1f34-4f6a-8899-b8d7dfc33e09",
+      "leistung": "Gep\u00e4cktransfer ab F\u00e4hre auf Helgoland bis Hotel/ab Hotel bis F\u00e4hre",
+      "position": 4
+    }
+  },
+  {
+    "model": "reisen.leistungenreise",
+    "pk": "86b9d972-f62e-4a9a-b0e8-ae817124f02f",
+    "fields": {
+      "reise_id": "e2fe3840-ee34-40a1-8fa4-a4a1deeb9825",
+      "leistung": "Mini-Reisef\u00fchrer pro gebuchtes Zimmer",
+      "position": 7
+    }
+  },
+  {
+    "model": "reisen.leistungenreise",
+    "pk": "87a92dae-6341-4328-a5fc-62b45e2bef32",
+    "fields": {
+      "reise_id": "ad6934b6-6857-4075-9504-6d9b7ef3e318",
+      "leistung": "Transfer Flughafen - Hotel - Flughafen inkl. Transferassistenz",
+      "position": 3
+    }
+  },
+  {
+    "model": "reisen.leistungenreise",
+    "pk": "8cdec521-8ebb-4431-8ee6-9970df2c41f8",
+    "fields": {
+      "reise_id": "ad6934b6-6857-4075-9504-6d9b7ef3e318",
+      "leistung": "3-st\u00fcndige Stadtbesichtigung in Lissabon mit Reiseleitung",
+      "position": 5
+    }
+  },
+  {
+    "model": "reisen.leistungenreise",
+    "pk": "8f75273c-c02c-47d4-bb33-286a74e61f01",
+    "fields": {
+      "reise_id": "edd20d5d-717f-456c-97c0-c736d08bca90",
+      "leistung": "Filme \u00fcber das Wipptal",
+      "position": 7
+    }
+  },
+  {
+    "model": "reisen.leistungenreise",
+    "pk": "951fd518-2a57-4100-9a03-9a0a2a8229db",
+    "fields": {
+      "reise_id": "cf8cf7c5-70a2-4897-af05-91640217f043",
+      "leistung": "Flug Hamburg \u2013 Lissabon \u2013 Hamburg",
+      "position": 1
+    }
+  },
+  {
+    "model": "reisen.leistungenreise",
+    "pk": "9c336865-a14c-454c-a08b-b9561b7d4340",
+    "fields": {
+      "reise_id": "95031968-f9f8-46b6-baa9-94f1438806c0",
+      "leistung": "Kurtaxe",
+      "position": 14
+    }
+  },
+  {
+    "model": "reisen.leistungenreise",
+    "pk": "9eb180ad-04de-4881-acb6-15f1fecce6c7",
+    "fields": {
+      "reise_id": "95031968-f9f8-46b6-baa9-94f1438806c0",
+      "leistung": "4 \u00dcbernachtungen/Fr\u00fchst\u00fccksb\u00fcfett im \"Panorama Hotel Oberwiesenthal\" im DZ mit Du/WC, WLAN",
+      "position": 1
+    }
+  },
+  {
+    "model": "reisen.leistungenreise",
+    "pk": "a12bdcd4-8cf7-4184-91cf-579db5ea8cd8",
+    "fields": {
+      "reise_id": "95031968-f9f8-46b6-baa9-94f1438806c0",
+      "leistung": "Eintritt Hotel-Schwimmbad und Sauna inkl. Nutzung Leihbademantel",
+      "position": 12
+    }
+  },
+  {
+    "model": "reisen.leistungenreise",
+    "pk": "a2c2da89-54ea-4c16-b40f-82fbfcf0783f",
+    "fields": {
+      "reise_id": "0045c009-4972-4a9e-bfd0-dd3bca286aff",
+      "leistung": "Fahrt im Reisebus",
+      "position": 1
+    }
+  },
+  {
+    "model": "reisen.leistungenreise",
+    "pk": "a7253f9c-2d0d-42ca-a5ae-e39fc468689a",
+    "fields": {
+      "reise_id": "38695224-05a8-4858-945f-356a24f557a7",
+      "leistung": "2 \u00dcbernachtungen/Fr\u00fchst\u00fccksb\u00fcffet im gebuchten Hotel auf Helgoland im DZ mit Du/WC",
+      "position": 1
+    }
+  },
+  {
+    "model": "reisen.leistungenreise",
+    "pk": "a90a643d-125a-4fd8-8c92-f64dfeb5bd6e",
+    "fields": {
+      "reise_id": "edd20d5d-717f-456c-97c0-c736d08bca90",
+      "leistung": "3 x Wahlmen\u00fc mit Salatbuffet und Dessertwahl",
+      "position": 3
+    }
+  },
+  {
+    "model": "reisen.leistungenreise",
+    "pk": "aa8a96be-54f4-409a-918f-4738baf7f570",
+    "fields": {
+      "reise_id": "edd20d5d-717f-456c-97c0-c736d08bca90",
+      "leistung": "Bingo - Abend",
+      "position": 9
+    }
+  },
+  {
+    "model": "reisen.leistungenreise",
+    "pk": "adc21623-2e13-4717-88b4-c8d314b10724",
+    "fields": {
+      "reise_id": "38695224-05a8-4858-945f-356a24f557a7",
+      "leistung": "Kurtaxe",
+      "position": 5
+    }
+  },
+  {
+    "model": "reisen.leistungenreise",
+    "pk": "b187b27e-48a5-4728-a2d6-867cec32febc",
+    "fields": {
+      "reise_id": "cf8cf7c5-70a2-4897-af05-91640217f043",
+      "leistung": "Reisebegleitung ab/an Schwerin",
+      "position": 7
+    }
+  },
+  {
+    "model": "reisen.leistungenreise",
+    "pk": "b21937a0-9ac3-446a-9690-7b609876acc4",
+    "fields": {
+      "reise_id": "95031968-f9f8-46b6-baa9-94f1438806c0",
+      "leistung": "Ausflug nach Annaberg mit Stadtf\u00fchrung",
+      "position": 7
+    }
+  },
+  {
+    "model": "reisen.leistungenreise",
+    "pk": "bf582e24-902d-4091-8dec-8b20df4dc7b7",
+    "fields": {
+      "reise_id": "edd20d5d-717f-456c-97c0-c736d08bca90",
+      "leistung": "einheitliches A bendessen am 1. Tag",
+      "position": 2
+    }
+  },
+  {
+    "model": "reisen.leistungenreise",
+    "pk": "c3cfba3e-9cf8-43d1-89f0-f7014a3e9c72",
+    "fields": {
+      "reise_id": "0045c009-4972-4a9e-bfd0-dd3bca286aff",
+      "leistung": "Ausflug \"Romantische Strasse\" mit Reiseleitung",
+      "position": 5
+    }
+  },
+  {
+    "model": "reisen.leistungenreise",
+    "pk": "ced630df-2ff0-4b0a-a231-60e656df1308",
+    "fields": {
+      "reise_id": "cf8cf7c5-70a2-4897-af05-91640217f043",
+      "leistung": "3 \u00dcbernachtungen/Fr\u00fchst\u00fcck im 4****Hotel Altis Park in Lissabon im DZ mit Du/WC",
+      "position": 4
+    }
+  },
+  {
+    "model": "reisen.leistungenreise",
+    "pk": "cf206af5-3035-458d-9e6c-3e6f11076ccf",
+    "fields": {
+      "reise_id": "cf8cf7c5-70a2-4897-af05-91640217f043",
+      "leistung": "3-st\u00fcndige Stadtbesichtigung in Lissabon mit Reiseleitung",
+      "position": 5
+    }
+  },
+  {
+    "model": "reisen.leistungenreise",
+    "pk": "d0efab5e-13a8-4621-a91c-2988b032cbe3",
+    "fields": {
+      "reise_id": "62a515bc-cdea-46aa-bccf-d8e065799ad9",
+      "leistung": "Reisebegleitung ab/an Schwerin",
+      "position": 8
+    }
+  },
+  {
+    "model": "reisen.leistungenreise",
+    "pk": "d315df5a-bb61-40bc-ab69-9c734c886ca2",
+    "fields": {
+      "reise_id": "0045c009-4972-4a9e-bfd0-dd3bca286aff",
+      "leistung": "Ausflug \"Liebliches Taubertal\" mit Reiseleitung",
+      "position": 4
+    }
+  },
+  {
+    "model": "reisen.leistungenreise",
+    "pk": "d6c833b8-3f67-422b-bb4d-b49d07543acc",
+    "fields": {
+      "reise_id": "38695224-05a8-4858-945f-356a24f557a7",
+      "leistung": "Busfahrt bis/ab Hamburg",
+      "position": 0
+    }
+  },
+  {
+    "model": "reisen.leistungenreise",
+    "pk": "d85faf88-9e88-4816-bd59-9252aa4896a4",
+    "fields": {
+      "reise_id": "e2fe3840-ee34-40a1-8fa4-a4a1deeb9825",
+      "leistung": "Flug Hamburg \u2013 Lissabon \u2013 Hamburg",
+      "position": 2
+    }
+  },
+  {
+    "model": "reisen.leistungenreise",
+    "pk": "df591e1f-5e11-47fe-8f2a-718d7922fb60",
+    "fields": {
+      "reise_id": "62a515bc-cdea-46aa-bccf-d8e065799ad9",
+      "leistung": "Bustransfer bis/ab Flughafen Hamburg",
+      "position": 1
+    }
+  },
+  {
+    "model": "reisen.leistungenreise",
+    "pk": "e3450b5f-6ac6-4a73-8c98-c1889053f93d",
+    "fields": {
+      "reise_id": "95031968-f9f8-46b6-baa9-94f1438806c0",
+      "leistung": "musikalischer Weihnachtsnachmittag mit Bleigie\u00dfen, Kaffee und Stollen, Weihnachtsgeschenk",
+      "position": 8
+    }
+  },
+  {
+    "model": "reisen.leistungenreise",
+    "pk": "e7f28727-6621-4419-9a60-76d3a0a3bde4",
+    "fields": {
+      "reise_id": "edd20d5d-717f-456c-97c0-c736d08bca90",
+      "leistung": "Fahrt im Reisebus",
+      "position": 0
+    }
+  },
+  {
+    "model": "reisen.leistungenreise",
+    "pk": "ec227309-bed9-475d-b3da-ec9106792aa0",
+    "fields": {
+      "reise_id": "62a515bc-cdea-46aa-bccf-d8e065799ad9",
+      "leistung": "Transfer Flughafen - Hotel - Flughafen inkl. Transferassistenz",
+      "position": 4
+    }
+  },
+  {
+    "model": "reisen.leistungenreise",
+    "pk": "edcffddc-566a-4ca1-95a9-0a9c5984f321",
+    "fields": {
+      "reise_id": "edd20d5d-717f-456c-97c0-c736d08bca90",
+      "leistung": "6 \u00dcbernachtungen/Fr\u00fchst\u00fccksbuffet und Bio-Ecke im Hotel \u201eStolz\u201d im DZ mit Du/WC",
+      "position": 1
+    }
+  },
+  {
+    "model": "reisen.leistungenreise",
+    "pk": "f199b804-e623-48eb-aa39-ea82279b6e78",
+    "fields": {
+      "reise_id": "62a515bc-cdea-46aa-bccf-d8e065799ad9",
+      "leistung": "3-st\u00fcndige Stadtbesichtigung in Lissabon mit Reiseleitung",
+      "position": 6
+    }
+  },
+  {
+    "model": "reisen.leistungenreise",
+    "pk": "f5226306-76c8-47cb-9cc2-6acad80698af",
+    "fields": {
+      "reise_id": "ad6934b6-6857-4075-9504-6d9b7ef3e318",
+      "leistung": "Reisebegleitung ab/an Schwerin",
+      "position": 7
+    }
+  },
+  {
+    "model": "reisen.leistungenreise",
+    "pk": "f8719bbb-59ba-44e7-a105-c8f599ebd30c",
+    "fields": {
+      "reise_id": "38695224-05a8-4858-945f-356a24f557a7",
+      "leistung": "Inself\u00fchrung",
+      "position": 2
+    }
+  },
+  {
+    "model": "reisen.leistungenreise",
+    "pk": "fdbc4a33-8cd1-4983-acd8-7c115a1046a8",
+    "fields": {
+      "reise_id": "0045c009-4972-4a9e-bfd0-dd3bca286aff",
+      "leistung": "3 \u00dcbernachtungen/HP im Hotel \"Rappen\" in Rothenburg ob der Tauber im DZ mit Du/WC",
+      "position": 2
+    }
+  },
+  {
+    "model": "reisen.leistungenreise",
+    "pk": "fe10ca0b-5ef7-42ff-bba4-c5d5615a9a77",
+    "fields": {
+      "reise_id": "80bd657f-1f34-4f6a-8899-b8d7dfc33e09",
+      "leistung": "Kurtaxe",
+      "position": 5
+    }
+  },
+  {
+    "model": "reisen.fruehbucherrabatt",
+    "pk": "5e367fab-8454-4132-bea6-769313f3e6eb",
+    "fields": {
+      "reise_id": "e2fe3840-ee34-40a1-8fa4-a4a1deeb9825",
+      "datum_bis": "2016-02-03",
+      "rabatt": "100.00",
+      "position": 0
+    }
+  },
+  {
+    "model": "reisen.fruehbucherrabatt",
+    "pk": "efc05814-b9b4-4e62-8fe7-21d409e9c1c4",
+    "fields": {
+      "reise_id": "e2fe3840-ee34-40a1-8fa4-a4a1deeb9825",
+      "datum_bis": "2016-02-23",
+      "rabatt": "50.00",
+      "position": 1
+    }
+  },
+  {
+    "model": "reisen.zusatzleistung",
+    "pk": "174002e0-33cd-463f-b94c-95cb7c435a61",
+    "fields": {
+      "reise_id": "e2fe3840-ee34-40a1-8fa4-a4a1deeb9825",
+      "titel": "Candlelight Dinner f\u00fcr zwei Personen im Horse D\u00f6vre",
+      "preis": "100.00",
+      "position": 1
+    }
+  },
+  {
+    "model": "reisen.zusatzleistung",
+    "pk": "55370fee-8ba5-4ace-b25b-a665aec3366e",
+    "fields": {
+      "reise_id": "80bd657f-1f34-4f6a-8899-b8d7dfc33e09",
+      "titel": "2 x 2-Gang Abendessen in\r\neinem Restaurant",
+      "preis": "0.00",
+      "position": 1
+    }
+  },
+  {
+    "model": "reisen.zusatzleistung",
+    "pk": "6a29b451-75ce-4473-99d6-2570b4bb0123",
+    "fields": {
+      "reise_id": "e2fe3840-ee34-40a1-8fa4-a4a1deeb9825",
+      "titel": "Musikalischer Abend mit Fado und so",
+      "preis": "50.00",
+      "position": 0
+    }
+  },
+  {
+    "model": "reisen.zusatzleistung",
+    "pk": "8eaf44e8-b9ef-4aa0-acd2-c962cbf4bb40",
+    "fields": {
+      "reise_id": "38695224-05a8-4858-945f-356a24f557a7",
+      "titel": "2 x 2-Gang Abendessen in\r\neinem Restaurant",
+      "preis": "0.00",
+      "position": 1
+    }
+  },
+  {
+    "model": "reisen.reisekatalogzugehoerigkeit",
+    "pk": "19b40e8a-a641-432f-ab33-66132907cd02",
+    "fields": {
+      "reise_id": "012482ee-180b-4ed4-87e1-f7870290012a",
+      "katalog_id": "5fcadf99-4731-4b82-ac79-802e92585c39",
+      "katalogseite": null,
+      "anzahl_seiten_im_katalog": null,
+      "katalog_pdf": "",
+      "titel": "",
+      "position": 0
+    }
+  },
+  {
+    "model": "reisen.reisekatalogzugehoerigkeit",
+    "pk": "1cfb177d-8a6e-4483-b7d4-52383e4cb5e3",
+    "fields": {
+      "reise_id": "c09cf204-0482-4d4f-a817-54ecf09bfa97",
+      "katalog_id": "5fcadf99-4731-4b82-ac79-802e92585c39",
+      "katalogseite": null,
+      "anzahl_seiten_im_katalog": null,
+      "katalog_pdf": "",
+      "titel": "",
+      "position": 0
+    }
+  },
+  {
+    "model": "reisen.reisekatalogzugehoerigkeit",
+    "pk": "251a3d9a-e97c-48b6-b1ad-0cf2fc52b42c",
+    "fields": {
+      "reise_id": "1972f5d7-95f4-4006-bf66-266c73209050",
+      "katalog_id": "32a0652f-fc2a-4cdc-97dd-ca7f13db989b",
+      "katalogseite": 2,
+      "anzahl_seiten_im_katalog": 0,
+      "katalog_pdf": "",
+      "titel": "",
+      "position": 0
+    }
+  },
+  {
+    "model": "reisen.reisekatalogzugehoerigkeit",
+    "pk": "256cb172-5eea-4557-87d7-a890f6a72608",
+    "fields": {
+      "reise_id": "edd20d5d-717f-456c-97c0-c736d08bca90",
+      "katalog_id": "32a0652f-fc2a-4cdc-97dd-ca7f13db989b",
+      "katalogseite": 19,
+      "anzahl_seiten_im_katalog": 0,
+      "katalog_pdf": "",
+      "titel": "",
+      "position": 1
+    }
+  },
+  {
+    "model": "reisen.reisekatalogzugehoerigkeit",
+    "pk": "25a485ba-1ad8-44db-92f5-2055a9ec95e4",
+    "fields": {
+      "reise_id": "1972473d-358d-4ae9-9d1f-10a01741e739",
+      "katalog_id": "5fcadf99-4731-4b82-ac79-802e92585c39",
+      "katalogseite": null,
+      "anzahl_seiten_im_katalog": null,
+      "katalog_pdf": "",
+      "titel": "",
+      "position": 0
+    }
+  },
+  {
+    "model": "reisen.reisekatalogzugehoerigkeit",
+    "pk": "2a0a69fe-d0ba-4969-a673-9783b1084bc3",
+    "fields": {
+      "reise_id": "e2fe3840-ee34-40a1-8fa4-a4a1deeb9825",
+      "katalog_id": "ce05afee-d6cd-4b0c-aa26-b24d7aef0c24",
+      "katalogseite": 4,
+      "anzahl_seiten_im_katalog": 1,
+      "katalog_pdf": "",
+      "titel": "",
+      "position": 0
+    }
+  },
+  {
+    "model": "reisen.reisekatalogzugehoerigkeit",
+    "pk": "3b773b86-26f3-480d-804d-27613c9f149f",
+    "fields": {
+      "reise_id": "a101ed63-fb23-4298-a1b1-ecf7f11aad2c",
+      "katalog_id": "5fcadf99-4731-4b82-ac79-802e92585c39",
+      "katalogseite": null,
+      "anzahl_seiten_im_katalog": null,
+      "katalog_pdf": "",
+      "titel": "",
+      "position": 0
+    }
+  },
+  {
+    "model": "reisen.reisekatalogzugehoerigkeit",
+    "pk": "41e7f6a1-7f2d-42ad-8981-5ea92e8e15cc",
+    "fields": {
+      "reise_id": "45abcde0-cf1b-41c2-a003-ebbad2759218",
+      "katalog_id": "5fcadf99-4731-4b82-ac79-802e92585c39",
+      "katalogseite": null,
+      "anzahl_seiten_im_katalog": null,
+      "katalog_pdf": "",
+      "titel": "",
+      "position": 0
+    }
+  },
+  {
+    "model": "reisen.reisekatalogzugehoerigkeit",
+    "pk": "44316027-e985-470f-80be-044324c6851f",
+    "fields": {
+      "reise_id": "c2a6db7f-76df-475d-a51d-b97707284896",
+      "katalog_id": "32a0652f-fc2a-4cdc-97dd-ca7f13db989b",
+      "katalogseite": 2,
+      "anzahl_seiten_im_katalog": 0,
+      "katalog_pdf": "",
+      "titel": "",
+      "position": 0
+    }
+  },
+  {
+    "model": "reisen.reisekatalogzugehoerigkeit",
+    "pk": "5d4889b4-a14e-45d0-b62f-baba0d3ec650",
+    "fields": {
+      "reise_id": "9fc34808-d2b7-4e5b-8de4-0d18093754ca",
+      "katalog_id": "5fcadf99-4731-4b82-ac79-802e92585c39",
+      "katalogseite": null,
+      "anzahl_seiten_im_katalog": null,
+      "katalog_pdf": "",
+      "titel": "",
+      "position": 0
+    }
+  },
+  {
+    "model": "reisen.reisekatalogzugehoerigkeit",
+    "pk": "60f70a05-8989-4a9c-88b2-d4baaf10e232",
+    "fields": {
+      "reise_id": "e2fe3840-ee34-40a1-8fa4-a4a1deeb9825",
+      "katalog_id": "32a0652f-fc2a-4cdc-97dd-ca7f13db989b",
+      "katalogseite": 6,
+      "anzahl_seiten_im_katalog": 1,
+      "katalog_pdf": "",
+      "titel": "",
+      "position": 1
+    }
+  },
+  {
+    "model": "reisen.reisekatalogzugehoerigkeit",
+    "pk": "94ac5717-146d-4007-b0df-7a5332ff2ffe",
+    "fields": {
+      "reise_id": "c91bfed2-e259-4c15-b125-a3accf51c471",
+      "katalog_id": "5fcadf99-4731-4b82-ac79-802e92585c39",
+      "katalogseite": null,
+      "anzahl_seiten_im_katalog": null,
+      "katalog_pdf": "",
+      "titel": "",
+      "position": 0
+    }
+  },
+  {
+    "model": "reisen.reisekatalogzugehoerigkeit",
+    "pk": "990e30bc-370c-4d0c-adf1-60dee73cdbc5",
+    "fields": {
+      "reise_id": "7139f686-2f25-40b3-8699-01881454508c",
+      "katalog_id": "5fcadf99-4731-4b82-ac79-802e92585c39",
+      "katalogseite": null,
+      "anzahl_seiten_im_katalog": null,
+      "katalog_pdf": "",
+      "titel": "",
+      "position": 0
+    }
+  },
+  {
+    "model": "reisen.reisekatalogzugehoerigkeit",
+    "pk": "9fa90766-70d9-4926-b93f-5737aa6cef33",
+    "fields": {
+      "reise_id": "ee751131-36e9-4fa5-bcc0-420e5987eadb",
+      "katalog_id": "5fcadf99-4731-4b82-ac79-802e92585c39",
+      "katalogseite": null,
+      "anzahl_seiten_im_katalog": null,
+      "katalog_pdf": "",
+      "titel": "",
+      "position": 0
+    }
+  },
+  {
+    "model": "reisen.reisekatalogzugehoerigkeit",
+    "pk": "9fb81f78-a814-47a5-88fc-de7cb4f7c169",
+    "fields": {
+      "reise_id": "3af12d23-d4af-418b-9c67-02451ac6771e",
+      "katalog_id": "5fcadf99-4731-4b82-ac79-802e92585c39",
+      "katalogseite": null,
+      "anzahl_seiten_im_katalog": null,
+      "katalog_pdf": "",
+      "titel": "",
+      "position": 0
+    }
+  },
+  {
+    "model": "reisen.reisekatalogzugehoerigkeit",
+    "pk": "a47e015c-1b74-4d91-8633-3a5ad3741b20",
+    "fields": {
+      "reise_id": "edd20d5d-717f-456c-97c0-c736d08bca90",
+      "katalog_id": "ce05afee-d6cd-4b0c-aa26-b24d7aef0c24",
+      "katalogseite": 4,
+      "anzahl_seiten_im_katalog": 1,
+      "katalog_pdf": "",
+      "titel": "",
+      "position": 0
+    }
+  },
+  {
+    "model": "reisen.reisekatalogzugehoerigkeit",
+    "pk": "d2266bc3-a68f-40ed-88a2-f81ff0ce0e78",
+    "fields": {
+      "reise_id": "95031968-f9f8-46b6-baa9-94f1438806c0",
+      "katalog_id": "32a0652f-fc2a-4cdc-97dd-ca7f13db989b",
+      "katalogseite": 4,
+      "anzahl_seiten_im_katalog": 1,
+      "katalog_pdf": "",
+      "titel": "",
+      "position": 0
+    }
+  },
+  {
+    "model": "reisen.reisekatalogzugehoerigkeit",
+    "pk": "ddf08783-e258-4a90-8e16-9ff49f373487",
+    "fields": {
+      "reise_id": "30754d93-d8a5-44a1-81b0-da4314343e04",
+      "katalog_id": "5fcadf99-4731-4b82-ac79-802e92585c39",
+      "katalogseite": null,
+      "anzahl_seiten_im_katalog": null,
+      "katalog_pdf": "",
+      "titel": "",
+      "position": 0
+    }
+  },
+  {
+    "model": "reisen.reisekatalogzugehoerigkeit",
+    "pk": "e6322de4-0684-420e-b1d2-ff0391bec212",
+    "fields": {
+      "reise_id": "1210aa45-8e79-4204-b81e-5327fc00deb3",
+      "katalog_id": "5fcadf99-4731-4b82-ac79-802e92585c39",
+      "katalogseite": null,
+      "anzahl_seiten_im_katalog": null,
+      "katalog_pdf": "",
+      "titel": "",
+      "position": 0
+    }
+  },
+  {
+    "model": "reisen.reisekatalogzugehoerigkeit",
+    "pk": "ea7fe0c9-8e65-4b46-b135-178172707a0e",
+    "fields": {
+      "reise_id": "da99a734-d8a2-4607-af1c-a32a19599c4c",
+      "katalog_id": "5fcadf99-4731-4b82-ac79-802e92585c39",
+      "katalogseite": null,
+      "anzahl_seiten_im_katalog": null,
+      "katalog_pdf": "",
+      "titel": "",
+      "position": 0
+    }
+  },
+  {
+    "model": "reisen.reisekatalogzugehoerigkeit",
+    "pk": "eb873fa2-e7f8-46e5-b535-54cd54717c4a",
+    "fields": {
+      "reise_id": "07e14950-1215-42c3-9f59-7e393a1ccbd8",
+      "katalog_id": "5fcadf99-4731-4b82-ac79-802e92585c39",
+      "katalogseite": null,
+      "anzahl_seiten_im_katalog": null,
+      "katalog_pdf": "",
+      "titel": "",
+      "position": 0
+    }
+  },
+  {
+    "model": "reisen.reisekatalogzugehoerigkeit",
+    "pk": "f4f9c3d2-294f-43aa-8261-5eb908889bda",
+    "fields": {
+      "reise_id": "c3b8cb8e-780e-421a-8624-6a9e764bb15b",
+      "katalog_id": "5fcadf99-4731-4b82-ac79-802e92585c39",
+      "katalogseite": null,
+      "anzahl_seiten_im_katalog": null,
+      "katalog_pdf": "",
+      "titel": "",
+      "position": 0
+    }
+  },
+  {
+    "model": "reisen.reisekatalogzugehoerigkeit",
+    "pk": "f53d208b-4c96-4d72-84f9-ca2b99930ed1",
+    "fields": {
+      "reise_id": "d59163c9-0eed-4411-a2d4-928f82126afc",
+      "katalog_id": "5fcadf99-4731-4b82-ac79-802e92585c39",
+      "katalogseite": null,
+      "anzahl_seiten_im_katalog": null,
+      "katalog_pdf": "",
+      "titel": "",
+      "position": 0
+    }
+  },
+  {
+    "model": "reisen.reisekatalogzugehoerigkeit",
+    "pk": "f7b94316-0683-4ea1-85f6-68d52b6952e6",
+    "fields": {
+      "reise_id": "febd2949-829b-4d03-aafd-0309c3a65558",
+      "katalog_id": "5fcadf99-4731-4b82-ac79-802e92585c39",
+      "katalogseite": null,
+      "anzahl_seiten_im_katalog": null,
+      "katalog_pdf": "",
+      "titel": "",
+      "position": 0
+    }
+  },
+  {
+    "model": "reisen.reisekatalogzugehoerigkeit",
+    "pk": "f8541e13-b904-45e2-bb54-db57be97aeba",
+    "fields": {
+      "reise_id": "b511423f-c637-4531-95de-002feffe7e79",
+      "katalog_id": "5fcadf99-4731-4b82-ac79-802e92585c39",
+      "katalogseite": null,
+      "anzahl_seiten_im_katalog": null,
+      "katalog_pdf": "",
+      "titel": "",
+      "position": 0
+    }
+  },
+  {
+    "model": "reisen.reisekatalogzugehoerigkeit",
+    "pk": "fbae7b3e-d473-41ee-8137-25a3232c549f",
+    "fields": {
+      "reise_id": "6b36ca58-5024-4fa5-ad0e-41cc80d61a9e",
+      "katalog_id": "5fcadf99-4731-4b82-ac79-802e92585c39",
+      "katalogseite": null,
+      "anzahl_seiten_im_katalog": null,
+      "katalog_pdf": "",
+      "titel": "",
+      "position": 0
+    }
+  },
+  {
+    "model": "reisen.reisehinweise",
+    "pk": "08bf8945-9dae-40ad-b022-392c1ddf2639",
+    "fields": {
+      "reise_id": "62a515bc-cdea-46aa-bccf-d8e065799ad9",
+      "hinweis_id": "a86aeedb-c389-4923-aa12-8cfc7d15d368",
+      "titel": "",
+      "position": 2
+    }
+  },
+  {
+    "model": "reisen.reisehinweise",
+    "pk": "08fcaac1-719a-4290-a2b8-2c4360bbe0b8",
+    "fields": {
+      "reise_id": "95031968-f9f8-46b6-baa9-94f1438806c0",
+      "hinweis_id": "fb790ab6-c3c4-4174-803a-9526a35085c2",
+      "titel": "",
+      "position": 1
+    }
+  },
+  {
+    "model": "reisen.reisehinweise",
+    "pk": "0ed50172-4424-4adf-a555-240a699f0378",
+    "fields": {
+      "reise_id": "38695224-05a8-4858-945f-356a24f557a7",
+      "hinweis_id": "3dcbbee2-8b23-4974-aa22-6b715f87ecd8",
+      "titel": "",
+      "position": 0
+    }
+  },
+  {
+    "model": "reisen.reisehinweise",
+    "pk": "167766db-f698-45a4-8dfa-49906b011995",
+    "fields": {
+      "reise_id": "edd20d5d-717f-456c-97c0-c736d08bca90",
+      "hinweis_id": "a86aeedb-c389-4923-aa12-8cfc7d15d368",
+      "titel": "",
+      "position": 1
+    }
+  },
+  {
+    "model": "reisen.reisehinweise",
+    "pk": "218290be-bb4e-45ff-8b53-262afedf3c66",
+    "fields": {
+      "reise_id": "e2fe3840-ee34-40a1-8fa4-a4a1deeb9825",
+      "hinweis_id": "a86aeedb-c389-4923-aa12-8cfc7d15d368",
+      "titel": "\u00dcbrigens:",
+      "position": 1
+    }
+  },
+  {
+    "model": "reisen.reisehinweise",
+    "pk": "33c67b7a-c81b-4d0b-b019-9114dcb5e5bd",
+    "fields": {
+      "reise_id": "ad6934b6-6857-4075-9504-6d9b7ef3e318",
+      "hinweis_id": "a86aeedb-c389-4923-aa12-8cfc7d15d368",
+      "titel": "",
+      "position": 1
+    }
+  },
+  {
+    "model": "reisen.reisehinweise",
+    "pk": "35eba96f-1469-48b6-b815-0f71f7a5b4f8",
+    "fields": {
+      "reise_id": "cf8cf7c5-70a2-4897-af05-91640217f043",
+      "hinweis_id": "a86aeedb-c389-4923-aa12-8cfc7d15d368",
+      "titel": "",
+      "position": 1
+    }
+  },
+  {
+    "model": "reisen.reisehinweise",
+    "pk": "37117f34-6abe-447f-a5e9-322962da8106",
+    "fields": {
+      "reise_id": "62a515bc-cdea-46aa-bccf-d8e065799ad9",
+      "hinweis_id": "3dcbbee2-8b23-4974-aa22-6b715f87ecd8",
+      "titel": "",
+      "position": 1
+    }
+  },
+  {
+    "model": "reisen.reisehinweise",
+    "pk": "6faf8815-96b2-41d5-9071-1a6e183e315d",
+    "fields": {
+      "reise_id": "cf8cf7c5-70a2-4897-af05-91640217f043",
+      "hinweis_id": "36ee1549-340b-45be-a283-a4815c012bd3",
+      "titel": "",
+      "position": 2
+    }
+  },
+  {
+    "model": "reisen.reisehinweise",
+    "pk": "724387cd-f86c-41c6-9e06-b6d2b2d42506",
+    "fields": {
+      "reise_id": "a101ed63-fb23-4298-a1b1-ecf7f11aad2c",
+      "hinweis_id": "3dcbbee2-8b23-4974-aa22-6b715f87ecd8",
+      "titel": "",
+      "position": 0
+    }
+  },
+  {
+    "model": "reisen.reisehinweise",
+    "pk": "870ab16b-fcc2-4c69-9f12-29a753022f6a",
+    "fields": {
+      "reise_id": "e2fe3840-ee34-40a1-8fa4-a4a1deeb9825",
+      "hinweis_id": "36ee1549-340b-45be-a283-a4815c012bd3",
+      "titel": "",
+      "position": 2
+    }
+  },
+  {
+    "model": "reisen.reisehinweise",
+    "pk": "870d978b-8ae0-4fe1-9d3c-8a722cfac80d",
+    "fields": {
+      "reise_id": "ad6934b6-6857-4075-9504-6d9b7ef3e318",
+      "hinweis_id": "36ee1549-340b-45be-a283-a4815c012bd3",
+      "titel": "",
+      "position": 2
+    }
+  },
+  {
+    "model": "reisen.reisehinweise",
+    "pk": "893e2784-26b8-49e6-ac99-33a48d5a1d1f",
+    "fields": {
+      "reise_id": "0045c009-4972-4a9e-bfd0-dd3bca286aff",
+      "hinweis_id": "3dcbbee2-8b23-4974-aa22-6b715f87ecd8",
+      "titel": "",
+      "position": 1
+    }
+  },
+  {
+    "model": "reisen.reisehinweise",
+    "pk": "90e81463-3e6d-4cfa-8736-2b3fcb00129f",
+    "fields": {
+      "reise_id": "80bd657f-1f34-4f6a-8899-b8d7dfc33e09",
+      "hinweis_id": "3dcbbee2-8b23-4974-aa22-6b715f87ecd8",
+      "titel": "",
+      "position": 0
+    }
+  },
+  {
+    "model": "reisen.reisehinweise",
+    "pk": "9ee35bfb-da7d-49ff-81aa-39aba24e0251",
+    "fields": {
+      "reise_id": "cf8cf7c5-70a2-4897-af05-91640217f043",
+      "hinweis_id": "3dcbbee2-8b23-4974-aa22-6b715f87ecd8",
+      "titel": "",
+      "position": 0
+    }
+  },
+  {
+    "model": "reisen.reisehinweise",
+    "pk": "ba8964d1-ed0b-4c54-a23f-240257207e4c",
+    "fields": {
+      "reise_id": "62a515bc-cdea-46aa-bccf-d8e065799ad9",
+      "hinweis_id": "36ee1549-340b-45be-a283-a4815c012bd3",
+      "titel": "",
+      "position": 3
+    }
+  },
+  {
+    "model": "reisen.reisehinweise",
+    "pk": "c1e9e673-462c-4d8f-8a71-9f5dde1e0c1f",
+    "fields": {
+      "reise_id": "edd20d5d-717f-456c-97c0-c736d08bca90",
+      "hinweis_id": "3dcbbee2-8b23-4974-aa22-6b715f87ecd8",
+      "titel": "",
+      "position": 0
+    }
+  },
+  {
+    "model": "reisen.reisehinweise",
+    "pk": "d6d3dfb2-39af-48c0-a99f-a138888aebe9",
+    "fields": {
+      "reise_id": "e2fe3840-ee34-40a1-8fa4-a4a1deeb9825",
+      "hinweis_id": "3dcbbee2-8b23-4974-aa22-6b715f87ecd8",
+      "titel": "Achtung!",
+      "position": 0
+    }
+  },
+  {
+    "model": "reisen.reisehinweise",
+    "pk": "e4e7a18c-3933-4219-a317-4b89b688a2f0",
+    "fields": {
+      "reise_id": "95031968-f9f8-46b6-baa9-94f1438806c0",
+      "hinweis_id": "80eaf70c-1867-48a9-bd8c-26c60840fc86",
+      "titel": "",
+      "position": 0
+    }
+  },
+  {
+    "model": "reisen.reisehinweise",
+    "pk": "f33a3225-9c88-4ec2-b7c9-46ca820b9008",
+    "fields": {
+      "reise_id": "ad6934b6-6857-4075-9504-6d9b7ef3e318",
+      "hinweis_id": "3dcbbee2-8b23-4974-aa22-6b715f87ecd8",
+      "titel": "",
+      "position": 0
+    }
+  },
+  {
+    "model": "reisen.reisebilder",
+    "pk": "192c0fb4-9224-432d-bd7d-391dbd27ca81",
+    "fields": {
+      "reise_id": "e2fe3840-ee34-40a1-8fa4-a4a1deeb9825",
+      "bild_id": "76d2a71b-2de2-4d7c-bdf5-a5cdca8299c6",
+      "titel": "",
+      "zu_verwenden_in": "Katalog,Web",
+      "position": 1
+    }
+  },
+  {
+    "model": "reisen.reisebilder",
+    "pk": "2f102ac3-9cb7-4894-bb63-8337055927ff",
+    "fields": {
+      "reise_id": "e2fe3840-ee34-40a1-8fa4-a4a1deeb9825",
+      "bild_id": "27916a75-2374-4226-8a91-9d0d1de44c28",
+      "titel": "",
+      "zu_verwenden_in": "Katalog,Web",
+      "position": 0
+    }
+  },
+  {
+    "model": "reisen.reisebilder",
+    "pk": "4f269e89-fb89-45b9-bc93-a612ae2ecd76",
+    "fields": {
+      "reise_id": "e2fe3840-ee34-40a1-8fa4-a4a1deeb9825",
+      "bild_id": "a22870e2-c2c1-4c4f-8b0c-53834336aa62",
+      "titel": "",
+      "zu_verwenden_in": "Katalog,Web",
+      "position": 2
+    }
+  },
+  {
+    "model": "reisen.reisebilder",
+    "pk": "c2e71fee-eb33-44ce-a080-b29f723b068f",
+    "fields": {
+      "reise_id": "e2fe3840-ee34-40a1-8fa4-a4a1deeb9825",
+      "bild_id": "38dbeeec-2a71-4b0e-b227-42e6d83158e8",
+      "titel": "",
+      "zu_verwenden_in": "KATALOG",
+      "position": 3
+    }
+  },
+  {
+    "model": "reisen.reisekategorien",
+    "pk": "1083b011-67f9-47ca-b047-ae26f9dae7bf",
+    "fields": {
+      "reise_id": "e2fe3840-ee34-40a1-8fa4-a4a1deeb9825",
+      "kategorie_id": "e06aa442-5711-44d2-b3c2-1fcc479372d9",
+      "position": 1
+    }
+  },
+  {
+    "model": "reisen.reisekategorien",
+    "pk": "3125bb05-89c8-4ada-b9f2-05b023ae4ce8",
+    "fields": {
+      "reise_id": "62a515bc-cdea-46aa-bccf-d8e065799ad9",
+      "kategorie_id": "9597cc1c-019a-4a6f-a83a-0dcaf73a93dc",
+      "position": 1
+    }
+  },
+  {
+    "model": "reisen.reisekategorien",
+    "pk": "4fca8fa4-4068-4ea3-b5b3-86e2f97de0ed",
+    "fields": {
+      "reise_id": "0045c009-4972-4a9e-bfd0-dd3bca286aff",
+      "kategorie_id": "e06aa442-5711-44d2-b3c2-1fcc479372d9",
+      "position": 1
+    }
+  },
+  {
+    "model": "reisen.reisekategorien",
+    "pk": "5697d9e0-4a81-4c4f-9db1-955dfe1b134f",
+    "fields": {
+      "reise_id": "95031968-f9f8-46b6-baa9-94f1438806c0",
+      "kategorie_id": "3f718d66-b65c-450f-bbf2-decce099bbc8",
+      "position": 3
+    }
+  },
+  {
+    "model": "reisen.reisekategorien",
+    "pk": "64c10b88-df89-485f-9bfe-1879109d7465",
+    "fields": {
+      "reise_id": "1972f5d7-95f4-4006-bf66-266c73209050",
+      "kategorie_id": "e06aa442-5711-44d2-b3c2-1fcc479372d9",
+      "position": 0
+    }
+  },
+  {
+    "model": "reisen.reisekategorien",
+    "pk": "65e3a092-837d-4099-9b6d-7cc965655af9",
+    "fields": {
+      "reise_id": "80bd657f-1f34-4f6a-8899-b8d7dfc33e09",
+      "kategorie_id": "bfea65b9-d5fe-4b0d-ab6d-4dd5b0575d3e",
+      "position": 2
+    }
+  },
+  {
+    "model": "reisen.reisekategorien",
+    "pk": "6f6dfaa1-c041-40ce-bd90-aa4ce998a946",
+    "fields": {
+      "reise_id": "edd20d5d-717f-456c-97c0-c736d08bca90",
+      "kategorie_id": "1fc6ab88-bc40-4059-bc00-d9d89ddd1d04",
+      "position": 1
+    }
+  },
+  {
+    "model": "reisen.reisekategorien",
+    "pk": "7c56b7ae-6155-4bc6-a8e3-b0669d445142",
+    "fields": {
+      "reise_id": "38695224-05a8-4858-945f-356a24f557a7",
+      "kategorie_id": "bfea65b9-d5fe-4b0d-ab6d-4dd5b0575d3e",
+      "position": 2
+    }
+  },
+  {
+    "model": "reisen.reisekategorien",
+    "pk": "81b20a70-7d78-47ec-ab5f-ed6455ba329b",
+    "fields": {
+      "reise_id": "80bd657f-1f34-4f6a-8899-b8d7dfc33e09",
+      "kategorie_id": "e06aa442-5711-44d2-b3c2-1fcc479372d9",
+      "position": 1
+    }
+  },
+  {
+    "model": "reisen.reisekategorien",
+    "pk": "9573d5c8-e405-4234-9be8-b6067d8e3a11",
+    "fields": {
+      "reise_id": "edd20d5d-717f-456c-97c0-c736d08bca90",
+      "kategorie_id": "4988eb12-a458-4fbe-a28f-87d2274434bd",
+      "position": 2
+    }
+  },
+  {
+    "model": "reisen.reisekategorien",
+    "pk": "a708d889-9c59-4ac9-846c-cd2591a3d849",
+    "fields": {
+      "reise_id": "cf8cf7c5-70a2-4897-af05-91640217f043",
+      "kategorie_id": "9597cc1c-019a-4a6f-a83a-0dcaf73a93dc",
+      "position": 1
+    }
+  },
+  {
+    "model": "reisen.reisekategorien",
+    "pk": "ac730b31-805a-431f-a961-64bb38da1e86",
+    "fields": {
+      "reise_id": "c2a6db7f-76df-475d-a51d-b97707284896",
+      "kategorie_id": "62367c8e-1913-497e-a697-c214d8d6486d",
+      "position": 1
+    }
+  },
+  {
+    "model": "reisen.reisekategorien",
+    "pk": "b246a569-471c-49fc-b545-3ee164add99a",
+    "fields": {
+      "reise_id": "edd20d5d-717f-456c-97c0-c736d08bca90",
+      "kategorie_id": "1002cf9b-6ea0-4f93-9730-727b9c4da313",
+      "position": 3
+    }
+  },
+  {
+    "model": "reisen.reisekategorien",
+    "pk": "b2d33c55-9818-4715-811a-1644abfc908a",
+    "fields": {
+      "reise_id": "e2fe3840-ee34-40a1-8fa4-a4a1deeb9825",
+      "kategorie_id": "9597cc1c-019a-4a6f-a83a-0dcaf73a93dc",
+      "position": 0
+    }
+  },
+  {
+    "model": "reisen.reisekategorien",
+    "pk": "b4424507-2f10-464a-a5b5-8258ef496780",
+    "fields": {
+      "reise_id": "edd20d5d-717f-456c-97c0-c736d08bca90",
+      "kategorie_id": "e06aa442-5711-44d2-b3c2-1fcc479372d9",
+      "position": 0
+    }
+  },
+  {
+    "model": "reisen.reisekategorien",
+    "pk": "c4efebd6-7ae6-49bf-b240-7d883f497fc0",
+    "fields": {
+      "reise_id": "95031968-f9f8-46b6-baa9-94f1438806c0",
+      "kategorie_id": "1fc6ab88-bc40-4059-bc00-d9d89ddd1d04",
+      "position": 1
+    }
+  },
+  {
+    "model": "reisen.reisekategorien",
+    "pk": "ca19d35b-a520-43f7-909c-7648cf302789",
+    "fields": {
+      "reise_id": "c2a6db7f-76df-475d-a51d-b97707284896",
+      "kategorie_id": "e06aa442-5711-44d2-b3c2-1fcc479372d9",
+      "position": 0
+    }
+  },
+  {
+    "model": "reisen.reisekategorien",
+    "pk": "d7f7e124-0f5c-485d-962d-d00c7ac8943f",
+    "fields": {
+      "reise_id": "95031968-f9f8-46b6-baa9-94f1438806c0",
+      "kategorie_id": "e06aa442-5711-44d2-b3c2-1fcc479372d9",
+      "position": 0
+    }
+  },
+  {
+    "model": "reisen.reisekategorien",
+    "pk": "db5d1a28-a1f5-476a-8b51-e0a6d62b7bd5",
+    "fields": {
+      "reise_id": "1972f5d7-95f4-4006-bf66-266c73209050",
+      "kategorie_id": "62367c8e-1913-497e-a697-c214d8d6486d",
+      "position": 1
+    }
+  },
+  {
+    "model": "reisen.reisekategorien",
+    "pk": "ee9b0cc2-c172-4a56-ac1a-c63738a146f0",
+    "fields": {
+      "reise_id": "95031968-f9f8-46b6-baa9-94f1438806c0",
+      "kategorie_id": "876d3315-2bb7-4328-af4f-89b4a635b172",
+      "position": 2
+    }
+  },
+  {
+    "model": "reisen.reisekategorien",
+    "pk": "f6f14e41-c633-496b-832a-ee3317180e9c",
+    "fields": {
+      "reise_id": "ad6934b6-6857-4075-9504-6d9b7ef3e318",
+      "kategorie_id": "9597cc1c-019a-4a6f-a83a-0dcaf73a93dc",
+      "position": 1
+    }
+  },
+  {
+    "model": "reisen.reisekategorien",
+    "pk": "fe974c49-f9f3-4b16-92f9-7e2001929a19",
+    "fields": {
+      "reise_id": "38695224-05a8-4858-945f-356a24f557a7",
+      "kategorie_id": "e06aa442-5711-44d2-b3c2-1fcc479372d9",
+      "position": 1
+    }
+  },
+  {
+    "model": "reisen.reisezielregionen",
+    "pk": "3c52a8d1-48d1-4a26-9373-712debbe4bf2",
+    "fields": {
+      "reise_id": "e2fe3840-ee34-40a1-8fa4-a4a1deeb9825",
+      "zielregion_id": "68e4d098-d78a-450c-8e2b-b166ca9c5250",
+      "position": 0
+    }
+  },
+  {
+    "model": "reisen.reisezielregionen",
+    "pk": "46231813-46d9-4207-9514-b31ca6d4c8cb",
+    "fields": {
+      "reise_id": "edd20d5d-717f-456c-97c0-c736d08bca90",
+      "zielregion_id": "eac832de-2c27-418b-9f28-bbe7a2b7e434",
+      "position": 0
+    }
+  },
+  {
+    "model": "reisen.reisezielregionen",
+    "pk": "4a9f7996-dd2e-4f3d-ba68-72a9ac3aa9ff",
+    "fields": {
+      "reise_id": "c2a6db7f-76df-475d-a51d-b97707284896",
+      "zielregion_id": "deb53901-5a50-4d0b-8036-50e0ec91fe59",
+      "position": 0
+    }
+  },
+  {
+    "model": "reisen.reisezielregionen",
+    "pk": "565e7dc0-a9a6-49db-9a01-d9d7a7b571b2",
+    "fields": {
+      "reise_id": "cf8cf7c5-70a2-4897-af05-91640217f043",
+      "zielregion_id": "68e4d098-d78a-450c-8e2b-b166ca9c5250",
+      "position": 1
+    }
+  },
+  {
+    "model": "reisen.reisezielregionen",
+    "pk": "6d6c0ca5-0317-48a5-98ee-55ec2ac58374",
+    "fields": {
+      "reise_id": "1972f5d7-95f4-4006-bf66-266c73209050",
+      "zielregion_id": "deb53901-5a50-4d0b-8036-50e0ec91fe59",
+      "position": 0
+    }
+  },
+  {
+    "model": "reisen.reisezielregionen",
+    "pk": "8020bac9-e53d-47e6-ab3b-7c69f168dab1",
+    "fields": {
+      "reise_id": "0045c009-4972-4a9e-bfd0-dd3bca286aff",
+      "zielregion_id": "deb53901-5a50-4d0b-8036-50e0ec91fe59",
+      "position": 1
+    }
+  },
+  {
+    "model": "reisen.reisezielregionen",
+    "pk": "946296c5-8ae1-4943-921f-86020891fc3d",
+    "fields": {
+      "reise_id": "95031968-f9f8-46b6-baa9-94f1438806c0",
+      "zielregion_id": "aa1bf882-a54a-4bad-a52c-2e54ece380c7",
+      "position": 1
+    }
+  },
+  {
+    "model": "reisen.reisezielregionen",
+    "pk": "9cc0e31c-bba5-4e8d-93f6-d1c871bd318c",
+    "fields": {
+      "reise_id": "ad6934b6-6857-4075-9504-6d9b7ef3e318",
+      "zielregion_id": "68e4d098-d78a-450c-8e2b-b166ca9c5250",
+      "position": 1
+    }
+  },
+  {
+    "model": "reisen.reisezielregionen",
+    "pk": "b1635288-7324-4d6d-a75e-56cf56255273",
+    "fields": {
+      "reise_id": "c2a6db7f-76df-475d-a51d-b97707284896",
+      "zielregion_id": "aa1bf882-a54a-4bad-a52c-2e54ece380c7",
+      "position": 1
+    }
+  },
+  {
+    "model": "reisen.reisezielregionen",
+    "pk": "b7ebf76f-53e3-428b-8f39-c1c1f488f629",
+    "fields": {
+      "reise_id": "e2fe3840-ee34-40a1-8fa4-a4a1deeb9825",
+      "zielregion_id": "aa1bf882-a54a-4bad-a52c-2e54ece380c7",
+      "position": 1
+    }
+  },
+  {
+    "model": "reisen.reisezielregionen",
+    "pk": "c9a8a8ab-eaf9-4957-a39e-12770792127b",
+    "fields": {
+      "reise_id": "1972f5d7-95f4-4006-bf66-266c73209050",
+      "zielregion_id": "aa1bf882-a54a-4bad-a52c-2e54ece380c7",
+      "position": 1
+    }
+  },
+  {
+    "model": "reisen.reisezielregionen",
+    "pk": "d2604377-a819-404e-85b6-d00c68407857",
+    "fields": {
+      "reise_id": "62a515bc-cdea-46aa-bccf-d8e065799ad9",
+      "zielregion_id": "68e4d098-d78a-450c-8e2b-b166ca9c5250",
+      "position": 1
+    }
+  },
+  {
+    "model": "reisen.reisezielregionen",
+    "pk": "da106c85-92f5-4768-bb47-dcf52d890915",
+    "fields": {
+      "reise_id": "95031968-f9f8-46b6-baa9-94f1438806c0",
+      "zielregion_id": "deb53901-5a50-4d0b-8036-50e0ec91fe59",
+      "position": 0
+    }
+  },
+  {
+    "model": "reisen.reisezielregionen",
+    "pk": "ea4bb606-055c-473e-817e-59137c1902f9",
+    "fields": {
+      "reise_id": "edd20d5d-717f-456c-97c0-c736d08bca90",
+      "zielregion_id": "aa1bf882-a54a-4bad-a52c-2e54ece380c7",
+      "position": 1
+    }
+  },
+  {
+    "model": "reisen.ausflugspakete",
+    "pk": "0b088d0b-bf84-43ea-8956-6a673e50bf59",
+    "fields": {
+      "reise_id": "62a515bc-cdea-46aa-bccf-d8e065799ad9",
+      "titel": "Ausflugspaket 2 (AP 2)",
+      "kommentar_titel": "(nur bei Reiseanmeldung buchbar!)",
+      "kommentar": "Mindestteilnehmerzahl 15 Pers.",
+      "position": 2
+    }
+  },
+  {
+    "model": "reisen.ausflugspakete",
+    "pk": "2b7e5765-c87f-4a09-b4e1-c1d7c5c31845",
+    "fields": {
+      "reise_id": "e2fe3840-ee34-40a1-8fa4-a4a1deeb9825",
+      "titel": "Ausflugspaket 2 (AP 2)",
+      "kommentar_titel": "(nur bei Reiseanmeldung buchbar!)",
+      "kommentar": "Mindestteilnehmerzahl 15 Pers.",
+      "position": 1
+    }
+  },
+  {
+    "model": "reisen.ausflugspakete",
+    "pk": "3d018dae-b6a7-47f7-bb38-b916ea64bd75",
+    "fields": {
+      "reise_id": "62a515bc-cdea-46aa-bccf-d8e065799ad9",
+      "titel": "Ausflugspaket 1 (AP 1)",
+      "kommentar_titel": "(nur bei Reiseanmeldung buchbar!)",
+      "kommentar": "Mindestteilnehmerzahl 15 Pers.",
+      "position": 1
+    }
+  },
+  {
+    "model": "reisen.ausflugspakete",
+    "pk": "967d4ab4-cd34-4542-8ff7-f417ade256dd",
+    "fields": {
+      "reise_id": "e2fe3840-ee34-40a1-8fa4-a4a1deeb9825",
+      "titel": "Ausflugspaket 1 (AP 1)",
+      "kommentar_titel": "(nur bei Reiseanmeldung buchbar!)",
+      "kommentar": "Mindestteilnehmerzahl 15 Pers.",
+      "position": 0
+    }
+  },
+  {
+    "model": "reisen.leistungenausflugspaket",
+    "pk": "03169573-19a1-49c6-839c-63d2020a5a4f",
+    "fields": {
+      "ausflugspaket_id": "967d4ab4-cd34-4542-8ff7-f417ade256dd",
+      "leistung": "Busausflug Alcobaca-Nazar\u00e9-F\u00e1tima mit Reiseleitung",
+      "position": 0
+    }
+  },
+  {
+    "model": "reisen.leistungenausflugspaket",
+    "pk": "0811814c-2a67-4acc-9fd9-94e7ddae804e",
+    "fields": {
+      "ausflugspaket_id": "0b088d0b-bf84-43ea-8956-6a673e50bf59",
+      "leistung": "Eintritt Nationalpalast Sintra",
+      "position": 2
+    }
+  },
+  {
+    "model": "reisen.leistungenausflugspaket",
+    "pk": "2b0426d4-b76f-4fc0-8dd9-c9a7cf161b2e",
+    "fields": {
+      "ausflugspaket_id": "2b7e5765-c87f-4a09-b4e1-c1d7c5c31845",
+      "leistung": "Eintritt Nationalpalast Sintra",
+      "position": 1
+    }
+  },
+  {
+    "model": "reisen.leistungenausflugspaket",
+    "pk": "34878f02-fa5b-42c8-9905-0dcaa3bcc337",
+    "fields": {
+      "ausflugspaket_id": "0b088d0b-bf84-43ea-8956-6a673e50bf59",
+      "leistung": "Mittagessen",
+      "position": 3
+    }
+  },
+  {
+    "model": "reisen.leistungenausflugspaket",
+    "pk": "85e83536-016a-4c29-9bfe-19ab7a774a7c",
+    "fields": {
+      "ausflugspaket_id": "967d4ab4-cd34-4542-8ff7-f417ade256dd",
+      "leistung": "Mittagessen",
+      "position": 3
+    }
+  },
+  {
+    "model": "reisen.leistungenausflugspaket",
+    "pk": "8d395ef9-cde0-4549-a0e7-33be69c842ef",
+    "fields": {
+      "ausflugspaket_id": "2b7e5765-c87f-4a09-b4e1-c1d7c5c31845",
+      "leistung": "ganzt\u00e4giger Busausflug Sintra - Cabo da Roca - Estoril mit Reiseleitung",
+      "position": 0
+    }
+  },
+  {
+    "model": "reisen.leistungenausflugspaket",
+    "pk": "96e81b1e-0e41-4beb-8ddb-e66614c9cafa",
+    "fields": {
+      "ausflugspaket_id": "967d4ab4-cd34-4542-8ff7-f417ade256dd",
+      "leistung": "Rundgang F\u00e1tima",
+      "position": 2
+    }
+  },
+  {
+    "model": "reisen.leistungenausflugspaket",
+    "pk": "a5570e62-b4fc-471e-ac09-3ea829322a9d",
+    "fields": {
+      "ausflugspaket_id": "3d018dae-b6a7-47f7-bb38-b916ea64bd75",
+      "leistung": "Busausflug Alcobaca-Nazar\u00e9-F\u00e1tima mit Reiseleitung",
+      "position": 1
+    }
+  },
+  {
+    "model": "reisen.leistungenausflugspaket",
+    "pk": "a9d16da4-31eb-43fd-bc84-1c7cc58f572c",
+    "fields": {
+      "ausflugspaket_id": "3d018dae-b6a7-47f7-bb38-b916ea64bd75",
+      "leistung": "Rundgang F\u00e1tima",
+      "position": 3
+    }
+  },
+  {
+    "model": "reisen.leistungenausflugspaket",
+    "pk": "abce3c1b-7007-411c-ad2b-1fca44eacb34",
+    "fields": {
+      "ausflugspaket_id": "2b7e5765-c87f-4a09-b4e1-c1d7c5c31845",
+      "leistung": "Mittagessen",
+      "position": 2
+    }
+  },
+  {
+    "model": "reisen.leistungenausflugspaket",
+    "pk": "cdc2ed3c-84c3-46a1-8f6c-d4eac9bd6d90",
+    "fields": {
+      "ausflugspaket_id": "3d018dae-b6a7-47f7-bb38-b916ea64bd75",
+      "leistung": "Eintritt Kloster Alcobaca",
+      "position": 2
+    }
+  },
+  {
+    "model": "reisen.leistungenausflugspaket",
+    "pk": "d91a0cb4-c3c7-42fb-af96-6b8618bc4a4f",
+    "fields": {
+      "ausflugspaket_id": "3d018dae-b6a7-47f7-bb38-b916ea64bd75",
+      "leistung": "Mittagessen",
+      "position": 4
+    }
+  },
+  {
+    "model": "reisen.leistungenausflugspaket",
+    "pk": "e84fa476-7984-40a2-a9a7-994783fe293d",
+    "fields": {
+      "ausflugspaket_id": "0b088d0b-bf84-43ea-8956-6a673e50bf59",
+      "leistung": "ganzt\u00e4giger Busausflug Sintra - Cabo da Roca - Estoril mit Reiseleitung",
+      "position": 1
+    }
+  },
+  {
+    "model": "reisen.leistungenausflugspaket",
+    "pk": "f2558c56-6261-446f-a665-6e1ce2ef4532",
+    "fields": {
+      "ausflugspaket_id": "967d4ab4-cd34-4542-8ff7-f417ade256dd",
+      "leistung": "Eintritt Kloster Alcobaca",
+      "position": 1
+    }
+  },
+  {
+    "model": "reisen.ausflugspaketpreise",
+    "pk": "0c6722db-8366-4a40-8fef-fd912a551bae",
+    "fields": {
+      "ausflugspaket_id": "2b7e5765-c87f-4a09-b4e1-c1d7c5c31845",
+      "preis_id": "5549d9bd-3c16-4853-a8fa-cbfb1e262268",
+      "preis": "90.00",
+      "position": 0
+    }
+  },
+  {
+    "model": "reisen.ausflugspaketpreise",
+    "pk": "3fb3d518-efdf-4a7d-8df7-7a8d4b26c4d0",
+    "fields": {
+      "ausflugspaket_id": "0b088d0b-bf84-43ea-8956-6a673e50bf59",
+      "preis_id": "5549d9bd-3c16-4853-a8fa-cbfb1e262268",
+      "preis": "90.00",
+      "position": 1
+    }
+  },
+  {
+    "model": "reisen.ausflugspaketpreise",
+    "pk": "8eb3ac1f-5eb1-41a6-ab31-13a909de4202",
+    "fields": {
+      "ausflugspaket_id": "967d4ab4-cd34-4542-8ff7-f417ade256dd",
+      "preis_id": "5549d9bd-3c16-4853-a8fa-cbfb1e262268",
+      "preis": "100.00",
+      "position": 0
+    }
+  },
+  {
+    "model": "reisen.ausflugspaketpreise",
+    "pk": "9c5aa5dd-b287-438f-bd53-9d23eed01273",
+    "fields": {
+      "ausflugspaket_id": "3d018dae-b6a7-47f7-bb38-b916ea64bd75",
+      "preis_id": "5549d9bd-3c16-4853-a8fa-cbfb1e262268",
+      "preis": "100.00",
+      "position": 1
+    }
+  },
+  {
+    "model": "reisen.ausflugspaketezureisetagen",
+    "pk": "08fa0ca6-93fd-49db-9be7-962716dec8af",
+    "fields": {
+      "reisetag_id": "20ff6905-686e-4a31-a4f0-2f937e527476",
+      "ausflugspaket_id": "3d018dae-b6a7-47f7-bb38-b916ea64bd75",
+      "erscheint_in": "Titel",
+      "ausflugspaket_text": "(AP 1)",
+      "position": 1
+    }
+  },
+  {
+    "model": "reisen.ausflugspaketezureisetagen",
+    "pk": "3a854253-9e39-4430-b9e0-6a491f3d24b7",
+    "fields": {
+      "reisetag_id": "515502ed-01d1-46aa-819d-64852c2531f3",
+      "ausflugspaket_id": "0b088d0b-bf84-43ea-8956-6a673e50bf59",
+      "erscheint_in": "Titel",
+      "ausflugspaket_text": "(AP 2)",
+      "position": 1
+    }
+  },
+  {
+    "model": "reisen.ausflugspaketezureisetagen",
+    "pk": "b98fc8c4-9b46-44d9-8609-e0a7fedf7081",
+    "fields": {
+      "reisetag_id": "252f3971-638c-4810-8d2b-17398b7da3c3",
+      "ausflugspaket_id": "967d4ab4-cd34-4542-8ff7-f417ade256dd",
+      "erscheint_in": "Text",
+      "ausflugspaket_text": "(AP 1 TEST TEXT HEUTE DRAN)",
+      "position": 0
+    }
+  },
+  {
+    "model": "reisen.ausflugspaketezureisetagen",
+    "pk": "e1d5ca56-9891-4d11-962a-e398fcc4cd57",
+    "fields": {
+      "reisetag_id": "f11b3ed7-cb56-49cb-85c7-e86fd53bb4d9",
+      "ausflugspaket_id": "2b7e5765-c87f-4a09-b4e1-c1d7c5c31845",
+      "erscheint_in": "Titel",
+      "ausflugspaket_text": "(AP 2)",
+      "position": 0
+    }
+  },
+  {
+    "model": "reisen.ausflugspaketezureisetagen",
+    "pk": "e4d27135-8ecf-4629-b650-dda90c627c9b",
+    "fields": {
+      "reisetag_id": "4aa1b897-aa66-400c-9823-cca920a3c6b8",
+      "ausflugspaket_id": "967d4ab4-cd34-4542-8ff7-f417ade256dd",
+      "erscheint_in": "Titel",
+      "ausflugspaket_text": "(AP 1)",
+      "position": 1
+    }
+  },
+  {
+    "model": "reisen.reisepreise",
+    "pk": "0e01e33f-a85c-446e-a469-d9ff0a3f56e0",
+    "fields": {
+      "reise_id": "38695224-05a8-4858-945f-356a24f557a7",
+      "preis_id": "f7c26dc7-3cf7-4354-a3d8-3719e739d99d",
+      "preis": "0.00",
+      "kommentar": "3 *** Hotel \u201eAuf den Hummer-Klippen\u201d",
+      "position": 1
+    }
+  },
+  {
+    "model": "reisen.reisepreise",
+    "pk": "1d25409d-770b-4cf5-9038-c65351d1371d",
+    "fields": {
+      "reise_id": "0045c009-4972-4a9e-bfd0-dd3bca286aff",
+      "preis_id": "f7c26dc7-3cf7-4354-a3d8-3719e739d99d",
+      "preis": "369.00",
+      "kommentar": "",
+      "position": 1
+    }
+  },
+  {
+    "model": "reisen.reisepreise",
+    "pk": "2778e3fa-9b20-451c-890e-e0104f233c9f",
+    "fields": {
+      "reise_id": "cf8cf7c5-70a2-4897-af05-91640217f043",
+      "preis_id": "f7c26dc7-3cf7-4354-a3d8-3719e739d99d",
+      "preis": "599.00",
+      "kommentar": "",
+      "position": 1
+    }
+  },
+  {
+    "model": "reisen.reisepreise",
+    "pk": "30357ae6-a831-4ede-aa30-d9a7e2b2abfa",
+    "fields": {
+      "reise_id": "80bd657f-1f34-4f6a-8899-b8d7dfc33e09",
+      "preis_id": "5dede2c4-da71-48d7-904c-d5904733a89b",
+      "preis": "50.00",
+      "kommentar": "",
+      "position": 3
+    }
+  },
+  {
+    "model": "reisen.reisepreise",
+    "pk": "34412539-7c34-43fc-84b1-fce22970c051",
+    "fields": {
+      "reise_id": "95031968-f9f8-46b6-baa9-94f1438806c0",
+      "preis_id": "f7c26dc7-3cf7-4354-a3d8-3719e739d99d",
+      "preis": "542.00",
+      "kommentar": "",
+      "position": 0
+    }
+  },
+  {
+    "model": "reisen.reisepreise",
+    "pk": "393e718d-cef1-4298-913e-e1af6a2cca04",
+    "fields": {
+      "reise_id": "edd20d5d-717f-456c-97c0-c736d08bca90",
+      "preis_id": "f7c26dc7-3cf7-4354-a3d8-3719e739d99d",
+      "preis": "535.00",
+      "kommentar": "",
+      "position": 0
+    }
+  },
+  {
+    "model": "reisen.reisepreise",
+    "pk": "3bbc1e25-aae9-407c-83b6-9e4c5f06f448",
+    "fields": {
+      "reise_id": "38695224-05a8-4858-945f-356a24f557a7",
+      "preis_id": "f7c26dc7-3cf7-4354-a3d8-3719e739d99d",
+      "preis": "0.00",
+      "kommentar": "4 **** \u201eHelgol\u00e4nder Klassik\u201d EZ-Zuschlag",
+      "position": 2
+    }
+  },
+  {
+    "model": "reisen.reisepreise",
+    "pk": "41c91952-042d-4891-bbe6-04ed7b00df8a",
+    "fields": {
+      "reise_id": "80bd657f-1f34-4f6a-8899-b8d7dfc33e09",
+      "preis_id": "f7c26dc7-3cf7-4354-a3d8-3719e739d99d",
+      "preis": "0.00",
+      "kommentar": "4 **** \u201eHelgol\u00e4nder Klassik\u201d EZ-Zuschlag",
+      "position": 2
+    }
+  },
+  {
+    "model": "reisen.reisepreise",
+    "pk": "6c77680a-cab7-4552-91fd-45f317a6d4f1",
+    "fields": {
+      "reise_id": "e2fe3840-ee34-40a1-8fa4-a4a1deeb9825",
+      "preis_id": "f7c26dc7-3cf7-4354-a3d8-3719e739d99d",
+      "preis": "599.00",
+      "kommentar": "*",
+      "position": 0
+    }
+  },
+  {
+    "model": "reisen.reisepreise",
+    "pk": "8ac860f1-6940-4447-bd60-0270edf6162e",
+    "fields": {
+      "reise_id": "62a515bc-cdea-46aa-bccf-d8e065799ad9",
+      "preis_id": "f7c26dc7-3cf7-4354-a3d8-3719e739d99d",
+      "preis": "599.00",
+      "kommentar": "",
+      "position": 1
+    }
+  },
+  {
+    "model": "reisen.reisepreise",
+    "pk": "8ef1a851-e1da-40ac-930f-a15a2cc7558a",
+    "fields": {
+      "reise_id": "c2a6db7f-76df-475d-a51d-b97707284896",
+      "preis_id": "f9616002-4147-4703-bef6-ba4ee1e1da89",
+      "preis": "77.00",
+      "kommentar": "",
+      "position": 0
+    }
+  },
+  {
+    "model": "reisen.reisepreise",
+    "pk": "b0053b96-82da-4946-afa8-9c49b819b1fe",
+    "fields": {
+      "reise_id": "38695224-05a8-4858-945f-356a24f557a7",
+      "preis_id": "5dede2c4-da71-48d7-904c-d5904733a89b",
+      "preis": "50.00",
+      "kommentar": "",
+      "position": 3
+    }
+  },
+  {
+    "model": "reisen.reisepreise",
+    "pk": "bea78253-8cc4-4b21-a138-dc314805f523",
+    "fields": {
+      "reise_id": "ad6934b6-6857-4075-9504-6d9b7ef3e318",
+      "preis_id": "f7c26dc7-3cf7-4354-a3d8-3719e739d99d",
+      "preis": "599.00",
+      "kommentar": "",
+      "position": 1
+    }
+  },
+  {
+    "model": "reisen.reisepreise",
+    "pk": "ed71d975-4cbc-4457-8072-54c1876f0948",
+    "fields": {
+      "reise_id": "e2fe3840-ee34-40a1-8fa4-a4a1deeb9825",
+      "preis_id": "f7c26dc7-3cf7-4354-a3d8-3719e739d99d",
+      "preis": "699.00",
+      "kommentar": "**",
+      "position": 1
+    }
+  },
+  {
+    "model": "reisen.reisepreise",
+    "pk": "ee7e34a4-f579-4f7b-9df8-43a31e890ec5",
+    "fields": {
+      "reise_id": "1972f5d7-95f4-4006-bf66-266c73209050",
+      "preis_id": "f9616002-4147-4703-bef6-ba4ee1e1da89",
+      "preis": "55.00",
+      "kommentar": "",
+      "position": 0
+    }
+  },
+  {
+    "model": "reisen.reisepreiszusatz",
+    "pk": "14404dd9-a671-4753-8130-2b4ea339f509",
+    "fields": {
+      "reisepreis_id": "2778e3fa-9b20-451c-890e-e0104f233c9f",
+      "preis_id": "5dede2c4-da71-48d7-904c-d5904733a89b",
+      "preis": "60.00",
+      "position": 2
+    }
+  },
+  {
+    "model": "reisen.reisepreiszusatz",
+    "pk": "179c35fc-9634-416b-9dfc-de9f97d910aa",
+    "fields": {
+      "reisepreis_id": "393e718d-cef1-4298-913e-e1af6a2cca04",
+      "preis_id": "5dede2c4-da71-48d7-904c-d5904733a89b",
+      "preis": "50.00",
+      "position": 1
+    }
+  },
+  {
+    "model": "reisen.reisepreiszusatz",
+    "pk": "18660047-bf0f-4b90-b8c5-de8d0ee43601",
+    "fields": {
+      "reisepreis_id": "bea78253-8cc4-4b21-a138-dc314805f523",
+      "preis_id": "beed9f65-4cfa-4a02-b474-3875cc5c8af9",
+      "preis": "69.00",
+      "position": 1
+    }
+  },
+  {
+    "model": "reisen.reisepreiszusatz",
+    "pk": "1e6caf2f-142d-4996-83fe-729cff345dee",
+    "fields": {
+      "reisepreis_id": "8ac860f1-6940-4447-bd60-0270edf6162e",
+      "preis_id": "beed9f65-4cfa-4a02-b474-3875cc5c8af9",
+      "preis": "69.00",
+      "position": 1
+    }
+  },
+  {
+    "model": "reisen.reisepreiszusatz",
+    "pk": "271af2b2-ef2f-49ad-87c4-dabc3fbf613a",
+    "fields": {
+      "reisepreis_id": "bea78253-8cc4-4b21-a138-dc314805f523",
+      "preis_id": "5dede2c4-da71-48d7-904c-d5904733a89b",
+      "preis": "60.00",
+      "position": 2
+    }
+  },
+  {
+    "model": "reisen.reisepreiszusatz",
+    "pk": "28c700f0-674c-4ebe-9ee7-cfa36dfea65d",
+    "fields": {
+      "reisepreis_id": "34412539-7c34-43fc-84b1-fce22970c051",
+      "preis_id": "beed9f65-4cfa-4a02-b474-3875cc5c8af9",
+      "preis": "60.00",
+      "position": 0
+    }
+  },
+  {
+    "model": "reisen.reisepreiszusatz",
+    "pk": "33a0d1e4-8150-4258-84f6-2a76a45e6b83",
+    "fields": {
+      "reisepreis_id": "34412539-7c34-43fc-84b1-fce22970c051",
+      "preis_id": "5dede2c4-da71-48d7-904c-d5904733a89b",
+      "preis": "50.00",
+      "position": 1
+    }
+  },
+  {
+    "model": "reisen.reisepreiszusatz",
+    "pk": "41c5a1dd-6365-4777-9dea-ddb86aa72cf7",
+    "fields": {
+      "reisepreis_id": "41c91952-042d-4891-bbe6-04ed7b00df8a",
+      "preis_id": "beed9f65-4cfa-4a02-b474-3875cc5c8af9",
+      "preis": "0.00",
+      "position": 1
+    }
+  },
+  {
+    "model": "reisen.reisepreiszusatz",
+    "pk": "489832c2-1f9c-4e64-8268-8c9188f2a9e0",
+    "fields": {
+      "reisepreis_id": "3bbc1e25-aae9-407c-83b6-9e4c5f06f448",
+      "preis_id": "beed9f65-4cfa-4a02-b474-3875cc5c8af9",
+      "preis": "0.00",
+      "position": 1
+    }
+  },
+  {
+    "model": "reisen.reisepreiszusatz",
+    "pk": "4de48a66-0762-486a-a5e4-b90e48b59c0f",
+    "fields": {
+      "reisepreis_id": "8ac860f1-6940-4447-bd60-0270edf6162e",
+      "preis_id": "5dede2c4-da71-48d7-904c-d5904733a89b",
+      "preis": "60.00",
+      "position": 2
+    }
+  },
+  {
+    "model": "reisen.reisepreiszusatz",
+    "pk": "53beae02-f24e-4016-a1fa-ec0bea5a2b89",
+    "fields": {
+      "reisepreis_id": "ed71d975-4cbc-4457-8072-54c1876f0948",
+      "preis_id": "beed9f65-4cfa-4a02-b474-3875cc5c8af9",
+      "preis": "66.00",
+      "position": 0
+    }
+  },
+  {
+    "model": "reisen.reisepreiszusatz",
+    "pk": "59a03c01-5e86-4b21-ab4c-e56623f07319",
+    "fields": {
+      "reisepreis_id": "6c77680a-cab7-4552-91fd-45f317a6d4f1",
+      "preis_id": "5dede2c4-da71-48d7-904c-d5904733a89b",
+      "preis": "60.00",
+      "position": 1
+    }
+  },
+  {
+    "model": "reisen.reisepreiszusatz",
+    "pk": "5ed9ae29-560f-4af5-b532-1345f463e2be",
+    "fields": {
+      "reisepreis_id": "393e718d-cef1-4298-913e-e1af6a2cca04",
+      "preis_id": "beed9f65-4cfa-4a02-b474-3875cc5c8af9",
+      "preis": "78.00",
+      "position": 0
+    }
+  },
+  {
+    "model": "reisen.reisepreiszusatz",
+    "pk": "68e21ee6-6f2b-4249-ad71-733596923b46",
+    "fields": {
+      "reisepreis_id": "1d25409d-770b-4cf5-9038-c65351d1371d",
+      "preis_id": "5dede2c4-da71-48d7-904c-d5904733a89b",
+      "preis": "40.00",
+      "position": 2
+    }
+  },
+  {
+    "model": "reisen.reisepreiszusatz",
+    "pk": "8582d8f8-2b45-4573-894c-c7b93c53a461",
+    "fields": {
+      "reisepreis_id": "ed71d975-4cbc-4457-8072-54c1876f0948",
+      "preis_id": "5dede2c4-da71-48d7-904c-d5904733a89b",
+      "preis": "55.00",
+      "position": 1
+    }
+  },
+  {
+    "model": "reisen.reisepreiszusatz",
+    "pk": "a693e50a-80fb-4caa-9c04-5a3aa84328a2",
+    "fields": {
+      "reisepreis_id": "2778e3fa-9b20-451c-890e-e0104f233c9f",
+      "preis_id": "beed9f65-4cfa-4a02-b474-3875cc5c8af9",
+      "preis": "69.00",
+      "position": 1
+    }
+  },
+  {
+    "model": "reisen.reisepreiszusatz",
+    "pk": "bd55ceec-63ac-4c9f-8a4e-c5b162651e30",
+    "fields": {
+      "reisepreis_id": "1d25409d-770b-4cf5-9038-c65351d1371d",
+      "preis_id": "beed9f65-4cfa-4a02-b474-3875cc5c8af9",
+      "preis": "54.00",
+      "position": 1
+    }
+  },
+  {
+    "model": "reisen.reisepreiszusatz",
+    "pk": "f044a264-60e8-474c-8658-99026d9ec7c6",
+    "fields": {
+      "reisepreis_id": "6c77680a-cab7-4552-91fd-45f317a6d4f1",
+      "preis_id": "beed9f65-4cfa-4a02-b474-3875cc5c8af9",
+      "preis": "69.00",
+      "position": 0
+    }
+  },
+  {
+    "model": "reisen.reisepreiszusatz",
+    "pk": "fc8722d8-535d-41ce-957c-b8c6745d0329",
+    "fields": {
+      "reisepreis_id": "0e01e33f-a85c-446e-a469-d9ff0a3f56e0",
+      "preis_id": "beed9f65-4cfa-4a02-b474-3875cc5c8af9",
+      "preis": "0.00",
+      "position": 1
+    }
+  }
+]
