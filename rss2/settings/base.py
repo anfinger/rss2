@@ -33,6 +33,7 @@ INSTALLED_APPS = (
     #'suit',
     #'tabbed_admin',
     #'front',
+    #'django-concurrency',
     'inplaceeditform',
     'grappelli',
     'easy_thumbnails',
@@ -180,6 +181,7 @@ FILEBROWSER_VERSIONS_BASEDIR = MEDIA_ROOT + '_versionen/'
 #    MIGRATION_MODULES = DisableMigrations()
 
 
+ADAPTOR_INPLACEEDIT_EDIT = 'inplaceeditform.perms.AdminDjangoPermEditInline'
 INPLACEEDIT_EDIT_EMPTY_VALUE = 'Doppelklick zum editieren'
 INPLACEEDIT_AUTO_SAVE = True
 INPLACEEDIT_EVENT = "dblclick"

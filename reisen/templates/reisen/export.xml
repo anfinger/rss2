@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<reisen>
+     {% for termin in termine %}
+     <reise id="{{ termin.reiseID }}" titel="{{ termin.titel }}" seite="{{ termin.katalogseiten }}">
+       <spalte_leistungen>
+         {% if termin.reisetyp %}{{ termin.reisetyp }}{% endif %}
+         {% if termin.reisetermine %}{{ termin.reisetermine }}{% endif %}
+         {% if preise %}
+           {% for preis in preise %}
+             {% if preis.kommentar == 'ab' %}
+               {{ preis.titel }}: {{ preis.kommentar }} {{ preis.preis }} &euro;
+             {% else %}
+               {{ preis.titel }}: {{ preis.preis }} &euro;{{ preis.kommentar }}
+             {% endif %}
+             {% if preis.zpreis %}
+               {{ preis.zpreis|linebreaks }}
+             {% endif %}
+           {% endfor %}
+         {% else %}
+           Der Preis ist noch nicht bekannt.
+         {% endif %}
+       </spalte_leistungen>
+       <spalte_inhalt>
+         {% if termin.titel %}{{ termin.titel }}{% endif %}
+         {% if termin.untertitel %}{{ termin.untertitel }}{% endif %}
+         {% if termin.einleitung %}{{ termin.einleitung }}{% endif %}
+         {% if tage %}
+           <p><h4>Reiseablauf:</h4>
+             {% for tag in tage %}
+               {% if aps %}
+                 <b>{{ tag.nummerntext }}{{ tag.titel }}
+                   {% for ap in aps %}
+                     {% if ap.reisetag_id_id == tag.reisetagID %}
+                       {% if ap.erscheint_in == 'Titel' %}
+                         {{ ap.ausflugspaket_text }}
+                       {% endif %}
+                     {% endif %}
+                   {% endfor %}
+                   </b></br>
+                   {% for ap in aps %}
+                     {% if ap.reisetag_id_id == tag.reisetagID %}
+                       {% if ap.erscheint_in == 'Text' %}
+                         <b>{{ ap.ausflugspaket_text }}</b>
+                       {% endif %}
+                     {% endif %}
+                   {% endfor %}
+                   {{ tag.beschreibung|linebreaksbr }} <b>{{ tag.zusatz|linebreaksbr }}</b></br></br>
+               {% else %}
+               <b>{{ tag.nummerntext }}{{ tag.titel }}</b></br>
+               {{ tag.beschreibung|linebreaksbr }} <b>{{ tag.zusatz|linebreaksbr }}</b></br></br>
+             {% endif %}
+           {% endfor %}
+           </p>
+         {% endif %}
+       </spalte_inhalt>
+     </reise>
+     {% endfor %}
+</reisen>

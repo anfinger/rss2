@@ -25,6 +25,10 @@ def get_detail_hinweise_queryset(pk):
 
 def get_detail_angebote_queryset(pk):
     reise = Reise.objects.get(pk=pk)
-    reise = reise.reiseangebote_set.annotate(angebot=F('angebot_id__angebot'))
-    return reise.values('position', 'titel', 'angebot')
+    reise = reise.reiseangebote_set.annotate(angebot=F('angebot_id__angebot'), titel_master=F('angebot_id__titel'))
+    return reise.values('position', 'titel', 'titel_master','angebot')
 
+def get_detail_auftragsbestaetigungen_queryset(pk):
+    reise = Reise.objects.get(pk=pk)
+    reise = reise.reiseauftragsbestaetigungen_set.annotate(auftragsbestaetigung=F('auftragsbestaetigung_id__auftragsbestaetigung'), titel_master=F('auftragsbestaetigung_id__titel'))
+    return reise.values('position', 'titel', 'titel_master','auftragsbestaetigung')

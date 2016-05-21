@@ -13,6 +13,7 @@ import nested_admin
 from grappelli.forms import GrappelliSortableHiddenMixin
 from .models import Reise
 from .models import Reisetermine
+from .models import Abfahrtszeiten
 from .models import Hinweis
 from .models import Kategorie
 from .models import Zielregion
@@ -20,24 +21,30 @@ from .models import Ausflugspakete
 from .models import Preis
 from .models import Reisepreise
 from .models import Reisetage
+from .models import Reisebeschreibung
 from .models import LeistungenReise
 from .models import Fruehbucherrabatt
 from .models import Zusatzleistung
 from .models import Reisehinweise
 from .models import Reisekategorien
 from .models import Reisezielregionen
+from .models import Bildzielregionen
 from .models import LeistungenAusflugspaket
 from .models import Ausflugspaketpreise
 from .models import AusflugspaketeZuReisetagen
 from .models import ReisepreisZusatz
 from .models import Bild
 from .models import Reisebilder
+from .models import Bildanbieter
+from .models import Bildanbieterzubild
 from .models import Angebot
 from .models import Reiseangebote
 from .models import Katalog
 from .models import Reisekatalogzugehoerigkeit
+from .models import Auftragsbestaetigung
+from .models import Reiseauftragsbestaetigungen
 
-from .forms import ReiseForm, AusflugspaketeForm
+from .forms import ReiseForm, BildForm, AusflugspaketeForm
 
 from .views import namedtuplefetchall
 
@@ -60,11 +67,23 @@ class ReisetageInline(admin.TabularInline):
     #can_delete = True
     extra = 0
 
+class ReisebeschreibungInline(GrappelliSortableHiddenMixin, admin.TabularInline):
+    model = Reisebeschreibung
+    classes = ('grp-collapse grp-closed',)
+    extra = 0
+
 class ReisetermineInline(admin.TabularInline):
 #class ReisetermineInline(admin.StackedInline):
     model = Reisetermine
     ordering = ("datum_beginn",)
     fields = ('datum_beginn', 'datum_ende', 'kommentar', 'markierung')
+    classes = ('grp-collapse grp-closed',)
+    extra = 0
+
+class AbfahrtszeitenInline(GrappelliSortableHiddenMixin, admin.TabularInline):
+#class ReisetermineInline(admin.StackedInline):
+    model = Abfahrtszeiten
+    fields = ('ort', 'zeit', 'kommentar', 'position', )
     classes = ('grp-collapse grp-closed',)
     extra = 0
 
@@ -78,7 +97,7 @@ class LeistungenReiseInline(GrappelliSortableHiddenMixin, admin.TabularInline):
 
 class FruehbucherrabattInline(admin.TabularInline):
     model = Fruehbucherrabatt
-    fields = ('rabatt', 'datum_bis')
+    fields = ('rabattbezeichnung', 'rabatt', 'datum_bis')
     #ordering = ("position",)
     classes = ('grp-collapse grp-closed',)
     extra = 0
@@ -103,7 +122,7 @@ class ReisekatalogzugehoerigkeitInline(GrappelliSortableHiddenMixin, admin.Tabul
     model = Reisekatalogzugehoerigkeit
     #ordering = ("position",)
     #sortable_field_name = "position"
-    fields = ('position', 'katalog_id', 'katalogseite', 'anzahl_seiten_im_katalog', 'titel', 'katalog_pdf')
+    fields = ('position', 'katalog_id', 'katalogseite', 'anzahl_seiten_im_katalog', 'position_auf_seite', 'titel', 'katalog_pdf')
     classes = ('grp-collapse grp-closed',)
     extra = 0
 
@@ -115,13 +134,49 @@ class ReisekategorienInline(GrappelliSortableHiddenMixin, admin.TabularInline):
     classes = ('grp-collapse grp-closed',)
     extra = 0
 
+    def formfield_for_foreignkey(self, db_field, request, **kwargs):
+      if db_field.name == "kategorie_id":
+        kwargs["queryset"] = Kategorie.objects.order_by('kategorie')
+        return super(ReisekategorienInline, self).formfield_for_foreignkey(db_field, request, **kwargs)
+
+class BildanbieterzubildInline(GrappelliSortableHiddenMixin, admin.TabularInline):
+    model = Bildanbieterzubild
+    #ordering = ("position",)
+    #sortable_field_name = "position"
+    fields = ('position', 'bildanbieter_id', 'bildnummer', 'url', 'kommentar')
+    classes = ('grp-collapse grp-closed',)
+    extra = 0
+
+    def formfield_for_foreignkey(self, db_field, request, **kwargs):
+      if db_field.name == "bildanbieter_id":
+        kwargs["queryset"] = Bildanbieter.objects.order_by('bildanbieter')
+        return super(BildanbieterzubildInline, self).formfield_for_foreignkey(db_field, request, **kwargs)
+
 class ReisezielregionenInline(GrappelliSortableHiddenMixin, admin.TabularInline):
     model = Reisezielregionen
+    #ordering = ("zielregion_id")
+    #sortable_field_name = "position"
+    fields = ('position', 'zielregion_id')
+    classes = ('grp-collapse grp-closed',)
+    extra = 0
+
+    def formfield_for_foreignkey(self, db_field, request, **kwargs):
+      if db_field.name == "zielregion_id":
+        kwargs["queryset"] = Zielregion.objects.order_by('name')
+        return super(ReisezielregionenInline, self).formfield_for_foreignkey(db_field, request, **kwargs)
+
+class BildzielregionenInline(GrappelliSortableHiddenMixin, admin.TabularInline):
+    model = Bildzielregionen
     #ordering = ("position",)
     #sortable_field_name = "position"
     fields = ('position', 'zielregion_id')
     classes = ('grp-collapse grp-closed',)
     extra = 0
+
+    def formfield_for_foreignkey(self, db_field, request, **kwargs):
+      if db_field.name == "zielregion_id":
+        kwargs["queryset"] = Zielregion.objects.order_by('name')
+        return super(BildzielregionenInline, self).formfield_for_foreignkey(db_field, request, **kwargs)
 
 class ReisebilderInline(GrappelliSortableHiddenMixin, admin.TabularInline):
     model = Reisebilder
@@ -131,11 +186,37 @@ class ReisebilderInline(GrappelliSortableHiddenMixin, admin.TabularInline):
     classes = ('grp-collapse grp-closed',)
     extra = 0
 
+    def formfield_for_foreignkey(self, db_field, request, **kwargs):
+      if db_field.name == "bild_id":
+        kwargs["queryset"] = Bild.objects.order_by('titel')
+        return super(ReisebilderInline, self).formfield_for_foreignkey(db_field, request, **kwargs)
+
+class BilderzurreiseInline(GrappelliSortableHiddenMixin, admin.TabularInline):
+    model = Reisebilder
+    #ordering = ("position",)
+    #sortable_field_name = "position"
+    fields = ('position', 'titel', 'zu_verwenden_in', 'reise_id')
+    classes = ('grp-collapse grp-closed',)
+    extra = 0
+
+    def formfield_for_foreignkey(self, db_field, request, **kwargs):
+      if db_field.name == "reise_id":
+        kwargs["queryset"] = Reise.objects.order_by('titel')
+        return super(BilderzurreiseInline, self).formfield_for_foreignkey(db_field, request, **kwargs)
+
 class ReiseangeboteInline(GrappelliSortableHiddenMixin, admin.TabularInline):
     model = Reiseangebote
     #ordering = ("position",)
     #sortable_field_name = "position"
     fields = ('position', 'titel', 'angebot_id')
+    classes = ('grp-collapse grp-closed',)
+    extra = 0
+
+class ReiseauftragsbestaetigungenInline(GrappelliSortableHiddenMixin, admin.TabularInline):
+    model = Reiseauftragsbestaetigungen
+    #ordering = ("position",)
+    #sortable_field_name = "position"
+    fields = ('position', 'titel', 'auftragsbestaetigung_id')
     classes = ('grp-collapse grp-closed',)
     extra = 0
 
@@ -351,10 +432,20 @@ class ReiseAdmin(nested_admin.NestedAdmin): #TabbedModelAdmin,
         self.message_user(request, "%s erfolgreich \"un\"-veröffentlicht." % message_bit)
     make_unpublished.short_description = "\"un\"-Veröffentlichen"
 
-    list_display = ('titel', 'reisetermine', 'status', 'datum_veroeffentlichung', 'datum_verfall', 'zuletzt_bearbeitet', 'zuletzt_bearbeitet_von', 'datum_erzeugung', 'autor_id')
+    def welcherkatalog(self, obj):
+        cursor = connection.cursor()
+        cursor.execute("SELECT reisen_reise.titel, reisen_katalog.titel AS katalogtitel FROM reisen_reise LEFT JOIN reisen_reisekatalogzugehoerigkeit ON (reiseID = reise_id_id) LEFT JOIN reisen_katalog ON (katalogID = katalog_id_id) WHERE reise_id_id ='" + str(obj.reiseID).replace('-','') + "';");
+        katalog = namedtuplefetchall(cursor)
+        cursor.close()
+        if len(katalog) > 0:
+            return katalog[0].katalogtitel
+        else:
+            return ''
+
+    list_display = ('titel', 'reisetermine', 'reisetyp', 'veranstalter', 'status', 'datum_veroeffentlichung', 'datum_verfall', 'zuletzt_bearbeitet', 'zuletzt_bearbeitet_von', 'datum_erzeugung', 'autor_id')
     #list_display_links = ('titel', 'reisetermine')
     #list_editable = ('titel',)
-    list_filter = ('titel', 'reisetermine', 'status', 'datum_veroeffentlichung', 'datum_verfall', 'zuletzt_bearbeitet', 'zuletzt_bearbeitet_von', 'datum_erzeugung', 'autor_id')
+    list_filter = ('titel', 'reisetermine', 'status', 'datum_veroeffentlichung', 'datum_verfall', 'zuletzt_bearbeitet', 'zuletzt_bearbeitet_von', 'datum_erzeugung', 'autor_id', 'reisetyp', 'veranstalter')
     search_fields = ['titel',]
     #filter_vertical = ('hinweise',)
 
@@ -402,18 +493,10 @@ class ReiseAdmin(nested_admin.NestedAdmin): #TabbedModelAdmin,
             'classes': ('collapse', 'wide', 'extrapretty', 'grp-collapse grp-open',)
         }), (
         'Reise', {
-            'fields': ('titel', 'slug', 'status',),
+            'fields': (('veranstalter', 'reisetyp', 'status',), 'titel', 'slug', 'untertitel', 'einleitung'),
             'classes': ('wide', 'extrapretty', 'extrapretty', 'grp-collapse grp-open',)
         }), (
-        'Reisedetails Standard', {
-            'fields': (
-                'reisetyp',
-                'untertitel',
-                'einleitung',
-            ),
-            'classes': ('collapse', 'wide', 'extrapretty', 'grp-collapse grp-closed',)
-        }), (
-        'Reisedetails Zusätze', {
+        'Reisedetails', {
             'fields': (
                 'leistungen_kommentar',
                 'zusatzleistungen_titel',
@@ -434,6 +517,8 @@ class ReiseAdmin(nested_admin.NestedAdmin): #TabbedModelAdmin,
     inlines = (
         ReisekatalogzugehoerigkeitInline,
         ReisetermineInline,
+        AbfahrtszeitenInline,
+        ReisebeschreibungInline,
         ReisetageInline,
         LeistungenReiseInline,
         FruehbucherrabattInline,
@@ -445,6 +530,7 @@ class ReiseAdmin(nested_admin.NestedAdmin): #TabbedModelAdmin,
         ReisepreiseInline,
         ReisebilderInline,
         ReiseangeboteInline,
+        ReiseauftragsbestaetigungenInline,
     )
 
     def save_model(self, request, obj, form, change):
@@ -455,11 +541,31 @@ class ReiseAdmin(nested_admin.NestedAdmin): #TabbedModelAdmin,
         obj.zuletzt_bearbeitet = timezone.now()
         obj.save()
 
+class BildAdmin(admin.ModelAdmin): #TabbedModelAdmin,
+
+    form = BildForm
+
+    save_on_top = True
+    save_as = True
+
+    list_display = ('titel', 'beschreibung')
+    list_filter = ('titel', 'beschreibung')
+    search_fields = ['titel', 'beschreibung']
+
+    inlines = (
+        BildzielregionenInline,
+        BildanbieterzubildInline,
+        BilderzurreiseInline,
+    )
+
 admin.site.register(Reise, ReiseAdmin)
 admin.site.register(Hinweis)
 admin.site.register(Kategorie)
 admin.site.register(Zielregion)
 admin.site.register(Preis)
-admin.site.register(Bild)
+admin.site.register(Bild, BildAdmin)
+admin.site.register(Bildanbieter)
+#admin.site.register(Reisebilder)
 admin.site.register(Angebot)
+admin.site.register(Auftragsbestaetigung)
 admin.site.register(Katalog)

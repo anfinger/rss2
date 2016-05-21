@@ -6,6 +6,7 @@
   <div class="aktuelles">
     <p><h3><a href="{{ request.META.HTTP_REFERER }}">zurück</a></h3></p></br>
     <!-- <p><h3><a href="{% url 'index' %}">zurück</a></h3></p></br> -->
+    <p><h3><a href="{% url 'reise_detail_export' pk=reise.reiseID %}" target = 'blank'>export</a></h3></p></br>
 
     {% if data %}
     <font color="#FF0000">
@@ -20,7 +21,7 @@
     <font color="#FF0000">
       <p>
         <b>Korrektur{{ reise.korrektur_bemerkung_intern|length|pluralize:"en" }}:</b></br>
-          {% inplace_edit "reise.korrektur_bemerkung_intern|linebreaksbr" %}
+          {% inplace_edit "reise.korrektur_bemerkung_intern|linebreaksbr" auto_height=5, auto_width=5 %}
       </p>
     </font>
     {% endif %}
@@ -40,8 +41,7 @@
     {% if bilder %}
       <p>
         <!-- wenn mehr als ein Element Plural in Überschrift verwenden -->
-        <!-- <b>Bild{{ bilder|length|pluralize:"er" }} 2:</b></br>-->
-
+        <!-- <b>Bild{{ bilder|length|pluralize:"er" }} 2:</b></br> -->
         <div class="flexslider" style="width: 400px">
           <ul class="slides">
             {% for bild in bilder %}
@@ -57,9 +57,19 @@
       </p>
     {% endif %}
 
-    <p><h1>{{ reise.titel }}</h1></p>
-    <p><h4>{{ reise.untertitel|linebreaks }}</h4></p>
-    <p><h5>{{ reise.reisetyp }}</br></br>
+    {% if reise.titel %}
+      <p><h1>{% inplace_edit "reise.titel" auto_height=5, auto_width=5 %}</h1></p>
+    {% endif %}
+    {% if reise.zubucher %}
+      <p><h4>{% inplace_edit "reise.zubucher" auto_height=5, auto_width=5 %}</h1></p>
+    {% endif %}
+    {% if reise.untertitel %}
+      <p><h4>{% inplace_edit "reise.untertitel|linebreaksbr" auto_height=5, auto_width=5 %}</h4></p>
+    {% endif %}
+    {% if reise.reisetyp %}
+      <p><b>{% inplace_edit "reise.reisetyp" auto_height=5, auto_width=5%}</b></p>
+    {% endif %}
+    <p>
       {% for katalog in kataloge %}
         Diese Reise finden Sie im Druckexemplar unseres Kataloges "{{ katalog.titel }}" auf Seite {{ katalog.katalogseite }}.</br>
         Link: {{ katalog.katalog_pdf }} {{ site.storage.location }}
@@ -67,123 +77,198 @@
           </br></br>
         {% endif %}
       {% endfor %}
-    </h5></p>
+    </p>
     {% if termine %}
-      <p><b>Reisetermin{{ termine|length|pluralize:"e" }}:</b></br>        
-      {% for termin in termine %}
-        {% if forloop.counter > 1 %}
-          </br>
-        {% endif %}
-        {% if termin.datum_ende %}
-          {{ termin.datum_beginn|date:"d." }} - {{ termin.datum_ende|date:"d. m. Y" }}{{ termin.markierung }}</br>
-        {% else %}
-          {{ termin.datum_beginn|date:"d. m. Y" }}</br>
-        {% endif %}
-        {{ termin.kommentar }}
-      {% endfor %}
+      <dl>
+        <p><h4>Reisetermin{{ termine|length|pluralize:"e" }}:</h4>
+        <b>Termin{{ termine|length|pluralize:"e" }}:</b>
+        <dt>
+          {% for termin in termine %}
+            {% if termin.datum_ende %}
+              <dd>{% inplace_edit "termin.datum_beginn|date:'d. m. Y'" %} - {% inplace_edit "termin.datum_ende|date:'d. m. Y'" %}{{ termin.markierung }}
+            {% else %}
+              <dd>{% inplace_edit "termin.datum_beginn|date:'D. d. m. Y'" %}
+            {% endif %}
+            {% if termin.kommentar %}
+              ({% inplace_edit "termin.kommentar" auto_height=5, auto_width=5 %})</dd>
+            {% endif %}
+          {% endfor %}
     {% else %}
       <p><b>Reisetermine sind noch nicht bekannt!</b>
     {% endif %}
     </p>
+    {% if abfahrtszeiten %}
+      <dl>
+        <p><h4>Zeit{{ abfahrtszeiten|length|pluralize:"en" }}:</h4>
+        <dt>
+          {% for abfahrtszeit in abfahrtszeiten %}
+            {% if abfahrtszeit.zeit %}
+              <dd>{% inplace_edit "abfahrtszeit.ort" %}: {% inplace_edit "abfahrtszeit.zeit|date:'H:i'" %} Uhr {{ abfahrtszeit.kommentar }}
+            {% else %}
+              <dd>Die genaue Zeit für "{% inplace_edit "abfahrtszeit.ort" %}" erfragen Sie bitte im Reisebüro.
+            {% endif %}
+          {% endfor %}
+    {% elif reise.reisetyp == 'TAGESFAHRT' %}
+      <p><b>Die Abfahrtszeiten sind noch nicht bekannt!</b>
+    {% endif %}
+    </p>
     {% if preise %}
+      <h4>Preis{{ preise|length|pluralize:"e" }}:</h4>
       <p>
         {% for preis in preise %}
-          <b>{{ preis.titel }}: {{ preis.preis }} &euro;{{ preis.kommentar }}</b></br>
+          {% if preis.kommentar == 'ab' %}
+            <b>{{ preis.titel }}: {{ preis.kommentar }} {{ preis.preis }} &euro;</b></br>
+          {% else %}
+            <b>{{ preis.titel }}: {{ preis.preis }} &euro;{{ preis.kommentar }}</b></br>
+          {% endif %}
           {% if preis.zpreis %}
             {{ preis.zpreis|linebreaks }}
           {% endif %}
         {% endfor %}
       </p>
     {% else %}
-      <p><b>Preis: </b>Der Preis ist noch nicht bekannt.</p>  
+      <h4>Preis:</h4>
+      <p>Der Preis ist noch nicht bekannt.</p>  
     {% endif %}
-    <p><b>{{ reise.einleitung|linebreaks }}</b></p>
-    <p><h4>Reiseablauf:</h4>
-      {% for tag in tage %}
-        {% if aps %}
-          <b>{{ tag.nummerntext }}{{ tag.titel }}
-          {% for ap in aps %}
-            {% if ap.reisetag_id_id == tag.reisetagID %}
-              {% if ap.erscheint_in == 'Titel' %}
-                {{ ap.ausflugspaket_text }}
-              {% endif %}
-            {% endif %}
-          {% endfor %}
-          </b></br>
-          {% for ap in aps %}
-            {% if ap.reisetag_id_id == tag.reisetagID %}
-              {% if ap.erscheint_in == 'Text' %}
-                <b>{{ ap.ausflugspaket_text }}</b>
-              {% endif %}
-            {% endif %}
-          {% endfor %}
-          {{ tag.beschreibung|linebreaks }}</br>
-        {% else %}
-          <b>{{ tag.nummerntext }}{{ tag.titel }}</b></br>
-          {{ tag.beschreibung|linebreaks }}</br>
-        {% endif %}
+    {% if reise.einleitung %}
+      <p><b>{% inplace_edit "reise.einleitung|linebreaksbr" auto_height=5, auto_width=5 %}</b></p>
+    {% endif %}
+    {% if reisebeschreibung %}
+      <p><h4>allgemeine Beschreibungen:</h4>
+      {% for beschreibung in reisebeschreibung %}
+        <b>{{ beschreibung.titel }}</b></br>
+        {{ beschreibung.beschreibung|linebreaksbr }} <b>{{ tag.zusatz|linebreaksbr }}</b></br></br>
       {% endfor %}
-    </p>
-
-    <p><b>Leistungen:</b></br>
-      <ul>
-        {% for leistung in leistungen %}
-          <li>{{ leistung.leistung }}</li>
+    {% endif %}
+    {% if tage %}
+      <p><h4>Reiseablauf:</h4>
+        {% for tag in tage %}
+          {% if aps %}
+            <b>{{ tag.nummerntext }}{{ tag.titel }}
+            {% for ap in aps %}
+              {% if ap.reisetag_id_id == tag.reisetagID %}
+                {% if ap.erscheint_in == 'Titel' %}
+                  {{ ap.ausflugspaket_text }}
+                {% endif %}
+              {% endif %}
+            {% endfor %}
+            </b></br>
+            {% for ap in aps %}
+              {% if ap.reisetag_id_id == tag.reisetagID %}
+                {% if ap.erscheint_in == 'Text' %}
+                  <b>{{ ap.ausflugspaket_text }}</b>
+                {% endif %}
+              {% endif %}
+            {% endfor %}
+            {{ tag.beschreibung|linebreaksbr }} <b>{{ tag.zusatz|linebreaksbr }}</b></br></br>
+          {% else %}
+            <b>{{ tag.nummerntext }}{{ tag.titel }}</b></br>
+            {{ tag.beschreibung|linebreaksbr }} <b>{{ tag.zusatz|linebreaksbr }}</b></br></br>
+          {% endif %}
         {% endfor %}
-      </ul>
-    </p>
+      </p>
+    {% endif %}
 
-    {% if aps %}
+    {% if leistungen %}
+      <h4>Leistungen:</h4>
+      <p>
+        <b>Leistung{{ leistungen|length|pluralize:"en" }}:</b>
+        <ul>
+          {% for leistung in leistungen %}
+            <li>{{ leistung.leistung }}</li>
+          {% endfor %}
+        </ul>
+      </p>
+    {% endif %}
+
+    {% if aps_distinct %}
       <p>
         <!-- wenn mehr als ein Element Plural in Überschrift verwenden -->
-        </br><b>Ausflugspaket{{ aps|length|pluralize:"e" }}:</b></br></br>
+        <!-- <b>Ausflugspaket{{ aps|length|pluralize:"e" }}:</b></br> -->
         {% for ap in aps_distinct %}
           <b>{{ ap.aptitel }}</b>
-          <b>{{ ap.preis }} &euro;</b></br>
-          <i>{{ ap.kommentar_titel }}</i>
+          {% if ap.preis %}
+            <b>{{ ap.preis }} &euro;</b></br>
+          {% else %}
+            Der Preis ist noch nicht bekannt.</br>
+          {% endif %}
+          <i>{{ ap.kommentar_titel }}</i></br>
           {{ ap.leistungen|linebreaks }}
-          <i>{{ ap.kommentar }}</i></br></br>
+          {% if ap.kommentar %}
+            <i>{{ ap.kommentar }}</i></br>
+          {% endif %}
         {% endfor %}
       </p>
     {% endif %}
 
-    {% if zusatzleistungen %}
+    {% if zusatzleistungen_distinct %}
       <p>
-        <!-- wenn mehr als ein Element Plural in Überschrift verwenden -->
-        <b>Zusatzleistung{{ zusatzleistungen|length|pluralize:"en" }}:</b></br>
-        {% for zusatzleistung in zusatzleistungen %}
-          {{ zusatzleistung.titel }}: {{ zusatzleistung.preis }} &euro;</br>
+        {% if reise.zusatzleistungen_titel %}
+          <b>{{ reise.zusatzleistungen_titel }}:</b>
+        {% else %}
+          <!-- wenn mehr als ein Element Plural in Überschrift verwenden -->
+          <b>Zusatzleistung{{ zusatzleistungen|length|pluralize:"en" }}:</b>
+        {% endif %}
+        {% if reise.zusatzleistungen_kommentar %}
+          <i>{{ reise.zusatzleistungen_kommentar }}</i></br>
+        {% endif %}
+        <ul>
+        {% for zusatzleistung in zusatzleistungen_distinct %}
+          <li>{{ zusatzleistung.aptitel }}
+          {% if zusatzleistung.preis %}
+            {{ zusatzleistung.preis }} &euro;</br>
+          {% else %}
+            Der Preis ist noch nicht bekannt.</br>
+          {% endif %}
+          {% if zusatzleistung.kommentar_titel %}
+            <i>{{ zusatzleistung.kommentar_titel }}</i></br>
+          {% endif %}
+          {% if zusatzleistung.kommentar %}
+            <i>{{ zusatzleistung.kommentar }}</i></br>
+          {% endif %}
+          </li>
         {% endfor %}
+        </ul>
       </p>
+    {% endif %}
+
+    {% if reise.leistungen_kommentar %}
+      <b>{{ reise.leistungen_kommentar }}</b>
     {% endif %}
 
     {% if hinweise %}
       <p>
         <!-- wenn mehr als ein Element Plural in Überschrift verwenden -->
-        <b>Hinweis{{ hinweise|length|pluralize:"e" }}:</b></br>
-        {% for hinweis in hinweise %}
-          {{ hinweis.hinweis }}</br>
-        {% endfor %}
+        <h4>Hinweis{{ hinweise|length|pluralize:"e" }}:</h4>
+        <ul>
+          {% for hinweis in hinweise %}
+            <li>{{ hinweis.hinweis }}</li>
+          {% endfor %}
+        </ul>
       </p>
     {% endif %}
 
     {% if kategorien %}
       <p>
         <!-- wenn mehr als ein Element Plural in Überschrift verwenden -->
-        <b>Kategorie{{ kategorien|length|pluralize:"n" }}:</b></br>
-        {% for kategorie in kategorien %}
-          {{ kategorie.kategorie }}</br>
-        {% endfor %}
+        <h4>Kategorie{{ kategorien|length|pluralize:"n" }}:</h4>
+        <ul>
+          {% for kategorie in kategorien %}
+            <li>{{ kategorie.kategorie }}</li>
+          {% endfor %}
+        </ul>
       </p>
     {% endif %}
 
     {% if zielregionen %}
       <p>
         <!-- wenn mehr als ein Element Plural in Überschrift verwenden -->
-        <b>Zielregion{{ zielregionen|length|pluralize:"en" }}:</b></br>
-        {% for zielregion in zielregionen %}
-          {{ zielregion.name }}</br>
-        {% endfor %}
+        <h4>Zielregion{{ zielregionen|length|pluralize:"en" }}:</h4>
+        <ul>
+          {% for zielregion in zielregionen %}
+            <li>{{ zielregion.name }}</li>
+          {% endfor %}
+        </ul>
       </p>
     {% endif %}
 
@@ -192,7 +277,7 @@
         <!-- wenn mehr als ein Element Plural in Überschrift verwenden -->
         <b>Frühbucherrabatt{{ fruehbucherrabatte|length|pluralize:"e" }}:</b></br>
         {% for fruehbucherrabatt in fruehbucherrabatte %}
-          {{ fruehbucherrabatt.rabatt }} &euro; bis zum {{ fruehbucherrabatt.datum_bis }}</br>
+          {{ fruehbucherrabatt.rabatt }} &euro; {{ fruehbucherrabatt.rabattbezeichnung }} bis zum {{ fruehbucherrabatt.datum_bis }}</br>
         {% endfor %}
       </p>
     {% endif %}
@@ -200,15 +285,43 @@
     {% if angebote %}
       <p>
         <!-- wenn mehr als ein Element Plural in Überschrift verwenden -->
-        <b>Angebot{{ angebote|length|pluralize:"e" }}:</b></br>
+        <h4>Angebot{{ angebote|length|pluralize:"e" }}:</h4>
         {% for angebot in angebote %}
-          <a href="{{ MEDIA_URL }}{{ angebot.angebot }}">{{ angebot.titel }} [{{ angebot.angebot }}]</a></br>
+          [{{ angebot.position }}]</br>
+          {% if angebot.titel_master %}
+            Titel: {{ angebot.titel_master }}</br>
+          {% endif %}
+          {% if angebot.titel %}
+            opt. Titel: {{ angebot.titel }}</br>
+          {% endif %}
+          <a href="{{ MEDIA_URL }}{{ angebot.angebot }}">[{{ angebot.angebot }}]</a></br>
         {% endfor %}
       </p>
     {% endif %}
 
-    <!-- <p>{{ dibug }}</p> -->
-    <p><h3><a href="{% url 'index' %}">zurück</a></h3></p></br>
+    {% if auftragsbestaetigungen %}
+      <p>
+        <!-- wenn mehr als ein Element Plural in Überschrift verwenden -->
+        <h4>Auftragsbestätigung{{ auftragsbestaetigungen|length|pluralize:"en" }}:</h4>
+        {% for auftragsbestaetigung in auftragsbestaetigungen %}
+          [{{ auftragsbestaetigung.position }}]</br>
+          {% if auftragsbestaetigung.titel_master %}
+            Titel: {{ auftragsbestaetigung.titel_master }}</br>
+          {% endif %}
+          {% if auftragsbestaetigung.titel %}
+            opt. Titel: {{ auftragsbestaetigung.titel }}</br>
+          {% endif %}
+          <a href="{{ MEDIA_URL }}{{ auftragsbestaetigung.auftragsbestaetigung }}">[{{ auftragsbestaetigung.auftragsbestaetigung }}]</a></br>
+        {% endfor %}
+      </p>
+    {% endif %}
+
+    {% if dibug %}
+      Debug Information:</br></br>
+      <p>{{ dibug }}</p>
+    {% endif %}
+    
+    <p><h3><a href="{{ request.META.HTTP_REFERER }}">zurück</a></h3></p></br>
   </div>
 
   <!-- jQuery -->
@@ -246,8 +359,8 @@
       });
     });
   </script>
-
+<!--
   <script src="//code.jquery.com/jquery-2.1.4.js" type="text/javascript"></script>
-  {% inplace_js 1 1 %} {% comment %} or inplace_js 1 0 {% endcomment %}
-
+-->
+  {% inplace_js 1 0 %} {% comment %} or inplace_js 1 1 {% endcomment %}
 {% endblock %}

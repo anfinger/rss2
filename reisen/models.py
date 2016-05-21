@@ -71,16 +71,88 @@ class Bild(models.Model):
         default = '',
         verbose_name = "Bildbeschreibung",
         help_text = "Geben Sie hier eine Bildbeschreibung ein.")
-    bildquelle = models.CharField(
-        max_length=256,
-        blank = True,
-        default = '',
-        verbose_name = "Bildquelle",
-        help_text = "Geben Sie hier den Bildquelle ein. (privat, Kunde, Internet, BildDB)")
 
     # Bildtitel als Rückgabestring
     def __str__(self):
-        return self.titel + ' ID: ' + str(self.bildID)
+        return self.titel #+ ' ID: ' + str(self.bildID)
+
+################
+# Bildanbieter #
+################
+@python_2_unicode_compatible # For Python 3.4 and 2.7
+class Bildanbieter(models.Model):
+
+    # Titel für das Admin Backend
+    class Meta:
+        verbose_name = "Bildanbieter"
+        verbose_name_plural = "Bildanbieter"
+
+    # Attribute
+    bildanbieterID = models.UUIDField(
+        primary_key=True,
+        default=uuid.uuid4,
+        editable=False)
+    bildanbieter = models.TextField(
+        blank = True,
+        default = '',
+        verbose_name = "Bildanbieter",
+        help_text = "Wählen Sie den Bildanbieter.")
+
+    # bildanbieter Text als Rückgabestring
+    def __str__(self):
+        return self.bildanbieter
+
+###########################
+# Kategorien zur Reise    #
+###########################
+@python_2_unicode_compatible # For Python 3.4 and 2.7
+class Bildanbieterzubild(models.Model):
+
+    # Titel für das Admin Backend
+    class Meta:
+        verbose_name = "Bildanbieter"
+        verbose_name_plural = "Bildanbieter"
+        ordering = ['position']
+
+    # Attribute
+    bildanbieterzubildID = models.UUIDField(
+        primary_key=True,
+        default=uuid.uuid4,
+        editable=False)
+    bild_id = models.ForeignKey(
+        Bild,
+        on_delete=models.CASCADE)
+    bildanbieter_id = models.ForeignKey(
+        Bildanbieter,
+        verbose_name = "Bildanbieter",
+        help_text = "Wählen Sie den Bildanbieter.",
+        on_delete=models.CASCADE)
+    bildnummer = models.CharField(
+        max_length=256,
+        blank = True,
+        default = '',
+        verbose_name = "Bildnummer",
+        help_text = "Geben Sie hier die Bildnummer des Anbieters ein.")
+    kommentar = models.CharField(
+        max_length=256,
+        blank = True,
+        default = '',
+        verbose_name = "Kommentar",
+        help_text = "Geben Sie hier einen Kommentar ein.")
+    url = models.URLField(
+        max_length=200,
+        blank = True,
+        default = '',
+        verbose_name = "URL",
+        help_text = "Geben Sie hier die URL ein.")
+    position = models.PositiveSmallIntegerField(
+        null = True,
+        verbose_name = "Position",
+        help_text = "Position zur Bestimmung der Reihenfolge der Bildanbieter bei der Darstellung")
+
+    # titel Text als Rückgabestring
+    def __str__(self):
+        return str(self.position)
 
 ###############
 # Angebot     #
@@ -110,6 +182,35 @@ class Angebot(models.Model):
     # Angebottitel als Rückgabestring
     def __str__(self):
         return self.titel + ' ID: ' + str(self.angebotID)
+
+############################
+# Auftragsbestaetigung     #
+############################
+@python_2_unicode_compatible # For Python 3.4 and 2.7
+class Auftragsbestaetigung(models.Model):
+
+    # Titel für das Admin Backend
+    class Meta:
+        verbose_name = "Auftragsbestätigung"
+        verbose_name_plural = "Auftragsbestätigungen"
+
+    # Attribute
+    auftragsbestaetigungID = models.UUIDField(
+        primary_key=True,
+        default=uuid.uuid4,
+        editable=False)
+    auftragsbestaetigung = models.FileField(upload_to = 'auftragsbestaetigungen', blank = True, default = '')#, default = 'images/None/no-img.jpg')
+    titel = models.CharField(
+        max_length=256,
+        blank = True,
+        default = '',
+        verbose_name = "Titel Auftragsbestätigung",
+        help_text = "Geben Sie hier den Titel der Auftragsbestätigung ein.")
+
+    # Titel als Rückgabestring
+    def __str__(self):
+        return self.titel + ' ID: ' + str(self.auftragsbestaetigungID)
+
 
 ###########
 # Katalog #
@@ -266,6 +367,12 @@ class Preis(models.Model):
 @python_2_unicode_compatible # For Python 3.4 and 2.7
 class Reise(models.Model):
 
+    # Auswahlmöglichkeiten Veranstalter
+    VERANSTALTER_CHOICES = (
+        ('RS', 'Reiseservice Schwerin'),
+        ('SH', 'Sewert Reisen'),
+    )
+
     # Titel für das Admin Backend
     class Meta:
         verbose_name = "Reise"
@@ -290,6 +397,12 @@ class Reise(models.Model):
         default = '',
         verbose_name = "Reisetyp",
         help_text="Geben Sie hier den Typ der Reise ein. (max. 30 Zeichen) (Kann evtl. automatisch gefüllt werden.)")
+    veranstalter = models.CharField(
+        max_length=2,
+        choices=VERANSTALTER_CHOICES,
+        default='RS',
+        verbose_name = "Veranstalter",
+        help_text = "Veranstalter")
     titel = models.CharField(
         max_length=128,
         blank = True,
@@ -435,6 +548,52 @@ class Reisetage(models.Model):
     def __str__(self):
         return str(self.tagnummer) + '. Tag: ' + self.titel
 
+##############################
+# sonstige Reisebeschreibung #
+##############################
+@python_2_unicode_compatible # For Python 3.4 and 2.7
+class Reisebeschreibung(models.Model):
+
+    # Titel für das Admin Backend
+    class Meta:
+        verbose_name = "sonstige Reisebeschreibung"
+        verbose_name_plural = "sonstige Reisebeschreibungen"
+        ordering = ['position']
+
+    # Attribute
+    reisebeschreibungID = models.UUIDField(
+        primary_key=True,
+        default=uuid.uuid4,
+        editable=False)
+    reise_id  = models.ForeignKey(
+        Reise,
+        on_delete=models.CASCADE)
+    position = models.PositiveSmallIntegerField(
+        null = True,
+        verbose_name = "Position",
+        help_text = "Position zur Bestimmung der Reihenfolge bei der Darstellung")
+    titel = models.CharField(
+        max_length=128,
+        blank = True,
+        default = '',
+        verbose_name="Titel Reisebeschreibung",
+        help_text="Geben Sie hier den Titel der Reisebeschreibung ein. (max. 70 Zeichen)")
+    beschreibung = models.TextField(
+        verbose_name = "Beschreibung",
+        blank = True,
+        default = '',
+        help_text="Geben Sie hier die Reisebeschreibung ein. (Die max. Anzahl Zeichen ist abhängig von Anzahl der Tage und Bilder je Reise etc. (etwa800))")
+    zusatz = models.TextField(
+        blank = True,
+        default = '',
+        verbose_name = "Zusatz zur Beschreibung",
+        help_text="Geben Sie hier zusätzliche Informationen zur Reisebeschreibung ein. (Tipps, etc.)")
+
+    # Titel Tagesbeschreibung als Rückgabestring
+    def __str__(self):
+        return self.titel
+
+
 ################
 # Reisetermine #
 ################
@@ -488,6 +647,68 @@ class Reisetermine(models.Model):
     # def related_label(self):
     #     return u"%s (%s)" % (self.datum_beginn, self.id)
 
+###########################
+# Abfahrtszeiten, Ankunft #
+###########################
+@python_2_unicode_compatible # For Python 3.4 and 2.7
+class Abfahrtszeiten(models.Model):
+
+    # Auswahlmöglichkeiten Zeiten
+    ORT_CHOICES = (
+        ('HBF', 'Schwerin Hauptbahnhof'),
+        ('VSB', 'von-Stauffenberg-Str.'),
+        ('GAR', 'Gartenstadt'),
+        ('ANK', 'Ankunft zurück in Schwerin'),
+    )
+
+    # Titel für das Admin Backend
+    class Meta:
+        verbose_name = "Abfahrtszeit/Ankunft"
+        verbose_name_plural = "Abfahrtszeit/Ankunft"
+        ordering = ['position']
+
+    # Attribute
+    abfahrtszeitID = models.UUIDField(
+        primary_key=True,
+        default=uuid.uuid4,
+        editable=False)
+    reise_id  = models.ForeignKey(
+        Reise,
+        #related_name = '+',
+        on_delete=models.CASCADE)
+    ort = models.CharField(
+        max_length=3,
+        choices=ORT_CHOICES,
+        default='HBF',
+        verbose_name = "Abfahrtsort/Ankunft",
+        help_text = "Abfahrtsort/Ankunft")
+    kommentar = models.CharField(
+        max_length=256,
+        blank = True,
+        verbose_name = "Kommentar",
+        help_text = "Kommentar/Hinweise")
+    zeit = models.TimeField(
+        blank = True,
+        default = '',
+        null = False,
+        verbose_name = "Abfahrts-/Ankunftszeit")
+    position = models.PositiveSmallIntegerField(
+        null = True,
+        verbose_name = "Position",
+        help_text = "Position zur Bestimmung der Reihenfolge der Zeiten bei der Darstellung")
+
+    # Abfahrtszeit als Rückgabestring
+    def __str__(self):
+        return str(self.zeit)
+
+    # @property
+    # def id(self):
+    #     return self.reiseterminID
+    #
+    # def related_label(self):
+    #     return u"%s (%s)" % (self.datum_beginn, self.id)
+
+
 ########################
 # Leistungen der Reise #
 ########################
@@ -509,7 +730,7 @@ class LeistungenReise(models.Model):
         Reise,
         on_delete=models.CASCADE)
     leistung = models.CharField(
-        max_length=128,
+        max_length=256,
         blank = True,
         verbose_name = "Leistung",
         help_text = "einzelne Leistung zur Reise")
@@ -532,7 +753,7 @@ class Fruehbucherrabatt(models.Model):
     class Meta:
         verbose_name = "Frühbucherrabatt"
         verbose_name_plural = "Frühbucherrabatte"
-        ordering = ['position']
+        ordering = ['datum_bis']
 
     # Attribute
     fruehbucherrabattID = models.UUIDField(
@@ -542,6 +763,11 @@ class Fruehbucherrabatt(models.Model):
     reise_id  = models.ForeignKey(
         Reise,
         on_delete=models.CASCADE)
+    rabattbezeichnung = models.CharField(
+        max_length=256,
+        blank = True,
+        verbose_name = "Rabattbezeichnung",
+        help_text = "Bezeichnung des Rabatts")
     datum_bis = models.DateField(
         blank = True,
         default = '',
@@ -633,6 +859,12 @@ class Reisekatalogzugehoerigkeit(models.Model):
         null = True,
         blank=True,
         verbose_name = "Anzahl der Seiten für diese Reise im Katalog")
+    # wenn anzahl der seiten im katalog = 0, dann gibt es mehrere reisen auf einer seite -> deshalb position zum ordnen
+    position_auf_seite = models.PositiveSmallIntegerField(
+        null = True,
+        default = 0,
+        verbose_name = "Position auf der Seite",
+        help_text = "Position zur Sortierung falls mehrere Reisen auf einer Seite")
     #katalog_pdf = FileBrowseField(max_length=200, directory="kataloge/", extensions=[".pdf"], blank=True, null=True)#, default = 'images/None/no-img.jpg')
     katalog_pdf = models.FileField(upload_to = 'kataloge', blank = True, default = '')#, default = 'images/None/no-img.jpg')
     titel = models.TextField(
@@ -696,8 +928,8 @@ class Reisebilder(models.Model):
 
     # Titel für das Admin Backend
     class Meta:
-        verbose_name = "Reisebild"
-        verbose_name_plural = "Reisebilder"
+        verbose_name = "Bild zur Reise"
+        verbose_name_plural = "Bilder zur Reise"
         ordering = ['position']
 
     # Attribute
@@ -707,9 +939,13 @@ class Reisebilder(models.Model):
         editable=False)
     reise_id = models.ForeignKey(
         Reise,
+        verbose_name = "Reise",
+        help_text="Wählen Sie eine Reise.",
         on_delete=models.CASCADE)
     bild_id = models.ForeignKey(
         Bild,
+        verbose_name = "Bild",
+        help_text="Wählen Sie ein Bild.",
         on_delete=models.CASCADE)
     titel = models.TextField(
         blank = True,
@@ -763,6 +999,43 @@ class Reiseangebote(models.Model):
         null = True,
         verbose_name = "position",
         help_text = "Position zur Bestimmung der Reihenfolge der Angebote bei der Darstellung")
+
+    # titel Text als Rückgabestring
+    def __str__(self):
+        return str(self.position)
+
+#######################################
+# Auftragsbestaetigung zur Reise      #
+#######################################
+@python_2_unicode_compatible # For Python 3.4 and 2.7
+class Reiseauftragsbestaetigungen(models.Model):
+
+    # Titel für das Admin Backend
+    class Meta:
+        verbose_name = "Auftragsbestätigung"
+        verbose_name_plural = "Auftragsbestätigungen"
+        ordering = ['position']
+
+    # Attribute
+    reiseauftragsbestaetigungID = models.UUIDField(
+        primary_key=True,
+        default=uuid.uuid4,
+        editable=False)
+    reise_id = models.ForeignKey(
+        Reise,
+        on_delete=models.CASCADE)
+    auftragsbestaetigung_id = models.ForeignKey(
+        Auftragsbestaetigung,
+        on_delete=models.CASCADE)
+    titel = models.TextField(
+        blank = True,
+        default = '',
+        verbose_name = "optionaler Titel",
+        help_text="Geben Sie hier einen optionalen Titel ein. (Überschreibt Standard Titel)")
+    position = models.PositiveSmallIntegerField(
+        null = True,
+        verbose_name = "position",
+        help_text = "Position zur Bestimmung der Reihenfolge bei der Darstellung")
 
     # titel Text als Rückgabestring
     def __str__(self):
@@ -836,16 +1109,51 @@ class Reisezielregionen(models.Model):
     def __str__(self):
         return str(self.position)
 
-############################
-# Ausflugspakete zur Reise #
-############################
+#############################
+# Zielregionen zur Reise    #
+#############################
+@python_2_unicode_compatible # For Python 3.4 and 2.7
+class Bildzielregionen(models.Model):
+
+    # Titel für das Admin Backend
+    class Meta:
+        verbose_name = "Zielregion"
+        verbose_name_plural = "Zielregionen"
+        ordering = ['position']
+
+    # Attribute
+    bildzielregionenID = models.UUIDField(
+        primary_key=True,
+        default=uuid.uuid4,
+        editable=False)
+    bild_id = models.ForeignKey(
+        Bild,
+        on_delete=models.CASCADE)
+    zielregion_id = models.ForeignKey(
+        Zielregion,
+        verbose_name = "Zielregion",
+        help_text = "Suchen Sie hier eine Zielregion aus.",
+        on_delete=models.CASCADE)
+    position = models.PositiveSmallIntegerField(
+        null = True,
+        verbose_name = "Position",
+        help_text = "Position zur Bestimmung der Reihenfolge der Zielregionen bei der Darstellung")
+
+    # titel Text als Rückgabestring
+    def __str__(self):
+        return str(self.position)
+
+
+#############################################
+# Ausflugspakete/Zusatzleistungen zur Reise #
+#############################################
 @python_2_unicode_compatible # For Python 3.4 and 2.7
 class Ausflugspakete(models.Model):
 
     # Titel für das Admin Backend
     class Meta:
-        verbose_name = "Ausflugspaket"
-        verbose_name_plural = "Ausflugspakete"
+        verbose_name = "Ausflugspaket/Zusatzleistung"
+        verbose_name_plural = "Ausflugspakete/Zusatzleistungen"
         ordering = ['position']
 
     # Attribute
@@ -862,30 +1170,31 @@ class Ausflugspakete(models.Model):
     titel = models.CharField(
         max_length=256,
         blank = True,
-        verbose_name = "Titel Ausflugspaket",
-        help_text = "Hier den Titel des Ausflugspakets eingeben")
+        verbose_name = "Titel",
+        help_text = "Hier den Titel eingeben")
     kommentar_titel = models.CharField(
         max_length=256,
         blank = True,
-        verbose_name = "Titelkommentar Ausflugspaket",
-        help_text = "Hier den Titelkommentar zum Ausflugspaket eingeben")
+        verbose_name = "Titelkommentar",
+        help_text = "Hier den Titelkommentar eingeben")
     kommentar = models.CharField(
         max_length=256,
         blank = True,
-        verbose_name = "kommentar Ausflugspaket",
-        help_text = "Hier den Kommentar zum Ausflugspaket eingeben")
+        verbose_name = "Kommentar",
+        help_text = "Hier den Kommentar eingeben")
     position = models.PositiveSmallIntegerField(
         null = True,
         verbose_name = "position",
-        help_text = "Position zur Bestimmung der Reihenfolge der Leistung bei der Darstellung")
+        help_text = "Position zur Bestimmung der Reihenfolge bei der Darstellung")
 
     # Leistung Text als Rückgabestring
     def __str__(self):
         return self.titel
 
-###############################
-# Leistungen zu Ausflugspaket #
-###############################
+#################################################################################
+# Leistungen zu Ausflugspaket                                                   #
+# Wenn keine Leistungen vorhanden dann ist es kein AP sonder Zusatzleistung !!! #
+#################################################################################
 @python_2_unicode_compatible # For Python 3.4 and 2.7
 class LeistungenAusflugspaket(models.Model):
 
@@ -917,16 +1226,16 @@ class LeistungenAusflugspaket(models.Model):
     def __str__(self):
         return self.leistung
 
-#############################
-# Preise zu Ausflugspaket   #
-#############################
+############################################
+# Preise zu Ausflugspaket/Zusatzleistung   #
+############################################
 @python_2_unicode_compatible # For Python 3.4 and 2.7
 class Ausflugspaketpreise(models.Model):
 
     # Titel für das Admin Backend
     class Meta:
-        verbose_name = "Ausflugspaketpreis"
-        verbose_name_plural = "Ausflugspaketpreise"
+        verbose_name = "Preis Ausflugspaket/Zusatzleistung"
+        verbose_name_plural = "Preise Ausflugspaket/Zusatzleistung"
         ordering = ['position']
 
     # Attribute
@@ -944,7 +1253,8 @@ class Ausflugspaketpreise(models.Model):
         max_digits=6,
         decimal_places=2,
         null = True,
-        verbose_name = "Preisdetail")
+        blank = True,
+        verbose_name = "Preis")
     #kommentar = models.CharField(
     #    max_length=256,
     #    blank = True,
@@ -953,22 +1263,23 @@ class Ausflugspaketpreise(models.Model):
     position = models.PositiveSmallIntegerField(
         null = True,
         verbose_name = "Position",
-        help_text = "Position zur Bestimmung der Reihenfolge der Ausflugspaketpreise bei der Darstellung")
+        help_text = "Position zur Bestimmung der Reihenfolge der Preise bei der Darstellung")
 
     # titel Text als Rückgabestring
     def __str__(self):
-        return 'Preis ' + str(self.ausflugspaket_id) +  ': ' + str(self.preis) + ' &euro;'
+        #return 'Preis ' + str(self.ausflugspaket_id) +  ': ' + str(self.preis) + ' &euro;'
+        return 'Preis ' + re.sub(r'[^a-zA-Z0-9_ ."-]', '', str(self.ausflugspaket_id)) + ': ' + str(self.preis) + ' &euro;'
 
-###################################
-# Ausflugspakete zu Reisetagen    #
-###################################
+####################################################
+# Ausflugspakete/Zusatzleistungen zu Reisetagen    #
+####################################################
 @python_2_unicode_compatible # For Python 3.4 and 2.7
 class AusflugspaketeZuReisetagen(models.Model):
 
     # Titel für das Admin Backend
     class Meta:
-        verbose_name = "Zuordnung von Ausflugspaket zu Reisetag"
-        verbose_name_plural = "Zuordnung von Ausflugspaketen zu Reisetagen"
+        verbose_name = "Zuordnung zu Reisetag"
+        verbose_name_plural = "Zuordnung zu Reisetagen"
         ordering = ['position']
 
     # Attribute
@@ -992,12 +1303,12 @@ class AusflugspaketeZuReisetagen(models.Model):
     ausflugspaket_text = models.CharField(
         max_length=256,
         blank = True,
-        verbose_name = "Text Ausflugspaket",
-        help_text = "Bitte Text zum Ausflugspaket eingeben.")
+        verbose_name = "Text Ausflugspaket/Zusatzleistung",
+        help_text = "Bitte Text zum Ausflugspaket/Zusatzleistung eingeben.")
     position = models.PositiveSmallIntegerField(
         null = True,
         verbose_name = "Position",
-        help_text = "Position zur Bestimmung der Reihenfolge der Ausflugspakete bei der Darstellung")
+        help_text = "Position zur Bestimmung der Reihenfolge der Ausflugspakete/Zusatzleistungen bei der Darstellung")
 
     # titel Text als Rückgabestring
     def __str__(self):
@@ -1048,7 +1359,7 @@ class Reisepreise(models.Model):
 
     # titel Text als Rückgabestring
     def __str__(self):
-        return str(self.position+1) + '. ' + str(self.preis_id) + ': ' + str(self.preis) + ' &euro;' + self.kommentar
+        return str(self.position+1) + '. ' + re.sub(r'[^a-zA-Z0-9_ ."-]', '', str(self.preis_id)) + ': ' + str(self.preis) + ' &euro;'
 
 #############################
 # Detailpreise zur Reise    #

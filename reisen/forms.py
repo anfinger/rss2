@@ -1,6 +1,6 @@
 from django.forms import CharField, ModelForm, Textarea#, inlineformset_factory
 from django.contrib.auth.models import User
-from .models import Reise, Ausflugspakete
+from .models import Reise, Bild, Ausflugspakete
 
 class ReiseForm(ModelForm):
     class Meta:
@@ -17,6 +17,12 @@ class ReiseForm(ModelForm):
         if not self.cleaned_data['zuletzt_bearbeitet_von']:
             return User()
         return self.cleaned_data['zuletzt_bearbeitet_von']
+
+class BildForm(ModelForm):
+    class Meta:
+        model = Bild
+        fields = "__all__"
+        #korrektur_bemerkung_intern  = CharField(label='Bemerkungen', widget=Textarea(attrs={'class': 'mceEditor'}))
 
 class AusflugspaketeForm(ModelForm):
     class Meta:

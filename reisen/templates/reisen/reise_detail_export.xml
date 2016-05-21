@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<root>
+<reise id="{{ reise.reiseID }}" titel="{{ reise.titel }}" seite="{{ katalog.katalogseite }}" anzahl_seiten="{{ katalog.anzahl_seiten_im_katalog }}" position_auf_seite="{{ katalog.position_auf_seite }}" kategorie="{% for kategorie in kategorien %}{{ kategorie.kategorie }},{% endfor %}" zielregion="{% for zielregion in zielregionen %}{{ zielregion.name }},{% endfor %}">
+<spalte_leistungen>
+<ZUBUCHER>{% if reise.zubucher %}{{ reise.zubucher }}{% endif %}</ZUBUCHER>
+<REISETYP>{% if reise.reisetyp %}{{ reise.reisetyp }}{% endif %}</REISETYP>
+<REISETERMINE>{% if termine %}Termin{{ termine|length|pluralize:"e" }}: {% for termin in termine %}{% if termin.datum_ende %}{{ termin.datum_beginn|date:'d. m. Y' }} - {{ termin.datum_ende|date:'d. m. Y' }}{{ termin.markierung }}{% else %}{{ termin.datum_beginn|date:'D. d. m. Y' }}{% endif %}{% if termin.kommentar %}({{ termin.kommentar }}{% endif %}{% endfor %}{% else %}Reisetermine sind noch nicht bekannt!{% endif %}</REISETERMINE>
+{% if leistungen %}<Leistung_h1>Leistung{{ leistungen|length|pluralize:"en" }}</Leistung_h1>
+<REISELEISTUNGEN>{% for leistung in leistungen %}{{ leistung.leistung }}
+{% endfor %}{% endif %}{% if reise.leistungen_kommentar %}<LEISTUNGENKOMMENTAR>{{ reise.leistungen_kommentar }}</LEISTUNGENKOMMENTAR></REISELEISTUNGEN>{% endif %}
+<AUSFLUGSPAKETE>{% if aps_distinct %}{% for ap in aps_distinct %}
+<APTITEL>{{ ap.aptitel }}</APTITEL><APPREIS>{% if ap.preis %}{{ ap.preis }} &euro;{% else %}Der Preis ist noch nicht bekannt.{% endif %}</APPREIS>
+{% if ap.kommentar_titel %}<APTITELKOMMENTAR>{{ ap.kommentar_titel }}</APTITELKOMMENTAR>{% endif %}
+<APLEISTUNGEN>{{ ap.leistungen }}</APLEISTUNGEN>{% if ap.kommentar %}<APKOMMENTAR>{{ ap.kommentar }}</APKOMMENTAR>{% endif %}{% endfor %}{% endif %}
+</AUSFLUGSPAKETE>
+<ZUSATZLEISTUNGEN>{% if zusatzleistungen_distinct %}<ZLTITEL>{% if reise.zusatzleistungen_titel %}{{ reise.zusatzleistungen_titel }}:{% else %}Zusatzleistung{{ zusatzleistungen|length|pluralize:"en" }}:{% endif %}</ZLTITEL>
+{% if reise.zusatzleistungen_kommentar %}<ZLTITELKOMMENTAR>{{ reise.zusatzleistungen_kommentar }}</ZLTITELKOMMENTAR>{% endif %}{% for zusatzleistung in zusatzleistungen_distinct %}<ZL>{{ zusatzleistung.aptitel }}</ZL><ZLPREIS>{% if zusatzleistung.preis %}{{ zusatzleistung.preis }} &euro;{% else %}Der Preis ist noch nicht bekannt.{% endif %}</ZLPREIS>{% if zusatzleistung.kommentar_titel %}<ZLKOMMENTAR>{{ zusatzleistung.kommentar_titel }}</ZLKOMMENTAR>{% endif %}{% if zusatzleistung.kommentar %}<ZLABSCHLUSSKOMMENTAR>{{ zusatzleistung.kommentar }}</ZLABSCHLUSSKOMMENTAR>{% endif %}
+{% endfor %}{% endif %}</ZUSATZLEISTUNGEN>
+<REISEPREISE>{% if preise %}{% for preis in preise %}{% if preis.kommentar == 'ab' %}{{ preis.titel }}: {{ preis.kommentar }} {{ preis.preis }} &euro;{% else %}{{ preis.titel }}: {{ preis.preis }} &euro;{{ preis.kommentar }}{% endif %}{% if preis.zpreis %}{{ preis.zpreis|linebreaks }}{% endif %}{% endfor %}{% else %}Der Preis ist noch nicht bekannt.{% endif %}</REISEPREISE>
+</spalte_leistungen>
+<Reiseinhalt>
+<REISETITEL>{% if reise.titel %}{{ reise.titel }}{% endif %}</REISETITEL>
+<FRÜHBUCHERRABATT>{% if fruehbucherrabatte %}{% for fruehbucherrabatt in fruehbucherrabatte %}{{ fruehbucherrabatt.rabattbezeichnung }} bis {{ fruehbucherrabatt.datum_bis }} {{ fruehbucherrabatt.rabatt }} &euro;{% endfor %}{% endif %}</FRÜHBUCHERRABATT> 
+<REISEUNTERTITEL>{% if reise.untertitel %}{{ reise.untertitel|linebreaksbr }}{% endif %}</REISEUNTERTITEL> 
+<REISEEINLEITUNG>{% if reise.einleitung %}{{ reise.einleitung|linebreaksbr }}{% endif %}</REISEEINLEITUNG> 
+<ABFAHRTSZEITEN>{% if abfahrtszeiten %}Reiseablauf:{% for abfahrtszeit in abfahrtszeiten %}{% if abfahrtszeit.zeit %}{{ abfahrtszeit.ort }}: {{ abfahrtszeit.zeit|date:'H:i' }} Uhr {{ abfahrtszeit.kommentar }}{% else %}Die genaue Zeit für {{ abfahrtszeit.ort }} erfragen Sie bitte im Reisebüro. {% endif %}{% endfor %}{% elif reise.reisetyp == 'TAGESFAHRT' %}Die Abfahrtszeiten sind noch nicht bekannt!{% endif %}</ABFAHRTSZEITEN>
+<REISEBESCHREIBUNG>{% if reisebeschreibung %}{% for beschreibung in reisebeschreibung %}<BESCHREIBUNGTITEL>{{ beschreibung.titel }}</BESCHREIBUNGTITEL>
+<BESCHREIBUNG>{{ beschreibung.beschreibung|linebreaksbr }}</BESCHREIBUNG> {% if tag.zusatz %}<BESCHREIBUNGZUSATZ>{{ tag.zusatz|linebreaksbr }}</BESCHREIBUNGZUSATZ>{% endif %}
+
+{% endfor %}{% endif %}</REISEBESCHREIBUNG> 
+<REISETAGBESCHREIBUNG>{% if tage %}{% for tag in tage %}<Tag>{% if aps %}{{ tag.nummerntext }}{{ tag.titel }}{% for ap in aps %}{% if ap.reisetag_id_id == tag.reisetagID %}{% if ap.erscheint_in == 'Titel' %}<REFERENZLEISTUNGEN>{{ ap.ausflugspaket_text }}</REFERENZLEISTUNGEN>{% endif %}{% endif %}{% endfor %}</Tag>
+{% for ap in aps %}{% if ap.reisetag_id_id == tag.reisetagID %}{% if ap.erscheint_in == 'Text' %}<REFERENZLEISTUNGEN>{{ ap.ausflugspaket_text }}</REFERENZLEISTUNGEN> {% endif %}{% endif %}{% endfor %}{{ tag.beschreibung|linebreaksbr }} {{ tag.zusatz|linebreaksbr }}{% else %}{{ tag.nummerntext }}{{ tag.titel }}</Tag>
+{{ tag.beschreibung|linebreaksbr }} {{ tag.zusatz|linebreaksbr }}
+{% endif %}
+
+{% endfor %}{% endif %}</REISETAGBESCHREIBUNG>
+<Hinweise>{% if hinweise %}{% for hinweis in hinweise %}{{ hinweis.hinweis }}
+{% endfor %}{% endif %}</Hinweise>
+
+<Absatz></Absatz>
+{% if bilder %}{% for bild in bilder %}<Image href="http://www.reiseservice-schwerin.de{{ MEDIA_URL }}{{ bild.bild }}"></Image>
+<copyright>{{ bild.bildurl }}</copyright>
+{% endfor %}{% endif %}<Absatz></Absatz>
+</Reiseinhalt>
+</reise>
+</root>

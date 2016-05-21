@@ -7,6 +7,8 @@ from . import views
 urlpatterns = [
     url(r'^$', views.index, name='index'),
     url(r'^winter2016_17/$', views.winter2016_17, name='winter2016_17'),
+    url(r'^winter2016_17_export/$', views.winter2016_17_export, name='winter2016_17_export'),
+    url(r'^reise_detail_export/(?P<pk>[-\w]+)/$', views.reise_detail_export, name='reise_detail_export'),
     url(r'^reise/(?P<pk>[\w]+)/$', views.reise_detail, name='reise_detail'),
     url(r'^reise/(?P<slug>[-_\w]+)/', views.reise_detail, name='reise_detail'),
     #url(r'^admin/filebrowser/', include(site.urls)),
