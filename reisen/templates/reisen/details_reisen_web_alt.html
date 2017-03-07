@@ -1,0 +1,966 @@
+{% load static %}
+{% load inplace_edit %}
+{% load eigene_tags %}
+
+<html>
+
+  <head>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <title>Reiseservice Schwerin GmbH</title>
+
+    <link rel="stylesheet" href="{% static 'flexslider/flexslider.css' %}">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans" />
+
+    <!-- Place either at the bottom in the <head> of your page or inside your CSS -->
+    <style type="text/css">
+      .flex-caption {
+        width: 98%;
+        padding: 3px;
+        left: 0;
+        bottom: 0;
+        background: none;
+        color: #000000;
+        //text-shadow: 0 -1px 0 rgba(0,0,0,.3);
+        font-size: 8px;
+        line-height: 8px;
+      }
+      li.css a {
+        border-radius: 0;
+      }
+      ul.flex-direction-nav, ul.flex-direction-nav li {
+        list-style:none;
+        list-style-image:none;
+      }
+      ol.flex-control-nav {
+        display: none;
+      }
+      #accordion_allgemein{
+        background: transparent;
+        border: none;
+      }
+      #accordion_allgemein .ui-accordion-header{
+        background: transparent;
+        border: none;
+        color: navy;
+        line-height: 20px;
+        display: block;
+        font-size: 11pt;
+        font-color: navy;
+        text-indent: 0px;
+        font-weight: bold;
+      }
+      #accordion_tage{
+        background: transparent;
+        border: none;
+      }
+      #accordion_tage .ui-accordion-header{
+        background: transparent;
+        border: none;
+        color: navy;
+        line-height: 20px;
+        display: block;
+        font-size: 11pt;
+        font-color: navy;
+        text-indent: 0px;
+        font-weight: bold;
+      }
+      .ui-accordion .ui-accordion-content {
+        background: transparent;
+        border: none;
+	padding: 0px 30px;
+	border-top: 0;
+	overflow: auto;
+      }
+
+      #tabs { 
+        padding: 0px; 
+        background: none; 
+        border-width: 0px; 
+      } 
+      #tabs .ui-tabs-nav { 
+        padding-left: 0px; 
+        background: transparent; 
+        border-width: 0px 0px 1px 0px; 
+        -moz-border-radius: 0px; 
+        -webkit-border-radius: 0px; 
+        border-radius: 0px; 
+      } 
+      #tabs .ui-tabs-nav .ui-state-default a { 
+        color: navy; 
+        font-size: 11pt;
+        font-family: Open Sans;
+      } 
+      #tabs .ui-tabs-nav .ui-state-active a { 
+        color: navy;
+        font-size: 11pt;
+        font-weight: bold;
+        font-family: Open Sans;
+      }
+      #tabs .ui-tabs-panel { 
+        //background: #f5f3e5 url(http://code.jquery.com/ui/1.8.23/themes/south-street/images/ui-bg_highlight-hard_100_f5f3e5_1x100.png) repeat-x scroll 50% top; 
+        background: #FFFFFF;
+        border-width: 0px 1px 1px 1px; 
+      }
+
+//      #tabs { 
+//        background: transparent; 
+//        border: none; 
+//      } 
+//      #tabs .ui-widget-header { 
+//        background: transparent; 
+//        border: none; 
+//        border-bottom: 1px solid #c0c0c0; 
+//        -moz-border-radius: 0px; 
+//        -webkit-border-radius: 0px; 
+//        border-radius: 0px; 
+//      } 
+//      #tabs .ui-tabs-nav .ui-state-default { 
+//        background: transparent; 
+//        border: none; 
+//      } 
+//      #tabs .ui-tabs-nav .ui-state-active { 
+//        background: transparent url({{MEDIA_URL}}images/uiTabsArrow_navy.png) no-repeat bottom center; 
+//        border: none; 
+//      } 
+//      #tabs .ui-tabs-nav .ui-state-default a { 
+//        color: navy; 
+//      } 
+//      #tabs .ui-tabs-nav .ui-state-active a { 
+//        color: navy;
+//        font-weight: bold;
+//      }
+      .table.dataTable thead td {
+        border-bottom: 0px solid #111111;
+      }
+      .table.dataTable tfoot td {
+        border-top: 0px solid #111111;
+      }
+
+    </style>
+
+    <link href="/src/bus.css" rel="stylesheet" media="screen">
+
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+
+    <script>
+
+      $(function() {
+        $( "#accordion_allgemein" ).accordion({
+          collapsible: true,
+          heightStyle: "content",
+          icons: { "header": "ui-icon-plus", "activeHeader": "ui-icon-minus" }
+        });
+      });
+
+      $(function() {
+        $( "#accordion_tage" ).accordion({
+          collapsible: true,
+          heightStyle: "content",
+          icons: { "header": "ui-icon-plus", "activeHeader": "ui-icon-minus" }
+        });
+      });
+
+      $(function() {
+        $( "#tabs" ).tabs();
+      });
+
+      $(document).ready(function() {
+        var table = $('#example').DataTable( {
+          "columnDefs": [
+            { 'orderData':[0], 'targets': [1] },
+            {
+              "targets": [ 0 ],
+              "visible": false,
+              "searchable": false
+            }
+          ],
+          "order": [[ 1, "asc" ]],
+          "iDisplayLength": 50,
+          "sDom": 'rt',
+          "paging": false,
+          "language": {
+            "url": "//cdn.datatables.net/plug-ins/1.10.12/i18n/German.json"
+          }
+        } );
+//        table.rows().every( function ( rowIdx, tableLoop, rowLoop ) {
+//          var cell = table.cell({ row: rowIdx, column: 1 }).node();
+//          $(cell).addClass('tagbeschreibung');
+//          var cell = table.cell({ row: rowIdx, column: 2 }).node();
+//          $(cell).addClass('tagbeschreibung');
+//          var cell = table.cell({ row: rowIdx, column: 3 }).node();
+//          $(cell).addClass('tagbeschreibung');
+//          var cell = table.cell({ row: rowIdx, column: 4 }).node();
+//          $(cell).addClass('tagbeschreibung');
+//          var cell = table.cell({ row: rowIdx, column: 5 }).node();
+//          $(cell).addClass('tagbeschreibung');
+//        } );
+      });
+
+    </script>
+
+    <script type="text/javascript" src="https://raw.github.com/mozilla/pdf.js/gh-pages/build/pdf.js"></script>
+
+    <script type="text/javascript">
+      function func (img) {
+        //img.style.border-collapse="separate";
+        //img.style.border-radius="18px";
+        img.style.border="3px solid#FFFFFF";
+        img.style.width = "auto";
+        if(img.height >= img.width) {
+          //img.style.height = "100%";
+          //img.style.max-height = "200px";
+          img.style.width = "auto";
+          //img.style.hight = "auto";
+          //document.getElementById("imagecaption").class = ;
+        } else {
+          //img.style.width = "100%";
+          img.style.width = "auto";
+        }
+
+        //var stylesheet = document.styleSheets[1];
+        //stylesheet.cssRules[0].width = "22%";
+      }
+      function rsz(imgname) {
+        alert('resize '+imgname);
+      }
+    </script>
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-53480209-1', 'auto');
+      //ga('set', 'anonymizeIp', true);
+      //ga('send', 'pageview', {'anonymizeIp': true});
+      ga('send', 'pageview');
+    </script>
+
+  </head>
+
+  <body bgcolor="#2d4b9b">
+
+  <?php include_once("analyticstracking.php") ?>
+
+    <center>
+      <table align="center" width="768">
+        <tr>
+          <td align="center">
+            <a href="/index.html">
+              <img src="/images/logo_klein.gif" border="0" height="82" width="294" vspace="10" hspace="5">
+            </a>
+          </td>
+          <td align="center">
+            <font size="5" face="Verdana" color="white">
+              <b>
+                {{ kategorie_aktuell }}
+              </b>
+            </font>
+          </td>
+        </tr>
+      </table>
+
+      <br />
+
+      <table align="center" width="900">
+        <tr>
+          <td colspan="2" width="70%" align="center" valign="top" style="color:white; font-family: Verdana">
+            zur&uuml;ck zu:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <b>
+              <a href="/index.html" style="color:white; text-decoration:none; font-family: Verdana">Startseite</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <a href="/rss2/reisen/sommer17/" style="color:white; text-decoration:none; font-family: Verdana">Reisen 2017</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <a href="/rss2/reisen/winter1617/" style="color:white; text-decoration:none; font-family: Verdana">Winterreisen 2016 / 2017</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <a href="/tagesfahrten.html" style="color:white; text-decoration:none; font-family: Verdana">Tagesfahrten</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <a href="/musicals.html" style="color:white; text-decoration:none; font-family: Verdana">Musicalfahrten</a>
+            </b>
+          </td>
+        </tr>
+        <tr><td>&nbsp;</td></tr>
+      </table>
+
+      <table bgcolor="ffffff" gridy="16" gridx="16" border="0" cellpadding="0" cellspacing="0" width="768">
+
+        <tbody>
+
+          <tr>
+            <td align="center" valign="top" width="768">
+              <table border="0" cellpadding="1" cellspacing="3" width="768">
+                <tbody>
+
+<!-- ++++++++++  Link zu Hinweisen und Reisebedingungen ++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+                  <tr>
+                    <td bgcolor="#cccccc" height="18" width="120" valign="middle">
+                      <div align="center">
+                        <span class="ht1">
+                          <a href="javascript:history.go(-1);">zurück</a>
+                        </span>
+                      </div>
+                    </td>
+                    <td bgcolor="#cccccc" height="18" width="528" valign="middle">
+                      <div align="center">
+                        <span class="ht1">
+                          Beachten Sie unsere
+                          <a href="/wichtiges.html">Hinweise</a>
+                          und
+                          <a href="/reisebedingungen.html">Reisebedingungen</a>
+                          !
+                        </span>
+                      </div>
+                    </td>
+                    <td bgcolor="#cccccc" height="18" width="120" valign="middle">
+                      <div align="center">
+                        <span class="ht1">
+                          <a href="{{ MEDIA_URL }}{{ kataloge.0.katalog_pdf }}">
+                            {% if kataloge.0.katalog_pdf %}PDF herunterladen{% endif %}
+                          </a>
+                        </span>
+                      </div>
+                    </td>
+                  </tr> 
+                  <tr>
+                    <!-- <td colspan="3" align="center" bgcolor="#2d4b9b" height="19" width="768"> -->
+                    <td colspan="3" align="left" bgcolor="#d7e1ea" height="19" width="768">
+                      <p align="left">
+                        <span class="ft1">
+
+                          <table border="0" cellpadding="10" cellspacing="0" width="768">
+
+                            <tr>
+                              <td width="398" height="260" valign="top">
+
+                                {% if dibug %}
+                                  <div><span class="ht5">{{ dibug }}</span></div>
+                                {% endif %}
+
+                                {% if reise.individualreisetext or reise.individualreisetitel %}
+                                  {% if reise.individualbuchbar %}
+                                    <div class="individual">{% inplace_edit "reise.individualbuchbar" auto_height=5, auto_width=5%}</div>
+                                  {% else %}
+                                    <div class="individual">Auch mit individuellem Aufenthalt buchbar.</div>
+                                  {% endif %}
+                                {% endif %}
+
+                                {% if reise.titel %}
+                                  {% if request.user.is_authenticated %}
+                                    <a href="{% url 'reise_detail_export' pk=reise.reiseID %}" style="text-decoration:none;" target = 'blank'><div class="titel">{{ reise.titel }}</div></a>
+                                  {% else %}
+                                    <div class="titel">{% inplace_edit "reise.titel" auto_height=5, auto_width=5 %}</div>
+                                  {% endif %}
+                                {% endif %}
+
+                                {% if reise.zubucher %}
+                                  <div class="zubucher">{% inplace_edit "reise.zubucher" auto_height=5, auto_width=5 %}</div>
+                                {% endif %}
+
+                                {% if reise.untertitel %}
+                                  <div class="untertitel">{% inplace_edit "reise.untertitel|linebreaksbr" auto_height=5, auto_width=5 %}</div>
+                                {% endif %}
+
+                                </br>
+
+                                {% if reise.reisetyp %}
+                                  <div class="reisetyp">{% inplace_edit "reise.reisetyp" auto_height=5, auto_width=5%}</div>
+                                {% endif %}
+
+                                </br>
+                                
+                                {% if 'Kuren' in reise.titel %}{% else %}
+
+                                {% if termine %}
+                                  <!-- <span class="ht1">
+                                  Termin{{ termine|length|pluralize:"e" }}:
+                                  </span>
+                                  </br>-->
+                                  {% if termine|length > 2 %}
+                                    <div class="reiseterminmehrere">
+                                  {% else %}
+                                    <div class="reisetermin">
+                                  {% endif %}
+                                  {% for termin in termine %}
+                                    {% if termin.datum_ende %}
+                                      {% inplace_edit "termin.datum_beginn|date:'d. m. Y'" %} - {% inplace_edit "termin.datum_ende|date:'d. m. Y'" %}<sup>{{ termin.markierung }}</sup>{% else %}{% inplace_edit "termin.datum_beginn|date:'D. d. m. Y'" %}{% endif %}{% if termin.kommentar %}({% inplace_edit "termin.kommentar" auto_height=5, auto_width=5 %}){% endif %}{% if termine|length > 2 %}{% if forloop.counter|divisibleby:"2" %}<br/>{% else %}{% if forloop.counter < termine|length %},&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{% endif %}{% endif %}{% else %}
+                                          </br>
+                                    {% endif %}
+                                  {% endfor %}
+                                    </div>
+                                {% else %}
+                                    <div class="reisetermin">Reisetermine sind noch nicht bekannt!</div>
+                                {% endif %}
+
+                                {% if abfahrtszeiten %}
+                                <div class="abfahrtszeiten"><!--Abfahrtszeit{{ abfahrtszeiten|length|pluralize:"en" }}:<br/>-->
+                                  {% for abfahrtszeit in abfahrtszeiten %}
+                                    {% if abfahrtszeit.zeit %}
+                                      <!-- {% inplace_edit "abfahrtszeit.ort" %}: {% inplace_edit "abfahrtszeit.zeit|date:'H:i'" %} Uhr {{ abfahrtszeit.kommentar }}<br/> -->
+                                      {% inplace_edit "abfahrtszeit.zeit|date:'H:i'" %} Uhr {% inplace_edit "abfahrtszeit.ort" %} {{ abfahrtszeit.kommentar }}<br/>
+                                    {% else %}
+                                      Die genaue Zeit für "{% inplace_edit "abfahrtszeit.ort" %}" erfragen Sie bitte im Reisebüro.</br>
+                                    {% endif %}
+                                  {% endfor %}
+                                {% elif reise.reisetyp == 'TAGESFAHRT' %}
+                                <div class="abfahrtszeiten">Die Abfahrtszeiten sind noch nicht bekannt!
+                                {% endif %}
+                                </div>
+
+                                <br/>
+
+                                {% if preise %}
+                                  <!-- <h4>Preis{{ preise|length|pluralize:"e" }}:</h4> -->
+                                  {% if preise|length > 2 %}
+                                    <div class="reisepreismehrere">
+                                  {% else %}
+                                    <div class="reisepreis">
+                                  {% endif %}
+                                  {% for preis in preise %}
+                                    {% if preis.titel == 'Individualpreis p.P.' %}
+                                      <font style="color:#B40404">
+                                    {% endif %}
+                                    {% if preis.kommentar == 'ab' %}
+                                      {% if preis.titel == '[LEER]' %}Preis p.P.: {% else  %}{{ preis.titel }}: {% endif  %}{{ preis.kommentar }} {{ preis.preis }} &euro;
+                                    {% else %}
+                                      <sup>{{ preis.markierung }}</sup>{% if preis.titel == '[LEER]' %}Preis p.P.: {% else  %}{{ preis.titel }}: {% endif  %}{{ preis.preis }} &euro;{% if preis.kommentar %} ({{ preis.kommentar }}){% endif %}
+                                    {% endif %}
+                                    {% if preis.zpreis %}
+                                      <div class="preiszusatz">
+                                      {% if preis.titel == 'Individualpreis p.P.' %}
+                                        <font style="color:#B40404">{{ preis.zpreis|linebreaksbr }}</font>
+                                      {% else %}
+                                        {{ preis.zpreis|linebreaksbr }}
+                                      {% endif %}
+                                      </div>
+                                    {% endif %}
+                                    <br/>
+                                    {% if preis.titel == 'Individualpreis p.P.' %}
+                                      </font>
+                                    {% endif %}
+                                  {% endfor %}
+                                    </div>
+                                {% else %}
+                                  <div class="reisepreis">Der Preis ist noch nicht bekannt.</div>
+                                {% endif %}
+
+                                {% endif %}
+                              </td>
+    
+                              <td width="350" height="260" valign="top" align="right">
+                                <p>
+                                <!-- wenn mehr als ein Element Plural in Überschrift verwenden -->
+                                <!-- <b>Bild{{ bilder|length|pluralize:"er" }} 2:</b></br> -->
+                                <!-- <div class="flexslider" style="width: 300px; height: 550px; vertical-align:top;"> -->
+                                <div class="flexslider" style="max-width: 350px; max-height: 240px; border:none; background:none; box-shadow:none; margin: 0 0 0px;">
+                                  <ul class="slides">
+                                    {% if bilder %}
+                                      {% bilder_web "Web" bilder as gefilterte_bilder %}
+                                      {% for bild in gefilterte_bilder %}
+                                        {% if bild.bild %}
+                                        <li>
+                                          <!-- <p id="imagetitle" class="flex-caption">{{ bild.titel1 }}</p> -->
+                                          <img onload="func(this);" src="{{ MEDIA_URL }}{{ bild.bild|bildwebfixedheight }}" />
+                                          {% if bild.copyright or bild.titel1 or bild.titel2%}
+                                            <p id="imagecaption" class="flex-caption">{% if bild.titel2 %}{{ bild.titel2 }}{% else %}{{ bild.titel1 }}{% endif %}{% if bild.copyright %} ({{ bild.copyright }}){% endif %}</p>
+                                            <!-- <p class="flex-caption">{{ MEDIA_URL }} : {{ bild.bild }} : {{ bild.titel1 }} ({{ bild.titel2 }}): {{ bild.beschreibung }}</p>-->
+                                            <!-- ODER SO .. -->
+                                            <!-- <img src="{% get_media_prefix %}{{ bild.bild }}" /></br> -->
+                                          {% endif %}
+                                        </li>
+                                        {% endif %}
+                                      {% endfor %}
+                                    {% else %}
+                                      {% if kataloge.0.titel == 'Winterreisen 2016/2017' %}
+                                        <li>
+                                          <img onload="func(this);" src="{{ MEDIA_URL }}/images/wx200/web_fixed_height_cover1617.png" />
+                                        </li>
+                                      {% else %}
+                                        <li>
+                                          <img onload="func(this);" src="{{ MEDIA_URL }}/images/wx200/web_fixed_height_cover17.png" />
+                                        </li>
+                                      {% endif %}
+                                    {% endif %}
+                                  </ul>
+                                </div>
+                                </p>
+                              </td>
+                            </tr>
+                          </table>
+                          {% if reise.einleitung or reisebeschreibung or tage or leistungen or aps_distinct or zusatzleistungen_distinct or hinweise or fruehbucherrabatte or kataloge %}
+                          <table border="0" cellpadding="10" cellspacing="0">
+                            <tr>
+                              <td>
+
+                                {% if reise.einleitung %}
+                                  <div class="einleitung">
+                                    <b>{% inplace_edit "reise.einleitung|linebreaksbr" auto_height=5, auto_width=5 %}</b>
+                                  </div>
+                                  <br/>
+                                {% endif %}
+
+                                {% if reisebeschreibung or tage or leistungen or aps_distinct or zusatzleistungen_distinct or hinweise or fruehbucherrabatte %}
+                                <div id="tabs" style="width: 748px;">
+                                  <ul>
+                                    {% if reise.korrektur_bemerkung_intern %}
+                                      {% if request.user.is_authenticated %}
+                                        <li><a href="#tabs-korrekturen"><font color="#FF0000">Korrektur{{ reise.korrektur_bemerkung_intern|length|pluralize:"en" }}</font></a></li>
+                                      {% endif %}
+                                    {% endif %}
+                                    {% if 'Kuren' in reise.titel %}
+                                      <li><a href="#tabs-terminepreise">Termine und Preise</a></li>
+                                    {% endif %}
+                                    {% if reisebeschreibung %}
+                                      <li><a href="#tabs-reisebeschreibung">Reisebeschreibung</a></li>
+                                    {% endif %}
+                                    {% if tage %}
+                                      <li><a href="#tabs-reisetage">Reisetage</a></li>
+                                    {% endif %}
+                                    {% if leistungen %}
+                                      <li><a href="#tabs-reiseleistungen">Leistung{{ leistungen|length|pluralize:"en" }}</a></li>
+                                    {% endif %}
+                                    {% if aps_distinct %}
+                                      {% if reise.zusatzleistungen_titel %}
+                                        <li><a href="#tabs-ausflugspakete">{{ reise.zusatzleistungen_titel }}</a></li>
+                                      {% else %}
+                                        <li><a href="#tabs-ausflugspakete">Ausflugspaket{{ aps_distinct|length|pluralize:"e" }}</a></li>
+                                      {% endif %}
+                                    {% endif %}
+                                    {% if zusatzleistungen_distinct %}
+                                      <li><a href="#tabs-zusatzleistungen">{% if reise.zusatzleistungen_titel %}{{ reise.zusatzleistungen_titel }}{% else %}zusätzlich angebotene Leistung{{ zusatzleistungen_distinct|length|pluralize:"en" }}{% endif %}</a></li>
+                                    {% endif %}
+                                    {% if hinweise %}
+                                      <li><a href="#tabs-hinweise">Hinweis{{ hinweise|length|pluralize:"e" }}</a></li>
+                                    {% endif %}
+                                    {% if fruehbucherrabatte %}
+                                      <li><a href="#tabs-fruehbucherrabatte">Frühbucherrabatt{{ fruehbucherrabatte|length|pluralize:"e" }}</a></li>
+                                    {% endif %}
+<!-- 
+                                    {% if angebote or auftragsbestaetigungen %}
+                                      <li><a href="#tabs-dokumente">Dokumente</a></li>
+                                    {% endif %}
+-->
+                                  </ul>
+
+                                  {% if reise.korrektur_bemerkung_intern %}
+                                    {% if request.user.is_authenticated %}
+                                      <div id="tabs-korrekturen">
+                                        <p class="korrekturen">
+                                          {% inplace_edit "reise.korrektur_bemerkung_intern|linebreaksbr" auto_height=5, auto_width=5 %}
+                                        </p>
+                                      </div>
+                                    {% endif %}
+                                  {% endif %}
+
+                                  {% if 'Kuren' in reise.titel %}
+                                    <div id="tabs-terminepreise">
+                                      <p>
+                                        {% if 'Arstone' in reise.titel %}
+                                          {% include "reisen/kuren-arstone-1617.html" %}
+                                        {% elif 'Rybniczanka' in reise.titel %}
+                                          {% include "reisen/kuren-rybniczanka-1617.html" %}
+                                        {% elif 'INTERFERIE MEDICAL SPA' in reise.titel %}
+                                          {% include "reisen/kuren-interferie-1617.html" %}
+                                        {% elif 'IKAR' in reise.titel %}
+                                          {% include "reisen/kuren-ikar-1617.html" %}
+                                        {% endif %}
+                                      </p>
+                                    </div>
+                                  {% endif %}
+
+                                  {% if reisebeschreibung %}
+                                    <div id="tabs-reisebeschreibung">
+                                      <p>
+                                        <div id="accordion_allgemein">
+                                          {% for beschreibung in reisebeschreibung %}
+                                            <h3><div class="tagbeschreibungtitel">{% if beschreibung.titel %}{{ beschreibung.titel }}{% else %}Reisebeschreibung{% endif %}</div></h3>
+                                            <div>
+                                              <p class="tagbeschreibung">
+                                                {{ beschreibung.beschreibung|linebreaksbr }} <b>{{ tag.zusatz|linebreaksbr }}</b>
+                                              </p>
+                                            </div>
+                                          {% endfor %}
+                                        </div>
+                                      </p>
+                                    </div>
+                                  {% endif %}
+      
+                                  {% if tage %}
+                                    <div id="tabs-reisetage">
+                                      <p>
+                                        <div id="accordion_tage">
+                                          {% for tag in tage %}
+                                          <!-- <span class="ft1"> -->
+                                            {% if aps %}
+                                              <h3>
+                                                <div class="tagbeschreibungtitel">
+                                                  {{ tag.nummerntext }} {{ tag.titel }}
+                                                  {% for ap in aps %}
+                                                    {% if ap.reisetag_id_id == tag.reisetagID %}
+                                                      {{ ap.ausflugspaket_text }}
+                                                    {% endif %}
+                                                  {% endfor %}
+                                                </div>
+                                              </h3>
+                                              <div>
+                                                <p class="tagbeschreibung">
+                                                  {{ tag.beschreibung|linebreaksbr }} <b>{{ tag.zusatz|linebreaksbr }}</b>
+                                                </p>
+                                              </div>
+                                            {% else %}
+                                              <h3>
+                                                {{ tag.nummerntext }} {{ tag.titel }}
+                                              </h3>
+                                              <div>
+                                                <p class="tagbeschreibung">{{ tag.beschreibung|linebreaksbr }} <b>{{ tag.zusatz|linebreaksbr }}</b></p>
+                                              </div>
+                                            {% endif %}
+                                          <!-- </span> -->
+                                          {% endfor %}
+                                          {% if reise.individualreisetitel or reise.individualreisetext%}
+                                            {% if reise.individualreisetitel %}
+                                              <h3>
+                                                <font style="color:#B40404">{{ reise.individualreisetitel }}</font>
+                                              </h3>
+                                            {% endif %}
+                                            {% if reise.individualreisetext %}
+                                              <div>
+                                                <p class="tagbeschreibung">
+                                                  <font style="color:#B40404">{{ reise.individualreisetext }}</font>
+                                                </p>
+                                              </div>
+                                            {% endif %}
+                                          {% endif %}
+                                        </div>
+                                      </p>
+                                    </div>
+                                  {% endif %}
+
+                                  {% if leistungen or leistungennichtindividual %}
+                                    <div id="tabs-reiseleistungen" width="100%">
+                                      <p>
+                                        <!-- <h4>Leistungen:</h4> -->
+                                        <!-- <b>Leistung{{ leistungen|length|pluralize:"en" }}:</b> -->
+                                        <ul style="list-style-type:circle">
+                                          {% for leistung in leistungen %}
+                                            <li><div class="leistungen">{{ leistung.leistung }}<div></li>
+                                          {% endfor %}
+                                        </ul>
+                                        <ul style="list-style-type:circle">
+                                          {% for leistungnichtindividual in leistungennichtindividual %}
+                                            <li><div class="leistungen"><font style="color:#B40404">*</font> {{ leistungnichtindividual.leistung }}<div></li>
+                                          {% endfor %}
+                                        </ul>
+                                          {% if reise.leistungen_kommentar %}
+                                        <div class="leistungen">
+                                            {% if leistungennichtindividual %}
+                                              <font style="color:#B40404"><i>{{ reise.leistungen_kommentar }}</i></font>
+                                            {% else %}
+                                              <i>{{ reise.leistungen_kommentar }}</i>
+                                            {% endif %}
+                                        </div>
+                                          {% endif  %}
+                                      </p>
+                                    </div>
+                                  {% endif %}
+
+                                  {% if aps_distinct %}
+                                    <div id="tabs-ausflugspakete">
+                                      <p>
+                                        <!-- wenn mehr als ein Element Plural in Überschrift verwenden -->
+                                        <!-- <b>Ausflugspaket{{ aps|length|pluralize:"e" }}:</b></br> -->
+                                        {% for ap in aps_distinct %}
+                                          <div class="leistungen">
+                                            <b>{{ ap.aptitel }}</b>
+                                            {% if ap.preis %}
+                                              <b>{{ ap.preis }} &euro;</b></br>
+                                            {% endif %}
+                                          </div>
+                                          <div class="leistungen">
+                                            <i>{{ ap.kommentar_titel }}</i></br>
+                                            
+                                            {{ ap.leistungen|linebreaksbr }}
+                                          </div>
+                                          {% if ap.kommentar %}
+                                            <div class="leistungen">
+                                              <br/><i>{{ ap.kommentar }}</i></br>
+                                            </div>
+                                          {% endif %}
+                                        {% endfor %}
+                                        {% if reise.leistungen_kommentar %}
+                                          <div class="leistungen">
+                                            <b>{{ reise.leistungen_kommentar }}</b>
+                                          </div>
+                                        {% endif %}
+                                      </p>
+                                    </div>
+                                  {% endif %}
+
+                                  {% if zusatzleistungen_distinct %}
+                                    <div id="tabs-zusatzleistungen">
+                                      <p>
+                                        <!--{% if reise.zusatzleistungen_titel %}
+                                          <b>{{ reise.zusatzleistungen_titel }}:</b>
+                                        {% else %}-->
+                                          <!-- wenn mehr als ein Element Plural in Überschrift verwenden -->
+                                          <!-- <b>zusätzlich angebotene Leistung{{ zusatzleistungen_distinct|length|pluralize:"en" }}:</b></br>
+                                        {% endif %}-->
+                                        {% if reise.zusatzleistungen_kommentar %}
+                                          <i>{{ reise.zusatzleistungen_kommentar }}</i></br>
+                                        {% endif %}
+                                        <ul class="leistungen" style="list-style-type:circle">
+                                        {% for zusatzleistung in zusatzleistungen_distinct %}
+                                          <li>{{ zusatzleistung.aptitel }}
+                                          {% if zusatzleistung.preis %}
+                                            <i><b>{{ zusatzleistung.preis }} &euro;</b></i></br>
+                                          {% else %}
+                                            Der Preis ist noch nicht bekannt.</br>
+                                          {% endif %}
+                                          {% if zusatzleistung.kommentar_titel %}
+                                            <i>{{ zusatzleistung.kommentar_titel }}</i></br>
+                                          {% endif %}
+                                          {% if zusatzleistung.kommentar %}
+                                            <i>{{ zusatzleistung.kommentar }}</i></br>
+                                          {% endif %}
+                                          </li>
+                                        {% endfor %}
+                                        </ul>
+                                        {% if reise.zusatzleistungen_fuss_kommentar %}
+                                          <div class="leistungen"><i>{{ reise.zusatzleistungen_fuss_kommentar }}</i></div></br>
+                                        {% endif %}
+                                      </p>
+                                    </div>
+                                  {% endif %}
+
+                                  {% if hinweise %}
+                                    <div id="tabs-hinweise">
+                                      <p>
+                                        <!-- wenn mehr als ein Element Plural in Überschrift verwenden -->
+                                        <!-- <h4>Hinweis{{ hinweise|length|pluralize:"e" }}:</h4> -->
+                                        {% for hinweis in hinweise %}
+                                          <div class="hinweise">{{ hinweis.hinweis }}</div>
+                                        {% endfor %}
+                                      </p>
+                                    </div>
+                                  {% endif %}
+
+                                  {% if fruehbucherrabatte %}
+                                    <div id="tabs-fruehbucherrabatte">
+                                      <p>
+                                        <!-- wenn mehr als ein Element Plural in Überschrift verwenden -->
+                                        <!-- <b>Frühbucherrabatt{{ fruehbucherrabatte|length|pluralize:"e" }}:</b></br> -->
+                                        {% for fruehbucherrabatt in fruehbucherrabatte %}
+                                          <div class="hinweise"><b>{{ fruehbucherrabatt.rabatt }} &euro;</b> {{ fruehbucherrabatt.rabattbezeichnung }} bis zum {{ fruehbucherrabatt.datum_bis }}</div>
+                                        {% endfor %}
+                                      </p>
+                                    </div>
+                                  {% endif %}
+<!--
+                                  {% if angebote or auftragsbestaetigungen %}
+                                    <div id="tabs-dokumente">
+                                      <p>
+                                        {% if angebote %}
+                                          <b>Angebot{{ angebote|length|pluralize:"e" }}:</b></br></br>
+                                          {% for angebot in angebote %}
+                                            [{{ angebot.position }}]</br>
+                                            {% if angebot.titel_master %}
+                                              Titel: {{ angebot.titel_master }}</br>
+                                            {% endif %}
+                                            {% if angebot.titel %}
+                                              opt. Titel: {{ angebot.titel }}</br>
+                                            {% endif %}
+                                            <a href="{{ MEDIA_URL }}{{ angebot.angebot }}">[{{ angebot.angebot }}]</a></br>
+                                          {% endfor %}
+                                        {% endif %}
+                                        {% if auftragsbestaetigungen %}
+                                          </br><b>Auftragsbestätigung{{ auftragsbestaetigungen|length|pluralize:"e" }}:</b></br></br>
+                                          {% for auftragsbestaetigung in auftragsbestaetigungen %}
+                                            [{{ auftragsbestaetigung.position }}]</br>
+                                            {% if auftragsbestaetigung.titel_master %}
+                                              Titel: {{ auftragsbestaetigung.titel_master }}</br>
+                                            {% endif %}
+                                            {% if auftragsbestaetigung.titel %}
+                                              opt. Titel: {{ auftragsbestaetigung.titel }}</br>
+                                            {% endif %}
+                                            <a href="{{ MEDIA_URL }}{{ auftragsbestaetigung.auftragsbestaetigung }}">[{{ auftragsbestaetigung.auftragsbestaetigung }}]</a></br>
+                                          {% endfor %}
+                                        {% endif %}
+                                      </p>
+                                    </div>
+                                  {% endif %}
+
+                                </div>
+                                {% endif %}
+-->
+                                {% if kataloge %}
+                                  <br/><!--  </br> -->
+                                  {% for katalog in kataloge %}
+                                    {% if katalog.katalogseite %}
+                                      <!-- Diese Reise finden Sie im Druckexemplar unseres Kataloges "{{ katalog.titel }}" auf Seite <a href="{{ katalog.katalog_pdf }}{{ site.storage.location }}">{{ katalog.katalogseite }}</a>.</br> -->
+                                      <div class="katalog">
+                                        Diese Reise finden Sie im Druckexemplar unseres Kataloges "{{ katalog.titel }}" auf Seite {% if katalog.katalog_pdf %}<a href="{{ MEDIA_URL }}{{ katalog.katalog_pdf }}">{{ katalog.katalogseite }}</a>{% else %}{{ katalog.katalogseite }}{% endif %}.</br>
+                                      </div>
+                                    {% elif katalog.katalogseite = 0 %}
+                                      <div class="katalog">
+                                        Diese Reise finden Sie im Druckexemplar unseres Kataloges "{{ katalog.titel }}" auf der <a href="{{ MEDIA_URL }}{{ katalog.katalog_pdf }}">Übersichtsseite "Adventsreisen und Weihnachtsmärkte 2016"</a>.</br>
+                                      </div>
+                                      {% if forloop.counter > 0 %}
+                                        <!-- </br></br> -->
+                                      {% endif %}
+                                    {% endif %}
+                                  {% endfor %}
+                                {% endif %}
+
+                              </td>
+                            </tr>
+                          </table>
+                          {% endif %}
+
+  <!-- jQuery -->
+  <!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script> -->
+  <!-- <script>window.jQuery || document.write('<script src="js/libs/jquery-1.7.min.js">\x3C/script>')</script> -->
+  <!-- Galleria -->
+  <!--
+  <script src="{% static 'galleria/galleria-1.4.2.min.js' %}"></script>
+
+  <script>
+    //Galleria.loadTheme('galleria/themes/classic/galleria.classic.min.js');
+    Galleria.loadTheme({{ STATIC_URL }} + 'galleria/themes/classic/galleria.classic.js');
+    console.log({{ STATIC_URL }} + 'galleria/themes/classic/galleria.classic.js');
+    //Galleria.run('.galleria');
+    Galleria.run('.galleria', {responsive:true,height:0.5625});
+  </script>
+  -->
+
+  <!-- Flexslider -->
+  <script src="{% static 'flexslider/jquery.flexslider.js' %}"></script>
+
+  <script>
+    // Can also be used with $(document).ready()
+    $(window).load(function(){
+      $('.flexslider').flexslider({
+        animation: "fade",
+        animationLoop: "False",
+        animationSpeed: 600,
+        smoothHeight: "True",
+        slideshow: "True",
+        slideshowSpeed: "4000",
+        controlNav: "False",
+        directionNav: "False",
+        //controlNav: "False"
+        //start: function(slider){
+        //  $('body').removeClass('loading');
+        //}
+      });
+    });
+  </script>
+<!--
+  <script src="//code.jquery.com/jquery-2.1.4.js" type="text/javascript"></script>
+-->
+  {% inplace_js 1 0 %} {% comment %} or inplace_js 1 1 {% endcomment %}
+
+
+                        </span>
+                      </p>
+                    </td>
+                  </tr>
+<!-- +++++++++++++++++++  Link zu Hinweisen und Reisebedingungen ++++++++++++++++++++++ -->
+                  <tr>
+                    <td bgcolor="#cccccc" height="18" width="120" valign="middle">
+                      <div align="center">
+                        <span class="ht1">
+                          <a href="javascript:history.go(-1);">zurück</a>
+                        </span>
+                      </div>
+                    </td>
+                    <td bgcolor="#cccccc" height="18" width="528" valign="middle">
+                      <div align="center">
+                        <span class="ht1">
+                          Beachten Sie unsere
+                          <a href="/wichtiges.html">Hinweise</a>
+                          und
+                          <a href="/reisebedingungen.html">Reisebedingungen</a>
+                          !
+                        </span>
+                      </div>
+                    </td>
+                    <td bgcolor="#cccccc" height="18" width="120" valign="middle">
+                      <div align="center">
+                        <span class="ht1">
+                          <a href="{{ MEDIA_URL }}{{ kataloge.0.katalog_pdf }}">
+                            {% if kataloge.0.katalog_pdf %}PDF herunterladen{% endif %}
+                          </a>
+                        </span>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td colspan="3">
+                      <center> 
+                        <table gridy="16" gridx="16" align="center" border="0" cellpadding="0" cellspacing="0" width="768"> 
+                          <tbody> 
+                            <tr> 
+                              <td xpos="0" align="left" valign="top"> 
+                                <table border="0" cellpadding="0" cellspacing="2" width="768"> 
+                                  <tbody>
+                                    <tr>
+                                      <td colspan="2"><hr></td> 
+                                    </tr>
+<!-- +++++++++++++++++++++++++++ Kontaktdaten +++++++++++++++++++++++++++++++++++  -->
+                                    <tr>
+                                      <td>
+                                        <p class="st1">
+                                          Reiseservice Schwerin GmbH<br>
+                                          Kl&ouml;resgang 1<br>
+                                          19053 Schwerin
+                                        </p>
+                                      </td>
+                                      <td align="right">
+                                        <p class="st2">
+                                          <a href="/index.html">
+                                            <img src="/images/logo_klein_blau.gif" alt="Reiseservice Schwerin GmbH" border="0" height="55" width="196">
+                                          </a>
+                                        </p>
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                      <td colspan="2">
+                                        <p class="st2">
+                                          Email: <a href="mailto:info@reiseservice-schwerin.de">info@reiseservice-schwerin.de</a>
+                                        </p>
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                      <td>
+                                        <p class="st2">
+                                          Tel: 0385 / 5910333<br>
+                                          Fax: 0385 / 5910331
+                                        </p>
+                                      </td>
+<!-- ++++++++++++++++++++++++++++ Impressum  +++++++++++++++++++++++++++++ -->
+                                      <td align="right">
+                                        <span class="st2-table">
+                                          <a href="/impressum.html"><i>Impressum&nbsp;/&nbsp;Haftungsausschlu&szlig;</i></a>
+                                        </span>
+                                      </td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                              </td>
+                            </tr> 
+                          </tbody>
+                        </table>
+                      </center>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </center>
+  </body>
+</html>

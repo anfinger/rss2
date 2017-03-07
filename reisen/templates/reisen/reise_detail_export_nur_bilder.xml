@@ -1,0 +1,16 @@
+{% load static %}{% load eigene_tags %}<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<bilder_{{ reise.reiseID|ohneminus }} {% if reise.neu %}NEU="JA" {% endif %}id="{{ reise.reiseID|ohneminus }}" titel="{{ reise.titel }}" seite="{{ katalog.katalogseite }}" anzahl_seiten="{{ katalog.anzahl_seiten_im_katalog }}" position_auf_seite="{{ katalog.position_auf_seite }}" kategorie="{% for kategorie in kategorien %}{{ kategorie.kategorie }},{% endfor %}" zielregion="{% for zielregion in zielregionen %}{{ zielregion.name }},{% endfor %}" file="bilder_{{ reise.reiseID|ohneminus }}.xml">{% if bilder %}
+<BILDER>
+{% for bild in bilder %}<BILD>{% if bild.titel1 %}<BILDTITEL>{{ bild.titel1 }}</BILDTITEL>
+{% endif %}{% if bild.bildanbieter == 'shutterstock' %}{% if bild.bildurl %}<IMAGE href="{{ bild.bildurl }}"></IMAGE>
+{% endif %}{% if bild.bild %}<IMAGE href="file:///Bilder/{{ bild.bild }}"></IMAGE>
+{% endif %}{% elif bild.bildanbieter == 'fotolia' %}{% if bild.bildurl %}<IMAGE href="{{ bild.bildurl }}"></IMAGE>
+{% endif %}{% if bild.bild %}<IMAGE href="file:///Bilder/{{ bild.bild }}"></IMAGE>
+{% endif %}{% elif bild.bildanbieter == 'AdobeStock' %}{% if bild.bildurl %}<IMAGE href="{{ bild.bildurl }}"></IMAGE>
+{% endif %}{% elif bild.bildanbieter == 'PLATZHALTERNUTUMSZUBEHALTENHIER'%}{% if bild.bild %}<IMAGE href="http://www.reiseservice-schwerin.de{{ MEDIA_URL }}{{ bild.bild }}"></IMAGE>
+<IMAGE href="file:///Bilder/{{ bild.bild }}"></IMAGE>
+{% endif %}{% else %}{% if bild.bild %}<IMAGE href="file:///Bilder/{{ bild.bild }}"></IMAGE>
+{% endif %}{% endif %}{% if bild.copyright %}<COPYRIGHT>{{ bild.copyright }}</COPYRIGHT>
+{% endif %}</BILD>
+{% endfor %}</BILDER>
+{% endif %}</bilder_{{ reise.reiseID|ohneminus }}>

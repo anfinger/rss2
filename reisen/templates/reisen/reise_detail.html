@@ -69,23 +69,28 @@
     {% if reise.reisetyp %}
       <p><b>{% inplace_edit "reise.reisetyp" auto_height=5, auto_width=5%}</b></p>
     {% endif %}
+    {% if reise.individualreisetext or reise.individualreisetitel %}
+      {% if reise.individualbuchbar %}
+        <p><b><i>{% inplace_edit "reise.individualbuchbar" auto_height=5, auto_width=5%}</i></b></p>
+      {% else %}
+        <p><b><i>Auch mit individuellem Aufenthalt buchbar.</i></b></p>
+      {% endif %}
+    {% endif %}
+    {% if reise.einleitung %}
+      <p><b>{% inplace_edit "reise.einleitung|linebreaksbr" auto_height=5, auto_width=5 %}</b></p>
+    {% endif %}
     <p>
       {% for katalog in kataloge %}
-        Diese Reise finden Sie im Druckexemplar unseres Kataloges "{{ katalog.titel }}" auf Seite {{ katalog.katalogseite }}.</br>
-        Link: {{ katalog.katalog_pdf }} {{ site.storage.location }}
-        {% if forloop.counter > 0 %}
-          </br></br>
-        {% endif %}
+        Diese Reise finden Sie im Druckexemplar unseres Kataloges "{{ katalog.titel }}" auf Seite {% if katalog.katalog_pdf %}<a href="{{ MEDIA_URL }}{{ katalog.katalog_pdf }}">{{ katalog.katalogseite }}</a>{% else %}{{ katalog.katalogseite }}{% endif %}.</br>
       {% endfor %}
     </p>
     {% if termine %}
       <dl>
         <p><h4>Reisetermin{{ termine|length|pluralize:"e" }}:</h4>
-        <b>Termin{{ termine|length|pluralize:"e" }}:</b>
         <dt>
           {% for termin in termine %}
             {% if termin.datum_ende %}
-              <dd>{% inplace_edit "termin.datum_beginn|date:'d. m. Y'" %} - {% inplace_edit "termin.datum_ende|date:'d. m. Y'" %}{{ termin.markierung }}
+              <dd>{% inplace_edit "termin.datum_beginn|date:'d. m. Y'" %} - {% inplace_edit "termin.datum_ende|date:'d. m. Y'" %}<sup>{{ termin.markierung }}</sup>
             {% else %}
               <dd>{% inplace_edit "termin.datum_beginn|date:'D. d. m. Y'" %}
             {% endif %}
@@ -119,7 +124,7 @@
           {% if preis.kommentar == 'ab' %}
             <b>{{ preis.titel }}: {{ preis.kommentar }} {{ preis.preis }} &euro;</b></br>
           {% else %}
-            <b>{{ preis.titel }}: {{ preis.preis }} &euro;{{ preis.kommentar }}</b></br>
+            <b><sup>{{ preis.markierung }}</sup>{{ preis.titel }}: {{ preis.preis }} &euro;{% if preis.kommentar %} ({{ preis.kommentar }}){% endif %}</b></br>
           {% endif %}
           {% if preis.zpreis %}
             {{ preis.zpreis|linebreaks }}
@@ -129,9 +134,6 @@
     {% else %}
       <h4>Preis:</h4>
       <p>Der Preis ist noch nicht bekannt.</p>  
-    {% endif %}
-    {% if reise.einleitung %}
-      <p><b>{% inplace_edit "reise.einleitung|linebreaksbr" auto_height=5, auto_width=5 %}</b></p>
     {% endif %}
     {% if reisebeschreibung %}
       <p><h4>allgemeine Beschreibungen:</h4>
@@ -144,7 +146,7 @@
       <p><h4>Reiseablauf:</h4>
         {% for tag in tage %}
           {% if aps %}
-            <b>{{ tag.nummerntext }}{{ tag.titel }}
+            <b>{{ tag.nummerntext }} {{ tag.titel }}
             {% for ap in aps %}
               {% if ap.reisetag_id_id == tag.reisetagID %}
                 {% if ap.erscheint_in == 'Titel' %}
@@ -162,22 +164,52 @@
             {% endfor %}
             {{ tag.beschreibung|linebreaksbr }} <b>{{ tag.zusatz|linebreaksbr }}</b></br></br>
           {% else %}
-            <b>{{ tag.nummerntext }}{{ tag.titel }}</b></br>
+            <b>{{ tag.nummerntext }} {{ tag.titel }}</b></br>
             {{ tag.beschreibung|linebreaksbr }} <b>{{ tag.zusatz|linebreaksbr }}</b></br></br>
           {% endif %}
         {% endfor %}
       </p>
     {% endif %}
 
-    {% if leistungen %}
-      <h4>Leistungen:</h4>
+    {% if hinweise %}
       <p>
-        <b>Leistung{{ leistungen|length|pluralize:"en" }}:</b>
+        <!-- wenn mehr als ein Element Plural in Überschrift verwenden -->
+        <h4>Hinweis{{ hinweise|length|pluralize:"e" }}:</h4>
+        <ul>
+          {% for hinweis in hinweise %}
+            <li>{{ hinweis.hinweis }}</li>
+          {% endfor %}
+        </ul>
+      </p>
+    {% endif %}
+
+    {% if reise.individualreisetitel or reise.individualreisetext%}
+      <p>
+      {% if reise.individualreisetitel %}
+        <h4>{{ reise.individualreisetitel }}:</h4>
+      {% endif %}
+      {% if reise.individualreisetext %}
+        {{ reise.individualreisetext }}
+      {% endif %}
+      </p>
+    {% endif %}
+
+    {% if leistungen or leistungennichtindividual %}
+      <p>
+        <h4>Leistung{{ leistungen|length|pluralize:"en" }}:</h4>
         <ul>
           {% for leistung in leistungen %}
             <li>{{ leistung.leistung }}</li>
           {% endfor %}
         </ul>
+        <ul>
+          {% for leistungnichtindividual in leistungennichtindividual %}
+            <li>* {{ leistungnichtindividual.leistung }}</li>
+          {% endfor %}
+        </ul>
+        {% if reise.leistungen_kommentar %}
+          <b>{{ reise.leistungen_kommentar }}</b>
+        {% endif %}
       </p>
     {% endif %}
 
@@ -190,7 +222,7 @@
           {% if ap.preis %}
             <b>{{ ap.preis }} &euro;</b></br>
           {% else %}
-            Der Preis ist noch nicht bekannt.</br>
+            <!-- Der Preis ist noch nicht bekannt.</br>-->
           {% endif %}
           <i>{{ ap.kommentar_titel }}</i></br>
           {{ ap.leistungen|linebreaks }}
@@ -207,7 +239,7 @@
           <b>{{ reise.zusatzleistungen_titel }}:</b>
         {% else %}
           <!-- wenn mehr als ein Element Plural in Überschrift verwenden -->
-          <b>Zusatzleistung{{ zusatzleistungen|length|pluralize:"en" }}:</b>
+          <b>zusätzlich angebotene Leistung{{ zusatzleistungen_distinct|length|pluralize:"en" }}:</b></br>
         {% endif %}
         {% if reise.zusatzleistungen_kommentar %}
           <i>{{ reise.zusatzleistungen_kommentar }}</i></br>
@@ -229,22 +261,9 @@
           </li>
         {% endfor %}
         </ul>
-      </p>
-    {% endif %}
-
-    {% if reise.leistungen_kommentar %}
-      <b>{{ reise.leistungen_kommentar }}</b>
-    {% endif %}
-
-    {% if hinweise %}
-      <p>
-        <!-- wenn mehr als ein Element Plural in Überschrift verwenden -->
-        <h4>Hinweis{{ hinweise|length|pluralize:"e" }}:</h4>
-        <ul>
-          {% for hinweis in hinweise %}
-            <li>{{ hinweis.hinweis }}</li>
-          {% endfor %}
-        </ul>
+        {% if reise.zusatzleistungen_fuss_kommentar %}
+          <i>{{ reise.zusatzleistungen_fuss_kommentar }}</i></br>
+        {% endif %}
       </p>
     {% endif %}
 

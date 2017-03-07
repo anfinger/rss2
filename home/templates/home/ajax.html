@@ -1,0 +1,506 @@
+{% extends 'home/ajax_base.html' %}
+{% load static %}
+
+{% block title %}
+  <title>
+    START
+  </title>
+{% endblock %}
+
+{% block stylesheet %}
+{% endblock %}
+
+{% block logo %}
+  <a href="{% url 'start' %}" id="start">
+    <img src="{% static 'images/logo_google_blau.png' %}" />
+  </a>
+  <b color="red">DIREKT SERVICE</b>
+  0385 5910 333
+  <b color="red">ÖFFNUNGSZEITEN</b>
+  Klöresgang 1, Schweriner Höfe
+  Montag-Freitag 9:30 - 18:00 Uhr
+  Samstag 10:00 Uhr - 14:00 Uhr
+{% endblock %}
+
+{% block navigation %}
+  <a id="reisen" href="{% url 'gibReisen' %}">Mehrtagesfahrten</a> | 
+  <a id="tagesfahrten" href="{% url 'tagesfahrten' %}">Tagesfahrten</a> | 
+  <a id="musicals" href="{% url 'musicals' %}">Musicals & Shows</a> | 
+  <a id="reiseberatung" href="{% url 'reiseberatung' %}">Reiseberatung</a> | 
+  <a id="service" href="{% url 'service' %}">Service & Hilfe</a>
+{% endblock %}
+
+{% block inhalt %}
+  {% include 'home/startinhalt.html' %}
+{% endblock %}
+
+{% block footer %}
+  <div id="service">
+    <b>Service:</b>
+    <div>Gutscheine</div>
+    <div>Newsletter</div>
+    <div>Katalog</div>
+  </div>
+  <div>---</div>
+  <div id="informationen">
+    <b>Informationen:</b>
+    <div>AGB</div>
+    <div>Impressum</div>
+    <div>Reisebedingungen</div>
+  </div>
+  <div>---</div>
+  <div id="adresse">
+    <div id="firma"><b>Reiseservice Schwerin GmbH</b></div>
+    <div id="strasse-plz-ort">Klöresgang 1, 19053 Schwerin</div>
+    <div id="email">E-Mail: info@reiseservice-schwerin.de</div>
+    <div id="tel">Tel: 0385 / 5910333</div>
+    <div id="fax">Fax: 0385 / 5910331</div>
+  </div>
+{% endblock %}
+
+{% block javascript %}
+  <script>
+
+    // VARIABLEN
+    var abdatum = '';//{% now "SHORT_DATE_FORMAT" %}';
+    var labelText = '';
+    var reisezielregionen = [];
+    var reisekategorien = [];
+
+    // FUNKTIONEN
+    /*
+     * Number.prototype.format(n, x, s, c)
+     * 
+     * @param integer n: length of decimal
+     * @param integer x: length of whole part
+     * @param mixed   s: sections delimiter
+     * @param mixed   c: decimal delimiter
+     */
+    Number.prototype.format = function(n, x, s, c) {
+      var re = '\\d(?=(\\d{' + (x || 3) + '})+' + (n > 0 ? '\\D' : '$') + ')',
+          num = this.toFixed(Math.max(0, ~~n));
+
+      return (c ? num.replace('.', c) : num).replace(new RegExp(re, 'g'), '$&' + (s || ','));
+    };
+
+    /*
+     * Browser Back Button abfangen
+     */
+    window.onpopstate = function(event) {
+      console.log("location: " + document.location + ", state: " + JSON.stringify(event.state));
+      if(document.location == "http://www.reiseservice-schwerin.de/rss2/home/ajax") {
+        $.get("start", function(data){
+          $('#inhalt').html(data.startinhalt);
+        });
+      }
+      if(document.location == "http://www.reiseservice-schwerin.de/rss2/home/gibReisen") {
+        $.get("gibReisen", function(data){
+          $('#inhalt').html("");
+        });
+      }
+    };
+
+    function filterHTML() {
+      var html = ' \
+        <div style="background-color:#0000AA; color:#FFFFFF" id="filter"> \
+          <fieldset> \
+            <legend>ab Datum: </legend> \
+            <input type="text" id="abdatum" value="{% now "SHORT_DATE_FORMAT" %}"> \
+          </fieldset> \
+          {% if zielregionen %} \
+            <fieldset> \
+              <legend>Zielregionen: </legend> \
+              <div id="zielregionen"> \
+                {% for z in zielregionen %} \
+                  <label for="checkbox-z{{ forloop.counter }}">{{ z.name }}</label> \
+                  <input type="checkbox" name="checkbox-z{{ forloop.counter }}" id="checkbox-z{{ forloop.counter }}"> \
+                {% endfor %} \
+              </div> \
+            </fieldset> \
+          {% endif %} \
+          {% if kategorien %} \
+            <fieldset> \
+              <legend>Kategorien: </legend> \
+              <div id="kategorien"> \
+                {% for k in kategorien %} \
+                  <label for="checkbox-k{{ forloop.counter }}">{{ k.kategorie }}</label> \
+                  <input type="checkbox" name="checkbox-k{{ forloop.counter }}" id="checkbox-k{{ forloop.counter }}"> \
+                {% endfor %} \
+              </div> \
+            </fieldset> \
+          {% endif %} \
+        </div> \
+      ';
+      return html;
+    }
+
+    function filterHTMLstatisch() {
+      var html = ' \
+        <div style="background-color:#0000AA; color:#FFFFFF" id="filter"> \
+          <fieldset> \
+            <legend>ab Datum: </legend> \
+            <input type="text" id="abdatum" value="{% now "SHORT_DATE_FORMAT" %}"> \
+          </fieldset> \
+          <fieldset> \
+            <legend>Zielregionen: </legend> \
+            <div id="zielregionen"> \
+              <label for="checkbox-z1">Deutschland</label> \
+              <input type="checkbox" name="checkbox-z1" id="checkbox-z1"> \
+              <label for="checkbox-z2">Italien</label> \
+              <input type="checkbox" name="checkbox-z2" id="checkbox-z2"> \
+              <label for="checkbox-z3">Frankreich</label> \
+              <input type="checkbox" name="checkbox-z3" id="checkbox-z3"> \
+              <label for="checkbox-z4">Polen</label> \
+              <input type="checkbox" name="checkbox-z4" id="checkbox-z4"> \
+              <label for="checkbox-z5">Japan</label> \
+              <input type="checkbox" name="checkbox-z5" id="checkbox-z5"> \
+              <label for="checkbox-z6">Portugal</label> \
+              <input type="checkbox" name="checkbox-z6" id="checkbox-z6"> \
+            </div> \
+          </fieldset> \
+          <fieldset> \
+            <legend>Kategorien: </legend> \
+            <div id="kategorien"> \
+              <label for="checkbox-k1">Busreisen</label> \
+              <input type="checkbox" name="checkbox-k1" id="checkbox-k1"> \
+              <label for="checkbox-k2">Kuren, Gesundheits- und Wellnessreisen</label> \
+              <input type="checkbox" name="checkbox-k2" id="checkbox-k2"> \
+              <label for="checkbox-k3">kombinierte Flug- und Busreisen</label> \
+              <input type="checkbox" name="checkbox-k3" id="checkbox-k3"> \
+            </div> \
+          </fieldset> \
+        </div> \
+      ';
+      return html;
+    }
+
+    function registerWidgets(datalength) {
+      function handleToggle( e ) {
+        var target = $( e.target );
+        if ( target.is( ".brand-toggle" ) ) {
+          var checked = target.is( ":checked" ),
+              value = $( "[name='brand']" )
+                .filter( ":checked" )
+                .attr( "data-" + target[ 0 ].id )
+          $( ".shape" ).css( target[ 0 ].id, checked ? value : "" );
+        }
+        else {
+          $( ".shape" ).toggleClass( target[ 0 ].id, target.is( ":checked") );
+        }
+      }
+ 
+      function updateBrand() {
+        handleShape( { target: $( "[name='shape']:checked" ) } );
+        $( ".toggle:checked" ).each( function() {
+          handleToggle( { target: $( this ) } );
+        } );
+      }
+ 
+      $('input[type="checkbox"]').checkboxradio({
+        icon: false,
+      });
+      $('#kategorien').controlgroup({
+        //direction: "vertical",
+      });
+      $('#zielregionen').controlgroup({
+        //direction: "vertical",
+      });
+      //$('#abdatum').datepicker( $.datepicker.regional[ "de" ] );
+      $('#abdatum').datepicker({
+        showWeek: true,
+        firstDay: 1, 
+        onSelect: function (date) {
+          console.log("abdat" + date);
+          $.ajax({
+            type: 'POST',
+            url: '/rss2/home/gibReisen/',
+            data: {
+              abdatum: date,
+              labelText: labelText,
+              reisezielregionen: reisezielregionen,
+              reisekategorien: reisekategorien,
+            },
+            //dataType: 'json',
+            success: function (data) {
+              var html = '';
+              $(data.reisen).each(function(r, reise){
+                var monat = $.datepicker.formatDate("MM", new Date(reise.reisetermine__datum_beginn))
+                if (r<1) { html += "<hr><div id=\"monat\">"+monat+"</div>"; }
+                else if (monat != $.datepicker.formatDate("MM", new Date(data.reisen[r-1].reisetermine__datum_beginn))) { html += "<hr><div id=\"monat\">"+monat+"</div>"; }
+                html += "<hr><div id=\"reisetitel\">"+reise.titel+"</div>";
+                html += "<div id=\"reisetyp\">"+reise.reisetyp+"</div>";
+                var preis = new Number(reise.reisepreise__preis);
+                html += '<div id="reisepreis">' + preis.format(0, 3, '.', ',') + ' €</div>';
+                html += "<div id=\"reisetermin\">"+$.datepicker.formatDate("dd.mm.yy", new Date(reise.reisetermine__datum_beginn))+" - "+$.datepicker.formatDate("dd.mm.yy", new Date(reise.reisetermine__datum_ende))+"</div>";
+              });
+              $('#gefiltertereisen').html(html);
+              $('#ab').html(data.reisen.length + ' Reisen ab dem: ' + date + ' | Zielregionen: ' + (reisezielregionen.length > 0 ? reisezielregionen : 'Alle' ) + ' | Kategorien: ' + (reisekategorien.length > 0 ? reisekategorien : 'Alle'));
+            }
+          });
+        },
+      });
+      $('#abdatum').datepicker("option", $.datepicker.regional[ 'de' ] );
+      $('#abdatum').controlgroup({
+        //direction: "vertical",
+      });
+      abdatum = new Date($('#abdatum').datepicker('getDate'));
+      abdatum = $.datepicker.formatDate("dd.mm.yy", abdatum);
+      $('#ab').html(datalength + ' Reisen ab dem: ' + abdatum + ' | Zielregionen: Alle | Kategorien: Alle');
+      return 1;
+    }
+
+    $('body').on('click', '[id^=checkbox-]', function(e) {
+      var labelID = $(this).attr('id');
+      labelText = $('#'+labelID).prev('label').html();
+      console.log(labelText + ~labelID.indexOf('z'));
+      if (~labelID.indexOf('z')) {
+        console.log(reisezielregionen.indexOf(labelText));
+        if (reisezielregionen.indexOf(labelText) != -1) {
+          reisezielregionen.splice(reisezielregionen.indexOf(labelText), 1 );
+        }
+        else {
+          reisezielregionen.push(labelText);
+        }
+      }
+      else if (~labelID.indexOf('k')) {
+        console.log(reisekategorien.indexOf(labelText));
+        if (reisekategorien.indexOf(labelText) != -1) {
+          reisekategorien.splice(reisekategorien.indexOf(labelText), 1 );
+        }
+        else {
+          reisekategorien.push(labelText);
+        }
+      }
+      abdatum = new Date($('#abdatum').datepicker('getDate'));
+      abdatum = $.datepicker.formatDate("dd.mm.yy", abdatum);
+      $.ajax({
+        type: 'POST',
+        url: '/rss2/home/gibReisen/',
+        data: {
+          abdatum: abdatum,
+          labelText: labelText,
+          reisezielregionen: reisezielregionen,
+          reisekategorien: reisekategorien,
+        },
+        //dataType: 'json',
+        success: function (data) {
+          var html = '';
+          $(data.reisen).each(function(r, reise){
+            var monat = $.datepicker.formatDate("MM", new Date(reise.reisetermine__datum_beginn))
+            if (r<1) { html += "<hr><div id=\"monat\">"+monat+"</div>"; }
+            else if (monat != $.datepicker.formatDate("MM", new Date(data.reisen[r-1].reisetermine__datum_beginn))) { html += "<hr><div id=\"monat\">"+monat+"</div>"; }
+            html += "<hr><div id=\"reisetitel\">"+reise.titel+"</div>";
+            html += "<div id=\"reisetyp\">"+reise.reisetyp+"</div>";
+            var preis = new Number(reise.reisepreise__preis);
+            html += '<div id="reisepreis">' + preis.format(0, 3, '.', ',') + ' €</div>';
+            html += "<div id=\"reisetermin\">"+$.datepicker.formatDate("dd.mm.yy", new Date(reise.reisetermine__datum_beginn))+" - "+$.datepicker.formatDate("dd.mm.yy", new Date(reise.reisetermine__datum_ende))+"</div>";
+          });
+          console.log(data.reisekat + ' | ' + data.reiseziel);
+          $('#gefiltertereisen').html(html);
+          $('#ab').html(data.reisen.length + ' Reisen ab dem: ' + abdatum + ' | Zielregionen: ' + (reisezielregionen.length > 0 ? reisezielregionen : 'Alle' ) + ' | Kategorien: ' + (reisekategorien.length > 0 ? reisekategorien : 'Alle'));
+        }
+      });
+    });
+
+    // AJAX CALLS
+    /* start */
+    $('#start').click(function(e){
+      console.log($(this).attr("id"));
+      var pushURL = $(this).attr('href');
+      console.log(abdatum + typeof abdatum);
+      e.preventDefault();
+      $.get($(this).attr("href"), function(data){
+        console.log(data);
+        $('#inhalt').html(data.startinhalt);
+      });
+      if(history.pushState) {
+        history.pushState(null, null, pushURL);
+      }
+    });
+
+    $('body').on('click', '#reisenstart', function(e) {
+      abdatum = '';
+      labelText = '';
+      reisezielregionen = [];
+      reisekategorien = [];
+
+      console.log($(this).attr("id"));
+      var pushURL = $(this).attr('href');
+      var html = "";
+      e.preventDefault();
+      console.log("abdatum vor ajaxgibReisen: " + abdatum + typeof abdatum);
+      $.ajax({
+        type: 'POST',
+        url: $(this).attr("href"),
+        data: {
+          abdatum: abdatum,
+          labelText: labelText,
+          reisezielregionen: reisezielregionen,
+          reisekategorien: reisekategorien,
+        },
+        //dataType: 'json',
+        success: function (data) {
+          html += filterHTML();
+          html += '<div id="ab"></div>';
+          html += '<div id="gefiltertereisen">';
+          $(data.reisen).each(function(r, reise){
+            var monat = $.datepicker.formatDate("MM", new Date(reise.reisetermine__datum_beginn))
+            if (r<1) { html += "<hr><div id=\"monat\">"+monat+"</div>"; }
+            else if (monat != $.datepicker.formatDate("MM", new Date(data.reisen[r-1].reisetermine__datum_beginn))) { html += "<hr><div id=\"monat\">"+monat+"</div>"; }
+            html += "<hr><div id=\"reisetitel\">"+reise.titel+"</div>";
+            html += "<div id=\"reisetyp\">"+reise.reisetyp+"</div>";
+            var preis = new Number(reise.reisepreise__preis);
+            html += '<div id="reisepreis">' + preis.format(0, 3, '.', ',') + ' €</div>';
+            html += "<div id=\"reisetermin\">"+$.datepicker.formatDate("dd.mm.yy", new Date(reise.reisetermine__datum_beginn))+" - "+$.datepicker.formatDate("dd.mm.yy", new Date(reise.reisetermine__datum_ende))+"</div>";
+          });
+          html += '</div>';
+          $('#inhalt').html(html);
+          $( function() {
+            registerWidgets(data.reisen.length);
+          });
+          console.log("pushit");
+          if(history.pushState) {
+            history.pushState(null, null, pushURL);
+          }
+          console.log("abdatum nach ajaxgibReisen: " + abdatum + typeof abdatum);
+        }
+      });
+    });
+
+    $('#reisen').click(function(e){
+      abdatum = '';
+      labelText = '';
+      reisezielregionen = [];
+      reisekategorien = [];
+
+      console.log($(this).attr("id"));
+      var pushURL = $(this).attr('href');
+      var html = "";
+      e.preventDefault();
+      console.log("abdatum vor ajaxgibReisen: " + abdatum + typeof abdatum);
+      $.ajax({
+        type: 'POST',
+        url: $(this).attr("href"),
+        data: {
+          abdatum: abdatum,
+          labelText: labelText,
+          reisezielregionen: reisezielregionen,
+          reisekategorien: reisekategorien,
+        },
+        //dataType: 'json',
+        success: function (data) {
+          html += filterHTML();
+          html += '<div id="ab"></div>';
+          html += '<div id="gefiltertereisen">';
+          $(data.reisen).each(function(r, reise){
+            var monat = $.datepicker.formatDate("MM", new Date(reise.reisetermine__datum_beginn))
+            if (r<1) { html += "<hr><div id=\"monat\">"+monat+"</div>"; }
+            else if (monat != $.datepicker.formatDate("MM", new Date(data.reisen[r-1].reisetermine__datum_beginn))) { html += "<hr><div id=\"monat\">"+monat+"</div>"; }
+            html += "<hr><div id=\"reisetitel\">"+reise.titel+"</div>";
+            html += "<div id=\"reisetyp\">"+reise.reisetyp+"</div>";
+            var preis = new Number(reise.reisepreise__preis);
+            html += '<div id="reisepreis">' + preis.format(0, 3, '.', ',') + ' €</div>';
+            html += "<div id=\"reisetermin\">"+$.datepicker.formatDate("dd.mm.yy", new Date(reise.reisetermine__datum_beginn))+" - "+$.datepicker.formatDate("dd.mm.yy", new Date(reise.reisetermine__datum_ende))+"</div>";
+          });
+          html += '</div>';
+          $('#inhalt').html(html);
+          $( function() {
+            registerWidgets(data.reisen.length);
+          });
+          console.log("pushit");
+          if(history.pushState) {
+            history.pushState(null, null, pushURL);
+          }
+          console.log("abdatum nach ajaxgibReisen: " + abdatum + typeof abdatum);
+        }
+      });
+    });
+
+    /* tagesfahrten */
+    $('#tagesfahrten').click(function(e){
+      console.log($(this).attr("id"));
+      e.preventDefault();
+      $.get($(this).attr("href"), function(data){
+        $('#inhalt').html(data);
+      });
+    });
+
+    $('body').on('click' , '#tagesfahrtenstart', function(e) {
+      console.log($(this).attr("id"));
+      e.preventDefault();
+      $.get($(this).attr("href"), function(data){
+        $('#inhalt').html(data);
+      });
+    });
+
+    /* musicals */
+    $("#musicals").click(function(e){
+      e.preventDefault();
+      console.log($(this).attr("href"));
+      $.ajax({
+        url: $(this).attr("href"),
+        //data: "",
+        //dataType: 'json',
+        success: function (data) {
+          $('#inhalt').html(data);
+        }
+      });
+    });
+
+    $('body').on('click', '#musicalsstart', function(e) {
+      e.preventDefault();
+      console.log($(this).attr("href"));
+      $.ajax({
+        url: $(this).attr("href"),
+        //data: "",
+        //dataType: 'json',
+        success: function (data) {
+          $('#inhalt').html(data);
+        }
+      });
+    });
+
+    /* reiseberatung */
+    $('#reiseberatung').click(function(e){
+      console.log($(this).attr("id"));
+      e.preventDefault();
+      $.get($(this).attr("href"), function(data){
+        $('#inhalt').html(data);
+      });
+    });
+
+    $('body').on('click' , '#reiseberatungstart', function(e) {
+      console.log($(this).attr("id"));
+      e.preventDefault();
+      $.get($(this).attr("href"), function(data){
+        $('#inhalt').html(data);
+      });
+    });
+
+    /* service */
+    $('#service').click(function(e){
+      console.log($(this).attr("id"));
+      e.preventDefault();
+      $.get($(this).attr("href"), function(data){
+        $('#inhalt').html(data);
+      });
+    });
+
+    $('body').on('click' , '#gutscheinestart', function(e) {
+      console.log($(this).attr("id"));
+      e.preventDefault();
+      $.get($(this).attr("href"), function(data){
+        $('#inhalt').html(data);
+      });
+    });
+
+    $('body').on('click' , '#katalogorderstart', function(e) {
+      console.log($(this).attr("id"));
+      e.preventDefault();
+      $.get($(this).attr("href"), function(data){
+        $('#inhalt').html(data);
+      });
+    });
+
+  </script>
+{% endblock %}

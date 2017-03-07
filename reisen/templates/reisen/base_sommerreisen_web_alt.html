@@ -1,0 +1,612 @@
+{% load static %}
+{% load eigene_tags %}
+<html>
+
+  <head>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Reiseservice Schwerin GmbH - Sommerreisen 2017</title>
+    <link href="/src/bus.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+
+    <style type="text/css">
+      #accordion_allgemein{
+        background: transparent;
+        border: none;
+      }
+      #accordion_allgemein .ui-accordion-header{
+        background: #9999cc;
+        border: none;
+        color: navy;
+        line-height: 19px;
+        display: block;
+        font-size: 10pt;
+        font-color: white;
+        text-indent: 0px;
+        font-weight: bold;
+      }
+      .ui-accordion .ui-accordion-content {
+        width: 100%;
+        background: transparent;
+        border: none;
+        padding: 0px 0px;
+        margin: 0px;
+        border-top: 0;
+        overflow: auto;
+      }
+    </style>
+
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
+    <script>
+
+      $(function() {
+
+//        var $accordion = $("#accordion_allgemein");
+//        $accordion.accordion({
+//          animate: false,
+//          collapsible: true,
+//          heightStyle: "content",
+//          icons: { "header": "ui-icon-plus", "activeHeader": "ui-icon-minus" }
+//          create: function (event, ui) {
+//            $accordion.children('h3').each(function (i) {
+//                // set id here because jQuery UI sets them as "ui-accordion-#-header-#"
+//                this.id = this.textContent.replace(/\s+/g, '?');
+//                // add the anchor
+//                console.log(this.id)
+//                $(this).before('<a class="accordion-link link" data-index="' + i +
+//                   '" href="#' + this.id + '"></a>');
+//            });
+//          }
+//        });
+//
+//        var panelId = window.location.hash.replace(/#panel/,"");
+//
+//        $(".opener").on("click", function () {
+//          var $this = $(this),
+//            toOpen = $this.data("panel");
+//          $accordion.accordion("option", "active", toOpen);
+//          return false;
+//        });
+
+    var hashId = 0,
+        $accordion = $('#accordion_allgemein');
+    if (window.location.hash) {
+        $accordion.children('h3').each(function (i) {
+            var txt = this.textContent.toLowerCase().replace(/\s+/g, '_');
+            if (txt === window.location.hash.slice(1)) {
+                hashId = i;
+            }
+        });
+    }
+
+    $accordion.accordion({
+        active: hashId,
+        animate: false,
+        heightStyle: 'content',
+        collapsible: true,
+        create: function (event, ui) {
+            $accordion.children('h3').each(function (i) {
+                // set id here because jQuery UI sets them as "ui-accordion-#-header-#"
+                this.id = this.textContent.toLowerCase().replace(/\s+/g, '_');
+                // add the anchor
+                $(this).before('<a class="accordion-link link" data-index="' + i +
+                    '" href="#' + this.id + '"></a>');
+            });
+            $accordion.find('.accordion-link').click(function () {
+                var $link = $(this);
+                // the active option requires a numeric value (not a string, e.g. "1")
+                $accordion.accordion("option", "active", $link.data('index'));
+
+                // position the accordion header under the fixed header
+                var linkTop = $link.next('h3').offset().top,
+                    headerHeight = $('#fixed-header').outerHeight();
+                window.location.hash = $link.attr('href');
+                window.scrollTo(0, linkTop - headerHeight);
+
+                // uncomment out the return false below to prevent the header jump
+                return false;
+            });
+          }
+        });
+
+        var panelId = window.location.hash.replace(/#panel/,"");
+
+        $(".opener").on("click", function () {
+          var $this = $(this),
+            toOpen = $this.data("panel");
+            //$accordion.accordion("option", "active", toOpen);
+          // now we just simulate a click on the accordion link
+          $('.accordion-link[data-index="' + toOpen + '"]').click();
+          return false;
+        });
+
+        //capture the click on the a tag
+        $("#accordion_allgemein h3 a").click(function() {
+          window.location = $(this).attr('href');
+          return false;
+        });
+
+     });
+
+    </script>
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-53480209-1', 'auto');
+      //ga('set', 'anonymizeIp', true);
+      //ga('send', 'pageview', {'anonymizeIp': true});
+      ga('send', 'pageview');
+    </script>
+
+  </head>
+
+  <body bgcolor="#2d4b9b">
+
+  <?php include_once("analyticstracking.php") ?>
+
+    <a name="oben"></a>
+
+      <center>
+
+        <table align="center" width="768">
+          <tr>
+            <td align="center">
+              <a href="/index.html">
+                <img src="/images/logo_klein.gif" border="0" height="82" width="294" vspace="10" hspace="5">
+              </a>
+            </td>
+            <td align="center">
+              <font size="4" face="Verdana" color="white">
+                <b>Sommerreisen 2017 ...</b>
+              </font>
+            </td>
+          </tr>
+        </table>
+
+        </br>
+
+        <table align="center">
+          <tr>
+            <td colspan="2" width="70%" align="center" valign="top" style="color:white; font-family: Verdana">
+              zur&uuml;ck zu:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <b>
+                <a href="/index.html" style="color:white; text-decoration:none; font-family: Verdana">Startseite</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="/rss2/reisen/winter1617/" style="color:white; text-decoration:none; font-family: Verdana">Winterreisen 2016 / 2017</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="/tagesfahrten.html" style="color:white; text-decoration:none; font-family: Verdana">Tagesfahrten</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="/musicals.html" style="color:white; text-decoration:none; font-family: Verdana">Musicalfahrten</a>
+              </b>
+            </td>
+          </tr>
+        </table>
+
+        <br />
+
+        <table bgcolor="ffffff" gridy="16" gridx="16" border="0" cellpadding="0" cellspacing="0" width="768">
+
+          <tbody>
+
+            <tr>
+              <td align="center" valign="top" width="768">
+                <table border="0" cellpadding="1" cellspacing="3" width="768">
+                  <tbody>
+                    <tr height="25">
+                      <td bgcolor="#9999cc" height="20" width="268">
+                        <div align="left">
+                          <span class="ht2">W&auml;hlen Sie eine Kategorie</span>
+                        </div>
+                      </td>
+                      <td colspan="2" bgcolor="#9999cc" height="20" width="297">
+                        <div align="right">
+                          <span class="ht2">oder klicken Sie auf eine Reiseregion, die Sie interessiert:</span>
+                        </div>
+                      </td>
+                    </tr>
+
+<!--              Auswahl nach Ländern und Art der Reise             -->
+
+                    <tr>
+                      <td colspan="3" align="right" width="768">
+                        <!-- interaktive Europakarte -->
+                        <div align="center">
+                          <span class="ht1">
+                            <img src="{{ MEDIA_URL }}images/europa_regionen.gif" usemap="#Europa" align="right" border="0" height="243" width="289">
+                          </span>
+                        </div>
+                        <!-- Art der Reise -->
+                        <div align="left">
+                          <p>
+                            <span class="ht5">
+                              <a class="opener" data-panel="0" href="#alle Reisen" style="font-size:12pt">alle Reisen</a></br>
+                            </span>
+                          </p>
+                          {% for kategorie in kategorien %}
+                            <p>
+                              <span class="ht5">
+                                <a class="opener" data-panel="{{ forloop.counter|add:"9" }}" href="#{{ kategorie }}" style="font-size:12pt">{{ kategorie }}</a>
+                              </span>
+                            </p>
+                          {% endfor %}
+                        </div>
+                      </td>
+                    </tr>
+
+<!-- +++++++++++++++++ Link zur Auswahl nach Kalendermonaten +++++++++++++++++++++++++++++++++++++  -->
+<!--                  <tr valign="middle" bgcolor="#9999cc">
+                    <td colspan="3" align="center" valign="middle" width="768">
+                      <span class="ht1">
+                        <a href=".././kalender.html">
+                          <img alt="zur Reiseauswahl nach Kalendermonaten" src=".././images/kalender.jpg" align="top" border="0" height="72" width="195">
+                        </a>
+                        <br />
+						<a href=".././kalender.html">zur Reiseauswahl nach Kalendermonaten</a>
+					  </span>
+				    </td>
+				  </tr>
+-->
+
+<!--  Link zu Hinweisen und Reisebedingungen  -->
+                    <tr>
+                      <td colspan="3" bgcolor="#cccccc" height="18" width="768">
+                        <div align="center">
+                          <span class="ht1">
+                            Beachten Sie unsere
+                            <a href="/wichtiges.html">Hinweise</a>
+                            und
+                            <a href="/reisebedingungen.html">Reisebedingungen</a>
+                            !
+                          </span>
+                        </div>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <!-- <td colspan="3" bgcolor="#9999cc" height="19" width="768"> -->
+                      <td colspan="3" width="768">
+                        <div id="accordion_allgemein">
+                          <!-- <a class="accordion-link link" data-index="0" name="#alle Reisen"></a> -->
+                          <h3 align="center">alle Reisen<a href="#oben"><img src="/images/top.gif" border="0" width="19" height="18" alt="top" align="right"/></a></h3>
+                          <div>
+                            <p style="margin:0px; padding:0px;">
+                              {% for termin in termine_distinct %}
+                                <div class="table">
+                                  <div class="row">
+                                    <div class="cell" style="width:100%; background-color:#ccccff;">
+                                      {% if request.user.is_authenticated %}
+                                        {% if termin.korrektur_bemerkung_intern %}
+                                          <a href="{% url 'reise_detail_export' pk=termin.reiseID %}" style="text-decoration:none; color:red; font-weight:bold; font-size:10pt;" target = 'blank'>
+                                            {{ termin.titel }}{% if termin.individualbuchbar != '' %} (auch individuell buchbar){% endif %}
+                                          </a>
+                                        {% else %}
+                                          <a href="{% url 'reise_detail_export' pk=termin.reiseID %}" style="text-decoration:none; font-weight:bold; font-size:10pt;" target = 'blank'>
+                                            {{ termin.titel }}{% if termin.individualbuchbar != '' %} (auch individuell buchbar){% endif %}
+                                          </a>
+                                        {% endif %}
+                                      {% else %}
+                                        <a href="{% url 'reise_detail' pk=termin.reiseID %}?version=alt&kategorie={{kategorie|kategorie_get}}" style="font-weight:bold; font-size:10pt; text-decoration:none;">
+                                          {{ termin.titel }}{% if termin.individualbuchbar != '' %} (auch individuell buchbar){% endif %}
+                                        </a>
+                                      {% endif %}
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="table">
+                                  <div class="row">
+                                    <div class="cell" style="width: 30%;">
+                                      Termine:</br>
+                                      {{ termin.reisetyp }}
+                                    </div>
+                                    <div class="cell" style="width: 40%; text-align: center;">
+                                      {{ termin.reisetermine|linebreaksbr }}
+                                    </div>
+                                    <div class="cell" style="width: 30%; text-align: right;">
+                                      ab {{ termin.abpreis|preisformat }} &euro;</br>
+                                      <a href="{% url 'reise_detail' pk=termin.reiseID %}?version=alt&kategorie={{kategorie|kategorie_get}}">mehr zur Reise</a>
+                                    </div>
+                                  </div>
+                                </div>
+                              {% endfor %}
+                            </p>
+                          </div>
+
+                          <!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! LÄNDER ABFACKELN HIER !!!!!! -->
+                          {% for zielregion in zielregionen %}
+                            {% reise_webZielregion zielregion termine as gefilterte_reisen_zielregion %}
+                            <h3 align="center">
+                              {{ zielregion|escape|zielumbenennen }}
+                                <a href="#oben">
+                                  <img src="/images/top.gif" border="0" width="19" height="18" alt="top" align="right"/>
+                                </a>
+                            </h3>
+                            <div>
+                              <p style="margin:0px; padding:0px;">
+                                {% for termin in gefilterte_reisen_zielregion %}
+                                  <div class="table">
+                                    <div class="row">
+                                      <div class="cell" style="width:100%; background-color:#ccccff;">
+                                        {% if request.user.is_authenticated %}
+                                          {% if termin.korrektur_bemerkung_intern %}
+                                            <a href="{% url 'reise_detail_export' pk=termin.reiseID %}" style="text-decoration:none; color:red; font-weight:bold; font-size:10pt;" target = 'blank'>
+                                              {{ termin.titel }}{% if termin.individualbuchbar != '' %} (auch individuell buchbar){% endif %}
+                                            </a>
+                                          {% else %}
+                                            <a href="{% url 'reise_detail_export' pk=termin.reiseID %}" style="text-decoration:none; font-weight:bold; font-size:10pt;" target = 'blank'>
+                                              {{ termin.titel }}{% if termin.individualbuchbar != '' %} (auch individuell buchbar){% endif %}
+                                            </a>
+                                          {% endif %}
+                                        {% else %}
+                                          <a href="{% url 'reise_detail' pk=termin.reiseID %}?version=alt&kategorie={{kategorie|kategorie_get}}" style="font-weight:bold; font-size:10pt; text-decoration:none;">
+                                            {{ termin.titel }}{% if termin.individualbuchbar != '' %} (auch individuell buchbar){% endif %}
+                                          </a>
+                                        {% endif %}
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="table">
+                                    <div class="row">
+                                      <div class="cell" style="width: 30%;">
+                                        Termine:</br>
+                                        {{ termin.reisetyp }}
+                                      </div>
+                                      <div class="cell" style="width: 40%; text-align: center;">
+                                        {{ termin.reisetermine|linebreaksbr }}
+                                      </div>
+                                      <div class="cell" style="width: 30%; text-align: right;">
+                                        ab {{ termin.abpreis|preisformat }} &euro;</br>
+                                        <a href="{% url 'reise_detail' pk=termin.reiseID %}?version=alt&kategorie={{kategorie|kategorie_get}}">mehr zur Reise</a>
+                                      </div>
+                                    </div>
+                                  </div>
+                                {% endfor %}
+                              </p>
+                            </div>
+
+                          {% endfor %}
+
+                          {% for kategorie in kategorien %}
+                            {% reise_kategorie kategorie termine as gefilterte_reisen %}
+
+                            <!-- <a class="accordion-link link" data-index="{{ forloop.counter }}" name="#{{ kategorie }}"></a> -->
+                            <h3 align="center">
+                              <!-- <div align="center" class="reisekategorie" style="background-color:#9999cc; overflow:hidden;"> -->
+                              {{ kategorie }}
+                                <a href="#oben">
+                                  <!-- <img src="/images/top.gif" border="0" width="19" height="18" alt="top" align="right" style="position:relative; top:0px; left:29px;"/> -->
+                                  <img src="/images/top.gif" border="0" width="19" height="18" alt="top" align="right"/>
+                                </a>
+                                <!-- </div> -->
+                            </h3>
+                            <div>
+                              <p style="margin:0px; padding:0px;">
+                                {% for termin in gefilterte_reisen %}
+                                  <div class="table">
+                                    <div class="row">
+                                      <div class="cell" style="width:100%; background-color:#ccccff;">
+                                        {% if request.user.is_authenticated %}
+                                          {% if termin.korrektur_bemerkung_intern %}
+                                            <a href="{% url 'reise_detail_export' pk=termin.reiseID %}" style="text-decoration:none; color:red; font-weight:bold; font-size:10pt;" target = 'blank'>
+                                              {{ termin.titel }}{% if termin.individualbuchbar != '' %} (auch individuell buchbar){% endif %}
+                                            </a>
+                                          {% else %}
+                                            <a href="{% url 'reise_detail_export' pk=termin.reiseID %}" style="text-decoration:none; font-weight:bold; font-size:10pt;" target = 'blank'>
+                                              {{ termin.titel }}{% if termin.individualbuchbar != '' %} (auch individuell buchbar){% endif %}
+                                            </a>
+                                          {% endif %}
+                                        {% else %}
+                                          <a href="{% url 'reise_detail' pk=termin.reiseID %}?version=alt&kategorie={{kategorie|kategorie_get}}" style="font-weight:bold; font-size:10pt; text-decoration:none;">
+                                            {{ termin.titel }}{% if termin.individualbuchbar != '' %} (auch individuell buchbar){% endif %}
+                                          </a>
+                                        {% endif %}
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="table">
+                                    <div class="row">
+                                      <div class="cell" style="width: 30%;">
+                                        Termine:</br>
+                                        {{ termin.reisetyp }}
+                                      </div>
+                                      <div class="cell" style="width: 40%; text-align: center;">
+                                        {{ termin.reisetermine|linebreaksbr }}
+                                      </div>
+                                      <div class="cell" style="width: 30%; text-align: right;">
+                                        ab {{ termin.abpreis|preisformat }} &euro;</br>
+                                        <a href="{% url 'reise_detail' pk=termin.reiseID %}?version=alt&kategorie={{kategorie|kategorie_get}}">mehr zur Reise</a>
+                                      </div>
+                                    </div>
+                                  </div>
+                                {% endfor %}
+                              </p>
+                            </div>
+
+                          {% endfor %}
+
+                        </div>
+                      </td>
+                    </tr>
+<!--
+                    {% for termin in gefilterte_reisen %}
+                    <tr>
+                      <td colspan="3" bgcolor="#ccccff" height="16" width="768">
+                        <span class="ht1">
+                          <a href="{% url 'reise_detail' pk=termin.reiseID %}?version=alt&kategorie={{kategorie|kategorie_get}}" style="font-weight:bold; font-size:10pt; text-decoration:none;">
+                            {% if termin.korrektur_bemerkung_intern %}
+                              <font color="red">{{ termin.titel }}</font>
+                            {% else %}
+                              {{ termin.titel }}
+                            {% endif %}
+                          </a>
+                        </span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td height="16" width="195">
+                        <span class="ht1">Termine:</span>
+                      </td>
+                      <td rowspan="2" valign="top" align="center" height="16" width="256">
+                        <span class="ht1">
+                          {% if kategorie == "Adventsreisen & Weihnachtsmärkte" %}
+                            {% if termin.titel == "Musicalfahrt nach Hamburg" %}
+                              08. 12. 2016</br>
+                              22. 12. 2016
+                            {% else %}
+                              {{ termin.reisetermine|linebreaksbr }}
+                            {% endif %}
+                          {% else %}
+                            {{ termin.reisetermine|linebreaksbr }}
+                          {% endif %}
+                        </span>
+                      </td>
+                      <td align="right" height="16" width="256">
+                        <span class="ht1">
+                          ab {{ termin.abpreis|preisformat }},- &euro;
+                        </span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td height="15" width="256">
+                        <span class="ht1">
+                          {{ termin.reisetyp }}
+                        </span>
+                      </td>
+                      <td align="right" height="15" width="256">
+                        <span class="ht1">
+                          <a href="{% url 'reise_detail' pk=termin.reiseID %}?version=alt&kategorie={{kategorie|kategorie_get}}">mehr zur Reise</a>
+                        </span>
+                      </td>
+                    </tr>
+                    {% endfor %}
+-->
+
+<!-- Link zu Hinweisen und Reisebedingungen -->
+                    <tr>
+                      <td colspan="3" bgcolor="#cccccc" height="18" width="768">
+                        <div align="center">
+                          <span class="ht1">
+                            Beachten Sie unsere
+                            <a href="/wichtiges.html">Hinweise</a>
+                            und
+                            <a href="/reisebedingungen.html">Reisebedingungen</a>
+                            !
+                          </span>
+                        </div>
+                      </td>
+                    </tr>
+
+
+<!-- Link zur Auswahl nach Kalendermonaten -->
+<!--                  <tr valign="middle" bgcolor="#9999cc">
+                    <td colspan="3" align="center" valign="middle">
+                      <span class="ht1">
+                        <a href=".././kalender.html">
+                          <img alt="zur Reiseauswahl nach Kalendermonaten" src=".././images/kalender.jpg" align="top" border="0" height="72" width="195">
+                        </a>
+                        <br />
+						<a href=".././kalender.html">zur Reiseauswahl nach Kalendermonaten</a>
+					  </span>
+				    </td>
+				  </tr>
+-->
+                    <tr>
+                      <td colspan="3">
+                        <center>
+                          <table gridy="16" gridx="16" align="center" border="0" cellpadding="0" cellspacing="0" width="768">
+                            <tbody>
+                              <tr>
+                                <td xpos="0" align="left" valign="top">
+                                  <table border="0" cellpadding="0" cellspacing="2" width="768">
+                                    <tbody>
+                                      <tr>
+                                        <td colspan="2"><hr></td>
+                                      </tr>
+
+<!-- --------------------------- Kontaktdaten ---------------------------------------------------------- -->
+                                      <tr>
+                                        <td>
+                                          <p class="st1">
+                                            Reiseservice Schwerin GmbH<br>
+                                            Kl&ouml;resgang 1<br>
+                                            19053 Schwerin
+                                          </p>
+                                        </td>
+                                        <td align="right">
+                                          <p class="st2">
+                                            <a href="/index.html">
+                                              <img src="/images/logo_klein_blau.gif" alt="Reiseservice Schwerin GmbH" border="0" height="55" width="196">
+                                            </a>
+                                          </p>
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <td colspan="2">
+                                          <p class="st2">
+                                            Email: <a href="mailto:info@reiseservice-schwerin.de">info@reiseservice-schwerin.de</a>
+                                          </p>
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <td>
+                                          <p class="st2">
+                                            Tel: 0385 / 5910333</br>
+                                            Fax: 0385 / 5910331
+                                          </p>
+                                        </td>
+
+<!-- +++++++++++++++++++++++++++++++++++++++ Impressum ++++++++++++++++++++++++++++++  -->
+                                        <td align="right">
+                                          <span class="st2-table">
+                                            <a href="/impressum.html"><i>Impressum&nbsp;/&nbsp;Haftungsausschlu&szlig;</i></a>
+                                          </span>
+                                        </td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </center>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+
+        <a name="test"></a>
+
+        <p>
+          <map name="Europa">
+            <area class="opener" data-panel="1" title="Deutschland" shape="POLY" alt="Deutschland" href="#Deutschland"
+              coords="137,68,143,69,150,73,168,76,173,102,158,109,168,124,162,131,163,134,129,134,132,123,124,116,123,95,129,79,137,76">
+            <area class="opener" data-panel="2" title="Holland / Belgien" shape="POLY" alt="Holland / Belgien" href="#Holland / Belgien"
+              coords="102, 102, 122, 81, 129, 81, 129, 89, 124, 96, 124, 109, 121, 112, 125, 116, 120, 115, 114, 112, 112, 112">
+            <area class="opener" data-panel="3" title="Schweiz / &Ouml;sterreich / Tschechien / Slovakei / Ungarn / Rum&auml;nien" shape="POLY" alt="Schweiz / &Ouml;sterreich / Tschechien / Slovakei / Ungarn / Rum&auml;nien" href="#Schweiz / &Ouml;sterreich / Tschechien / Slovakei / Ungarn / Rum&auml;nien"
+              coords="122,146,130,135,144,135,149,137,166,135,165,130,171,124,161,110,174,103,183,105,187,110,191,107,200,112,200,115,206,114,210,115,220,112,225,114,223,122,229,123,243,122,253,116,266,129,267,138,271,141,277,138,279,141,275,154,261,154,253,161,235,161,230,156,224,156,223,152,220,152,215,143,211,144,205,147,199,149,187,140,181,141,176,144,172,144,164,143,161,140,151,142,147,146,142,147,141,150,136,147,133,150,128,151,125,146">
+            <area class="opener" data-panel="4" title="Frankreich / Italien / Andorra" shape="POLY" alt="Frankreich / Italien / Andorra" href="#Frankreich / Italien / Andorra"
+              coords="66,169,74,150,74,142,69,137,69,131,55,124,55,117,65,116,68,119,73,119,73,112,75,110,77,110,79,113,86,113,91,110,94,110,97,103,103,102,113,112,115,111,119,116,124,117,127,120,135,123,130,135,126,139,123,143,121,147,125,147,126,152,133,152,136,149,141,151,143,147,148,148,152,143,161,141,164,143,170,144,171,153,164,154,164,166,173,174,178,184,185,187,191,187,191,191,211,199,209,205,199,201,197,206,202,210,194,226,188,238,136,218,133,197,137,183,143,179,143,192,146,212,140,217,164,227,171,224,179,225,188,222,192,218,192,210,187,206,182,201,175,196,166,194,150,180,147,167,140,164,120,178,102,174,98,182,90,182,84,177,75,176,66,170">
+            <area class="opener" data-panel="5" title="Portugal" shape="POLY" alt="Portugal" href="#Portugal"
+              coords="14, 127, 21, 175, 28, 176, 29, 181, 26, 184, 22, 193, 19, 196, 13, 218, 0, 218, 1, 198">
+            <area class="opener" data-panel="6" title="England / Schottland / Irland" shape="POLY" href="#England / Schottland / Irland" alt="England / Schottland / Irland"
+              coords="18, 65, 80, 10, 101, 84, 94, 100, 38, 103">
+            <!-- <area class="opener" data-panel="5" title="Spanien" shape="POLY" alt="Spanien" href="#Spanien"
+              coords="52, 228, 15, 228, 30, 177, 12, 169, 24, 154, 99, 181, 105, 207"> -->
+            <area class="opener" data-panel="7" title="Slowenien / Kroatien / Montenegro / Bosnien und Herzegowina" shape="POLY" alt="Slowenien / Kroatien / Montenegro / Bosnien und Herzegowina" href="#Slowenien / Kroatien / Montenegro / Bosnien und Herzegowina"
+              coords="171,153,171,144,178,144,186,141,188,144,195,147,200,150,206,148,209,155,211,163,212,169,214,173,217,173,218,177,215,180,214,184,199,175,188,172,184,169,181,168,177,161,176,157,173,161,171,157,170,144">
+            <area class="opener" data-panel="8" title="Baltikum / Skandinavien / Finnland / Island" shape="POLY" alt="Baltikum / Skandinavien / Finnland / Island" href="#Baltikum / Skandinavien / Finnland / Island"
+              coords="122,0,124,34,133,38,137,48,137,68,146,69,154,69,162,67,168,62,172,56,178,53,182,52,190,44,206,59,213,59,216,60,216,64,220,66,225,68,232,66,234,56,236,54,235,48,241,46,242,43,238,37,238,32,235,31,235,28,234,26,233,13,232,3,232,0">
+            <area class="opener" data-panel="9" title="Polen" shape="POLY" alt="Polen" href="#Polen"
+              coords="169,74,173,74,189,65,193,65,195,69,201,67,219,66,226,74,226,82,224,85,227,87,228,93,231,97,231,103,227,106,225,115,219,114,215,113,210,114,207,114,204,113,200,113,197,109,193,107,190,106,188,108,183,106,179,104,177,102,177,98,173,96,174,87,171,85,172,82,170,75">
+          </map>
+        </p>
+    </center>
+  </body>
+</html>

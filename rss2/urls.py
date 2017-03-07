@@ -13,6 +13,7 @@ Including another URLconf
     1. Add an import:  from blog import urls as blog_urls
     2. Add a URL to urlpatterns:  url(r'^blog/', include(blog_urls))
 """
+from __future__ import absolute_import, unicode_literals, division
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
 from django.conf import settings
@@ -31,12 +32,14 @@ urlpatterns = patterns('',
     url(r'^$', include('home.urls')),
     url(r'^home/', include('home.urls')),
     url(r'^reisen/', include('reisen.urls')),
+    #url(r'^locking/', include('locking.urls')),
     url(r'^filer/', include('filer.urls')),
     url(r'^inplaceeditform/', include('inplaceeditform.urls')),
     url(r'^jsi18n$', 'django.views.i18n.javascript_catalog', js_info_dict),
     url(r'^admin/filebrowser/', include(site.urls)),
     url(r'^grappelli/', include('grappelli.urls')),
     url(r'^admin/', include(admin.site.urls)),
+    #url(r'^admin/ajax/', include('locking.urls')),
     url(r'^accounts/login/$', 'django.contrib.auth.views.login'),
     url(r'^accounts/logout/$', 'django.contrib.auth.views.logout', {'next_page': '/'}),
 )

@@ -1,0 +1,16 @@
+<div style="background-color:#0000AA; color:#FFFFFF" id="filter">
+  Filter:
+          {% if kategorien %}
+            {% for k in kategorien %}
+              {{ k }}<br/>
+            {% endfor %}
+          {% else %}
+           keine Kategorien
+          {% endif %}
+  <div id="alle"><a href="" style="color:white">alle Reisen</a></div>
+  <div id="abdatum"><a href="" style="color:white">ab Datum</a></div>
+  <div id="zielregion"><a href="" style="color:white">Zielregion</a></div>
+  <div id="kategorien"><a href="" style="color:white">Kategorie (Dropdown oder Checkbox?)</a>
+</div>
+</div>
+

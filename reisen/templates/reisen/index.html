@@ -1,4 +1,6 @@
 {% extends 'reisen/base.html' %}
+{% load inplace_edit %}
+{% load eigene_tags %}
 
 {% block content %}
   {% for termin in termine %}
@@ -6,20 +8,29 @@
     <div class="date">
       <!-- <p>Reise erzeugt am: {{ termin.reise_id.datum_erzeugung }}</p> -->
       <p>{{ termin.reisetermine|linebreaks }}</p>
-      </div>
+    </div>
     <!-- <p>{{ termine }}</p> -->
     <!-- <p><h3>{{ termin.reise_id.titel }}</h3></p> -->
     <!-- <p><h3>{{ termin.reise_id__titel }}</h3></p> -->
-    <p><h3>
-      <a href="{% url 'reise_detail' pk=termin.reiseID %}">
-        {% if termin.korrektur_bemerkung_intern %}
-          <font color="red">
-            {{ termin.titel }}
+    <p>
+      <h3>
+        {% if termin.neu != 0 %}
+          <font color="gold">
+            NEU!&nbsp;
           </font>
-      {% else %}
-          {{ termin.titel }}
-      {% endif %}
-    </a></h3></p>
+        {% endif %}
+        <a href="{% url 'reise_detail' pk=termin.reiseID %}">
+          {% if termin.korrektur_bemerkung_intern %}
+            <font color="red">
+              {{ termin.titel }}
+            </font>
+        </a>
+      </h3>
+      <p style="color:red;font-style:italic;">{{ termin.korrektur_bemerkung_intern|linebreaksbr }}</p>
+          {% else %}
+            {{ termin.titel }}
+          {% endif %}
+    </p>
     <p><h4>{{ termin.untertitel }}</h4></p>
     <p><h4>{{ termin.reise_id__untertitel }}</h4></p>
     <!-- <p><h5>{{ termin.reise_id.reisetyp }}</h5></p> -->
@@ -34,4 +45,22 @@
   {% if dibug %}
     {{ dibug }}
   {% endif %}
+
+  {% if korrekturen %}
+    <hr><b>KORREKTUREN</b><hr>
+    {% for korrektur in korrekturen %}
+      {% if korrektur.korrektur_bemerkung_intern %}
+        <b>{{ korrektur.titel }}:</b></br></br>
+        {{ korrektur.korrektur_bemerkung_intern|linebreaks }}
+        </br><br><hr></br></br>
+      {% endif %}
+    {% endfor %}
+  {% endif %}
+
+<!--
+  {% for termin in termine %}
+    <b>{{ termin.titel }}</b></br>{% if termin.untertitel %}{{ termin.untertitel }}</br>{% endif %}{{ termin.reisetyp }}</br>{{ termin.reisetermine }}</br>{% if termin.einleitung %}{{ termin.einleitung|linebreaks }}{% endif %}</br>
+  {% endfor %}
+-->
+
 {% endblock %}

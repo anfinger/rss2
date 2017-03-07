@@ -34,6 +34,8 @@ INSTALLED_APPS = (
     #'tabbed_admin',
     #'front',
     #'django-concurrency',
+    #'admin_locking',
+    'reisen',
     'inplaceeditform',
     'grappelli',
     'easy_thumbnails',
@@ -41,6 +43,7 @@ INSTALLED_APPS = (
     'mptt',
     'filebrowser',
     'nested_admin',
+    #'locking',
     'django.contrib.contenttypes',
     #'grappelli.dashboard',
     #'super_inlines',
@@ -51,7 +54,6 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'home',
-    'reisen',
     'fibu',
     'test_without_migrations',
     #'imagestore',
@@ -196,3 +198,4 @@ INPLACE_ENABLE_CLASS = 'enable'
 #ADAPTOR_INPLACEEDIT = {'myadaptor': 'app_name.fields.MyAdaptor'} # Explain in Adaptor API
 #INPLACE_GET_FIELD_URL = None # to change the url where django-inplaceedit use to get a field
 #INPLACE_SAVE_URL = None # to change the url where django-inplaceedit use to save a field
+

@@ -1,0 +1,102 @@
+{% load static %}
+{% load eigene_tags %}
+<html>
+  <head>
+    <title>Reisetermine 2017</title>
+    <style>
+      .rTable {
+        display: table;
+        /*width: 100%;*/
+      }
+      .rTableRow {
+        display: table-row;
+      }
+      .rTableCell, .rTableHead {
+        display: table-cell;
+        padding: 3px 10px;
+        border: 1px solid #999999;
+      }
+      .rTableHeading {
+        display: table-header-group;
+        background-color: #bbb;
+        font-weight: bold;
+      }
+      .rTableFoot {
+        display: table-footer-group;
+        font-weight: bold;
+        background-color: #ddd;
+      }
+      .rTableBody {
+        display: table-row-group;
+      }
+    </style>
+  </head>
+  <body style="font-family: TrajanPro-Regular, 'Lucida Grande', sans-serif;">
+    <div>
+      <h1>REISEÜBERSICHT 2017</h1>
+    </div>
+    <div class="rTable">
+      <div class="rTableHeading">
+        <div class="rTableHead"></div>
+        <div class="rTableHead">Reise</div>
+        <div class="rTableHead">Tage</div>
+        <div class="rTableHead">Seite</div>
+      </div>
+      <div class="rTableBody">
+        <div class="rTableRow" style="background-color: #ddd;">
+          <div class="rTableCell"></div><div class="rTableCell">Busreisen nach ...</div><div class="rTableCell"></div><div class="rTableCell"></div>
+        </div>
+      {% for termin in termine %}
+        {% if termin.kategorie %}
+        <div class="rTableRow" style="background-color: #eee;">
+          <div class="rTableCell"></div><div class="rTableCell">{{ termin.kategorie|zielumbenennen }}</div><div class="rTableCell"></div><div class="rTableCell"></div>
+        </div>
+        {% endif %}
+        <div class="rTableRow">
+        {% if 'Kuren' not in termin.Reise %}
+          <div class="rTableCell">{% if termin.neu %}Neu{% endif %}</div>
+          <div class="rTableCell">
+          {% comment %}{% if request.user.is_authenticated %}{% endcomment %}
+            {% if termin.korrektur_bemerkung_intern %}
+              <a href="{% url 'reise_detail' pk=termin.reiseID %}" style="text-decoration:none; color:red;" target = 'blank'>
+            {% else %}
+              <a href="{% url 'reise_detail' pk=termin.reiseID %}" style="text-decoration:none;" target = 'blank'>
+            {% endif %}
+            {{ termin.Reise }}</a> {{ termin.preise }} {% comment %}(UUID:{{ termin.reiseID }}){% endcomment %}
+          {% comment %}{% else %}
+            {{ termin.Reise }} {{ termin.preise }} (UUID:{{ termin.reiseID }})
+          {% endif %}{% endcomment %}
+          </div>
+          {% if termin.Tage %}
+            <div class="rTableCell" style="text-align: right; width: 40px">{{ termin.Tage }}</div>
+          {% endif %}
+          {% if termin.Seite %}
+            <div class="rTableCell" style="text-align: right; width: 40px">{{ termin.Seite }}</div>
+          {% else %}
+            <div class="rTableCell" style="text-align: right; width: 40px">n.b.</div>
+          {% endif %}
+        {% endif %}
+        </div>
+      {% endfor %}
+        <div class="rTableRow" style="background-color: #eee;">
+          <div class="rTableCell"></div><div class="rTableCell">Kurreisen</div><div class="rTableCell"></div><div class="rTableCell"></div>
+        </div>
+        <div class="rTableRow">
+          <div class="rTableCell"></div>
+          <div class="rTableCell">Kuren an der polnischen Ostseeküste</div>
+          <div class="rTableCell" style="text-align: right; width: 40px">8/15</div>
+          <div class="rTableCell" style="text-align: right; width: 40px">108-111</div>
+        </div>
+        <div class="rTableRow" style="background-color: #eee;">
+          <div class="rTableCell"></div><div class="rTableCell">Musicals &amp; Shows</div><div class="rTableCell"></div><div class="rTableCell"></div>
+        </div>
+        <div class="rTableRow">
+          <div class="rTableCell"></div>
+          <div class="rTableCell">in Hamburg, Rostock, Ralswiek, Berlin &amp; Bochum</div>
+          <div class="rTableCell" style="text-align: right; width: 40px">1/2</div>
+          <div class="rTableCell" style="text-align: right; width: 40px">Umschlag</div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

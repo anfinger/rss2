@@ -1,0 +1,101 @@
+{% load static %}
+{% load eigene_tags %}
+<html>
+  <head>
+    <title>Reisetermine 2017</title>
+    <style>
+      .rTable {
+        display: table;
+        /*width: 100%;*/
+      }
+      .rTableRow {
+        display: table-row;
+      }
+      .rTableHeading {
+        display: table-header-group;
+        background-color: #ddd;
+      }
+      .rTableCell, .rTableHead {
+        display: table-cell;
+        padding: 3px 10px;
+        border: 1px solid #999999;
+      }
+      .rTableHeading {
+        display: table-header-group;
+        background-color: #ddd;
+        font-weight: bold;
+      }
+      .rTableFoot {
+        display: table-footer-group;
+        font-weight: bold;
+        background-color: #ddd;
+      }
+      .rTableBody {
+        display: table-row-group;
+      }
+    </style>
+  </head>
+  <body style="font-family: TrajanPro-Regular, 'Lucida Grande', sans-serif;">
+    <div>
+      <h1>REISETERMINE 2017</h1>
+    </div>
+    <div class="rTable">
+      <div class="rTableHeading">
+        <div class="rTableHead"></div>
+        <div class="rTableHead">Termin</div>
+        <div class="rTableHead">Tage</div>
+        <div class="rTableHead">Reiseziel</div>
+        <div class="rTableHead">Seite</div>
+      </div>
+      <div class="rTableBody">
+      {% for termin in termine %}
+        {% if termin.Monat %}
+        <div class="rTableRow" style="background-color: #ddd;">
+          <div class="rTableCell"></div>
+          <div class="rTableCell">{{ termin.Monat }}</div>
+          {% if termin.Monat = 'Februar' %}
+            <div class="rTableCell"></div><div class="rTableCell">(WINTERFERIEN 06.02. - 18.02.2017)</div><div class="rTableCell"></div>
+          {% elif termin.Monat = 'April' %}
+            <div class="rTableCell"></div><div class="rTableCell">(OSTERFERIEN 10.04. - 19.04.2017)</div><div class="rTableCell"></div>
+          {% elif termin.Monat = 'Juni' %}
+            <div class="rTableCell"></div><div class="rTableCell">(PFINGSTFERIEN 02.06. - 06.06.2017)</div><div class="rTableCell"></div>
+          {% elif termin.Monat = 'Juli' %}
+            <div class="rTableCell"></div><div class="rTableCell">(SOMMERFERIEN 24.07. - 02.09.2017)</div><div class="rTableCell"></div>
+          {% elif termin.Monat = 'Oktober' %}
+            <div class="rTableCell"></div><div class="rTableCell">(HERBSTFERIEN 23.10. - 31.10.2017)</div><div class="rTableCell"></div>
+          {% else %}
+            <div class="rTableCell"></div><div class="rTableCell"></div><div class="rTableCell"></div>
+          {% endif %}
+          </div>
+        </div>
+        {% endif %}
+        {% if termin.Termin != '' %}
+        <div class="rTableRow">
+          <div class="rTableCell">{% if termin.neu %}Neu{% endif %}</div>
+        {% if termin.Termin %}
+          <div class="rTableCell">{{ termin.Termin }}</div>
+        {% endif %}
+        {% if termin.Tage %}
+          <div class="rTableCell" style="text-align: right; width: 40px">{{ termin.Tage }}</div>
+        {% endif %}
+        {% if termin.Reiseziel %}
+          <div class="rTableCell">{{ termin.Reiseziel }}</div>
+        {% endif %}
+        {% if termin.Seite %}
+          {% if 'Kuren' in termin.Reiseziel %}
+            <div class="rTableCell" style="text-align: right; width: 40px">108-111</div>
+          {% else %}
+            <div class="rTableCell" style="text-align: right; width: 40px">{{ termin.Seite }}</div>
+          {% endif %}
+        {% elif 'Kuren' in termin.Reiseziel %}
+            <div class="rTableCell" style="text-align: right; width: 40px">108-111</div>
+        {% else %}
+          <div class="rTableCell" style="text-align: right; width: 40px">n.b.</div>
+        {% endif %}
+        </div>
+        {% endif %}
+      {% endfor %}
+      </div>
+    </div>
+  </body>
+</html>

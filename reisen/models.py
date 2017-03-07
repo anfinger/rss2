@@ -40,41 +40,10 @@ STATUS_CHOICES = (
 #    ('n', 'nicht zugeordnet'),
 #)
 
-###########
-# Bild    #
-###########
-@python_2_unicode_compatible # For Python 3.4 and 2.7
-class Bild(models.Model):
-
-    # Titel für das Admin Backend
-    class Meta:
-        verbose_name = "Bild"
-        verbose_name_plural = "Bilder"
-
-    # Attribute
-    bildID = models.UUIDField(
-        primary_key=True,
-        default=uuid.uuid4,
-        editable=False)
-    bild = models.ImageField(upload_to = 'images', blank = True, default = '' )#, default = 'images/None/no-img.jpg')
-    #bild = FileBrowseField('filebrowser', max_length=200, directory="images/", extensions=[".jpg",".jpeg",".tif",".png",".tiff"], blank=True, null=True)#, default = 'images/None/no-img.jpg')
-    #bild = FileBrowseField('id_bild', directory = '/images/', max_length=200, blank=True, null=True)#, default = 'images/None/no-img.jpg')
-    #bild = FilerImageField(null=True, blank=True, related_name="reisen_bilder")
-    titel = models.CharField(
-        max_length=256,
-        blank = True,
-        default = '',
-        verbose_name = "Bildtitel",
-        help_text = "Geben Sie hier den Titel des Bildes ein.")
-    beschreibung = models.TextField(
-        blank = True,
-        default = '',
-        verbose_name = "Bildbeschreibung",
-        help_text = "Geben Sie hier eine Bildbeschreibung ein.")
-
-    # Bildtitel als Rückgabestring
-    def __str__(self):
-        return self.titel #+ ' ID: ' + str(self.bildID)
+# genauen speicherort ranhängen
+def get_path(instance, filename):
+  #return 'kataloge/%s/%s' % (instance.katalog_id__titel, filename)
+  return 'kataloge/%s/%s' % (re.sub(r'[^a-zA-Z0-9_-]', '', str(instance.katalog_id)), filename)
 
 ################
 # Bildanbieter #
@@ -102,31 +71,42 @@ class Bildanbieter(models.Model):
     def __str__(self):
         return self.bildanbieter
 
-###########################
-# Kategorien zur Reise    #
-###########################
+###########
+# Bild    #
+###########
 @python_2_unicode_compatible # For Python 3.4 and 2.7
-class Bildanbieterzubild(models.Model):
+class Bild(models.Model):
 
     # Titel für das Admin Backend
     class Meta:
-        verbose_name = "Bildanbieter"
-        verbose_name_plural = "Bildanbieter"
-        ordering = ['position']
+        verbose_name = "Bild"
+        verbose_name_plural = "Bilder"
 
     # Attribute
-    bildanbieterzubildID = models.UUIDField(
+    bildID = models.UUIDField(
         primary_key=True,
         default=uuid.uuid4,
         editable=False)
-    bild_id = models.ForeignKey(
-        Bild,
-        on_delete=models.CASCADE)
+    bild = models.ImageField(upload_to = 'images', blank = True, default = '' )#, default = 'images/None/no-img.jpg')
+    #bild = FileBrowseField('filebrowser', max_length=200, directory="images/", extensions=[".jpg",".jpeg",".tif",".png",".tiff"], blank=True, null=True)#, default = 'images/None/no-img.jpg')
+    #bild = FileBrowseField('id_bild', directory = '/images/', max_length=200, blank=True, null=True)#, default = 'images/None/no-img.jpg')
+    #bild = FilerImageField(null=True, blank=True, related_name="reisen_bilder")
     bildanbieter_id = models.ForeignKey(
         Bildanbieter,
-        verbose_name = "Bildanbieter",
-        help_text = "Wählen Sie den Bildanbieter.",
+        blank = True,
+        null = True,
         on_delete=models.CASCADE)
+    titel = models.CharField(
+        max_length=256,
+        blank = True,
+        default = '',
+        verbose_name = "Bildtitel",
+        help_text = "Geben Sie hier den Titel des Bildes ein.")
+    beschreibung = models.TextField(
+        blank = True,
+        default = '',
+        verbose_name = "Bildbeschreibung",
+        help_text = "Geben Sie hier eine Bildbeschreibung ein.")
     bildnummer = models.CharField(
         max_length=256,
         blank = True,
@@ -139,20 +119,22 @@ class Bildanbieterzubild(models.Model):
         default = '',
         verbose_name = "Kommentar",
         help_text = "Geben Sie hier einen Kommentar ein.")
+    copyright = models.CharField(
+        max_length=256,
+        blank = True,
+        default = '',
+        verbose_name = "Copyright",
+        help_text = "Geben Sie hier den Copyrighttext ein, der auf dem Bild zu erscheinen hat.")
     url = models.URLField(
         max_length=200,
         blank = True,
         default = '',
         verbose_name = "URL",
         help_text = "Geben Sie hier die URL ein.")
-    position = models.PositiveSmallIntegerField(
-        null = True,
-        verbose_name = "Position",
-        help_text = "Position zur Bestimmung der Reihenfolge der Bildanbieter bei der Darstellung")
 
-    # titel Text als Rückgabestring
+    # Bildtitel als Rückgabestring
     def __str__(self):
-        return str(self.position)
+        return self.titel #+ ' ID: ' + str(self.bildID)
 
 ###############
 # Angebot     #
@@ -452,17 +434,42 @@ class Reise(models.Model):
         blank = True,
         default = '',
         verbose_name = "Kommentar für zusätzliche Leistungen, falls nötig. (etwa 40-70 Zeichen)")
+    zusatzleistungen_fuss_kommentar = models.CharField(
+        max_length=128,
+        blank = True,
+        default = '',
+        verbose_name = "Abschließender Fuss-Kommentar für alle zusätzliche Leistungen, falls nötig. (etwa 40-70 Zeichen)")
     korrektur_bemerkung_intern  = models.TextField(
         blank = True,
         default = '',
         verbose_name = "Korrekturfeld",
         help_text="Wird nur intern dargestellt und dient Notizen die Reise betreffend, Korrekturbemerkungen, etc."
     )
+    individualbuchbar = models.CharField(
+        max_length=128,
+        blank = True,
+        default = '',
+        verbose_name = "Hinweis auf buchbaren individuellen Aufenthalt.",
+        help_text="Wird nur bei Reisen mit buchbarem individuellen Aufenthalt benötigt."
+    )
     zubucher = models.CharField(
         max_length=128,
         blank = True,
         default = '',
         verbose_name = "Text Zubucherreise, falls nötig. (etwa 40-70 Zeichen)"
+    )
+    individualreisetitel = models.CharField(
+        max_length=256,
+        blank = True,
+        default = '',
+        verbose_name = "Titel für Individualreisen, falls nötig.",
+        help_text="Wird nur bei Reisen mit buchbarem individuellen Aufenthalt benötigt."
+    )
+    individualreisetext = models.TextField(
+        blank = True,
+        default = '',
+        verbose_name = "Text für Individualreisen, falls nötig.",
+        help_text="Wird nur bei Reisen mit buchbarem individuellen Aufenthalt benötigt."
     )
     hinweise = models.ManyToManyField(
         Hinweis,
@@ -476,6 +483,12 @@ class Reise(models.Model):
         verbose_name = "Status der Reise",
         help_text = "Hier den Status einer Reise wählen."
     )
+    neu = models.BooleanField(
+        default = None,
+        verbose_name = "Neue Reise",
+        help_text = "Neue Reise markieren."
+    )
+
 #    welcher_katalog = models.CharField(
 #        default = 'n',
 #        max_length = 1,
@@ -527,6 +540,12 @@ class Reisetage(models.Model):
         validators=[MinValueValidator(1)],
         null = True,
         verbose_name = "Tagesnummer zum Ordnen")
+    tagnummertext = models.CharField(
+        max_length=128,
+        blank = True,
+        default = '',
+        verbose_name="alternativer Text für Tagnummer",
+        help_text="Geben Sie hier einen alternativen Text zur Nummerierung der Tage ein. (max. 128 Zeichen)")
     titel = models.CharField(
         max_length=128,
         blank = True,
@@ -734,6 +753,11 @@ class LeistungenReise(models.Model):
         blank = True,
         verbose_name = "Leistung",
         help_text = "einzelne Leistung zur Reise")
+    nichtindividual = models.BooleanField(
+        default = None,
+        verbose_name = "Gilt nicht für Individualreise.",
+        help_text = "Leistung gilt nicht für Individualreise."
+    )
     position = models.PositiveSmallIntegerField(
         null = True,
         verbose_name = "position",
@@ -866,7 +890,7 @@ class Reisekatalogzugehoerigkeit(models.Model):
         verbose_name = "Position auf der Seite",
         help_text = "Position zur Sortierung falls mehrere Reisen auf einer Seite")
     #katalog_pdf = FileBrowseField(max_length=200, directory="kataloge/", extensions=[".pdf"], blank=True, null=True)#, default = 'images/None/no-img.jpg')
-    katalog_pdf = models.FileField(upload_to = 'kataloge', blank = True, default = '')#, default = 'images/None/no-img.jpg')
+    katalog_pdf = models.FileField(upload_to = get_path, blank = True, default = '')#, default = 'images/None/no-img.jpg')
     titel = models.TextField(
         blank = True,
         default = '',
@@ -957,7 +981,7 @@ class Reisebilder(models.Model):
         blank = True,
         default = '',
         verbose_name = "Bild verwenden in ...",
-        help_text = "Geben Sie an ob das Bild etwa im Katalog, Internet, Katalogvorstellung, Reisetagebuch, etc. veröffentlicht werden soll. (kommaseparierte Liste)")
+        help_text = "Geben Sie an ob das Bild etwa im Katalog, Web, Katalogvorstellung, Reisetagebuch, etc. veröffentlicht werden soll. (kommaseparierte Liste)")
     position = models.PositiveSmallIntegerField(
         null = True,
         verbose_name = "position",
@@ -1352,6 +1376,11 @@ class Reisepreise(models.Model):
         blank = True,
         verbose_name = "Bemerkung zum Preis",
         help_text = "Hier Bemerkung zum Preis eingeben")
+    markierung = models.CharField(
+        max_length=20,
+        blank = True,
+        verbose_name = "Markierung",
+        help_text = "Markierung z.B. für terminspezifische Preise (*)")
     position = models.PositiveSmallIntegerField(
         null = True,
         verbose_name = "Position",

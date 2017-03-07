@@ -1,11 +1,135 @@
+# -*- coding: utf8 -*-
+
 from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
 from django.contrib.auth.decorators import login_required
 from .forms import AktuellesForm
-
-#from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
+from django.template import Context, loader
+from django import db
+from django.db import connection
+from collections import namedtuple, OrderedDict
+import json
+from django.core.serializers.json import DjangoJSONEncoder
+from django.template.loader import render_to_string
+from datetime import datetime 
+from django.db.models import Min, F, Value as V
+from django.views.decorators.csrf import csrf_exempt
 
 from .models import Aktuelles
+from reisen.models import Reise, Reisetermine, Kategorie, Zielregion, Abfahrtszeiten, LeistungenReise, Reisebeschreibung, Reisetage, Reisepreise, Preis, ReisepreisZusatz, Zusatzleistung, Fruehbucherrabatt, Reisebilder, Reisekatalogzugehoerigkeit, Katalog
+
+def namedtuplefetchall(cursor):
+    "Return all rows from a cursor as a namedtuple"
+    desc = cursor.description
+    nt_result = namedtuple('Result', [col[0] for col in desc])
+    return [nt_result(*row) for row in cursor.fetchall()]
+
+def ajax(request):
+    res = loader.get_template("home/ajax.html")
+    kategorien = Kategorie.objects.values('kategorie')
+    zielregionen = Zielregion.objects.values('name')
+    #return HttpResponse(res.render())
+    return render(request, 'home/ajax.html', {'kategorien': kategorien, 'zielregionen': zielregionen })
+
+@csrf_exempt
+def gibReisen(request):
+    kategorien = Kategorie.objects.values_list('kategorie', flat=True)
+    zielregionen = Zielregion.objects.values_list('name', flat=True)
+
+    abdatum = request.POST.get(u'abdatum','')
+    labelText = request.POST.get(u'labelText','')
+    #reiseziel = request.POST.getlist(u'reisezielregionen[]',[u'Deutschland',u'Frankreich',u'Italien',u'Polen',u'Japan',u'Portugal'])
+    #reisekat = request.POST.getlist(u'reisekategorien[]',[u'kombinierte Flug- und Busreisen',u'Busreisen',u'Kuren, Gesundheits- und Wellnessreisen',])
+    reiseziel = request.POST.getlist(u'reisezielregionen[]',list(zielregionen))
+    reisekat = request.POST.getlist(u'reisekategorien[]',list(kategorien))
+
+    if not abdatum:
+      abdat = datetime.now()
+    else:
+      abdat = datetime.strptime(abdatum, "%d.%m.%Y").date()
+
+    reisen = Reise.objects.select_related().filter(
+        reisetermine__datum_beginn__gte=abdat,
+        status='f',
+        reisetermine__datum_ende__isnull=False,
+        reisepreise__preis_id__titel='Preis p.P.',
+        reisepreise__markierung=F('reisetermine__markierung'),
+        reisekategorien__kategorie_id__kategorie__in=reisekat,
+        reisezielregionen__zielregion_id__name__in=reiseziel
+      ).order_by('reisetermine__datum_beginn','reisepreise__preis').values(
+        'titel',
+        'reisetyp',
+        'reisetermine__datum_beginn',
+        'reisetermine__datum_ende',
+        'reisepreise__preis',
+        'reisepreise__preis_id__titel'
+      ).distinct()
+
+    data = {
+        'successmsg': "SUCCESS",
+        'kategorien': list(kategorien),
+        'reisekat': reisekat,
+        'reiseziel': reiseziel,
+        'reisen': list(reisen)
+    }
+    return JsonResponse(data)
+
+def neustart(request):
+    aktuelles = Aktuelles.objects.filter(published_date__lte=timezone.now()).order_by('start_date')
+    return render(request, 'home/neustart.html', {'aktuelles': aktuelles})
+
+def start(request):
+    data = {
+      'startinhalt': loader.get_template("home/startinhalt.html").render()
+    }
+    return JsonResponse(data)
+
+#@python_2_unicode_compatible # For Python 3.4 and 2.7
+def reisen(request):
+    res = "Alle Reisen, Unternavigation"
+
+    cursor = connection.cursor()
+
+    cursor.execute("SELECT DISTINCT reiseID, RP.abpreis, reisen_reise.neu, reisen_reise.individualbuchbar, reisen_kategorie.kategorie, reisen_zielregion.name, reisen_reise.untertitel, korrektur_bemerkung_intern, einleitung, reisetyp, KT.katalogseiten, RT.reise_id_id, reisen_reise.titel, RT.min_datum, RT.reisetermine FROM reisen_reise LEFT JOIN (SELECT reise_id_id, MIN(datum_beginn) AS min_datum, group_concat(DISTINCT CONCAT_WS(' - ', DATE_FORMAT(datum_beginn,'%d. %m. %Y'), DATE_FORMAT(datum_ende,'%d. %m. %Y')) ORDER BY datum_beginn ASC SEPARATOR '\n') AS reisetermine FROM reisen_reisetermine GROUP BY reise_id_id ORDER BY min_datum) AS RT ON (RT.reise_id_id = reiseID) LEFT JOIN (SELECT reise_id_id, group_concat(DISTINCT CONCAT_WS(' auf der Seite ', reisen_katalog.titel, katalogseite) ORDER BY position ASC SEPARATOR ' und im Katalog ') AS katalogseiten FROM reisen_reisekatalogzugehoerigkeit LEFT JOIN reisen_katalog ON (reisen_katalog.katalogID = reisen_reisekatalogzugehoerigkeit.katalog_id_id) GROUP BY reise_id_id) as KT ON (KT.reise_id_id = reiseID) LEFT JOIN reisen_reisekatalogzugehoerigkeit ON (reisen_reisekatalogzugehoerigkeit.reise_id_id = reisen_reise.reiseID) left join reisen_reisekategorien on (reiseID = reisen_reisekategorien.reise_id_id) left join reisen_kategorie on (kategorieID = kategorie_id_id) left join reisen_reisezielregionen on (reiseID = reisen_reisezielregionen.reise_id_id) left join reisen_zielregion on (zielregionID = zielregion_id_id) left join (select reisen_reisepreise.reise_id_id, MIN(reisen_reisepreise.preis) AS abpreis from reisen_reisepreise GROUP BY reisen_reisepreise.reise_id_id) AS RP ON (reiseID = RP.reise_id_id) WHERE reisen_reisekatalogzugehoerigkeit.katalog_id_id = 'fa81408e2b69488498ace5b91737d187' ORDER BY RT.min_datum;")
+
+    termine = namedtuplefetchall(cursor)
+    cursor.close()
+
+    kategorien = [ u'Wanderreisen', u'kombinierte Flug- und Busreisen', u'Kuren, Gesundheits- und Wellnessreisen', u'Flusskreuzfahrten']
+    zielregionen = [ u'Deutschland', u'Benelux', u'Schweiz / Österreich / Tschechien / Slovakei / Ungarn', u'Frankreich / Italien / Andorra', u'Portugal', u'England / Schottland / Irland', u'Slowenien / Kroatien / Montenegro / Bosnien und Herzegowina', u'Baltikum / Skandinavien / Finnland / Island', u'Polen']
+
+    termine_distinct = OrderedDict()
+    for termin in termine:
+      termine_distinct[termin.reiseID] = termin
+
+    #return HttpResponse(json.dumps({'termine_distinct': termine_distinct.values(), 'termine': termine, 'kategorien': kategorien, 'zielregionen': zielregionen }, cls=DjangoJSONEncoder))
+    return JsonResponse({'termine_distinct': termine_distinct.values(), 'termine': termine, 'kategorien': kategorien, 'zielregionen': zielregionen })
+    #return render(request, 'reisen/index_sommerreisen_web_alt.html', {'termine_distinct': termine_distinct.values(), 'termine': termine, 'dibug': dibug, 'kategorien': kategorien, 'zielregionen': zielregionen })
+
+def tagesfahrten(request):
+    res = loader.get_template("home/tagesfahrten.html")
+    return HttpResponse(res.render())
+
+def musicals(request):
+    res = loader.get_template("home/musicals.html")
+    return HttpResponse(res.render())
+
+def zusatzangebote(request):
+    res = "Hier kommen die Zusatzangebote ..."
+    return HttpResponse(res)
+
+def reiseberatung(request):
+    res = "Fremdveranstalter, Flüge, Flusskreuzfahrten, Mietbus ...."
+    return HttpResponse(res)
+
+def service(request):
+    res = "Kontakt, Anfahrt, Gutscheine, Reisebedingung, Katalog anfordern, ..."
+    return HttpResponse(res)
+
+def kontakt(request):
+    res = "Hier kommt Kontakt und die Anfahrt ..."
+    return HttpResponse(res)
 
 def aktuelles(request):
     aktuelles = Aktuelles.objects.filter(published_date__lte=timezone.now()).order_by('start_date')

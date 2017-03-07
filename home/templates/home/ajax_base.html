@@ -1,0 +1,96 @@
+{% load static %}
+
+<!doctype html>
+
+<html>
+
+  <head>
+
+    <meta charset="utf-8">
+
+    <!-- TITEL -->
+    {% block title %}
+    {% endblock %}
+    
+    <!-- STYLESHEETS -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/ajax.css' %}">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    {% block stylesheet %}
+    {% endblock %}
+
+  </head>
+
+  <body>
+
+    <header>
+
+      <div id="header" style="background-color:#89CFF0">
+
+        <logo>
+
+          <div id="logo">
+            <!-- STARTLOGO (Logo, Telefonnummer, Öffnungszeiten etc.) -->
+            {% block logo %}
+            {% endblock %}
+            <!--ENDLOGO -->
+          </div>
+
+        </logo>
+
+        <navigation>
+
+          <div id="navigation">
+            <!-- STARTNAVIGATION (Navigation) -->
+            {% block navigation %}
+            {% endblock %}
+            <!--ENDNAVIGATION -->
+          </div>
+
+        </navigation>
+
+      </div>
+
+    </header>
+
+    <hr>
+
+    <inhalt>
+
+      <div id="inhalt" style="background-color:#DCF1FA">
+        <!-- STARTMAIN (Hier kommt dann das ajax zeuch also die inhalte ...) -->
+        <!-- STARTBLOCKINHALT -->
+        {% block inhalt %}
+        {% endblock %}
+        <!-- ENDBLOCKCONTENT -->
+        <!-- ENDMAIN -->
+      </div>
+
+    </inhalt>
+
+    <hr>
+
+    <footer>
+
+      <div id="footer" style="background-color:#89CFF0">
+        <!-- STARTFOOTER (Hier kommt die Adresse, Impressum, etc.) -->
+        {% block footer %}
+        {% endblock %}
+        <!-- ENDFOOTER -->
+      </div>
+
+    </footer>
+
+    <scripts>
+
+      <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+      <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+      <script src="{% static 'scripts/ajax.js' %}"></script>
+      <script src="{% static 'scripts/datepicker-de.js' %}"></script>
+      {% block javascript %}
+      {% endblock %}
+
+    </scripts>
+
+  </body>
+
+</html>

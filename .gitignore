@@ -3,10 +3,15 @@ __pycache__
 myvenv
 db.sqlite3
 /static
+/static12
 /static_OLD
 /media
+/uploads
+/reisen/static
+/home/static
 db.json
 reisen.json
 .DS_Store
 *~
 */migrations/*
+*/static/*
