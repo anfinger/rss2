@@ -132,3 +132,16 @@ def sternweg(leistung):
       return leistung
     else:
       return ''
+
+@register.filter
+@stringfilter
+def abfahrtsorte(ort):
+    if ort:
+      ort = re.sub(r'HBF', u'Hbf Schwerin', ort)
+      ort = re.sub(r'VSB', u'HAST v. Stauffenberg Str.', ort)
+      ort = re.sub(r'GAR', u'Gartenstadt', ort)
+      ort = re.sub(r'WIS', u'ZOB Wismar', ort)
+      ort = re.sub(r'ANK', u'Ankunft', ort)
+      return ort
+    else:
+      return ''

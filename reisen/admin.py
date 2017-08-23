@@ -90,7 +90,7 @@ class AbfahrtszeitenInline(GrappelliSortableHiddenMixin, admin.TabularInline):
 
 class LeistungenReiseInline(GrappelliSortableHiddenMixin, admin.TabularInline):
     model = LeistungenReise
-    fields = ('position', 'leistung', 'nichtindividual')
+    fields = ('position', 'leistung', 'nichtindividual', 'leistungkurhotel')
     #ordering = ("position",)
     #sortable_field_name = "position"
     classes = ('grp-collapse grp-closed',)
@@ -441,11 +441,11 @@ class ReiseAdmin(nested_admin.NestedAdmin): #TabbedModelAdmin,
         else:
             return ''
 
-    list_display = ('titel', 'neu', 'reisetermine', 'reisetyp', 'veranstalter', 'status', 'datum_veroeffentlichung', 'datum_verfall', 'zuletzt_bearbeitet', 'zuletzt_bearbeitet_von', 'datum_erzeugung', 'autor_id', 'welcherkatalog')
+    list_display = ('titel', 'sonstigeReisebeschreibung_titel', 'neu', 'reisetermine', 'reisetyp', 'veranstalter', 'status', 'datum_veroeffentlichung', 'datum_verfall', 'zuletzt_bearbeitet', 'zuletzt_bearbeitet_von', 'datum_erzeugung', 'autor_id', 'welcherkatalog')
     #list_display_links = ('titel', 'reisetermine')
     list_editable = ('neu',)
-    list_filter = ('neu', 'titel', 'reisetermine', 'status', 'datum_veroeffentlichung', 'datum_verfall', 'zuletzt_bearbeitet', 'zuletzt_bearbeitet_von', 'datum_erzeugung', 'autor_id', 'reisetyp', 'veranstalter')
-    search_fields = ['titel']
+    list_filter = ('neu', 'titel', 'sonstigeReisebeschreibung_titel', 'reisetermine', 'status', 'datum_veroeffentlichung', 'datum_verfall', 'zuletzt_bearbeitet', 'zuletzt_bearbeitet_von', 'datum_erzeugung', 'autor_id', 'reisetyp', 'veranstalter')
+    search_fields = ['titel','sonstigeReisebeschreibung_titel']
     #filter_vertical = ('hinweise',)
 
     # def reisetermine(self, obj):
@@ -498,6 +498,8 @@ class ReiseAdmin(nested_admin.NestedAdmin): #TabbedModelAdmin,
         }), (
         'Reisedetails', {
             'fields': (
+                'sonstigeReisebeschreibung_titel',
+                'leistungen_kopfkommentar',
                 'leistungen_kommentar',
                 'zusatzleistungen_titel',
                 'zusatzleistungen_kommentar',

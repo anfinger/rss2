@@ -276,7 +276,7 @@
             <b>
               <a href="/index.html" style="color:white; text-decoration:none; font-family: Verdana">Startseite</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
               <a href="/rss2/reisen/sommer17/" style="color:white; text-decoration:none; font-family: Verdana">Reisen 2017</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              <a href="/rss2/reisen/winter1617/" style="color:white; text-decoration:none; font-family: Verdana">Winterreisen 2016 / 2017</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <a href="/rss2/reisen/winter1718/" style="color:white; text-decoration:none; font-family: Verdana">Winterreisen 2017 / 2018</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
               <a href="/tagesfahrten.html" style="color:white; text-decoration:none; font-family: Verdana">Tagesfahrten</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
               <a href="/musicals.html" style="color:white; text-decoration:none; font-family: Verdana">Musicalfahrten</a>
             </b>
@@ -349,7 +349,7 @@
 
                                 {% if reise.titel %}
                                   {% if request.user.is_authenticated %}
-                                    <a href="{% url 'reise_detail_export' pk=reise.reiseID %}" style="text-decoration:none;" target = 'blank'><div class="titel">{{ reise.titel }}</div></a>
+                                    <a href="{% url 'reise_detail_export' pk=reise.reiseID %}" style="text-decoration:none;" target = 'blank'><div class="titel">{{ reise.titel }}{% if reise.sonstigeReisebeschreibung_titel %} - {{ reise.sonstigeReisebeschreibung_titel }}{% endif %}</div></a>
                                   {% else %}
                                     <div class="titel">{% inplace_edit "reise.titel" auto_height=5, auto_width=5 %}</div>
                                   {% endif %}
@@ -456,7 +456,7 @@
                                 <!-- <div class="flexslider" style="width: 300px; height: 550px; vertical-align:top;"> -->
                                 <div class="flexslider" style="max-width: 350px; max-height: 240px; border:none; background:none; box-shadow:none; margin: 0 0 0px;">
                                   <ul class="slides">
-                                    {% if bilder %}
+                                    {% if bilder == "NICHTAUSGEBEN"%}
                                       {% bilder_web "Web" bilder as gefilterte_bilder %}
                                       {% for bild in gefilterte_bilder %}
                                         {% if bild.bild %}
@@ -473,9 +473,9 @@
                                         {% endif %}
                                       {% endfor %}
                                     {% else %}
-                                      {% if kataloge.0.titel == 'Winterreisen 2016/2017' %}
+                                      {% if kataloge.0.titel == 'Winterreisen 2017/2018' %}
                                         <li>
-                                          <img onload="func(this);" src="{{ MEDIA_URL }}/images/wx200/web_fixed_height_cover1617.png" />
+                                          <img onload="func(this);" src="{{ MEDIA_URL }}/images/wx200/web_fixed_height_cover1718.png" />
                                         </li>
                                       {% else %}
                                         <li>
@@ -559,11 +559,19 @@
                                       <p>
                                         {% if 'Arstone' in reise.titel %}
                                           {% include "reisen/kuren-arstone-1617.html" %}
+                                        {% elif 'Arstone' in reise.sonstigeReisebeschreibung_titel %}
+                                          {% include "reisen/kuren-arstone-1617.html" %}
                                         {% elif 'Rybniczanka' in reise.titel %}
+                                          {% include "reisen/kuren-rybniczanka-1617.html" %}
+                                        {% elif 'Rybniczanka' in reise.sonstigeReisebeschreibung_titel %}
                                           {% include "reisen/kuren-rybniczanka-1617.html" %}
                                         {% elif 'INTERFERIE MEDICAL SPA' in reise.titel %}
                                           {% include "reisen/kuren-interferie-1617.html" %}
+                                        {% elif 'Interferie' in reise.sonstigeReisebeschreibung_titel %}
+                                          {% include "reisen/kuren-interferie-1617.html" %}
                                         {% elif 'IKAR' in reise.titel %}
+                                          {% include "reisen/kuren-ikar-1617.html" %}
+                                        {% elif 'Ikar' in reise.sonstigeReisebeschreibung_titel %}
                                           {% include "reisen/kuren-ikar-1617.html" %}
                                         {% endif %}
                                       </p>

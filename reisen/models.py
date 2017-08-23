@@ -31,6 +31,7 @@ STATUS_CHOICES = (
     ('i', 'Idee'),
     ('e', 'Entwurf'),
     ('f', 'fertiggestellt'),
+    ('a', 'archiviert')
 )
 
 #KATALOG_CHOICES = (
@@ -419,6 +420,17 @@ class Reise(models.Model):
         blank=True,
         null=True,
         verbose_name = "Verfallsdatum")
+    sonstigeReisebeschreibung_titel = models.CharField(
+        max_length=128,
+        blank = True,
+        default = '',
+        verbose_name = "Zusatztitel",
+        help_text = "Titel zu sonstige Reisebeschreibungen, falls nötig. (etwa 40-70 Zeichen)")
+    leistungen_kopfkommentar = models.CharField(
+        max_length=128,
+        blank = True,
+        default = '',
+        verbose_name = "Kopfkommentar zu Leistungen, falls nötig. (etwa 40-70 Zeichen)")
     leistungen_kommentar = models.CharField(
         max_length=128,
         blank = True,
@@ -515,6 +527,13 @@ class Reise(models.Model):
     # Reisetitel als Rückgabestring
     def __str__(self):
         return self.titel
+
+#    @permalink
+#    def get_absolute_url(self):
+#        return ('reise', (), {
+#            'slug': self.slug,
+#            'reiseID': self.reiseID,
+#        })
 
 #############
 # Reisetage #
@@ -677,6 +696,7 @@ class Abfahrtszeiten(models.Model):
         ('HBF', 'Schwerin Hauptbahnhof'),
         ('VSB', 'von-Stauffenberg-Str.'),
         ('GAR', 'Gartenstadt'),
+        ('WIS', 'ZOB Wismar'),
         ('ANK', 'Ankunft zurück in Schwerin'),
     )
 
@@ -757,6 +777,11 @@ class LeistungenReise(models.Model):
         default = None,
         verbose_name = "Gilt nicht für Individualreise.",
         help_text = "Leistung gilt nicht für Individualreise."
+    )
+    leistungkurhotel = models.BooleanField(
+        default = None,
+        verbose_name = "Nicht allgemeine Leistung. Gilt nur für Kurhotel.",
+        help_text = "Nicht allgemeine Leistung. Gilt nur für Kurhotel."
     )
     position = models.PositiveSmallIntegerField(
         null = True,
@@ -1432,4 +1457,5 @@ class ReisepreisZusatz(models.Model):
 
     # titel Text als Rückgabestring
     def __str__(self):
-        return str(self.position) + '. ' + str(self.preis_id) + ': ' + str(self.preis) + ' &euro;' # + self.kommentar
+        # return str(self.position) + '. ' + str(self.preis_id) + ': ' + str(self.preis) + ' &euro;' # + self.kommentar
+        return str(self.position+1) + '. ' + re.sub(r'[^a-zA-Z0-9_ ."-]', '', str(self.preis_id)) + ': ' + str(self.preis) + ' &euro;'

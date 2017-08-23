@@ -4,11 +4,10 @@
 {% endif %}{% if reise.zubucher %}<ZUBUCHER>{{ reise.zubucher }}</ZUBUCHER>
 {% endif %}{% if reise.individualreisetext or reise.individualreisetitel %}<INDIVIDUALBUCHBAR>{% if reise.individualbuchbar %}{{ reise.individualbuchbar }}{% else %}Auch mit individuellem Aufenthalt buchbar.{% endif %}</INDIVIDUALBUCHBAR>
 {% endif %}{% if reise.reisetyp %}<REISETYP>{{ reise.reisetyp }}</REISETYP>
-{% endif %}<REISETERMINE>{% if termine %}Termin{{ termine|length|pluralize:"e" }}:	{% if reise.titel = 'Kuren an der polnischen Ostseeküste' %}sh. Tabelle S. 37{% else %}{% for termin in termine %}{% if termin.datum_ende %}{{ termin.datum_beginn|date:'d. m.' }} - {{ termin.datum_ende|date:'d. m. Y' }}{{ termin.markierung }}{% else %}{{ termin.datum_beginn|date:'D. d. m. Y' }}{% endif %}{% if termin.kommentar %}({{ termin.kommentar }}{% endif %}{% if termine|length > 1 and forloop.counter < termine|length%}
-	{% else %}{% endif %}{% endfor %}{% endif %}{% else %}Reisetermine sind noch nicht bekannt!{% endif %}</REISETERMINE></REISETYPDATUM>
+{% endif %}<REISETERMINE>{% if termine %}Termin{{ termine|length|pluralize:"e" }}:	{% for termin in termine %}{% if termin.datum_ende %}{{ termin.datum_beginn|date:'d. m.' }} - {{ termin.datum_ende|date:'d. m. Y' }}{{ termin.markierung }}{% else %}{{ termin.datum_beginn|date:'D. d. m. Y' }}{% endif %}{% if termin.kommentar %}({{ termin.kommentar }}{% endif %}{% if termine|length > 1 and forloop.counter < termine|length%}
+	{% else %}{% endif %}{% endfor %}{% else %}Reisetermine sind noch nicht bekannt!{% endif %}</REISETERMINE></REISETYPDATUM>
 <LEISTUNGEN><LEISTUNGENUEBERSCHRIFT>{% if leistungen %}Leistung{{ leistungen|length|pluralize:"en" }}</LEISTUNGENUEBERSCHRIFT>
-{% if reise.leistungen_kopfkommentar %}<LEISTUNGENKOPFKOMMENTAR>{{ reise.leistungen_kopfkommentar }}</LEISTUNGENKOPFKOMMENTAR>
-{% endif %}<REISELEISTUNGEN>{% for leistung in leistungen %}{{ leistung.leistung }}
+<REISELEISTUNGEN>{% for leistung in leistungen %}{{ leistung.leistung }}
 {% endfor %}</REISELEISTUNGEN>{% if leistungennichtindividual %}<REISELEISTUNGENNICHTINDIVIDUAL>{% for leistungnichtindividual in leistungennichtindividual %}{{ leistungnichtindividual.leistung }}
 {% endfor %}</REISELEISTUNGENNICHTINDIVIDUAL>{% endif %}{% if leistungenkurhotel %}<REISELEISTUNGENKURHOTEL>{% for leistungkurhotel in leistungenkurhotel %}{{ leistungkurhotel.leistung }}
 {% endfor %}</REISELEISTUNGENKURHOTEL>{% endif %}{% if reise.leistungen_kommentar %}<LEISTUNGENKOMMENTAR>{{ reise.leistungen_kommentar }}</LEISTUNGENKOMMENTAR>
@@ -17,7 +16,7 @@
 <APLEISTUNGEN>{{ ap.leistungen }}</APLEISTUNGEN>{% endif %}{% if ap.kommentar %}
 <APKOMMENTAR>{{ ap.kommentar }}</APKOMMENTAR>{% endif %}
 {% endfor %}</AUSFLUGSPAKETE>{% endif %}{% if zusatzleistungen_distinct %}
-<ZUSATZLEISTUNGEN>{% if reise.zusatzleistungen_titel %}<ZLTITEL>{{ reise.zusatzleistungen_titel }}</ZLTITEL>{% else %}<ZLTITEL>zusätzlich angebotene Leistung{{ zusatzleistungen_distinct|length|pluralize:"en" }}</ZLTITEL>{% endif %}
+<ZUSATZLEISTUNGEN>{% if reise.zusatzleistungen_titel %}<ZLTITEL>{{ reise.zusatzleistungen_titel }}:</ZLTITEL>{% else %}<ZLTITEL>zusätzlich angebotene Leistung{{ zusatzleistungen|length|pluralize:"en" }}:</ZLTITEL>{% endif %}
 {% if reise.zusatzleistungen_kommentar %}<ZLTITELKOMMENTAR>{{ reise.zusatzleistungen_kommentar }}</ZLTITELKOMMENTAR>
 {% endif %}{% for zusatzleistung in zusatzleistungen_distinct %}{% if zusatzleistung.kommentar_titel %}<ZLKOMMENTAR>{{ zusatzleistung.kommentar_titel }}</ZLKOMMENTAR>
 {% endif %}{% if zusatzleistung.aptitel %}<ZL>{{ zusatzleistung.aptitel }}</ZL>	{% else %}<ZL>Titel Zusatleistung nicht bekannt</ZL>	{% endif %}{% if zusatzleistung.preis %}<ZLPREIS>{% if zusatzleistung.ptitel = 'ab' %}{{ zusatzleistung.ptitel }} {% endif %}{{ zusatzleistung.preis|preisformat }} €</ZLPREIS>{% else %}<ZLPREIS>Der Preis ist noch nicht bekannt.</ZLPREIS>{% endif %}{% if zusatzleistung.kommentar %}
@@ -31,24 +30,20 @@
 <SPALTEREISEINHALT><TITELUNTERTITELEINLEITUNG>{% if reise.titel %}<REISETITEL>{{ reise.titel }}</REISETITEL>{% endif %}
 {% if reise.untertitel %}<REISEUNTERTITEL>{{ reise.untertitel }}
 </REISEUNTERTITEL>{% endif %}{% if reise.einleitung %}
-<REISEEINLEITUNG>{{ reise.einleitung }}</REISEEINLEITUNG>{% endif %}</TITELUNTERTITELEINLEITUNG>
-<REISETAGEHINWEISE>{% if reise.sonstigeReisebeschreibung_titel %}<REISETITEL>{{ reise.sonstigeReisebeschreibung_titel }}</REISETITEL>
-{% endif %}{% if reisebeschreibung %}<REISEBESCHREIBUNG>{% for beschreibung in reisebeschreibung %}{% if forloop.counter > 1 %}
-{% endif %}{% if beschreibung.titel %}
-<BESCHREIBUNGTITEL>{{ beschreibung.titel }}</BESCHREIBUNGTITEL>{% endif %}{% if beschreibung.beschreibung %}
-<BESCHREIBUNG>{{ beschreibung.beschreibung }}</BESCHREIBUNG>{% endif %}{% if beschreibung.zusatz %} <BESCHREIBUNGZUSATZ>{{ beschreibung.zusatz }}</BESCHREIBUNGZUSATZ>{% endif %}{% endfor %}</REISEBESCHREIBUNG>
-{% endif %}{% if abfahrtszeiten %}
-
-<ABFAHRTSZEITEN>Abfahrt: {% for abfahrtszeit in abfahrtszeiten %}{% if forloop.counter > 1 %}{% if abfahrtszeit.ort == 'Ankunft' %}
-{% else %}
-{% endif %}{% endif %}{% if abfahrtszeit.zeit %}{{ abfahrtszeit.ort }}: {{ abfahrtszeit.zeit|date:'H:i' }} Uhr{{ abfahrtszeit.kommentar }}{% else %}Die genaue Zeit für {{ abfahrtszeit.ort }} erfragen Sie bitte im Reisebüro. {% endif %}{% endfor %}</ABFAHRTSZEITEN>{% elif reise.reisetyp == 'TAGESFAHRT' %}<ABFAHRTSZEITEN>Die Abfahrtszeiten sind noch nicht bekannt!</ABFAHRTSZEITEN>
-{% endif %}{% if tage %}<REISETAGBESCHREIBUNG>{% for tag in tage %}{% if aps %}<TAG>{{ tag.nummerntext }}{{ tag.titel }}{% for ap in aps %}{% if ap.reisetag_id_id == tag.reisetagID %}{% if ap.erscheint_in == 'Titel' %}<REFERENZLEISTUNGEN>{{ ap.ausflugspaket_text }}</REFERENZLEISTUNGEN>{% endif %}{% endif %}{% endfor %}</TAG>
-{% for ap in aps %}{% if ap.reisetag_id_id == tag.reisetagID %}{% if ap.erscheint_in == 'Text' %}<REFERENZLEISTUNGEN>{{ ap.ausflugspaket_text }}</REFERENZLEISTUNGEN> {% endif %}{% endif %}{% endfor %}<TAGBESCHREIBUNG>{{ tag.beschreibung }}{% if tag.zusatz %} <ZUSATZ>{{ tag.zusatz }}</ZUSATZ>{% endif %}</TAGBESCHREIBUNG>{% else %}<TAG>{{ tag.nummerntext }}{{ tag.titel }}</TAG>
+<REISEEINLEITUNG>{{ reise.einleitung }}</REISEEINLEITUNG>{% endif %}
+</TITELUNTERTITELEINLEITUNG><REISETAGEHINWEISE>{% if abfahrtszeiten %}
+<ABFAHRTSZEITEN>Abfahrt: {% for abfahrtszeit in abfahrtszeiten %}{% if forloop.counter > 1 %}{% if abfahrtszeit.ort == 'Ankunft' %} | {% else %}, {% endif %}{% endif %}{% if abfahrtszeit.zeit %}{{ abfahrtszeit.ort }}: {{ abfahrtszeit.zeit|date:'H:i' }} Uhr{{ abfahrtszeit.kommentar }}{% else %}Die genaue Zeit für {{ abfahrtszeit.ort }} erfragen Sie bitte im Reisebüro. {% endif %}{% endfor %}</ABFAHRTSZEITEN>{% elif reise.reisetyp == 'TAGESFAHRT' %}<ABFAHRTSZEITEN>Die Abfahrtszeiten sind noch nicht bekannt!</ABFAHRTSZEITEN>{% endif %}{% if tage %}<REISETAGBESCHREIBUNG>{% for tag in tage %}{% if aps %}<TAG>{{ tag.nummerntext }}{{ tag.titel }}{% for ap in aps %}{% if ap.reisetag_id_id == tag.reisetagID %}{% if ap.erscheint_in == 'Titel' %}<REFERENZLEISTUNGEN>{{ ap.ausflugspaket_text }}</REFERENZLEISTUNGEN>{% endif %}{% endif %}{% endfor %}</TAG>{% for ap in aps %}{% if ap.reisetag_id_id == tag.reisetagID %}{% if ap.erscheint_in == 'Text' %}
+<REFERENZLEISTUNGEN>{{ ap.ausflugspaket_text }}</REFERENZLEISTUNGEN> {% endif %}{% endif %}{% endfor %}
+<TAGBESCHREIBUNG>{{ tag.beschreibung }}{% if tag.zusatz %} <ZUSATZ>{{ tag.zusatz }}</ZUSATZ>{% endif %}</TAGBESCHREIBUNG>{% else %}<TAG>{{ tag.nummerntext }}{{ tag.titel }}</TAG>
 <TAGBESCHREIBUNG>{{ tag.beschreibung }}{% if tag.zusatz %} <ZUSATZ>{{ tag.zusatz }}</ZUSATZ>{% endif %}</TAGBESCHREIBUNG>{% endif %}
 
 {% endfor %}</REISETAGBESCHREIBUNG>{% endif %}
 {% if hinweise %}<HINWEISE><HINWEISTITEL>Hinweis{{ hinweise|length|pluralize:"e" }}</HINWEISTITEL>
 {% for hinweis in hinweise %}<HINWEIS>{{ hinweis.hinweis }}</HINWEIS>
-{% endfor %}</HINWEISE>{% endif %}</REISETAGEHINWEISE>{% if reise.individualreisetitel %}
+{% endfor %}</HINWEISE>{% endif %}</REISETAGEHINWEISE>{% if reise.sonstigeReisebeschreibung_titel %}<REISETITEL>{{ reise.sonstigeReisebeschreibung_titel }}</REISETITEL>
+{% endif %}{% if reisebeschreibung %}<REISEBESCHREIBUNG>{% for beschreibung in reisebeschreibung %}{% if forloop.counter > 1 %}
+{% endif %}<BESCHREIBUNGTITEL>
+{{ beschreibung.titel }}</BESCHREIBUNGTITEL>
+<BESCHREIBUNG>{{ beschreibung.beschreibung }}</BESCHREIBUNG> {% if beschreibung.zusatz %}<BESCHREIBUNGZUSATZ>{{ beschreibung.zusatz }}</BESCHREIBUNGZUSATZ>{% endif %}{% endfor %}</REISEBESCHREIBUNG>{% endif %}{% if reise.individualreisetitel %}
 <INDIVIDUALREISETITEL>{{ reise.individualreisetitel }}</INDIVIDUALREISETITEL>
 {% endif %}{% if reise.individualreisetext %}<INDIVIDUALREISETEXT>{{ reise.individualreisetext }}</INDIVIDUALREISETEXT>{% endif %}</SPALTEREISEINHALT></reise_{{ reise.reiseID|ohneminus }}>

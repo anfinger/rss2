@@ -6,7 +6,7 @@
   <head>
 
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title>Reiseservice Schwerin GmbH - Winterreisen 2016 / 2017</title>
+	<title>Reiseservice Schwerin GmbH - Winterreisen 2017 / 2018</title>
     <link href="/src/bus.css" rel="stylesheet" media="screen">
 
     <script>
@@ -40,7 +40,7 @@
             </td>
             <td align="center">
               <font size="4" face="Verdana" color="white">
-                <b>Winterreisen 2016 / 2017 ...</b>
+                <b>Winterreisen 2017 / 2018 ...</b>
               </font>
             </td>
           </tr>
@@ -79,7 +79,7 @@
                         </div>
                       </td>
                       <td align="right" width="384" rowspan="3">
-                        <img src="/media/images/web/web_cover1617.png" />
+                        <img src="/media/images/web/web_cover1718.png"/>
                       </td>
                     </tr>
 
@@ -147,7 +147,7 @@
                     <tr>
                       <td colspan="3" bgcolor="#ccccff" height="16" width="768">
                         <span class="ht1">
-                          <a href="{% url 'reise_detail' pk=termin.reiseID %}?version=alt&kategorie={{kategorie|kategorie_get}}" style="font-weight:bold; font-size:10pt; text-decoration:none;">{{ termin.titel }}</a>
+                          <a href="{% url 'reise_detail' pk=termin.reiseID %}?version=alt&kategorie={{kategorie|kategorie_get}}" style="font-weight:bold; font-size:10pt; text-decoration:none;">{{ termin.titel }}{% if termin.sonstigeReisebeschreibung_titel %} - {{ termin.sonstigeReisebeschreibung_titel }}{% endif %}</a>
                         </span>
                       </td>
                     </tr>

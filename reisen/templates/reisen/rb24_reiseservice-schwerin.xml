@@ -1,0 +1,140 @@
+﻿{% load static %}{% load eigene_tags %}<?xml version="1.0" encoding="UTF-8"?>
+<rb24 xmlns="http://www.reisebus24.de/export" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.reisebus24.de/export rb24.xsd">
+  <reisen>
+  {% for reise in reisen %}{% if reise.reisedaten.veranstalter == 'RS' and reise.reisedaten.zubucher == '' %}
+  <reise action="add" aenderung="{{ reise.reisedaten.zuletzt_bearbeitet|date:'Y-m-d H:i:s' }}" code="{{ reise.reisedaten.reiseID|ohneminus }}">
+    <titel><![CDATA[{{ reise.reisedaten.titel }}{% if reise.reisedaten.sonstigeReisebeschreibung_titel %} - {{ reise.reisedaten.sonstigeReisebeschreibung_titel }}{% endif %}]]></titel>
+    <untertitel><![CDATA[{% if reise.reisedaten.untertitel %}{{ reise.reisedaten.untertitel }}<br/>{% endif %}{{ reise.reisedaten.reisetyp }}<br/>{% if reise.reisedaten.individualreisetext or reise.reisedaten.individualreisetitel %}{% if reise.reisedaten.individualbuchbar %}{{ reise.reisedaten.individualbuchbar }}{% else %}Auch mit individuellem Aufenthalt buchbar.{% endif %}{% endif %}]]></untertitel>
+    <zielorte>
+    {% if reise.zielregionen %}
+      {% for zielregion in reise.zielregionen %}
+      <zielort>
+        <name><![CDATA[]]></name>
+        <land isocode=""><![CDATA[{{ zielregion.zielregion }}]]></land>
+      </zielort>
+      {% endfor %}
+    {% endif %}
+    </zielorte>
+    <einleitung><![CDATA[<p>{{ reise.reisedaten.einleitung }}</p>]]></einleitung>
+    <beschreibung><![CDATA[<p>{% if reise.reisebeschreibungen %}Reisebeschreibung:
+    {% for reisebeschreibung in reise.reisebeschreibungen %}{{ reisebeschreibung.titel }}
+    {{ reisebeschreibung.beschreibung }}{% if reisebeschreibung.zusatz %} {{ reisebeschreibung.zusatz }}{% endif %}
+    {% endfor %}
+    {% endif %}{% if reise.tage %}Reiseablauf:
+    {% for tag in reise.tage %}{% if tag.tagnummertext %}{{ tag.tagnummertext }} {% else %}{{ tag.tagnummer }}. Tag: {% endif %}{{ tag.titel }}
+    {{ tag.beschreibung }}{% if tag.zusatz %} {{ tag.zusatz }}{% endif %}
+    {% endfor %}{% endif %}{% if reise.reisedaten.individualreisetitel %}
+    {{ reise.reisedaten.individualreisetitel }}:
+    {% endif %}{% if reise.reisedaten.individualreisetext %}{{ reise.reisedaten.individualreisetext }}
+    {% endif %}{% if reise.hinweise %}
+    Hinweis{{ reise.hinweise|length|pluralize:"e" }}:
+    {% for hinweis in reise.hinweise %}{{ hinweis.hinweis }}
+    {% endfor %}{% endif %}
+    Abfahrtsstellen:
+    {% if reise.abfahrtszeiten %}Einen Taxi-Transfer zu unseren Abfahrtsorten können Sie bei uns zum Vorzugspreis zubuchen.{% else %}Wir fahren vom Hauptbahnhof und der Von-Stauffenberg-Straße in Schwerin. Die genauen Abfahrtszeiten erhalten Sie mit Ihren Reiseunterlagen. Einen Taxi-Transfer zu unseren Abfahrtsorten können Sie bei uns zum Vorzugspreis zubuchen.{% endif %}</p>]]></beschreibung>
+    <unterkunft code="">
+      <name><![CDATA[]]></name>
+      <sterne></sterne>
+    </unterkunft>
+    <leistungen>
+    {% if reise.leistungen %}
+      <![CDATA[{% for leistung in reise.leistungen %}- {{ leistung }}
+        {% endfor %}{% if reise.leistungennichtindividual %}
+        *Folgende Leistungen entfallen bei individuellem Aufenthalt:
+        {% for leistung in reise.leistungennichtindividual %}* {{ leistung }}
+        {% endfor %}{% endif %}{% if reise.zusatzleistungen %}
+        {% for zl in reise.zusatzleistungen %}{% if zl.apleistungen %}zusätzliche Leistungen {{ zl.zltitel }}{% if zl.zlpreise %} (Preis: {% for zlpreis in zl.zlpreise %}{{ zlpreis.zlpreis }} €{% endfor %}){% endif %}:{% if reise.reisedaten.zusatzleistungen_kommentar %}
+        {{ reise.reisedaten.zusatzleistungen_kommentar }}{% endif %}
+        {% if zl.zlkommentar_titel %}({{ zl.zlkommentar_titel }})
+        {% endif %}{% if zl.zlkommentar %}({{ zl.zlkommentar }})
+        {% endif %}{% for apleistung in zl.apleistungen %}+ {{ apleistung.apleistung }}
+        {% endfor %}{% endif %}{% endfor %}{% endif %}]]>
+    {% endif %}
+    </leistungen>
+    <reisebilder>
+      <reisebild>
+        <url><![CDATA[]]></url>
+        <copyright><![CDATA[]]></copyright>
+      </reisebild>
+    </reisebilder>
+    <kategorien>
+    {% if reise.kategorien %}
+      {% for kategorie in reise.kategorien %}<kategorie><![CDATA[{{ kategorie.kategorie }}]]></kategorie>
+      {% endfor %}
+    {% endif %}
+    </kategorien>
+    <termine>
+    {% if reise.termine %}
+      {% for termin in reise.termine %}
+      <termin>
+        <von>{{ termin.beginn|date:'Y-m-d' }}</von>
+        <bis>{% if termin.ende %}{{ termin.ende|date:'Y-m-d' }}{% endif %}</bis>
+        {% if reise.abfahrtszeiten %}
+        <abfahrtsorte>
+          {% for abfahrt in reise.abfahrtszeiten %}{% if abfahrt.ort != 'ANK' %}
+          <abfahrtsort>
+            <plz>{% if abfahrt.ort == 'HBF' %}19053{% elif abfahrt.ort == 'VSB' %}19061{% else %}{% endif %}</plz>
+            <beschreibung><![CDATA[{% if abfahrt.ort == 'HBF' %}Schwerin Hauptbahnhof{% elif abfahrt.ort == 'VSB' %}Schwerin, von-Stauffenberg-Straße{% else %}{{ abfahrt.ort }}{% endif %}]]></beschreibung>
+            <abzeit>{{ abfahrt.zeit|date:'H:i' }}</abzeit>
+            <aufpreis>0.00</aufpreis>
+          </abfahrtsort>{% endif %}
+          {% endfor %}
+        </abfahrtsorte>
+        {% else %}
+        <abfahrtsorte>
+          <abfahrtsort>
+            <plz>19053</plz>
+            <beschreibung><![CDATA[Schwerin Hauptbahnhof]]></beschreibung>
+            <abzeit></abzeit>
+            <aufpreis>0.00</aufpreis>
+          </abfahrtsort>
+          <abfahrtsort>
+            <plz>19061</plz>
+            <beschreibung><![CDATA[Schwerin, von-Stauffenberg-Straße]]></beschreibung>
+            <abzeit></abzeit>
+            <aufpreis>0.00</aufpreis>
+          </abfahrtsort>
+        </abfahrtsorte>
+        {% endif %}{% if reise.preise %}
+        <preise>
+          {% for preis in reise.preise %}{% if preis.markierung == termin.markierung %}
+          <preis>
+            <name><![CDATA[{{ preis.preistitel }}{% if preis.preistitel == 'Preis p.P.' or preis.preistitel == 'Individualpreis p.P.' %}{% if reise.reisedaten.reisetyp != 'Tagesfahrt' %} im DZ{% endif %}{% endif %}{% if preis.kommentar %} ({{ preis.kommentar }}){% endif %}]]></name>
+            <min_belegung>{% if preis.preistitel == 'Preis p.P.' or preis.preistitel == 'Individualpreis p.P.' %}{% if reise.reisedaten.reisetyp != 'Tagesfahrt' %}2{% else %}1{% endif %}{% else %}1{% endif %}</min_belegung>
+            <betrag>{{ preis.preis|floatformat:2 }}</betrag>
+            <fbrabattdatum></fbrabattdatum>
+            <fbrabattbetrag></fbrabattbetrag>
+          </preis>
+          {% for zpreis in preis.zpreise %}
+            {% if 'P-Zuschlag' not in zpreis.zpreistitel and 'weitere' not in zpreis.zpreistitel and 'blick' not in zpreis.zpreistitel %}
+          <preis>
+            <name><![CDATA[{% if zpreis.zpreistitel == 'EZ-Zuschlag' %}{{ preis.preistitel }} im EZ{% if preis.kommentar %} ({{ preis.kommentar }}){% endif %}{% else%}{{ zpreis.zpreistitel }}{% endif %}]]></name>
+            <min_belegung>{% if 'EZ' in zpreis.zpreistitel %}1{% else %}2{% endif %}</min_belegung>
+            <betrag>{% if 'EZ' in zpreis.zpreistitel or 'DZ' in zpreis.zpreistitel %}{{ zpreis.zpreis|add:preis.preis|floatformat:2 }}{% else %}{{ zpreis.zpreis|floatformat:2 }}{% endif %}</betrag>
+            <fbrabattdatum></fbrabattdatum>
+            <fbrabattbetrag></fbrabattbetrag>
+          </preis>
+            {% endif %}
+          {% endfor %}{% endif %}
+          {% endfor %}
+        </preise>
+        {% endif %}
+        {% if reise.zusatzleistungen %}
+        <zusatzoptionen>
+          {% for zl in reise.zusatzleistungen %}
+          <zusatzoption>
+            <name><![CDATA[{{ zl.zltitel }}{% if zl.kommentar %} ({{ zl.kommentar }}){% endif %}{% if zl.aptage %}{% for aptag in zl.aptage %} ({{ aptag.aptag }}){% endfor %}{% endif %}]]></name>
+            <betrag>{% for zlpreis in zl.zlpreise %}{{ zlpreis.zlpreis }}{% endfor %}</betrag>
+            <prozent />
+          </zusatzoption>
+          {% endfor %}
+        </zusatzoptionen>
+        {% endif %}
+      </termin>
+      {% endfor %}
+    {% endif %}
+    </termine>
+  </reise>
+  {% endif %}{% endfor %}
+  </reisen>
+</rb24>

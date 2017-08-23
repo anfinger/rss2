@@ -30,8 +30,8 @@ js_info_dict = {
 
 urlpatterns = patterns('',
     url(r'^$', include('home.urls')),
-    url(r'^home/', include('home.urls')),
     url(r'^reisen/', include('reisen.urls')),
+    url(r'^home/', include('home.urls')),
     #url(r'^locking/', include('locking.urls')),
     url(r'^filer/', include('filer.urls')),
     url(r'^inplaceeditform/', include('inplaceeditform.urls')),

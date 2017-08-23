@@ -12,6 +12,9 @@ from django.db import connection
 from itertools import chain
 from django.core import serializers
 from django.template.loader import render_to_string
+from django.db.models import Min, F, Value as V, Q
+from datetime import datetime
+
 #from django.utils.encoding import python_2_unicode_compatible
 
 #from django.core.files.storage import DefaultStorage
@@ -20,7 +23,7 @@ from django.template.loader import render_to_string
 
 #from django.core.files.storage import FileSystemStorage
 
-from .models import Reise, Reisetermine, Abfahrtszeiten, LeistungenReise, Reisebeschreibung, Reisetage, Reisepreise, Preis, ReisepreisZusatz, Zusatzleistung, Fruehbucherrabatt, Reisebilder, Reisekatalogzugehoerigkeit, Katalog
+from .models import Reise, Reisetermine, Reisezielregionen, Reisekategorien, Reisehinweise, Ausflugspakete, Ausflugspaketpreise, AusflugspaketeZuReisetagen, LeistungenAusflugspaket, Abfahrtszeiten, LeistungenReise, Reisebeschreibung, Reisetage, Reisepreise, Preis, ReisepreisZusatz, Zusatzleistung, Fruehbucherrabatt, Reisebilder, Reisekatalogzugehoerigkeit, Katalog
 
 from .querysets import get_detail_hinweise_queryset, get_detail_angebote_queryset, get_detail_auftragsbestaetigungen_queryset
 
@@ -95,6 +98,57 @@ def winter2017_18(request):
 
     return render(request, 'reisen/index.html', {'termine': termine, 'dibug': dibug, 'korrekturen': korrekturen })
 
+##################################################################
+# Tagesfahrten                                                   #
+##################################################################
+def tagesfahrten(request):
+
+    termine = Reisetermine.objects.select_related().filter(
+        datum_beginn__gte=datetime.now(),
+        reise_id__status='f'
+      ).filter(
+        Q(reise_id__reisetyp='Tagesfahrt') | Q(reise_id__reisetyp='Musicalfahrt')
+      ).order_by('datum_beginn').values(
+        'datum_beginn',
+        'reise_id__reiseID',
+        'reise_id__titel',
+        'reise_id__sonstigeReisebeschreibung_titel'
+      ).distinct()
+
+    tagesfahrten = [
+      {
+        "monat": (int(datetime.strftime(termin['datum_beginn'], "%-m"))-int(datetime.strftime(termine[i-1]['datum_beginn'], "%-m")) if i>0 else 1),
+        "datum_beginn": termin['datum_beginn'],
+        "reisedaten": get_object_or_404(Reise, pk=termin['reise_id__reiseID']),
+        "abfahrtszeiten": Abfahrtszeiten.objects.filter(reise_id=termin['reise_id__reiseID']).order_by('position'),
+        "preise": [
+          {
+            "preistitel": str(preis.preis_id),
+            "preis": preis.preis,
+            "markierung": preis.markierung,
+            "kommentar": preis.kommentar,
+            "zpreise": [
+              {
+                "zpreistitel": str(zpreis.preis_id),
+                "zpreis": zpreis.preis
+              }
+              for zpreis in ReisepreisZusatz.objects.filter(reisepreis_id=preis.reisepreisID)
+            ]
+          }
+          for preis in Reisepreise.objects.filter(reise_id=termin['reise_id__reiseID'])
+        ],
+        "hinweise": [
+          {
+            "hinweis": str(hinweis.hinweis_id)
+          }
+          for hinweis in Reisehinweise.objects.filter(reise_id=termin['reise_id__reiseID'])
+        ],
+      }
+      for i, termin in enumerate(termine)
+    ]
+
+    return render(request, 'reisen/tagesfahrten.html', {'tagesfahrten': tagesfahrten })
+
 
 ##################################################################
 # XML Export Winterreisen 2016 2017                              #
@@ -142,35 +196,167 @@ def winter1617(request):
 def winter1718(request):
     dibug = ''
     cursor = connection.cursor()
-    cursor.execute("SELECT DISTINCT reiseID, RP.abpreis, reisen_kategorie.kategorie, reisen_reise.untertitel, einleitung, reisetyp, KT.katalogseiten, RT.reise_id_id, reisen_reise.titel, RT.min_datum, RT.reisetermine FROM reisen_reise LEFT JOIN (SELECT reise_id_id, MIN(datum_beginn) AS min_datum, group_concat(DISTINCT CONCAT_WS(' - ', DATE_FORMAT(datum_beginn,'%d. %m. %Y'), DATE_FORMAT(datum_ende,'%d. %m. %Y')) ORDER BY datum_beginn ASC SEPARATOR '\n') AS reisetermine FROM reisen_reisetermine GROUP BY reise_id_id ORDER BY min_datum) AS RT ON (RT.reise_id_id = reiseID) LEFT JOIN (SELECT reise_id_id, group_concat(DISTINCT CONCAT_WS(' auf der Seite ', reisen_katalog.titel, katalogseite) ORDER BY position ASC SEPARATOR ' und im Katalog ') AS katalogseiten FROM reisen_reisekatalogzugehoerigkeit LEFT JOIN reisen_katalog ON (reisen_katalog.katalogID = reisen_reisekatalogzugehoerigkeit.katalog_id_id) GROUP BY reise_id_id) as KT ON (KT.reise_id_id = reiseID) LEFT JOIN reisen_reisekatalogzugehoerigkeit ON (reisen_reisekatalogzugehoerigkeit.reise_id_id = reisen_reise.reiseID) left join reisen_reisekategorien on (reiseID = reisen_reisekategorien.reise_id_id) left join reisen_kategorie on (kategorieID = kategorie_id_id) left join (select reisen_reisepreise.reise_id_id, MIN(reisen_reisepreise.preis) AS abpreis from reisen_reisepreise GROUP BY reisen_reisepreise.reise_id_id) AS RP ON (reiseID = RP.reise_id_id) WHERE reisen_reisekatalogzugehoerigkeit.katalog_id_id = '21a8a8c913854f41865953f6f10f538f' AND reisen_kategorie.kategorie in ('Musicals & Shows','Weihnachts- & Silvesterreisen', 'Adventsreisen & Weihnachtsmärkte', 'Kuren, Gesundheits- und Wellnessreisen', 'Flusskreuzfahrten', 'Ostern', 'kombinierte Flug- und Busreisen', 'Frühlingsreisen', 'Herbstreisen', 'Winterreisen') ORDER BY RT.min_datum;")
+    cursor.execute("SELECT DISTINCT reiseID, RP.abpreis, reisen_kategorie.kategorie, reisen_reise.untertitel, einleitung, reisetyp, KT.katalogseiten, RT.reise_id_id, reisen_reise.titel, reisen_reise.sonstigeReisebeschreibung_titel, RT.min_datum, RT.reisetermine FROM reisen_reise LEFT JOIN (SELECT reise_id_id, MIN(datum_beginn) AS min_datum, group_concat(DISTINCT CONCAT_WS(' - ', DATE_FORMAT(datum_beginn,'%d. %m. %Y'), DATE_FORMAT(datum_ende,'%d. %m. %Y')) ORDER BY datum_beginn ASC SEPARATOR '\n') AS reisetermine FROM reisen_reisetermine GROUP BY reise_id_id ORDER BY min_datum) AS RT ON (RT.reise_id_id = reiseID) LEFT JOIN (SELECT reise_id_id, group_concat(DISTINCT CONCAT_WS(' auf der Seite ', reisen_katalog.titel, katalogseite) ORDER BY position ASC SEPARATOR ' und im Katalog ') AS katalogseiten FROM reisen_reisekatalogzugehoerigkeit LEFT JOIN reisen_katalog ON (reisen_katalog.katalogID = reisen_reisekatalogzugehoerigkeit.katalog_id_id) GROUP BY reise_id_id) as KT ON (KT.reise_id_id = reiseID) LEFT JOIN reisen_reisekatalogzugehoerigkeit ON (reisen_reisekatalogzugehoerigkeit.reise_id_id = reisen_reise.reiseID) left join reisen_reisekategorien on (reiseID = reisen_reisekategorien.reise_id_id) left join reisen_kategorie on (kategorieID = kategorie_id_id) left join (select reisen_reisepreise.reise_id_id, MIN(reisen_reisepreise.preis) AS abpreis from reisen_reisepreise GROUP BY reisen_reisepreise.reise_id_id) AS RP ON (reiseID = RP.reise_id_id) WHERE reisen_reisekatalogzugehoerigkeit.katalog_id_id = '21a8a8c913854f41865953f6f10f538f' AND reisen_kategorie.kategorie in ('Musicals & Shows','Weihnachts- & Silvesterreisen', 'Adventsreisen & Weihnachtsmärkte', 'Kuren, Gesundheits- und Wellnessreisen', 'Flusskreuzfahrten', 'Ostern', 'kombinierte Flug- & Busreisen', 'Frühlingsreisen', 'Herbstreisen', 'Winterreisen') ORDER BY RT.min_datum;")
     termine = namedtuplefetchall(cursor)
-    cursor.close()
+    cursor.close()   
 
-    kategorien = ['Herbstreisen', u'Adventsreisen & Weihnachtsmärkte', u'Weihnachts- & Silvesterreisen', 'Winterreisen', u'Frühlingsreisen', 'Ostern', u'Kuren, Gesundheits- und Wellnessreisen', 'kombinierte Flug- und Busreisen', 'Flusskreuzfahrten', 'Musicals & Shows']
+    kategorien = ['Herbstreisen', u'Adventsreisen & Weihnachtsmärkte', u'Weihnachts- & Silvesterreisen', 'Winterreisen', u'Frühlingsreisen', 'Ostern', u'Kuren, Gesundheits- und Wellnessreisen', 'kombinierte Flug- & Busreisen', 'Flusskreuzfahrten', 'Musicals & Shows']
 
     dibug = ''#DefaultStorage().location + '  :::  ' + site.storage.location + site.directory + '  :::  ' + str(FileSystemStorage().directory_permissions_mode)
 
-    return render(request, 'reisen/index_reisen_web_alt.html', {'termine': termine, 'dibug': dibug, 'kategorien': kategorien })
+    #return render(request, 'reisen/index_reisen_web_alt.html', {'termine': termine, 'dibug': dibug, 'kategorien': kategorien })
+
+    reiseziel = [u'Deutschland',u'Frankreich',u'Italien',u'Polen',u'Japan',u'Portugal']
+    reisekat = [u'kombinierte Flug- & Busreisen',u'Busreisen',u'Kuren, Gesundheits- und Wellnessreisen']
+
+    reiseids = Reise.objects.select_related().filter(
+        reisetermine__datum_beginn__gte=datetime.now(),
+        status='f',
+      ).order_by('reiseID').values(
+        'reiseID',
+        'titel',
+        'sonstigeReisebeschreibung_titel'
+    ).distinct()
+
+#    reise = get_object_or_404(Reise, pk=pk)
+#    termine = Reisetermine.objects.filter(reise_id=pk).order_by('datum_beginn')
+#    abfahrtszeiten = Abfahrtszeiten.objects.filter(reise_id=pk).order_by('position')
+#    leistungen = LeistungenReise.objects.filter(reise_id=pk).filter(nichtindividual=0).order_by('position')
+#    leistungennichtindividual = LeistungenReise.objects.filter(reise_id=pk).filter(nichtindividual=1).order_by('position')
+#    zusatzleistungen = Zusatzleistung.objects.filter(reise_id=pk).order_by('position')
+#    fruehbucherrabatte = Fruehbucherrabatt.objects.filter(reise_id=pk).order_by('datum_bis')
+#    reisebeschreibung = Reisebeschreibung.objects.filter(reise_id=pk).order_by('position')
+
+#    for idx, tag in enumerate(tage):
+#      tag.reisetagID = str(tag.reisetagID).replace('-','')
+#      if tag.tagnummertext:
+#        tag.nummerntext = tag.tagnummertext
+#      else:
+#        naechster_tag = tage[(idx+1) % len(tage)]
+#        if len(tage) == 1:
+#            tag.nummerntext = ''
+#        elif (naechster_tag.tagnummer == (tag.tagnummer + 1)) or (idx == (len(tage)-1)):
+#            tag.nummerntext = str(tag.tagnummer) + '. Tag:'
+#        else:
+#            tag.nummerntext = str(tag.tagnummer) + '. - ' + str(naechster_tag.tagnummer-1) + '. Tag:'
+
+    nested_reisen = [
+      {
+        "reiseID": rid['reiseID'],
+        "titel": rid['titel'],
+        "sonstigeReisebeschreibung_titel": rid['sonstigeReisebeschreibung_titel'],
+	#"reisedaten": Reise.objects.filter(reiseID=rid['reiseID']),
+	"reisedaten": get_object_or_404(Reise, pk=rid['reiseID']),
+        "termine": [
+          {
+            "beginn": termin.datum_beginn,
+            "ende": termin.datum_ende,
+            "markierung": termin.markierung
+          }
+          for termin in Reisetermine.objects.filter(reise_id=rid['reiseID'],datum_beginn__gte=datetime.now())
+        ],
+        "tage": Reisetage.objects.filter(reise_id=rid['reiseID']).order_by('tagnummer'),
+        "leistungen": LeistungenReise.objects.filter(reise_id=rid['reiseID']).filter(nichtindividual=0).order_by('position'),
+        "leistungennichtindividual": LeistungenReise.objects.filter(reise_id=rid['reiseID']).filter(nichtindividual=1).order_by('position'),
+        "abfahrtszeiten": Abfahrtszeiten.objects.filter(reise_id=rid['reiseID']).order_by('zeit'),
+        "reisebeschreibungen": Reisebeschreibung.objects.filter(reise_id=rid['reiseID']).order_by('position'),
+        "preise": [
+          {
+            "preistitel": str(preis.preis_id),
+            "preis": preis.preis,
+            "markierung": preis.markierung,
+            "kommentar": preis.kommentar,
+            "zpreise": [
+              {
+                "zpreistitel": str(zpreis.preis_id),
+                "zpreis": zpreis.preis
+              }
+              for zpreis in ReisepreisZusatz.objects.filter(reisepreis_id=preis.reisepreisID)
+            ]
+          }
+          for preis in Reisepreise.objects.filter(reise_id=rid['reiseID'])
+        ],
+        "zielregionen": [
+          {
+            "zielregion": str(zielregion.zielregion_id)
+          }
+          for zielregion in Reisezielregionen.objects.filter(reise_id=rid['reiseID'])
+        ],
+        "kategorien": [
+          {
+            "kategorie": str(kategorie.kategorie_id)
+          }
+          for kategorie in Reisekategorien.objects.filter(reise_id=rid['reiseID'])
+        ],
+        "zusatzleistungen": [
+          {
+            "zltitel": zl.titel,
+            "zlkommentar": zl.kommentar,
+            "zlkommentar_titel": zl.kommentar_titel,
+            "zlpreise": [
+              {
+                "zlpreis": zlpreis.preis 
+              }
+              for zlpreis in Ausflugspaketpreise.objects.filter(ausflugspaket_id=zl.ausflugspaketID)
+            ],
+            "apleistungen": [
+              {
+                "apleistung": apleistung.leistung
+              }
+              for apleistung in LeistungenAusflugspaket.objects.filter(ausflugspaket_id=zl.ausflugspaketID)
+            ],
+            "aptage": [
+              {
+                "aptag": str(aptag.reisetag_id)
+              }
+              for aptag in AusflugspaketeZuReisetagen.objects.filter(ausflugspaket_id=zl.ausflugspaketID)
+            ]
+          }
+          for zl in Ausflugspakete.objects.filter(reise_id=rid['reiseID'])
+        ],
+        "hinweise": [
+          {
+            "hinweis": str(hinweis.hinweis_id)
+          }
+          for hinweis in Reisehinweise.objects.filter(reise_id=rid['reiseID'])
+        ]
+      }
+      for rid in reiseids
+    ]
+    #nested_reisen = [{"reiseID": reise.reiseID, "termine": [{"beginn": termin.datum_beginn, "ende": termin.datum_ende} for termin in reise.reisetermine__reiseID.all()]} for reise in reisen]
+    #nested_reisen = [{"reiseID": reise['reiseID'], "termine": [{"beginn": termin.datum_beginn, "ende": termin.datum_ende} for termin in reise['reisetermine']]} for reise in reisen]
+
+    ausgabeformat = request.GET.get('format')
+    if ausgabeformat != 'xml':
+      return render(request, 'reisen/index_reisen_web_alt.html', { 'termine': termine, 'dibug': dibug, 'kategorien': kategorien })
+    else:
+      return render(request, 'reisen/rb24_reiseservice-schwerin.xml', { 'reiseids': reiseids, 'reisen': list(nested_reisen), 'termine': termine, 'dibug': dibug, 'kategorien': kategorien })
+
 
 ########################################################
 # XML Export alle Reisen nach Termin Winter2017/18     #
 ########################################################
-def reisezielterminuebersicht(request):
+def reiseuebersichtwinter(request):
 
     cursor = connection.cursor()
     cursor.execute("SET lc_time_names = 'de_DE';")
-    cursor.execute("select date_format(reisen_reisetermine.datum_beginn, '%M') as Monat, reisen_reise.individualbuchbar, reisen_reise.neu, reisen_reise.titel as Reiseziel, CONCAT(date_format(reisen_reisetermine.datum_beginn,'%d.%m.'), '-', date_format(reisen_reisetermine.datum_ende,'%d.%m.%y')) as Termin, (to_days(reisen_reisetermine.datum_ende)-to_days(reisen_reisetermine.datum_beginn)+1) as Tage, katalogseite, anzahl_seiten_im_katalog, position_auf_seite, concat(katalogseite,if(anzahl_seiten_im_katalog>1,concat('|',katalogseite+1),'')) as Seite from reisen_reise left join reisen_reisetermine on (reisen_reise.reiseID = reisen_reisetermine.reise_id_id) left join reisen_reisekatalogzugehoerigkeit on(reisen_reise.reiseID = reisen_reisekatalogzugehoerigkeit.reise_id_id) where reisen_reisekatalogzugehoerigkeit.katalog_id_id = '21a8a8c913854f41865953f6f10f538f' AND date_format(reisen_reisetermine.datum_beginn, '%Y') > 2016 order by datum_beginn, datum_ende, katalogseite, position_auf_seite;")
+    cursor.execute("SELECT   reiseID, kat.groupkat as k,   reisen_reise.individualbuchbar,   reisen_reise.neu,   reisen_reise.titel as Reiseziel,   reisen_reise.sonstigeReisebeschreibung_titel as Zusatztitel,   CONCAT(     date_format(reisen_reisetermine.datum_beginn,'%d.%m.'),     '-',     date_format(reisen_reisetermine.datum_ende,'%d.%m.%y')   ) as Termin,   (to_days(reisen_reisetermine.datum_ende)-to_days(reisen_reisetermine.datum_beginn)+1) as Tage,   concat(     katalogseite,     if(anzahl_seiten_im_katalog>1,concat('|',katalogseite+1),'')   ) as Seite FROM   reisen_reise LEFT JOIN   reisen_reisetermine   ON   (reisen_reise.reiseID = reisen_reisetermine.reise_id_id) LEFT JOIN (SELECT reise_id_id, group_concat(kategorie) as groupkat from reisen_reisekategorien left join reisen_kategorie on kategorieID = kategorie_id_id where kategorie in ('kombinierte Flug- & Busreisen', 'Flusskreuzfahrten', 'Busreisen') group by reise_id_id) AS kat ON (kat.reise_id_id = reisen_reise.reiseID) LEFT JOIN   reisen_reisekatalogzugehoerigkeit   ON   (reisen_reise.reiseID = reisen_reisekatalogzugehoerigkeit.reise_id_id) WHERE   reisen_reisekatalogzugehoerigkeit.katalog_id_id = '21a8a8c913854f41865953f6f10f538f'   AND   katalogseite > 0 ORDER BY   FIELD(k, 'Busreisen', 'kombinierte Flug- & Busreisen', 'Flusskreuzfahrten'),   datum_beginn,   katalogseite,   position_auf_seite,   datum_ende;")
     termine = namedtuplefetchall(cursor)
 
-    month = ''
+    kategorie = ''
     for i in range(len(termine)):
-      if termine[i].Monat != month:
-        month = termine[i].Monat
+      if termine[i].k != kategorie:
+        kategorie = termine[i].k
       else:
-        termine[i] = termine[i]._replace(Monat = '')
+        termine[i] = termine[i]._replace(k = '')
+      if u'Weihnachten und Silvester an der polnischen Ostseeküste' in termine[i-1].Reiseziel and u'Weihnachten und Silvester an der polnischen Ostseeküste' in termine[i].Reiseziel:
+        termine[i] = termine[i]._replace(Termin = '')
       if u'Kuren an der polnischen Ostseeküste' in termine[i].Reiseziel:
-        termine[i] = termine[i]._replace(Reiseziel = u'Kuren an der polnischen Ostseeküste')
-      if u'Kuren an der polnischen Ostseeküste' in termine[i-1].Reiseziel and u'Kuren an der polnischen Ostseeküste' in termine[i].Reiseziel and termine[i-1].Tage == termine[i].Tage:
+        termine[i] = termine[i]._replace(Termin = '')
+      if u'Grünen Woche' in termine[i].Reiseziel:
+        termine[i] = termine[i]._replace(Termin = '20. bis 27.01.18')
+        termine[i] = termine[i]._replace(Tage = '1')
+      if u'Grünen Woche' in termine[i-1].Reiseziel and u'Grünen Woche' in termine[i].Reiseziel:
         termine[i] = termine[i]._replace(Termin = '')
       if termine[i].individualbuchbar != '':
         termine[i] = termine[i]._replace(Reiseziel = termine[i].Reiseziel + ' (auch individuell buchbar)')
@@ -182,9 +368,9 @@ def reisezielterminuebersicht(request):
 
     ausgabeformat = request.GET.get('format')
     if ausgabeformat == 'html':
-      return render(request, 'reisen/export_reiseterminuebersicht.html', {'termine': termine })
+      return render(request, 'reisen/export_reiseuebersichtwinter.html', {'termine': termine })
     else:
-      return render(request, 'reisen/export_reiseterminuebersicht.xml', {'termine': termine })
+      return render(request, 'reisen/export_reiseuebersichtwinter.xml', {'termine': termine })
 
 ########################################################
 # XML Export alle Reisen nach Termin Sommer  2017      #
@@ -260,11 +446,11 @@ def reisezieluebersicht(request):
 def sommer17(request):
     dibug = ''
     cursor = connection.cursor()
-    cursor.execute("SELECT DISTINCT reiseID, RP.abpreis, reisen_reise.neu, reisen_reise.individualbuchbar, reisen_kategorie.kategorie, reisen_zielregion.name, reisen_reise.untertitel, korrektur_bemerkung_intern, einleitung, reisetyp, KT.katalogseiten, RT.reise_id_id, reisen_reise.titel, RT.min_datum, RT.reisetermine FROM reisen_reise LEFT JOIN (SELECT reise_id_id, MIN(datum_beginn) AS min_datum, group_concat(DISTINCT CONCAT_WS(' - ', DATE_FORMAT(datum_beginn,'%d. %m. %Y'), DATE_FORMAT(datum_ende,'%d. %m. %Y')) ORDER BY datum_beginn ASC SEPARATOR '\n') AS reisetermine FROM reisen_reisetermine GROUP BY reise_id_id ORDER BY min_datum) AS RT ON (RT.reise_id_id = reiseID) LEFT JOIN (SELECT reise_id_id, group_concat(DISTINCT CONCAT_WS(' auf der Seite ', reisen_katalog.titel, katalogseite) ORDER BY position ASC SEPARATOR ' und im Katalog ') AS katalogseiten FROM reisen_reisekatalogzugehoerigkeit LEFT JOIN reisen_katalog ON (reisen_katalog.katalogID = reisen_reisekatalogzugehoerigkeit.katalog_id_id) GROUP BY reise_id_id) as KT ON (KT.reise_id_id = reiseID) LEFT JOIN reisen_reisekatalogzugehoerigkeit ON (reisen_reisekatalogzugehoerigkeit.reise_id_id = reisen_reise.reiseID) left join reisen_reisekategorien on (reiseID = reisen_reisekategorien.reise_id_id) left join reisen_kategorie on (kategorieID = kategorie_id_id) left join reisen_reisezielregionen on (reiseID = reisen_reisezielregionen.reise_id_id) left join reisen_zielregion on (zielregionID = zielregion_id_id) left join (select reisen_reisepreise.reise_id_id, MIN(reisen_reisepreise.preis) AS abpreis from reisen_reisepreise GROUP BY reisen_reisepreise.reise_id_id) AS RP ON (reiseID = RP.reise_id_id) WHERE reisen_reisekatalogzugehoerigkeit.katalog_id_id = 'fa81408e2b69488498ace5b91737d187' ORDER BY RT.min_datum;")
+    cursor.execute("SELECT DISTINCT reiseID, slug, sonstigeReisebeschreibung_titel, RP.abpreis, reisen_reise.neu, reisen_reise.individualbuchbar, reisen_kategorie.kategorie, reisen_zielregion.name, reisen_reise.untertitel, korrektur_bemerkung_intern, einleitung, reisetyp, KT.katalogseiten, RT.reise_id_id, reisen_reise.titel, RT.min_datum, RT.reisetermine FROM reisen_reise LEFT JOIN (SELECT reise_id_id, MIN(datum_beginn) AS min_datum, group_concat(DISTINCT CONCAT_WS(' - ', DATE_FORMAT(datum_beginn,'%d. %m. %Y'), DATE_FORMAT(datum_ende,'%d. %m. %Y')) ORDER BY datum_beginn ASC SEPARATOR '\n') AS reisetermine FROM reisen_reisetermine GROUP BY reise_id_id ORDER BY min_datum) AS RT ON (RT.reise_id_id = reiseID) LEFT JOIN (SELECT reise_id_id, group_concat(DISTINCT CONCAT_WS(' auf der Seite ', reisen_katalog.titel, katalogseite) ORDER BY position ASC SEPARATOR ' und im Katalog ') AS katalogseiten FROM reisen_reisekatalogzugehoerigkeit LEFT JOIN reisen_katalog ON (reisen_katalog.katalogID = reisen_reisekatalogzugehoerigkeit.katalog_id_id) GROUP BY reise_id_id) as KT ON (KT.reise_id_id = reiseID) LEFT JOIN reisen_reisekatalogzugehoerigkeit ON (reisen_reisekatalogzugehoerigkeit.reise_id_id = reisen_reise.reiseID) left join reisen_reisekategorien on (reiseID = reisen_reisekategorien.reise_id_id) left join reisen_kategorie on (kategorieID = kategorie_id_id) left join reisen_reisezielregionen on (reiseID = reisen_reisezielregionen.reise_id_id) left join reisen_zielregion on (zielregionID = zielregion_id_id) left join (select reisen_reisepreise.reise_id_id, MIN(reisen_reisepreise.preis) AS abpreis from reisen_reisepreise GROUP BY reisen_reisepreise.reise_id_id) AS RP ON (reiseID = RP.reise_id_id) WHERE reisen_reisekatalogzugehoerigkeit.katalog_id_id = 'fa81408e2b69488498ace5b91737d187' AND reisen_reise.status = 'f' ORDER BY RT.min_datum;")
     termine = namedtuplefetchall(cursor)
     cursor.close()
 
-    kategorien = [ u'Wanderreisen', u'kombinierte Flug- und Busreisen', u'Kuren, Gesundheits- und Wellnessreisen', u'Flusskreuzfahrten']
+    kategorien = [ u'Wanderreisen', u'kombinierte Flug- & Busreisen', u'Kuren, Gesundheits- und Wellnessreisen', u'Flusskreuzfahrten']
     zielregionen = [ u'Deutschland', u'Benelux', u'Schweiz / Österreich / Tschechien / Slovakei / Ungarn', u'Frankreich / Italien / Andorra', u'Portugal', u'England / Schottland / Irland', u'Slowenien / Kroatien / Montenegro / Bosnien und Herzegowina', u'Baltikum / Skandinavien / Finnland / Island', u'Polen']
 
     dibug = ''#DefaultStorage().location + '  :::  ' + site.storage.location + site.directory + '  :::  ' + str(FileSystemStorage().directory_permissions_mode)
@@ -456,8 +642,9 @@ def reise_detail_export(request, pk):
       elif abfahrtszeit.ort == 'GAR':
         abfahrtszeit.ort = 'Gartenstadt'
 
-    leistungen = LeistungenReise.objects.filter(reise_id=pk).filter(nichtindividual=0).order_by('position')
+    leistungen = LeistungenReise.objects.filter(reise_id=pk).filter(nichtindividual=0, leistungkurhotel=0).order_by('position')
     leistungennichtindividual = LeistungenReise.objects.filter(reise_id=pk).filter(nichtindividual=1).order_by('position')
+    leistungenkurhotel = LeistungenReise.objects.filter(reise_id=pk).filter(leistungkurhotel=1).order_by('position')
     zusatzleistungen = Zusatzleistung.objects.filter(reise_id=pk).order_by('position')
     fruehbucherrabatte = Fruehbucherrabatt.objects.filter(reise_id=pk).order_by('datum_bis')
     tage = Reisetage.objects.filter(reise_id=pk).order_by('tagnummer')
@@ -521,7 +708,7 @@ def reise_detail_export(request, pk):
 
     cursor = connection.cursor()
     #cursor.execute("SELECT katalog_pdf, anzahl_seiten_im_katalog, katalogseite, reisen_katalog.titel FROM reisen_reisekatalogzugehoerigkeit LEFT JOIN reisen_katalog ON (reisen_katalog.katalogID = reisen_reisekatalogzugehoerigkeit.katalog_id_id) WHERE reisen_reisekatalogzugehoerigkeit.reise_id_id = '" + str(pk) + "' ORDER BY position;");
-    cursor.execute("SELECT anzahl_seiten_im_katalog, katalogseite, reisen_katalog.titel, position_auf_seite FROM reisen_reisekatalogzugehoerigkeit LEFT JOIN reisen_katalog ON (reisen_katalog.katalogID = reisen_reisekatalogzugehoerigkeit.katalog_id_id) WHERE reisen_reisekatalogzugehoerigkeit.reise_id_id = '" + pkquery + "' AND reisen_katalog.katalogID = 'fa81408e2b69488498ace5b91737d187'");
+    cursor.execute("SELECT anzahl_seiten_im_katalog, katalogseite, reisen_katalog.titel, position_auf_seite FROM reisen_reisekatalogzugehoerigkeit LEFT JOIN reisen_katalog ON (reisen_katalog.katalogID = reisen_reisekatalogzugehoerigkeit.katalog_id_id) WHERE reisen_reisekatalogzugehoerigkeit.reise_id_id = '" + pkquery + "' AND reisen_katalog.katalogID = '21a8a8c913854f41865953f6f10f538f'");
     katalog = namedtuplefetchall(cursor)
     cursor.close()
 
@@ -590,6 +777,7 @@ def reise_detail_export(request, pk):
           'abfahrtszeiten': abfahrtszeiten,
           'leistungen': leistungen,
           'leistungennichtindividual': leistungennichtindividual,
+          'leistungenkurhotel': leistungenkurhotel,
           'tage': tage,
           'reisebeschreibung': reisebeschreibung,
           'preise': preise,

@@ -177,7 +177,7 @@
               zur&uuml;ck zu:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
               <b>
                 <a href="/index.html" style="color:white; text-decoration:none; font-family: Verdana">Startseite</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <a href="/rss2/reisen/winter1617/" style="color:white; text-decoration:none; font-family: Verdana">Winterreisen 2016 / 2017</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="/rss2/reisen/winter1718/" style="color:white; text-decoration:none; font-family: Verdana">Winterreisen 2017 / 2018</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <a href="/tagesfahrten.html" style="color:white; text-decoration:none; font-family: Verdana">Tagesfahrten</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <a href="/musicals.html" style="color:white; text-decoration:none; font-family: Verdana">Musicalfahrten</a>
               </b>
@@ -280,16 +280,16 @@
                                       {% if request.user.is_authenticated %}
                                         {% if termin.korrektur_bemerkung_intern %}
                                           <a href="{% url 'reise_detail_export' pk=termin.reiseID %}" style="text-decoration:none; color:red; font-weight:bold; font-size:10pt;" target = 'blank'>
-                                            {{ termin.titel }}{% if termin.individualbuchbar != '' %} (auch individuell buchbar){% endif %}
+                                            {{ termin.titel }}{% if termin.sonstigeReisebeschreibung_titel %} - {{ termin.sonstigeReisebeschreibung_titel }}{% endif %}{% if termin.individualbuchbar != '' %} (auch individuell buchbar){% endif %}
                                           </a>
                                         {% else %}
                                           <a href="{% url 'reise_detail_export' pk=termin.reiseID %}" style="text-decoration:none; font-weight:bold; font-size:10pt;" target = 'blank'>
-                                            {{ termin.titel }}{% if termin.individualbuchbar != '' %} (auch individuell buchbar){% endif %}
+                                            {{ termin.titel }}{% if termin.sonstigeReisebeschreibung_titel %} - {{ termin.sonstigeReisebeschreibung_titel }}{% endif %}{% if termin.individualbuchbar != '' %} (auch individuell buchbar){% endif %}
                                           </a>
                                         {% endif %}
                                       {% else %}
                                         <a href="{% url 'reise_detail' pk=termin.reiseID %}?version=alt&kategorie={{kategorie|kategorie_get}}" style="font-weight:bold; font-size:10pt; text-decoration:none;">
-                                          {{ termin.titel }}{% if termin.individualbuchbar != '' %} (auch individuell buchbar){% endif %}
+                                          {{ termin.titel }}{% if termin.sonstigeReisebeschreibung_titel %} - {{ termin.sonstigeReisebeschreibung_titel }}{% endif %}{% if termin.individualbuchbar != '' %} (auch individuell buchbar){% endif %}
                                         </a>
                                       {% endif %}
                                     </div>
@@ -332,16 +332,16 @@
                                         {% if request.user.is_authenticated %}
                                           {% if termin.korrektur_bemerkung_intern %}
                                             <a href="{% url 'reise_detail_export' pk=termin.reiseID %}" style="text-decoration:none; color:red; font-weight:bold; font-size:10pt;" target = 'blank'>
-                                              {{ termin.titel }}{% if termin.individualbuchbar != '' %} (auch individuell buchbar){% endif %}
+                                              {{ termin.titel }}{% if termin.sonstigeReisebeschreibung_titel %} - {{ termin.sonstigeReisebeschreibung_titel }}{% endif %}{% if termin.individualbuchbar != '' %} (auch individuell buchbar){% endif %}
                                             </a>
                                           {% else %}
                                             <a href="{% url 'reise_detail_export' pk=termin.reiseID %}" style="text-decoration:none; font-weight:bold; font-size:10pt;" target = 'blank'>
-                                              {{ termin.titel }}{% if termin.individualbuchbar != '' %} (auch individuell buchbar){% endif %}
+                                              {{ termin.titel }}{% if termin.sonstigeReisebeschreibung_titel %} - {{ termin.sonstigeReisebeschreibung_titel }}{% endif %}{% if termin.individualbuchbar != '' %} (auch individuell buchbar){% endif %}
                                             </a>
                                           {% endif %}
                                         {% else %}
                                           <a href="{% url 'reise_detail' pk=termin.reiseID %}?version=alt&kategorie={{kategorie|kategorie_get}}" style="font-weight:bold; font-size:10pt; text-decoration:none;">
-                                            {{ termin.titel }}{% if termin.individualbuchbar != '' %} (auch individuell buchbar){% endif %}
+                                            {{ termin.titel }}{% if termin.sonstigeReisebeschreibung_titel %} - {{ termin.sonstigeReisebeschreibung_titel }}{% endif %}{% if termin.individualbuchbar != '' %} (auch individuell buchbar){% endif %}
                                           </a>
                                         {% endif %}
                                       </div>
@@ -390,16 +390,16 @@
                                         {% if request.user.is_authenticated %}
                                           {% if termin.korrektur_bemerkung_intern %}
                                             <a href="{% url 'reise_detail_export' pk=termin.reiseID %}" style="text-decoration:none; color:red; font-weight:bold; font-size:10pt;" target = 'blank'>
-                                              {{ termin.titel }}{% if termin.individualbuchbar != '' %} (auch individuell buchbar){% endif %}
+                                              {{ termin.titel }}{% if termin.sonstigeReisebeschreibung_titel %} - {{ termin.sonstigeReisebeschreibung_titel }}{% endif %}{% if termin.individualbuchbar != '' %} (auch individuell buchbar){% endif %}
                                             </a>
                                           {% else %}
                                             <a href="{% url 'reise_detail_export' pk=termin.reiseID %}" style="text-decoration:none; font-weight:bold; font-size:10pt;" target = 'blank'>
-                                              {{ termin.titel }}{% if termin.individualbuchbar != '' %} (auch individuell buchbar){% endif %}
+                                              {{ termin.titel }}{% if termin.sonstigeReisebeschreibung_titel %} - {{ termin.sonstigeReisebeschreibung_titel }}{% endif %}{% if termin.individualbuchbar != '' %} (auch individuell buchbar){% endif %}
                                             </a>
                                           {% endif %}
                                         {% else %}
                                           <a href="{% url 'reise_detail' pk=termin.reiseID %}?version=alt&kategorie={{kategorie|kategorie_get}}" style="font-weight:bold; font-size:10pt; text-decoration:none;">
-                                            {{ termin.titel }}{% if termin.individualbuchbar != '' %} (auch individuell buchbar){% endif %}
+                                            {{ termin.titel }}{% if termin.sonstigeReisebeschreibung_titel %} - {{ termin.sonstigeReisebeschreibung_titel }}{% endif %}{% if termin.individualbuchbar != '' %} (auch individuell buchbar){% endif %}
                                           </a>
                                         {% endif %}
                                       </div>

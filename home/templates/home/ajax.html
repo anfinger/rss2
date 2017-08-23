@@ -59,8 +59,7 @@
 {% endblock %}
 
 {% block javascript %}
-  <script>
-
+  <script type="text/javascript">
     // VARIABLEN
     var abdatum = '';//{% now "SHORT_DATE_FORMAT" %}';
     var labelText = '';
@@ -146,16 +145,24 @@
             <div id="zielregionen"> \
               <label for="checkbox-z1">Deutschland</label> \
               <input type="checkbox" name="checkbox-z1" id="checkbox-z1"> \
-              <label for="checkbox-z2">Italien</label> \
+              <label for="checkbox-z2">Österreich / Schweiz</label> \
               <input type="checkbox" name="checkbox-z2" id="checkbox-z2"> \
-              <label for="checkbox-z3">Frankreich</label> \
+              <label for="checkbox-z3">Belgien / Holland</label> \
               <input type="checkbox" name="checkbox-z3" id="checkbox-z3"> \
-              <label for="checkbox-z4">Polen</label> \
+              <label for="checkbox-z4">Frankreich</label> \
               <input type="checkbox" name="checkbox-z4" id="checkbox-z4"> \
-              <label for="checkbox-z5">Japan</label> \
+              <label for="checkbox-z5">Italien</label> \
               <input type="checkbox" name="checkbox-z5" id="checkbox-z5"> \
-              <label for="checkbox-z6">Portugal</label> \
+              <label for="checkbox-z6">Slowenien / Kroatien / Montenegro / Bosnien und Herzegowina</label> \
               <input type="checkbox" name="checkbox-z6" id="checkbox-z6"> \
+              <label for="checkbox-z7">Tschechien / Slovakei / Ungarn / Rumänien</label> \
+              <input type="checkbox" name="checkbox-z7" id="checkbox-z7"> \
+              <label for="checkbox-z8">Polen</label> \
+              <input type="checkbox" name="checkbox-z8" id="checkbox-z8"> \
+              <label for="checkbox-z9">Baltikum / Skandinavien / Finnland</label> \
+              <input type="checkbox" name="checkbox-z9" id="checkbox-z9"> \
+              <label for="checkbox-z10">England / Schottland / Irland</label> \
+              <input type="checkbox" name="checkbox-z10" id="checkbox-z10"> \
             </div> \
           </fieldset> \
           <fieldset> \
@@ -163,10 +170,16 @@
             <div id="kategorien"> \
               <label for="checkbox-k1">Busreisen</label> \
               <input type="checkbox" name="checkbox-k1" id="checkbox-k1"> \
-              <label for="checkbox-k2">Kuren, Gesundheits- und Wellnessreisen</label> \
+              <label for="checkbox-k2">Wanderreisen</label> \
               <input type="checkbox" name="checkbox-k2" id="checkbox-k2"> \
-              <label for="checkbox-k3">kombinierte Flug- und Busreisen</label> \
+              <label for="checkbox-k3">kombinierte Flug- & Busreisen</label> \
               <input type="checkbox" name="checkbox-k3" id="checkbox-k3"> \
+              <label for="checkbox-k4">Flusskreuzfahrten</label> \
+              <input type="checkbox" name="checkbox-k4" id="checkbox-k4"> \
+              <label for="checkbox-k5">Kurreisen</label> \
+              <input type="checkbox" name="checkbox-k5" id="checkbox-k5"> \
+              <label for="checkbox-k6">Musicals & Shows</label> \
+              <input type="checkbox" name="checkbox-k6" id="checkbox-k6"> \
             </div> \
           </fieldset> \
         </div> \
@@ -224,9 +237,9 @@
             success: function (data) {
               var html = '';
               $(data.reisen).each(function(r, reise){
-                var monat = $.datepicker.formatDate("MM", new Date(reise.reisetermine__datum_beginn))
+                var monat = $.datepicker.formatDate("MM yy", new Date(reise.reisetermine__datum_beginn))
                 if (r<1) { html += "<hr><div id=\"monat\">"+monat+"</div>"; }
-                else if (monat != $.datepicker.formatDate("MM", new Date(data.reisen[r-1].reisetermine__datum_beginn))) { html += "<hr><div id=\"monat\">"+monat+"</div>"; }
+                else if (monat != $.datepicker.formatDate("MM yy", new Date(data.reisen[r-1].reisetermine__datum_beginn))) { html += "<hr><div id=\"monat\">"+monat+"</div>"; }
                 html += "<hr><div id=\"reisetitel\">"+reise.titel+"</div>";
                 html += "<div id=\"reisetyp\">"+reise.reisetyp+"</div>";
                 var preis = new Number(reise.reisepreise__preis);
@@ -286,9 +299,9 @@
         success: function (data) {
           var html = '';
           $(data.reisen).each(function(r, reise){
-            var monat = $.datepicker.formatDate("MM", new Date(reise.reisetermine__datum_beginn))
+            var monat = $.datepicker.formatDate("MM yy", new Date(reise.reisetermine__datum_beginn))
             if (r<1) { html += "<hr><div id=\"monat\">"+monat+"</div>"; }
-            else if (monat != $.datepicker.formatDate("MM", new Date(data.reisen[r-1].reisetermine__datum_beginn))) { html += "<hr><div id=\"monat\">"+monat+"</div>"; }
+            else if (monat != $.datepicker.formatDate("MM yy", new Date(data.reisen[r-1].reisetermine__datum_beginn))) { html += "<hr><div id=\"monat\">"+monat+"</div>"; }
             html += "<hr><div id=\"reisetitel\">"+reise.titel+"</div>";
             html += "<div id=\"reisetyp\">"+reise.reisetyp+"</div>";
             var preis = new Number(reise.reisepreise__preis);
@@ -340,13 +353,14 @@
         },
         //dataType: 'json',
         success: function (data) {
-          html += filterHTML();
+          //html += filterHTML();
+          html += filterHTMLstatisch();
           html += '<div id="ab"></div>';
           html += '<div id="gefiltertereisen">';
           $(data.reisen).each(function(r, reise){
-            var monat = $.datepicker.formatDate("MM", new Date(reise.reisetermine__datum_beginn))
+            var monat = $.datepicker.formatDate("MM yy", new Date(reise.reisetermine__datum_beginn))
             if (r<1) { html += "<hr><div id=\"monat\">"+monat+"</div>"; }
-            else if (monat != $.datepicker.formatDate("MM", new Date(data.reisen[r-1].reisetermine__datum_beginn))) { html += "<hr><div id=\"monat\">"+monat+"</div>"; }
+            else if (monat != $.datepicker.formatDate("MM yy", new Date(data.reisen[r-1].reisetermine__datum_beginn))) { html += "<hr><div id=\"monat\">"+monat+"</div>"; }
             html += "<hr><div id=\"reisetitel\">"+reise.titel+"</div>";
             html += "<div id=\"reisetyp\">"+reise.reisetyp+"</div>";
             var preis = new Number(reise.reisepreise__preis);
@@ -389,14 +403,21 @@
         },
         //dataType: 'json',
         success: function (data) {
-          html += filterHTML();
+          //html += filterHTML();
+          html += filterHTMLstatisch();
           html += '<div id="ab"></div>';
           html += '<div id="gefiltertereisen">';
+          $(data.countReiseziel).each(function(rz, reiseziel){
+            html += reiseziel.zielregion_id__name + ': ' + reiseziel.total + '</br>';
+          });
+          $(data.countReisekategorie).each(function(rk, reisekategorie){
+            html += reisekategorie.kategorie_id__kategorie + ': ' + reisekategorie.total + '</br>';
+          });
           $(data.reisen).each(function(r, reise){
-            var monat = $.datepicker.formatDate("MM", new Date(reise.reisetermine__datum_beginn))
+            var monat = $.datepicker.formatDate("MM yy", new Date(reise.reisetermine__datum_beginn))
             if (r<1) { html += "<hr><div id=\"monat\">"+monat+"</div>"; }
-            else if (monat != $.datepicker.formatDate("MM", new Date(data.reisen[r-1].reisetermine__datum_beginn))) { html += "<hr><div id=\"monat\">"+monat+"</div>"; }
-            html += "<hr><div id=\"reisetitel\">"+reise.titel+"</div>";
+            else if (monat != $.datepicker.formatDate("MM yy", new Date(data.reisen[r-1].reisetermine__datum_beginn))) { html += "<hr><div id=\"monat\">"+monat+"</div>"; }
+            html += "<hr><div id=\"reisetitel\"><a id=\"reisedetails\" href=\"{% url 'reisedetails' %}?reiseID=" + reise.reiseID + "\">" + reise.reiseID + reise.titel + "</a></div>";
             html += "<div id=\"reisetyp\">"+reise.reisetyp+"</div>";
             var preis = new Number(reise.reisepreise__preis);
             html += '<div id="reisepreis">' + preis.format(0, 3, '.', ',') + ' €</div>';
@@ -418,18 +439,80 @@
 
     /* tagesfahrten */
     $('#tagesfahrten').click(function(e){
+      var html = "";
+      var preis = 0;
       console.log($(this).attr("id"));
       e.preventDefault();
-      $.get($(this).attr("href"), function(data){
-        $('#inhalt').html(data);
+      $.ajax({
+        type: 'POST',
+        url: $(this).attr("href"),
+        success: function (data) {
+          html += '<div id="reisetermin">' + data.tagesfahrten.length + ' Tagesfahrten ab ' + $.datepicker.formatDate("D., dd.mm.yy", new Date()) + '</div>';
+          $(data.tagesfahrten).each(function(t, tagesfahrt){
+            if (tagesfahrt.monat != 0) { html += '<div id="reisetitel"><hr><b>' + $.datepicker.formatDate("MM", new Date(tagesfahrt.datum_beginn)) + '</b><hr></br></div>'; }
+            html += '<div id="reisetermin">' + $.datepicker.formatDate("D., dd.mm.yy", new Date(tagesfahrt.datum_beginn)) + '</div>';
+            html += '<div id="reisetitel">' + tagesfahrt.titel + '</div>';
+            html += '<div id="reisetitel">' + tagesfahrt.untertitel + '</div>';
+            html += '<div id="reisetitel">' + tagesfahrt.einleitung + '</div>';
+            $(tagesfahrt.hinweise).each(function(h, hinweis){
+              html += '<div id="reisetitel"><i>' + hinweis.hinweis + '</i></div>';
+            });
+            if (tagesfahrt.veranstalter=='SH') { html += '<div id="reisetitel">Veranstalter: Sewert Reisen</div>'; }
+            else if (tagesfahrt.veranstalter!='') { html += '<div id="reisetitel">Veranstalter: ' + tagesfahrt.veranstalter + '</div>'; }
+            $(tagesfahrt.abfahrtszeiten).each(function(a, abfahrt){
+              if (abfahrt.ort == 'ANK') { html += '<div id="abfahrtszeiten">Ankunft: ' + abfahrt.zeit.substring(0,5) + ' Uhr</div>'; }
+              else if (abfahrt.ort == 'GAR') { html += '<div id="abfahrtszeiten">Gartenstadt: ' + abfahrt.zeit.substring(0,5) + ' Uhr</div>'; }
+              else if (abfahrt.ort == 'WIS') { html += '<div id="abfahrtszeiten">ZOB Wismar: ' + abfahrt.zeit.substring(0,5) + ' Uhr</div>'; }
+              else if (abfahrt.ort == 'HBF') { html += '<div id="abfahrtszeiten">Hbf Schwerin: ' + abfahrt.zeit.substring(0,5) + ' Uhr</div>'; }
+              else if (abfahrt.ort == 'VSB') { html += '<div id="abfahrtszeiten">HAST v. Stauffenberg Str.: ' + abfahrt.zeit.substring(0,5) + ' Uhr</div>'; }
+            });
+            $(tagesfahrt.preise).each(function(p, reisepreis){
+              var preis = new Number(reisepreis.preis);
+              html += '<div id="reisepreis">' + reisepreis.preistitel + ': ' + preis.format(0, 3, '.', ',') + ' €</div>';
+            });
+            html += '<div id="reisetitel"></br></div>';
+          });
+          $('#inhalt').html(html);
+        }
       });
     });
 
     $('body').on('click' , '#tagesfahrtenstart', function(e) {
+      var html = "";
+      var preis = 0;
       console.log($(this).attr("id"));
       e.preventDefault();
-      $.get($(this).attr("href"), function(data){
-        $('#inhalt').html(data);
+      $.ajax({
+        type: 'POST',
+        url: $(this).attr("href"),
+        success: function (data) {
+          html += '<div id="reisetermin">' + data.tagesfahrten.length + ' Tagesfahrten ab ' + $.datepicker.formatDate("D., dd.mm.yy", new Date()) + '</div>';
+          $(data.tagesfahrten).each(function(t, tagesfahrt){
+            if (tagesfahrt.monat != 0) { html += '<div id="reisetitel"><hr><b>' + $.datepicker.formatDate("MM", new Date(tagesfahrt.datum_beginn)) + '</b><hr></br></div>'; }
+            html += '<div id="reisetermin">' + $.datepicker.formatDate("D., dd.mm.yy", new Date(tagesfahrt.datum_beginn)) + '</div>';
+            html += '<div id="reisetitel">' + tagesfahrt.titel + '</div>';
+            html += '<div id="reisetitel">' + tagesfahrt.untertitel + '</div>';
+            html += '<div id="reisetitel">' + tagesfahrt.einleitung + '</div>';
+            $(tagesfahrt.hinweise).each(function(h, hinweis){
+              html += '<div id="reisetitel"><i>' + hinweis.hinweis + '</i></div>';
+            });
+            if (tagesfahrt.veranstalter=='SH') { html += '<div id="reisetitel">Veranstalter: Sewert Reisen</div>'; }
+            else if (tagesfahrt.veranstalter!='') { html += '<div id="reisetitel">Veranstalter: ' + tagesfahrt.veranstalter + '</div>'; }
+            $(tagesfahrt.abfahrtszeiten).each(function(a, abfahrt){
+              if (abfahrt.ort == 'ANK') { html += '<div id="abfahrtszeiten">Ankunft: ' + abfahrt.zeit.substring(0,5) + ' Uhr</div>'; }
+              else if (abfahrt.ort == 'GAR') { html += '<div id="abfahrtszeiten">Gartenstadt: ' + abfahrt.zeit.substring(0,5) + ' Uhr</div>'; }
+              else if (abfahrt.ort == 'WIS') { html += '<div id="abfahrtszeiten">ZOB Wismar: ' + abfahrt.zeit.substring(0,5) + ' Uhr</div>'; }
+              else if (abfahrt.ort == 'HBF') { html += '<div id="abfahrtszeiten">Hbf Schwerin: ' + abfahrt.zeit.substring(0,5) + ' Uhr</div>'; }
+              else if (abfahrt.ort == 'VSB') { html += '<div id="abfahrtszeiten">HAST v. Stauffenberg Str.: ' + abfahrt.zeit.substring(0,5) + ' Uhr</div>'; }
+            });
+            $(tagesfahrt.preise).each(function(p, reisepreis){
+              var preis = new Number(reisepreis.preis);
+              html += '<div id="reisepreis">' + reisepreis.preistitel + ': ' + preis.format(0, 3, '.', ',') + ' €</div>';
+            });
+            html += '<div id="reisetitel"></br></div>';
+          });
+          $('#inhalt').html(html);
+        }
       });
     });
 
@@ -499,6 +582,39 @@
       e.preventDefault();
       $.get($(this).attr("href"), function(data){
         $('#inhalt').html(data);
+      });
+    });
+
+    /* REISEDETAILS */
+    $('#reisedetails').click(function(e){
+      var html = "";
+      var preis = 0;
+      console.log($(this).attr("id"));
+      e.preventDefault();
+      $.ajax({
+        type: 'POST',
+        url: $(this).attr("href"),
+        success: function (data) {
+          html += '<div id="reisetitel">' + data.reisetitel + '</div>';
+          html += '<div id="reisetitel">' + data.reiseuntertitel + '</div>';
+          $('#inhalt').html(html);
+        }
+      });
+    });
+
+    $('body').on('click' , '#reisedetails', function(e) {
+      var html = "";
+      var preis = 0;
+      console.log($(this).attr("id"));
+      e.preventDefault();
+      $.ajax({
+        type: 'POST',
+        url: $(this).attr("href"),
+        success: function (data) {
+          html += '<div id="reisetitel">' + data.reisetitel + '</div>';
+          html += '<div id="reisetitel">' + data.reiseuntertitel + '</div>';
+          $('#inhalt').html(html);
+        }
       });
     });
 

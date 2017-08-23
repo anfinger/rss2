@@ -1,0 +1,305 @@
+﻿{% load static %}{% load eigene_tags %}<?xml version="1.0" encoding="UTF-8"?>
+<rb24 xmlns="http://www.reisebus24.de/export" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.reisebus24.de/export rb24.xsd">
+  <reisen>
+  {% for reise in reisen %}{% if reise.reisedaten.veranstalter == 'RS' and reise.reisedaten.zubucher == '' %}
+  <reise action="add" aenderung="{{ reise.reisedaten.zuletzt_bearbeitet|date:'Y-m-d H:i:s' }}" code="{{ reise.reisedaten.reiseID|ohneminus }}">
+    <titel><![CDATA[{{ reise.reisedaten.titel }}]]></titel>
+    <untertitel><![CDATA[{% if reise.reisedaten.untertitel %}{{ reise.reisedaten.untertitel }}<br/>{% endif %}{{ reise.reisedaten.reisetyp }}<br/>{% if reise.reisedaten.individualreisetext or reise.reisedaten.individualreisetitel %}{% if reise.reisedaten.individualbuchbar %}{{ reise.reisedaten.individualbuchbar }}{% else %}Auch mit individuellem Aufenthalt buchbar.{% endif %}{% endif %}]]></untertitel>
+    {% if reise.zielregionen %}
+    <zielorte>
+      {% for zielregion in reise.zielregionen %}
+      <zielort>
+        <name><![CDATA[]]></name>
+        <land isocode=""><![CDATA[{{ zielregion.zielregion }}]]></land>
+      </zielort>
+      {% endfor %}
+    </zielorte>
+    {% endif %}
+    <einleitung><![CDATA[<p>{{ reise.reisedaten.einleitung }}</p>]]></einleitung>
+    <beschreibung><![CDATA[<p>{% if reise.reisebeschreibungen %}Reisebeschreibung:
+    {% for reisebeschreibung in reise.reisebeschreibungen %}{{ reisebeschreibung.titel }}
+    {{ reisebeschreibung.beschreibung }}{% if reisebeschreibung.zusatz %} {{ reisebeschreibung.zusatz }}{% endif %}
+    {% endfor %}
+    {% endif %}{% if reise.tage %}Reiseablauf:
+    {% for tag in reise.tage %}{% if tag.tagnummertext %}{{ tag.tagnummertext }}{% else %}{{ tag.tagnummer }}. Tag: {% endif %}{{ tag.titel }}
+    {{ tag.beschreibung }}{% if tag.zusatz %} {{ tag.zusatz }}{% endif %}
+    {% endfor %}{% endif %}{% if reise.reisedaten.individualreisetitel %}
+    {{ reise.reisedaten.individualreisetitel }}:
+    {% endif %}{% if reise.reisedaten.individualreisetext %}{{ reise.reisedaten.individualreisetext }}
+    {% endif %}{% if reise.hinweise %}
+    Hinweis{{ reise.hinweise|length|pluralize:"e" }}:
+    {% for hinweis in reise.hinweise %}{{ hinweis.hinweis }}
+    {% endfor %}{% endif %}
+    Abfahrtsstellen:
+    {% if reise.abfahrtszeiten %}Einen Taxi-Transfer zu unseren Abfahrtsorten können Sie bei uns zum Vorzugspreis zubuchen.{% else %}Wir fahren vom Hauptbahnhof und der Von-Stauffenberg-Straße in Schwerin. Die genauen Abfahrtszeiten erhalten Sie mit Ihren Reiseunterlagen. Einen Taxi-Transfer zu unseren Abfahrtsorten können Sie bei uns zum Vorzugspreis zubuchen.{% endif %}</p>]]></beschreibung>
+    <unterkunft code="">
+      <name><![CDATA[]]></name>
+      <sterne></sterne>
+    </unterkunft>
+    {% if reise.leistungen %}
+    <leistungen>
+      <![CDATA[{% for leistung in reise.leistungen %}- {{ leistung }}
+        {% endfor %}{% if reise.leistungennichtindividual %}*Folgende Leistungen entfallen bei individuellem Aufenthalt:
+        {% for leistung in reise.leistungennichtindividual %}* {{ leistung }}
+        {% endfor %}{% endif %}{% if reise.zusatzleistungen %}{% for zl in reise.zusatzleistungen %}{% if zl.apleistungen %}Leistungen {{ zl.zltitel }}{% if zl.zlpreise %} (Preis: {% for zlpreis in zl.zlpreise %}{{ zlpreis.zlpreis }} €{% endfor %}){% endif %}:
+        {% if zl.zlkommentar %}({{ zl.zlkommentar }})
+        {% endif %}{% for apleistung in zl.apleistungen %}+ {{ apleistung.apleistung }}
+        {% endfor %}{% endif %}{% endfor %}{% endif %}]]>
+    </leistungen>
+    {% endif %}
+    <reisebilder>
+      <reisebild>
+        <url><![CDATA[]]></url>
+        <copyright><![CDATA[]]></copyright>
+      </reisebild>
+    </reisebilder>
+    {% if reise.kategorien %}
+    <kategorien>
+      {% for kategorie in reise.kategorien %}<kategorie><![CDATA[{{ kategorie.kategorie }}]]></kategorie>
+      {% endfor %}
+    </kategorien>
+    {% endif %}
+    {% if reise.termine %}
+    <termine>
+      {% for termin in reise.termine %}
+      <termin>
+        <von>{{ termin.beginn|date:'Y-m-d' }}</von>
+        <bis>{% if termin.ende %}{{ termin.ende|date:'Y-m-d' }}{% endif %}</bis>
+        {% if reise.abfahrtszeiten %}
+        <abfahrtsorte>
+          {% for abfahrt in reise.abfahrtszeiten %}{% if abfahrt.ort != 'ANK' %}
+          <abfahrtsort>
+            <plz>{% if abfahrt.ort == 'HBF' %}19053{% elif abfahrt.ort == 'VSB' %}19061{% else %}{% endif %}</plz>
+            <beschreibung><![CDATA[{% if abfahrt.ort == 'HBF' %}Schwerin Hauptbahnhof{% elif abfahrt.ort == 'VSB' %}Schwerin, von-Stauffenberg-Straße{% else %}{{ abfahrt.ort }}{% endif %}]]></beschreibung>
+            <abzeit>{{ abfahrt.zeit|date:'H:i' }}</abzeit>
+            <aufpreis>0.00</aufpreis>
+          </abfahrtsort> {% endif %}
+          {% endfor %}
+        </abfahrtsorte>
+        {% endif %}{% if reise.preise %}
+        <preise>
+          {% for preis in reise.preise %}{% if preis.markierung == termin.markierung %}
+          <preis>
+            <name><![CDATA[{{ preis.preistitel }}{% if preis.preistitel == 'Preis p.P.' or  preis.preistitel == 'Individualpreis p.P.' %} im DZ{% endif %}{% if preis.kommentar == 'ab' %} ab{% elif preis.kommentar %} ({{ preis.kommentar }}){% endif %}]]></name>
+            <min_belegung>{% if preis.preistitel == 'Preis p.P.' or  preis.preistitel == 'Individualpreis p.P.' %}2{% else %}1{% endif %}</min_belegung>
+            <betrag>{{ preis.preis|floatformat:2 }}</betrag>
+            <fbrabattdatum></fbrabattdatum>
+            <fbrabattbetrag></fbrabattbetrag>
+          </preis>
+          {% for zpreis in preis.zpreise %}
+          <preis>
+            <name><![CDATA[{% if zpreis.zpreistitel == 'EZ-Zuschlag' %}{{ preis.preistitel }} im EZ{% if preis.kommentar == 'ab' %} ab{% elif preis.kommentar %} ({{ preis.kommentar }}){% endif %}{% else %}{{ zpreis.zpreistitel }}{% endif %}]]></name>
+            <min_belegung>{% if zpreis.zpreistitel == 'EZ-Zuschlag' %}1{% else %}2{% endif %}</min_belegung>
+            <betrag>{% if zpreis.zpreistitel == 'EZ-Zuschlag' %}{{ zpreis.zpreis|add:preis.preis|floatformat:2 }}{% else %}{{ zpreis.zpreis|floatformat:2 }}{% endif %}</betrag>
+            <fbrabattdatum></fbrabattdatum>
+            <fbrabattbetrag></fbrabattbetrag>
+          </preis>
+          {% endfor %}{% endif %}
+          {% endfor %}
+        </preise>
+        {% endif %}
+        {% if reise.zusatzleistungen %}
+        <zusatzoptionen>
+          {% for zl in reise.zusatzleistungen %}
+          <zusatzoption>
+            <name><![CDATA[{{ zl.zltitel }}{% if zl.kommentar %} ({{ zl.kommentar }}){% endif %}{% if zl.aptage %}{% for aptag in zl.aptage %} ({{ aptag.aptag }}){% endfor %}{% endif %}]]></name>
+            <betrag>{% for zlpreis in zl.zlpreise %}{{ zlpreis.zlpreis }}{% endfor %}</betrag>
+            <prozent />
+          </zusatzoption>
+          {% endfor %}
+        </zusatzoptionen>
+        {% endif %}
+      </termin>
+      {% endfor %}
+    </termine>
+    {% endif %}
+  </reise>
+  {% endif %}{% endfor %}
+  <reise action="update" aenderung="2016-01-01 12:23:34" code="2016/38">
+    <titel><![CDATA[Urlaubsreise - Südfrankreich]]></titel>
+    <untertitel />
+    <zielorte>
+    <zielort>
+        <name><![CDATA[Roussillon]]></name>
+        <land isocode="fr"><![CDATA[Frankreich]]></land>
+      </zielort>
+      <zielort>
+        <name><![CDATA[Paris]]></name>
+        <land isocode="fr"><![CDATA[Frankreich]]></land>
+      </zielort>
+    </zielorte>
+    <einleitung><![CDATA[<p>Vias-Plage<br>Das Örtchen Vias besteht aus dem alten Ort mit seinen historischen Monumenten und dem direkt an der Küste gelegenen Ortsteil....</p>]]></einleitung>
+    <beschreibung><![CDATA[<p>Vias-Plage<br>Das Örtchen Vias besteht aus dem alten Ort mit seinen historischen Monumenten und dem direkt an der Küste gelegenen Ortsteil Vias-Plage. Kilometerlange breite Sandstrände und eine unberührte Natur im Hinterland ziehen die Touristen an. Nur wenige Kilometer entfernt liegt Agde, eines der bekanntesten Touristenzentren der Region mit zahlreichen Unterhaltungsmöglichkeiten und einem großen Yachthafen. Kulturinteressierte kommen im nahegelegenen Béziers, in Narbonne oder in der historischen Festungsstadt Carcassonne auf ihre Kosten. &nbsp;<br><br><strong>Camping Village Club Le Domaine de la Dragonnière*****</strong> <br><strong>Lage:</strong> Die weitläufige Anlage liegt ca. 5 km vom Ortskern und ca. 6 km vom Sandstrand entfernt; zum Strand verkehrt ein regelmäßiger kostenloser Shuttlebus.<br><strong>Ausstattung:</strong> Die erstklassige Campinganlage bietet ihren Gästen eine 1.700 m² große beheizbare Poollandschaft mit 9 Pools, Hallenbad, Wasserrutsche, Wasserspielen und Kinderbecken. Außerdem gibt es eine Rezeption mit deutschsprechendem Personal, ein Restaurant, eine Pizzeria, ein Pool-Snackrestaurant, eine Bar, ein Eiscafé, einen Minimarkt und eine Bäckerei, eine Diskothek, einen Friseur und W-LAN. Ein kleiner Zug verkehrt in der Hochsaison innerhalb der Anlage. Viele sportliche Angebote wie Aquabikes, Fitnessraum, Tischtennis, Volleyball und Boule; gegen Gebühr Whirlpool, Sauna, Spa, Fahrradvermietung, Billard, Tischfußball. Mini-Club und Spielplatz. Tägliche sportliche Animation und Abendunterhaltung werden geboten. <br><strong>Zimmer:</strong> 850 modern eingerichtete Wohneinheiten, ausgestattet mit Bad oder Dusche/WC, Essecke, Kitchenette und möblierter Terrasse. Die Größe der Unterkünfte kann je nach Personenzahl variieren. Bettwäsche, Handtücher und Endreinigung nicht inklusive (Preise vgl. Preistabelle). W-LAN in der Unterkunft gegen Aufpreis.<br><strong>Verpflegung:</strong> Ohne Verpflegung (SV). Halbpension (Frühstücksbuffet und Abendbuffet in der Hauptsaison bzw. Abendmenü in der Nebensaison) gegen Aufpreis.<br><strong>Ferienhäuschen für 5-8 Personen auf Anfrage.</strong><br>Vor Ort ist eine <strong>Kaution</strong> in Höhe von € 300,- zu hinterlegen.<br><br></p>]]></beschreibung>
+    <unterkunft>
+      <name><![CDATA[ Camping Village Domaine de la Dragonnière]]></name>
+      <sterne>4</sterne>
+    </unterkunft>
+    <leistungen>
+      <![CDATA[•    Fahrt im modernen Fernreisebus inkl. aller Nebenkosten 
+               •    Anschlusstransfer direkt zum/ab Hotel/Ferienwohnung
+               •    7 Übernachtungen im gebuchten Hotel/in der Ferienwohnung
+               •    Verpflegungsleistung wie beschrieben
+               •    Verlängerungswoche(n) buchbar
+               •    Durchführungsgarantie
+      ]]>
+    </leistungen>
+    <reisebilder>
+      <reisebild>
+        <url><![CDATA[http://demoreisen.demo/test.jpg]]></url>
+        <copyright><![CDATA[Fotograf XYZ]]></copyright>
+      </reisebild>
+      <reisebild>
+        <url><![CDATA[http://demoreisen.demo/test2.jpg]]></url>
+        <copyright><![CDATA[Fotograf XYZ]]></copyright>
+      </reisebild>
+    </reisebilder>
+    <kategorien>
+      <kategorie><![CDATA[Sonne, Strand & Meer]]></kategorie>
+      <kategorie><![CDATA[Urlaubsreise]]></kategorie>
+    </kategorien>
+    <termine>
+      <termin>
+        <von>2016-04-15</von>
+        <bis>2016-04-24</bis>
+        <abfahrtsorte>
+          <abfahrtsort>
+            <plz>12345</plz>
+            <beschreibung><![CDATA[Freiburg Bissierstraße Park & Ride Platz]]></beschreibung>
+            <abzeit>05:45</abzeit>
+            <aufpreis>0.00</aufpreis>
+          </abfahrtsort>
+          <abfahrtsort>
+ 	    <plz>12345</plz>
+            <beschreibung><![CDATA[Freiburg, Konzerthaus]]></beschreibung>
+            <abzeit>05:30</abzeit>
+            <aufpreis>0.00</aufpreis>
+          </abfahrtsort>
+          <abfahrtsort>
+ <plz>12345</plz>
+            <beschreibung><![CDATA[Alter Zoll Neuenburg   Autobahnausfahrt Müllheim/Neuenburg]]></beschreibung>
+            <abzeit>06:08</abzeit>
+            <aufpreis>0.00</aufpreis>
+          </abfahrtsort>
+        </abfahrtsorte>
+        <preise>
+          <preis>
+            <name><![CDATA[Doppelzimmer mit Mehrblick]]></name>
+            <min_belegung>2</min_belegung>
+            <betrag>320.00</betrag>
+            <fbrabattdatum>2016-01-28</fbrabattdatum>
+            <fbrabattbetrag>299.00</fbrabattbetrag>
+          </preis>
+          <preis>
+            <name><![CDATA[Einzelzimmer mit Mehrblick]]></name>
+            <min_belegung>1</min_belegung>
+            <betrag>420.00</betrag>
+            <fbrabattdatum>2016-01-28</fbrabattdatum>
+            <fbrabattbetrag>399.00</fbrabattbetrag>
+          </preis>
+        </preise>
+        <zusatzoptionen>
+          <zusatzoption>
+            <name><![CDATA[ Ausflug ]]></name>
+            <betrag>190.00</betrag>
+            <prozent />
+          </zusatzoption>
+        </zusatzoptionen>
+      </termin>
+    </termine>
+  </reise>
+   <reise action="delete" aenderung="2016-01-01 12:23:34" code="2016/39">
+    <titel><![CDATA[Urlaubsreise - Südfrankreich]]></titel>
+    <untertitel />
+    <zielorte>
+    <zielort>
+        <name><![CDATA[Roussillon]]></name>
+        <land isocode="fr"><![CDATA[Frankreich]]></land>
+      </zielort>
+      <zielort>
+        <name><![CDATA[Paris]]></name>
+        <land isocode="fr"><![CDATA[Frankreich]]></land>
+      </zielort>
+    </zielorte>
+    <einleitung><![CDATA[<p>Vias-Plage<br>Das Örtchen Vias besteht aus dem alten Ort mit seinen historischen Monumenten und dem direkt an der Küste gelegenen Ortsteil....</p>]]></einleitung>
+    <beschreibung><![CDATA[<p>Vias-Plage<br>Das Örtchen Vias besteht aus dem alten Ort mit seinen historischen Monumenten und dem direkt an der Küste gelegenen Ortsteil Vias-Plage. Kilometerlange breite Sandstrände und eine unberührte Natur im Hinterland ziehen die Touristen an. Nur wenige Kilometer entfernt liegt Agde, eines der bekanntesten Touristenzentren der Region mit zahlreichen Unterhaltungsmöglichkeiten und einem großen Yachthafen. Kulturinteressierte kommen im nahegelegenen Béziers, in Narbonne oder in der historischen Festungsstadt Carcassonne auf ihre Kosten. &nbsp;<br><br><strong>Camping Village Club Le Domaine de la Dragonnière*****</strong> <br><strong>Lage:</strong> Die weitläufige Anlage liegt ca. 5 km vom Ortskern und ca. 6 km vom Sandstrand entfernt; zum Strand verkehrt ein regelmäßiger kostenloser Shuttlebus.<br><strong>Ausstattung:</strong> Die erstklassige Campinganlage bietet ihren Gästen eine 1.700 m² große beheizbare Poollandschaft mit 9 Pools, Hallenbad, Wasserrutsche, Wasserspielen und Kinderbecken. Außerdem gibt es eine Rezeption mit deutschsprechendem Personal, ein Restaurant, eine Pizzeria, ein Pool-Snackrestaurant, eine Bar, ein Eiscafé, einen Minimarkt und eine Bäckerei, eine Diskothek, einen Friseur und W-LAN. Ein kleiner Zug verkehrt in der Hochsaison innerhalb der Anlage. Viele sportliche Angebote wie Aquabikes, Fitnessraum, Tischtennis, Volleyball und Boule; gegen Gebühr Whirlpool, Sauna, Spa, Fahrradvermietung, Billard, Tischfußball. Mini-Club und Spielplatz. Tägliche sportliche Animation und Abendunterhaltung werden geboten. <br><strong>Zimmer:</strong> 850 modern eingerichtete Wohneinheiten, ausgestattet mit Bad oder Dusche/WC, Essecke, Kitchenette und möblierter Terrasse. Die Größe der Unterkünfte kann je nach Personenzahl variieren. Bettwäsche, Handtücher und Endreinigung nicht inklusive (Preise vgl. Preistabelle). W-LAN in der Unterkunft gegen Aufpreis.<br><strong>Verpflegung:</strong> Ohne Verpflegung (SV). Halbpension (Frühstücksbuffet und Abendbuffet in der Hauptsaison bzw. Abendmenü in der Nebensaison) gegen Aufpreis.<br><strong>Ferienhäuschen für 5-8 Personen auf Anfrage.</strong><br>Vor Ort ist eine <strong>Kaution</strong> in Höhe von € 300,- zu hinterlegen.<br><br></p>]]></beschreibung>
+    <unterkunft>
+      <name><![CDATA[ Camping Village Domaine de la Dragonnière]]></name>
+      <sterne>4</sterne>
+    </unterkunft>
+    <leistungen>
+      <![CDATA[•    Fahrt im modernen Fernreisebus inkl. aller Nebenkosten 
+               •    Anschlusstransfer direkt zum/ab Hotel/Ferienwohnung
+               •    7 Übernachtungen im gebuchten Hotel/in der Ferienwohnung
+               •    Verpflegungsleistung wie beschrieben
+               •    Verlängerungswoche(n) buchbar
+               •    Durchführungsgarantie
+      ]]>
+    </leistungen>
+    <reisebilder>
+      <reisebild>
+        <url><![CDATA[http://demoreisen.demo/test.jpg]]></url>
+        <copyright><![CDATA[Fotograf XYZ]]></copyright>
+      </reisebild>
+      <reisebild>
+        <url><![CDATA[http://demoreisen.demo/test2.jpg]]></url>
+        <copyright><![CDATA[Fotograf XYZ]]></copyright>
+      </reisebild>
+    </reisebilder>
+    <kategorien>
+      <kategorie><![CDATA[Sonne, Strand & Meer]]></kategorie>
+      <kategorie><![CDATA[Urlaubsreise]]></kategorie>
+    </kategorien>
+    <termine>
+      <termin>
+        <von>2016-04-15</von>
+        <bis>2016-04-24</bis>
+        <sichtbar_von>2016-04-15</sichtbar_von>
+        <sichtbar_bis>2016-04-15</sichtbar_bis>
+               <abfahrtsorte>
+          <abfahrtsort>
+            <plz>12345</plz>
+            <beschreibung><![CDATA[Freiburg Bissierstraße Park & Ride Platz]]></beschreibung>
+            <abzeit>05:45</abzeit>
+            <aufpreis>0.00</aufpreis>
+          </abfahrtsort>
+          <abfahrtsort>
+ 	    <plz>12345</plz>
+            <beschreibung><![CDATA[Freiburg, Konzerthaus]]></beschreibung>
+            <abzeit>05:30</abzeit>
+            <aufpreis>0.00</aufpreis>
+          </abfahrtsort>
+          <abfahrtsort>
+ <plz>12345</plz>
+            <beschreibung><![CDATA[Alter Zoll Neuenburg   Autobahnausfahrt Müllheim/Neuenburg]]></beschreibung>
+            <abzeit>06:08</abzeit>
+            <aufpreis>0.00</aufpreis>
+          </abfahrtsort>
+        </abfahrtsorte>
+        <preise>
+          <preis>
+            <name><![CDATA[Doppelzimmer mit Mehrblick]]></name>
+            <min_belegung>2</min_belegung>
+            <betrag>320.00</betrag>
+            <fbrabattdatum>2016-01-28</fbrabattdatum>
+            <fbrabattbetrag>299.00</fbrabattbetrag>
+          </preis>
+          <preis>
+            <name><![CDATA[Einzelzimmer mit Mehrblick]]></name>
+            <min_belegung>1</min_belegung>
+            <betrag>420.00</betrag>
+            <fbrabattdatum>2016-01-28</fbrabattdatum>
+            <fbrabattbetrag>399.00</fbrabattbetrag>
+          </preis>
+        </preise>
+        <zusatzoptionen>
+          <zusatzoption>
+            <name><![CDATA[ Ausflug ]]></name>
+            <betrag>190.00</betrag>
+            <prozent />
+          </zusatzoption>
+        </zusatzoptionen>
+      </termin>
+    </termine>
+  </reise>
+    </reisen>
+</rb24>
