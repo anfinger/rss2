@@ -1,567 +1,444 @@
-{% load static %}
+{% load staticfiles %}
+
 
 <!DOCTYPE html>
+<html class="nojs html css_verticalspacer" lang="de-DE">
+ <head>
 
-<html class="nojs html" lang="de-DE">
+  <meta http-equiv="Content-type" content="text/html;charset=UTF-8"/>
+  <meta name="generator" content="2018.1.0.386"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  
+  <script type="text/javascript">
+   // Update the 'nojs'/'js' class on the html node
+document.documentElement.className = document.documentElement.className.replace(/\bnojs\b/g, 'js');
 
-  <!-- BC_OBNW -->
-  <head>
-
-    <title>{% block title %}Start{% endblock %}</title>
-
-    <script type="text/javascript">
-      if(typeof Muse == "undefined") window.Muse = {};
-      window.Muse.assets = {
-        "required":[
-          "jquery-1.8.3.min.js",
-          "museutils.js",
-          "jquery.musemenu.js",
-          "webpro.js",
-          "musewpslideshow.js",
-          "jquery.museoverlay.js",
-          "touchswipe.js",
-          "jquery.watch.js",
-          "musewpdisclosure.js",
-          "jquery.museresponsive.js",
-          "kontakt---anfahrt.css",
-          "index.css",
-        ],
-      "outOfDate":[]
-    };
-    </script>
-
-    <meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
-    <meta name="image-hide-from-external-url" content="true" />
-    <meta name="image-hide-location" content="true" />
-    <meta name="generator" content="2015.1.2.344" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <!-- CSS -->
-    <link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}" id="pagesheet" />
-    <link rel="stylesheet" type="text/css" href="{% static 'css/site_global.css' %}" />
-    <link rel="stylesheet" type="text/css" href="{% static 'css/master_a-musters.css' %}" />
-    <link rel="stylesheet" type="text/css" href="{% static 'css/kontakt---anfahrt.css' %}" id="pagesheet"/>
-    {% block stylesheet %}{% endblock %}
-
-
-    <!-- IE-only CSS -->
-    <!--[if lt IE 9]>
-      <link rel="stylesheet" type="text/css" href="/css/nomq_preview_master_a-musters.css"/>
-      <link rel="stylesheet" type="text/css" href="/css/nomq_kontakt---anfahrt.css" id="nomq_pagesheet"/>
-    <![endif]-->
-
-    <!-- Other scripts -->
-    <script type="text/javascript">
-      document.documentElement.className = document.documentElement.className.replace(/\bnojs\b/g, 'js');
-    </script>
-
-    <!-- JS includes -->
-    <!--[if lt IE 9]>
-      <script src="/scripts/html5shiv.js" type="text/javascript"></script>
-    <![endif]-->
-
-  </head>
-
-  <body>
-
-    <header>
-
-      <div class="breakpoint active" id="bp_infinity" data-min-width="641"><!-- responsive breakpoint node -->
-        <div class="clearfix borderbox" id="page"><!-- group -->
-          <div class="clearfix grpelem" id="pu753"><!-- group -->
-            <div class="browser_width shared_content" id="u753-bw" data-content-guid="u753-bw_content">
-              <div id="u753"><!-- simple frame -->
-              </div>
-            </div>
-            <div class="browser_width" id="u1315-bw">
-            <div id="u1315"><!-- simple frame -->
-          </div>
-        </div>
-        <!-- m_editable region-id="editable-static-tag-U754-BP_infinity" template="kontakt---anfahrt.html" data-type="image" data-ice-options="clickable" data-ice-editable="link" -->
-        <a class="nonblock nontext clip_frame" id="u754" href="index.html" data-href="page:U93" data-muse-uid="U754" data-muse-type="img_frame"><!-- image -->
-          <img class="block temp_no_img_src" id="u754_img" data-orig-src="/static/images/logo_google_blau.png" alt="" width="208" height="60" data-muse-src="/static/images/logo_google_blau.png" src="{% static 'images/blank.gif' %}" />
-        </a>
-        <!-- /m_editable -->
-        <nav class="MenuBar clearfix" id="menuu1871"><!-- horizontal box -->
-          <div class="MenuItemContainer clearfix grpelem" id="u1900"><!-- vertical box -->
-            <a class="nonblock nontext MenuItem MenuItemWithSubMenu clearfix colelem" id="u1901" href="urlaubsfahrten.html" data-href="page:U153"><!-- horizontal box -->
-              <div class="MenuItemLabel NoWrap clearfix grpelem" id="u1904-4"><!-- content -->
-                <p>Urlaubsfahrten</p>
-              </div>
-            </a>
-            <div class="SubMenu MenuLevel1 clearfix" id="u1905"><!-- vertical box -->
-              <ul class="SubMenuView clearfix colelem" id="u1906"><!-- vertical box -->
-                <li class="MenuItemContainer clearfix colelem" id="u1914"><!-- horizontal box -->
-                  <a class="nonblock nontext MenuItem MenuItemWithSubMenu clearfix grpelem" id="u1915" href="busreisen.html" data-href="page:U624"><!-- horizontal box -->
-                    <div class="MenuItemLabel NoWrap clearfix grpelem" id="u1917-4"><!-- content -->
-                      <p>Busreisen</p>
-                    </div>
-                  </a>
-                </li>
-                <li class="MenuItemContainer clearfix colelem" id="u1921"><!-- horizontal box -->
-                  <a class="nonblock nontext MenuItem MenuItemWithSubMenu clearfix grpelem" id="u1922" href="flugreisen.html" data-href="page:U319"><!-- horizontal box -->
-                    <div class="MenuItemLabel NoWrap clearfix grpelem" id="u1923-4"><!-- content -->
-                      <p>Flugreisen</p>
-                    </div>
-                  </a>
-                </li>
-                <li class="MenuItemContainer clearfix colelem" id="u1907"><!-- horizontal box -->
-                  <a class="nonblock nontext MenuItem MenuItemWithSubMenu clearfix grpelem" id="u1910" href="schiffsreise.html" data-href="page:U331"><!-- horizontal box -->
-                    <div class="MenuItemLabel NoWrap clearfix grpelem" id="u1911-4"><!-- content -->
-                      <p>Schiffsreise</p>
-                    </div>
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div class="MenuItemContainer clearfix grpelem" id="u1893"><!-- vertical box -->
-            <a class="nonblock nontext MenuItem MenuItemWithSubMenu clearfix colelem" id="u1894" href="tagesfahrten.html" data-href="page:U141"><!-- horizontal box -->
-              <div class="MenuItemLabel NoWrap clearfix grpelem" id="u1896-4"><!-- content -->
-                <p>Tagesfahrten</p>
-              </div>
-            </a>
-          </div>
-          <div class="MenuItemContainer clearfix grpelem" id="u1872"><!-- vertical box -->
-            <a class="nonblock nontext MenuItem MenuItemWithSubMenu clearfix colelem" id="u1873" href="musical-spezialist.html" data-href="page:U129"><!-- horizontal box -->
-              <div class="MenuItemLabel NoWrap clearfix grpelem" id="u1876-4"><!-- content -->
-                <p>Musical Spezialist</p>
-              </div>
-            </a>
-          </div>
-          <div class="MenuItemContainer clearfix grpelem" id="u1886"><!-- vertical box -->
-            <a class="nonblock nontext MenuItem MenuItemWithSubMenu clearfix colelem" id="u1889" href="zusatzangebote.html" data-href="page:U117"><!-- horizontal box -->
-              <div class="MenuItemLabel NoWrap clearfix grpelem" id="u1891-4"><!-- content -->
-                <p>Zusatzangebote</p>
-              </div>
-            </a>
-          </div>
-          <div class="MenuItemContainer clearfix grpelem" id="u1879"><!-- vertical box -->
-            <a class="nonblock nontext MenuItem MenuItemWithSubMenu clearfix colelem" id="u1880" href="kontakt---anfahrt.html" data-href="page:U105"><!-- horizontal box -->
-              <div class="MenuItemLabel NoWrap clearfix grpelem" id="u1882-4"><!-- content -->
-                <p>Kontakt &amp; Anfahrt</p>
-              </div>
-            </a>
-          </div>
-        </nav>
-     
-        <!-- m_editable region-id="editable-static-tag-U1928-BP_infinity" template="kontakt---anfahrt.html" data-type="html" data-ice-options="disableImageResize,link" -->
-        <div class="clearfix" id="u1928-6" data-muse-uid="U1928" data-muse-type="txt_frame"><!-- content -->
-          <p id="u1928-2">Hotline:</p>
-          <p id="u1928-4">0385 - 5910 333</p>
-        </div>
-        <!-- /m_editable -->
-
-        <!-- m_editable region-id="editable-static-tag-U1929-BP_infinity" template="kontakt---anfahrt.html" data-type="html" data-ice-options="disableImageResize,link" -->
-        <div class="clearfix" id="u1929-8" data-muse-uid="U1929" data-muse-type="txt_frame"><!-- content -->
-          <p id="u1929-2">Öffnungszeiten:</p>
-          <p id="u1929-4">Montag-Freitag 9:30 - 18:00 Uhr</p>
-          <p id="u1929-6">Samstag 10:00 Uhr - 14:00 Uhr</p>
-        </div>
-        <!-- /m_editable -->
- 
-      </div>
-
-    </header>
-
-    <main>
-
-      <div id="inhalt" class="verticalspacer shared_content" data-content-guid="page_1_content">
-
-        {% block content %}
-        <div class="PamphletWidget clearfix grpelem" id="pamphletu2796"><!-- none box -->
-          <div class="ThumbGroup clearfix grpelem" id="u2801"><!-- none box -->
-
-            <div class="popup_anchor">
-              <div class="Thumb popup_element clearfix" id="u2804"><!-- group -->
-                <!-- m_editable region-id="editable-static-tag-U2924-BP_infinity" template="index.html" data-type="html" data-ice-options="disableImageResize,link,clickable" -->
-                <div class="clearfix grpelem shared_content" id="u2924-4" data-muse-uid="U2924" data-muse-type="txt_frame" data-content-guid="u2924-4_content"><!-- content -->
-                  <div id="u2924-3">
-                    <p>Urlaubsfahrten</p>
-                  </div>
-                </div>
-                <!-- /m_editable -->
-              </div>
-            </div>
-
-            <div class="popup_anchor">
-              <div class="Thumb popup_element clearfix" id="u2803"><!-- group -->
-                <!-- m_editable region-id="editable-static-tag-U2953-BP_infinity" template="index.html" data-type="html" data-ice-options="disableImageResize,link,clickable" -->
-                <div class="clearfix grpelem shared_content" id="u2953-4" data-muse-uid="U2953" data-muse-type="txt_frame" data-content-guid="u2953-4_content"><!-- content -->
-                  <div id="u2953-3">
-                    <p>Tagesfahrten</p>
-                  </div>
-                </div>
-                <!-- /m_editable -->
-              </div>
-            </div>
-
-            <div class="popup_anchor">
-              <div class="Thumb popup_element clearfix" id="u2802"><!-- group -->
-                <!-- m_editable region-id="editable-static-tag-U2956-BP_infinity" template="index.html" data-type="html" data-ice-options="disableImageResize,link,clickable" -->
-                <div class="clearfix grpelem shared_content" id="u2956-4" data-muse-uid="U2956" data-muse-type="txt_frame" data-content-guid="u2956-4_content"><!-- content -->
-                  <div id="u2956-3">
-                    <p>Musical Spezialist</p>
-                  </div>
-                </div>
-                <!-- /m_editable -->
-              </div>
-            </div>
-
-          </div>
-
-          <div class="popup_anchor" id="u2807popup">
-            <div class="ContainerGroup clearfix" id="u2807"><!-- stack box -->
-              <div class="Container clearfix grpelem" id="u2810"><!-- group -->
-                <!-- m_editable region-id="editable-static-tag-U2959-BP_infinity" template="index.html" data-type="html" data-ice-options="disableImageResize,link" -->
-                <div class="clearfix grpelem shared_content" id="u2959-6" data-muse-uid="U2959" data-muse-type="txt_frame" data-content-guid="u2959-6_content"><!-- content -->
-                  <div id="u2959-5">
-                    <p id="u2959-2">Gutes Reisen ist Vertrauenssache!</p>
-                    <p id="u2959-4">mit Flugzeug, Bus oder Bahn</p>
-                  </div>
-                </div>
-                <!-- /m_editable -->
-              </div>
-              <div class="Container invi grpelem" id="u2808"><!-- simple frame -->
-                TAGESFAHRTEN -> BILD IM CSS??
-              </div>
-              <div class="Container invi grpelem" id="u2809"><!-- simple frame -->
-                Musicals -> BILD IM CSS??
-              </div>
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-
-      {% endblock %}
-
-    </main>
-
-    <footer>
-      <div class="browser_width grpelem shared_content" id="u1210-bw" data-content-guid="u1210-bw_content">
-        <div id="u1210"><!-- group -->
-          <div class="clearfix" id="u1210_align_to_page">
-            <!-- m_editable region-id="editable-static-tag-U1245-BP_infinity" template="kontakt---anfahrt.html" data-type="html" data-ice-options="disableImageResize,link" -->
-            <div class="clearfix grpelem" id="u1245-15" data-muse-uid="U1245" data-muse-type="txt_frame"><!-- content -->
-              <p id="u1245-2">Reiseservice Schwerin GmbH</p>
-              <p id="u1245-4">Klöresgang 1, 19053 Schwerin</p>
-              <p id="u1245-5">&nbsp;</p>
-              <p id="u1245-7">E-Mail: info@reiseservice-schwerin.de</p>
-              <p id="u1245-8">&nbsp;</p>
-              <p id="u1245-10">Tel: 0385 / 5910333</p>
-              <p id="u1245-12">Fax: 0385 / 5910331</p>
-              <p id="u1245-13">&nbsp;</p>
-            </div>
-            <!-- /m_editable -->
-          </div>
-        </div>
-      </div>
-    </footer>
-
-    /*
-     ************************
-     * BREAKPOINT 321 - 640 *
-     ************************
-     */
-    <div class="breakpoint" id="bp_640" data-min-width="321" data-max-width="640"><!-- responsive breakpoint node -->
-      <div class="clearfix borderbox temp_no_id" data-orig-id="page"><!-- group -->
-        <div class="clearfix grpelem temp_no_id" data-orig-id="pu753"><!-- group -->
-          <span class="browser_width placeholder" data-placeholder-for="u753-bw_content"><!-- placeholder node -->
-          </span>
-          <!-- m_editable region-id="editable-static-tag-U754-BP_640" template="kontakt---anfahrt.html" data-type="image" data-ice-options="clickable" data-ice-editable="link" -->
-          <a class="nonblock nontext clip_frame temp_no_id shared_content" href="index.html" data-href="page:U93" data-muse-uid="U754" data-muse-type="img_frame" data-orig-id="u754" data-content-guid="u754_content"><!-- image -->
-            <img class="block temp_no_id temp_no_img_src" data-orig-src="/static/images/logo_google_blau.png" alt="" width="139" height="40" data-muse-src="/static/images/logo_google_blau.png" data-orig-id="u754_img" src="/static/images/blank.gif" />
-          </a>
-          <!-- /m_editable -->
-          <!-- m_editable region-id="editable-static-tag-U2363-BP_640" template="kontakt---anfahrt.html" data-type="html" data-ice-options="disableImageResize,link" -->
-          <div class="clearfix" id="u2363-8" data-muse-uid="U2363" data-muse-type="txt_frame"><!-- content -->
-            <p id="u2363-3">Hotline: <span id="u2363-2">0385 - 5910 333</span></p>
-            <p id="u2363-6">Öffnungszeiten: <span id="u2363-5">Mo.-Fr. 9:30-18:00 Uhr, Sa. 10:00 Uhr-14:00 Uhr</span></p>
-          </div>
-          <!-- /m_editable -->
-          <div class="browser_width" id="accordionu2381-bw">
-            <ul class="AccordionWidget clearfix" id="accordionu2381"><!-- vertical box -->
-              <li class="AccordionPanel clearfix colelem100" id="u2390"><!-- vertical box -->
-                <!-- m_editable region-id="editable-static-tag-U2391-BP_640" template="kontakt---anfahrt.html" data-type="html" data-ice-options="disableImageResize,link,clickable" -->
-                <div class="AccordionPanelTab clearfix colelem100" id="u2391-4" data-muse-uid="U2391" data-muse-type="txt_frame"><!-- content -->
-                  <div id="u2391-3" class="shared_content" data-content-guid="u2391-3_content">
-                    <p>Menü</p>
-                  </div>
-                </div><!-- /m_editable --><div class="AccordionPanelContent disn clearfix colelem100" id="u2392"><!-- group --><div class="browser_width grpelem" id="menuu2446-bw"><nav class="MenuBar clearfix" id="menuu2446"><!-- vertical box --><div class="MenuItemContainer clearfix colelem100" id="u2447"><!-- horizontal box --><a class="nonblock nontext MenuItem MenuItemWithSubMenu clearfix" id="u2448" href="urlaubsfahrten.html" data-href="page:U153"><!-- horizontal box --><div class="MenuItemLabel clearfix" id="u2451-4"><!-- content --><p class="shared_content" data-content-guid="u2451-4_0_content">Urlaubsfahrten</p></div></a></div><div class="MenuItemContainer clearfix colelem100" id="u2454"><!-- horizontal box --><a class="nonblock nontext MenuItem MenuItemWithSubMenu clearfix" id="u2455" href="tagesfahrten.html" data-href="page:U141"><!-- horizontal box --><div class="MenuItemLabel clearfix" id="u2457-4"><!-- content --><p class="shared_content" data-content-guid="u2457-4_0_content">Tagesfahrten</p></div></a></div><div class="MenuItemContainer clearfix colelem100" id="u2521"><!-- horizontal box --><a class="nonblock nontext MenuItem MenuItemWithSubMenu clearfix" id="u2524" href="musical-spezialist.html" data-href="page:U129"><!-- horizontal box --><div class="MenuItemLabel clearfix" id="u2527-4"><!-- content --><p class="shared_content" data-content-guid="u2527-4_0_content">Musical Spezialist</p></div></a></div><div class="MenuItemContainer clearfix colelem100" id="u2572"><!-- horizontal box --><a class="nonblock nontext MenuItem MenuItemWithSubMenu clearfix" id="u2575" href="zusatzangebote.html" data-href="page:U117"><!-- horizontal box --><div class="MenuItemLabel clearfix" id="u2577-4"><!-- content --><p class="shared_content" data-content-guid="u2577-4_0_content">Zusatzangebote</p></div></a></div><div class="MenuItemContainer clearfix colelem100" id="u2621"><!-- horizontal box --><a class="nonblock nontext MenuItem MenuItemWithSubMenu MuseMenuActive clearfix" id="u2622" href="kontakt---anfahrt.html" data-href="page:U105"><!-- horizontal box --><div class="MenuItemLabel clearfix" id="u2624-4"><!-- content --><p class="shared_content" data-content-guid="u2624-4_0_content">Kontakt &amp; Anfahrt</p></div></a></div></nav></div></div></li>
-      </ul>
-     </div>
-    </div>
-    <span class="verticalspacer placeholder" data-placeholder-for="page_1_content"><!-- placeholder node -->
-
-START BREAKPOINT 321 - 640
-
-    </span>
-    <span class="browser_width grpelem placeholder" data-placeholder-for="u1210-bw_content"><!-- placeholder node --></span>
-   </div>
-  </div>
-
-  /*
-   *********************
-   * BREAKPOINT 0 -320 *
-   *********************
-   */
-  <div class="breakpoint" id="bp_320" data-max-width="320"><!-- responsive breakpoint node -->
-   <div class="clearfix borderbox temp_no_id" data-orig-id="page"><!-- column -->
-    <div class="position_content" id="page_position_content">
-     <!-- m_editable region-id="editable-static-tag-U754-BP_320" template="kontakt---anfahrt.html" data-type="image" data-ice-options="clickable" data-ice-editable="link" -->
-     <span class="nonblock nontext clip_frame colelem placeholder" data-placeholder-for="u754_content"><!-- placeholder node --></span>
-     <!-- /m_editable -->
-     <div class="browser_width colelem temp_no_id" data-orig-id="accordionu2381-bw">
-      <ul class="AccordionWidget clearfix temp_no_id" data-orig-id="accordionu2381"><!-- vertical box -->
-       <li class="AccordionPanel clearfix colelem100 temp_no_id" data-orig-id="u2390"><!-- vertical box --><!-- m_editable region-id="editable-static-tag-U2391-BP_320" template="kontakt---anfahrt.html" data-type="html" data-ice-options="disableImageResize,link,clickable" --><div class="AccordionPanelTab clearfix colelem100 temp_no_id" data-muse-uid="U2391" data-muse-type="txt_frame" data-orig-id="u2391-4"><!-- content --><span class="placeholder" data-placeholder-for="u2391-3_content"><!-- placeholder node --></span></div><!-- /m_editable --><div class="AccordionPanelContent disn clearfix colelem100 temp_no_id" data-orig-id="u2392"><!-- group --><div class="browser_width grpelem temp_no_id" data-orig-id="menuu2446-bw"><nav class="MenuBar clearfix temp_no_id" data-orig-id="menuu2446"><!-- vertical box --><div class="MenuItemContainer clearfix colelem100 temp_no_id" data-orig-id="u2447"><!-- horizontal box --><a class="nonblock nontext MenuItem MenuItemWithSubMenu clearfix temp_no_id" href="urlaubsfahrten.html" data-href="page:U153" data-orig-id="u2448"><!-- horizontal box --><div class="MenuItemLabel clearfix temp_no_id" data-orig-id="u2451-4"><!-- content --><span class="placeholder" data-placeholder-for="u2451-4_0_content"><!-- placeholder node --></span></div></a></div><div class="MenuItemContainer clearfix colelem100 temp_no_id" data-orig-id="u2454"><!-- horizontal box --><a class="nonblock nontext MenuItem MenuItemWithSubMenu clearfix temp_no_id" href="tagesfahrten.html" data-href="page:U141" data-orig-id="u2455"><!-- horizontal box --><div class="MenuItemLabel clearfix temp_no_id" data-orig-id="u2457-4"><!-- content --><span class="placeholder" data-placeholder-for="u2457-4_0_content"><!-- placeholder node --></span></div></a></div><div class="MenuItemContainer clearfix colelem100 temp_no_id" data-orig-id="u2521"><!-- horizontal box --><a class="nonblock nontext MenuItem MenuItemWithSubMenu clearfix temp_no_id" href="musical-spezialist.html" data-href="page:U129" data-orig-id="u2524"><!-- horizontal box --><div class="MenuItemLabel clearfix temp_no_id" data-orig-id="u2527-4"><!-- content --><span class="placeholder" data-placeholder-for="u2527-4_0_content"><!-- placeholder node --></span></div></a></div><div class="MenuItemContainer clearfix colelem100 temp_no_id" data-orig-id="u2572"><!-- horizontal box --><a class="nonblock nontext MenuItem MenuItemWithSubMenu clearfix temp_no_id" href="zusatzangebote.html" data-href="page:U117" data-orig-id="u2575"><!-- horizontal box --><div class="MenuItemLabel clearfix temp_no_id" data-orig-id="u2577-4"><!-- content --><span class="placeholder" data-placeholder-for="u2577-4_0_content"><!-- placeholder node --></span></div></a></div><div class="MenuItemContainer clearfix colelem100 temp_no_id" data-orig-id="u2621"><!-- horizontal box --><a class="nonblock nontext MenuItem MenuItemWithSubMenu MuseMenuActive clearfix temp_no_id" href="kontakt---anfahrt.html" data-href="page:U105" data-orig-id="u2622"><!-- horizontal box --><div class="MenuItemLabel clearfix temp_no_id" data-orig-id="u2624-4"><!-- content --><span class="placeholder" data-placeholder-for="u2624-4_0_content"><!-- placeholder node --></span></div></a></div></nav></div></div></li>
-      </ul>
-     </div>
-     <span class="browser_width colelem placeholder" data-placeholder-for="u753-bw_content"><!-- placeholder node --></span>
-     <div class="verticalspacer">
-
-START BREAKPOINT 0 - 320
-
-     </div>
-     <span class="browser_width colelem placeholder" data-placeholder-for="u1210-bw_content"><!-- placeholder node --></span>
-    </div>
-   </div>
-  </div>
+// Check that all required assets are uploaded and up-to-date
+if(typeof Muse == "undefined") window.Muse = {}; window.Muse.assets = {"required":["museutils.js", "museconfig.js", "jquery.musemenu.js", "jquery.musepolyfill.bgsize.js", "jquery.watch.js", "webpro.js", "musewpslideshow.js", "jquery.museoverlay.js", "touchswipe.js", "jquery.museresponsive.js", "require.js", "index.css"], "outOfDate":[]};
+</script>
+  
+  <link rel="shortcut icon" href="/static/images/favicon.ico"/>
+  <title>Reiseservice Schwerin - Busreisen weltweit huhuhu</title>
+  <!-- CSS -->
+  <link rel="stylesheet" type="text/css" href="{% static 'css/site_global.css' %}"/>
+  <link rel="stylesheet" type="text/css" href="{% static 'css/master_a-musters.css' %}"/>
+  <link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}" id="pagesheet"/>
+  <!-- IE-only CSS -->
+  <!--[if lt IE 9]>
+  <link rel="stylesheet" type="text/css" href="css/nomq_preview_master_a-musters.css?crc=4237058221"/>
+  <link rel="stylesheet" type="text/css" href="css/nomq_index.css?crc=3996351057" id="nomq_pagesheet"/>
+  <![endif]-->
   <!-- JS includes -->
-  <script type="text/javascript">
-   if (document.location.protocol != 'https:') document.write('\x3Cscript src="http://musecdn1.businesscatalyst.com/scripts/4.0/jquery-1.8.3.min.js" type="text/javascript">\x3C/script>');
-</script>
-  <script type="text/javascript">
-   window.jQuery || document.write('\x3Cscript src="/scripts/jquery-1.8.3.min.js" type="text/javascript">\x3C/script>');
-</script>
-
-    <script src="{% static 'scripts/museutils.js' %}" type="text/javascript"></script>
-    <script src="{% static 'scripts/whatinput.js' %}" type="text/javascript"></script>
-    <script src="{% static 'scripts/jquery.musemenu.js' %}" type="text/javascript"></script>
-    <script src="{% static 'scripts/webpro.js' %}" type="text/javascript"></script>
-    <script src="{% static 'scripts/musewpslideshow.js' %}" type="text/javascript"></script>
-    <script src="{% static 'scripts/jquery.museoverlay.js' %}" type="text/javascript"></script>
-    <script src="{% static 'scripts/touchswipe.js' %}" type="text/javascript"></script>
-    <script src="{% static 'scripts/jquery.watch.js' %}" type="text/javascript"></script>
-    <script src="{% static 'scripts/musewpdisclosure.js' %}" type="text/javascript"></script>
-    <script src="{% static 'scripts/jquery.museresponsive.js' %}" type="text/javascript"></script>
-
+  <!--[if lt IE 9]>
+  <script src="{% static 'scripts/html5shiv.js' %}" type="text/javascript"></script>
+  <![endif]-->
+  <script src="https://use.typekit.net/ik/sOuCXJCmetjVH9uAkxQbm51P3shJuv6taQ-GbFOHRSvfe7qgfHfZOgJ1FDJXwQJtWhItFAF8w2mKZAjo52Sh5eBqFDjDjR6DwD9oFhIDwh48e8M7O148-WF8Shmkic8RZPuDjhyaZW4TdKoqZPUkZA8DZWF8S1ZTjh9lShFGihmk-At0Ze9CiaiaO148-WF8Shmkic8RZPuDjhyaZW4TdKoqZPJVShNuScF8OWFyd1wlSY4zH6GJNGjgIMMjMkMfP6sFiWF8qMY0NCRZgb.js" type="text/javascript"></script>
   <!-- Other scripts -->
   <script type="text/javascript">
-    $(document).ready(function() {
-      try {(
-        function(){
-          var a = {},
-              b = function(a){
-                if(a.match(/^rgb/))
-                  return
-                    a=a.replace(/\s+/g,"").match(/([\d\,]+)/gi)[0].split(","),
-                    (parseInt(a[0])<<16)+(parseInt(a[1])<<8)+parseInt(a[2]);
-                if(a.match(/^\#/))
-                  return parseInt(a.substr(1),16);
-                return 0
-              };
-          (
-            function(){
-              $('link[type="text/css"]').each(
-                function(){
-                  var b = ($(this).attr("href")||"").match(/\/?css\/([\w\-]+\.css)\?(\d+)/);
-                  b&&b[1]&&b[2]&&(a[b[1]]=b[2])
-                }
-              )
-            }
-          )
-          ();
-          (
-            function(){
-              $("body").append('<div class="version" style="display:none; width:1px; height:1px;"></div>');
-              for (var c=$(".version"), d=0; d<Muse.assets.required.length;){
-                var f = Muse.assets.required[d],
-                    g = f.match(/([\w\-\.]+)\.(\w+)$/),
-                    k = g&&g[1]?g[1]:null,g=g&&g[2]?g[2]:null;
-                switch(g.toLowerCase()){
-                  case "css":k=k.replace(/\W/gi,"_").replace(/^([^a-z])/gi,"_$1");
-                  c.addClass(k);
-                  var g = b(c.css("color")),
-                      h = b(c.css("background-color"));
-                  g!=0||h!=0?(Muse.assets.required.splice(d,1),"undefined"!=typeof a[f]&&(g!=a[f]>>>24||h!=(a[f]&16777215))&&Muse.assets.outOfDate.push(f)):d++;c.removeClass(k);
-                  break;
-                  case "js":k.match(/^jquery-[\d\.]+/gi)&&typeof $!="undefined"?Muse.assets.required.splice(d,1):d++;break;
-                  default:throw Error("Unsupported file type: "+g);
-                }    
-              }
-              c.remove();
-              if(Muse.assets.outOfDate.length||Muse.assets.required.length)
-                c="Einige der Dateien auf dem Server fehlen oder sind ungültig. Löschen Sie den Browser-Cache und versuchen Sie es erneut. Wenn das Problem weiterhin besteht, wenden Sie sich an den Autor der Website.",
-                (d=location&&location.search&&location.search.match&&location.search.match(/muse_debug/gi))
-                &&Muse.assets.outOfDate.length&&(c+="\nOut of date: "+Muse.assets.outOfDate.join(",")),
-                d&&Muse.assets.required.length&&(c+="\nMissing: "+Muse.assets.required.join(",")),
-                alert(c)
-            })()
-          }
-        )
-        ();
-
-        /* body */
-        Muse.Utils.transformMarkupToFixBrowserProblemsPreInit();/* body */
-        Muse.Utils.prepHyperlinks(true);/* body */
-        Muse.Utils.resizeHeight('.browser_width');/* resize height */
-        Muse.Utils.requestAnimationFrame(function() { $('body').addClass('initialized'); });/* mark body as initialized */
-        Muse.Utils.fullPage('#page');/* 100% height page */
-        Muse.Utils.initWidget(
-          '.MenuBar',
-          [
-            '#bp_infinity',
-            '#bp_640',
-            '#bp_320'
-          ],
-          function(elem) { return $(elem).museMenu(); }
-        );/* unifiedNavBar */
-        Muse.Utils.initWidget(
-          '#pamphletu2796',
-          [
-            '#bp_infinity',
-            '#bp_640',
-            '#bp_320'
-          ],
-          function(elem) {
-            return new WebPro.Widget.ContentSlideShow(
-              elem,
-              {
-                contentLayout_runtime:'stack',
-                event:'click',
-                deactivationEvent:'none',
-                autoPlay:true,
-                displayInterval:4000,
-                transitionStyle:'horizontal',
-                transitionDuration:500,
-                hideAllContentsFirst:false,
-                shuffle:false,
-                enableSwipe:true,
-                resumeAutoplay:true,
-                resumeAutoplayInterval:3000,
-                playOnce:false,
-                autoActivate_runtime:false
-              }
-            );
-          }
-        );/* #pamphletu2796 */
-        Muse.Utils.initWidget(
-          '#accordionu2381',
-          [
-            '#bp_640',
-            '#bp_320'
-          ],
-          function(elem) { return new WebPro.Widget.Accordion(elem, {canCloseAll:true,defaultIndex:-1}); }
-        );/* #accordionu2381 */
-        $( '.breakpoint' ).registerBreakpoint();/* Register breakpoints */
-        Muse.Utils.transformMarkupToFixBrowserProblems();/* body */
-        }
-        catch(e) {
-          if (e && 'function' == typeof e.notify)
-            e.notify();
-          else Muse.Assert.fail('Error calling selector function:' + e);
-        }
-
-        /*
-         ****************************************
-         NAVIGATION
-         ****************************************
-         */
-
-        /* start */
-        $('#u754').click(function(e){
-          e.preventDefault();
-          $.get('/rss2/home/start/', function(data){
-            $('#inhalt').html(data);
-            //$('#pamphletu2796').html("");
-          });
-          document.getElementById("u1901").className = "nonblock nontext MenuItem MenuItemWithSubMenu clearfix colelem";
-          document.getElementById("u1894").className = "nonblock nontext MenuItem MenuItemWithSubMenu clearfix colelem";
-          document.getElementById("u1873").className = "nonblock nontext MenuItem MenuItemWithSubMenu clearfix colelem";
-          document.getElementById("u1889").className = "nonblock nontext MenuItem MenuItemWithSubMenu clearfix colelem";
-          document.getElementById("u1880").className = "nonblock nontext MenuItem MenuItemWithSubMenu clearfix colelem";
-        });
-
-        /* Urlaubsfahrten */
-        $('#u1901').click(function(e){
-          e.preventDefault();
-          $.get('/rss2/home/reisen/', function(data){
-            //console.log(typeof data);
-            var html = "";
-            $(data.termine).each(function(i, days){
-              html += "<div>"+days+"</div>"
-            //  console.log(html);
-            });
-            $('#inhalt').html(html);
-            //$('#pamphletu2796').html("");
-          });
-          document.getElementById("u1901").className = "nonblock nontext MenuItem MenuItemWithSubMenu MuseMenuActive clearfix colelem";
-          document.getElementById("u1894").className = "nonblock nontext MenuItem MenuItemWithSubMenu clearfix colelem";
-          document.getElementById("u1873").className = "nonblock nontext MenuItem MenuItemWithSubMenu clearfix colelem";
-          document.getElementById("u1889").className = "nonblock nontext MenuItem MenuItemWithSubMenu clearfix colelem";
-          document.getElementById("u1880").className = "nonblock nontext MenuItem MenuItemWithSubMenu clearfix colelem";
-        });
-
-        /* Tagesfahrten */
-        $('#u1894').click(function(e){
-          e.preventDefault();
-          $.get('/rss2/home/tagesfahrten/', function(data){
-            $('#inhalt').html(data);
-            //$('#pamphletu2796').html("");
-          });
-          document.getElementById("u1901").className = "nonblock nontext MenuItem MenuItemWithSubMenu clearfix colelem";
-          document.getElementById("u1894").className = "nonblock nontext MenuItem MenuItemWithSubMenu MuseMenuActive clearfix colelem";
-          document.getElementById("u1873").className = "nonblock nontext MenuItem MenuItemWithSubMenu clearfix colelem";
-          document.getElementById("u1889").className = "nonblock nontext MenuItem MenuItemWithSubMenu clearfix colelem";
-          document.getElementById("u1880").className = "nonblock nontext MenuItem MenuItemWithSubMenu clearfix colelem";
-        });
-
-        /* Musicals */
-        $('#u1873').click(function(e){
-          e.preventDefault();
-          $.get('/rss2/home/musicals/', function(data){
-            $('#inhalt').html(data);
-            //$('#pamphletu2796').html("");
-          });
-          document.getElementById("u1901").className = "nonblock nontext MenuItem MenuItemWithSubMenu clearfix colelem";
-          document.getElementById("u1894").className = "nonblock nontext MenuItem MenuItemWithSubMenu clearfix colelem";
-          document.getElementById("u1873").className = "nonblock nontext MenuItem MenuItemWithSubMenu MuseMenuActive clearfix colelem";
-          document.getElementById("u1889").className = "nonblock nontext MenuItem MenuItemWithSubMenu clearfix colelem";
-          document.getElementById("u1880").className = "nonblock nontext MenuItem MenuItemWithSubMenu clearfix colelem";
-        });
-
-        /* Zusatzangebote */
-        $('#u1889').click(function(e){
-          e.preventDefault();
-          $.get('/rss2/home/zusatzangebote/', function(data){
-            $('#inhalt').html(data);
-            //$('#pamphletu2796').html("");
-          });
-          document.getElementById("u1901").className = "nonblock nontext MenuItem MenuItemWithSubMenu clearfix colelem";
-          document.getElementById("u1894").className = "nonblock nontext MenuItem MenuItemWithSubMenu clearfix colelem";
-          document.getElementById("u1873").className = "nonblock nontext MenuItem MenuItemWithSubMenu clearfix colelem";
-          document.getElementById("u1889").className = "nonblock nontext MenuItem MenuItemWithSubMenu MuseMenuActive clearfix colelem";
-          document.getElementById("u1880").className = "nonblock nontext MenuItem MenuItemWithSubMenu clearfix colelem";
-        });
-
-        /* Kontakt und Anfahrt */
-        $('#u1880').click(function(e){
-          e.preventDefault();
-          $.get('/rss2/home/kontakt/', function(data){
-            $('#inhalt').html(data);
-            //$('#pamphletu2796').html("");
-          });
-          document.getElementById("u1901").className = "nonblock nontext MenuItem MenuItemWithSubMenu clearfix colelem";
-          document.getElementById("u1894").className = "nonblock nontext MenuItem MenuItemWithSubMenu clearfix colelem";
-          document.getElementById("u1873").className = "nonblock nontext MenuItem MenuItemWithSubMenu clearfix colelem";
-          document.getElementById("u1889").className = "nonblock nontext MenuItem MenuItemWithSubMenu clearfix colelem";
-          document.getElementById("u1880").className = "nonblock nontext MenuItem MenuItemWithSubMenu MuseMenuActive clearfix colelem";
-        });
-
-});
+   try {Typekit.load();} catch(e) {}
 </script>
-   
-</body>
+    <!--/*
+
+*/
+-->
+ </head>
+ <body>
+
+  <div class="breakpoint active" id="bp_infinity" data-min-width="769"><!-- responsive breakpoint node -->
+   <div class="Infobox clearfix borderbox" id="page"><!-- group -->
+    <div class="clearfix grpelem" id="ppu33687"><!-- column -->
+     <div class="clearfix colelem" id="pu33687"><!-- group -->
+      <a class="nonblock nontext MuseLinkActive clip_frame grpelem" id="u33687" href="index.html" data-href="page:U93" data-sizePolicy="fixed" data-pintopage="page_fluidx"><!-- image --><img class="block temp_no_img_src" id="u33687_img" data-orig-src="/static/images/logo_google_blau.png?crc=48157480" alt="" width="175" height="50" src="/static/images/blank.gif"/></a>
+      <div class="Fliesstext clearfix grpelem" id="u33725-8" data-IBE-flags="txtStyleSrc"><!-- content -->
+       <p id="u33725-2"><span class="Fliess-Bold" id="u33725">Direkt Service:</span></p>
+       <p id="u33725-6"><span><a class="nonblock" href="callto:0385%205910333"><span id="u33725-3">0385 - 5910 333</span></a></span></p>
+      </div>
+      <div class="Fliesstext clearfix grpelem" id="u33726-8" data-IBE-flags="txtStyleSrc"><!-- content -->
+       <p id="u33726-2"><span class="Fliess-Bold" id="u33726">Öffnungszeiten:</span></p>
+       <p id="u33726-4"><span id="u33726-3">Mo.-Fr. 9:30 - 18:00 Uhr</span></p>
+       <p id="u33726-6"><span id="u33726-5">Sa. 10:00 Uhr - 14:00 Uhr</span></p>
+      </div>
+     </div>
+     <nav class="MenuBar clearfix colelem" id="menuu33689"><!-- horizontal box -->
+      <div class="MenuItemContainer clearfix grpelem" id="u33718"><!-- vertical box -->
+       <a class="nonblock nontext MenuItem MenuItemWithSubMenu borderbox clearfix colelem" id="u33719" href="mehrtagesfahrten.html" data-href="page:U141"><!-- horizontal box --><div class="MenuItemLabel NoWrap Fliesstext clearfix grpelem" id="u33720-4"><!-- content --><p id="u33720-2"><span class="Grund" id="u33720">Mehrtagesfahrten</span></p></div></a>
+      </div>
+      <div class="MenuItemContainer clearfix grpelem" id="u33711"><!-- vertical box -->
+       <a class="nonblock nontext MenuItem MenuItemWithSubMenu borderbox clearfix colelem" id="u33712" href="tagesfahrten.html" data-href="page:U153"><!-- horizontal box --><div class="MenuItemLabel NoWrap Fliesstext clearfix grpelem" id="u33713-4"><!-- content --><p id="u33713-2"><span class="Grund" id="u33713">Tagesfahrten</span></p></div></a>
+      </div>
+      <div class="MenuItemContainer clearfix grpelem" id="u33704"><!-- vertical box -->
+       <a class="nonblock nontext MenuItem MenuItemWithSubMenu borderbox clearfix colelem" id="u33707" href="musicals---shows.html" data-href="page:U129"><!-- horizontal box --><div class="MenuItemLabel NoWrap Fliesstext clearfix grpelem" id="u33710-4"><!-- content --><p id="u33710-2"><span class="Grund" id="u33710">Musicals &amp; Shows</span></p></div></a>
+      </div>
+      <div class="MenuItemContainer clearfix grpelem" id="u33690"><!-- vertical box -->
+       <a class="nonblock nontext MenuItem MenuItemWithSubMenu borderbox clearfix colelem" id="u33691" href="reiseberatung.html" data-href="page:U19172"><!-- horizontal box --><div class="MenuItemLabel NoWrap Fliesstext clearfix grpelem" id="u33693-4"><!-- content --><p id="u33693-2"><span class="Grund" id="u33693">Reiseberatung</span></p></div></a>
+      </div>
+      <div class="MenuItemContainer clearfix grpelem" id="u33697"><!-- vertical box -->
+       <a class="nonblock nontext MenuItem MenuItemWithSubMenu borderbox clearfix colelem" id="u33698" href="service---hilfe.html" data-href="page:U117"><!-- horizontal box --><div class="MenuItemLabel NoWrap Fliesstext clearfix grpelem" id="u33699-4"><!-- content --><p id="u33699-2"><span class="Grund" id="u33699">Service &amp; Hilfe</span></p></div></a>
+      </div>
+     </nav>
+     <div class="browser_width colelem" id="u35962-bw">
+      <div class="museBGSize" id="u35962"><!-- group -->
+       <div class="clearfix" id="u35962_align_to_page">
+        <div class="clearfix grpelem" id="pu52311"><!-- column -->
+         <div class="clearfix colelem shared_content" id="u52311" data-content-guid="u52311_content"><!-- column -->
+          <div class="clearfix colelem" id="u35770"><!-- group -->
+           <!-- m_editable region-id="editable-static-tag-U35773-BP_infinity" template="index.html" data-type="html" data-ice-options="disableImageResize,link,clickable,txtStyleTarget" data-ice-editable="link" -->
+           <a class="nonblock nontext Kasten clearfix grpelem" id="u35773-4" href="mehrtagesfahrten.html" data-href="page:U141" data-muse-uid="U35773" data-muse-type="txt_frame" data-IBE-flags="txtStyleSrc"><!-- content --><div id="u35773-3"><h1 class="Head1">Mehrtagesfahrten</h1></div></a>
+           <!-- /m_editable -->
+          </div>
+          <div class="museBGSize colelem" id="u46472"><!-- simple frame --></div>
+          <!-- m_editable region-id="editable-static-tag-U43280-BP_infinity" template="index.html" data-type="html" data-ice-options="disableImageResize,link,clickable,txtStyleTarget" data-ice-editable="link" -->
+          <a class="nonblock nontext Kasten clearfix colelem" id="u43280-4" href="mehrtagesfahrten.html" data-href="page:U141" data-muse-uid="U43280" data-muse-type="txt_frame" data-IBE-flags="txtStyleSrc"><!-- content --><div id="u43280-3"><h3 class="Fliesstext">Reisen Sie mit und mit dem Bus, Schiff oder dem Flugzeug in die interessantesten Regionen der Welt »</h3></div></a>
+          <!-- /m_editable -->
+         </div>
+         <div class="clearfix colelem shared_content" id="u52329" data-content-guid="u52329_content"><!-- column -->
+          <div class="clearfix colelem" id="u44175"><!-- group -->
+           <!-- m_editable region-id="editable-static-tag-U44176-BP_infinity" template="index.html" data-type="html" data-ice-options="disableImageResize,link,clickable,txtStyleTarget" data-ice-editable="link" -->
+           <a class="nonblock nontext Kasten clearfix grpelem" id="u44176-4" href="mehrtagesfahrten.html" data-href="page:U141" data-muse-uid="U44176" data-muse-type="txt_frame" data-IBE-flags="txtStyleSrc"><!-- content --><div id="u44176-3"><h1 class="Head1">weitere Reisen</h1></div></a>
+           <!-- /m_editable -->
+          </div>
+          <div class="museBGSize colelem" id="u46752"><!-- simple frame --></div>
+          <!-- m_editable region-id="editable-static-tag-U44206-BP_infinity" template="index.html" data-type="html" data-ice-options="disableImageResize,link,clickable,txtStyleTarget" data-ice-editable="link" -->
+          <a class="nonblock nontext Kasten clearfix colelem" id="u44206-4" href="reiseberatung.html" data-href="page:U19172" data-muse-uid="U44206" data-muse-type="txt_frame" data-IBE-flags="txtStyleSrc"><!-- content --><div id="u44206-3"><h3 class="Fliesstext">Außerhalb unser organisierten Reisen können wir mit unseren Partner auch alle anderen Reisewünsche erfüllen&nbsp; »</h3></div></a>
+          <!-- /m_editable -->
+         </div>
+        </div>
+        <div class="clearfix grpelem" id="pu52317"><!-- column -->
+         <div class="clearfix colelem shared_content" id="u52317" data-content-guid="u52317_content"><!-- column -->
+          <div class="clearfix colelem" id="u43431"><!-- group -->
+           <!-- m_editable region-id="editable-static-tag-U43432-BP_infinity" template="index.html" data-type="html" data-ice-options="disableImageResize,link,clickable,txtStyleTarget" data-ice-editable="link" -->
+           <a class="nonblock nontext Kasten clearfix grpelem" id="u43432-4" href="mehrtagesfahrten.html" data-href="page:U141" data-muse-uid="U43432" data-muse-type="txt_frame" data-IBE-flags="txtStyleSrc"><!-- content --><div id="u43432-3"><h1 class="Head1">Tagesfahrten</h1></div></a>
+           <!-- /m_editable -->
+          </div>
+          <div class="museBGSize colelem" id="u46739"><!-- simple frame --></div>
+          <!-- m_editable region-id="editable-static-tag-U43447-BP_infinity" template="index.html" data-type="html" data-ice-options="disableImageResize,link,clickable,txtStyleTarget" data-ice-editable="link" -->
+          <a class="nonblock nontext Kasten clearfix colelem" id="u43447-4" href="tagesfahrten.html" data-href="page:U153" data-muse-uid="U43447" data-muse-type="txt_frame" data-IBE-flags="txtStyleSrc"><!-- content --><div id="u43447-3"><h3 class="Fliesstext">Unsere Busfahrten zu verschiedenen Ereignissen planen wir mit einen runden Ausflugserlebnis »</h3></div></a>
+          <!-- /m_editable -->
+         </div>
+         <div class="clearfix colelem shared_content" id="u52335" data-content-guid="u52335_content"><!-- column -->
+          <div class="clearfix colelem" id="u44506"><!-- group -->
+           <!-- m_editable region-id="editable-static-tag-U44507-BP_infinity" template="index.html" data-type="html" data-ice-options="disableImageResize,link,clickable,txtStyleTarget" data-ice-editable="link" -->
+           <a class="nonblock nontext Kasten clearfix grpelem" id="u44507-4" href="mehrtagesfahrten.html" data-href="page:U141" data-muse-uid="U44507" data-muse-type="txt_frame" data-IBE-flags="txtStyleSrc"><!-- content --><div id="u44507-3"><h1 class="Head1">Gutscheine</h1></div></a>
+           <!-- /m_editable -->
+          </div>
+          <div class="museBGSize colelem" id="u46765"><!-- simple frame --></div>
+          <!-- m_editable region-id="editable-static-tag-U44537-BP_infinity" template="index.html" data-type="html" data-ice-options="disableImageResize,link,clickable,txtStyleTarget" data-ice-editable="link" -->
+          <a class="nonblock nontext Kasten clearfix colelem" id="u44537-4" href="service---hilfe.html" data-href="page:U117" data-muse-uid="U44537" data-muse-type="txt_frame" data-IBE-flags="txtStyleSrc"><!-- content --><div id="u44537-3"><h3 class="Fliesstext">Schenken Sie Ihren Lieben ein &quot;Startgeld&quot; für die nächste Reise. Wie viel es dazu gibt, entscheiden Sie selbst »</h3></div></a>
+          <!-- /m_editable -->
+         </div>
+        </div>
+        <div class="clearfix grpelem" id="pu52323"><!-- column -->
+         <div class="clearfix colelem shared_content" id="u52323" data-content-guid="u52323_content"><!-- column -->
+          <div class="clearfix colelem" id="u43529"><!-- group -->
+           <!-- m_editable region-id="editable-static-tag-U43530-BP_infinity" template="index.html" data-type="html" data-ice-options="disableImageResize,link,clickable,txtStyleTarget" data-ice-editable="link" -->
+           <a class="nonblock nontext Kasten clearfix grpelem" id="u43530-4" href="mehrtagesfahrten.html" data-href="page:U141" data-muse-uid="U43530" data-muse-type="txt_frame" data-IBE-flags="txtStyleSrc"><!-- content --><div id="u43530-3"><h1 class="Head1">Musicals &amp; Shows</h1></div></a>
+           <!-- /m_editable -->
+          </div>
+          <div class="museBGSize colelem" id="u46717"><!-- simple frame --></div>
+          <!-- m_editable region-id="editable-static-tag-U43560-BP_infinity" template="index.html" data-type="html" data-ice-options="disableImageResize,link,clickable,txtStyleTarget" data-ice-editable="link" -->
+          <a class="nonblock nontext Kasten clearfix colelem" id="u43560-4" href="musicals---shows.html" data-href="page:U129" data-muse-uid="U43560" data-muse-type="txt_frame" data-IBE-flags="txtStyleSrc"><!-- content --><div id="u43560-3"><h3 class="Fliesstext">Wir bringen Sie zu angesagten Musicals in Deutschland und kümmern uns um eine entspannte Heimreise »</h3></div></a>
+          <!-- /m_editable -->
+         </div>
+         <div class="clearfix colelem shared_content" id="u52341" data-content-guid="u52341_content"><!-- column -->
+          <div class="clearfix colelem" id="u44598"><!-- group -->
+           <!-- m_editable region-id="editable-static-tag-U44599-BP_infinity" template="index.html" data-type="html" data-ice-options="disableImageResize,link,clickable,txtStyleTarget" data-ice-editable="link" -->
+           <a class="nonblock nontext Kasten clearfix grpelem" id="u44599-4" href="mehrtagesfahrten.html" data-href="page:U141" data-muse-uid="U44599" data-muse-type="txt_frame" data-IBE-flags="txtStyleSrc"><!-- content --><div id="u44599-3"><h1 class="Head1">Unsere Kataloge</h1></div></a>
+           <!-- /m_editable -->
+          </div>
+          <div class="museBGSize colelem" id="u46778"><!-- simple frame --></div>
+          <!-- m_editable region-id="editable-static-tag-U44629-BP_infinity" template="index.html" data-type="html" data-ice-options="disableImageResize,link,clickable,txtStyleTarget" data-ice-editable="link" -->
+          <a class="nonblock nontext Kasten clearfix colelem" id="u44629-4" href="service---hilfe.html" data-href="page:U117" data-muse-uid="U44629" data-muse-type="txt_frame" data-IBE-flags="txtStyleSrc"><!-- content --><div id="u44629-3"><h3 class="Fliesstext">Laden Sie unsere Kataloge herunter und drucken Ihre Reise aus. Das PDF können Sie dann offline durchstöbern.&nbsp; »</h3></div></a>
+          <!-- /m_editable -->
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+     <!-- m_editable region-id="editable-static-tag-U59229-BP_infinity" template="index.html" data-type="html" data-ice-options="disableImageResize,link,txtStyleTarget" -->
+     <div class="Rubriken SUBLINE clearfix colelem shared_content" id="u59229-4" data-muse-uid="U59229" data-muse-type="txt_frame" data-IBE-flags="txtStyleSrc" data-content-guid="u59229-4_content"><!-- content -->
+      <h2>Aktuell</h2>
+     </div>
+     <!-- /m_editable -->
+     <!-- m_editable region-id="editable-static-tag-U59234-BP_infinity" template="index.html" data-type="html" data-ice-options="disableImageResize,link,txtStyleTarget" -->
+     <div class="Absatz clearfix colelem" id="u59234-12" data-muse-uid="U59234" data-muse-type="txt_frame" data-IBE-flags="txtStyleSrc"><!-- content -->
+      <h1 class="Head1 shared_content" id="u59234-2" data-content-guid="u59234-2_content">Der neue Sommer-Katalog ist da.</h1>
+      <h3 class="Fliesstext shared_content" id="u59234-3" data-content-guid="u59234-3_content">&nbsp;</h3>
+      <h3 class="Fliesstext shared_content" id="u59234-5" data-content-guid="u59234-5_content">Frisch aus der Druckerei für Sie hier vor Ort beim Reiseservice-Schwerin abholbereit. Sie können sich unseren neuen Sommerkatalog auch von uns zuschicken lassen oder gleich als PDF herunterladen. Viel Spaß beim Stöbern.</h3>
+      <h3 class="Fliesstext shared_content" id="u59234-6" data-content-guid="u59234-6_content">&nbsp;</h3>
+      <h3 class="LINK1" id="u59234-10"><span><a class="nonblock" href="service---hilfe.html" data-href="page:U117"><span id="u59234-7" class="shared_content" data-content-guid="u59234-7_content">Den Katalog als PDF herunterladen »</span></a></span></h3>
+     </div>
+     <!-- /m_editable -->
+     <!-- m_editable region-id="editable-static-tag-U59231-BP_infinity" template="index.html" data-type="html" data-ice-options="disableImageResize,link,txtStyleTarget" -->
+     <div class="Absatz clearfix colelem" id="u59231-12" data-muse-uid="U59231" data-muse-type="txt_frame" data-IBE-flags="txtStyleSrc"><!-- content -->
+      <h1 class="Head1" id="u59231-2"><span class="actAsDiv normal_text" id="u89766"><!-- content --><span class="actAsDiv clip_frame" id="u89752" data-muse-uid="U89752" data-muse-type="img_frame" data-sizePolicy="fixed" data-pintopage="page_fixedLeft"><!-- image --><img class="block temp_no_img_src" id="u89752_img" data-orig-src="/static/images/kataloge-crop-u89752.jpg?crc=289165099" alt="" width="165" height="114" data-muse-src="/static/images/kataloge-crop-u89752.jpg?crc=289165099" src="/static/images/blank.gif?crc=4208392903"/></span></span><span class="shared_content" data-content-guid="u59231-2_1_content">Der neue Katalog ist da.</span></h1>
+      <h3 class="Fliesstext shared_content" id="u59231-3" data-content-guid="u59231-3_content">&nbsp;</h3>
+      <h3 class="Fliesstext shared_content" id="u59231-5" data-content-guid="u59231-5_content">Frisch aus der Druckerei für Sie hier vor Ort beim Reiseservice-Schwerin abholbereit. Sie können sich unseren neuen Sommerkatalog von uns zuschicken lassen oder gleich als PDF herunterladen. Viel Spaß beim Stöbern.</h3>
+      <h3 class="Fliesstext shared_content" id="u59231-6" data-content-guid="u59231-6_content">&nbsp;</h3>
+      <h3 class="LINK1" id="u59231-10"><span><a class="nonblock" href="service---hilfe.html" data-href="page:U117"><span id="u59231-7" class="shared_content" data-content-guid="u59231-7_content">Den Katalog als PDF herunterladen »</span></a></span></h3>
+     </div>
+     <!-- /m_editable -->
+     <!-- m_editable region-id="editable-static-tag-U59216-BP_infinity" template="index.html" data-type="html" data-ice-options="disableImageResize,link,txtStyleTarget" -->
+     <div class="Rubriken SUBLINE clearfix colelem shared_content" id="u59216-4" data-muse-uid="U59216" data-muse-type="txt_frame" data-IBE-flags="txtStyleSrc" data-content-guid="u59216-4_content"><!-- content -->
+      <h2>Unsere Reiseempfehlungen</h2>
+     </div>
+     <!-- /m_editable -->
+
+     <!-- NUMMER 1 -->
+
+     <div class="clearfix colelem" id="u73914"><!-- column -->
+      <!-- m_editable region-id="editable-static-tag-U59217-BP_infinity" template="index.html" data-type="html" data-ice-options="disableImageResize,link,txtStyleTarget" -->
+      <div class="Reisetyp clearfix colelem" id="u59217-5" data-muse-uid="U59217" data-muse-type="txt_frame" data-IBE-flags="txtStyleSrc"><!-- content -->
+       <div class="Flugreise-Tage-Datum" id="u59217-4">
+        <h3 id="u59217-3"><span id="u59217" class="shared_content" data-content-guid="u59217_content">15 Tage Flug- &amp; Busreise&nbsp; </span><span id="u59217-2" class="shared_content" data-content-guid="u59217-2_content">27. 09. - 11. 10. 2018</span></h3>
+       </div>
+      </div>
+      <!-- /m_editable -->
+      <!-- m_editable region-id="editable-static-tag-U59218-BP_infinity" template="index.html" data-type="html" data-ice-options="disableImageResize,link,txtStyleTarget" -->
+      <div class="Absatz clearfix colelem" id="u59218-15" data-muse-uid="U59218" data-muse-type="txt_frame" data-IBE-flags="txtStyleSrc"><!-- content -->
+       <h1 class="Head1" id="u59218-3"><span id="u59218"><span class="actAsDiv normal_text" id="u82043"><!-- content --><span class="actAsDiv clip_frame clearfix" id="u82026" data-muse-uid="U82026" data-muse-type="img_frame" data-sizePolicy="fixed" data-pintopage="page_fixedLeft"><!-- image --><img class="position_content temp_no_img_src" id="u82026_img" data-orig-src="/static/images/mach%20pichu.jpg?crc=333530785" alt="" width="308" height="204" data-muse-src="/static/images/mach%20pichu.jpg?crc=333530785" src="/static/images/blank.gif?crc=4208392903"/></span></span></span><span class="shared_content" data-content-guid="u59218-3_1_content">Perú: Das Land der Inkas</span></h1>
+       <h3 class="REISEUNTERTITEL shared_content" id="u59218-5" data-content-guid="u59218-5_content">Lima · Paracas · Islas Ballestas · Nazca · Arequipa · Colca · Puno · Titicaca See · Cusco · Machu Picchu</h3>
+       <h3 class="Fliesstext shared_content" id="u59218-6" data-content-guid="u59218-6_content">&nbsp;</h3>
+       <h3 class="PREIS" id="u59218-10"><span id="u59218-7" class="shared_content" data-content-guid="u59218-7_content">Preis p.P.:</span><span class="BETRAG shared_content" id="u59218-8" data-content-guid="u59218-8_content"> </span><span class="BETRAG shared_content" id="u59218-9" data-content-guid="u59218-9_content">3.750 €</span></h3>
+       <h3 class="Fliesstext" id="u59218-13"><span class="BETRAG shared_content" id="u59218-11" data-content-guid="u59218-11_content"><span class="actAsDiv normal_text" id="u59911"><!-- content --><!-- m_editable region-id="editable-static-tag-U59903-BP_infinity" template="index.html" data-type="html" data-ice-options="disableImageResize,link,txtStyleTarget" data-ice-editable="link" --><a class="nonblock nontext actAsDiv rounded-corners Button1 clearfix" id="u59903-4" href="detailseite.html" data-href="page:U14413" data-muse-uid="U59903" data-muse-type="txt_frame" data-IBE-flags="txtStyleSrc" data-sizePolicy="fixed" data-pintopage="page_fixedLeft"><!-- content --><span class="actAsPara" id="u59903-2"><span class="Fliess-Bold" id="u59903">Reisedetails</span></span></a><!-- /m_editable --></span></span><span class="BETRAG shared_content" id="u59218-12" data-content-guid="u59218-12_content"></span></h3>
+      </div>
+      <!-- /m_editable -->
+     </div>
+
+     <!-- NUMMER 2 -->
+
+     <div class="clearfix colelem" id="u73914"><!-- column -->
+      <!-- m_editable region-id="editable-static-tag-U59217-BP_infinity" template="index.html" data-type="html" data-ice-options="disableImageResize,link,txtStyleTarget" -->
+      <div class="Reisetyp clearfix colelem" id="u59217-5" data-muse-uid="U59217" data-muse-type="txt_frame" data-IBE-flags="txtStyleSrc"><!-- content -->
+       <div class="Flugreise-Tage-Datum" id="u59217-4">
+        <h3 id="u59217-3"><span id="u59217" class="shared_content" data-content-guid="u59217_content">15 Tage Flug- &amp; Busreise&nbsp; </span><span id="u59217-2" class="shared_content" data-content-guid="u59217-2_content">27. 09. - 11. 10. 2018</span></h3>
+       </div>
+      </div>
+      <!-- /m_editable -->
+      <!-- m_editable region-id="editable-static-tag-U59218-BP_infinity" template="index.html" data-type="html" data-ice-options="disableImageResize,link,txtStyleTarget" -->
+      <div class="Absatz clearfix colelem" id="u59218-15" data-muse-uid="U59218" data-muse-type="txt_frame" data-IBE-flags="txtStyleSrc"><!-- content -->
+       <h1 class="Head1" id="u59218-3"><span id="u59218"><span class="actAsDiv normal_text" id="u82043"><!-- content --><span class="actAsDiv clip_frame clearfix" id="u82026" data-muse-uid="U82026" data-muse-type="img_frame" data-sizePolicy="fixed" data-pintopage="page_fixedLeft"><!-- image --><img class="position_content temp_no_img_src" id="u82026_img" data-orig-src="/static/images/mach%20pichu.jpg?crc=333530785" alt="" width="308" height="204" data-muse-src="/static/images/mach%20pichu.jpg?crc=333530785" src="/static/images/blank.gif?crc=4208392903"/></span></span></span><span class="shared_content" data-content-guid="u59218-3_1_content">Perú: Das Land der Inkas</span></h1>
+       <h3 class="REISEUNTERTITEL shared_content" id="u59218-5" data-content-guid="u59218-5_content">Lima · Paracas · Islas Ballestas · Nazca · Arequipa · Colca · Puno · Titicaca See · Cusco · Machu Picchu</h3>
+       <h3 class="Fliesstext shared_content" id="u59218-6" data-content-guid="u59218-6_content">&nbsp;</h3>
+       <h3 class="PREIS" id="u59218-10"><span id="u59218-7" class="shared_content" data-content-guid="u59218-7_content">Preis p.P.:</span><span class="BETRAG shared_content" id="u59218-8" data-content-guid="u59218-8_content"> </span><span class="BETRAG shared_content" id="u59218-9" data-content-guid="u59218-9_content">3.750 €</span></h3>
+       <h3 class="Fliesstext" id="u59218-13"><span class="BETRAG shared_content" id="u59218-11" data-content-guid="u59218-11_content"><span class="actAsDiv normal_text" id="u59911"><!-- content --><!-- m_editable region-id="editable-static-tag-U59903-BP_infinity" template="index.html" data-type="html" data-ice-options="disableImageResize,link,txtStyleTarget" data-ice-editable="link" --><a class="nonblock nontext actAsDiv rounded-corners Button1 clearfix" id="u59903-4" href="detailseite.html" data-href="page:U14413" data-muse-uid="U59903" data-muse-type="txt_frame" data-IBE-flags="txtStyleSrc" data-sizePolicy="fixed" data-pintopage="page_fixedLeft"><!-- content --><span class="actAsPara" id="u59903-2"><span class="Fliess-Bold" id="u59903">Reisedetails</span></span></a><!-- /m_editable --></span></span><span class="BETRAG shared_content" id="u59218-12" data-content-guid="u59218-12_content"></span></h3>
+      </div>
+      <!-- /m_editable -->
+     </div>
+
+
+    </div>
+    <div class="verticalspacer" data-offset-top="1408" data-content-above-spacer="1482" data-content-below-spacer="260" data-sizePolicy="fixed" data-pintopage="page_fixedLeft"></div>
+    <div class="Infobox clearfix grpelem shared_content" id="u89896-19" data-IBE-flags="txtStyleSrc" data-sizePolicy="fluidWidth" data-pintopage="page_fixedLeft" data-content-guid="u89896-19_content"><!-- content -->
+     <div id="u89896-18">
+      <h3 class="Service"><span class="Fliess-Bold">Service</span></h3>
+      <h3 class="Service">» <span><a class="nonblock" href="reiseberatung.html" data-href="page:U19172">Gutscheine</a></span></h3>
+      <h3 class="Service">» <span><a class="nonblock" href="reiseberatung.html" data-href="page:U19172">Newsletter</a></span></h3>
+      <h3 class="Service">» <span><a class="nonblock" href="reiseberatung.html" data-href="page:U19172">Katalog</a></span></h3>
+     </div>
+    </div>
+    <div class="Infobox clearfix grpelem shared_content" id="u89897-19" data-IBE-flags="txtStyleSrc" data-sizePolicy="fluidWidth" data-pintopage="page_fixedCenter" data-content-guid="u89897-19_content"><!-- content -->
+     <div id="u89897-18">
+      <h3 class="Service"><span class="Fliess-Bold">Informationen</span></h3>
+      <h3 class="Service">» <span><a class="nonblock" href="agbs.html" data-href="page:U4706">AGB</a></span></h3>
+      <h3 class="Service">» <span><a class="nonblock" href="impressum.html" data-href="page:U165">Impraessum</a></span></h3>
+      <h3 class="Service">» <span><a class="nonblock" href="reisebedingungen.html" data-href="page:U22969">Reisebedingungen</a></span></h3>
+     </div>
+    </div>
+    <div class="Infobox clearfix grpelem shared_content" id="u89895-22" data-IBE-flags="txtStyleSrc" data-sizePolicy="fluidWidth" data-pintopage="page_fixedRight" data-content-guid="u89895-22_content"><!-- content -->
+     <div id="u89895-21">
+      <h3 class="Service"><span class="Fliess-Bold">Reiseservice Schwerin GmbH<br/></span>Klöresgang 1, 19053 Schwerin</h3>
+      <h3 class="Service">Tel: <span><a class="nonblock" href="callto:0385%205910333">0385 /a 5910333</a></span></h3>
+      <h3 class="Service">Fax: 0385 / 5910331</h3>
+      <h3 class="Service">&nbsp;</h3>
+      <h3 class="Service">E-Mail: <br/><span><a class="nonblock" href="mailto:info@reiseservice-schwerin.de">info@reiseservice-schwerin.de</a></span></h3>
+      <p id="u89895-20">&nbsp;</p>
+     </div>
+    </div>
+   </div>
+  </div>
+  <div class="breakpoint" id="bp_768" data-max-width="768"><!-- responsive breakpoint node -->
+   <div class="Infobox clearfix borderbox temp_no_id" data-orig-id="page"><!-- group -->
+    <div class="clearfix grpelem" id="ppu35962"><!-- column -->
+     <div class="clearfix colelem" id="pu35962"><!-- group -->
+      <div class="museBGSize clearfix grpelem temp_no_id" data-orig-id="u35962"><!-- group -->
+       <div class="clearfix grpelem temp_no_id" data-orig-id="pu52311"><!-- column -->
+        <span class="clearfix colelem placeholder" data-placeholder-for="u52311_content"><!-- placeholder node --></span>
+        <span class="clearfix colelem placeholder" data-placeholder-for="u52323_content"><!-- placeholder node --></span>
+        <span class="clearfix colelem placeholder" data-placeholder-for="u52335_content"><!-- placeholder node --></span>
+       </div>
+       <div class="clearfix grpelem temp_no_id" data-orig-id="pu52317"><!-- column -->
+        <span class="clearfix colelem placeholder" data-placeholder-for="u52317_content"><!-- placeholder node --></span>
+        <span class="clearfix colelem placeholder" data-placeholder-for="u52329_content"><!-- placeholder node --></span>
+        <span class="clearfix colelem placeholder" data-placeholder-for="u52341_content"><!-- placeholder node --></span>
+       </div>
+      </div>
+      <div class="browser_width grpelem" id="u45689-8-bw">
+       <div class="clearfix" id="u45689-8" data-IBE-flags="txtStyleSrc"><!-- content -->
+        <p id="u45689-6"><span id="u45689">Direkt Service:</span><span id="u45689-2"> </span><span><a class="nonblock" href="callto:0385%205910333"><span id="u45689-3">0385 - 5910 333</span></a></span></p>
+       </div>
+      </div>
+      <a class="nonblock nontext MuseLinkActive clip_frame grpelem temp_no_id" href="index.html" data-href="page:U93" data-sizePolicy="fixed" data-pintopage="page_fixedLeft" data-orig-id="u33687"><!-- image --><img class="block temp_no_id temp_no_img_src" data-orig-src="/static/images/logo_google_blau.png?crc=48157480" alt="" width="155" height="45" data-orig-id="u33687_img" src="/static/images/blank.gif?crc=4208392903"/></a>
+      <div class="PamphletWidget clearfix allow_click_through grpelem" id="pamphletu56924" data-visibility="changed" style="visibility:hidden" data-sizePolicy="fluidWidth" data-pintopage="page_fixedRight"><!-- none box -->
+       <div class="position_content" id="pamphletu56924_position_content">
+        <div class="ThumbGroup clearfix colelem" data-col-pos="1" id="u56933" data-sizePolicy="fluidWidth" data-pintopage="page_fixedRight"><!-- none box -->
+         <div class="popup_anchor grpelem" id="pu56934popup">
+          <div class="popup_element Thumb clearfix" id="pu56934" data-sizePolicy="fluidWidth" data-pintopage="page_fixedRight"><!-- group -->
+           <div class="popup_anchor allow_click_through grpelem" data-col-pos="0" id="u56934popup">
+            <div class="popup_element clearfix" data-col-pos="0" id="u56934"><!-- group -->
+             <div class="clearfix grpelem" id="u57015-4"><!-- content -->
+              <p>Menü</p>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+        </div>
+        <div class="popup_anchor allow_click_through colelem" data-col-pos="0" id="u56925popup">
+         <div class="ContainerGroup clearfix" data-col-pos="0" id="u56925" data-sizePolicy="fluidWidth" data-pintopage="page_fixedCenter" data-leftAdjustmentDoneBy="u56925popup"><!-- stack box -->
+          <div class="Container invi borderbox clearfix grpelem" data-col-pos="0" id="u56928" data-sizePolicy="fluidWidth" data-pintopage="page_fixedCenter"><!-- group -->
+           <nav class="MenuBar clearfix grpelem" id="menuu57021"><!-- vertical box -->
+            <div class="MenuItemContainer clearfix colelem" id="u57029"><!-- horizontal box -->
+             <a class="nonblock nontext MenuItem MenuItemWithSubMenu borderbox clearfix grpelem" id="u57030" href="mehrtagesfahrten.html" data-href="page:U141"><!-- horizontal box --><div class="MenuItemLabel clearfix grpelem" id="u57031-4"><!-- content --><p>Mehrtagesfahrten</p></div></a>
+            </div>
+            <div class="MenuItemContainer clearfix colelem" id="u57022"><!-- horizontal box -->
+             <a class="nonblock nontext MenuItem MenuItemWithSubMenu borderbox clearfix grpelem" id="u57023" href="tagesfahrten.html" data-href="page:U153"><!-- horizontal box --><div class="MenuItemLabel clearfix grpelem" id="u57026-4"><!-- content --><p>Tagesfahrten</p></div></a>
+            </div>
+            <div class="MenuItemContainer clearfix colelem" id="u57111"><!-- horizontal box -->
+             <a class="nonblock nontext MenuItem MenuItemWithSubMenu borderbox clearfix grpelem" id="u57114" href="musicals---shows.html" data-href="page:U129"><!-- horizontal box --><div class="MenuItemLabel clearfix grpelem" id="u57116-4"><!-- content --><p>Musicals &amp; Shows</p></div></a>
+            </div>
+            <div class="MenuItemContainer clearfix colelem" id="u57177"><!-- horizontal box -->
+             <a class="nonblock nontext MenuItem MenuItemWithSubMenu borderbox clearfix grpelem" id="u57180" href="reiseberatung.html" data-href="page:U19172"><!-- horizontal box --><div class="MenuItemLabel clearfix grpelem" id="u57181-4"><!-- content --><p>Reiseberatung</p></div></a>
+            </div>
+            <div class="MenuItemContainer clearfix colelem" id="u57240"><!-- horizontal box -->
+             <a class="nonblock nontext MenuItem MenuItemWithSubMenu borderbox clearfix grpelem" id="u57241" href="service---hilfe.html" data-href="page:U117"><!-- horizontal box --><div class="MenuItemLabel clearfix grpelem" id="u57243-4"><!-- content --><p>Service &amp; Hilfe</p></div></a>
+            </div>
+           </nav>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+     <div class="clearfix colelem" id="pu59234-12"><!-- group -->
+      <!-- m_editable region-id="editable-static-tag-U59234-BP_768" template="index.html" data-type="html" data-ice-options="disableImageResize,link,txtStyleTarget" -->
+      <div class="Absatz clearfix grpelem temp_no_id" data-muse-uid="U59234" data-muse-type="txt_frame" data-IBE-flags="txtStyleSrc" data-orig-id="u59234-12"><!-- content -->
+       <span class="Head1 placeholder" data-placeholder-for="u59234-2_content"><!-- placeholder node --></span>
+       <span class="Fliesstext placeholder" data-placeholder-for="u59234-3_content"><!-- placeholder node --></span>
+       <span class="Fliesstext placeholder" data-placeholder-for="u59234-5_content"><!-- placeholder node --></span>
+       <span class="Fliesstext placeholder" data-placeholder-for="u59234-6_content"><!-- placeholder node --></span>
+       <h3 class="Fliesstext temp_no_id" data-orig-id="u59234-10"><span><a class="nonblock" href="service---hilfe.html" data-href="page:U117"><span class="Link placeholder" data-placeholder-for="u59234-7_content"><!-- placeholder node --></span></a></span></h3>
+      </div>
+      <!-- /m_editable -->
+      <!-- m_editable region-id="editable-static-tag-U59229-BP_768" template="index.html" data-type="html" data-ice-options="disableImageResize,link,txtStyleTarget" -->
+      <span class="Rubriken SUBLINE clearfix grpelem placeholder" data-placeholder-for="u59229-4_content"><!-- placeholder node --></span>
+      <!-- /m_editable -->
+     </div>
+     <!-- m_editable region-id="editable-static-tag-U59231-BP_768" template="index.html" data-type="html" data-ice-options="disableImageResize,link,txtStyleTarget" -->
+     <div class="Absatz clearfix colelem temp_no_id" data-muse-uid="U59231" data-muse-type="txt_frame" data-IBE-flags="txtStyleSrc" data-orig-id="u59231-12"><!-- content -->
+      <h1 class="Head1 temp_no_id" data-orig-id="u59231-2"><span class="actAsDiv normal_text temp_no_id" data-orig-id="u89766"><!-- content --><span class="actAsDiv clip_frame temp_no_id" data-muse-uid="U89752" data-muse-type="img_frame" data-sizePolicy="fixed" data-pintopage="page_fixedLeft" data-orig-id="u89752"><!-- image --><img class="block temp_no_id temp_no_img_src" data-orig-src="/static/images/kataloge-crop-u897522.jpg?crc=144077666" alt="" width="231" height="160" data-muse-src="/static/images/kataloge-crop-u897522.jpg?crc=144077666" data-orig-id="u89752_img" src="/static/images/blank.gif?crc=4208392903"/></span></span><span class="placeholder" data-placeholder-for="u59231-2_1_content"><!-- placeholder node --></span></h1>
+      <span class="Fliesstext placeholder" data-placeholder-for="u59231-3_content"><!-- placeholder node --></span>
+      <span class="Fliesstext placeholder" data-placeholder-for="u59231-5_content"><!-- placeholder node --></span>
+      <span class="Fliesstext placeholder" data-placeholder-for="u59231-6_content"><!-- placeholder node --></span>
+      <h3 class="Fliesstext temp_no_id" data-orig-id="u59231-10"><span><a class="nonblock" href="service---hilfe.html" data-href="page:U117"><span class="Link placeholder" data-placeholder-for="u59231-7_content"><!-- placeholder node --></span></a></span></h3>
+     </div>
+     <!-- /m_editable -->
+     <!-- m_editable region-id="editable-static-tag-U59216-BP_768" template="index.html" data-type="html" data-ice-options="disableImageResize,link,txtStyleTarget" -->
+     <span class="Rubriken SUBLINE clearfix colelem placeholder" data-placeholder-for="u59216-4_content"><!-- placeholder node --></span>
+     <!-- /m_editable -->
+
+     <!-- NUMER 1 -->
+
+     <div class="clearfix colelem temp_no_id" data-orig-id="u73914"><!-- column -->
+      <!-- m_editable region-id="editable-static-tag-U59217-BP_768" template="index.html" data-type="html" data-ice-options="disableImageResize,link,txtStyleTarget" -->
+      <div class="Reisetyp clearfix colelem temp_no_id" data-muse-uid="U59217" data-muse-type="txt_frame" data-IBE-flags="txtStyleSrc" data-orig-id="u59217-5"><!-- content -->
+       <div class="Flugreise-Tage-Datum temp_no_id" data-orig-id="u59217-4">
+        <h3 class="temp_no_id" data-orig-id="u59217-3"><span class="Fliess-Bold placeholder" data-placeholder-for="u59217_content"><!-- placeholder node --></span><span class="Fliess-Bold placeholder" data-placeholder-for="u59217-2_content"><!-- placeholder node --></span></h3>
+       </div>
+      </div>
+      <!-- /m_editable -->
+      <!-- m_editable region-id="editable-static-tag-U59218-BP_768" template="index.html" data-type="html" data-ice-options="disableImageResize,link,txtStyleTarget" -->
+      <div class="Absatz clearfix colelem temp_no_id" data-muse-uid="U59218" data-muse-type="txt_frame" data-IBE-flags="txtStyleSrc" data-orig-id="u59218-15"><!-- content -->
+       <h1 class="Head1 temp_no_id" data-orig-id="u59218-3"><span class="temp_no_id" data-orig-id="u59218"><span class="actAsDiv normal_text temp_no_id" data-orig-id="u82043"><!-- content --><span class="actAsDiv clip_frame temp_no_id" data-muse-uid="U82026" data-muse-type="img_frame" data-sizePolicy="fixed" data-pintopage="page_fixedLeft" data-orig-id="u82026"><!-- image --><img class="block temp_no_id temp_no_img_src" data-orig-src="/static/images/mach%20pichu-crop-u82026.jpg?crc=3945907850" alt="" width="230" height="145" data-muse-src="/static/images/mach%20pichu-crop-u82026.jpg?crc=3945907850" data-orig-id="u82026_img" src="/static/images/blank.gif?crc=4208392903"/></span></span></span><span class="placeholder" data-placeholder-for="u59218-3_1_content"><!-- placeholder node --></span></h1>
+       <span class="REISEUNTERTITEL placeholder" data-placeholder-for="u59218-5_content"><!-- placeholder node --></span>
+       <span class="Fliesstext placeholder" data-placeholder-for="u59218-6_content"><!-- placeholder node --></span>
+       <h3 class="Fliesstext temp_no_id" data-orig-id="u59218-10"><span class="placeholder" data-placeholder-for="u59218-7_content"><!-- placeholder node --></span><span class="placeholder" data-placeholder-for="u59218-8_content"><!-- placeholder node --></span><span class="BETRAG placeholder" data-placeholder-for="u59218-9_content"><!-- placeholder node --></span></h3>
+       <h3 class="Fliesstext temp_no_id" data-orig-id="u59218-13"><span class="Fliess-Bold placeholder" data-placeholder-for="u59218-11_content"><!-- placeholder node --></span><span class="Fliess-Bold placeholder" data-placeholder-for="u59218-12_content"><!-- placeholder node --></span></h3>
+      </div>
+      <!-- /m_editable -->
+     </div>
+
+     <!-- NUMMER 2 -->
+
+     <div class="clearfix colelem temp_no_id" data-orig-id="u73914"><!-- column -->
+      <!-- m_editable region-id="editable-static-tag-U59217-BP_768" template="index.html" data-type="html" data-ice-options="disableImageResize,link,txtStyleTarget" -->
+      <div class="Reisetyp clearfix colelem temp_no_id" data-muse-uid="U59217" data-muse-type="txt_frame" data-IBE-flags="txtStyleSrc" data-orig-id="u59217-5"><!-- content -->
+       <div class="Flugreise-Tage-Datum temp_no_id" data-orig-id="u59217-4">
+        <h3 class="temp_no_id" data-orig-id="u59217-3"><span class="Fliess-Bold placeholder" data-placeholder-for="u59217_content"><!-- placeholder node --></span><span class="Fliess-Bold placeholder" data-placeholder-for="u59217-2_content"><!-- placeholder node --></span></h3>
+       </div>
+      </div>
+      <!-- /m_editable -->
+      <!-- m_editable region-id="editable-static-tag-U59218-BP_768" template="index.html" data-type="html" data-ice-options="disableImageResize,link,txtStyleTarget" -->
+      <div class="Absatz clearfix colelem temp_no_id" data-muse-uid="U59218" data-muse-type="txt_frame" data-IBE-flags="txtStyleSrc" data-orig-id="u59218-15"><!-- content -->
+       <h1 class="Head1 temp_no_id" data-orig-id="u59218-3"><span class="temp_no_id" data-orig-id="u59218"><span class="actAsDiv normal_text temp_no_id" data-orig-id="u82043"><!-- content --><span class="actAsDiv clip_frame temp_no_id" data-muse-uid="U82026" data-muse-type="img_frame" data-sizePolicy="fixed" data-pintopage="page_fixedLeft" data-orig-id="u82026"><!-- image --><img class="block temp_no_id temp_no_img_src" data-orig-src="/static/images/mach%20pichu-crop-u82026.jpg?crc=3945907850" alt="" width="230" height="145" data-muse-src="/static/images/mach%20pichu-crop-u82026.jpg?crc=3945907850" data-orig-id="u82026_img" src="/static/images/blank.gif?crc=4208392903"/></span></span></span><span class="placeholder" data-placeholder-for="u59218-3_1_content"><!-- placeholder node --></span></h1>
+       <span class="REISEUNTERTITEL placeholder" data-placeholder-for="u59218-5_content"><!-- placeholder node --></span>
+       <span class="Fliesstext placeholder" data-placeholder-for="u59218-6_content"><!-- placeholder node --></span>
+       <h3 class="Fliesstext temp_no_id" data-orig-id="u59218-10"><span class="placeholder" data-placeholder-for="u59218-7_content"><!-- placeholder node --></span><span class="placeholder" data-placeholder-for="u59218-8_content"><!-- placeholder node --></span><span class="BETRAG placeholder" data-placeholder-for="u59218-9_content"><!-- placeholder node --></span></h3>
+       <h3 class="Fliesstext temp_no_id" data-orig-id="u59218-13"><span class="Fliess-Bold placeholder" data-placeholder-for="u59218-11_content"><!-- placeholder node --></span><span class="Fliess-Bold placeholder" data-placeholder-for="u59218-12_content"><!-- placeholder node --></span></h3>
+      </div>
+      <!-- /m_editable -->
+     </div>
+
+
+    </div>
+    <div class="verticalspacer" data-offset-top="1773" data-content-above-spacer="1893" data-content-below-spacer="516" data-sizePolicy="fixed" data-pintopage="page_fixedLeft"></div>
+    <div class="clearfix grpelem" id="pu89895-22"><!-- column -->
+     <div class="browser_width colelem" id="u89895-22-bw">
+      <span class="Infobox clearfix placeholder" data-placeholder-for="u89895-22_content"><!-- placeholder node --></span>
+     </div>
+     <div class="clearfix colelem" id="pu89896-19"><!-- group -->
+      <span class="Infobox clearfix grpelem placeholder" data-placeholder-for="u89896-19_content"><!-- placeholder node --></span>
+      <span class="Infobox clearfix grpelem placeholder" data-placeholder-for="u89897-19_content"><!-- placeholder node --></span>
+     </div>
+     <div class="browser_width colelem" id="u89898-8-bw">
+      <div class="Infobox clearfix" id="u89898-8"><!-- content -->
+       <div id="u89898-7">
+        <h3 class="Service" id="u89898-2">Öffnungszeiten:</h3>
+        <h3 class="Service" id="u89898-4">Mo.-Fr. 9:30-18:00 Uhr</h3>
+        <h3 class="Service" id="u89898-6">Sa. 10:00 Uhr-14:00 Uhr</h3>
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+  </div>
+  <!-- Other scripts -->
+  <script type="text/javascript">
+   // Decide whether to suppress missing file error or not based on preference setting
+var suppressMissingFileError = false
+</script>
+  <script type="text/javascript">
+   window.Muse.assets.check=function(c){if(!window.Muse.assets.checked){window.Muse.assets.checked=!0;var b={},d=function(a,b){if(window.getComputedStyle){var c=window.getComputedStyle(a,null);return c&&c.getPropertyValue(b)||c&&c[b]||""}if(document.documentElement.currentStyle)return(c=a.currentStyle)&&c[b]||a.style&&a.style[b]||"";return""},a=function(a){if(a.match(/^rgb/))return a=a.replace(/\s+/g,"").match(/([\d\,]+)/gi)[0].split(","),(parseInt(a[0])<<16)+(parseInt(a[1])<<8)+parseInt(a[2]);if(a.match(/^\#/))return parseInt(a.substr(1),
+16);return 0},f=function(f){for(var g=document.getElementsByTagName("link"),j=0;j<g.length;j++)if("text/css"==g[j].type){var l=(g[j].href||"").match(/\/?css\/([\w\-]+\.css)\?crc=(\d+)/);if(!l||!l[1]||!l[2])break;b[l[1]]=l[2]}g=document.createElement("div");g.className="version";g.style.cssText="display:none; width:1px; height:1px;";document.getElementsByTagName("body")[0].appendChild(g);for(j=0;j<Muse.assets.required.length;){var l=Muse.assets.required[j],k=l.match(/([\w\-\.]+)\.(\w+)$/),i=k&&k[1]?
+k[1]:null,k=k&&k[2]?k[2]:null;switch(k.toLowerCase()){case "css":i=i.replace(/\W/gi,"_").replace(/^([^a-z])/gi,"_$1");g.className+=" "+i;i=a(d(g,"color"));k=a(d(g,"backgroundColor"));i!=0||k!=0?(Muse.assets.required.splice(j,1),"undefined"!=typeof b[l]&&(i!=b[l]>>>24||k!=(b[l]&16777215))&&Muse.assets.outOfDate.push(l)):j++;g.className="version";break;case "js":j++;break;default:throw Error("Unsupported file type: "+k);}}c?c().jquery!="1.8.3"&&Muse.assets.outOfDate.push("jquery-1.8.3.min.js"):Muse.assets.required.push("jquery-1.8.3.min.js");
+g.parentNode.removeChild(g);if(Muse.assets.outOfDate.length||Muse.assets.required.length)g="Einige der Dateien auf dem Server fehlen oder sind ungültig. Löschen Sie den Browser-Cache und versuchen Sie es erneut. Wenn das Problem weiterhin besteht, wenden Sie sich an den Autor der Website.",f&&Muse.assets.outOfDate.length&&(g+="\nOut of date: "+Muse.assets.outOfDate.join(",")),f&&Muse.assets.required.length&&(g+="\nMissing: "+Muse.assets.required.join(",")),suppressMissingFileError?(g+="\nUse SuppressMissingFileError key in AppPrefs.xml to show missing file error pop up.",console.log(g)):alert(g)};location&&location.search&&location.search.match&&location.search.match(/muse_debug/gi)?
+setTimeout(function(){f(!0)},5E3):f()}};
+var muse_init=function(){require.config({baseUrl:"{% static '' %}"});require(["jquery","museutils","whatinput","jquery.musemenu","jquery.musepolyfill.bgsize","jquery.watch","webpro","musewpslideshow","jquery.museoverlay","touchswipe","jquery.museresponsive"],function(c){var $ = c;$(document).ready(function(){try{
+window.Muse.assets.check($);/* body */
+Muse.Utils.transformMarkupToFixBrowserProblemsPreInit();/* body */
+Muse.Utils.prepHyperlinks(true);/* body */
+Muse.Utils.resizeHeight('.browser_width');/* resize height */
+Muse.Utils.requestAnimationFrame(function() { $('body').addClass('initialized'); });/* mark body as initialized */
+Muse.Utils.resizeHeight('.popup_anchor.allow_click_through');/* resize height */
+Muse.Utils.makeButtonsVisibleAfterSettingMinWidth();/* body */
+Muse.Utils.initWidget('.MenuBar', ['#bp_infinity', '#bp_768'], function(elem) { return $(elem).museMenu(); });/* unifiedNavBar */
+Muse.Utils.initWidget('#pamphletu56924', ['#bp_768'], function(elem) { return new WebPro.Widget.ContentSlideShow(elem, {contentLayout_runtime:'stack',event:'click',deactivationEvent:'mouseout_click',autoPlay:false,displayInterval:3000,transitionStyle:'fading',transitionDuration:0,hideAllContentsFirst:true,triggersOnTop:true,shuffle:false,enableSwipe:false,resumeAutoplay:true,resumeAutoplayInterval:3000,playOnce:false,autoActivate_runtime:false,isResponsive:true}); });/* #pamphletu56924 */
+Muse.Utils.fullPage('#page');/* 100% height page */
+$( '.breakpoint' ).registerBreakpoint();/* Register breakpoints */
+Muse.Utils.transformMarkupToFixBrowserProblems();/* body */
+}catch(b){if(b&&"function"==typeof b.notify?b.notify():Muse.Assert.fail("Error calling selector function: "+b),false)throw b;}})})};
+
+</script>
+  <!-- RequireJS script -->
+  <script src="{% static 'scripts/require.js' %}" type="text/javascript" async data-main="{% static 'scripts/museconfig.js' %}" onload="if (requirejs) requirejs.onError = function(requireType, requireModule) { if (requireType && requireType.toString && requireType.toString().indexOf && 0 <= requireType.toString().indexOf('#scripterror')) window.Muse.assets.check(); }" onerror="window.Muse.assets.check();"></script>
+   </body>
 </html>

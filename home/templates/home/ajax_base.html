@@ -4,9 +4,12 @@
 
 <html>
 
-  <head>
+  <head lang="de-DE">
 
     <meta charset="utf-8">
+
+    <!-- favicon -->
+    <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}"/>
 
     <!-- TITEL -->
     {% block title %}
@@ -15,6 +18,8 @@
     <!-- STYLESHEETS -->
     <link rel="stylesheet" type="text/css" href="{% static 'css/ajax.css' %}">
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+
     {% block stylesheet %}
     {% endblock %}
 
@@ -22,13 +27,15 @@
 
   <body>
 
+    <div class="Infobox borderbox" id="page">
+
     <header>
 
-      <div id="header" style="background-color:#89CFF0">
+      <div class="grpelem" id="header">
 
         <logo>
 
-          <div id="logo">
+          <div class="colelem" id="fixheader">
             <!-- STARTLOGO (Logo, Telefonnummer, Öffnungszeiten etc.) -->
             {% block logo %}
             {% endblock %}
@@ -37,7 +44,7 @@
 
         </logo>
 
-        <navigation>
+        <nav>
 
           <div id="navigation">
             <!-- STARTNAVIGATION (Navigation) -->
@@ -46,7 +53,7 @@
             <!--ENDNAVIGATION -->
           </div>
 
-        </navigation>
+        </nav>
 
       </div>
 
@@ -54,7 +61,7 @@
 
     <hr>
 
-    <inhalt>
+    <main>
 
       <div id="inhalt" style="background-color:#DCF1FA">
         <!-- STARTMAIN (Hier kommt dann das ajax zeuch also die inhalte ...) -->
@@ -65,7 +72,7 @@
         <!-- ENDMAIN -->
       </div>
 
-    </inhalt>
+    </main>
 
     <hr>
 
@@ -79,6 +86,8 @@
       </div>
 
     </footer>
+
+    </div>
 
     <scripts>
 
