@@ -1,0 +1,438 @@
+{% load static %}
+{% load eigene_tags %}
+
+<!DOCTYPE html>
+<html style="font-size: 16px;" lang="de-DE">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="Gutes Reisen ist Vertrauenssache.">
+    <meta name="description" content="Das Reisebüro aus Schwerin fährt Sie in alle Welt!
+Gutes Reisen ist Vertrauenssache!">
+    <meta name="page_type" content="np-template-header-footer-from-plugin">
+
+    <title>Der Reiseservice Schwerin</title>
+
+    <link rel="stylesheet" href="{% static 'css/mmgd.css' %}" media="screen">
+    <link rel="stylesheet" href="{% static 'css/Start.css' %}" media="screen">
+
+    <script class="u-script" type="text/javascript" src="{% static 'js/jquery.js' %}" defer=""></script>
+    <script class="u-script" type="text/javascript" src="{% static 'js/mmgd.js' %}" defer=""></script>
+    <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i">
+    <link id="u-page-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i">
+
+    <script type="application/ld+json">{
+		"@context": "http://schema.org",
+		"@type": "Organization",
+		"name": "Reiseservice Schwerin",
+		"logo": "{% static 'images/LogoRSS2021_LogoGold.png' %}",
+		"sameAs": [
+				"https://www.facebook.com/ReiseserviceSchwerin-2866443210034243",
+				"https://www.instagram.com/reiseserviceschwerin/"
+		]
+}</script>
+    <meta name="theme-color" content="#01498d">
+    <meta property="og:title" content="Der Reiseservice Schwerin">
+    <meta property="og:description" content="Das Reisebüro aus Schwerin fährt Sie in alle Welt!
+Gutes Reisen ist Vertrauenssache!">
+    <meta property="og:type" content="website">
+  </head>
+  <body class="u-body"><header class="u-clearfix u-header u-white u-header" id="sec-00af"><div class="u-clearfix u-sheet u-sheet-1">
+        <a href="neustart?version=nicepage" data-page-id="351830228" class="u-image u-logo u-image-1" data-image-width="1182" data-image-height="1182" title="Start">
+          <img src="{% static 'images/LogoRSS2021_LogoGold.png' %}" class="u-logo-image u-logo-image-1">
+        </a>
+        <h3 class="u-text u-text-default-lg u-text-default-md u-text-default-sm u-text-default-xl u-text-palette-1-base u-text-1">Telefon:&nbsp; <a class="nonblock u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-palette-1-base u-btn-1" href="tel:0385 - 5910 333">0385 - 5910 333</a>
+        </h3>
+        <div class="u-hidden-xs u-social-icons u-spacing-10 u-social-icons-1">
+          <a class="u-social-url" title="facebook" target="_blank" href="https://www.facebook.com/ReiseserviceSchwerin-2866443210034243"><span class="u-icon u-social-facebook u-social-icon u-text-palette-1-base"><svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 112 112" style=""><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-efa4"></use></svg><svg class="u-svg-content" viewBox="0 0 112 112" x="0" y="0" id="svg-efa4"><circle fill="currentColor" cx="56.1" cy="56.1" r="55"></circle><path fill="#FFFFFF" d="M73.5,31.6h-9.1c-1.4,0-3.6,0.8-3.6,3.9v8.5h12.6L72,58.3H60.8v40.8H43.9V58.3h-8V43.9h8v-9.2
+c0-6.7,3.1-17,17-17h12.5v13.9H73.5z"></path></svg></span>
+          </a>
+          <a class="u-social-url" title="instagram" target="_blank" href="https://www.instagram.com/reiseserviceschwerin/"><span class="u-icon u-social-icon u-social-instagram u-text-palette-1-base"><svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 112 112" style=""><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-4d97"></use></svg><svg class="u-svg-content" viewBox="0 0 112 112" x="0" y="0" id="svg-4d97"><circle fill="currentColor" cx="56.1" cy="56.1" r="55"></circle><path fill="#FFFFFF" d="M55.9,38.2c-9.9,0-17.9,8-17.9,17.9C38,66,46,74,55.9,74c9.9,0,17.9-8,17.9-17.9C73.8,46.2,65.8,38.2,55.9,38.2
+z M55.9,66.4c-5.7,0-10.3-4.6-10.3-10.3c-0.1-5.7,4.6-10.3,10.3-10.3c5.7,0,10.3,4.6,10.3,10.3C66.2,61.8,61.6,66.4,55.9,66.4z"></path><path fill="#FFFFFF" d="M74.3,33.5c-2.3,0-4.2,1.9-4.2,4.2s1.9,4.2,4.2,4.2s4.2-1.9,4.2-4.2S76.6,33.5,74.3,33.5z"></path><path fill="#FFFFFF" d="M73.1,21.3H38.6c-9.7,0-17.5,7.9-17.5,17.5v34.5c0,9.7,7.9,17.6,17.5,17.6h34.5c9.7,0,17.5-7.9,17.5-17.5V38.8
+C90.6,29.1,82.7,21.3,73.1,21.3z M83,73.3c0,5.5-4.5,9.9-9.9,9.9H38.6c-5.5,0-9.9-4.5-9.9-9.9V38.8c0-5.5,4.5-9.9,9.9-9.9h34.5
+c5.5,0,9.9,4.5,9.9,9.9V73.3z"></path></svg></span>
+          </a>
+        </div>
+        <nav class="u-menu u-menu-dropdown u-offcanvas u-offcanvas-shift u-menu-1">
+          <div class="menu-collapse" style="font-size: 1rem; letter-spacing: 0px; font-weight: 700;">
+            <a class="u-button-style u-custom-active-border-color u-custom-active-color u-custom-border u-custom-border-color u-custom-borders u-custom-hover-border-color u-custom-hover-color u-custom-left-right-menu-spacing u-custom-padding-bottom u-custom-text-active-color u-custom-text-color u-custom-text-hover-color u-custom-top-bottom-menu-spacing u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base u-text-palette-1-base" href="#" style="padding: 8px; font-size: calc(1em + 16px);">
+              <svg viewBox="0 0 24 24"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#menu-hamburger"></use></svg>
+              <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><defs><symbol id="menu-hamburger" viewBox="0 0 16 16" style="width: 16px; height: 16px;"><rect y="1" width="16" height="2"></rect><rect y="7" width="16" height="2"></rect><rect y="13" width="16" height="2"></rect>
+</symbol>
+</defs></svg>
+            </a>
+          </div>
+          <div class="u-custom-menu u-nav-container">
+            <ul class="u-nav u-spacing-2 u-unstyled u-nav-1"><li class="u-nav-item"><a class="u-active-palette-1-base u-border-active-palette-1-base u-border-hover-palette-1-base u-button-style u-hover-palette-1-light-1 u-nav-link u-text-active-white u-text-hover-white u-text-palette-1-base" href="neustart?version=nicepage" style="padding: 10px 20px;">Start</a>
+</li><li class="u-nav-item"><a class="u-active-palette-1-base u-border-active-palette-1-base u-border-hover-palette-1-base u-button-style u-hover-palette-1-light-1 u-nav-link u-text-active-white u-text-hover-white u-text-palette-1-base" href="mehrtagesfahrten" style="padding: 10px 20px;">Mehrtagesfahrten</a>
+</li><li class="u-nav-item"><a class="u-active-palette-1-base u-border-active-palette-1-base u-border-hover-palette-1-base u-button-style u-hover-palette-1-light-1 u-nav-link u-text-active-white u-text-hover-white u-text-palette-1-base" href="tagesfahrten" style="padding: 10px 20px;">Tagesfahrten</a>
+</li><li class="u-nav-item"><a class="u-active-palette-1-base u-border-active-palette-1-base u-border-hover-palette-1-base u-button-style u-hover-palette-1-light-1 u-nav-link u-text-active-white u-text-hover-white u-text-palette-1-base" href="kontakt" style="padding: 10px 20px;">Service &amp; Kontakt</a>
+</li></ul>
+          </div>
+          <div class="u-custom-menu u-nav-container-collapse">
+            <div class="u-container-style u-expanded-width-md u-expanded-width-sm u-inner-container-layout u-opacity u-opacity-95 u-palette-1-base u-sidenav u-sidenav-1" data-offcanvas-width="276">
+              <div class="u-inner-container-layout u-sidenav-overflow">
+                <div class="u-menu-close"></div>
+                <ul class="u-align-center-lg u-align-center-md u-align-center-sm u-align-center-xl u-align-left-xs u-nav u-popupmenu-items u-spacing-32 u-text-active-palette-3-base u-unstyled u-nav-2"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="neustart?version=nicepage" style="padding: 10px 20px;">Start</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="mehrtagesfahrten" style="padding: 10px 20px;">Mehrtagesfahrten</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="tagesfahrten" style="padding: 10px 20px;">Tagesfahrten</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="kontakt" style="padding: 10px 20px;">Service &amp; Kontakt</a>
+</li></ul>
+              </div>
+            </div>
+            <div class="u-menu-overlay"></div>
+          </div>
+        </nav>
+      </div><style class="u-sticky-style" data-style-id="1835">.u-sticky-fixed.u-sticky-1835:before, .u-body.u-sticky-fixed .u-sticky-1835:before {
+borders: top right bottom left !important
+}</style></header>
+    <section class="HEADER skrollable u-align-center u-clearfix u-hidden-xs u-image u-parallax u-section-1" id="Header_Start" data-image-width="1600" data-image-height="754">
+      <div class="u-align-left u-clearfix u-sheet u-sheet-1">
+        <div class="KARUSELL u-expanded-width u-layout-horizontal u-list u-list-1">
+          <div class="u-repeater u-repeater-1">
+            <div class="u-container-style u-list-item u-radius-5 u-repeater-item u-shape-round u-white u-list-item-1" data-href="mehrtagesfahrten" data-page-id="134383028">
+              <div class="u-container-layout u-similar-container u-container-layout-1">
+                <h2 class="u-align-center u-text u-text-default u-text-1">Mehrtagesfahrten</h2>
+                <img class="u-expanded-width u-image u-image-default u-image-1" src="{% static 'images/header_Reisen.jpg' %}" alt="" data-image-width="1600" data-image-height="900">
+                <p class="u-align-center u-text u-text-default u-text-2">Beispiel normaler Text. Lorem ipsum dolor sit amet, consectetur adipiscing elit nullam nunc justo sagittis suscipit ultrices.</p>
+              </div>
+            </div>
+            <div class="u-container-style u-list-item u-radius-5 u-repeater-item u-shape-round u-white u-list-item-2" data-href="tagesfahrten" data-page-id="792012504">
+              <div class="u-container-layout u-similar-container u-container-layout-2">
+                <h2 class="u-align-center u-text u-text-default u-text-3">Tagesfahrten</h2>
+                <img class="u-expanded-width u-image u-image-default u-image-2" src="{% static 'images/20190630_200221.jpg' %}" alt="" data-image-width="1600" data-image-height="778">
+                <p class="u-align-center u-text u-text-default u-text-4">Beispiel normaler Text. Lorem ipsum dolor sit amet, consectetur adipiscing elit nullam nunc justo sagittis suscipit ultrices.</p>
+              </div>
+            </div>
+            <div class="u-container-style u-list-item u-radius-5 u-repeater-item u-shape-round u-white u-list-item-3" data-href="reiseberatung" data-page-id="7655672">
+              <div class="u-container-layout u-similar-container u-container-layout-3">
+                <h2 class="u-align-center u-text u-text-default u-text-5">alle Reisen??</h2>
+                <img class="u-expanded-width u-image u-image-default u-image-3" src="{% static 'images/AdobeStock_253709891.jpeg' %}" alt="" data-image-width="5184" data-image-height="3456">
+                <p class="u-align-center u-text u-text-default u-text-6">Beispiel normaler Text. Lorem ipsum dolor sit amet, consectetur adipiscing elit nullam nunc justo sagittis suscipit ultrices.</p>
+              </div>
+            </div>
+            <div class="u-container-style u-list-item u-radius-5 u-repeater-item u-shape-round u-white u-list-item-4">
+              <div class="u-container-layout u-similar-container u-container-layout-4">
+                <h2 class="u-align-center u-text u-text-default u-text-7">Gutschein</h2>
+                <img class="u-expanded-width u-image u-image-default u-image-4" src="{% static 'images/Gutschein_Winter_2021.jpg' %}" alt="" data-image-width="2000" data-image-height="1412">
+                <p class="u-align-center u-text u-text-default u-text-8">Beispiel normaler Text. Lorem ipsum dolor sit amet, consectetur adipiscing elit nullam nunc justo sagittis suscipit ultrices.</p>
+              </div>
+            </div>
+            <div class="u-container-style u-list-item u-radius-5 u-repeater-item u-shape-round u-white u-list-item-5">
+              <div class="u-container-layout u-similar-container u-container-layout-5">
+                <h2 class="u-align-center u-text u-text-default u-text-9">Katalog</h2>
+                <img class="u-expanded-width u-image u-image-default u-image-5" src="{% static 'images/Katalog.jpg' %}" alt="" data-image-width="1920" data-image-height="1080">
+                <p class="u-align-center u-text u-text-default u-text-10">Beispiel normaler Text. Lorem ipsum dolor sit amet, consectetur adipiscing elit nullam nunc justo sagittis suscipit ultrices.</p>
+              </div>
+            </div>
+            <div class="u-container-style u-list-item u-radius-5 u-repeater-item u-shape-round u-white u-list-item-6">
+              <div class="u-container-layout u-similar-container u-container-layout-6">
+                <h2 class="u-align-center u-text u-text-default u-text-11">Musicals</h2>
+                <img class="u-expanded-width u-image u-image-default u-image-6" src="{% static 'images/_RO_7829.jpg' %}" alt="" data-image-width="1600" data-image-height="1066">
+                <p class="u-align-center u-text u-text-default u-text-12">Beispiel normaler Text. Lorem ipsum dolor sit amet, consectetur adipiscing elit nullam nunc justo sagittis suscipit ultrices.</p>
+              </div>
+            </div>
+          </div>
+          <a class="u-absolute-vcenter u-gallery-nav u-gallery-nav-prev u-icon-circle u-opacity u-opacity-70 u-palette-1-base u-spacing-10 u-gallery-nav-1" href="#" role="button">
+            <span aria-hidden="true">
+              <svg viewBox="0 0 8 8"><path d="M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z"></path></svg>
+            </span>
+            <span class="sr-only">
+              <svg viewBox="0 0 8 8"><path d="M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z"></path></svg>
+            </span>
+          </a>
+          <a class="u-absolute-vcenter u-gallery-nav u-gallery-nav-next u-icon-circle u-opacity u-opacity-70 u-palette-1-base u-spacing-10 u-gallery-nav-2" href="#" role="button">
+            <span aria-hidden="true">
+              <svg viewBox="0 0 8 8"><path d="M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z"></path></svg>
+            </span>
+            <span class="sr-only">
+              <svg viewBox="0 0 8 8"><path d="M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z"></path></svg>
+            </span>
+          </a>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-palette-3-light-3 u-section-2" id="sec-7774">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <h2 class="RUBRIK u-align-left u-text u-text-1">Aktuell<br>
+        </h2>
+      </div>
+    </section>
+    <section class="NEWS TEASER u-clearfix u-palette-3-light-3 u-section-3" id="sec-68b1">
+      <div class="u-clearfix u-sheet u-valign-middle-sm u-valign-middle-xs u-sheet-1">
+        <div class="AKTUELL u-clearfix u-expanded-width u-gutter-30 u-layout-wrap u-layout-wrap-1">
+          <div class="u-layout">
+            <div class="u-layout-row">
+              <div class="BILD u-container-style u-layout-cell u-size-29 u-layout-cell-1" data-href="#">
+                <div class="u-container-layout u-valign-middle-lg u-valign-top-sm u-valign-top-xl u-valign-top-xs u-container-layout-1">
+                  <img class="u-expanded-width-sm u-expanded-width-xs u-image u-image-1" src="{% static 'images/Katalog_00161.jpg' %}" data-image-width="1920" data-image-height="1080">
+                </div>
+              </div>
+              <div class="u-container-style u-layout-cell u-size-31 u-layout-cell-2">
+                <div class="u-container-layout u-container-layout-2">
+                  <h5 class="u-text u-text-1">Der neue Katalog</h5>
+                  <p class="u-text u-text-default u-text-2">Winterreisen, Adventsfahren - schauen Sie in unseren neuen Katalog hier als PDF oder besuchen Sie uns im Reisebüro für ein handfestes Exemplar.</p>
+                  <a href="{{ MEDIA_URL }}kataloge/2122/reiseservice-schwerin-katalog-2122.pdf" class="u-align-left u-border-2 u-border-hover-palette-3-dark-1 u-border-palette-3-base u-btn u-button-style u-file-link u-hidden-xs u-btn-1">PDF herunterladen</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="REISEN TEASER u-clearfix u-section-4" id="sec-1782">
+      <div class="u-align-left u-clearfix u-sheet u-sheet-1">
+        <h2 class="u-text u-text-1">Aktuelle Reisen</h2>
+      </div>
+    </section>
+
+    <!-- section Aktuelle Reisen -->
+
+    <section class="u-clearfix u-section-5" id="sec-9d82">
+      <div class="u-clearfix u-sheet u-sheet-1">
+
+        <!-- Reiseschleife -->
+
+        {% for reise in reisen %}
+
+        <div class="REISE-TEASER u-clearfix u-expanded-width u-gutter-30 u-layout-wrap u-layout-wrap-1">
+          <div class="u-layout">
+            <div class="u-layout-row">
+              <div class="BILD u-container-style u-layout-cell u-size-18-xl u-size-20-lg u-size-30-md u-size-30-sm u-size-30-xs u-layout-cell-1" data-href="#">
+                <div class="u-container-layout u-valign-bottom-xs u-container-layout-1">
+                  <img class="u-expanded-width-md u-expanded-width-sm u-expanded-width-xs u-image u-image-1" src="{% static 'images/dc02bbfa0dfddc84e07f1df389dba9211fee6c790e80a26a156833e9aa9574450ef2c41572eaaa90559f9dbe9930a4ed9d5b365a114e27a7dc4086_1280.jpg' %}" data-image-width="1280" data-image-height="853">
+                </div>
+              </div>
+              <div class="u-container-style u-layout-cell u-size-30-md u-size-30-sm u-size-30-xs u-size-40-lg u-size-42-xl u-layout-cell-2" data-href="detail/{{ reise.reiseID|ohneminus }}" data-page-id="912606180">
+                <div class="u-container-layout u-valign-top-md u-valign-top-sm u-valign-top-xs u-container-layout-2">
+                  <div class="BUSREISE u-container-style u-expanded-width u-group u-palette-5-light-3 u-shape-rectangle u-group-1">
+                    <div class="u-container-layout u-container-layout-3">
+                      <h6 class="u-text u-text-default-lg u-text-default-md u-text-default-sm u-text-default-xl u-text-palette-2-base u-text-1"> {{ reise.reisetyp }} vom {{ reise.reisetermine__datum_beginn|date:'d.m.' }} bis {{ reise.reisetermine__datum_ende|date:'d.m.Y' }}<br>
+                      </h6>
+                    </div>
+                  </div>
+                  <h4 class="REISETITEL u-text u-text-2"> {{ reise.titel }}<br>
+                  </h4>
+                  <p class="u-text u-text-3">{{ reise.einleitung }}</p>
+                  <a href="detail/{{ reise.reiseID|ohneminus }}" data-page-id="912606180" class="BUTTON_DETAIL u-align-center-xs u-border-none u-btn u-button-style u-hover-palette-3-light-2 u-btn-1">ab {{ reise.reisepreise__preis }} €</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="u-border-1 u-border-palette-5-base u-expanded-width u-line u-line-horizontal u-line-1"></div>
+
+        {% endfor %}
+
+        <!-- als Kommentar gelassen wegen Schriftfarbe Reisetyp, Datum entsprechend Reisekategorie
+
+        <div class="REISE-TEASER u-clearfix u-expanded-width u-gutter-30 u-layout-wrap u-layout-wrap-2">
+          <div class="u-layout">
+            <div class="u-layout-row">
+              <div class="BILD u-container-style u-layout-cell u-size-18-xl u-size-20-lg u-size-30-md u-size-30-sm u-size-30-xs u-layout-cell-3" data-href="#">
+                <div class="u-container-layout u-valign-bottom-xs u-container-layout-4">
+                  <img class="u-expanded-width-md u-expanded-width-sm u-expanded-width-xs u-image u-image-2" src="images/69a1d23e7d35af7466a335ae6b8be2297fdd43efc41ec5f5655604ea403c6976b33348545b3ae3f582e999a8fbec26362fc3f673d9fe5511085060_1280.jpg" data-image-width="1280" data-image-height="853">
+                </div>
+              </div>
+              <div class="u-container-style u-layout-cell u-size-30-md u-size-30-sm u-size-30-xs u-size-40-lg u-size-42-xl u-layout-cell-4" data-href="Reise.html" data-page-id="912606180">
+                <div class="u-container-layout u-valign-top-md u-valign-top-sm u-valign-top-xs u-container-layout-5">
+                  <div class="WANDERREISE u-container-style u-expanded-width u-group u-palette-5-light-3 u-shape-rectangle u-group-2">
+                    <div class="u-container-layout u-container-layout-6">
+                      <h6 class="u-text u-text-custom-color-1 u-text-default-lg u-text-default-md u-text-default-sm u-text-default-xl u-text-4"> 3 Tage Wanderreise, 26.11. - 28.11.2021<br>
+                      </h6>
+                    </div>
+                  </div>
+                  <h4 class="REISETITEL u-text u-text-5"> Adventszauber in der Weihnachtshauptstadt Dresden&nbsp;<br>
+                  </h4>
+                  <p class="u-text u-text-6">Beispiel normaler Text. Lorem ipsum dolor sit amet, consectetur adipiscing elit nullam nunc justo sagittis suscipit ultrices.</p>
+                  <a href="Reise.html" data-page-id="912606180" class="BUTTON_DETAIL u-align-center-xs u-border-none u-btn u-button-style u-hover-palette-3-light-2 u-btn-2">ab 300 €</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="u-border-1 u-border-palette-5-base u-expanded-width u-line u-line-horizontal u-line-2"></div>
+        <div class="REISE-TEASER u-clearfix u-expanded-width u-gutter-30 u-layout-wrap u-layout-wrap-3">
+          <div class="u-layout">
+            <div class="u-layout-row">
+              <div class="BILD u-container-style u-layout-cell u-size-18-xl u-size-20-lg u-size-30-md u-size-30-sm u-size-30-xs u-layout-cell-5" data-href="#">
+                <div class="u-container-layout u-valign-bottom-xs u-container-layout-7">
+                  <img class="u-expanded-width-md u-expanded-width-sm u-expanded-width-xs u-image u-image-3" src="images/1bae3637ec439266231da8ac17c659da1e6dd5b2cee085b3eadb000e1f1394d2be51140e9b7fcb6cd225f9367a1c107938a03d1078ab602bf6d6c9_1280.jpg" data-image-width="150" data-image-height="99">
+                </div>
+              </div>
+              <div class="u-container-style u-layout-cell u-size-30-md u-size-30-sm u-size-30-xs u-size-40-lg u-size-42-xl u-layout-cell-6" data-href="Reise.html" data-page-id="912606180">
+                <div class="u-container-layout u-valign-top-md u-valign-top-sm u-valign-top-xs u-container-layout-8">
+                  <div class="FLUGREISE u-container-style u-expanded-width u-group u-palette-5-light-3 u-shape-rectangle u-group-3">
+                    <div class="u-container-layout u-container-layout-9">
+                      <h6 class="u-text u-text-default-lg u-text-default-md u-text-default-sm u-text-default-xl u-text-palette-1-light-1 u-text-7"> 3 Tage Flugreise, 26.11. - 28.11.2021<br>
+                      </h6>
+                    </div>
+                  </div>
+                  <h4 class="REISETITEL u-text u-text-8"> Adventszauber in der Weihnachtshauptstadt Dresden&nbsp;<br>
+                  </h4>
+                  <p class="u-text u-text-9">Beispiel normaler Text. Lorem ipsum dolor sit amet, consectetur adipiscing elit nullam nunc justo sagittis suscipit ultrices.</p>
+                  <a href="Reise.html" data-page-id="912606180" class="BUTTON_DETAIL u-align-center-xs u-border-none u-btn u-button-style u-hover-palette-3-light-2 u-btn-3">ab 300 €</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="u-border-1 u-border-palette-5-base u-expanded-width u-line u-line-horizontal u-line-3"></div>
+        <div class="REISE-TEASER u-clearfix u-expanded-width u-gutter-30 u-layout-wrap u-layout-wrap-4">
+          <div class="u-layout">
+            <div class="u-layout-row">
+              <div class="BILD u-container-style u-layout-cell u-size-18-xl u-size-20-lg u-size-30-md u-size-30-sm u-size-30-xs u-layout-cell-7" data-href="#">
+                <div class="u-container-layout u-valign-bottom-xs u-container-layout-10">
+                  <img class="u-expanded-width-md u-expanded-width-sm u-expanded-width-xs u-image u-image-4" src="images/4f23ed491bef9166f8fa7a25b2c92bf6cd6716fd0493058e6f1ad019d1a275b22e2071176671542bac8233961f2b6aa8a616620a7a4db33bb2f1f9_1280.jpg" data-image-width="150" data-image-height="100">
+                </div>
+              </div>
+              <div class="u-container-style u-layout-cell u-size-30-md u-size-30-sm u-size-30-xs u-size-40-lg u-size-42-xl u-layout-cell-8" data-href="Reise.html" data-page-id="912606180">
+                <div class="u-container-layout u-valign-top-md u-valign-top-sm u-valign-top-xs u-container-layout-11">
+                  <div class="SCHIFFSREISE u-container-style u-expanded-width u-group u-palette-5-light-3 u-shape-rectangle u-group-4">
+                    <div class="u-container-layout u-container-layout-12">
+                      <h6 class="u-text u-text-default-lg u-text-default-md u-text-default-sm u-text-default-xl u-text-palette-1-base u-text-10"> 3 Tage Schiffsreise, 26.11. - 28.11.2021<br>
+                      </h6>
+                    </div>
+                  </div>
+                  <h4 class="REISETITEL u-text u-text-11"> Adventszauber in der Weihnachtshauptstadt Dresden&nbsp;<br>
+                  </h4>
+                  <p class="u-text u-text-12">Beispiel normaler Text. Lorem ipsum dolor sit amet, consectetur adipiscing elit nullam nunc justo sagittis suscipit ultrices.</p>
+                  <a href="Reise.html" data-page-id="912606180" class="BUTTON_DETAIL u-align-center-xs u-border-none u-btn u-button-style u-hover-palette-3-light-2 u-btn-4">ab 300 €</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="u-border-1 u-border-palette-5-base u-expanded-width u-line u-line-horizontal u-line-4"></div>
+        <div class="REISE-TEASER u-clearfix u-expanded-width u-gutter-30 u-layout-wrap u-layout-wrap-5">
+          <div class="u-layout">
+            <div class="u-layout-row">
+              <div class="BILD u-container-style u-layout-cell u-size-18-xl u-size-20-lg u-size-30-md u-size-30-sm u-size-30-xs u-layout-cell-9" data-href="#">
+                <div class="u-container-layout u-valign-bottom-xs u-container-layout-13">
+                  <img class="u-expanded-width-md u-expanded-width-sm u-expanded-width-xs u-image u-image-5" src="images/4d27c44d19200e31f64bfc6f549e679f62d59f8b525ff212faca0d71e253298c37437e9fb4dae6fea7ee0672efb4879b03afd749c9614405ae22b9_1280.jpg" data-image-width="1280" data-image-height="853">
+                </div>
+              </div>
+              <div class="u-container-style u-layout-cell u-size-30-md u-size-30-sm u-size-30-xs u-size-40-lg u-size-42-xl u-layout-cell-10" data-href="Reise.html" data-page-id="912606180">
+                <div class="u-container-layout u-valign-top-md u-valign-top-sm u-valign-top-xs u-container-layout-14">
+                  <div class="KURREISE u-container-style u-expanded-width u-group u-palette-5-light-3 u-shape-rectangle u-group-5">
+                    <div class="u-container-layout u-container-layout-15">
+                      <h6 class="u-text u-text-default-lg u-text-default-md u-text-default-sm u-text-default-xl u-text-palette-4-base u-text-13"> 3 Tage Kurreise, 26.11. - 28.11.2021<br>
+                      </h6>
+                    </div>
+                  </div>
+                  <h4 class="REISETITEL u-text u-text-14"> Adventszauber in der Weihnachtshauptstadt Dresden&nbsp;<br>
+                  </h4>
+                  <p class="u-text u-text-15">Beispiel normaler Text. Lorem ipsum dolor sit amet, consectetur adipiscing elit nullam nunc justo sagittis suscipit ultrices.</p>
+                  <a href="Reise.html" data-page-id="912606180" class="BUTTON_DETAIL u-align-center-xs u-border-none u-btn u-button-style u-hover-palette-3-light-2 u-btn-5">ab 300 €</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="u-border-1 u-border-palette-5-base u-expanded-width u-line u-line-horizontal u-line-5"></div>
+        <div class="REISE-TEASER u-clearfix u-expanded-width u-gutter-30 u-layout-wrap u-layout-wrap-6">
+          <div class="u-layout">
+            <div class="u-layout-row">
+              <div class="BILD u-container-style u-layout-cell u-size-18-xl u-size-20-lg u-size-30-md u-size-30-sm u-size-30-xs u-layout-cell-11" data-href="#">
+                <div class="u-container-layout u-valign-bottom-xs u-container-layout-16">
+                  <img class="u-expanded-width-md u-expanded-width-sm u-expanded-width-xs u-image u-image-6" src="images/26df606606ec608355b678fd9998f806d07fac00959b648d2d91acb069bc75e513efa5be95ba7139ba884b77737887d07dea733dcc0edb6e18b831_1280.jpg" data-image-width="1280" data-image-height="852">
+                </div>
+              </div>
+              <div class="u-container-style u-layout-cell u-size-30-md u-size-30-sm u-size-30-xs u-size-40-lg u-size-42-xl u-layout-cell-12" data-href="Reise.html" data-page-id="912606180">
+                <div class="u-container-layout u-valign-top-md u-valign-top-sm u-valign-top-xs u-container-layout-17">
+                  <div class="TAGESFAHRT u-container-style u-expanded-width u-group u-palette-3-light-3 u-shape-rectangle u-group-6">
+                    <div class="u-container-layout u-container-layout-18">
+                      <h6 class="u-text u-text-default-lg u-text-default-md u-text-default-sm u-text-default-xl u-text-16"> 3 Tage Tagesfahrt, 26.11. - 28.11.2021<br>
+                      </h6>
+                    </div>
+                  </div>
+                  <h4 class="REISETITEL u-text u-text-17"> Adventszauber in der Weihnachtshauptstadt Dresden&nbsp;<br>
+                  </h4>
+                  <p class="u-text u-text-18">Beispiel normaler Text. Lorem ipsum dolor sit amet, consectetur adipiscing elit nullam nunc justo sagittis suscipit ultrices.</p>
+                  <a href="Reise.html" data-page-id="912606180" class="BUTTON_DETAIL u-align-center-xs u-border-none u-btn u-button-style u-hover-palette-3-light-2 u-btn-6">ab 300 €</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="u-border-1 u-border-palette-5-base u-expanded-width u-line u-line-horizontal u-line-6"></div>
+      -->
+
+      </div>
+    </section>
+    <section class="u-clearfix u-section-6" id="sec-5239">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="u-list u-list-1">
+          <div class="u-repeater u-repeater-1">
+            <div class="u-container-style u-list-item u-repeater-item">
+              <div class="u-container-layout u-similar-container u-container-layout-1">
+                <img alt="" class="u-expanded-width u-image u-image-default u-image-1" data-image-width="1200" data-image-height="847" src="{% static 'images/Gutschein_Sommer_2021.jpg' %}">
+                <h3 class="u-align-center u-text u-text-default u-text-palette-2-base u-text-1">Gutschein</h3>
+                <p class="u-text u-text-2">Wir stellen Ihnen ein Gutschein aus in der von Ihnen bestimmten Höhe.</p>
+                <a href="Kontakt.html#sec-17f9" data-page-id="83627266" class="u-align-center u-btn u-button-style u-hover-palette-1-dark-1 u-palette-1-base u-btn-1">Weiter</a>
+              </div>
+            </div>
+            <div class="u-container-style u-list-item u-repeater-item">
+              <div class="u-container-layout u-similar-container u-container-layout-2">
+                <img alt="" class="u-expanded-width u-image u-image-default u-image-2" data-image-width="1600" data-image-height="1092" src="{% static 'images/Team_2021_03.jpg' %}">
+                <h3 class="u-align-center u-text u-text-default u-text-palette-2-base u-text-3">Reiseberatung</h3>
+                <p class="u-text u-text-4"> Busreisen, Tagesfahrten, Städte-Reisen, <br>Wanderreisen, Individual-Reisen, Kur-Reisen,
+Flug-Reisen, Schiffsreisen, Ferienunterkünfte,
+Gruppenfahrten, Schüler-Reisen, Musical-Reisen uvm...
+                </p>
+                <a href="kontakt" data-page-id="83627266" class="u-align-center u-btn u-button-style u-hover-palette-1-dark-1 u-palette-1-base u-btn-2">Weiter</a>
+              </div>
+            </div>
+            <div class="u-container-style u-list-item u-repeater-item">
+              <div class="u-container-layout u-similar-container u-container-layout-3">
+                <img alt="" class="u-expanded-width u-image u-image-default u-image-3" data-image-width="1200" data-image-height="848" src="{% static 'images/Checkliste.jpg' %}">
+                <h3 class="u-align-center u-text u-text-default u-text-palette-2-base u-text-5">Reisebedingungen</h3>
+                <p class="u-text u-text-6">Alle Reisebedingungen auf einen Blick.&nbsp;</p>
+                <a href="reisebedingungen" data-page-id="82856034" class="u-align-center u-btn u-button-style u-hover-palette-1-dark-1 u-palette-1-base u-btn-3">Weiter</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="u-align-center u-clearfix u-footer u-palette-1-dark-2 u-footer" id="Fusszeile"><div class="u-align-left u-clearfix u-sheet u-sheet-1">
+        <div class="u-clearfix u-expanded-width u-layout-wrap u-layout-wrap-1">
+          <div class="u-layout">
+            <div class="u-layout-row">
+              <div class="u-align-center u-container-style u-layout-cell u-size-20-lg u-size-20-xl u-size-60-md u-size-60-sm u-size-60-xs u-layout-cell-1">
+                <div class="u-container-layout u-container-layout-1">
+                  <p class="u-text u-text-1">
+                    <span style="font-weight: 700;">Reiseservice Schwerin GmbH</span>
+                    <br>Klöresgang 1, 19053 Schwerin<br>Tel:&nbsp;03 85 - 59 10 333<br>Fax: 03 85 - 59 10 331
+                  </p>
+                </div>
+              </div>
+              <div class="u-align-center u-container-style u-layout-cell u-size-20-lg u-size-20-xl u-size-60-md u-size-60-sm u-size-60-xs u-layout-cell-2">
+                <div class="u-container-layout u-container-layout-2">
+                  <p class="u-text u-text-2">
+                    <span style="font-weight: 700;">Öffnungszeiten</span>:<br>Mo.-Fr. 9:30 - 18:00 Uhr<br>Sa. 10:00 Uhr - 14:00 Uhr
+                  </p>
+                </div>
+              </div>
+              <div class="u-align-center-md u-align-center-sm u-align-center-xs u-container-style u-layout-cell u-size-20-lg u-size-20-xl u-size-60-md u-size-60-sm u-size-60-xs u-layout-cell-3">
+                <div class="u-container-layout u-valign-bottom-md u-valign-bottom-sm u-valign-bottom-xs u-container-layout-3">
+                  <p class="u-text u-text-3">
+                    <a class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-palette-1-light-3 u-btn-1" href="impressum" data-page-id="57445026">Impressum</a>
+                  </p>
+                  <p class="u-text u-text-4">
+                    <a class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-palette-1-light-3 u-btn-2" href="datenschutz" data-page-id="52917303">Datenschutz</a>
+                  </p>
+                  <a class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-palette-1-light-3 u-btn-3" href="reisebedingungen" data-page-id="82856034"><span class="u-icon"></span>Reisebedingungen
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div></footer><span style="height: 64px; width: 64px; margin-left: 0px; margin-right: auto; margin-top: 0px; background-image: none; right: 15px; bottom: 220px;" class="u-back-to-top u-icon u-icon-circle u-opacity u-opacity-85 u-palette-3-base u-spacing-9" data-href="#">
+        <svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 551.13 551.13"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-1d98"></use></svg>
+        <svg class="u-svg-content" enable-background="new 0 0 551.13 551.13" viewBox="0 0 551.13 551.13" xmlns="http://www.w3.org/2000/svg" id="svg-1d98"><path d="m275.565 189.451 223.897 223.897h51.668l-275.565-275.565-275.565 275.565h51.668z"></path></svg>
+    </span>
+  </body>
+</html>

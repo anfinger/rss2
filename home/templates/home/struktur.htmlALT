@@ -1,0 +1,131 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html class="nojs html css_verticalspacer" lang="de-DE">
+
+ <head>
+
+  <meta http-equiv="Content-type" content="text/html;charset=UTF-8"/>
+  <meta name="generator" content="2017.1.0.379"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <!-- ****************************************************************************************************************************** -->
+  <!-- KEYWORDS -->
+  <!-- ****************************************************************************************************************************** -->
+  {% block keywords %}
+  {% endblock %}
+
+  <!-- ****************************************************************************************************************************** -->
+  <!-- TITEL -->
+  <!-- ****************************************************************************************************************************** -->
+  {% block titel %}
+  {% endblock %}
+    
+  <!-- ****************************************************************************************************************************** -->
+  <!-- SKRIPTE -->
+  <!-- ****************************************************************************************************************************** -->
+  {% block skripte %}
+  {% endblock %}
+  <!-- Other scripts -->
+  <script type="text/javascript">
+   try {Typekit.load();} catch(e) {}
+  </script>
+  <script>
+   .SubmarinerR24-Light {
+    font-family: SubmarinerR24-Light;
+    font-weight: normal;
+    font-style: normal;
+   }
+  </script>
+  <script>
+   .SubmarinerR24-Bold {
+    font-family: SubmarinerR24-Bold;
+    font-weight: normal;
+    font-style: normal;
+  </script>
+  <script>
+   .SubmarinerR24-BoldItalic {
+    font-family: SubmarinerR24-BoldItalic;
+    font-weight: normal;
+    font-style: normal;
+   }
+  </script>
+
+  <!-- ****************************************************************************************************************************** -->
+  <!-- STYLESHEETS -->
+  <!-- ****************************************************************************************************************************** -->
+  <link rel="shortcut icon" href="{% static 'images/favicon.ico?crc=175304628' %}"/>
+
+  <link rel="stylesheet" type="text/css" href="{% static 'css/site_global.css?crc=3804101013' %}"/>
+  <link rel="stylesheet" type="text/css" href="{% static 'css/master_a-musters.css?crc=227111678' %}"/>
+
+  {% block stylesheets %}
+  {% endblock %}
+
+  <!--
+  /*
+   *
+   * @license
+   * MyFonts Webfont Build ID 3423624, 2017-07-19T07:32:25-0400
+   *
+   * The fonts listed in this notice are subject to the End User License
+   * Agreement(s) entered into by the website owner. All other parties are
+   * explicitly restricted from using the Licensed Webfonts(s).
+   *
+   * You may obtain a valid license at the URLs below.
+   *
+   * Webfont: SubmarinerR24-BlackItalic by Marin Santic
+   * URL: https://www.myfonts.com/fonts/marin-santic/submariner-r24/black-italic/
+   *
+   * Webfont: SubmarinerR24-Bold by Marin Santic
+   * URL: https://www.myfonts.com/fonts/marin-santic/submariner-r24/bold/
+   *
+   * Webfont: SubmarinerR24-Black by Marin Santic
+   * URL: https://www.myfonts.com/fonts/marin-santic/submariner-r24/black/
+   *
+   * Webfont: SubmarinerR24-BoldItalic by Marin Santic
+   * URL: https://www.myfonts.com/fonts/marin-santic/submariner-r24/bold-italic/
+   *
+   * Webfont: SubmarinerR24-Italic by Marin Santic
+   * URL: https://www.myfonts.com/fonts/marin-santic/submariner-r24/italic/
+   *
+   * Webfont: SubmarinerR24-Regular by Marin Santic
+   * URL: https://www.myfonts.com/fonts/marin-santic/submariner-r24/regular/
+   *
+   * Webfont: SubmarinerR24-Light by Marin Santic
+   * URL: https://www.myfonts.com/fonts/marin-santic/submariner-r24/light/
+   *
+   * Webfont: SubmarinerR24-LightItalic by Marin Santic
+   * URL: https://www.myfonts.com/fonts/marin-santic/submariner-r24/light-italic/
+   *
+   *
+   * License: https://www.myfonts.com/viewlicense?type=web&buildid=3423624
+   * Licensed pageviews: 1,000,000
+   * Webfonts copyright: Copyright &#x00A9; 2016 by Marin Santic. All rights reserved.
+   *
+   * © 2017 MyFonts Inc
+
+   <link rel="stylesheet" type="text/css" href="Submariner_R24.css">
+
+   */
+  -->
+
+ </head>
+
+ <body>
+
+  <!-- ****************************************************************************************************************************** -->
+  <!-- BODY -->
+  <!-- ****************************************************************************************************************************** -->
+  {% block body %}
+  {% endblock %}
+
+  <!-- ****************************************************************************************************************************** -->
+  <!-- FUSSSKRIPTE -->
+  <!-- ****************************************************************************************************************************** -->
+  {% block fussskripte %}
+  {% endblock %}
+
+ </body>
+
+</html>

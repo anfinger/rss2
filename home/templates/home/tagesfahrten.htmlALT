@@ -1,0 +1,451 @@
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-53480209-1', 'auto');
+      //ga('set', 'anonymizeIp', true);
+      //ga('send', 'pageview', {'anonymizeIp': true});
+      ga('send', 'pageview');
+    </script>
+
+    <center>
+
+      <table bgcolor="ffffff" gridy="16" gridx="16" border="0" cellpadding="0" cellspacing="0" width="700">
+
+        <tbody>
+
+          <tr>
+            <td align="center" valign="top" width="700">
+              <table border="0" cellpadding="1" cellspacing="3" width="700">
+                <tbody>
+                  <tr>
+                    <td colspan="3" bgcolor="#9999cc" height="20">
+                      <div align="center">
+                        <a name="oben"></a>
+                        <span class="ht2"></span>
+                      </div>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td colspan="3" bgcolor="#cccccc">
+                      <div align="center">
+                        <span class="ht1">
+                          <p>
+                            <span class="ht1">Bitte erfragen Sie auch einen Zustieg in der Schweriner Weststadt!</span>
+                          </p>
+                        </span>
+                      </div>
+                    </td>
+                  </tr>
+
+                  <!--
+                             Musicals Berlin 03.12.2016
+                  -->
+<!--                  <fahrt>
+                             <tr>
+                               <td valign="top" align="left" width="200" bgcolor="#ccccff">
+                                 <span class="ht1">
+                                   Sa., 03.12.2016
+                        </span>
+                               </td>
+                               <td colspan="2" align="left" bgcolor="#ccccff" height="19" width="500">
+                                 <p class="ht1">
+                                   <a href="#oben"><img src="./images/top.gif" align="right" border="0" height="18" width="19"></a>
+                                   Musicalfahrt nach Berlin – Revue im Friedrichstadt Palast</br>
+                                   <i>Gebuchte Karten können nicht storniert werden!</i>
+                                 </p>
+                               </td>
+                             </tr>
+                             <tr>
+                               <td valign="top" align="left">
+                                 <span class="ht1">
+                                   Abfahrt:
+                                 </span>
+                               </td>
+                               <td valign="top" align="left">
+                                 <span class="ht1">
+                                   10:00 Uhr Hbf Schwerin</br>
+                                   10:20 Uhr HAST v. Stauffenberg Str.
+                                 </span>
+                               </td>
+                               <td rowspan="2" valign="top" align="right" width="200">
+                                 <span class="ht1">
+                                 </br>
+                                   ab 94,00&nbsp;&euro;</br>
+                        </span>
+                               </td>
+                             </tr>
+                             <tr>
+                               <td valign="top" align="left">
+                                 <span class="ht1">
+                                   Ankunft:
+                                 </span>
+                               </td>
+                               <td valign="top" align="left">
+                                 <span class="ht1">
+                                   21:30 Uhr
+                        </span>
+                               </td>
+                             </tr>
+                           </fahrt>
+-->
+                  <!--
+                             Musicals Hamburg 08.12.2016
+                  -->
+<!--
+                  <fahrt>
+                             <tr>
+                               <td valign="top" align="left" width="200" bgcolor="#ccccff">
+                                 <span class="ht1">
+                                   Do., 08.12.2016
+                        </span>
+                               </td>
+                               <td colspan="2" align="left" bgcolor="#ccccff" height="19" width="500">
+                                 <p class="ht1">
+                                   <a href="#oben"><img src="./images/top.gif" align="right" border="0" height="18" width="19"></a>
+                                   Musicalfahrt nach Hamburg</br>
+                          <i>Gebuchte Karten können nicht storniert werden!</i>
+                        </p>
+                               </td>
+                             </tr>
+                             <tr>
+                               <td valign="top" align="left">
+                                 <span class="ht1">
+                                   Abfahrt:
+                                 </span>
+                               </td>
+                               <td valign="top" align="left">
+                                 <span class="ht1">
+16:00 Uhr Hbf Schwerin</br>
+16:20 Uhr HAST v. Stauffenberg Str.
+                        </span>
+                               </td>
+                               <td rowspan="2" valign="top" align="right" width="200">
+                                 <span class="ht1">
+                                 </br>
+Disneys DER KÖNIG DER LÖWEN: ab 108,00&nbsp;&euro;</br>
+DAS WUNDER VON BERN: ab 102,00&nbsp;&euro;</br>
+Disneys ALADDIN: ab 95,00&nbsp;&euro;</br>
+Hinterm Horizont: ab 104,00&nbsp;&euro;</br>
+Heiße Ecke in Schmidts TIVOLI: ab 70,00&nbsp;&euro;
+                        </span>
+                               </td>
+                             </tr>
+                             <tr>
+                               <td valign="top" align="left">
+                                 <span class="ht1">
+                                   Ankunft:
+                                 </span>
+                               </td>
+                               <td valign="top" align="left">
+                                 <span class="ht1">
+                                   01:00 Uhr
+                        </span>
+                               </td>
+                             </tr>
+                           </fahrt>
+-->
+
+                  <!-- +++++++++++++++++++++ Januar +++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+                  <tr>
+                    <td colspan="3" bgcolor="#9999cc" height="20">
+                      <div align="center">
+                        <a name="oben"></a>
+                          <span class="ht2">Januar</span>
+                      </div>
+                    </td>
+                  </tr>
+
+                  <!--
+                           Orchideenschau bei Grönfingers & Warnemünde 
+                  -->
+                  <fahrt>
+                             <tr>
+                               <td valign="top" align="left" width="200" bgcolor="#ccccff">
+                                 <span class="ht1">
+                                   Di., 17.01.2017
+                        </span>
+                               </td>
+                               <td colspan="2" align="left" bgcolor="#ccccff" height="19" width="500">
+                                 <p class="ht1">
+                                   <a href="#oben"><img src="./images/top.gif" align="right" border="0" height="18" width="19"></a>
+                                   Orchideenschau bei Grönfingers & Warnemünde</br>
+                                   <i>Veranstalter: Sewert Reisen</i>
+                                 </p>
+                               </td>
+                             </tr>
+                             <tr>
+                               <td valign="top" align="left">
+                                 <span class="ht1">
+                                   Abfahrt:
+                                 </span>
+                               </td>
+                               <td valign="top" align="left">
+                                 <span class="ht1">
+                                   07:55 Uhr HAST Gartenstadt</br>
+                                   08:15 Uhr Hbf. Schwerin
+                                 </span>
+                               </td>
+                               <td rowspan="2" valign="top" align="right" width="200">
+                                 <span class="ht1">
+                                 </br>
+                                   ab 25,00&nbsp;&euro;</br>
+                        </span>
+                               </td>
+                             </tr>
+                             <tr>
+                               <td valign="top" align="left">
+                                 <span class="ht1">
+                                   Ankunft:
+                                 </span>
+                               </td>
+                               <td valign="top" align="left">
+                                 <span class="ht1">
+                                   18:00 Uhr
+                        </span>
+                               </td>
+                             </tr>
+                           </fahrt>
+
+                  <!--
+                           Apassionata in Hamburg
+                  -->
+                  <fahrt>
+                             <tr>
+                               <td valign="top" align="left" width="200" bgcolor="#ccccff">
+                                 <span class="ht1">
+                                   So., 22.01.2017
+                        </span>
+                               </td>
+                               <td colspan="2" align="left" bgcolor="#ccccff" height="19" width="500">
+                                 <p class="ht1">
+                                   <a href="#oben"><img src="./images/top.gif" align="right" border="0" height="18" width="19"></a>
+                                   Apassionata in Hamburg</br>
+                                   <i>Veranstalter: Sewert Reisen</i>
+                                 </p>
+                               </td>
+                             </tr>
+                             <tr>
+                               <td valign="top" align="left">
+                                 <span class="ht1">
+                                   Abfahrt:
+                                 </span>
+                               </td>
+                               <td valign="top" align="left">
+                                 <span class="ht1">
+                                   10:30 Uhr Hbf. Schwerin</br>
+                                   10:50 Uhr HAST Gartenstadt
+                                 </span>
+                               </td>
+                               <td rowspan="2" valign="top" align="right" width="200">
+                                 <span class="ht1">
+                                 </br>
+                                   PK3: 81,00&nbsp;&euro;</br>
+                                   PK2: 89,00&nbsp;&euro;</br>
+                        </span>
+                               </td>
+                             </tr>
+                             <tr>
+                               <td valign="top" align="left">
+                                 <span class="ht1">
+                                   Ankunft:
+                                 </span>
+                               </td>
+                               <td valign="top" align="left">
+                                 <span class="ht1">
+                                   19:00 Uhr
+                        </span>
+                               </td>
+                             </tr>
+                           </fahrt>
+
+
+                  <!--
+                             Tagesfahrt Grüne Woche 21.01.17
+                  -->
+                  <fahrt>
+                             <tr>
+                               <td valign="top" align="left" width="200" bgcolor="#ccccff">
+                                 <span class="ht1">
+                                   Sa. 21 / Mo. 23. / Di. 24. / Mi. 25. / Do. 26. / Fr. 27.01. & Sa. 28. 01. 2017
+                        </span>
+                               </td>
+                               <td colspan="2" align="left" bgcolor="#ccccff" height="19" width="500">
+                                 <p class="ht1">
+                                   <a href="#oben"><img src="./images/top.gif" align="right" border="0" height="18" width="19"></a>
+                                   Grüne Woche Berlin
+                        </p>
+                               </td>
+                             </tr>
+                             <tr>
+                               <td valign="top" align="left">
+                                 <span class="ht1">
+                                   Abfahrt:
+                                 </span>
+                               </td>
+                               <td valign="top" align="left">
+                                 <span class="ht1">
+07:00 Uhr Hbf Schwerin</br>
+07:20 Uhr HAST v. Stauffenberg Str.
+                        </span>
+                               </td>
+                               <td rowspan="2" valign="top" align="right" width="200">
+                                 <span class="ht1">
+                                 inkl. Eintritt</br>
+                                   38,00&nbsp;&euro;</br>
+                        </span>
+                               </td>
+                             </tr>
+                             <tr>
+                               <td valign="top" align="left">
+                                 <span class="ht1">
+                                   Ankunft:
+                                 </span>
+                               </td>
+                               <td valign="top" align="left">
+                                 <span class="ht1">
+                                   20:00 Uhr
+                        </span>
+                               </td>
+                             </tr>
+                           </fahrt>
+
+                  <!--
+                             Musicals Hamburg 26.01.2017
+                  -->
+                  <fahrt>
+                             <tr>
+                               <td valign="top" align="left" width="200" bgcolor="#ccccff">
+                                 <span class="ht1">
+                                   Do., 26.01.2017
+                        </span>
+                               </td>
+                               <td colspan="2" align="left" bgcolor="#ccccff" height="19" width="500">
+                                 <p class="ht1">
+                                   <a href="#oben"><img src="./images/top.gif" align="right" border="0" height="18" width="19"></a>
+                                   Musicalfahrt nach Hamburg</br>
+                          <i>Gebuchte Karten können nicht storniert werden!</i>
+                        </p>
+                               </td>
+                             </tr>
+                             <tr>
+                               <td valign="top" align="left">
+                                 <span class="ht1">
+                                   Abfahrt:
+                                 </span>
+                               </td>
+                               <td valign="top" align="left">
+                                 <span class="ht1">
+16:00 Uhr Hbf Schwerin</br>
+16:20 Uhr HAST v. Stauffenberg Str.
+                        </span>
+                               </td>
+                               <td rowspan="2" valign="top" align="right" width="200">
+                                 <span class="ht1">
+                                 </br>
+Disneys DER KÖNIG DER LÖWEN: ab 108,00&nbsp;&euro;</br>
+Ich war noch niemals in New York: ab 99,00&nbsp;&euro;</br>
+Disneys ALADDIN: ab 106,00&nbsp;&euro;</br>
+Hinterm Horizont: ab 104,00&nbsp;&euro;</br>
+Heiße Ecke in Schmidts TIVOLI: ab 70,00&nbsp;&euro;
+                        </span>
+                               </td>
+                             </tr>
+                             <tr>
+                               <td valign="top" align="left">
+                                 <span class="ht1">
+                                   Ankunft:
+                                 </span>
+                               </td>
+                               <td valign="top" align="left">
+                                 <span class="ht1">
+                                   01:00 Uhr
+                        </span>
+                               </td>
+                             </tr>
+                           </fahrt>
+
+                  <!--
+                           "Neujahrskonzert am Meer" im Maritim Strandhotel Travemünde
+                  -->
+                  <fahrt>
+                             <tr>
+                               <td valign="top" align="left" width="200" bgcolor="#ccccff">
+                                 <span class="ht1">
+                                   Sa., 28.01.2017
+                        </span>
+                               </td>
+                               <td colspan="2" align="left" bgcolor="#ccccff" height="19" width="500">
+                                 <p class="ht1">
+                                   <a href="#oben"><img src="./images/top.gif" align="right" border="0" height="18" width="19"></a>
+                                   "Neujahrskonzert am Meer" im Maritim Strandhotel Travemünde</br>
+                                   <i>Veranstalter: Sewert Reisen</i>
+                                 </p>
+                               </td>
+                             </tr>
+                             <tr>
+                               <td valign="top" align="left">
+                                 <span class="ht1">
+                                   Abfahrt:
+                                 </span>
+                               </td>
+                               <td valign="top" align="left">
+                                 <span class="ht1">
+                                   12:40 Uhr HAST Gartenstadt</br>
+                                   13:00 Uhr Hbf. Schwerin
+                                 </span>
+                               </td>
+                               <td rowspan="2" valign="top" align="right" width="200">
+                                 <span class="ht1">
+                                 </br>
+                                   ab 69,00&nbsp;&euro;</br>
+                        </span>
+                               </td>
+                             </tr>
+                             <tr>
+                               <td valign="top" align="left">
+                                 <span class="ht1">
+                                   Ankunft:
+                                 </span>
+                               </td>
+                               <td valign="top" align="left">
+                                 <span class="ht1">
+                                   23:00 Uhr
+                        </span>
+                               </td>
+                             </tr>
+                           </fahrt>
+
+                  <tr>
+                    <td colspan="3" bgcolor="#9999cc" height="20"></td>
+                  </tr>
+
+                  <tr>
+                    <td colspan="3" bgcolor="#cccccc">
+                      <div align="center">
+                        <span class="ht1">
+                          <p>
+                            <span class="ht1">Bitte erfragen Sie auch einen Zustieg in der Schweriner Weststadt!</span>
+                          </p>
+                        </span>
+                      </div>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td colspan="3" bgcolor="#9999cc" height="20"></td>
+                  </tr>
+
+
+                 
+                </tbody>
+              </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </center>
+</br>
