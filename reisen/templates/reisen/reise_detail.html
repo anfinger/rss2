@@ -139,7 +139,7 @@
       <p><h4>allgemeine Beschreibungen:</h4>
       {% for beschreibung in reisebeschreibung %}
         <b>{{ beschreibung.titel }}</b></br>
-        {{ beschreibung.beschreibung|linebreaksbr }} <b>{{ tag.zusatz|linebreaksbr }}</b></br></br>
+        {{ beschreibung.beschreibung|linebreaksbr }} <b>{{ beschreibung.zusatz|linebreaksbr }}</b></br></br>
       {% endfor %}
     {% endif %}
     {% if tage %}

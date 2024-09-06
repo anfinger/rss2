@@ -6,7 +6,20 @@
   <head>
 
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title>Reiseservice Schwerin GmbH - Winterreisen 2017 / 2018</title>
+    <title>Reiseservice Schwerin GmbH - Winterreisen 2024 / 2025</title>
+    <script type="application/ld+json">
+    {
+                  "@context": "http://schema.org",
+                  "@type": "Organization",
+                  "name": "Reiseservice Schwerin",
+                  "url": "http://www.reiseservice-schwerin.de",
+                  "logo": "{% static 'images/LogoRSS2021_LogoGold.png' %}",
+                  "sameAs": [
+                                "https://www.facebook.com/ReiseserviceSchwerin-2866443210034243",
+                                "https://www.instagram.com/reiseserviceschwerin/"
+                  ]
+    }
+    </script>
     <link href="/src/bus.css" rel="stylesheet" media="screen">
 
     <script>
@@ -35,12 +48,14 @@
           <tr>
             <td align="center">
               <a href="/index.html">
-                <img src="/images/logo_klein.gif" border="0" height="82" width="294" vspace="10" hspace="5">
+                <img src="/images/logo-rss-2021.png" border="0" height="294" width="294" vspace="10" hspace="5">
               </a>
             </td>
+          </tr>
+          <tr>
             <td align="center">
               <font size="4" face="Verdana" color="white">
-                <b>Winterreisen 2017 / 2018 ...</b>
+                <b>Winter & Frühjahr  2024 / 2025 ...</b>
               </font>
             </td>
           </tr>
@@ -54,8 +69,8 @@
               zur&uuml;ck zu:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
               <b>
                 <a href="/index.html" style="color:white; text-decoration:none; font-family: Verdana">Startseite</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-	        <a href="/rss2/reisen/sommer17/" style="color:white; text-decoration:none; font-family: Verdana">Reisen 2017</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-	        <a href="/tagesfahrten.html" style="color:white; text-decoration:none; font-family: Verdana">Tagesfahrten</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	        <a href="/rss2/reisen/sommer24/" style="color:white; text-decoration:none; font-family: Verdana">Sommer 2024</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	        <a href="/rss2/reisen/tagesfahrten" style="color:white; text-decoration:none; font-family: Verdana">Tagesfahrten</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 	        <a href="/musicals.html" style="color:white; text-decoration:none; font-family: Verdana">Musicalfahrten</a>
               </b>
             </td>
@@ -73,13 +88,13 @@
                 <table border="0" cellpadding="1" cellspacing="10" width="768">
                   <tbody>
                     <tr height="25">
-                      <td bgcolor="#950C16" height="20" width="384">
+                      <td bgcolor="#950C16" height="20" width="400">
                         <div align="left">
                           <span class="ht2"><font color="white">W&auml;hlen Sie eine Kategorie</font></span>
                         </div>
                       </td>
-                      <td align="right" width="384" rowspan="3">
-                        <img src="/media/images/web/web_cover1718.png"/>
+                      <td align="right" width="400" rowspan="3">
+                        <img src="/media/kataloge/2425/Winter-Katalog_2425_klein.png" width="400"/>
                       </td>
                     </tr>
 
@@ -104,7 +119,7 @@
                     </tr>
 
                     <tr>
-                      <td bgcolor="#950C16" height="20" width="384"></td>
+                      <td bgcolor="#950C16" height="20" width="400"></td>
                     </tr>
 
 <!--  Link zu Hinweisen und Reisebedingungen -->
@@ -142,7 +157,7 @@
                         </div>
                       </td>
                     </tr>
-                    
+
                     {% for termin in gefilterte_reisen %}
                     <tr>
                       <td colspan="3" bgcolor="#ccccff" height="16" width="768">
@@ -159,8 +174,7 @@
                         <span class="ht1">
                           {% if kategorie == "Adventsreisen & Weihnachtsmärkte" %}
                             {% if termin.titel == "Musicalfahrt nach Hamburg" %}
-                              08. 12. 2016</br>
-                              22. 12. 2016
+                              14. 12. 2023
                             {% else %}
                               {{ termin.reisetermine|linebreaksbr }}
                             {% endif %}
@@ -171,7 +185,11 @@
                       </td>
                       <td align="right" height="16" width="256">
                         <span class="ht1">
-                          ab {{ termin.abpreis|preisformat }},- &euro;
+                          {% if kategorie == "Adventsreisen & Weihnachtsmärkte" and termin.reisetyp == "Tagesfahrt" %}
+                            {{ termin.abpreis|preisformat }},- &euro;
+                          {% else %}
+                            ab {{ termin.abpreis|preisformat }},- &euro;
+                          {% endif %}
                         </span>
                       </td>
                     </tr>
@@ -231,7 +249,7 @@
                                         <td align="right">
                                           <p class="st2">
                                             <a href="/index.html">
-                                              <img src="/images/logo_klein_blau.gif" alt="Reiseservice Schwerin GmbH" border="0" height="55" width="196">
+                                              <img src="/images/logo-rss-2021.png" alt="Reiseservice Schwerin GmbH" border="0" height="55" width="55">
                                             </a>
                                           </p>
                                         </td>
@@ -254,7 +272,8 @@
 <!-- +++++++++++++++++++++++++++++++++++++++ Impressum ++++++++++++++++++++++++++++++  -->
                                         <td align="right">
                                           <span class="st2-table">
-                                            <a href="/impressum.html"><i>Impressum&nbsp;/&nbsp;Haftungsausschlu&szlig;</i></a>
+                                            <a href="/impressum.html"><i>Impressum&nbsp;/&nbsp;Haftungsausschlu&szlig;</i></a><br />
+                                            <a href="/datenschutz.html"><i>Datenschutz</i></a>
                                           </span>
                                         </td>
                                       </tr>

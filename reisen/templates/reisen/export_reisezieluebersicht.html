@@ -2,7 +2,7 @@
 {% load eigene_tags %}
 <html>
   <head>
-    <title>Reisetermine 2017</title>
+    <title>Reiseübersicht 2024</title>
     <style>
       .rTable {
         display: table;
@@ -30,10 +30,20 @@
         display: table-row-group;
       }
     </style>
+
+    <script>
+     const stringToUuid = (str) => {
+      str = str.replace('-', '');
+      return 'xxxxxxxx-xxxx-4xxx-xxxx-xxxxxxxxxxxx'.replace(/[x]/g, function(c, p) {
+       return 'str[p % str.length]';
+      });
+     }
+    </script>
+
   </head>
   <body style="font-family: TrajanPro-Regular, 'Lucida Grande', sans-serif;">
     <div>
-      <h1>REISEÜBERSICHT 2017</h1>
+      <h1>Reiseübersicht 2024</h1>
     </div>
     <div class="rTable">
       <div class="rTableHeading">
@@ -41,19 +51,20 @@
         <div class="rTableHead">Reise</div>
         <div class="rTableHead">Tage</div>
         <div class="rTableHead">Seite</div>
+        <div class="rTableHead">Setzen</div>
       </div>
       <div class="rTableBody">
         <div class="rTableRow" style="background-color: #ddd;">
-          <div class="rTableCell"></div><div class="rTableCell">Busreisen nach ...</div><div class="rTableCell"></div><div class="rTableCell"></div>
+          <div class="rTableCell"></div><div class="rTableCell">Busreisen nach ...</div><div class="rTableCell"></div><div class="rTableCell"></div><div class="rTableCell"></div>
         </div>
       {% for termin in termine %}
         {% if termin.kategorie %}
         <div class="rTableRow" style="background-color: #eee;">
-          <div class="rTableCell"></div><div class="rTableCell">{{ termin.kategorie|zielumbenennen }}</div><div class="rTableCell"></div><div class="rTableCell"></div>
+          <div class="rTableCell"></div><div class="rTableCell">{{ termin.kategorie|zielumbenennen }}</div><div class="rTableCell"></div><div class="rTableCell"></div><div class="rTableCell"></div>
         </div>
         {% endif %}
         <div class="rTableRow">
-        {% if 'Kuren' not in termin.Reise %}
+        {% if 'Kuren' not in termin.Reise and termin.Reise %}
           <div class="rTableCell">{% if termin.neu %}Neu{% endif %}</div>
           <div class="rTableCell">
           {% comment %}{% if request.user.is_authenticated %}{% endcomment %}
@@ -62,18 +73,46 @@
             {% else %}
               <a href="{% url 'reise_detail' pk=termin.reiseID %}" style="text-decoration:none;" target = 'blank'>
             {% endif %}
-            {{ termin.Reise }}</a> {{ termin.preise }} {% comment %}(UUID:{{ termin.reiseID }}){% endcomment %}
+            {{ termin.Reise }}</a> {{ termin.preise }} (<font style="color:green"><a href="{% url 'reise_detail' pk=termin.reiseID %}?version=docx">reise_{{ termin.reiseID }}.docx</a></font>) (<font style="color:green">
+            <script>
+              var input = '{{ termin.reiseID }}';
+              output = '<a href="http://www.reiseservice-schwerin.de/rss2/admin/reisen/reise/';
+              output += input.substr(0,8);
+              output += '-'
+              output += input.substr(8,4);
+              output += '-'
+              output += input.substr(12,4);
+              output += '-'
+              output += input.substr(16,4);
+              output += '-'
+              output += input.substr(20,12);
+              output += '/change" style="text-decoration:none;" target = "blank">';
+              output += 'Reise bearbeiten';
+              output += '</a>';
+              document.write(output);
+            </script></font> )
           {% comment %}{% else %}
             {{ termin.Reise }} {{ termin.preise }} (UUID:{{ termin.reiseID }})
           {% endif %}{% endcomment %}
           </div>
           {% if termin.Tage %}
-            <div class="rTableCell" style="text-align: right; width: 40px">{{ termin.Tage }}</div>
+            {% if termin.Tage > 9 and termin.anzahl_seiten_im_katalog < 2 %}
+          <div class="rTableCell" style="text-align: right; width: 40px; color:red">{{ termin.Tage }}</div>
+            {% elif termin.Tage == 9 and termin.anzahl_seiten_im_katalog < 2 %}
+          <div class="rTableCell" style="text-align: right; width: 40px; color:orange">{{ termin.Tage }}</div>
+            {% else %}
+          <div class="rTableCell" style="text-align: right; width: 40px">{{ termin.Tage }}</div>
+            {% endif %}
           {% endif %}
           {% if termin.Seite %}
             <div class="rTableCell" style="text-align: right; width: 40px">{{ termin.Seite }}</div>
           {% else %}
             <div class="rTableCell" style="text-align: right; width: 40px">n.b.</div>
+          {% endif %}
+          {% if 'mmgd' in termin.intern %}
+            <div class="rTableCell" style="text-align: right; width: 40px">jupp</div>
+          {% else %}
+            <div class="rTableCell" style="text-align: right; width: 40px">n&ouml;</div>
           {% endif %}
         {% endif %}
         </div>
@@ -85,14 +124,14 @@
           <div class="rTableCell"></div>
           <div class="rTableCell">Kuren an der polnischen Ostseeküste</div>
           <div class="rTableCell" style="text-align: right; width: 40px">8/15</div>
-          <div class="rTableCell" style="text-align: right; width: 40px">108-111</div>
+          <div class="rTableCell" style="text-align: right; width: 40px">117-119</div>
         </div>
         <div class="rTableRow" style="background-color: #eee;">
-          <div class="rTableCell"></div><div class="rTableCell">Musicals &amp; Shows</div><div class="rTableCell"></div><div class="rTableCell"></div>
+          <div class="rTableCell"></div><div class="rTableCell">Konzerte, Musicals &amp; Shows</div><div class="rTableCell"></div><div class="rTableCell"></div>
         </div>
         <div class="rTableRow">
           <div class="rTableCell"></div>
-          <div class="rTableCell">in Hamburg, Rostock, Ralswiek, Berlin &amp; Bochum</div>
+          <div class="rTableCell">in Hamburg, Berlin, Ralswiek, Ulrichshusen, Redefin und Ludwigslust</div>
           <div class="rTableCell" style="text-align: right; width: 40px">1/2</div>
           <div class="rTableCell" style="text-align: right; width: 40px">Umschlag</div>
         </div>

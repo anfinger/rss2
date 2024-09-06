@@ -9,7 +9,19 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
     <title>Reiseservice Schwerin GmbH</title>
-
+    <script type="application/ld+json">
+    {
+                  "@context": "http://schema.org",
+                  "@type": "Organization",
+                  "name": "Reiseservice Schwerin",
+                  "url": "http://www.reiseservice-schwerin.de",
+                  "logo": "{% static 'images/LogoRSS2021_LogoGold.png' %}",
+                  "sameAs": [
+                                "https://www.facebook.com/ReiseserviceSchwerin-2866443210034243",
+                                "https://www.instagram.com/reiseserviceschwerin/"
+                  ]
+    }
+    </script>
     <link rel="stylesheet" href="{% static 'flexslider/flexslider.css' %}">
     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css">
@@ -76,60 +88,60 @@
 	overflow: auto;
       }
 
-      #tabs { 
-        padding: 0px; 
-        background: none; 
-        border-width: 0px; 
-      } 
-      #tabs .ui-tabs-nav { 
-        padding-left: 0px; 
-        background: transparent; 
-        border-width: 0px 0px 1px 0px; 
-        -moz-border-radius: 0px; 
-        -webkit-border-radius: 0px; 
-        border-radius: 0px; 
-      } 
-      #tabs .ui-tabs-nav .ui-state-default a { 
-        color: navy; 
+      #tabs {
+        padding: 0px;
+        background: none;
+        border-width: 0px;
+      }
+      #tabs .ui-tabs-nav {
+        padding-left: 0px;
+        background: transparent;
+        border-width: 0px 0px 1px 0px;
+        -moz-border-radius: 0px;
+        -webkit-border-radius: 0px;
+        border-radius: 0px;
+      }
+      #tabs .ui-tabs-nav .ui-state-default a {
+        color: navy;
         font-size: 11pt;
         font-family: Open Sans;
-      } 
-      #tabs .ui-tabs-nav .ui-state-active a { 
+      }
+      #tabs .ui-tabs-nav .ui-state-active a {
         color: navy;
         font-size: 11pt;
         font-weight: bold;
         font-family: Open Sans;
       }
-      #tabs .ui-tabs-panel { 
-        //background: #f5f3e5 url(http://code.jquery.com/ui/1.8.23/themes/south-street/images/ui-bg_highlight-hard_100_f5f3e5_1x100.png) repeat-x scroll 50% top; 
+      #tabs .ui-tabs-panel {
+        //background: #f5f3e5 url(http://code.jquery.com/ui/1.8.23/themes/south-street/images/ui-bg_highlight-hard_100_f5f3e5_1x100.png) repeat-x scroll 50% top;
         background: #FFFFFF;
-        border-width: 0px 1px 1px 1px; 
+        border-width: 0px 1px 1px 1px;
       }
 
-//      #tabs { 
-//        background: transparent; 
-//        border: none; 
-//      } 
-//      #tabs .ui-widget-header { 
-//        background: transparent; 
-//        border: none; 
-//        border-bottom: 1px solid #c0c0c0; 
-//        -moz-border-radius: 0px; 
-//        -webkit-border-radius: 0px; 
-//        border-radius: 0px; 
-//      } 
-//      #tabs .ui-tabs-nav .ui-state-default { 
-//        background: transparent; 
-//        border: none; 
-//      } 
-//      #tabs .ui-tabs-nav .ui-state-active { 
-//        background: transparent url({{MEDIA_URL}}images/uiTabsArrow_navy.png) no-repeat bottom center; 
-//        border: none; 
-//      } 
-//      #tabs .ui-tabs-nav .ui-state-default a { 
-//        color: navy; 
-//      } 
-//      #tabs .ui-tabs-nav .ui-state-active a { 
+//      #tabs {
+//        background: transparent;
+//        border: none;
+//      }
+//      #tabs .ui-widget-header {
+//        background: transparent;
+//        border: none;
+//        border-bottom: 1px solid #c0c0c0;
+//        -moz-border-radius: 0px;
+//        -webkit-border-radius: 0px;
+//        border-radius: 0px;
+//      }
+//      #tabs .ui-tabs-nav .ui-state-default {
+//        background: transparent;
+//        border: none;
+//      }
+//      #tabs .ui-tabs-nav .ui-state-active {
+//        background: transparent url({{MEDIA_URL}}images/uiTabsArrow_navy.png) no-repeat bottom center;
+//        border: none;
+//      }
+//      #tabs .ui-tabs-nav .ui-state-default a {
+//        color: navy;
+//      }
+//      #tabs .ui-tabs-nav .ui-state-active a {
 //        color: navy;
 //        font-weight: bold;
 //      }
@@ -254,9 +266,11 @@
         <tr>
           <td align="center">
             <a href="/index.html">
-              <img src="/images/logo_klein.gif" border="0" height="82" width="294" vspace="10" hspace="5">
+              <img src="/images/logo-rss-2021.png" border="0" height="294" width="294" vspace="10" hspace="5">
             </a>
           </td>
+        </tr>
+        <tr>
           <td align="center">
             <font size="5" face="Verdana" color="white">
               <b>
@@ -275,9 +289,9 @@
             zur&uuml;ck zu:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <b>
               <a href="/index.html" style="color:white; text-decoration:none; font-family: Verdana">Startseite</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              <a href="/rss2/reisen/sommer17/" style="color:white; text-decoration:none; font-family: Verdana">Reisen 2017</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              <a href="/rss2/reisen/winter1718/" style="color:white; text-decoration:none; font-family: Verdana">Winterreisen 2017 / 2018</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              <a href="/tagesfahrten.html" style="color:white; text-decoration:none; font-family: Verdana">Tagesfahrten</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <a href="/rss2/reisen/sommer24/" style="color:white; text-decoration:none; font-family: Verdana">Sommer 2024</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <a href="/rss2/reisen/winter2425/" style="color:white; text-decoration:none; font-family: Verdana">Winter & Frühjahr 2024 / 2025</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <a href="/rss2/reisen/tagesfahrten" style="color:white; text-decoration:none; font-family: Verdana">Tagesfahrten</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
               <a href="/musicals.html" style="color:white; text-decoration:none; font-family: Verdana">Musicalfahrten</a>
             </b>
           </td>
@@ -317,13 +331,15 @@
                     <td bgcolor="#cccccc" height="18" width="120" valign="middle">
                       <div align="center">
                         <span class="ht1">
-                          <a href="{{ MEDIA_URL }}{{ kataloge.0.katalog_pdf }}">
-                            {% if kataloge.0.katalog_pdf %}PDF herunterladen{% endif %}
+                          <a href="{{ MEDIA_URL }}{% if kataloge.0.katalog_pdf %}{{ kataloge.0.katalog_pdf }}{% elif kataloge.1.katalog_pdf %}{{ kataloge.1.katalog_pdf }}{% endif %}">
+                            {% if kataloge.0.katalog_pdf %}PDF herunterladen
+                            {% elif kataloge.1.katalog_pdf %}PDF herunterladen
+                            {% endif %}
                           </a>
                         </span>
                       </div>
                     </td>
-                  </tr> 
+                  </tr>
                   <tr>
                     <!-- <td colspan="3" align="center" bgcolor="#2d4b9b" height="19" width="768"> -->
                     <td colspan="3" align="left" bgcolor="#d7e1ea" height="19" width="768">
@@ -337,6 +353,12 @@
 
                                 {% if dibug %}
                                   <div><span class="ht5">{{ dibug }}</span></div>
+                                {% endif %}
+
+                                {% if reise.veranstalter = 'SH' %}
+                                  <div class="individual">Veranstalter: SH Sewert Reisen GmbH</div>
+                                {% elif reise.veranstalter = 'RT' %}
+                                  <div class="individual">Veranstalter: R&amp;T Reisen Ludwigslust GmbH</div>
                                 {% endif %}
 
                                 {% if reise.individualreisetext or reise.individualreisetitel %}
@@ -370,85 +392,86 @@
                                 {% endif %}
 
                                 </br>
-                                
-                                {% if 'Kuren' in reise.titel %}{% else %}
 
-                                {% if termine %}
-                                  <!-- <span class="ht1">
-                                  Termin{{ termine|length|pluralize:"e" }}:
-                                  </span>
-                                  </br>-->
-                                  {% if termine|length > 2 %}
-                                    <div class="reiseterminmehrere">
-                                  {% else %}
-                                    <div class="reisetermin">
-                                  {% endif %}
-                                  {% for termin in termine %}
-                                    {% if termin.datum_ende %}
-                                      {% inplace_edit "termin.datum_beginn|date:'d. m. Y'" %} - {% inplace_edit "termin.datum_ende|date:'d. m. Y'" %}<sup>{{ termin.markierung }}</sup>{% else %}{% inplace_edit "termin.datum_beginn|date:'D. d. m. Y'" %}{% endif %}{% if termin.kommentar %}({% inplace_edit "termin.kommentar" auto_height=5, auto_width=5 %}){% endif %}{% if termine|length > 2 %}{% if forloop.counter|divisibleby:"2" %}<br/>{% else %}{% if forloop.counter < termine|length %},&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{% endif %}{% endif %}{% else %}
+                                {% if 'Kuren' in reise.titel %}
+                                {% else %}
+
+                                  {% if termine %}
+                                    <!-- <span class="ht1">
+                                    Termin{{ termine|length|pluralize:"e" }}:
+                                    </span>
+                                    </br>-->
+                                    {% if termine|length > 2 %}
+                                      <div class="reiseterminmehrere">
+                                    {% else %}
+                                      <div class="reisetermin">
+                                    {% endif %}
+                                    {% for termin in termine %}
+                                      {% if termin.datum_ende %}
+                                        {% inplace_edit "termin.datum_beginn|date:'d. m. Y'" %} - {% inplace_edit "termin.datum_ende|date:'d. m. Y'" %}<sup>{{ termin.markierung }}</sup>{% else %}{% inplace_edit "termin.datum_beginn|date:'D. d. m. Y'" %}{% endif %}{% if termin.kommentar %}({% inplace_edit "termin.kommentar" auto_height=5, auto_width=5 %}){% endif %}{% if termine|length > 2 %}{% if forloop.counter|divisibleby:"2" %}<br/>{% else %}{% if forloop.counter < termine|length %},&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{% endif %}{% endif %}{% else %}
                                           </br>
-                                    {% endif %}
-                                  {% endfor %}
-                                    </div>
-                                {% else %}
-                                    <div class="reisetermin">Reisetermine sind noch nicht bekannt!</div>
-                                {% endif %}
-
-                                {% if abfahrtszeiten %}
-                                <div class="abfahrtszeiten"><!--Abfahrtszeit{{ abfahrtszeiten|length|pluralize:"en" }}:<br/>-->
-                                  {% for abfahrtszeit in abfahrtszeiten %}
-                                    {% if abfahrtszeit.zeit %}
-                                      <!-- {% inplace_edit "abfahrtszeit.ort" %}: {% inplace_edit "abfahrtszeit.zeit|date:'H:i'" %} Uhr {{ abfahrtszeit.kommentar }}<br/> -->
-                                      {% inplace_edit "abfahrtszeit.zeit|date:'H:i'" %} Uhr {% inplace_edit "abfahrtszeit.ort" %} {{ abfahrtszeit.kommentar }}<br/>
-                                    {% else %}
-                                      Die genaue Zeit für "{% inplace_edit "abfahrtszeit.ort" %}" erfragen Sie bitte im Reisebüro.</br>
-                                    {% endif %}
-                                  {% endfor %}
-                                {% elif reise.reisetyp == 'TAGESFAHRT' %}
-                                <div class="abfahrtszeiten">Die Abfahrtszeiten sind noch nicht bekannt!
-                                {% endif %}
-                                </div>
-
-                                <br/>
-
-                                {% if preise %}
-                                  <!-- <h4>Preis{{ preise|length|pluralize:"e" }}:</h4> -->
-                                  {% if preise|length > 2 %}
-                                    <div class="reisepreismehrere">
-                                  {% else %}
-                                    <div class="reisepreis">
-                                  {% endif %}
-                                  {% for preis in preise %}
-                                    {% if preis.titel == 'Individualpreis p.P.' %}
-                                      <font style="color:#B40404">
-                                    {% endif %}
-                                    {% if preis.kommentar == 'ab' %}
-                                      {% if preis.titel == '[LEER]' %}Preis p.P.: {% else  %}{{ preis.titel }}: {% endif  %}{{ preis.kommentar }} {{ preis.preis }} &euro;
-                                    {% else %}
-                                      <sup>{{ preis.markierung }}</sup>{% if preis.titel == '[LEER]' %}Preis p.P.: {% else  %}{{ preis.titel }}: {% endif  %}{{ preis.preis }} &euro;{% if preis.kommentar %} ({{ preis.kommentar }}){% endif %}
-                                    {% endif %}
-                                    {% if preis.zpreis %}
-                                      <div class="preiszusatz">
-                                      {% if preis.titel == 'Individualpreis p.P.' %}
-                                        <font style="color:#B40404">{{ preis.zpreis|linebreaksbr }}</font>
-                                      {% else %}
-                                        {{ preis.zpreis|linebreaksbr }}
                                       {% endif %}
+                                    {% endfor %}
                                       </div>
+                                  {% else %}
+                                      <div class="reisetermin">Reisetermine sind noch nicht bekannt!</div>
+                                  {% endif %}
+
+                                  {% if abfahrtszeiten %}
+                                  <div class="abfahrtszeiten"><!--Abfahrtszeit{{ abfahrtszeiten|length|pluralize:"en" }}:<br/>-->
+                                    {% for abfahrtszeit in abfahrtszeiten %}
+                                      {% if abfahrtszeit.zeit %}
+                                        <!-- {% inplace_edit "abfahrtszeit.ort" %}: {% inplace_edit "abfahrtszeit.zeit|date:'H:i'" %} Uhr {{ abfahrtszeit.kommentar }}<br/> -->
+                                        {% inplace_edit "abfahrtszeit.zeit|date:'H:i'" %} Uhr {% inplace_edit "abfahrtszeit.ort" %} {{ abfahrtszeit.kommentar }}<br/>
+                                      {% else %}
+                                        Die genaue Zeit für "{% inplace_edit "abfahrtszeit.ort" %}" erfragen Sie bitte im Reisebüro.</br>
+                                      {% endif %}
+                                    {% endfor %}
+                                  </div>
+                                  {% elif reise.reisetyp == 'Tagesfahrt' %}
+                                  <div class="abfahrtszeiten">Die Abfahrtszeiten sind noch nicht bekannt!</div>
+                                  {% endif %}
+
+                                  <br/>
+
+                                  {% if preise %}
+                                    <!-- <h4>Preis{{ preise|length|pluralize:"e" }}:</h4> -->
+                                    {% if preise|length > 2 %}
+                                      <div class="reisepreismehrere">
+                                    {% else %}
+                                      <div class="reisepreis">
                                     {% endif %}
-                                    <br/>
-                                    {% if preis.titel == 'Individualpreis p.P.' %}
-                                      </font>
-                                    {% endif %}
-                                  {% endfor %}
-                                    </div>
-                                {% else %}
-                                  <div class="reisepreis">Der Preis ist noch nicht bekannt.</div>
-                                {% endif %}
+                                    {% for preis in preise %}
+                                      {% if preis.titel == 'Individualpreis p.P.' %}
+                                        <font style="color:#B40404">
+                                      {% endif %}
+                                      {% if preis.kommentar == 'ab' %}
+                                        {% if preis.titel == '[LEER]' %}Preis p.P.: {% else  %}{{ preis.titel }}: {% endif  %}{{ preis.kommentar }} {{ preis.preis }} &euro;
+                                      {% else %}
+                                        <sup>{{ preis.markierung }}</sup>{% if preis.titel == '[LEER]' %}Preis p.P.: {% else  %}{{ preis.titel }}: {% endif  %}{{ preis.preis }} &euro;{% if preis.kommentar %} ({{ preis.kommentar }}){% endif %}
+                                      {% endif %}
+                                      {% if preis.zpreis %}
+                                        <div class="preiszusatz">
+                                        {% if preis.titel == 'Individualpreis p.P.' %}
+                                          <font style="color:#B40404">{{ preis.zpreis|linebreaksbr }}</font>
+                                        {% else %}
+                                          {{ preis.zpreis|linebreaksbr }}
+                                        {% endif %}
+                                        </div>
+                                      {% endif %}
+                                      <br/>
+                                      {% if preis.titel == 'Individualpreis p.P.' %}
+                                        </font>
+                                      {% endif %}
+                                    {% endfor %}
+                                      </div>
+                                  {% else %}
+                                    <div class="reisepreis">Der Preis ist noch nicht bekannt.</div>
+                                  {% endif %}
 
                                 {% endif %}
                               </td>
-    
+
                               <td width="350" height="260" valign="top" align="right">
                                 <p>
                                 <!-- wenn mehr als ein Element Plural in Überschrift verwenden -->
@@ -473,13 +496,14 @@
                                         {% endif %}
                                       {% endfor %}
                                     {% else %}
-                                      {% if kataloge.0.titel == 'Winterreisen 2017/2018' %}
+                                      {% if kataloge.0.titel == 'Winterreisen 2024/2025' %}
                                         <li>
-                                          <img onload="func(this);" src="{{ MEDIA_URL }}/images/wx200/web_fixed_height_cover1718.png" />
+                                          <img onload="func(this);" src="{{ MEDIA_URL }}kataloge/2425/Winter-Katalog_2425_kleinklein.png" />
                                         </li>
                                       {% else %}
                                         <li>
-                                          <img onload="func(this);" src="{{ MEDIA_URL }}/images/wx200/web_fixed_height_cover17.png" />
+                                          <!-- <img onload="func(this);" src="{{ MEDIA_URL }}images/wx200/web_fixed_height_cover19.jpg" /> -->
+                                          <img onload="func(this);" src="{{ MEDIA_URL }}kataloge/2024/sommer2024_webcover.jpg" />
                                         </li>
                                       {% endif %}
                                     {% endif %}
@@ -537,11 +561,9 @@
                                     {% if fruehbucherrabatte %}
                                       <li><a href="#tabs-fruehbucherrabatte">Frühbucherrabatt{{ fruehbucherrabatte|length|pluralize:"e" }}</a></li>
                                     {% endif %}
-<!-- 
                                     {% if angebote or auftragsbestaetigungen %}
-                                      <li><a href="#tabs-dokumente">Dokumente</a></li>
+                                      <!--  <li><a href="#tabs-dokumente">Dokumente</a></li> -->
                                     {% endif %}
--->
                                   </ul>
 
                                   {% if reise.korrektur_bemerkung_intern %}
@@ -560,19 +582,22 @@
                                         {% if 'Arstone' in reise.titel %}
                                           {% include "reisen/kuren-arstone-1617.html" %}
                                         {% elif 'Arstone' in reise.sonstigeReisebeschreibung_titel %}
-                                          {% include "reisen/kuren-arstone-1617.html" %}
+                                          {% include "reisen/kuren-arstone.html" %}
                                         {% elif 'Rybniczanka' in reise.titel %}
                                           {% include "reisen/kuren-rybniczanka-1617.html" %}
                                         {% elif 'Rybniczanka' in reise.sonstigeReisebeschreibung_titel %}
-                                          {% include "reisen/kuren-rybniczanka-1617.html" %}
+                                          <!-- {% include "reisen/kuren-rybniczanka-18.html" %} -->
+                                          {% include "reisen/kuren-rybniczanka.html" %}
                                         {% elif 'INTERFERIE MEDICAL SPA' in reise.titel %}
                                           {% include "reisen/kuren-interferie-1617.html" %}
                                         {% elif 'Interferie' in reise.sonstigeReisebeschreibung_titel %}
-                                          {% include "reisen/kuren-interferie-1617.html" %}
+                                          {% include "reisen/kuren-interferie.html" %}
                                         {% elif 'IKAR' in reise.titel %}
                                           {% include "reisen/kuren-ikar-1617.html" %}
                                         {% elif 'Ikar' in reise.sonstigeReisebeschreibung_titel %}
-                                          {% include "reisen/kuren-ikar-1617.html" %}
+                                          {% include "reisen/kuren-ikar.html" %}
+                                        {% elif 'Hamilton' in reise.sonstigeReisebeschreibung_titel %}
+                                          {% include "reisen/kuren-hamilton.html" %}
                                         {% endif %}
                                       </p>
                                     </div>
@@ -594,7 +619,7 @@
                                       </p>
                                     </div>
                                   {% endif %}
-      
+
                                   {% if tage %}
                                     <div id="tabs-reisetage">
                                       <p>
@@ -653,12 +678,12 @@
                                         <!-- <b>Leistung{{ leistungen|length|pluralize:"en" }}:</b> -->
                                         <ul style="list-style-type:circle">
                                           {% for leistung in leistungen %}
-                                            <li><div class="leistungen">{{ leistung.leistung }}<div></li>
+                                            <li><div class="leistungen">{{ leistung.leistung }}</div></li>
                                           {% endfor %}
                                         </ul>
                                         <ul style="list-style-type:circle">
                                           {% for leistungnichtindividual in leistungennichtindividual %}
-                                            <li><div class="leistungen"><font style="color:#B40404">*</font> {{ leistungnichtindividual.leistung }}<div></li>
+                                            <li><div class="leistungen"><font style="color:#B40404">*</font> {{ leistungnichtindividual.leistung }}</div></li>
                                           {% endfor %}
                                         </ul>
                                           {% if reise.leistungen_kommentar %}
@@ -688,7 +713,7 @@
                                           </div>
                                           <div class="leistungen">
                                             <i>{{ ap.kommentar_titel }}</i></br>
-                                            
+
                                             {{ ap.leistungen|linebreaksbr }}
                                           </div>
                                           {% if ap.kommentar %}
@@ -765,9 +790,9 @@
                                       </p>
                                     </div>
                                   {% endif %}
-<!--
+
                                   {% if angebote or auftragsbestaetigungen %}
-                                    <div id="tabs-dokumente">
+<!--                                    <div id="tabs-dokumente">
                                       <p>
                                         {% if angebote %}
                                           <b>Angebot{{ angebote|length|pluralize:"e" }}:</b></br></br>
@@ -800,22 +825,31 @@
                                   {% endif %}
 
                                 </div>
-                                {% endif %}
 -->
+                                {% endif %}
+
                                 {% if kataloge %}
-                                  <br/><!--  </br> -->
+                                <br/>
                                   {% for katalog in kataloge %}
-                                    {% if katalog.katalogseite %}
-                                      <!-- Diese Reise finden Sie im Druckexemplar unseres Kataloges "{{ katalog.titel }}" auf Seite <a href="{{ katalog.katalog_pdf }}{{ site.storage.location }}">{{ katalog.katalogseite }}</a>.</br> -->
-                                      <div class="katalog">
-                                        Diese Reise finden Sie im Druckexemplar unseres Kataloges "{{ katalog.titel }}" auf Seite {% if katalog.katalog_pdf %}<a href="{{ MEDIA_URL }}{{ katalog.katalog_pdf }}">{{ katalog.katalogseite }}</a>{% else %}{{ katalog.katalogseite }}{% endif %}.</br>
-                                      </div>
-                                    {% elif katalog.katalogseite = 0 %}
-                                      <div class="katalog">
-                                        Diese Reise finden Sie im Druckexemplar unseres Kataloges "{{ katalog.titel }}" auf der <a href="{{ MEDIA_URL }}{{ katalog.katalog_pdf }}">Übersichtsseite "Adventsreisen und Weihnachtsmärkte 2016"</a>.</br>
-                                      </div>
-                                      {% if forloop.counter > 0 %}
-                                        <!-- </br></br> -->
+                                    {% if forloop.counter < 3 %}
+                                      {% if katalog.katalogseite %}
+                                <div class="katalog">
+                                  Diese Reise finden Sie im Druckexemplar unseres Kataloges "{{ katalog.titel }}" auf Seite
+                                        {% if katalog.katalog_pdf %}
+                                  <a href="{{ MEDIA_URL }}{{ katalog.katalog_pdf }}">{{ katalog.katalogseite }}</a>
+                                        {% else %}
+                                  {{ katalog.katalogseite }}
+                                        {% endif %}.
+                                  </br>
+                                </div>
+                                      {% elif katalog.katalogseite = 0 %}
+                                <div class="katalog">
+                                  Diese Reise finden Sie im Druckexemplar unseres Kataloges "{{ katalog.titel }}" auf der
+                                  <a href="{{ MEDIA_URL }}{{ katalog.katalog_pdf }}">Übersichtsseite "Adventsreisen und Weihnachtsmärkte 2016"</a>.</br>
+                                </div>
+                                        {% if forloop.counter > 0 %}
+                                          <!-- </br></br> -->
+                                        {% endif %}
                                       {% endif %}
                                     {% endif %}
                                   {% endfor %}
@@ -897,8 +931,10 @@
                     <td bgcolor="#cccccc" height="18" width="120" valign="middle">
                       <div align="center">
                         <span class="ht1">
-                          <a href="{{ MEDIA_URL }}{{ kataloge.0.katalog_pdf }}">
-                            {% if kataloge.0.katalog_pdf %}PDF herunterladen{% endif %}
+                          <a href="{{ MEDIA_URL }}{% if kataloge.0.katalog_pdf %}{{ kataloge.0.katalog_pdf }}{% elif kataloge.1.katalog_pdf %}{{ kataloge.1.katalog_pdf }}{% endif %}">
+                            {% if kataloge.0.katalog_pdf %}PDF herunterladen
+                            {% elif kataloge.1.katalog_pdf %}PDF herunterladen
+                            {% endif %}
                           </a>
                         </span>
                       </div>
@@ -906,15 +942,15 @@
                   </tr>
                   <tr>
                     <td colspan="3">
-                      <center> 
-                        <table gridy="16" gridx="16" align="center" border="0" cellpadding="0" cellspacing="0" width="768"> 
-                          <tbody> 
-                            <tr> 
-                              <td xpos="0" align="left" valign="top"> 
-                                <table border="0" cellpadding="0" cellspacing="2" width="768"> 
+                      <center>
+                        <table gridy="16" gridx="16" align="center" border="0" cellpadding="0" cellspacing="0" width="768">
+                          <tbody>
+                            <tr>
+                              <td xpos="0" align="left" valign="top">
+                                <table border="0" cellpadding="0" cellspacing="2" width="768">
                                   <tbody>
                                     <tr>
-                                      <td colspan="2"><hr></td> 
+                                      <td colspan="2"><hr></td>
                                     </tr>
 <!-- +++++++++++++++++++++++++++ Kontaktdaten +++++++++++++++++++++++++++++++++++  -->
                                     <tr>
@@ -928,7 +964,7 @@
                                       <td align="right">
                                         <p class="st2">
                                           <a href="/index.html">
-                                            <img src="/images/logo_klein_blau.gif" alt="Reiseservice Schwerin GmbH" border="0" height="55" width="196">
+                                            <img src="/images/logo-rss-2021.png" alt="Reiseservice Schwerin GmbH" border="0" height="55" width="55">
                                           </a>
                                         </p>
                                       </td>
@@ -950,14 +986,15 @@
 <!-- ++++++++++++++++++++++++++++ Impressum  +++++++++++++++++++++++++++++ -->
                                       <td align="right">
                                         <span class="st2-table">
-                                          <a href="/impressum.html"><i>Impressum&nbsp;/&nbsp;Haftungsausschlu&szlig;</i></a>
+                                          <a href="/impressum.html"><i>Impressum&nbsp;/&nbsp;Haftungsausschlu&szlig;</i></a><br />
+                                          <a href="/datenschutz.html"><i>Datenschutz</i></a>
                                         </span>
                                       </td>
                                     </tr>
                                   </tbody>
                                 </table>
                               </td>
-                            </tr> 
+                            </tr>
                           </tbody>
                         </table>
                       </center>
