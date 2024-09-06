@@ -1,0 +1,200 @@
+<manifest alg="2" build="2017.1.0.379" opt="true" iceEnabled="true" iceMarkupVersion="2" iceEnabledOptions="link,responsive,cachebuster,textStyling" exportTarget="other" domain="reiseservice-schwerin.de" resolutions="1x" timestamp="1506948406341">
+  <folder name="css">
+    <file name="site_global.css" crc="374387172"/>
+    <file name="master_a-musters.css" crc="4289226917" ref="detailseite:tagesfahrten:service---hilfe:agbs:reisebedingungen:mehrtagesfahrten:impressum:reiseberatung:index:musicals---shows"/>
+    <file name="nomq_preview_master_a-musters.css" crc="3893946627" ref="detailseite:tagesfahrten:service---hilfe:agbs:reisebedingungen:mehrtagesfahrten:impressum:reiseberatung:index:musicals---shows"/>
+    <file name="detailseite.css" crc="3782756574" ref="detailseite"/>
+    <file name="nomq_detailseite.css" crc="3917390502" ref="detailseite"/>
+    <file name="tagesfahrten.css" crc="257020736" ref="tagesfahrten"/>
+    <file name="nomq_tagesfahrten.css" crc="4236020538" ref="tagesfahrten"/>
+    <file name="service---hilfe.css" crc="325026063" ref="service---hilfe"/>
+    <file name="nomq_service---hilfe.css" crc="3853008170" ref="service---hilfe"/>
+    <file name="agbs.css" crc="4214184739" ref="agbs"/>
+    <file name="nomq_agbs.css" crc="423706618" ref="agbs"/>
+    <file name="reisebedingungen.css" crc="109165471" ref="reisebedingungen"/>
+    <file name="nomq_reisebedingungen.css" crc="23716868" ref="reisebedingungen"/>
+    <file name="mehrtagesfahrten.css" crc="3787608376" ref="mehrtagesfahrten"/>
+    <file name="nomq_mehrtagesfahrten.css" crc="3830951183" ref="mehrtagesfahrten"/>
+    <file name="impressum.css" crc="325026063" ref="impressum"/>
+    <file name="nomq_impressum.css" crc="3853008170" ref="impressum"/>
+    <file name="reiseberatung.css" crc="4104043863" ref="reiseberatung"/>
+    <file name="nomq_reiseberatung.css" crc="4138361006" ref="reiseberatung"/>
+    <file name="index.css" crc="340870219" ref="index"/>
+    <file name="nomq_index.css" crc="3785699124" ref="index"/>
+    <file name="musicals---shows.css" crc="4115862980" ref="musicals---shows"/>
+    <file name="nomq_musicals---shows.css" crc="3958173491" ref="musicals---shows"/>
+  </folder>
+  <folder name="fonts">
+    <file name="343d88_2_0.woff" crc="4077135052"/>
+    <file name="343d88_2_0.eot" crc="343894694"/>
+    <file name="343d88_2_0.svg" crc="9318870"/>
+    <file name="343d88_1_0.woff" crc="4017801830"/>
+    <file name="343d88_1_0.eot" crc="4001423310"/>
+    <file name="343d88_1_0.svg" crc="106293867"/>
+    <file name="343d88_5_0.woff" crc="3874922063"/>
+    <file name="343d88_5_0.eot" crc="277575052"/>
+    <file name="343d88_5_0.svg" crc="349718281"/>
+    <file name="343d88_3_0.woff" crc="4126510073"/>
+    <file name="343d88_3_0.eot" crc="257132685"/>
+    <file name="343d88_3_0.svg" crc="443296982"/>
+    <file name="343d88_0_0.woff" crc="4104812583"/>
+    <file name="343d88_0_0.eot" crc="3875497034"/>
+    <file name="343d88_0_0.svg" crc="4088055996"/>
+    <file name="33a75d_1_0.woff" crc="321798182"/>
+    <file name="33a75d_1_0.eot" crc="335027916"/>
+    <file name="343d88_6_0.woff" crc="249892615"/>
+    <file name="343d88_6_0.eot" crc="4022114888"/>
+    <file name="343d88_6_0.svg" crc="162150716"/>
+  </folder>
+  <folder name="scripts">
+    <file name="jquery-1.8.3.min.js" crc="209076791" ref="index:service---hilfe:musicals---shows:mehrtagesfahrten:tagesfahrten:impressum:agbs:detailseite:reiseberatung:reisebedingungen"/>
+    <file name="museutils.js" crc="17924269" ref="index:service---hilfe:musicals---shows:mehrtagesfahrten:tagesfahrten:impressum:agbs:detailseite:reiseberatung:reisebedingungen"/>
+    <file name="whatinput.js" crc="86476730" ref="index:service---hilfe:musicals---shows:mehrtagesfahrten:tagesfahrten:impressum:agbs:detailseite:reiseberatung:reisebedingungen"/>
+    <file name="museconfig.js" crc="278381782" ref="index:service---hilfe:musicals---shows:mehrtagesfahrten:tagesfahrten:impressum:agbs:detailseite:reiseberatung:reisebedingungen"/>
+    <file name="jquery.musemenu.js" crc="4286030528" ref="index:service---hilfe:musicals---shows:mehrtagesfahrten:tagesfahrten:impressum:agbs:detailseite:reiseberatung:reisebedingungen"/>
+    <file name="jquery.musepolyfill.bgsize.js" crc="3854337258" ref="index"/>
+    <file name="jquery.watch.js" crc="4240030481" ref="index:service---hilfe:musicals---shows:mehrtagesfahrten:tagesfahrten:impressum:agbs:detailseite:reiseberatung:reisebedingungen"/>
+    <file name="html5shiv.js" crc="4241844378" ref="index:service---hilfe:musicals---shows:mehrtagesfahrten:tagesfahrten:impressum:agbs:detailseite:reiseberatung:reisebedingungen"/>
+    <file name="jquery.museresponsive.js" crc="4267800278" ref="index:service---hilfe:musicals---shows:mehrtagesfahrten:tagesfahrten:impressum:agbs:detailseite:reiseberatung:reisebedingungen"/>
+    <file name="require.js" crc="3861931657" ref="index:service---hilfe:musicals---shows:mehrtagesfahrten:tagesfahrten:impressum:agbs:detailseite:reiseberatung:reisebedingungen"/>
+    <file name="webpro.js" crc="416662029" ref="index:service---hilfe:musicals---shows:mehrtagesfahrten:tagesfahrten:impressum:agbs:detailseite:reiseberatung:reisebedingungen"/>
+    <file name="musewpslideshow.js" crc="4034900702" ref="index:service---hilfe:musicals---shows:mehrtagesfahrten:tagesfahrten:impressum:agbs:detailseite:reiseberatung:reisebedingungen"/>
+    <file name="jquery.museoverlay.js" crc="528673841" ref="index:service---hilfe:musicals---shows:mehrtagesfahrten:tagesfahrten:impressum:agbs:detailseite:reiseberatung:reisebedingungen"/>
+    <file name="touchswipe.js" crc="432264157" ref="index:service---hilfe:musicals---shows:mehrtagesfahrten:tagesfahrten:impressum:agbs:detailseite:reiseberatung:reisebedingungen"/>
+    <file name="musewpdisclosure.js" crc="3809204180" ref="tagesfahrten:detailseite"/>
+  </folder>
+  <folder name="images">
+    <file name="favicon.ico" crc="175304628" ref="index"/>
+    <file name="logo_google_blau.png" crc="48157480" seo="true" ref="index:service---hilfe:musicals---shows:mehrtagesfahrten:tagesfahrten:impressum:agbs:detailseite:reiseberatung:reisebedingungen">
+      <caption webpage="agbs" alt=""/>
+      <caption webpage="agbs" alt=""/>
+      <caption webpage="agbs" alt=""/>
+      <caption webpage="reisebedingungen" alt=""/>
+      <caption webpage="reisebedingungen" alt=""/>
+      <caption webpage="reisebedingungen" alt=""/>
+      <caption webpage="detailseite" alt=""/>
+      <caption webpage="detailseite" alt=""/>
+      <caption webpage="detailseite" alt=""/>
+      <caption webpage="detailseite" alt=""/>
+      <caption webpage="detailseite" alt=""/>
+      <caption webpage="service---hilfe" alt=""/>
+      <caption webpage="service---hilfe" alt=""/>
+      <caption webpage="service---hilfe" alt=""/>
+      <caption webpage="reiseberatung" alt=""/>
+      <caption webpage="reiseberatung" alt=""/>
+      <caption webpage="reiseberatung" alt=""/>
+      <caption webpage="reiseberatung" alt=""/>
+      <caption webpage="index" alt=""/>
+      <caption webpage="index" alt=""/>
+      <caption webpage="index" alt=""/>
+      <caption webpage="index" alt=""/>
+      <caption webpage="musicals---shows" alt=""/>
+      <caption webpage="musicals---shows" alt=""/>
+      <caption webpage="musicals---shows" alt=""/>
+      <caption webpage="mehrtagesfahrten" alt=""/>
+      <caption webpage="mehrtagesfahrten" alt=""/>
+      <caption webpage="mehrtagesfahrten" alt=""/>
+      <caption webpage="mehrtagesfahrten" alt=""/>
+      <caption webpage="mehrtagesfahrten" alt=""/>
+      <caption webpage="tagesfahrten" alt=""/>
+      <caption webpage="tagesfahrten" alt=""/>
+      <caption webpage="tagesfahrten" alt=""/>
+      <caption webpage="impressum" alt=""/>
+      <caption webpage="impressum" alt=""/>
+      <caption webpage="impressum" alt=""/>
+    </file>
+    <file name="hallstatt mountain village with lake in fall at first sunlight, salzkammergut, austria.jpg" crc="3892209671" ref="index">
+      <caption webpage="index" alt=""/>
+      <caption webpage="index" alt=""/>
+    </file>
+    <file name="header-reisen.jpg" crc="491557448" ref="index">
+      <caption webpage="index" alt=""/>
+      <caption webpage="index" alt=""/>
+    </file>
+    <file name="photographiessouvenir.jpg" crc="4198147496" ref="index">
+      <caption webpage="index" alt=""/>
+      <caption webpage="index" alt=""/>
+    </file>
+    <file name="tagesfahrten.jpg" crc="80247726" ref="index">
+      <caption webpage="index" alt=""/>
+      <caption webpage="index" alt=""/>
+    </file>
+    <file name="portrait of young happy woman with travel vacation memories or e.jpg" crc="466184765" ref="index">
+      <caption webpage="index" alt=""/>
+      <caption webpage="index" alt=""/>
+    </file>
+    <file name="hro_elvis_141442-30062014.jpg" crc="4096830123" ref="index">
+      <caption webpage="index" alt=""/>
+      <caption webpage="index" alt=""/>
+    </file>
+    <file name="kataloge-u46778-fr.jpg" crc="185683221" ref="index"/>
+    <file name="logo-flugreise.svg" crc="35245478" seo="true" ref="index">
+      <caption webpage="index" alt=""/>
+      <caption webpage="index" alt=""/>
+      <caption webpage="index" alt=""/>
+      <caption webpage="index" alt=""/>
+    </file>
+    <file name="logo flugreise_poster_.png" crc="4243897287" ref="index"/>
+    <file name="logo-busreise.svg" crc="301050108" seo="true" ref="index">
+      <caption webpage="index" alt=""/>
+      <caption webpage="index" alt=""/>
+      <caption webpage="index" alt=""/>
+      <caption webpage="index" alt=""/>
+    </file>
+    <file name="logo busreise_poster_.png" crc="266456988" ref="index"/>
+    <file name="blank.gif" crc="4208392903" ref="index:service---hilfe:musicals---shows:mehrtagesfahrten:tagesfahrten:impressum:agbs:detailseite:reiseberatung:reisebedingungen"/>
+    <file name="header-reisen-u46472-fr.jpg" crc="340224993" ref="index"/>
+    <file name="tagesfahrten-u46739-fr.jpg" crc="257239022" ref="index"/>
+    <file name="hro_elvis_141442-30062014-u46717-fr.jpg" crc="163871364" ref="index"/>
+    <file name="photographiessouvenir-u46752-fr.jpg" crc="4008205839" ref="index"/>
+    <file name="mach pichu.jpg" crc="333530785" seo="true" ref="index">
+      <caption webpage="index" alt=""/>
+      <caption webpage="index" alt=""/>
+    </file>
+    <file name="header-reisen-u46472-fr2.jpg" crc="485856900" ref="index"/>
+    <file name="tagesfahrten-u46739-fr2.jpg" crc="3888801614" ref="index"/>
+    <file name="hro_elvis_141442-30062014-u46717-fr2.jpg" crc="143826412" ref="index"/>
+    <file name="photographiessouvenir-u46752-fr2.jpg" crc="347494049" ref="index"/>
+    <file name="perusvg.png" crc="240872461" ref="index">
+      <caption webpage="index" alt=""/>
+      <caption webpage="index" alt=""/>
+    </file>
+    <file name="mach pichu-crop-u82026.jpg" crc="3953583115" seo="true" ref="index">
+      <caption webpage="index" alt=""/>
+    </file>
+    <file name="perusvg-u82303-fr.png" crc="47384847" ref="index"/>
+    <file name="mach pichu-crop-u820262.jpg" crc="3983106832" seo="true" ref="index">
+      <caption webpage="index" alt=""/>
+    </file>
+    <file name="neu.png" crc="530635743" ref="index">
+      <caption webpage="index" alt=""/>
+      <caption webpage="index" alt=""/>
+    </file>
+    <file name="neu-u85010-fr.png" crc="344008411" ref="index"/>
+    <file name="neu-u85010-fr2.png" crc="4287786231" ref="index"/>
+    <file name="perusvg-u82303-fr2.png" crc="3941429485" ref="index"/>
+    <file name="kataloge-crop-u89752.jpg" crc="4184400409" seo="true" ref="index">
+      <caption webpage="index" alt=""/>
+    </file>
+    <file name="kataloge-u46778-fr2.jpg" crc="408809235" ref="index"/>
+    <file name="kataloge-crop-u897522.jpg" crc="324184771" seo="true" ref="index">
+      <caption webpage="index" alt=""/>
+    </file>
+    <file name="kataloge-crop-u897523.jpg" crc="4000135654" seo="true" ref="index">
+      <caption webpage="index" alt=""/>
+    </file>
+    <file name="kataloge-crop-u897524.jpg" crc="437973156" seo="true" ref="index">
+      <caption webpage="index" alt=""/>
+    </file>
+  </folder>
+  <file name="index.html" crc="526628705" seo="true" mt="1506018033787" redirect="true"/>
+  <file name="service---hilfe.html" crc="3828484798" seo="true" mt="1506017520868" redirect="true"/>
+  <file name="musicals---shows.html" crc="388486881" seo="true" mt="1506017520868" redirect="true"/>
+  <file name="mehrtagesfahrten.html" crc="4223045611" seo="true" mt="1506017520868" redirect="true"/>
+  <file name="tagesfahrten.html" crc="4134907296" seo="true" mt="1506017520868" redirect="true"/>
+  <file name="impressum.html" crc="466176125" seo="true" mt="1506017520868" redirect="true"/>
+  <file name="agbs.html" crc="520937257" seo="true" mt="1506017520868" redirect="true"/>
+  <file name="detailseite.html" crc="4157195283" seo="true" mt="1506017520868" redirect="true"/>
+  <file name="reiseberatung.html" crc="3968026887" seo="true" mt="1506017520868" redirect="true"/>
+  <file name="reisebedingungen.html" crc="3984812852" seo="true" mt="1506017520868" redirect="true"/>
+</manifest>

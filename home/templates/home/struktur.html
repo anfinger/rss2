@@ -1,0 +1,102 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html class="nojs html css_verticalspacer" lang="de-DE">
+
+ <head>
+
+  <meta http-equiv="Content-type" content="text/html;charset=UTF-8"/>
+  <meta name="generator" content="2017.1.0.379"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <!-- ****************************************************************************************************************************** -->
+  <!-- KEYWORDS -->
+  <!-- ****************************************************************************************************************************** -->
+  {% block keywords %}
+  {% endblock %}
+
+  <!-- ****************************************************************************************************************************** -->
+  <!-- TITEL -->
+  <!-- ****************************************************************************************************************************** -->
+  {% block titel %}
+  {% endblock %}
+
+  <!-- ****************************************************************************************************************************** -->
+  <!-- SKRIPTE -->
+  <!-- ****************************************************************************************************************************** -->
+  {% block skripte %}
+  {% endblock %}
+  <!-- Other scripts -->
+  <script>
+  .SubmarinerR24-BoldItalic {
+        font-family: SubmarinerR24-BoldItalic;
+        font-weight: normal;
+        font-style: normal;
+  }
+  </script>
+  <script>
+  .SubmarinerR24-BlackItalic {
+        font-family: SubmarinerR24-BlackItalic;
+        font-weight: normal;
+        font-style: normal;
+  }
+  </script>
+  <script>
+  .SubmarinerR24-Bold {
+        font-family: SubmarinerR24-Bold;
+        font-weight: normal;
+        font-style: normal;
+  }
+  </script>
+  <script>
+  .SubmarinerR24-Regular {
+        font-family: SubmarinerR24-Regular;
+        font-weight: normal;
+        font-style: normal;
+  }
+  </script>
+  <script>
+  .SubmarinerR24-Black {
+        font-family: SubmarinerR24-Black;
+        font-weight: normal;
+        font-style: normal;
+  }
+  </script>
+  <script>
+  .SubmarinerR24-Light {
+        font-family: SubmarinerR24-Light;
+        font-weight: normal;
+        font-style: normal;
+  }
+  </script>
+
+  <!-- JS includes -->
+  <!--[if lt IE 9]>
+  <script src="{% static 'scripts/html5shiv.js?crc=4241844378' %}" type="text/javascript"></script>
+  <![endif]-->
+
+  <link rel="shortcut icon" href="{% static 'images/favicon.ico?crc=175304628' %}"/>
+
+  <!-- ****************************************************************************************************************************** -->
+  <!-- STYLESHEETS -->
+  <!-- ****************************************************************************************************************************** -->
+  <!-- CSS -->
+  <link rel="stylesheet" type="text/css" href="{% static 'css/site_global.css?crc=477941851' %}"/>
+  <link rel="stylesheet" type="text/css" href="{% static 'css/master_a-musters.css?crc=165754926' %}"/>
+
+  {% block stylesheets %}
+  {% endblock %}
+
+ </head>
+
+ <body> 
+
+  <!-- ****************************************************************************************************************************** -->
+  <!-- BODY -->
+  <!-- ****************************************************************************************************************************** -->
+  {% block body %}
+  {% endblock %}
+
+ </body>
+
+</html>
