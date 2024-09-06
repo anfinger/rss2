@@ -45,7 +45,7 @@ from .models import Reisekatalogzugehoerigkeit
 from .models import Auftragsbestaetigung
 from .models import Reiseauftragsbestaetigungen
 
-from .forms import ReiseForm, BildForm, AusflugspaketeForm, AngebotForm
+from .forms import ReiseForm, BildForm, AusflugspaketeForm, AngebotForm, ZielregionForm, HinweisForm, KategorieForm, PreisForm
 
 from .views import namedtuplefetchall
 
@@ -147,7 +147,7 @@ class ReisekategorienInline(GrappelliSortableHiddenMixin, admin.TabularInline):
 
 class ReisezielregionenInline(GrappelliSortableHiddenMixin, admin.TabularInline):
     model = Reisezielregionen
-    #ordering = ("zielregion_id")
+    #ordering = ("name",)
     #sortable_field_name = "position"
     fields = ('position', 'zielregion_id')
     classes = ('grp-collapse grp-closed',)
@@ -194,6 +194,7 @@ class BilderzurreiseInline(GrappelliSortableHiddenMixin, admin.TabularInline):
 
     def formfield_for_foreignkey(self, db_field, request, **kwargs):
       if db_field.name == "reise_id":
+        #return ReiseauswahlFeld(queryset=Reise.objects.all())
         kwargs["queryset"] = Reise.objects.order_by('titel')
         return super(BilderzurreiseInline, self).formfield_for_foreignkey(db_field, request, **kwargs)
 
@@ -433,15 +434,15 @@ class ReiseAdmin(nested_admin.NestedAdmin): #TabbedModelAdmin,
 
     def welcherkatalog(self, obj):
         cursor = connection.cursor()
-        cursor.execute("SELECT reisen_reise.titel, reisen_katalog.titel AS katalogtitel, reisen_reisekatalogzugehoerigkeit.position as katalogposition FROM reisen_reise LEFT JOIN reisen_reisekatalogzugehoerigkeit ON (reiseID = reise_id_id) LEFT JOIN reisen_katalog ON (katalogID = katalog_id_id) WHERE reise_id_id ='" + str(obj.reiseID).replace('-','') + "' ORDER BY katalogposition;");
+        cursor.execute("SELECT reisen_reise.titel, reisen_katalog.titel AS katalogtitel, reisen_reisekatalogzugehoerigkeit.position as katalogposition, reisen_reisekatalogzugehoerigkeit.katalogseite as seite FROM reisen_reise LEFT JOIN reisen_reisekatalogzugehoerigkeit ON (reiseID = reise_id_id) LEFT JOIN reisen_katalog ON (katalogID = katalog_id_id) WHERE reise_id_id ='" + str(obj.reiseID).replace('-','') + "' ORDER BY katalogposition;");
         katalog = namedtuplefetchall(cursor)
         cursor.close()
         if len(katalog) > 0:
-            return katalog[0].katalogtitel
+            return katalog[0].katalogtitel + ' (S.' + str(katalog[0].seite) + ')'
         else:
             return ''
 
-    list_display = ('titel', 'sonstigeReisebeschreibung_titel', 'neu', 'reisetermine', 'reisetyp', 'veranstalter', 'status', 'datum_veroeffentlichung', 'datum_verfall', 'zuletzt_bearbeitet', 'zuletzt_bearbeitet_von', 'datum_erzeugung', 'autor_id', 'welcherkatalog')
+    list_display = ('titel', 'sonstigeReisebeschreibung_titel', 'welcherkatalog', 'neu', 'reisetermine', 'reisetyp', 'veranstalter', 'status', 'datum_veroeffentlichung', 'datum_verfall', 'zuletzt_bearbeitet', 'zuletzt_bearbeitet_von', 'datum_erzeugung', 'autor_id')
     #list_display_links = ('titel', 'reisetermine')
     list_editable = ('neu',)
     list_filter = ('neu', 'titel', 'sonstigeReisebeschreibung_titel', 'reisetermine', 'status', 'datum_veroeffentlichung', 'datum_verfall', 'zuletzt_bearbeitet', 'zuletzt_bearbeitet_von', 'datum_erzeugung', 'autor_id', 'reisetyp', 'veranstalter')
@@ -556,14 +557,16 @@ class BildAdmin(admin.ModelAdmin): #TabbedModelAdmin,
     #anbieter = Bildanbieterzubild.objects()
     #anbieter = anbieter.bildanbieterzubild_set.annotate(bildanbieter=F('bildanbieter_id__bildanbieter'))
 
-    list_display = ('titel', 'beschreibung', 'bild', 'bildanbieter_id', 'bildnummer', 'url', 'copyright', 'kommentar')
+    list_display = ('titel', 'vorschau', 'beschreibung', 'bild', 'bildanbieter_id', 'bildnummer', 'url', 'copyright', 'kommentar')
     #list_display = ('titel', 'beschreibung', 'bild')
     list_filter = ('titel', 'beschreibung', 'bild', 'bildanbieter_id__bildanbieter', 'bildnummer', 'url', 'copyright', 'kommentar')
     search_fields = ['titel', 'beschreibung', 'bild', 'bildanbieter_id__bildanbieter', 'bildnummer', 'url', 'copyright', 'kommentar']
 
+    readonly_fields = ('infos','vorschau',)
+
     fieldsets = ((
         'Bild', {
-            'fields': ('bild', 'titel', 'beschreibung',),
+            'fields': ('infos', 'vorschau', 'bild', 'titel', 'beschreibung',),
             'classes': ('collapse', 'wide', 'extrapretty', 'grp-collapse grp-open',)
         }), (
         'Bilddetails', {
@@ -588,11 +591,55 @@ class AngebotAdmin(admin.ModelAdmin): #TabbedModelAdmin,
     list_filter = ('titel', 'angebot')
     search_fields = ['titel', 'angebot']
 
+class ZielregionAdmin(admin.ModelAdmin): #TabbedModelAdmin,
+
+    form = ZielregionForm
+
+    save_on_top = True
+    save_as = True
+
+    list_display = ['name']
+    #list_filter = ['name']
+    search_fields = ['name']
+
+class KategorieAdmin(admin.ModelAdmin): #TabbedModelAdmin,
+
+    form = KategorieForm
+
+    save_on_top = True
+    save_as = True
+
+    list_display = ['kategorie']
+    #list_filter = ['name']
+    search_fields = ['kategorie']
+
+class HinweisAdmin(admin.ModelAdmin): #TabbedModelAdmin,
+
+    form = HinweisForm
+
+    save_on_top = True
+    save_as = True
+
+    list_display = ['hinweis']
+    #list_filter = ['name']
+    search_fields = ['hinweis']
+
+class PreisAdmin(admin.ModelAdmin): #TabbedModelAdmin,
+
+    form = PreisForm
+
+    save_on_top = True
+    save_as = True
+
+    list_display = ['titel']
+    #list_filter = ['name']
+    search_fields = ['titel']
+
 admin.site.register(Reise, ReiseAdmin)
-admin.site.register(Hinweis)
-admin.site.register(Kategorie)
-admin.site.register(Zielregion)
-admin.site.register(Preis)
+admin.site.register(Hinweis, HinweisAdmin)
+admin.site.register(Kategorie, KategorieAdmin)
+admin.site.register(Zielregion, ZielregionAdmin)
+admin.site.register(Preis, PreisAdmin)
 admin.site.register(Bild, BildAdmin)
 admin.site.register(Bildanbieter)
 #admin.site.register(Reisebilder)

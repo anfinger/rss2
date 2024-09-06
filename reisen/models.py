@@ -1,5 +1,6 @@
 # -*- coding: utf8 -*-
 
+from django.utils import html
 from django.contrib import admin
 from django.utils import timezone
 from django.db import models
@@ -9,6 +10,9 @@ from django.contrib.auth.models import User
 import re
 import uuid
 from django.core.validators import MinValueValidator #, MaxValueValidator
+import exiftool
+import os
+import glob
 
 #from django.core.files.storage import FileSystemStorage
 #from django.core.files.storage import DefaultStorage
@@ -137,6 +141,113 @@ class Bild(models.Model):
     def __str__(self):
         return self.titel #+ ' ID: ' + str(self.bildID)
 
+    def infos(self):
+        dir_path = r'/home/rss/public_html/rss2/media/%s' % (self.bild)
+        file = glob.glob(dir_path)
+        keywordsString = ""
+        try:
+            with exiftool.ExifTool() as et:
+                metadata = et.get_metadata_batch(file)
+            for d in metadata:
+                # Titel
+                if "XMP:Title" in d:
+                    if isinstance(d["XMP:Title"], int):
+                        titel = str(d["XMP:Title"])
+                    else:
+                        titel = d["XMP:Title"].encode('utf-8')
+                elif "IPTC:ObjectName" in d:
+                    if isinstance(d["IPTC:ObjectName"], int):
+                        titel = str(d["IPTC:ObjectName"])
+                    else:
+                        titel = d["IPTC:ObjectName"].encode('utf-8')
+                elif "Photoshop:SlicesGroupName" in d:
+                    if isinstance(d["Photoshop:SlicesGroupName"], int):
+                        titel = str(d["Photoshop:SlicesGroupName"])
+                    else:
+                        titel = d["Photoshop:SlicesGroupName"].encode('utf-8')
+                else:
+                    titel = str("")
+                # Beschreibung
+                if "IPTC:Caption-Abstract" in d:
+                    if isinstance(d["IPTC:Caption-Abstract"], int):
+                        beschreibung = str(d["IPTC:Caption-Abstract"])
+                    else:
+                        beschreibung = d["IPTC:Caption-Abstract"].encode('utf-8')
+                elif "EXIF:ImageDescription" in d:
+                    if isinstance(d["EXIF:ImageDescription"], int):
+                        beschreibung = str(d["EXIF:ImageDescription"])
+                    else:
+                        beschreibung = d["EXIF:ImageDescription"].encode('utf-8')
+                elif "XMP:Description" in d:
+                    if isinstance(d["XMP:Description"], int):
+                        beschreibung = str(d["XMP:Description"])
+                    else:
+                        beschreibung = d["XMP:Description"].encode('utf-8')
+                else:
+                    beschreibung = str("")
+                # Keywords
+                if "XMP:Subject" in d:
+                    keywords = d["XMP:Subject"]
+                elif "IPTC:Keywords" in d:
+                    keywords = d["IPTC:Keywords"]
+                else:
+                    keywords = str("")
+                # IDURL
+                if "JUMBF:Url" in d:
+                    if isinstance(d["JUMBF:Url"], int):
+                        bildIDURL = str(d["JUMBF:Url"])
+                    else:
+                        bildIDURL = d["JUMBF:Url"].encode('utf-8')
+                else:
+                    bildIDURL = str("")
+                # ID
+                if "XMP:Source" in d:
+                    if isinstance(d["XMP:Source"], int):
+                        bildID = str(d["XMP:Source"])
+                    else:
+                        bildID = d["XMP:Source"].encode('utf-8')
+                elif "IPTC:Source" in d:
+                    if isinstance(d["IPTC:Source"], int):
+                        bildID = str(d["IPTC:Source"])
+                    else:
+                        bildID = d["IPTC:Source"].encode('utf-8')
+                else:
+                    bildID = str("")
+            # keywords in String umwandeln
+            for index, keyword in enumerate(keywords):
+                if index < 1:
+                    if isinstance(keyword, int):
+                        keywordsString = keywordsString + str(keyword)
+                    else:
+                        keywordsString = keywordsString + keyword.encode('utf-8')
+                else:
+                    if isinstance(keyword, int):
+                        keywordsString = keywordsString + ", " + str(keyword)
+                    else:
+                        keywordsString = keywordsString + ", " + keyword.encode('utf-8')
+            # Rückgabestring
+            informationen = titel + r"<br><br>" + beschreibung + r"<br><br>" + keywordsString + r'<br><br><a href ="' + bildIDURL + r'">' + bildIDURL + r'</a><br><br>' + bildID
+            return html.mark_safe(informationen)
+        except Exception as inst:
+	    return html.mark_safe(inst)
+
+    def vorschau(self):
+        path = os.path.split(str(self.bild))[0]
+        filename = os.path.split(str(self.bild))[1]
+	#return html.mark_safe('<img src="/media/%sthumbnails/thumbnail_%s" width="300" />' % (os.path.split(str(self.bild))[0], os.path.split(str(self.bild))[1]))
+	#return html.mark_safe('<img src="/media/%s/thumbnails/thumbnail_%s" />' % (path, filename))
+	return html.mark_safe('<a href="/media/%s"><img src="/media/%s/thumbnails/thumbnail_%s" /></a>' % (self.bild, path, filename))
+	#return html.mark_safe('<img src="/media/%s" width="300" />' % (self.bild))
+#	return html.mark_safe('<img src="{url}" width="{width}" height={height} />'.format(
+#        	url = self.url,
+#		width = self.width,
+#		height = self.height,
+#	)
+#    )
+
+    #vorschau.short_description = 'Vorschau'
+    #vorschau.allow_tags = True
+
 ###############
 # Angebot     #
 ###############
@@ -248,6 +359,7 @@ class Hinweis(models.Model):
     class Meta:
         verbose_name = "Hinweis"
         verbose_name_plural = "Hinweise"
+        ordering = ['hinweis']
 
     # Attribute
     hinweisID = models.UUIDField(
@@ -274,6 +386,7 @@ class Kategorie(models.Model):
     class Meta:
         verbose_name = "Kategorie"
         verbose_name_plural = "Kategorien"
+        ordering = ['kategorie']
 
     # Attribute
     kategorieID = models.UUIDField(
@@ -300,6 +413,7 @@ class Zielregion(models.Model):
     class Meta:
         verbose_name = "Zielregion"
         verbose_name_plural = "Zielregionen"
+        ordering = ['name']
 
     # Attribute
     zielregionID = models.UUIDField(
@@ -327,6 +441,7 @@ class Preis(models.Model):
     class Meta:
         verbose_name = "Preis"
         verbose_name_plural = "Preise"
+        ordering = ['titel']
 
     # Attribute
     preisID = models.UUIDField(
@@ -354,6 +469,7 @@ class Reise(models.Model):
     VERANSTALTER_CHOICES = (
         ('RS', 'Reiseservice Schwerin'),
         ('SH', 'Sewert Reisen'),
+        ('RT', 'R&T Reisen Ludwigslust'),
     )
 
     # Titel für das Admin Backend
@@ -697,6 +813,7 @@ class Abfahrtszeiten(models.Model):
         ('VSB', 'von-Stauffenberg-Str.'),
         ('GAR', 'Gartenstadt'),
         ('WIS', 'ZOB Wismar'),
+        ('ROG', 'Gadebusch Roggendorfer Str.'),
         ('ANK', 'Ankunft zurück in Schwerin'),
     )
 
