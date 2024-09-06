@@ -1,0 +1,96 @@
+{% load static %}
+{% load eigene_tags %}
+<html>
+  <head>
+    <title>Reisetermine 2023</title>
+    <style>
+      .rTable {
+        display: table;
+        /*width: 100%;*/
+      }
+      .rTableRow {
+        display: table-row;
+      }
+      .rTableHeading {
+        display: table-header-group;
+        background-color: #ddd;
+      }
+      .rTableCell, .rTableHead {
+        display: table-cell;
+        padding: 3px 10px;
+        border: 0px solid #999999;
+      }
+      .rTableHeading {
+        display: table-header-group;
+        background-color: #ddd;
+        font-weight: bold;
+      }
+      .rTableFoot {
+        display: table-footer-group;
+        font-weight: bold;
+        background-color: #ddd;
+      }
+      .rTableBody {
+        display: table-row-group;
+      }
+    </style>
+  </head>
+  <body style="font-family: TrajanPro-Regular, 'Lucida Grande', sans-serif;">
+    <div>
+      <h1>Reisetermine 2023</h1>
+    </div>
+    <div class="rTable">
+      <div class="rTableHeading">
+        <div class="rTableHead">Termin</div>
+        <div class="rTableHead">Tage</div>
+        <div class="rTableHead">Reiseziel</div>
+      </div>
+      <div class="rTableBody">
+      {% for termin in termine %}
+        {% if termin.Monat %}
+        <div class="rTableRow" style="background-color: #ddd;">
+          <div class="rTableCell"><b>{{ termin.Monat }}</b></div>
+          {% if termin.Monat = 'Februar' %}
+            <div class="rTableCell"></div><div class="rTableCell"><b>(Winterferien 06.02. - 21.02.2021)</b></div>
+          {% elif termin.Monat = 'März' %}
+            <div class="rTableCell"></div><div class="rTableCell"><b>(Osterferien 27.03. - 07.04.2021)</b></div>
+          {% elif termin.Monat = 'April' %}
+            <div class="rTableCell"></div><div class="rTableCell"><b>(Osterferien 27.03. - 07.04.2021)</b></div>
+          {% elif termin.Monat = 'Mai' %}
+            <div class="rTableCell"></div><div class="rTableCell"><b>(Pfingstferien 21.05. - 25.05.2021)</b></div>
+          {% elif termin.Monat = 'Juni' %}
+            <div class="rTableCell"></div><div class="rTableCell"><b>(Sommerferien 19.06. - 01.08.2021)</b></div>
+          {% elif termin.Monat = 'Juli' %}
+            <div class="rTableCell"></div><div class="rTableCell"><b>(Sommerferien 19.06. - 01.08.2021)</b></div>
+          {% elif termin.Monat = 'Oktober' %}
+            <div class="rTableCell"></div><div class="rTableCell"><b>(Herbstferien 02.10. - 10.10.2021)</b></div>
+          {% else %}
+            <div class="rTableCell"></div><div class="rTableCell"></div>
+          {% endif %}
+          </div>
+        </div>
+        {% endif %}
+        {% if termin.Termin != '' %}
+        <div class="rTableRow">
+          {% if termin.Termin %}
+          <div class="rTableCell">{{ termin.Termin }}</div>
+          {% endif %}
+          {% if termin.Tage %}
+          <div class="rTableCell" style="text-align: right; width: 40px">{{ termin.Tage }}</div>
+          {% endif %}
+          {% if termin.Reiseziel %}
+            {% if 'Rigoletto' in termin.Reiseziel and termin.Termin == '26.03.-28.03.21' %}
+          <div class="rTableCell"><a href="{% url 'reise_detail' pk=termin.pk %}" style="text-decoration:none;" target = 'blank'>Rigoletto in der Semperoper in Dresden</a></div>
+            {% elif 'Rigoletto' in termin.Reiseziel and termin.Termin == '25.06.-27.06.21' %}
+          <div class="rTableCell"><a href="{% url 'reise_detail' pk=termin.pk %}" style="text-decoration:none;" target = 'blank'>Der Freischütz in der Semperoper in Dresden</a></div>
+            {% else %}
+          <div class="rTableCell"><a href="{% url 'reise_detail' pk=termin.pk %}" style="text-decoration:none;" target = 'blank'>{{ termin.Reiseziel }}</a></div>
+            {% endif %}
+          {% endif %}
+        </div>
+        {% endif %}
+      {% endfor %}
+      </div>
+    </div>
+  </body>
+</html>

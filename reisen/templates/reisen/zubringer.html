@@ -1,0 +1,406 @@
+{% load static %}
+{% load eigene_tags %}
+
+<html>
+
+  <head>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>Reiseservice Schwerin GmbH - Zubringer</title>
+    <link href="/src/bus.css" rel="stylesheet" media="screen">
+
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js" integrity="sha512-0bEtK0USNd96MnO4XhH8jhv3nyRF0eK87pJke6pkYf3cM0uDIhNJy9ltuzqgypoIFXw3JSuiy04tVk4AjpZdZw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>$('#sortable_uebergabe').draggable();</script>
+    <script>$('#sortable_zubringer').draggable();</script>
+
+    <script src="https://unpkg.com/docx@7.1.0/build/index.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.8/FileSaver.js"></script>
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-53480209-1', 'auto');
+      //ga('set', 'anonymizeIp', true);
+      //ga('send', 'pageview', {'anonymizeIp': true});
+      ga('send', 'pageview');
+    </script>
+
+    <script>
+
+      $( function() {
+        $( "#sortable_uebergabe, #sortable_zubringer" ).sortable({
+          connectWith: ".connectedSortable",
+          update: function(event, ui) {
+
+//            var xhr = new XMLHttpRequest();
+//            xhr.onreadystatechange = function(){
+//              if (this.readyState == 4 && this.status == 200){
+//                //this.response is what you're looking for
+//                //handler(this.response);
+//                console.log(this.response, typeof this.response);
+//                //var img = document.getElementById('img');
+//                //var url = window.URL || window.webkitURL;
+//                //img.src = url.createObjectURL(this.response);
+//                //console.log(url.createObjectURL(this.response));
+//                saveAs(this.response, 'file.docx');
+//              }
+//            }
+//            params = 'reihenfolge=' + $(this).sortable('serialize') + '&uebergabeliste=' + '{{ uebergabeliste }}';
+//            params = 'reihenfolge=huhu&uebergabeliste=hihi';
+//            console.log(params);
+//
+//            xhr.open('POST', '{% url "printZubringer" %}');
+//            xhr.responseType = 'blob';
+//            xhr.send("huhu"); 
+
+            //AJAX
+            //console.log('{% url "printZubringer" %}');
+            //event.preventDefault();
+
+//            var csrftoken = $("[name=csrfmiddlewaretoken]").val();
+//
+//            $.ajax({
+//              type:'POST',
+//              xhrFields: {
+//                responseType: 'blob'
+//              },
+//              url: '{% url "printZubringer" %}',
+//              headers:{
+//                "X-CSRFToken": csrftoken
+//              },
+//              data: {
+//                'reihenfolge': $(this).sortable('serialize'),
+//                'uebergabeliste': '{{ uebergabeliste }}',
+//                'reiseziel': '{{ reiseziel.0 }}',
+//                'rnr': '{{ rnr }}',
+//                'jahr': '{{ jahr }}',
+//                //'lis': $( "li" ).toArray()
+//                'lis': $( "li" ).toArray().join(';')
+//              },
+//              success:function(response){
+//                console.log("SUCCESS");
+ //               var blob = new Blob([response], {type: "application/vnd.openxmlformats-officedocument.wordprocessingml.document"});
+//                //var blob = new Blob([response]);
+//                var link = document.createElement('a');
+ //               link.href = window.URL.createObjectURL(blob);
+//                //var objectUrl = URL.createObjectURL(blob);
+//                link.setAttribute('target', '_blank');
+//                link.download = "file.docx";
+//                link.click();
+//                try {
+//                  blob = docx.Packer.toBuffer(data);
+//                  console.log(blob);
+//                }
+//                catch(err) {
+//                  console.log("1: " + err.message);
+//                }
+//                try {
+//                  //console.log(data);
+//                  //console.log(blob);
+//                  saveAs(data, 'zubi.docx');
+//                }
+//                catch(err) {
+//                  console.log("2: " + err.message);
+//                }
+            //    console.log(data);
+            //    $("#sortedList").text("Serialisiert Ajax: " + hash);
+                //docx.Packer.toBlob(data).then(blob => {
+                //  console.log(blob);
+                //  saveAs(blob, "zubringer.docx");
+                //  console.log("Document created successfully");
+                //  $("#sortedList").text("Document created successfully");
+                //});
+//              },
+//              error : function() {
+//                console.log("ERROR");
+//              }
+//            });
+
+            var hash = $(this).sortable('serialize');
+            $("#sortedList").text("Serialisiert: " + hash);
+          }
+
+        }).disableSelection();
+      });
+
+      function generate() {
+
+        var csrftoken = $("[name=csrfmiddlewaretoken]").val();
+
+        console.log($("#sortable_uebergabe").sortable('serialize'));
+
+        $.ajax({
+          type:'POST',
+          xhrFields: {
+            responseType: 'blob'
+          },
+          url: '{% url "printZubringer" %}',
+          headers:{
+            "X-CSRFToken": csrftoken
+          },
+          data: {
+            //'reihenfolge': $("#sortable_uebergabe").sortable('serialize', { key: "id" }),
+            //'reihenfolge': JSON.stringify('[{"' + $('#sortable_uebergabe').sortable('serialize').replaceAll('[]=','":').replaceAll('&','},{"') + "}]"),
+            'reihenfolge': $("#sortable_uebergabe").sortable('serialize'),
+            'uebergabeliste': '{{ uebergabeliste }}',
+            'zubringerliste': '{{ zubringerliste }}',
+            'reiseziel': '{{ reiseinfos.0.ziel }}',
+            'zustiege': '{{ reiseinfos.0.zustiege }}',
+            'vom': '{{ reiseinfos.0.vom }}',
+            'bis': '{{ reiseinfos.0.bis }}',
+            'rnr': '{{ rnr }}',
+            'jahr': '{{ jahr }}',
+            'lis': $( "li" ).toArray().join(';')
+          },
+          success:function(response){
+            console.log("SUCCESS");
+            var blob = new Blob([response], {type: "application/vnd.openxmlformats-officedocument.wordprocessingml.document"});
+            var link = document.createElement('a');
+            link.href = window.URL.createObjectURL(blob);
+            link.setAttribute('target', '_blank');
+            link.download = '{{ jahr }}_R{{ rnr }}_zubringer.docx';
+            link.click();
+          },
+          error : function() {
+            console.log("ERROR");
+          }
+        });
+      }
+
+    </script>
+
+    <style>
+
+      #sortable_uebergabe, #sortable_zubringer {
+        border: 1px solid #eee;
+        width: 442px;
+        min-height: 20px;
+        list-style-type: none;
+        margin: 0;
+        padding: 5px 0 0 0;
+        float: left;
+        margin-right: 10px;
+      }
+
+      #sortable_uebergabe li, #sortable_zubringer li {
+        margin: 0 5px 5px 5px;
+        padding: 5px;
+        font-size: 1.2em;
+        width: 420px;
+      }
+
+    </style>
+
+  </head>
+
+  <body bgcolor="#2d4b9b">
+
+    <center>
+
+      <table align="center" width="700">
+        <tr>
+          <td align="center">
+            <a href="/index.html">
+              <img src="/images/logo-rss-2021.png" border="0" height="294" width="294" vspace="10" hspace="5">
+            </a>
+          </td>
+        </tr>
+
+      </table>
+
+      <br />
+
+      <table align="center">
+        <tr>
+          <td colspan="2" width="70%" align="center" valign="top" style="color:white; font-family: Verdana">
+            zur&uuml;ck zu:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <b>
+              <a href="/index.html" style="color:white; text-decoration:none; font-family: Verdana">Startseite</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <a href="/rss2/reisen/sommer20/" style="color:white; text-decoration:none; font-family: Verdana">Reisen 2020</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <a href="/rss2/reisen/winter2223" style="color:white; text-decoration:none; font-family: Verdana">Winter & Frühjahr 2022 / 2023</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <a href="/tagesfahrten.html" style="color:white; text-decoration:none; font-family: Verdana">Tagesfahrten</a>
+              <a href="/musicals.html" style="color:white; text-decoration:none; font-family: Verdana">Musicalfahrten</a>
+      	    </b>
+          </td>
+        </tr>
+      </table>
+
+      <br />
+
+      <table bgcolor="ffffff" gridy="16" gridx="16" border="0" cellpadding="0" cellspacing="0" width="700">
+
+        <tbody>
+
+          <tr>
+            <td align="center" valign="top" width="700">
+              <table border="0" cellpadding="1" cellspacing="3" width="700">
+                <tbody>
+                  <tr>
+                    <td colspan="3" bgcolor="#9999cc" height="20">
+                      <div align="center">
+                        <a name="oben"></a>
+                        <span class="ht2"></span>
+                      </div>
+                    </td>
+                  </tr>
+
+<!-- +++++++++++++++++++++++++++++++++++++ Link zu Hinweisen und Reisebedingungen +++++++++++++++++++++++++++++++++++++ -->
+                  <tr>
+                    <td colspan="3" bgcolor="#cccccc">
+                      <div align="center">
+                        <span class="ht1">
+                          Beachten Sie unsere
+                          <a href="/wichtiges.html">Hinweise</a>
+                          und
+                          <a href="/reisebedingungen.html">Reisebedingungen</a>
+                          !
+                        </span>
+                        <p>
+                          Bitte stellen Sie Ihre Buchungsanfrage per Email an <a href="mailto:info@reiseservice-schwerin.de">info@reiseservice-schwerin.de</a>
+                        </p>
+                        <p>
+                          oder &uuml;ber <span class="ht1">Tel. 0385 / 591 03 33</span>
+                      	</p>
+                      </div>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td colspan="3" valign="top" align="center">
+                      <font size="3" face="Verdana" color="blue">
+                        <b>Zubringerliste R{{ rnr }}/{{ jahr }}: "{{ reiseinfos.0.ziel }}" vom {{ reiseinfos.0.vom }} bis {{ reiseinfos.0.bis }}</b></br></br>
+                        <span id="sortedList"></span>
+                        <button type="button" onclick="generate()">Click to generate document</button>
+                      </font>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td colspan="2" valign="top">
+                      <font size="1" face="Verdana" color="blue">
+                        <b>Bushaltestellen</b></br></br>
+                        {% for zustieg in reiseinfos.0.zustiege %}{% if zustieg.zustieg %}Uhrzeit: {{ zustieg.zeit }} Uhr {{ zustieg.zustieg }}</br></br>{% endif %}{% endfor %}</br></br>
+                        <ul id="sortable_uebergabe" class="connectedSortable">
+                          {% for uebergabe in uebergabeliste %}
+                            {% if not uebergabe.selberort %}{% if forloop.counter > 1 %}</li>{% endif %}<li id="uebergabe_{{ forloop.counter }}" class="ui-state-default"><div class="ort"><b>{% if uebergabe.ortkurz %}{{ uebergabe.ort }}{% else %}kein Zustieg vergeben{% endif %} um {{ uebergabe.zeit }}</b></div>{% endif %}
+                            {% if not uebergabe.selbebnr %}</br><div class="bnr">B{{ uebergabe.bnr }}</div>{% if uebergabe.option %}<div id="option">&nbsp;({{ uebergabe.option }})</div>{% endif %}{% if uebergabe.warteliste %}<div id="warteliste">&nbsp;({{ uebergabe.warteliste }})</div>{% endif %}{% endif %}
+                            <div id="pax">{{ forloop.counter }}: {{ uebergabe.anrede }} {{ uebergabe.vorname }} {{ uebergabe.name }}</div>
+                            {% if forloop.last %}</li>{% endif %}
+                          {% endfor %}
+                        </ul>
+                      </font>
+                    </td>
+                    <td colspan="1" valign="top">
+                      <font size="1" face="Verdana" color="blue">
+                        <b>Taxis</b></br></br>
+                        <ul id="sortable_zubringer" class="connectedSortable">
+                          {% for zubringer in zubringerliste %}
+                            {% if not zubringer.selberort %}{% if forloop.counter > 1 %}</li>{% endif %}<li id="zubringer_{{ forloop.counter }}" class="ui-state-highlight"><div id="ort"><b>{% if zubringer.ortkurz %}{{ zubringer.ort }}{% else %}kein Zustieg vergeben{% endif %} um {{ zubringer.zeit }} mit {{ zubringer.taxiname1 }} ({{ zubringer.taxitel1 }})</b></div>{% endif %}
+                            {% if not zubringer.selbebnr %}</br><div="bnr">B{{ zubringer.bnr }}</div>{% if zubringer.option %}<div id="option">&nbsp;({{ zubringer.option }})</div>{% endif %}{% if zubringer.warteliste %}<div id="warteliste">&nbsp;({{ zubringer.warteliste }})</div>{% endif %}{% endif %}
+                            <div id="pax">{{ uebergabeliste|length|add:forloop.counter }}: {{ zubringer.anrede }} {{ zubringer.vorname }} {{ zubringer.name }}</div>
+                            {% if forloop.last %}</li>{% endif %}
+                          {% endfor %}
+                        </ul>
+
+                      </font>
+                    </td>
+                  </tr>
+
+<!-- ++++++++++++++++++++++++++++ Link zu Hinweisen und Reisebedingungen +++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+
+                  <tr>
+                    <td colspan="3" bgcolor="#cccccc">
+                      <div align="center">
+                        <span class="ht1">
+                          Beachten Sie unsere
+                          <a href="./wichtiges.html">Hinweise</a>
+                          und
+                          <a href="./reisebedingungen.html">Reisebedingungen</a>
+                          !
+                        </span>
+                        <p>
+                          Bitte stellen Sie Ihre Buchungsanfrage per Email an <a href="mailto:info@reiseservice-schwerin.de">info@reiseservice-schwerin.de</a>
+                        </p>
+                        <p>
+                          oder &uuml;ber <span class="ht1">Tel. 0385 / 591 03 33</span>
+                        </p>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td colspan="3">
+                      <center>
+                        <table gridy="16" gridx="16" align="center" border="0" cellpadding="0" cellspacing="0" width="700">
+                          <tbody>
+                            <tr>
+                              <td xpos="0" align="left" valign="top">
+                                <table border="0" cellpadding="0" cellspacing="2" width="700">
+                                  <tbody>
+                                    <tr>
+                                      <td colspan="2"><hr></td>
+                                    </tr>
+
+<!-- +++++++++++++++++++++++++++++++++++++ Kontaktdaten +++++++++++++++++++++++++++++++++++++ -->
+								                    <tr>
+                                      <td>
+                                        <p class="st1">
+                                          Reiseservice Schwerin GmbH<br>
+                                          Kl&ouml;resgang 1<br>
+                                          19053 Schwerin
+                                        </p>
+                                      </td>
+                                      <td align="right">
+                                        <p class="st2">
+                                          <a href="/index.html">
+                                            <img src="/images/logo-rss-2021.png" alt="Reiseservice Schwerin GmbH" border="0" height="55" width="55">
+                                          </a>
+                                        </p>
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                      <td colspan="2">
+                                        <p class="st2">
+                                          Email: <a href="mailto:info@reiseservice-schwerin.de">info@reiseservice-schwerin.de</a>
+                                        </p>
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                      <td>
+                                        <p class="st2">
+                                          Tel: 0385 / 5910333<br>
+                                          Fax: 0385 / 5910331
+                                        </p>
+                                      </td>
+
+<!-- +++++++++++++++++++++++++++++++++++++ Impressum +++++++++++++++++++++++++++++++++++++ -->
+                  									  <td align="right">
+                                        <span class="st2-table">
+                                          <a href="/impressum.html"><i>Impressum&nbsp;/&nbsp;Haftungsausschlu&szlig;</i></a><br />
+                                          <a href="/datenschutz.html"><i>Datenschutz</i></a>
+                                        </span>
+                                      </td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </center>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </center>
+  </body>
+</html>

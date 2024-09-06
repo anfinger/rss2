@@ -1,0 +1,50 @@
+{% load eigene_tags %}
+
+                                        <table id="example" class="display tagbeschreibung" cellspacing="0" width="100%">
+                                          <thead>
+                                            <tr>
+                                              <th style="border-bottom: 0px solid #000080;">Ordnung</th>
+                                              <th style="border-bottom: 0px solid #000080;">Termin</th>
+                                              <th style="border-bottom: 0px solid #000080;">Dauer</th>
+                                              <th style="border-bottom: 0px solid #000080;">Ü/VP p.P. im DZ</th>
+                                              <th style="border-bottom: 0px solid #000080;">EZ-Zuschlag</th>
+                                              <th style="border-bottom: 0px solid #000080;">Zuschlag gr. DZ</th>
+                                            </tr>
+                                          </thead>
+                                          <tfoot>
+                                            <tr>
+                                              <th style="border-top: 0px solid #000080;">Ordnung</th>
+                                              <th style="border-top: 0px solid #000080;">Termin</th>
+                                              <th style="border-top: 0px solid #000080;">Dauer</th>
+                                              <th style="border-top: 0px solid #000080;">Ü/VP p.P. im DZ</th>
+                                              <th style="border-top: 0px solid #000080;">EZ-Zuschlag</th>
+                                              <th style="border-top: 0px solid #000080;">Zuschlag gr. DZ</th>
+                                            </tr>
+                                          </tfoot>
+                                          <tbody>
+                                          {% if termine %}
+                                            {% for termin in termine %}
+                                              {% now "Y-m-d" as todays_date %}
+                                              {% if todays_date < termin.datum_beginn|date:'Y-m-d' %}
+                                            <tr>
+                                              <td>{{ forloop.counter }}</td>
+                                              {% if termin.datum_ende %}
+                                              <td>{{ termin.datum_beginn|date:'d.m.' }} - {{ termin.datum_ende|date:'d.m.Y' }}</td>
+                                              {% endif %}
+                                              {% if preise %}
+                                                {% for preis in preise %}
+                                                  {% if termin.markierung = preis.markierung %}
+                                              <td>{% dauer termin.datum_ende termin.datum_beginn %} Tage</td>
+                                              <td>{{ preis.preis }} &euro;</td>
+                                              {% if preis.zpreis %}
+                                              <td>{{ preis.zpreis|nurbetrag|safe }}</td>
+                                              {% endif %}
+                                                  {% endif %}
+                                                {% endfor %}
+                                              {% endif %}
+                                            </tr>
+                                              {% endif %}
+                                            {% endfor %}
+                                          {% endif %}
+                                          </tbody>
+                                        </table>

@@ -1,0 +1,8 @@
+{% load static %}{% load eigene_tags %}<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<tagesfahrten_advent titel="Advents- und Weihnachtsmärkte, Musicals und Shows" seite="2|3" anzahl_seiten="2" kategorie="Tagesfahrten im Advent" zielregion="Deutschland" file="tagesfahrten_advent.xml">{% for tagesfahrt in tagesfahrten %}<ADVENTHEAD>{% if tagesfahrt.datum_beginn %}{{ tagesfahrt.datum_beginn|date:"D. d.m." }}{% endif %}	{{ tagesfahrt.reisedaten.titel }}</ADVENTHEAD>
+<ADVENTFLIESS>{% if tagesfahrt.reisedaten.untertitel %}{{ tagesfahrt.reisedaten.untertitel }} {% endif %}{% if tagesfahrt.reisedaten.einleitung %}{{ tagesfahrt.reisedaten.einleitung }}{% endif %}</ADVENTFLIESS>
+<ADVENTABFAHRT>Abfahrt: {% for zeit in tagesfahrt.abfahrtszeiten %}{% if zeit.ort != 'ANK' %}{{ zeit.zeit }} Uhr {{ zeit.ort|abfahrtsorte }}{% if forloop.counter == 1 %}, {% endif %}{% endif %}{% endfor %}
+Ankunft: {% for zeit in tagesfahrt.abfahrtszeiten %}{% if zeit.ort == 'ANK' %}{{ zeit.zeit }} Uhr{% endif %}{% endfor %}</ADVENTABFAHRT>
+<ADVENTPREIS>{% for preis in tagesfahrt.preise %}{% if preis.markierung %}{% if preis.markierung == tagesfahrt.datum_markierung %}{{ preis.preistitel }}:	{% if preis.kommentar %}{{ preis.kommentar }} {% endif %}{{ preis.preis }} €
+{% endif %}{% else %}{{ preis.preistitel }}: {% if preis.kommentar %}{{ preis.kommentar }} {% endif %}{{ preis.preis }} €{% endif %}{% endfor %}</ADVENTPREIS>
+{% endfor %}</tagesfahrten_advent>

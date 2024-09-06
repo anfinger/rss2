@@ -1,0 +1,160 @@
+{% load static %}
+{% load eigene_tags %}
+<html>
+  <head>
+    <title>Busplanung - Reisetermine 2024</title>
+    <style>
+      .rTable {
+        display: table;
+        /*width: 100%;*/
+      }
+      .rTableRow {
+        display: table-row;
+      }
+      .rTableHeading {
+        display: table-header-group;
+        background-color: #ddd;
+      }
+      .rTableCell, .rTableHead {
+        display: table-cell;
+        padding: 3px 10px;
+        border: 1px solid #999999;
+      }
+      .rTableHeading {
+        display: table-header-group;
+        background-color: #ddd;
+        font-weight: bold;
+      }
+      .rTableFoot {
+        display: table-footer-group;
+        font-weight: bold;
+        background-color: #ddd;
+      }
+      .rTableBody {
+        display: table-row-group;
+      }
+    </style>
+  </head>
+  <body style="font-family: TrajanPro-Regular, 'Lucida Grande', sans-serif;">
+    <div>
+      <h1>Busplanung - Reisetermine 2024</h1>
+    </div>
+    <table border=1>
+      <thead>
+        <tr>
+          <th colspan="365">2020</th>
+        </tr>
+        <tr>
+          <th colspan="31" bgcolor="#CCCCCC">Januar</th>
+          <th colspan="29">Februar</th>
+          <th colspan="31" bgcolor="#CCCCCC">M&auml;rz</th>
+          <th colspan="30">April</th>
+          <th colspan="31" bgcolor="#CCCCCC">Mai</th>
+          <th colspan="30">Juni</th>
+          <th colspan="31" bgcolor="#CCCCCC">Juli</th>
+          <th colspan="31">August</th>
+          <th colspan="30" bgcolor="#CCCCCC">September</th>
+          <th colspan="31">Oktober</th>
+          <th colspan="30" bgcolor="#CCCCCC">November</th>
+          <th colspan="31">Dezember</th>
+        </tr>
+        <tr>
+          <th>1</th> <th>2</th> <th>3</th> <th>4</th> <th>5</th> <th>6</th> <th>7</th> <th>8</th> <th>9</th> <th>10</th> <th>11</th> <th>12</th> <th>13</th> <th>14</th> <th>15</th> <th>16</th> <th>17</th> <th>18</th> <th>19</th> <th>20</th> <th>21</th> <th>22</th> <th>23</th> <th>24</th> <th>25</th> <th>26</th> <th>27</th> <th>28</th> <th>29</th> <th>30</th> <th>31</th> <th>1</th> <th>2</th> <th>3</th> <th>4</th> <th>5</th> <th>6</th> <th>7</th> <th>8</th> <th>9</th> <th>10</th> <th>11</th> <th>12</th> <th>13</th> <th>14</th> <th>15</th> <th>16</th> <th>17</th> <th>18</th> <th>19</th> <th>20</th> <th>21</th> <th>22</th> <th>23</th> <th>24</th> <th>25</th> <th>26</th> <th>27</th> <th>28</th> <th>29</th> <th>1</th> <th>2</th> <th>3</th> <th>4</th> <th>5</th> <th>6</th> <th>7</th> <th>8</th> <th>9</th> <th>10</th> <th>11</th> <th>12</th> <th>13</th> <th>14</th> <th>15</th> <th>16</th> <th>17</th> <th>18</th> <th>19</th> <th>20</th> <th>21</th> <th>22</th> <th>23</th> <th>24</th> <th>25</th> <th>26</th> <th>27</th> <th>28</th> <th>29</th> <th>30</th> <th>31</th> <th>1</th> <th>2</th> <th>3</th> <th>4</th> <th>5</th> <th>6</th> <th>7</th> <th>8</th> <th>9</th> <th>10</th> <th>11</th> <th>12</th> <th>13</th> <th>14</th> <th>15</th> <th>16</th> <th>17</th> <th>18</th> <th>19</th> <th>20</th> <th>21</th> <th>22</th> <th>23</th> <th>24</th> <th>25</th> <th>26</th> <th>27</th> <th>28</th> <th>29</th> <th>30</th> <th>1</th> <th>2</th> <th>3</th> <th>4</th> <th>5</th> <th>6</th> <th>7</th> <th>8</th> <th>9</th> <th>10</th> <th>11</th> <th>12</th> <th>13</th> <th>14</th> <th>15</th> <th>16</th> <th>17</th> <th>18</th> <th>19</th> <th>20</th> <th>21</th> <th>22</th> <th>23</th> <th>24</th> <th>25</th> <th>26</th> <th>27</th> <th>28</th> <th>29</th> <th>30</th> <th>31</th> <th>1</th> <th>2</th> <th>3</th> <th>4</th> <th>5</th> <th>6</th> <th>7</th> <th>8</th> <th>9</th> <th>10</th> <th>11</th> <th>12</th> <th>13</th> <th>14</th> <th>15</th> <th>16</th> <th>17</th> <th>18</th> <th>19</th> <th>20</th> <th>21</th> <th>22</th> <th>23</th> <th>24</th> <th>25</th> <th>26</th> <th>27</th> <th>28</th> <th>29</th> <th>30</th> <th>1</th> <th>2</th> <th>3</th> <th>4</th> <th>5</th> <th>6</th> <th>7</th> <th>8</th> <th>9</th> <th>10</th> <th>11</th> <th>12</th> <th>13</th> <th>14</th> <th>15</th> <th>16</th> <th>17</th> <th>18</th> <th>19</th> <th>20</th> <th>21</th> <th>22</th> <th>23</th> <th>24</th> <th>25</th> <th>26</th> <th>27</th> <th>28</th> <th>29</th> <th>30</th> <th>31</th> <th>1</th> <th>2</th> <th>3</th> <th>4</th> <th>5</th> <th>6</th> <th>7</th> <th>8</th> <th>9</th> <th>10</th> <th>11</th> <th>12</th> <th>13</th> <th>14</th> <th>15</th> <th>16</th> <th>17</th> <th>18</th> <th>19</th> <th>20</th> <th>21</th> <th>22</th> <th>23</th> <th>24</th> <th>25</th> <th>26</th> <th>27</th> <th>28</th> <th>29</th> <th>30</th> <th>31</th> <th>1</th> <th>2</th> <th>3</th> <th>4</th> <th>5</th> <th>6</th> <th>7</th> <th>8</th> <th>9</th> <th>10</th> <th>11</th> <th>12</th> <th>13</th> <th>14</th> <th>15</th> <th>16</th> <th>17</th> <th>18</th> <th>19</th> <th>20</th> <th>21</th> <th>22</th> <th>23</th> <th>24</th> <th>25</th> <th>26</th> <th>27</th> <th>28</th> <th>29</th> <th>30</th> <th>1</th> <th>2</th> <th>3</th> <th>4</th> <th>5</th> <th>6</th> <th>7</th> <th>8</th> <th>9</th> <th>10</th> <th>11</th> <th>12</th> <th>13</th> <th>14</th> <th>15</th> <th>16</th> <th>17</th> <th>18</th> <th>19</th> <th>20</th> <th>21</th> <th>22</th> <th>23</th> <th>24</th> <th>25</th> <th>26</th> <th>27</th> <th>28</th> <th>29</th> <th>30</th> <th>31</th> <th>1</th> <th>2</th> <th>3</th> <th>4</th> <th>5</th> <th>6</th> <th>7</th> <th>8</th> <th>9</th> <th>10</th> <th>11</th> <th>12</th> <th>13</th> <th>14</th> <th>15</th> <th>16</th> <th>17</th> <th>18</th> <th>19</th> <th>20</th> <th>21</th> <th>22</th> <th>23</th> <th>24</th> <th>25</th> <th>26</th> <th>27</th> <th>28</th> <th>29</th> <th>30</th> <th>1</th> <th>2</th> <th>3</th> <th>4</th> <th>5</th> <th>6</th> <th>7</th> <th>8</th> <th>9</th> <th>10</th> <th>11</th> <th>12</th> <th>13</th> <th>14</th> <th>15</th> <th>16</th> <th>17</th> <th>18</th> <th>19</th> <th>20</th> <th>21</th> <th>22</th> <th>23</th> <th>24</th> <th>25</th> <th>26</th> <th>27</th> <th>28</th> <th>29</th> <th>30</th> <th>31</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+        {% for termin in termine %}
+          {% if termin.bus = 1 %}
+            <td colspan="{{ termin.tmp }}"></td>
+            <td bgcolor="#44FF44" colspan="{{ termin.Tage }}">{{ termin.Reiseziel }}<br>{{ termin.Tage }} - Tage<br>{{ termin.Termin }}</td>
+          {% endif %}
+        {% endfor %}
+        </tr>
+        <tr>
+        {% for termin in termine %}
+          {% if termin.bus = 2 %}
+            <td colspan="{{ termin.tmp }}"></td>
+            <td bgcolor="#ABCDEF" colspan="{{ termin.Tage }}">{{ termin.Reiseziel }}<br>{{ termin.Tage }} - Tage<br>{{ termin.Termin }}</td>
+          {% endif %}
+        {% endfor %}
+        </tr>
+        <tr>
+        {% for termin in termine %}
+          {% if termin.bus = 3 %}
+            <td colspan="{{ termin.tmp }}"></td>
+            <td bgcolor="#FF55FF" colspan="{{ termin.Tage }}">{{ termin.Reiseziel }}<br>{{ termin.Tage }} - Tage<br>{{ termin.Termin }}</td>
+          {% endif %}
+        {% endfor %}
+        </tr>
+        <tr>
+        {% for termin in termine %}
+          {% if termin.bus = 4 %}
+            <td colspan="{{ termin.tmp }}"></td>
+            <td bgcolor="#E2EFDA" colspan="{{ termin.Tage }}">{{ termin.Reiseziel }}<br>{{ termin.Tage }} - Tage<br>{{ termin.Termin }}</td>
+          {% endif %}
+        {% endfor %}
+        </tr>
+        <tr>
+        {% for termin in termine %}
+          {% if termin.bus = 5 %}
+            <td colspan="{{ termin.tmp }}"></td>
+            <td bgcolor="#FFF2CC" colspan="{{ termin.Tage }}">{{ termin.Reiseziel }}<br>{{ termin.Tage }} - Tage<br>{{ termin.Termin }}</td>
+          {% endif %}
+        {% endfor %}
+        </tr>
+        <tr>
+        {% for termin in termine %}
+          {% if termin.bus = 6 %}
+            <td colspan="{{ termin.tmp }}"></td>
+            <td bgcolor="#A1F4F2" colspan="{{ termin.Tage }}">{{ termin.Reiseziel }}<br>{{ termin.Tage }} - Tage<br>{{ termin.Termin }}</td>
+          {% endif %}
+        {% endfor %}
+        </tr>
+        <tr>
+        {% for termin in termine %}
+          {% if termin.bus = 7 %}
+            <td colspan="{{ termin.tmp }}"></td>
+            <td bgcolor="#FF9966" colspan="{{ termin.Tage }}">{{ termin.Reiseziel }}<br>{{ termin.Tage }} - Tage<br>{{ termin.Termin }}</td>
+          {% endif %}
+        {% endfor %}
+        </tr>
+        <tr>
+        {% for termin in termine %}
+          {% if termin.bus = 8 %}
+            <td colspan="{{ termin.tmp }}"></td>
+            <td bgcolor="#DDEBF7" colspan="{{ termin.Tage }}">{{ termin.Reiseziel }}<br>{{ termin.Tage }} - Tage<br>{{ termin.Termin }}</td>
+          {% endif %}
+        {% endfor %}
+        </tr>
+        <tr>
+        {% for termin in termine %}
+          {% if termin.bus = 9 %}
+            <td colspan="{{ termin.tmp }}"></td>
+            <td bgcolor="#A10402" colspan="{{ termin.Tage }}">{{ termin.Reiseziel }}<br>{{ termin.Tage }} - Tage<br>{{ termin.Termin }}</td>
+          {% endif %}
+        {% endfor %}
+        </tr>
+      </tbody>
+      <tfoot style="font-weight: bold">
+        <tr>
+          <td>1</td> <td>2</td> <td>3</td> <td>4</td> <td>5</td> <td>6</td> <td>7</td> <td>8</td> <td>9</td> <td>10</td> <td>11</td> <td>12</td> <td>13</td> <td>14</td> <td>15</td> <td>16</td> <td>17</td> <td>18</td> <td>19</td> <td>20</td> <td>21</td> <td>22</td> <td>23</td> <td>24</td> <td>25</td> <td>26</td> <td>27</td> <td>28</td> <td>29</td> <td>30</td> <td>31</td> <td>1</td> <td>2</td> <td>3</td> <td>4</td> <td>5</td> <td>6</td> <td>7</td> <td>8</td> <td>9</td> <td>10</td> <td>11</td> <td>12</td> <td>13</td> <td>14</td> <td>15</td> <td>16</td> <td>17</td> <td>18</td> <td>19</td> <td>20</td> <td>21</td> <td>22</td> <td>23</td> <td>24</td> <td>25</td> <td>26</td> <td>27</td> <td>28</td> <td>29</td> <td>1</td> <td>2</td> <td>3</td> <td>4</td> <td>5</td> <td>6</td> <td>7</td> <td>8</td> <td>9</td> <td>10</td> <td>11</td> <td>12</td> <td>13</td> <td>14</td> <td>15</td> <td>16</td> <td>17</td> <td>18</td> <td>19</td> <td>20</td> <td>21</td> <td>22</td> <td>23</td> <td>24</td> <td>25</td> <td>26</td> <td>27</td> <td>28</td> <td>29</td> <td>30</td> <td>31</td> <td>1</td> <td>2</td> <td>3</td> <td>4</td> <td>5</td> <td>6</td> <td>7</td> <td>8</td> <td>9</td> <td>10</td> <td>11</td> <td>12</td> <td>13</td> <td>14</td> <td>15</td> <td>16</td> <td>17</td> <td>18</td> <td>19</td> <td>20</td> <td>21</td> <td>22</td> <td>23</td> <td>24</td> <td>25</td> <td>26</td> <td>27</td> <td>28</td> <td>29</td> <td>30</td> <td>1</td> <td>2</td> <td>3</td> <td>4</td> <td>5</td> <td>6</td> <td>7</td> <td>8</td> <td>9</td> <td>10</td> <td>11</td> <td>12</td> <td>13</td> <td>14</td> <td>15</td> <td>16</td> <td>17</td> <td>18</td> <td>19</td> <td>20</td> <td>21</td> <td>22</td> <td>23</td> <td>24</td> <td>25</td> <td>26</td> <td>27</td> <td>28</td> <td>29</td> <td>30</td> <td>31</td> <td>1</td> <td>2</td> <td>3</td> <td>4</td> <td>5</td> <td>6</td> <td>7</td> <td>8</td> <td>9</td> <td>10</td> <td>11</td> <td>12</td> <td>13</td> <td>14</td> <td>15</td> <td>16</td> <td>17</td> <td>18</td> <td>19</td> <td>20</td> <td>21</td> <td>22</td> <td>23</td> <td>24</td> <td>25</td> <td>26</td> <td>27</td> <td>28</td> <td>29</td> <td>30</td> <td>1</td> <td>2</td> <td>3</td> <td>4</td> <td>5</td> <td>6</td> <td>7</td> <td>8</td> <td>9</td> <td>10</td> <td>11</td> <td>12</td> <td>13</td> <td>14</td> <td>15</td> <td>16</td> <td>17</td> <td>18</td> <td>19</td> <td>20</td> <td>21</td> <td>22</td> <td>23</td> <td>24</td> <td>25</td> <td>26</td> <td>27</td> <td>28</td> <td>29</td> <td>30</td> <td>31</td> <td>1</td> <td>2</td> <td>3</td> <td>4</td> <td>5</td> <td>6</td> <td>7</td> <td>8</td> <td>9</td> <td>10</td> <td>11</td> <td>12</td> <td>13</td> <td>14</td> <td>15</td> <td>16</td> <td>17</td> <td>18</td> <td>19</td> <td>20</td> <td>21</td> <td>22</td> <td>23</td> <td>24</td> <td>25</td> <td>26</td> <td>27</td> <td>28</td> <td>29</td> <td>30</td> <td>31</td> <td>1</td> <td>2</td> <td>3</td> <td>4</td> <td>5</td> <td>6</td> <td>7</td> <td>8</td> <td>9</td> <td>10</td> <td>11</td> <td>12</td> <td>13</td> <td>14</td> <td>15</td> <td>16</td> <td>17</td> <td>18</td> <td>19</td> <td>20</td> <td>21</td> <td>22</td> <td>23</td> <td>24</td> <td>25</td> <td>26</td> <td>27</td> <td>28</td> <td>29</td> <td>30</td> <td>1</td> <td>2</td> <td>3</td> <td>4</td> <td>5</td> <td>6</td> <td>7</td> <td>8</td> <td>9</td> <td>10</td> <td>11</td> <td>12</td> <td>13</td> <td>14</td> <td>15</td> <td>16</td> <td>17</td> <td>18</td> <td>19</td> <td>20</td> <td>21</td> <td>22</td> <td>23</td> <td>24</td> <td>25</td> <td>26</td> <td>27</td> <td>28</td> <td>29</td> <td>30</td> <td>31</td> <td>1</td> <td>2</td> <td>3</td> <td>4</td> <td>5</td> <td>6</td> <td>7</td> <td>8</td> <td>9</td> <td>10</td> <td>11</td> <td>12</td> <td>13</td> <td>14</td> <td>15</td> <td>16</td> <td>17</td> <td>18</td> <td>19</td> <td>20</td> <td>21</td> <td>22</td> <td>23</td> <td>24</td> <td>25</td> <td>26</td> <td>27</td> <td>28</td> <td>29</td> <td>30</td> <td>1</td> <td>2</td> <td>3</td> <td>4</td> <td>5</td> <td>6</td> <td>7</td> <td>8</td> <td>9</td> <td>10</td> <td>11</td> <td>12</td> <td>13</td> <td>14</td> <td>15</td> <td>16</td> <td>17</td> <td>18</td> <td>19</td> <td>20</td> <td>21</td> <td>22</td> <td>23</td> <td>24</td> <td>25</td> <td>26</td> <td>27</td> <td>28</td> <td>29</td> <td>30</td> <td>31</td>
+        </tr>
+        <tr>
+          <td colspan="31" bgcolor="#CCCCCC" align="center">Januar</td>
+          <td colspan="29" align="center">Februar</td>
+          <td colspan="31" bgcolor="#CCCCCC" align="center">M&auml;rz</td>
+          <td colspan="30" align="center">April</td>
+          <td colspan="31" bgcolor="#CCCCCC" align="center">Mai</td>
+          <td colspan="30" align="center">Juni</td>
+          <td colspan="31" bgcolor="#CCCCCC" align="center">Juli</td>
+          <td colspan="31" align="center">August</td>
+          <td colspan="30" bgcolor="#CCCCCC" align="center">September</td>
+          <td colspan="31" align="center">Oktober</td>
+          <td colspan="30" bgcolor="#CCCCCC" align="center">November</td>
+          <td colspan="31" align="center">Dezember</td>
+        </tr>
+      </tfoot>
+    </table>
+  </body>
+</html>

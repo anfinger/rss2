@@ -1,0 +1,144 @@
+{% load static %}{% load eigene_tags %}{% load l10n %}{% load humanize %}<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<root>
+<TERMINEKUREN>	<KURENORT>Swinemünde</KURENORT>	<KURENHOTEL>"Arstone"</KURENHOTEL>	<KURENHOTEL>"Rybniczanka"</KURENHOTEL>	<KURENHOTEL>"Interferie"</KURENHOTEL>	<KURENORT>Kolberg</KURENORT>	<KURENHOTEL>"Ikar"</KURENHOTEL>
+<KURENTABELLENKOPF>Termin	Dauer/Zuschlag	Ü/HP	Ü/VP	Ü/HP	Dauer/Zuschlag	Ü/VP</KURENTABELLENKOPF>
+<KURENTERMIN>21. 01. - 28. 01. 23	8 Tage	-	502	518	8 Tage	546</KURENTERMIN>
+<KURENTERMINDETAILS>	Zuschlag EZ / VP	- / -	49 / -	84 / 21	Zuschlag EZ / gr. DZ	70 / 21</KURENTERMINDETAILS>
+<KURENTERMIN>28. 01. - 04. 02. 23	8 Tage	-	535	562	8 Tage	572</KURENTERMIN>
+<KURENTERMINDETAILS>	Zuschlag EZ / VP	- / -	49 / -	105 / 21	Zuschlag EZ / gr. DZ	70 / 21</KURENTERMINDETAILS>
+<KURENTERMIN>04. 02. - 11. 02. 23	8 Tage	-	535	562	8 Tage	572</KURENTERMIN>
+<KURENTERMINDETAILS>	Zuschlag EZ / VP	- / -	49 / -	105 / 21	Zuschlag EZ / gr. DZ	70 / 21</KURENTERMINDETAILS>
+<KURENTERMIN>11. 02. - 18. 02. 23	8 Tage	-	535	562	8 Tage	572</KURENTERMIN>
+<KURENTERMINDETAILS>	Zuschlag EZ / VP	- / -	49 / -	105 / 21	Zuschlag EZ / gr. DZ	70 / 21</KURENTERMINDETAILS>
+<KURENTERMIN>18. 02. - 25. 02. 23	8 Tage	-	535	562	8 Tage	572</KURENTERMIN>
+<KURENTERMINDETAILS>	Zuschlag EZ / VP	- / -	49 / -	105 / 21	Zuschlag EZ / gr. DZ	70 / 21</KURENTERMINDETAILS>
+<KURENTERMIN>25. 02. - 04. 03. 23	8 Tage	509	535	626	8 Tage	596</KURENTERMIN>
+<KURENTERMINDETAILS>	Zuschlag EZ / VP	84 / 21	49 / -	119 / 21	Zuschlag EZ / gr. DZ	70 / 21</KURENTERMINDETAILS>
+<KURENTERMIN>04. 03. - 11. 03. 23	8 Tage	509	566	626	8 Tage	596</KURENTERMIN>
+<KURENTERMINDETAILS>	Zuschlag EZ / VP	84 / 21	49 / -	119 / 21	Zuschlag EZ / gr. DZ	70 / 21</KURENTERMINDETAILS>
+<KURENTERMIN>11. 03. - 18. 03. 23	8 Tage	509	566	626	8 Tage	596</KURENTERMIN>
+<KURENTERMINDETAILS>	Zuschlag EZ / VP	84 / 21	49 / -	119 / 21	Zuschlag EZ / gr. DZ	70 / 21</KURENTERMINDETAILS>
+<KURENTERMIN>18. 03. - 25. 03. 23	8 Tage	509	566	626	8 Tage	596</KURENTERMIN>
+<KURENTERMINDETAILS>	Zuschlag EZ / VP	84 / 21	49 / -	119 / 21	Zuschlag EZ / gr. DZ	70 / 21</KURENTERMINDETAILS>
+<KURENTERMIN>25. 03. - 01. 04. 23	8 Tage	509	566	667	8 Tage	596</KURENTERMIN>
+<KURENTERMINDETAILS>	Zuschlag EZ / VP	84 / 21	49 / -	119 / 21	Zuschlag EZ / gr. DZ	70 / 21</KURENTERMINDETAILS>
+<KURENTERMIN>01. 04. - 08. 04. 23	8 Tage	570	600	686	8 Tage	673</KURENTERMIN>
+<KURENTERMINDETAILS>	Zuschlag EZ / VP	105 / 21	70 / -	119 / 21	Zuschlag EZ / gr. DZ	91 / 28</KURENTERMINDETAILS>
+<KURENTERMIN>08. 04. - 15. 04. 23	8 Tage	570	600	686	8 Tage	673</KURENTERMIN>
+<KURENTERMINDETAILS>	Zuschlag EZ / VP	105 / 21	70 / -	119 / 21	Zuschlag EZ / gr. DZ	91 / 28</KURENTERMINDETAILS>
+<KURENTERMIN>15. 04. - 22. 04. 23	8 Tage	570	600	679	8 Tage	673</KURENTERMIN>
+<KURENTERMINDETAILS>	Zuschlag EZ / VP	105 / 21	70 / -	119 / 21	Zuschlag EZ / gr. DZ	91 / 28</KURENTERMINDETAILS>
+<KURENTERMIN>22. 04. - 29. 04. 23	8 Tage	570	600	679	8 Tage	673</KURENTERMIN>
+<KURENTERMINDETAILS>	Zuschlag EZ / VP	105 / 21	70 / -	119 / 21	Zuschlag EZ / gr. DZ	91 / 28</KURENTERMINDETAILS>
+<KURENTERMIN>29. 04. - 06. 05. 23	8 Tage	625	647	695	8 Tage	735</KURENTERMIN>
+<KURENTERMINDETAILS>	Zuschlag EZ / VP	105 / 21	84 / -	119 / 21	Zuschlag EZ / gr. DZ	105 / 28</KURENTERMINDETAILS>
+<KURENTERMIN>06. 05. - 13. 05. 23	8 Tage	625	647	695	8 Tage	735</KURENTERMIN>
+<KURENTERMINDETAILS>	Zuschlag EZ / VP	105 / 21	84 / -	119 / 21	Zuschlag EZ / gr. DZ	105 / 28</KURENTERMINDETAILS>
+<KURENTERMIN>13. 05. - 20. 05. 23	8 Tage	625	647	732	8 Tage	735</KURENTERMIN>
+<KURENTERMINDETAILS>	Zuschlag EZ / VP	105 / 21	84 / -	119 / 21	Zuschlag EZ / gr. DZ	105 / 28</KURENTERMINDETAILS>
+<KURENTERMIN>20. 05. - 27. 05. 23	8 Tage	625	647	732	8 Tage	735</KURENTERMIN>
+<KURENTERMINDETAILS>	Zuschlag EZ / VP	105 / 21	84 / -	119 / 21	Zuschlag EZ / gr. DZ	105 / 28</KURENTERMINDETAILS>
+<KURENTERMIN>09. 09. - 16. 09. 23	8 Tage	672	752	829	8 Tage	782</KURENTERMIN>
+<KURENTERMINDETAILS>	Zuschlag EZ / VP	126 / 21	105 / -	119 / 21	Zuschlag EZ / gr. DZ	91 / 28</KURENTERMINDETAILS>
+<KURENTERMIN>16. 09. - 23. 09. 23	8 Tage	625	705	829	8 Tage	782</KURENTERMIN>
+<KURENTERMINDETAILS>	Zuschlag EZ / VP	105 / 21	84 / -	119 / 21	Zuschlag EZ / gr. DZ	91 / 28</KURENTERMINDETAILS>
+<KURENTERMIN>23. 09. - 30. 09. 23	8 Tage	625	705	829	8 Tage	782</KURENTERMIN>
+<KURENTERMINDETAILS>	Zuschlag EZ / VP	105 / 21	84 / -	119 / 21	Zuschlag EZ / gr. DZ	91 / 28</KURENTERMINDETAILS>
+<KURENTERMIN>30. 09. - 07. 10. 23	8 Tage	559	705	695	8 Tage	735</KURENTERMIN>
+<KURENTERMINDETAILS>	Zuschlag EZ / VP	105 / 21	84 / -	119 / 21	Zuschlag EZ / gr. DZ	105 / 28</KURENTERMINDETAILS>
+<KURENTERMIN>07. 10. - 14. 10. 23	8 Tage	559	599	695	8 Tage	735</KURENTERMIN>
+<KURENTERMINDETAILS>	Zuschlag EZ / VP	105 / 21	84 / -	119 / 21	Zuschlag EZ / gr. DZ	105 / 28</KURENTERMINDETAILS>
+<KURENTERMIN>14. 10. - 21. 10. 23	8 Tage	559	599	695	8 Tage	735</KURENTERMIN>
+<KURENTERMINDETAILS>	Zuschlag EZ / VP	105 / 21	84 / -	119 / 21	Zuschlag EZ / gr. DZ	105 / 28</KURENTERMINDETAILS>
+<KURENTERMIN>21. 10. - 28. 10. 23	8 Tage	510	599	695	8 Tage	735</KURENTERMIN>
+<KURENTERMINDETAILS>	Zuschlag EZ / VP	84 / 21	84 / -	119 / 21	Zuschlag EZ / gr. DZ	105 / 28</KURENTERMINDETAILS>
+<KURENTERMIN>28. 10. - 04. 11. 23	8 Tage	510	599	589	8 Tage	735</KURENTERMIN>
+<KURENTERMINDETAILS>	Zuschlag EZ / VP	84 / 21	84 / -	105 / 21	Zuschlag EZ / gr. DZ	105 / 28</KURENTERMINDETAILS></TERMINEKUREN>
+<REISEZIELUEBERSICHT><REISEZIELUEBERSICHTTITEL>Reiseübersicht 2024</REISEZIELUEBERSICHTTITEL>
+<REISEZIELUEBERSICHTKATEGORIE><BALKEN_BUSREISE></BALKEN_BUSREISE>Busreisen nach ...</REISEZIELUEBERSICHTKATEGORIE>{% for termin in termine_reisezieluebersicht %}{% if termin.kategorie %}
+{% if termin.kategorietyp = 'Kategorie' %}<REISEZIELUEBERSICHTKATEGORIE><BALKEN_{{ termin.kategorie|ohnetage }}></BALKEN_{{ termin.kategorie|ohnetage }}>{% else %}<REISEZIELUEBERSICHTZIELREGION>{% endif %}{{ termin.kategorie|zielumbenennen }}{% if termin.kategorietyp = 'Kategorie' %}</REISEZIELUEBERSICHTKATEGORIE>{% else %}</REISEZIELUEBERSICHTZIELREGION>{% endif %}{% endif %}{% if 'Kuren' not in termin.Reise and termin.Reise %}
+<REISEZIELUEBERSICHTREISE><REISEZIELUEBERSICHTNEU>{% if termin.neu %}Neu{% endif %}	</REISEZIELUEBERSICHTNEU><REISEZIELUEBERSICHTREISETITEL>{{ termin.Reise }}</REISEZIELUEBERSICHTREISETITEL>{% if termin.Tage %}	<REISEZIELUEBERSICHTTAGE>{{ termin.Tage }}</REISEZIELUEBERSICHTTAGE>{% endif %}{% if termin.Seite %}	<REISEZIELUEBERSICHTSEITE>{{ termin.Seite }}</REISEZIELUEBERSICHTSEITE>{% else %}	<REISEZIELUEBERSICHTSEITE>n.b.</REISEZIELUEBERSICHTSEITE>{% endif %}</REISEZIELUEBERSICHTREISE>{% endif %}{% endfor %}
+<REISEZIELUEBERSICHTKATEGORIE><BALKEN_KURREISE></BALKEN_KURREISE>Kurreisen</REISEZIELUEBERSICHTKATEGORIE>
+<REISEZIELUEBERSICHTREISE><REISEZIELUEBERSICHTNEU></REISEZIELUEBERSICHTNEU><REISEZIELUEBERSICHTREISETITEL>Kuren an der polnischen Ostseeküste</REISEZIELUEBERSICHTREISETITEL>	<REISEZIELUEBERSICHTTAGE>8/15</REISEZIELUEBERSICHTTAGE>	<REISEZIELUEBERSICHTSEITE>117-119</REISEZIELUEBERSICHTSEITE></REISEZIELUEBERSICHTREISE>
+<REISEZIELUEBERSICHTKATEGORIE>Konzerte, Musicals &amp; Shows</REISEZIELUEBERSICHTKATEGORIE>
+<REISEZIELUEBERSICHTREISE><REISEZIELUEBERSICHTNEU></REISEZIELUEBERSICHTNEU><REISEZIELUEBERSICHTREISETITEL>in Ralswiek, Hamburg &amp; Berlin</REISEZIELUEBERSICHTREISETITEL>	<REISEZIELUEBERSICHTTAGE>1</REISEZIELUEBERSICHTTAGE>	<REISEZIELUEBERSICHTSEITE>U-Seite</REISEZIELUEBERSICHTSEITE></REISEZIELUEBERSICHTREISE></REISEZIELUEBERSICHT>
+
+<REISETERMINUEBERSICHT><REISETERMINUEBERSICHTTITEL>Reisetermine 2024</REISETERMINUEBERSICHTTITEL>{% for termin in termine_reiseterminuebersicht %}{% if termin.datum_beginn|date:'Y' not in '2022' %}{% if termin.Monat %}
+<REISETERMINUEBERSICHTMONAT>{{ termin.Monat }}</REISETERMINUEBERSICHTMONAT>{% if termin.Monat = 'Februar' %}<REISETERMINUEBERSICHTFERIENFEIERTAGE>	Winterferien 04.02. - 19.02.2023</REISETERMINUEBERSICHTFERIENFEIERTAGE>{% elif termin.Monat = 'April' %}<REISETERMINUEBERSICHTFERIENFEIERTAGE>	Osterferien 01.04. - 12.04.2023</REISETERMINUEBERSICHTFERIENFEIERTAGE>{% elif termin.Monat = 'Mai' %}<REISETERMINUEBERSICHTFERIENFEIERTAGE>	Himmelfahrt 18.05. - 21.05.2023 &amp; Pfingstferien 26.05. - 30.05.2023</REISETERMINUEBERSICHTFERIENFEIERTAGE>{% elif termin.Monat = 'Juli' %}<REISETERMINUEBERSICHTFERIENFEIERTAGE>	Sommerferien 15.07. - 27.08.2023</REISETERMINUEBERSICHTFERIENFEIERTAGE>{% elif termin.Monat = 'August' %}<REISETERMINUEBERSICHTFERIENFEIERTAGE>	Sommerferien 15.07. - 27.08.2023</REISETERMINUEBERSICHTFERIENFEIERTAGE>{% elif termin.Monat = 'Oktober' %}<REISETERMINUEBERSICHTFERIENFEIERTAGE>	Herbstferien 07.10. - 15.10.2023 &amp; 28.10. - 01.11.2023</REISETERMINUEBERSICHTFERIENFEIERTAGE>{% endif %}{% endif %}{% if termin.Termin != '' %}
+<REISETERMINUEBERSICHTREISE><REISETERMINUEBERSICHTNEU>{% if termin.neu %}Neu{% endif %}	</REISETERMINUEBERSICHTNEU>{% if termin.Termin %}<REISETERMINUEBERSICHTTERMIN>{{ termin.Termin }}</REISETERMINUEBERSICHTTERMIN>{% endif %}{% if termin.Tage %}	<REISETERMINUEBERSICHTTAGE>{{ termin.Tage }}</REISETERMINUEBERSICHTTAGE>{% endif %}{% if termin.Reiseziel %}	<REISETERMINUEBERSICHTREISEZIEL>{% if 'Rigoletto' in termin.Reiseziel and termin.Termin == '26.03.-28.03.21' %}Rigoletto in der Semperoper in Dresden{% elif 'Rigoletto' in termin.Reiseziel and termin.Termin == '25.06.-27.06.21' %}Der Freischütz in der Semperoper in Dresden{% else %}{{ termin.Reiseziel }}{% endif %}</REISETERMINUEBERSICHTREISEZIEL>{% endif %}{% if termin.Seite %}{% if 'Kuren' in termin.Reiseziel %}	<REISETERMINUEBERSICHTSEITE>117-119</REISETERMINUEBERSICHTSEITE>{% else %}	<REISETERMINUEBERSICHTSEITE>{{ termin.Seite }}</REISETERMINUEBERSICHTSEITE>{% endif %}{% elif 'Kuren' in termin.Reiseziel %}	<REISETERMINUEBERSICHTSEITE>117-119</REISETERMINUEBERSICHTSEITE>{% else %}	<REISETERMINUEBERSICHTSEITE>n.b.</REISETERMINUEBERSICHTSEITE>{% endif %}</REISETERMINUEBERSICHTREISE>{% endif %}{% endif %}{% endfor %}
+</REISETERMINUEBERSICHT>
+{% for reise in reisen %}
+<reise_{{ reise.reiseID|ohneminus }} {% if reise.neu %}NEU="JA" {% endif %}id="{{ reise.reiseID|ohneminus }}" titel="{{ reise.titel }}{% if reise.sonstigeReisebeschreibung_titel %} - {{ reise.sonstigeReisebeschreibung_titel }}{% endif %}" seite="{{ reise.katalogseite }}" anzahl_seiten="{{ reise.anzahl_seiten_im_katalog }}" position_auf_seite="{{ reise.position_auf_seite }}" kategorie="{% for kategorie in reise.kategorien %}{{ kategorie.kategorie }}{% if not forloop.last %}, {% endif %}{% endfor %}" zielregion="{% for zielregion in reise.zielregionen %}{{ zielregion.name }}{% if not forloop.last %}, {% endif %}{% endfor %}" file="reise_{{ reise.reiseID|ohneminus }}.xml"><SPALTELEISTUNGEN><NEUEREISE>{% if reise.neu %}<NEU>NEU</NEU>{% endif %}</NEUEREISE>
+<REISETYPDATUM>{% if reise.veranstalter = 'SH' %}<VERANSTALTER>Veranstalter:
+SH Sewert Reisen GmbH</VERANSTALTER>
+{% elif reise.veranstalter = 'RT' %}<VERANSTALTER>Veranstalter:
+R&amp;T Reisen Ludwigslust GmbH</VERANSTALTER>
+{% endif %}{% if reise.zubucher %}<ZUBUCHER>{{ reise.zubucher }}</ZUBUCHER>
+{% endif %}<BALKEN_{{ reise.reisetyp|ohnetage }}></BALKEN_{{ reise.reisetyp|ohnetage }}>{% if reise.reisetyp %}
+<REISETYP>{{ reise.reisetyp }}</REISETYP>
+{% endif %}<REISETERMINE>{% if reise.termine %}Termin{{ reise.termine|length|pluralize:"e" }}:	{% if reise.titel = 'Kuren an der polnischen Ostseeküste' %}sh. Tabelle S. 119{% else %}{% for termin in reise.termine %}{% if termin.datum_ende %}{{ termin.datum_beginn|date:'d. m.' }} - {{ termin.datum_ende|date:'d. m. Y' }}<REISETERMINE_MARKIERUNG>{{ termin.markierung }}</REISETERMINE_MARKIERUNG>{% else %}{{ termin.datum_beginn|date:'D. d. m. Y' }}{% endif %}{% if termin.kommentar %}
+<REISETERMINE_KOMMENTAR>{{ termin.kommentar }}</REISETERMINE_KOMMENTAR>{% endif %}{% if reise.termine|length > 1 and forloop.counter < reise.termine|length%}
+	{% else %}{% endif %}{% endfor %}{% endif %}{% else %}Reisetermine sind noch nicht bekannt!{% endif %}</REISETERMINE></REISETYPDATUM>{% if reise.individualreisetext or reise.individualreisetitel %}
+<INDIVIDUALBUCHBAR>{% if reise.individualbuchbar %}{{ reise.individualbuchbar }}{% else %}Auch mit individuellem Aufenthalt buchbar.{% endif %}</INDIVIDUALBUCHBAR>{% endif %}
+<LEISTUNGEN><LEISTUNGENUEBERSCHRIFT>{% if reise.leistungen %}Leistung{{ reise.leistungen|length|pluralize:"en" }}</LEISTUNGENUEBERSCHRIFT>
+{% if reise.leistungen_kopfkommentar %}<LEISTUNGENKOPFKOMMENTAR>{{ reise.leistungen_kopfkommentar }}</LEISTUNGENKOPFKOMMENTAR>
+{% endif %}<REISELEISTUNGEN>{% for leistung in reise.leistungen %}{{ leistung.leistung }}
+{% endfor %}</REISELEISTUNGEN>{% if reise.leistungennichtindividual %}<LEISTUNGENKOMMENTARINDIVIDUAL>Diese Leistungen entfallen bei individuellem Aufenthalt:</LEISTUNGENKOMMENTARINDIVIDUAL>
+<REISELEISTUNGENNICHTINDIVIDUAL>{% for leistungnichtindividual in reise.leistungennichtindividual %}{{ leistungnichtindividual.leistung }}
+{% endfor %}</REISELEISTUNGENNICHTINDIVIDUAL>{% endif %}{% if reise.leistungenkurhotel %}<REISELEISTUNGENKURHOTEL>{% for leistungkurhotel in reise.leistungenkurhotel %}{{ leistungkurhotel.leistung }}
+{% endfor %}</REISELEISTUNGENKURHOTEL>{% endif %}{% if reise.leistungen_kommentar and reise.leistungen_kommentar != '* Leistungen entfallen bei individuellem Aufenthalt.'%}<LEISTUNGENKOMMENTAR>{{ reise.leistungen_kommentar }}</LEISTUNGENKOMMENTAR>
+{% endif %}{% else %}Leistungen</LEISTUNGENUEBERSCHRIFT><REISELEISTUNGEN>nicht bekannt</REISELEISTUNGEN>{% endif %}{% if reise.ausflugspakete %}<AUSFLUGSPAKETE>{% for ap in reise.ausflugspakete %}{% if ap.titel %}<APTITEL>{{ ap.titel }}</APTITEL>{% else %}<APTITEL>Ausflugspakettitel fehlt</APTITEL>{% endif %}{% if ap.preis %}<APPREIS>	{{ ap.preis|preisformat }} €</APPREIS>{% endif %}{% if ap.kommentar_titel %}
+<APTITELKOMMENTAR>{{ ap.kommentar_titel }}</APTITELKOMMENTAR>{% endif %}{% if ap.leistungen %}
+<APLEISTUNGEN>{% for leistung in ap.leistungen %}{{ leistung.leistung }}{% if not forloop.last %}
+{% endif %}{% endfor %}</APLEISTUNGEN>{% endif %}{% if ap.kommentar %}
+<APKOMMENTAR>{{ ap.kommentar }}</APKOMMENTAR>{% endif %}
+{% endfor %}</AUSFLUGSPAKETE>{% endif %}{% if reise.zusatzleistungen %}
+<ZUSATZLEISTUNGEN>{% if reise.zusatzleistungen_titel %}<ZLTITEL>{{ reise.zusatzleistungen_titel }}</ZLTITEL>{% else %}<ZLTITEL>zusätzlich angebotene Leistung{{ reise.zusatzleistungen|length|pluralize:"en" }}</ZLTITEL>{% endif %}
+{% if reise.zusatzleistungen_kommentar %}<ZLTITELKOMMENTAR>{{ reise.zusatzleistungen_kommentar }}</ZLTITELKOMMENTAR>
+{% endif %}{% for zusatzleistung in reise.zusatzleistungen %}{% if zusatzleistung.kommentar_titel %}<ZLKOMMENTAR>{{ zusatzleistung.kommentar_titel }}</ZLKOMMENTAR>
+{% endif %}{% if zusatzleistung.titel %}<ZL>{{ zusatzleistung.titel }}</ZL>	{% else %}<ZL>Titel Zusatleistung nicht bekannt</ZL>	{% endif %}{% if zusatzleistung.preis %}<ZLPREIS>{% if zusatzleistung.preis_titel = 'ab' %}{{ zusatzleistung.preis_titel }} {% endif %}{{ zusatzleistung.preis|preisformat }} €</ZLPREIS>{% else %}<ZLPREIS>Der Preis ist noch nicht bekannt.</ZLPREIS>{% endif %}{% if zusatzleistung.kommentar %}
+<ZLABSCHLUSSKOMMENTAR>{{ zusatzleistung.kommentar }}</ZLABSCHLUSSKOMMENTAR>{% endif %}
+{% endfor %}{% if reise.zusatzleistungen_fuss_kommentar %}<ZLFUSSKOMMENTAR>{{ reise.zusatzleistungen_fuss_kommentar }}</ZLFUSSKOMMENTAR>{% endif %}</ZUSATZLEISTUNGEN>{% endif %}</LEISTUNGEN>{% if reise.sonstigeReisebeschreibung_titel = 'Kurhaus "Ikar" in Kolberg' and reise.titel = 'Kuren an der polnischen Ostseeküste' %}<PREISE>
+<PREIS><PREISTITEL>Preis p.P.:</PREISTITEL>	<BETRAG>ab 546 €</BETRAG></PREIS>
+<PREISZUSATZ>siehe Preistabelle S. 117</PREISZUSATZ></PREISE>{% elif reise.sonstigeReisebeschreibung_titel = '"Arstone"' and reise.titel = 'Kuren an der polnischen Ostseeküste' %}<PREISE>
+<PREIS><PREISTITEL>Preis p.P.:</PREISTITEL>	<BETRAG>ab 509 €</BETRAG></PREIS>
+<PREISZUSATZ>siehe Preistabelle S. 117</PREISZUSATZ></PREISE>{% elif reise.sonstigeReisebeschreibung_titel = '"Rybniczanka"' and reise.titel = 'Kuren an der polnischen Ostseeküste' %}<PREISE>
+<PREIS><PREISTITEL>Preis p.P.:</PREISTITEL>	<BETRAG>ab 502 €</BETRAG></PREIS>
+<PREISZUSATZ>siehe Preistabelle S. 117</PREISZUSATZ></PREISE>{% elif reise.sonstigeReisebeschreibung_titel = '"Interferie Med. Spa"' and reise.titel = 'Kuren an der polnischen Ostseeküste' %}<PREISE>
+<PREIS><PREISTITEL>Preis p.P.:</PREISTITEL>	<BETRAG>ab 518 €</BETRAG></PREIS>
+<PREISZUSATZ>siehe Preistabelle S. 117</PREISZUSATZ></PREISE>{% else %}{% if reise.preise %}<PREISE> {% for preis in reise.preise %}
+{% if preis.titel == 'Individualpreis p.P.'%}<INDIVIDUALPREIS>{% else %}<PREIS>{% endif %}{% if preis.kommentar == 'ab' %}<PREISTITEL>{% if preis.markierung %}{{preis.markierung }}{% endif %}{{ preis.titel }}:</PREISTITEL>	<BETRAG>{{ preis.kommentar }} {{ preis.preis|floatformat:0|intcomma }} €</BETRAG>{% else %}<PREISTITEL>{% if preis.markierung %}{{preis.markierung }}{% endif %}{{ preis.titel }}:</PREISTITEL>	<BETRAG>{{ preis.preis|floatformat:0|intcomma }} €</BETRAG>{% if preis.kommentar %}
+<PREISKOMMENTAR>{{ preis.kommentar }}</PREISKOMMENTAR>{% endif %}{% endif %}{% if preis.titel == 'Individualpreis p.P.'%}</INDIVIDUALPREIS>{% else %}</PREIS>{% endif %}{% if preis.zusatzpreise %}
+{% if preis.titel == 'Individualpreis p.P.'%}<PREISZUSATZINDIVIDUAL>{% for zusatzpreis in preis.zusatzpreise %}{{ zusatzpreis.zusatzpreis_titel }}{% if zusatzpreis.zusatzpreis > 0 %}:	{{ zusatzpreis.zusatzpreis|floatformat:0|intcomma }} €{% endif %}{% if not forloop.last %}
+{% endif %}{% endfor %}</PREISZUSATZINDIVIDUAL>{% if reise.leistungen_kommentar and reise.leistungen_kommentar == 'RAUS* Leistungen entfallen bei individuellem Aufenthalt.'%}
+<LEISTUNGENKOMMENTARINDIVIDUAL>{{ reise.leistungen_kommentar }}</LEISTUNGENKOMMENTARINDIVIDUAL>{% endif %}{% else %}<PREISZUSATZ>{% for zusatzpreis in preis.zusatzpreise %}{{ zusatzpreis.zusatzpreis_titel }}{% if zusatzpreis.zusatzpreis > 0 %}:	{{ zusatzpreis.zusatzpreis|floatformat:0|intcomma }} €{% endif %}{% if not forloop.last %}
+{% endif %}{% endfor %}</PREISZUSATZ>{% endif %}{% endif %}{% endfor %}</PREISE>{% else %}<PREIS>Der Preis ist noch nicht bekannt.</PREIS></PREISE>{% endif %}{% endif %}{% if reise.fruehbucherrabatte %}
+<FRUEHBUCHERRABATTE><FRUEHBUCHERRABATTTITEL>Frühbucher-Rabatt{{ reise.fruehbucherrabatte|length|pluralize:"e" }}:</FRUEHBUCHERRABATTTITEL>{% for fruehbucherrabatt in reise.fruehbucherrabatte %}
+<FRUEHBUCHERRABATT>{{ fruehbucherrabatt.rabattbezeichnung }} bis {{ fruehbucherrabatt.datum_bis }}	{{ fruehbucherrabatt.rabatt }} €</FRUEHBUCHERRABATT>{% endfor %}</FRUEHBUCHERRABATTE>{% endif %}</SPALTELEISTUNGEN>
+<SPALTEREISEINHALT><TITELUNTERTITELEINLEITUNG>{% if reise.titel %}<REISETITEL>{{ reise.titel }}</REISETITEL>{% endif %}
+{% if reise.untertitel %}<REISEUNTERTITEL>{{ reise.untertitel }}</REISEUNTERTITEL>{% endif %}
+{% if reise.einleitung %}<REISEEINLEITUNG>{{ reise.einleitung }}</REISEEINLEITUNG>{% endif %}</TITELUNTERTITELEINLEITUNG>
+<TAG_TRENNUNG></TAG_TRENNUNG>
+<REISETAGEHINWEISE>{% if reise.sonstigeReisebeschreibung_titel %}<REISETITEL>{{ reise.sonstigeReisebeschreibung_titel }}</REISETITEL>
+{% endif %}{% if reise.reisebeschreibung %}<REISEBESCHREIBUNG>{% for beschreibung in reise.reisebeschreibung %}{% if forloop.counter > 1 %}
+{% endif %}{% if beschreibung.titel %}
+<BESCHREIBUNGTITEL>{{ beschreibung.titel }}</BESCHREIBUNGTITEL>{% endif %}{% if beschreibung.beschreibung %}
+<BESCHREIBUNG>{{ beschreibung.beschreibung }}</BESCHREIBUNG>{% endif %}{% if beschreibung.zusatz %} <BESCHREIBUNGZUSATZ>{{ beschreibung.zusatz }}</BESCHREIBUNGZUSATZ>{% endif %}{% endfor %}</REISEBESCHREIBUNG>
+{% endif %}{% if reise.abfahrtszeiten %}
+
+<ABFAHRTSZEITEN>Abfahrt: {% for abfahrtszeit in reise.abfahrtszeiten %}{% if forloop.counter > 1 %}{% if abfahrtszeit.ort == 'Ankunft' %}
+{% else %}
+{% endif %}{% endif %}{% if abfahrtszeit.zeit %}{{ abfahrtszeit.ort }}: {{ abfahrtszeit.zeit|date:'H:i' }} Uhr{{ abfahrtszeit.kommentar }}{% else %}Die genaue Zeit für {{ abfahrtszeit.ort }} erfragen Sie bitte im Reisebüro. {% endif %}{% endfor %}</ABFAHRTSZEITEN>
+{% elif reise.reisetyp == 'TAGESFAHRT' %}<ABFAHRTSZEITEN>Die Abfahrtszeiten sind noch nicht bekannt!</ABFAHRTSZEITEN>
+
+{% endif %}{% if reise.tage %}<REISETAGBESCHREIBUNG>{% for tag in reise.tage %}{% if aps %}<TAG>{{ tag.nummerntext }}{{ tag.titel }}{% for ap in aps %}{% if ap.reisetag_id_id == tag.reisetagID %}{% if ap.erscheint_in == 'Titel' %}<REFERENZLEISTUNGEN>{{ ap.ausflugspaket_text }}</REFERENZLEISTUNGEN>{% endif %}{% endif %}{% endfor %}</TAG>
+{% for ap in aps %}{% if ap.reisetag_id_id == tag.reisetagID %}{% if ap.erscheint_in == 'Text' %}<REFERENZLEISTUNGEN>{{ ap.ausflugspaket_text }}</REFERENZLEISTUNGEN> {% endif %}{% endif %}{% endfor %}<TAGBESCHREIBUNG>{{ tag.beschreibung }}{% if tag.zusatz %} <ZUSATZ>{{ tag.zusatz }}</ZUSATZ>{% endif %}</TAGBESCHREIBUNG>{% else %}<TAG>{{ tag.nummerntext }}{{ tag.titel }}</TAG>
+<TAGBESCHREIBUNG>{{ tag.beschreibung }}{% if tag.zusatz %} <ZUSATZ>{{ tag.zusatz }}</ZUSATZ>{% endif %}</TAGBESCHREIBUNG>{% endif %}
+
+{% endfor %}</REISETAGBESCHREIBUNG>{% endif %}
+{% if reise.hinweise %}<HINWEISE><HINWEISTITEL>Hinweis{{ reise.hinweise|length|pluralize:"e" }}</HINWEISTITEL>{% for hinweis in reise.hinweise %}
+<HINWEIS>{{ hinweis.hinweis }}</HINWEIS>{% endfor %}</HINWEISE>{% endif %}</REISETAGEHINWEISE>{% if reise.individualreisetitel %}
+<INDIVIDUALREISETITEL>{{ reise.individualreisetitel }}</INDIVIDUALREISETITEL>
+{% endif %}{% if reise.individualreisetext %}<INDIVIDUALREISETEXT>{{ reise.individualreisetext }}</INDIVIDUALREISETEXT>{% endif %}</SPALTEREISEINHALT>
+<BALKEN_{{ reise.reisetyp|ohnetage }}></BALKEN_{{ reise.reisetyp|ohnetage }}></reise_{{ reise.reiseID|ohneminus }}>
+{% endfor %}</root>

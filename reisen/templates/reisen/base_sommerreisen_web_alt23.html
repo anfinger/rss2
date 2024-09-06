@@ -1,0 +1,752 @@
+{% load static %}
+{% load eigene_tags %}
+<html>
+
+  <head>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Reiseservice Schwerin GmbH - Sommerreisen 2023</title>
+    <script type="application/ld+json">
+    {
+                  "@context": "http://schema.org",
+                  "@type": "Organization",
+                  "name": "Reiseservice Schwerin",
+                  "url": "http://www.reiseservice-schwerin.de",
+                  "logo": "{% static 'images/LogoRSS2021_LogoGold.png' %}",
+                  "sameAs": [
+                                "https://www.facebook.com/ReiseserviceSchwerin-2866443210034243",
+                                "https://www.instagram.com/reiseserviceschwerin/"
+                  ]
+    }
+    </script>
+    <link href="/src/bus.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+
+    <style type="text/css">
+      #accordion_allgemein{
+        background: transparent;
+        border: none;
+      }
+      #accordion_allgemein .ui-accordion-header{
+        background: #9999cc;
+        border: none;
+        color: navy;
+        line-height: 19px;
+        display: block;
+        font-size: 10pt;
+        font-color: white;
+        text-indent: 0px;
+        font-weight: bold;
+      }
+      .ui-accordion .ui-accordion-content {
+        width: 100%;
+        background: transparent;
+        border: none;
+        padding: 0px 0px;
+        margin: 0px;
+        border-top: 0;
+        overflow: auto;
+      }
+    </style>
+
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
+    <script>
+
+      $(function() {
+
+//        var $accordion = $("#accordion_allgemein");
+//        $accordion.accordion({
+//          animate: false,
+//          collapsible: true,
+//          heightStyle: "content",
+//          icons: { "header": "ui-icon-plus", "activeHeader": "ui-icon-minus" }
+//          create: function (event, ui) {
+//            $accordion.children('h3').each(function (i) {
+//                // set id here because jQuery UI sets them as "ui-accordion-#-header-#"
+//                this.id = this.textContent.replace(/\s+/g, '?');
+//                // add the anchor
+//                console.log(this.id)
+//                $(this).before('<a class="accordion-link link" data-index="' + i +
+//                   '" href="#' + this.id + '"></a>');
+//            });
+//          }
+//        });
+//
+//        var panelId = window.location.hash.replace(/#panel/,"");
+//
+//        $(".opener").on("click", function () {
+//          var $this = $(this),
+//            toOpen = $this.data("panel");
+//          $accordion.accordion("option", "active", toOpen);
+//          return false;
+//        });
+
+    var hashId = 0,
+        $accordion = $('#accordion_allgemein');
+    if (window.location.hash) {
+        $accordion.children('h3').each(function (i) {
+            var txt = this.textContent.toLowerCase().replace(/\s+/g, '_');
+            if (txt === window.location.hash.slice(1)) {
+                hashId = i;
+            }
+        });
+    }
+
+    $accordion.accordion({
+        active: hashId,
+        animate: false,
+        heightStyle: 'content',
+        collapsible: true,
+        create: function (event, ui) {
+            $accordion.children('h3').each(function (i) {
+                // set id here because jQuery UI sets them as "ui-accordion-#-header-#"
+                this.id = this.textContent.toLowerCase().replace(/\s+/g, '_');
+                // add the anchor
+                $(this).before('<a class="accordion-link link" data-index="' + i +
+                    '" href="#' + this.id + '"></a>');
+            });
+            $accordion.find('.accordion-link').click(function () {
+                var $link = $(this);
+                // the active option requires a numeric value (not a string, e.g. "1")
+                $accordion.accordion("option", "active", $link.data('index'));
+
+                // position the accordion header under the fixed header
+                var linkTop = $link.next('h3').offset().top,
+                    headerHeight = $('#fixed-header').outerHeight();
+                window.location.hash = $link.attr('href');
+                window.scrollTo(0, linkTop - headerHeight);
+
+                // uncomment out the return false below to prevent the header jump
+                return false;
+            });
+          }
+        });
+
+        var panelId = window.location.hash.replace(/#panel/,"");
+
+        $(".opener").on("click", function () {
+          var $this = $(this),
+            toOpen = $this.data("panel");
+            //$accordion.accordion("option", "active", toOpen);
+          // now we just simulate a click on the accordion link
+          $('.accordion-link[data-index="' + toOpen + '"]').click();
+          return false;
+        });
+
+        //capture the click on the a tag
+        $("#accordion_allgemein h3 a").click(function() {
+          window.location = $(this).attr('href');
+          return false;
+        });
+
+     });
+
+    </script>
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-53480209-1', 'auto');
+      //ga('set', 'anonymizeIp', true);
+      //ga('send', 'pageview', {'anonymizeIp': true});
+      ga('send', 'pageview');
+    </script>
+
+  </head>
+
+  <body bgcolor="#2d4b9b">
+
+  <?php include_once("analyticstracking.php") ?>
+
+    <a name="oben"></a>
+
+      <center>
+
+        <table align="center" width="768">
+          <tr>
+            <td align="center">
+              <a href="/index.html">
+                <img src="/images/logo-rss-2021.png" border="0" height="294" width="294" vspace="10" hspace="5">
+              </a>
+            </td>
+          </tr>
+          <tr>
+            <td align="center">
+              <font size="4" face="Verdana" color="white">
+                <b>Sommerreisen 2023 ...</b>
+              </font>
+            </td>
+          </tr>
+        </table>
+
+        </br>
+
+        <table align="center">
+          <tr>
+            <td colspan="2" width="70%" align="center" valign="top" style="color:white; font-family: Verdana">
+              zur&uuml;ck zu:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <b>
+                <a href="/index.html" style="color:white; text-decoration:none; font-family: Verdana">Startseite</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="/rss2/reisen/winter2324/" style="color:white; text-decoration:none; font-family: Verdana">Winter & Frühjahr 2023 / 2024</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="/rss2/reisen/tagesfahrten" style="color:white; text-decoration:none; font-family: Verdana">Tagesfahrten</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="/musicals.html" style="color:white; text-decoration:none; font-family: Verdana">Musicalfahrten</a>
+              </b>
+            </td>
+          </tr>
+        </table>
+
+        <br />
+
+        <table bgcolor="ffffff" gridy="16" gridx="16" border="0" cellpadding="0" cellspacing="0" width="768">
+
+          <tbody>
+
+            <tr>
+              <td align="center" valign="top" width="768">
+                <table border="0" cellpadding="1" cellspacing="3" width="768">
+                  <tbody>
+                    <tr height="25">
+                      <td bgcolor="#9999cc" height="20" width="268">
+                        <div align="left">
+                          <span class="ht2">W&auml;hlen Sie eine Kategorie</span>
+                        </div>
+                      </td>
+                      <td colspan="2" bgcolor="#9999cc" height="20" width="297">
+                        <div align="right">
+                          <span class="ht2">oder klicken Sie auf eine Reiseregion, die Sie interessiert:</span>
+                        </div>
+                      </td>
+                    </tr>
+
+<!--              Auswahl nach Ländern und Art der Reise             -->
+
+                    <tr>
+                      <td colspan="3" align="right" width="768">
+                        <!-- interaktive Europakarte -->
+                        <div align="center">
+                          <span class="ht1">
+                           <!-- <img src="{{ MEDIA_URL }}images/europa_regionen19.gif" usemap="#Europa" align="right" border="0" height="243" width="289"> -->
+                            <img src="{{ MEDIA_URL }}images/europa2020_grau.png" usemap="#Europa" align="right"> <!-- border="0" height="243" width="289">-->
+                          </span>
+                        </div>
+                        <!-- Art der Reise -->
+                        <div align="left">
+                          <p>
+                            <span class="ht5">
+                              <a class="opener" data-panel="0" href="#alle Reisen" style="font-size:12pt">alle Reisen</a></br>
+                            </span>
+                          </p>
+                          {% for kategorie in kategorien %}
+                            <p>
+                              <span class="ht5">
+                                <a class="opener" data-panel="{{ forloop.counter|add:"11" }}" href="#{{ kategorie }}" style="font-size:12pt">{{ kategorie }}</a>
+                              </span>
+                            </p>
+                          {% endfor %}
+                        </div>
+                      </td>
+                    </tr>
+
+<!-- +++++++++++++++++ Link zur Auswahl nach Kalendermonaten +++++++++++++++++++++++++++++++++++++  -->
+<!--                  <tr valign="middle" bgcolor="#9999cc">
+                    <td colspan="3" align="center" valign="middle" width="768">
+                      <span class="ht1">
+                        <a href=".././kalender.html">
+                          <img alt="zur Reiseauswahl nach Kalendermonaten" src=".././images/kalender.jpg" align="top" border="0" height="72" width="195">
+                        </a>
+                        <br />
+						<a href=".././kalender.html">zur Reiseauswahl nach Kalendermonaten</a>
+					  </span>
+				    </td>
+				  </tr>
+-->
+
+<!--  Link zu Hinweisen und Reisebedingungen  -->
+                    <tr>
+                      <td colspan="3" bgcolor="#cccccc" height="18" width="768">
+                        <div align="center">
+                          <span class="ht1">
+                            Beachten Sie unsere
+                            <a href="/wichtiges.html">Hinweise</a>
+                            und
+                            <a href="/reisebedingungen.html">Reisebedingungen</a>
+                            !
+                          </span>
+                        </div>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <!-- <td colspan="3" bgcolor="#9999cc" height="19" width="768"> -->
+                      <td colspan="3" width="768">
+                        <div id="accordion_allgemein">
+                          <!-- <a class="accordion-link link" data-index="0" name="#alle Reisen"></a> -->
+                          <h3 align="center">alle Reisen<a href="#oben"><img src="/images/top.gif" border="0" width="19" height="18" alt="top" align="right"/></a></h3>
+                          <div>
+                            <p style="margin:0px; padding:0px;">
+                              {% for termin in termine_distinct %}
+                                <div class="table">
+                                  <div class="row">
+                                    <div class="cell" style="width:100%; background-color:#ccccff;">
+                                      {% if request.user.is_authenticated %}
+                                        {% if termin.korrektur_bemerkung_intern %}
+                                          <a href="{% url 'reise_detail_export' pk=termin.reiseID %}" style="text-decoration:none; color:red; font-weight:bold; font-size:10pt;" target = 'blank'>
+                                            {{ termin.titel }}{% if termin.sonstigeReisebeschreibung_titel %} - {{ termin.sonstigeReisebeschreibung_titel }}{% endif %}{% if termin.individualbuchbar != '' %} (auch individuell buchbar){% endif %}
+                                          </a>
+                                        {% else %}
+                                          <a href="{% url 'reise_detail_export' pk=termin.reiseID %}" style="text-decoration:none; font-weight:bold; font-size:10pt;" target = 'blank'>
+                                            {{ termin.titel }}{% if termin.sonstigeReisebeschreibung_titel %} - {{ termin.sonstigeReisebeschreibung_titel }}{% endif %}{% if termin.individualbuchbar != '' %} (auch individuell buchbar){% endif %}
+                                          </a>
+                                        {% endif %}
+                                      {% else %}
+                                        <a href="{% url 'reise_detail' pk=termin.reiseID %}?version=alt&kategorie={{kategorie|kategorie_get}}" style="font-weight:bold; font-size:10pt; text-decoration:none;">
+                                          {{ termin.titel }}{% if termin.sonstigeReisebeschreibung_titel %} - {{ termin.sonstigeReisebeschreibung_titel }}{% endif %}{% if termin.individualbuchbar != '' %} (auch individuell buchbar){% endif %}
+                                        </a>
+                                      {% endif %}
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="table">
+                                  <div class="row">
+                                    <div class="cell" style="width: 30%;">
+                                      Termine:</br>
+                                      {{ termin.reisetyp }}
+                                    </div>
+                                    <div class="cell" style="width: 40%; text-align: center;">
+                                      {{ termin.reisetermine|linebreaksbr }}
+                                    </div>
+                                    <div class="cell" style="width: 30%; text-align: right;">
+                                      ab {{ termin.abpreis|preisformat }} &euro;</br>
+                                      <a href="{% url 'reise_detail' pk=termin.reiseID %}?version=alt&kategorie={{kategorie|kategorie_get}}">mehr zur Reise</a>
+                                    </div>
+                                  </div>
+                                </div>
+                              {% endfor %}
+                            </p>
+                          </div>
+
+                          <!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! LÄNDER ABFACKELN HIER !!!!!! -->
+                          {% for zielregion in zielregionen %}
+                            {% reise_webZielregion zielregion termine as gefilterte_reisen_zielregion %}
+                            <h3 align="center">
+                              {{ zielregion|escape|zielumbenennen }}
+                                <a href="#oben">
+                                  <img src="/images/top.gif" border="0" width="19" height="18" alt="top" align="right"/>
+                                </a>
+                            </h3>
+                            <div>
+                              <p style="margin:0px; padding:0px;">
+                                {% for termin in gefilterte_reisen_zielregion %}
+                                  <div class="table">
+                                    <div class="row">
+                                      <div class="cell" style="width:100%; background-color:#ccccff;">
+                                        {% if request.user.is_authenticated %}
+                                          {% if termin.korrektur_bemerkung_intern %}
+                                            <a href="{% url 'reise_detail_export' pk=termin.reiseID %}" style="text-decoration:none; color:red; font-weight:bold; font-size:10pt;" target = 'blank'>
+                                              {{ termin.titel }}{% if termin.sonstigeReisebeschreibung_titel %} - {{ termin.sonstigeReisebeschreibung_titel }}{% endif %}{% if termin.individualbuchbar != '' %} (auch individuell buchbar){% endif %}
+                                            </a>
+                                          {% else %}
+                                            <a href="{% url 'reise_detail_export' pk=termin.reiseID %}" style="text-decoration:none; font-weight:bold; font-size:10pt;" target = 'blank'>
+                                              {{ termin.titel }}{% if termin.sonstigeReisebeschreibung_titel %} - {{ termin.sonstigeReisebeschreibung_titel }}{% endif %}{% if termin.individualbuchbar != '' %} (auch individuell buchbar){% endif %}
+                                            </a>
+                                          {% endif %}
+                                        {% else %}
+                                          <a href="{% url 'reise_detail' pk=termin.reiseID %}?version=alt&kategorie={{kategorie|kategorie_get}}" style="font-weight:bold; font-size:10pt; text-decoration:none;">
+                                            {{ termin.titel }}{% if termin.sonstigeReisebeschreibung_titel %} - {{ termin.sonstigeReisebeschreibung_titel }}{% endif %}{% if termin.individualbuchbar != '' %} (auch individuell buchbar){% endif %}
+                                          </a>
+                                        {% endif %}
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="table">
+                                    <div class="row">
+                                      <div class="cell" style="width: 30%;">
+                                        Termine:</br>
+                                        {{ termin.reisetyp }}
+                                      </div>
+                                      <div class="cell" style="width: 40%; text-align: center;">
+                                        {{ termin.reisetermine|linebreaksbr }}
+                                      </div>
+                                      <div class="cell" style="width: 30%; text-align: right;">
+                                        ab {{ termin.abpreis|preisformat }} &euro;</br>
+                                        <a href="{% url 'reise_detail' pk=termin.reiseID %}?version=alt&kategorie={{kategorie|kategorie_get}}">mehr zur Reise</a>
+                                      </div>
+                                    </div>
+                                  </div>
+                                {% endfor %}
+                              </p>
+                            </div>
+
+                          {% endfor %}
+
+                          {% for kategorie in kategorien %}
+                            {% reise_kategorie kategorie termine as gefilterte_reisen %}
+
+                            <!-- <a class="accordion-link link" data-index="{{ forloop.counter }}" name="#{{ kategorie }}"></a> -->
+                            <h3 align="center">
+                              <!-- <div align="center" class="reisekategorie" style="background-color:#9999cc; overflow:hidden;"> -->
+                              {{ kategorie }}
+                                <a href="#oben">
+                                  <!-- <img src="/images/top.gif" border="0" width="19" height="18" alt="top" align="right" style="position:relative; top:0px; left:29px;"/> -->
+                                  <img src="/images/top.gif" border="0" width="19" height="18" alt="top" align="right"/>
+                                </a>
+                                <!-- </div> -->
+                            </h3>
+                            <div>
+                              <p style="margin:0px; padding:0px;">
+                                {% for termin in gefilterte_reisen %}
+                                  <div class="table">
+                                    <div class="row">
+                                      <div class="cell" style="width:100%; background-color:#ccccff;">
+                                        {% if request.user.is_authenticated %}
+                                          {% if termin.korrektur_bemerkung_intern %}
+                                            <a href="{% url 'reise_detail_export' pk=termin.reiseID %}" style="text-decoration:none; color:red; font-weight:bold; font-size:10pt;" target = 'blank'>
+                                              {{ termin.titel }}{% if termin.sonstigeReisebeschreibung_titel %} - {{ termin.sonstigeReisebeschreibung_titel }}{% endif %}{% if termin.individualbuchbar != '' %} (auch individuell buchbar){% endif %}
+                                            </a>
+                                          {% else %}
+                                            <a href="{% url 'reise_detail_export' pk=termin.reiseID %}" style="text-decoration:none; font-weight:bold; font-size:10pt;" target = 'blank'>
+                                              {{ termin.titel }}{% if termin.sonstigeReisebeschreibung_titel %} - {{ termin.sonstigeReisebeschreibung_titel }}{% endif %}{% if termin.individualbuchbar != '' %} (auch individuell buchbar){% endif %}
+                                            </a>
+                                          {% endif %}
+                                        {% else %}
+                                          <a href="{% url 'reise_detail' pk=termin.reiseID %}?version=alt&kategorie={{kategorie|kategorie_get}}" style="font-weight:bold; font-size:10pt; text-decoration:none;">
+                                            {{ termin.titel }}{% if termin.sonstigeReisebeschreibung_titel %} - {{ termin.sonstigeReisebeschreibung_titel }}{% endif %}{% if termin.individualbuchbar != '' %} (auch individuell buchbar){% endif %}
+                                          </a>
+                                        {% endif %}
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="table">
+                                    <div class="row">
+                                      <div class="cell" style="width: 30%;">
+                                        Termine:</br>
+                                        {{ termin.reisetyp }}
+                                      </div>
+                                      <div class="cell" style="width: 40%; text-align: center;">
+                                        {{ termin.reisetermine|linebreaksbr }}
+                                      </div>
+                                      <div class="cell" style="width: 30%; text-align: right;">
+                                        ab {{ termin.abpreis|preisformat }} &euro;</br>
+                                        <a href="{% url 'reise_detail' pk=termin.reiseID %}?version=alt&kategorie={{kategorie|kategorie_get}}">mehr zur Reise</a>
+                                      </div>
+                                    </div>
+                                  </div>
+                                {% endfor %}
+                              </p>
+                            </div>
+
+                          {% endfor %}
+
+                        </div>
+                      </td>
+                    </tr>
+<!--
+                    {% for termin in gefilterte_reisen %}
+                    <tr>
+                      <td colspan="3" bgcolor="#ccccff" height="16" width="768">
+                        <span class="ht1">
+                          <a href="{% url 'reise_detail' pk=termin.reiseID %}?version=alt&kategorie={{kategorie|kategorie_get}}" style="font-weight:bold; font-size:10pt; text-decoration:none;">
+                            {% if termin.korrektur_bemerkung_intern %}
+                              <font color="red">{{ termin.titel }}</font>
+                            {% else %}
+                              {{ termin.titel }}
+                            {% endif %}
+                          </a>
+                        </span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td height="16" width="195">
+                        <span class="ht1">Termine:</span>
+                      </td>
+                      <td rowspan="2" valign="top" align="center" height="16" width="256">
+                        <span class="ht1">
+                          {% if kategorie == "Adventsreisen & Weihnachtsmärkte" %}
+                            {% if termin.titel == "Musicalfahrt nach Hamburg" %}
+                              08. 12. 2016</br>
+                              22. 12. 2016
+                            {% else %}
+                              {{ termin.reisetermine|linebreaksbr }}
+                            {% endif %}
+                          {% else %}
+                            {{ termin.reisetermine|linebreaksbr }}
+                          {% endif %}
+                        </span>
+                      </td>
+                      <td align="right" height="16" width="256">
+                        <span class="ht1">
+                          ab {{ termin.abpreis|preisformat }},- &euro;
+                        </span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td height="15" width="256">
+                        <span class="ht1">
+                          {{ termin.reisetyp }}
+                        </span>
+                      </td>
+                      <td align="right" height="15" width="256">
+                        <span class="ht1">
+                          <a href="{% url 'reise_detail' pk=termin.reiseID %}?version=alt&kategorie={{kategorie|kategorie_get}}">mehr zur Reise</a>
+                        </span>
+                      </td>
+                    </tr>
+                    {% endfor %}
+-->
+
+<!-- Link zu Hinweisen und Reisebedingungen -->
+                    <tr>
+                      <td colspan="3" bgcolor="#cccccc" height="18" width="768">
+                        <div align="center">
+                          <span class="ht1">
+                            Beachten Sie unsere
+                            <a href="/wichtiges.html">Hinweise</a>
+                            und
+                            <a href="/reisebedingungen.html">Reisebedingungen</a>
+                            !
+                          </span>
+                        </div>
+                      </td>
+                    </tr>
+
+
+<!-- Link zur Auswahl nach Kalendermonaten -->
+<!--                  <tr valign="middle" bgcolor="#9999cc">
+                    <td colspan="3" align="center" valign="middle">
+                      <span class="ht1">
+                        <a href=".././kalender.html">
+                          <img alt="zur Reiseauswahl nach Kalendermonaten" src=".././images/kalender.jpg" align="top" border="0" height="72" width="195">
+                        </a>
+                        <br />
+						<a href=".././kalender.html">zur Reiseauswahl nach Kalendermonaten</a>
+					  </span>
+				    </td>
+				  </tr>
+-->
+                    <tr>
+                      <td colspan="3">
+                        <center>
+                          <table gridy="16" gridx="16" align="center" border="0" cellpadding="0" cellspacing="0" width="768">
+                            <tbody>
+                              <tr>
+                                <td xpos="0" align="left" valign="top">
+                                  <table border="0" cellpadding="0" cellspacing="2" width="768">
+                                    <tbody>
+                                      <tr>
+                                        <td colspan="2"><hr></td>
+                                      </tr>
+
+<!-- --------------------------- Kontaktdaten ---------------------------------------------------------- -->
+                                      <tr>
+                                        <td>
+                                          <p class="st1">
+                                            Reiseservice Schwerin GmbH<br>
+                                            Kl&ouml;resgang 1<br>
+                                            19053 Schwerin
+                                          </p>
+                                        </td>
+                                        <td align="right">
+                                          <p class="st2">
+                                            <a href="/index.html">
+                                              <img src="/images/logo-rss-2021.png" alt="Reiseservice Schwerin GmbH" border="0" height="55" width="55">
+                                            </a>
+                                          </p>
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <td colspan="2">
+                                          <p class="st2">
+                                            Email: <a href="mailto:info@reiseservice-schwerin.de">info@reiseservice-schwerin.de</a>
+                                          </p>
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <td>
+                                          <p class="st2">
+                                            Tel: 0385 / 5910333</br>
+                                            Fax: 0385 / 5910331
+                                          </p>
+                                        </td>
+
+<!-- +++++++++++++++++++++++++++++++++++++++ Impressum ++++++++++++++++++++++++++++++  -->
+                                        <td align="right">
+                                          <span class="st2-table">
+                                            <a href="/impressum.html"><i>Impressum&nbsp;/&nbsp;Haftungsausschlu&szlig;</i></a><br />
+                                            <a href="/datenschutz.html"><i>Datenschutz</i></a>
+                                          </span>
+                                        </td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </center>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+
+        <a name="test"></a>
+
+        <p>
+          <map name="Europa">
+            <area class="opener" data-panel="1" title="Deutschland" shape="POLY" alt="Deutschland" href="#Deutschland"
+              coords="156,178,158,186,153,198,151,208,150,217,153,224,162,229,158,243,172,243,192,240,199,233,186,217,207,205,202,178,194,169,184,175,173,167,164,167,168,176">
+            <area class="opener" data-panel="2" title="&Ouml;sterreich" shape="POLY" alt="&Ouml;sterreich" href="#&Ouml;sterreich / Ungarn"
+              coords="172,249,182,247,194,246,202,233,209,233,214,230,224,230,226,237,222,247,216,253,209,255,200,253,191,251,178,252">
+<!--
+            <area class="opener" data-panel="2" title="&Ouml;sterreich" shape="POLY" alt="&Ouml;sterreich" href="#&Ouml;sterreich"
+              coords="172,249,182,247,194,246,202,233,209,233,214,230,224,230,226,237,222,247,216,253,209,255,200,253,191,251,178,252">
+-->
+            <area class="opener" data-panel="3" title="Tschechien" shape="POLY" alt="Tschechien" href="#Tschechien"
+              coords="192,216,207,208,218,211,221,217,226,213,236,220,230,227,222,229,212,227,202,231,193,224">
+            <area class="opener" data-panel="2" title="Ungarn" shape="POLY" alt="Ungarn" href="#Österreich / Ungarn"
+              coords="228,239,234,241,240,237,250,235,258,229,264,231,270,233,264,237,260,253,252,255,243,257,235,260,228,256,222,253,227,245">
+            <area class="opener" data-panel="4" title="Kroatien" shape="POLY" alt="Kroatien" href="#Balkan"
+              coords="222,256,229,261,236,262,242,262,245,270,227,269,219,271,219,278,225,283,232,290,225,291,218,286,209,277,201,269,211,268,218,263">
+            <area class="opener" data-panel="4" title="Slowenien" shape="POLY" alt="Slowenien" href="#Slowenien / Kroatien"
+              coords="203,257,210,258,215,255,221,252,218,261,213,266,205,268,202,263">
+<!--
+            <area class="opener" data-panel="4" title="Nordmazedonien" shape="POLY" alt="Nordmazedonien" href="#Balkan"
+              coords="263,304,269,298,276,297,281,301,280,307,274,308,269,312,263,310">
+            <area class="opener" data-panel="4" title="Albanien" shape="POLY" alt="Albanien" href="#Balkan"
+              coords="261,309,266,313,265,319,260,326,253,321,252,305,253,296,259,298,263,303">
+            <area class="opener" data-panel="4" title="Montenegro" shape="POLY" alt="Montenegro" href="#Balkan"
+              coords="247,287,257,292,252,296,250,302,244,298,244,292">
+            <area class="opener" data-panel="4" title="Griechenland" shape="POLY" alt="Griechenland" href="#Balkan"
+              coords="261,327,264,341,278,356,297,370,310,370,324,365,329,357,311,341,298,332,288,324,300,307,307,307,310,297,304,301,295,302,282,305,274,310,268,313">
+-->
+            <area class="opener" data-panel="6" title="Italien" shape="POLY" alt="Italien" href="#Italien"
+              coords="152,265,155,271,154,279,158,285,166,280,177,286,180,297,191,307,169,316,160,320,160,338,171,338,175,322,197,313,214,321,224,330,226,343,214,348,196,350,218,365,221,358,222,349,238,337,230,328,235,322,245,326,241,319,224,306,215,305,206,293,193,281,193,268,201,264,202,257,193,255,185,253,180,257,177,262,169,264,161,265">
+            <area class="opener" data-panel="5" title="Schweiz" shape="POLY" alt="Schweiz" href="#Schweiz"
+              coords="158,248,150,252,145,259,151,258,152,266,159,264,162,258,167,263,172,259,178,256,169,254,171,246">
+            <area class="opener" data-panel="7" title="Frankreich" shape="POLY" alt="Frankreich" href="#Frankreich"
+              coords="122,205,125,210,130,214,133,219,141,224,150,229,159,231,155,244,150,248,146,253,144,259,150,259,150,266,151,272,146,275,149,280,154,287,170,297,171,306,167,313,162,307,146,292,140,294,127,288,119,299,81,285,89,262,80,239,60,224,80,223,91,228,90,215,96,218,105,221,109,216,116,214,116,207">
+<!--
+            <area class="opener" data-panel="6" title="Spanien" shape="POLY" alt="Spanien" href="#Frankreich / Spanien / Portugal / Andorra"
+              coords="80,285,92,293,99,293,119,299,119,305,127,329,101,340,91,336,80,348,67,355,36,357,23,343,24,335,29,332,26,326,32,323,27,316,33,313,35,305,41,298,39,292,27,287,21,287,21,275,32,269">
+            <area class="opener" data-panel="6" title="Andorra" shape="POLY" alt="Andorra" href="#Frankreich / Spanien / Portugal / Andorra"
+              coords="107,297">
+            <area class="opener" data-panel="6" title="Portugal" shape="POLY" alt="Portugal" href="#Frankreich / Spanien"
+              coords="21,289,27,288,30,294,37,293,38,299,34,303,31,310,27,314,29,322,24,325,26,330,22,335,21,341,8,341,10,323,6,316">
+-->
+            <area class="opener" data-panel="8" title="Vereinigtes Königreich" shape="POLY" alt="Vereinigtes Königreich" href="#Britische Inseln"
+              coords="89,115,101,110,105,129,118,183,115,201,106,207,66,207,72,188,79,178,82,157,70,163,66,157,60,156,76,145,69,130,76,117">
+            <area class="opener" data-panel="8" title="Irland" shape="POLY" alt="Irland" href="#Britische Inseln"
+              coords="69,164,70,175,65,183,42,186,36,177,47,167,45,155,60,148,68,148,59,156">
+            <area class="opener" data-panel="9" title="Niederlande" shape="POLY" alt="Niederlande" href="#Holland / Belgien"
+              coords="141,180,153,179,155,185,152,190,151,197,145,204,139,200,130,200">
+            <area class="opener" data-panel="9" title="Belgien" shape="POLY" alt="Belgien" href="#Holland / Belgien"
+              coords="123,204,130,203,139,202,147,206,148,214,143,217,144,223,135,217,128,211">
+            <area class="opener" data-panel="10" title="Schweden" shape="POLY" alt="Schweden" href="#Skandinavien"
+              coords="193,158,202,157,209,150,228,135,229,103,215,76,229,55,230,40,237,38,232,25,229,15,217,9,215,14,208,16,204,30,200,38,197,44,195,64,186,74,191,93,189,105,185,119,181,125">
+            <area class="opener" data-panel="10" title="D&auml;nemark" shape="POLY" alt="D&auml;nemark" href="#Skandinavien"
+              coords="165,164,172,166,180,167,188,168,190,160,188,152,180,148,177,135,165,141,161,148">
+            <area class="opener" data-panel="10" title="Norwegen" shape="POLY" alt="Norwegen" href="#Skandinavien"
+              coords="148,121,146,86,168,67,188,36,186,23,200,0,235,0,233,6,226,8,220,3,216,6,214,12,208,14,203,21,202,28,196,41,195,51,192,57,193,63,186,67,184,73,186,90,189,95,187,100,188,105,185,110,183,118,174,121,162,131,153,127">
+<!--
+            <area class="opener" data-panel="10" title="Finnland" shape="POLY" alt="Finnland" href="#Skandinavien / Baltikum / Finnland"
+              coords="248,0,250,7,258,13,256,22,265,33,265,43,270,47,273,52,273,57,281,62,270,90,262,95,247,105,234,100,234,84,229,71,244,49,246,41,238,37,230,13,218,7,235,10,236,0">
+            <area class="opener" data-panel="9" title="Estland" shape="POLY" alt="Estland" href="#Skandinavien / Baltikum / Finnland"
+              coords="244,115,254,107,262,103,274,103,272,111,277,119,272,123,263,120,258,123,252,119,242,125">
+            <area class="opener" data-panel="9" title="Litauen" shape="POLY" alt="Litauen" href="#Skandinavien / Baltikum / Finnland"
+              coords="243,148,248,142,265,140,276,145,277,150,274,155,274,160,269,165,262,166,256,162,255,155,248,156,242,154"> 
+            <area class="opener" data-panel="9" title="Lettland" shape="POLY" alt="Lettland" href="#Skandinavien / Baltikum / Finnland"
+              coords="258,125,264,122,271,126,277,124,279,130,284,137,281,142,275,144,265,139,249,140,243,146,240,139,242,130,248,127,255,134,261,130">
+            <area class="opener" data-panel="9" title="Russland - Königsberg" shape="POLY" alt="Russland - Königsberg" href="#Skandinavien / Baltikum / Finnland"
+              coords="244,157,252,157,255,163,248,165,237,164,238,158">
+-->
+            <area class="opener" data-panel="11" title="Polen" shape="POLY" alt="Polen" href="#Polen / Russland"
+              coords="204,174,227,162,231,167,238,166,250,165,257,163,262,169,266,180,261,184,266,188,266,193,271,203,264,214,265,220,259,218,238,218,227,211,222,213,218,208,210,205">
+<!--
+            <area class="opener" data-panel="10" title="Russland" shape="POLY" alt="Russland" href="#Polen / Russland"
+              coords="286,136,281,127,278,120,274,111,276,104,272,98,282,96,274,90,284,61,275,55,274,48,267,43,267,33,258,22,259,13,252,7,250,1,341,1,341,178,338,172,332,167,326,170,320,174,317,166,323,159,306,147,304,139,297,136">
+-->
+<!--
+            <area class="opener" data-panel="1" title="Deutschland" shape="POLY" alt="Deutschland" href="#Deutschland"
+              coords="137,68,143,69,150,73,168,76,173,102,158,109,168,124,162,131,163,134,129,134,132,123,124,116,123,95,129,79,137,76">
+            <area class="opener" data-panel="2" title="&Ouml;sterreich" shape="POLY" alt="&Ouml;sterreich" href="#&Ouml;sterreich"
+              coords="122,146,130,135,144,135,149,137,166,135,165,130,171,124,175,124,179,121,190,122,192,128,189,132,189,138,187,140,181,141,176,144,172,144,164,143,161,140,151,142,147,146,142,147,141,150,136,147,133,150,128,151,125,146">
+            <area class="opener" data-panel="3" title="Tschechien / Ungarn" shape="POLY" alt="Tschechien / Ungarn" href="#Tschechien / Ungarn"
+              coords="162,110,176,104,182,105,187,109,190,107,198,110,200,117,193,121,193,129,210,127,218,121,228,121,222,138,217,143,207,148,199,150,189,143,188,138,189,132,190,129,190,121,183,121,175,124,169,123,163,117">
+            <area class="opener" data-panel="4" title="Kroatien" shape="POLY" alt="Kroatien" href="#Kroatien"
+              coords="171,153,171,144,178,144,186,141,188,144,195,147,200,150,206,148,209,155,211,163,212,169,214,173,217,173,218,177,215,180,214,184,
+                      227,192,249,182,262,182,264,177,266,186,242,200,277,238,267,243,255,242,226,218,223,203, 227,192,214,184,199,175,188,172,184,169,181,168,177,161,176,157,173,161,171,157,170,144">
+            <area class="opener" data-panel="5" title="Italien / Schweiz" shape="POLY" alt="Italien / Schweiz" href="#Italien / Schweiz"
+              coords="133,150,136,148,142,150,148,147,149,144,160,142,165,144,170,146,171,152,165,156,164,168,175,171,179,188,190,187,211,202,208,207,196,207,201,210,195,225,185,239,163,227,137,218,133,196,141,193,166,223,176,222,187,220,189,209,171,195,151,181,146,170,140,166,131,170,125,160,128,151">
+            <area class="opener" data-panel="6" title="Frankreich / Spanien" shape="POLY" alt="Frankreich / Spanien" href="#Frankreich / Spanien"
+              coords="102,102,111,110,113,113,121,116,133,122,130,134,125,137,122,149,126,151,124,156,127,166,129,171,143,180,145,187,140,191,118,176,101,174,100,182,106,206,54,230,25,233,1,217,1,199,13,160,24,157,67,167,73,150,66,130,54,125,55,116">
+            <area class="opener" data-panel="7" title="Britische Inseln" shape="POLY" href="#Britische Inseln" alt="Britische Inseln"
+              coords="72,27,80,29,75,37,84,37,85,45,76,49,100,85,94,102,53,103,23,77">
+            <area class="opener" data-panel="8" title="Holland / Belgien" shape="POLY" alt="Holland / Belgien" href="#Holland / Belgien"
+              coords="102, 102, 122, 81, 129, 81, 129, 89, 124, 96, 124, 109, 121, 112, 125, 116, 120, 115, 114, 112, 112, 112">
+            <area class="opener" data-panel="9" title="Skandinavien / Baltikum / Finnland" shape="POLY" alt="Skandinavien / Baltikum / Finnland" href="#Skandinavien / Baltikum / Finnland"
+              coords="122,0,124,34,133,38,137,48,137,68,146,69,154,69,162,67,168,62,172,56,178,53,182,52,190,44,206,59,213,59,216,60,216,64,220,66,225,68,232,66,234,56,236,54,235,48,241,46,242,43,238,37,238,32,235,31,235,28,234,26,233,13,232,3,232,0">
+            <area class="opener" data-panel="10" title="Polen / Russland" shape="POLY" alt="Polen / Russland" href="#Polen / Russland"
+              coords="172,75,192,65,197,70,211,67,224,75,226,83,229,89,236,86,267,82,267,76,284,70,288,74,288,125,284,128,279,138,272,139,268,139,271,127,274,127,268,119,267,115,257,114,253,118,241,125,224,120,224,111,218,112,210,114,199,114,197,107,192,106,185,107,178,103">
+-->
+            <!-- ÖSTERREICH SCHWEIZ
+            <area class="opener" data-panel="2" title="&Ouml;sterreich / Schweiz" shape="POLY" alt="&Ouml;sterreich / Schweiz" href="#&Ouml;sterreich / Schweiz"
+              coords="122,146,130,135,144,135,149,137,166,135,165,130,171,124,175,124,179,121,190,122,192,128,189,132,189,138,187,140,181,141,176,144,172,144,164,143,161,140,151,142,147,146,142,147,141,150,136,147,133,150,128,151,125,146">
+            -->
+            <!-- ITALIEN
+            <area class="opener" data-panel="8" title="Italien" shape="POLY" alt="Italien" href="#Italien"
+              coords="133,150,136,148,142,150,148,147,149,144,160,142,165,144,170,146,171,152,165,156,164,168,175,171,179,188,190,187,211,202,208,207,196,207,201,210,195,225,185,239,163,227,137,218,133,196,141,193,166,223,176,222,187,220,189,209,171,195,151,181,146,170,140,166,131,170,125,160,128,151">
+             -->
+            <!-- OSTEUROPA
+            <area class="opener" data-panel="6" title="Osteuropa" shape="POLY" alt="Osteuropa" href="#Osteuropa"
+              coords="162,110,176,104,170,75,189,64,200,68,217,65,213,59,207,58,202,36,219,31,235,32,232,0,289,0,288,75,272,74,256,44,241,44,225,74,231,98,224,121,252,118,278,140,273,171,241,184,215,144,205,147,194,148,188,140,192,129,189,122,178,121,174,124">
+            -->
+            <!-- TSCHECHIEN UNGARN -->
+            <!-- PORTUGAL FRANKREICH -->
+            <!--
+            <area class="opener" data-panel="5" title="Frankreich / Portugal" shape="POLY" alt="Frankreich / Portugal" href="#Frankreich / Portugal"
+              coords="102,102,111,110,113,113,121,116,133,122,130,134,125,137,122,149,126,151,124,156,127,166,129,171,143,180,145,187,140,191,118,176,101,174,100,182,92,182,84,179,73,175,68,171,30,179,23,195,18,208,15,218,3,216,2,199,14,173,67,165,72,138,56,124,58,116">
+            -->
+            <!-- SPANIEN PORTUGAL FRANKREICH
+            <area class="opener" data-panel="9" title="Frankreich / Spanien / Portugal" shape="POLY" alt="Frankreich / Spanien / Portugal" href="#Frankreich / Spanien / Portugal"
+              coords="102,102,111,110,113,113,121,116,133,122,130,134,125,137,122,149,126,151,124,156,127,166,129,171,143,180,145,187,140,191,118,176,101,174,100,182,106,206,54,230,25,233,1,217,1,199,13,160,24,157,67,167,73,150,66,130,54,125,55,116">
+            -->
+            <!-- PORTUGAL
+              <area class="opener" data-panel="5" title="Portugal" shape="POLY" alt="Portugal" href="#Portugal"
+              coords="14, 127, 21, 175, 28, 176, 29, 181, 26, 184, 22, 193, 19, 196, 13, 218, 0, 218, 1, 198"> -->
+            <!-- Britische Inseln -->
+            <!-- TSCHECHIEN UNGARN -->
+            <!--
+            <area class="opener" data-panel="6" title="Schottland / Irland" shape="POLY" href="#Schottland / Irland" alt="Schottland / Irland"
+              coords="72,27,80,29,75,37,84,37,85,45,76,49,77,57,71,62,68,68,57,67,55,80,44,84,34,86,29,80,39,70,34,69,35,58">
+            -->
+            <!-- <area class="opener" data-panel="5" title="Spanien" shape="POLY" alt="Spanien" href="#Spanien"
+              coords="52, 228, 15, 228, 30, 177, 12, 169, 24, 154, 99, 181, 105, 207"> -->
+            <!-- Slowenien / Kroatien / Montenegro / Bosnien und Herzegowina -->
+            <!--
+            <area class="opener" data-panel="7" title="Slowenien / Kroatien / Montenegro / Bosnien und Herzegowina" shape="POLY" alt="Slowenien / Kroatien / Montenegro / Bosnien und Herzegowina" href="#Slowenien / Kroatien / Montenegro / Bosnien und Herzegowina"
+              coords="171,153,171,144,178,144,186,141,188,144,195,147,200,150,206,148,209,155,211,163,212,169,214,173,217,173,218,177,215,180,214,184,199,175,188,172,184,169,181,168,177,161,176,157,173,161,171,157,170,144">
+            -->
+            <!-- Balkan
+            <area class="opener" data-panel="7" title="Balkan" shape="POLY" alt="Balkan" href="#Balkan"
+              coords="171,153,171,144,178,144,186,141,188,144,195,147,200,150,206,148,209,155,211,163,212,169,214,173,217,173,218,177,215,180,214,184,
+                      227,192,249,182,262,182,264,177,266,186,242,200,277,238,267,243,255,242,226,218,223,203, 227,192,214,184,199,175,188,172,184,169,181,168,177,161,176,157,173,161,171,157,170,144">
+            -->
+            <!-- POLEN UKRAINE -->
+            <!--
+            <area class="opener" data-panel="9" title="Polen / Ukraine" shape="POLY" alt="Polen / Ukraine" href="#Polen / Ukraine"
+              coords="172,75,192,65,197,70,211,67,224,75,226,83,229,89,236,86,267,82,267,76,284,70,288,74,288,125,284,128,279,138,272,139,268,139,271,127,274,127,268,119,267,115,257,114,253,118,241,125,224,120,224,111,218,112,210,114,199,114,197,107,192,106,185,107,178,103">
+            -->
+          </map>
+        </p>
+    </center>
+  </body>
+</html>
