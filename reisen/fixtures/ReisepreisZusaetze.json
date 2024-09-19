@@ -1,0 +1,92 @@
+[
+{
+  "model": "reisen.reisepreiszusatz",
+  "pk": "1946e87f-ce17-426e-a1f0-df21f5a79bdd",
+  "fields": {
+    "reisepreis_id": "f07aa4ec-f195-494e-a30c-7b72b7a58cf5",
+    "preis_id": "beed9f65-4cfa-4a02-b474-3875cc5c8af9",
+    "preis": "109.00",
+    "position": 0
+  }
+},
+{
+  "model": "reisen.reisepreiszusatz",
+  "pk": "298920f3-5b55-4a89-a85b-6c9bd34f2ef5",
+  "fields": {
+    "reisepreis_id": "a646abc7-c1ae-41d1-9b21-48438ef777c8",
+    "preis_id": "59c95ab8-dcd5-4cf4-bc09-56b6abea3096",
+    "preis": "0.00",
+    "position": 3
+  }
+},
+{
+  "model": "reisen.reisepreiszusatz",
+  "pk": "6b502d8f-ac1a-4187-b0a1-051e70730492",
+  "fields": {
+    "reisepreis_id": "a646abc7-c1ae-41d1-9b21-48438ef777c8",
+    "preis_id": "9a77be81-43b8-4f40-addd-443e6d33ec56",
+    "preis": "2455.00",
+    "position": 0
+  }
+},
+{
+  "model": "reisen.reisepreiszusatz",
+  "pk": "7130f717-51ba-497d-8e76-e9727085f9a1",
+  "fields": {
+    "reisepreis_id": "f07aa4ec-f195-494e-a30c-7b72b7a58cf5",
+    "preis_id": "d22c8d60-d68d-47c6-b087-eac8c5c74dd4",
+    "preis": "35.00",
+    "position": 2
+  }
+},
+{
+  "model": "reisen.reisepreiszusatz",
+  "pk": "7bb003ce-09a3-4940-98be-71326514f944",
+  "fields": {
+    "reisepreis_id": "eda68ce9-287d-4c7d-829a-537d2d0f2b7a",
+    "preis_id": "beed9f65-4cfa-4a02-b474-3875cc5c8af9",
+    "preis": "70.00",
+    "position": 0
+  }
+},
+{
+  "model": "reisen.reisepreiszusatz",
+  "pk": "9c237cdf-aed0-443f-b972-acece4af2e32",
+  "fields": {
+    "reisepreis_id": "f07aa4ec-f195-494e-a30c-7b72b7a58cf5",
+    "preis_id": "fbc7b66c-2c1a-4d83-bc30-ff666f1265b0",
+    "preis": "25.00",
+    "position": 1
+  }
+},
+{
+  "model": "reisen.reisepreiszusatz",
+  "pk": "c0015639-1b1a-4e6e-b1ac-9bae6e52e5c4",
+  "fields": {
+    "reisepreis_id": "a646abc7-c1ae-41d1-9b21-48438ef777c8",
+    "preis_id": "2eaf450d-3662-43ef-ab97-6ab3ae5da7a0",
+    "preis": "3275.00",
+    "position": 2
+  }
+},
+{
+  "model": "reisen.reisepreiszusatz",
+  "pk": "d1446fbd-69cb-483e-988c-5b3bb7eb1feb",
+  "fields": {
+    "reisepreis_id": "a646abc7-c1ae-41d1-9b21-48438ef777c8",
+    "preis_id": "b600d265-6013-4b16-8e4d-5a3e2c58a988",
+    "preis": "3070.00",
+    "position": 1
+  }
+},
+{
+  "model": "reisen.reisepreiszusatz",
+  "pk": "f83c8f28-0e02-4cce-8ced-c97a494a9b09",
+  "fields": {
+    "reisepreis_id": "34d1111a-d21e-40f7-aff0-03a21f825de4",
+    "preis_id": "beed9f65-4cfa-4a02-b474-3875cc5c8af9",
+    "preis": "120.00",
+    "position": 0
+  }
+}
+]

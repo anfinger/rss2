@@ -1,0 +1,35 @@
+[
+{
+  "model": "reisen.ausflugspakete",
+  "pk": "150431a8-4830-490b-ac11-a61ae5aa370a",
+  "fields": {
+    "reise_id": "b463933c-6815-449e-a420-54f86df1bd5c",
+    "titel": "Eintritt Vatikanische Museen (Termin '24)",
+    "kommentar_titel": "",
+    "kommentar": "",
+    "position": 0
+  }
+},
+{
+  "model": "reisen.ausflugspakete",
+  "pk": "36d08e83-0f86-4d30-b94b-d4105bf479a1",
+  "fields": {
+    "reise_id": "c66486e3-7a5f-44b7-bece-6c0a3db92e54",
+    "titel": "Getränkepaket",
+    "kommentar_titel": "",
+    "kommentar": "",
+    "position": 1
+  }
+},
+{
+  "model": "reisen.ausflugspakete",
+  "pk": "a9ee6a0b-c270-41ca-af8c-aacec7b8ea7f",
+  "fields": {
+    "reise_id": "c66486e3-7a5f-44b7-bece-6c0a3db92e54",
+    "titel": "Ausflugspaket",
+    "kommentar_titel": "",
+    "kommentar": "",
+    "position": 0
+  }
+}
+]

@@ -1,0 +1,112 @@
+[
+{
+  "model": "reisen.reisetermine",
+  "pk": "03d5509e-5c7f-412c-9a7b-4722b6780704",
+  "fields": {
+    "reise_id": "208b718e-19d0-4777-beb8-21ce988caf04",
+    "markierung": "",
+    "kommentar": "",
+    "datum_beginn": "2024-10-15",
+    "datum_ende": "2024-10-15"
+  }
+},
+{
+  "model": "reisen.reisetermine",
+  "pk": "0bcb9ba7-99d8-472d-a5c2-2b01a00b9d1f",
+  "fields": {
+    "reise_id": "194ea446-7b64-4bdb-9339-8c6daeb78211",
+    "markierung": "",
+    "kommentar": "",
+    "datum_beginn": "2025-01-24",
+    "datum_ende": "2025-01-26"
+  }
+},
+{
+  "model": "reisen.reisetermine",
+  "pk": "58973c46-61f9-421d-a6de-43d2d53809ec",
+  "fields": {
+    "reise_id": "4359c2aa-6352-4b35-a225-ad6182c4e76a",
+    "markierung": "",
+    "kommentar": "",
+    "datum_beginn": "2024-10-19",
+    "datum_ende": "2024-10-19"
+  }
+},
+{
+  "model": "reisen.reisetermine",
+  "pk": "5d7c698f-b454-41b7-ab3d-32dff12dac93",
+  "fields": {
+    "reise_id": "194ea446-7b64-4bdb-9339-8c6daeb78211",
+    "markierung": "",
+    "kommentar": "",
+    "datum_beginn": "2024-11-22",
+    "datum_ende": "2024-11-24"
+  }
+},
+{
+  "model": "reisen.reisetermine",
+  "pk": "7089e869-13fc-4696-b140-f9225e9da66b",
+  "fields": {
+    "reise_id": "b463933c-6815-449e-a420-54f86df1bd5c",
+    "markierung": "",
+    "kommentar": "",
+    "datum_beginn": "2025-10-20",
+    "datum_ende": "2025-10-24"
+  }
+},
+{
+  "model": "reisen.reisetermine",
+  "pk": "869632f5-5718-44a8-8f1d-28fc75984736",
+  "fields": {
+    "reise_id": "b463933c-6815-449e-a420-54f86df1bd5c",
+    "markierung": "",
+    "kommentar": "",
+    "datum_beginn": "2024-10-21",
+    "datum_ende": "2024-10-25"
+  }
+},
+{
+  "model": "reisen.reisetermine",
+  "pk": "89447f98-e09c-4e71-8070-abfcc8d8eb31",
+  "fields": {
+    "reise_id": "194ea446-7b64-4bdb-9339-8c6daeb78211",
+    "markierung": "",
+    "kommentar": "",
+    "datum_beginn": "2025-01-17",
+    "datum_ende": "2025-01-19"
+  }
+},
+{
+  "model": "reisen.reisetermine",
+  "pk": "929f86f0-9837-44bd-aa90-c8145cc9a7ac",
+  "fields": {
+    "reise_id": "7690921a-b795-4803-8083-0684e5c0fbfe",
+    "markierung": "",
+    "kommentar": "",
+    "datum_beginn": "2025-04-06",
+    "datum_ende": null
+  }
+},
+{
+  "model": "reisen.reisetermine",
+  "pk": "93630727-95c6-40d8-b447-05dfbefbf0cd",
+  "fields": {
+    "reise_id": "7fe42660-eeb4-4b5a-a4f8-2dfba5712353",
+    "markierung": "",
+    "kommentar": "",
+    "datum_beginn": "2024-12-13",
+    "datum_ende": "2024-12-15"
+  }
+},
+{
+  "model": "reisen.reisetermine",
+  "pk": "e6827837-438b-401c-b769-0395b8fd172a",
+  "fields": {
+    "reise_id": "c66486e3-7a5f-44b7-bece-6c0a3db92e54",
+    "markierung": "",
+    "kommentar": "",
+    "datum_beginn": "2025-10-09",
+    "datum_ende": "2025-10-16"
+  }
+}
+]

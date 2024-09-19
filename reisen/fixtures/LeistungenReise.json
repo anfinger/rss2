@@ -1,0 +1,453 @@
+[
+{
+  "model": "reisen.leistungenreise",
+  "pk": "01e864d6-170a-4423-8ea1-308ca22745ec",
+  "fields": {
+    "reise_id": "7fe42660-eeb4-4b5a-a4f8-2dfba5712353",
+    "leistung": "Stadtführung Leipzig & Halle",
+    "nichtindividual": false,
+    "leistungkurhotel": false,
+    "position": 3
+  }
+},
+{
+  "model": "reisen.leistungenreise",
+  "pk": "03564728-3c88-4824-b387-6b7efe67ec3f",
+  "fields": {
+    "reise_id": "c66486e3-7a5f-44b7-bece-6c0a3db92e54",
+    "leistung": "alle Hafen- und Passagiergebühren",
+    "nichtindividual": false,
+    "leistungkurhotel": false,
+    "position": 13
+  }
+},
+{
+  "model": "reisen.leistungenreise",
+  "pk": "0ce37f06-9c26-4420-9ce5-e57b8f88994e",
+  "fields": {
+    "reise_id": "c66486e3-7a5f-44b7-bece-6c0a3db92e54",
+    "leistung": "deutschsprachige örtliche Reiseleitung",
+    "nichtindividual": false,
+    "leistungkurhotel": false,
+    "position": 7
+  }
+},
+{
+  "model": "reisen.leistungenreise",
+  "pk": "158dc10e-1efc-428f-9e8f-f364c03bf863",
+  "fields": {
+    "reise_id": "c66486e3-7a5f-44b7-bece-6c0a3db92e54",
+    "leistung": "komfortables Audio-System bei allen Ausflügen",
+    "nichtindividual": false,
+    "leistungkurhotel": false,
+    "position": 8
+  }
+},
+{
+  "model": "reisen.leistungenreise",
+  "pk": "184b3172-1cb1-4a5e-97b8-1dac5d6c1dd6",
+  "fields": {
+    "reise_id": "b463933c-6815-449e-a420-54f86df1bd5c",
+    "leistung": "Flug nach Rom und zurück (inkl. Gebühren und Zuschläge Stand Juni 2022)",
+    "nichtindividual": false,
+    "leistungkurhotel": false,
+    "position": 1
+  }
+},
+{
+  "model": "reisen.leistungenreise",
+  "pk": "1f0ea140-ac82-43f9-9cfe-bb6054347a9f",
+  "fields": {
+    "reise_id": "194ea446-7b64-4bdb-9339-8c6daeb78211",
+    "leistung": "2 Übernachtungen/HP im Hotel Vienna House in Osnabrück im DZ mit Bad od. Du/WC",
+    "nichtindividual": false,
+    "leistungkurhotel": false,
+    "position": 1
+  }
+},
+{
+  "model": "reisen.leistungenreise",
+  "pk": "2c8a5bf5-9b5a-4285-a7bc-6d1e8dfebd08",
+  "fields": {
+    "reise_id": "c66486e3-7a5f-44b7-bece-6c0a3db92e54",
+    "leistung": "Transfer bis/ab Flughafen Hamburg",
+    "nichtindividual": false,
+    "leistungkurhotel": false,
+    "position": 0
+  }
+},
+{
+  "model": "reisen.leistungenreise",
+  "pk": "3443ce5e-b267-4fe5-93d6-ad73c6efdd7c",
+  "fields": {
+    "reise_id": "194ea446-7b64-4bdb-9339-8c6daeb78211",
+    "leistung": "Lebkuchenverkostung",
+    "nichtindividual": false,
+    "leistungkurhotel": false,
+    "position": 4
+  }
+},
+{
+  "model": "reisen.leistungenreise",
+  "pk": "35848152-9850-458a-9a70-e1abf1c4433f",
+  "fields": {
+    "reise_id": "c66486e3-7a5f-44b7-bece-6c0a3db92e54",
+    "leistung": "7 Übernachtungen/VP an Bord",
+    "nichtindividual": false,
+    "leistungkurhotel": false,
+    "position": 3
+  }
+},
+{
+  "model": "reisen.leistungenreise",
+  "pk": "3ca3915b-de2e-4dac-98e8-e6762bb1d701",
+  "fields": {
+    "reise_id": "b463933c-6815-449e-a420-54f86df1bd5c",
+    "leistung": "Stadtführung Rom mit Vatikan und Engelsburg",
+    "nichtindividual": false,
+    "leistungkurhotel": false,
+    "position": 5
+  }
+},
+{
+  "model": "reisen.leistungenreise",
+  "pk": "4304139d-7c3c-41fd-bd67-7cab95d4b84a",
+  "fields": {
+    "reise_id": "7fe42660-eeb4-4b5a-a4f8-2dfba5712353",
+    "leistung": "Eintritt und Führung im Halloren-Schokoladenmuseum mit Verkostung",
+    "nichtindividual": false,
+    "leistungkurhotel": false,
+    "position": 4
+  }
+},
+{
+  "model": "reisen.leistungenreise",
+  "pk": "46c6573c-3631-4bbf-b8c9-58ef00c1c96a",
+  "fields": {
+    "reise_id": "c66486e3-7a5f-44b7-bece-6c0a3db92e54",
+    "leistung": "Begrüßungs- und Abschiedsempfang mit dem Kapitän",
+    "nichtindividual": false,
+    "leistungkurhotel": false,
+    "position": 5
+  }
+},
+{
+  "model": "reisen.leistungenreise",
+  "pk": "46d55eb9-9b50-41c4-8856-b558e63e88b7",
+  "fields": {
+    "reise_id": "7fe42660-eeb4-4b5a-a4f8-2dfba5712353",
+    "leistung": "Eintrittskarte Sitzplatz (PK 4) zum Weihnachtsoratorium",
+    "nichtindividual": false,
+    "leistungkurhotel": false,
+    "position": 5
+  }
+},
+{
+  "model": "reisen.leistungenreise",
+  "pk": "48ab26ac-1148-456d-9a71-a934852546fc",
+  "fields": {
+    "reise_id": "b463933c-6815-449e-a420-54f86df1bd5c",
+    "leistung": "Reisebegleitung ab/an Schwerin",
+    "nichtindividual": false,
+    "leistungkurhotel": false,
+    "position": 9
+  }
+},
+{
+  "model": "reisen.leistungenreise",
+  "pk": "4a8001b5-c4df-42e6-bb80-6354a6af2956",
+  "fields": {
+    "reise_id": "7fe42660-eeb4-4b5a-a4f8-2dfba5712353",
+    "leistung": "2 Übernachtungen/Frühstück im Intercity Hotel in Leipzig im DZ mit Du/WC",
+    "nichtindividual": false,
+    "leistungkurhotel": false,
+    "position": 1
+  }
+},
+{
+  "model": "reisen.leistungenreise",
+  "pk": "4c02f02f-e786-4534-9d9b-0b5859fe104e",
+  "fields": {
+    "reise_id": "7690921a-b795-4803-8083-0684e5c0fbfe",
+    "leistung": "Bustransfer nach Hamburg und zurück",
+    "nichtindividual": false,
+    "leistungkurhotel": false,
+    "position": 0
+  }
+},
+{
+  "model": "reisen.leistungenreise",
+  "pk": "559deb47-cb58-408a-9528-f8e320a19c8b",
+  "fields": {
+    "reise_id": "194ea446-7b64-4bdb-9339-8c6daeb78211",
+    "leistung": "geselliger Abend mit Musik und Tanz",
+    "nichtindividual": false,
+    "leistungkurhotel": false,
+    "position": 3
+  }
+},
+{
+  "model": "reisen.leistungenreise",
+  "pk": "581819a5-7995-40ff-8bbe-c858e9635b57",
+  "fields": {
+    "reise_id": "c66486e3-7a5f-44b7-bece-6c0a3db92e54",
+    "leistung": "Schiffsreise mit MS DOURO QUEEN in der gebuchten Kabine",
+    "nichtindividual": false,
+    "leistungkurhotel": false,
+    "position": 2
+  }
+},
+{
+  "model": "reisen.leistungenreise",
+  "pk": "5d6cc0fb-9401-4b12-9352-b5c6acb1ba07",
+  "fields": {
+    "reise_id": "c66486e3-7a5f-44b7-bece-6c0a3db92e54",
+    "leistung": "Persönliche Reiseunterlagen",
+    "nichtindividual": false,
+    "leistungkurhotel": false,
+    "position": 11
+  }
+},
+{
+  "model": "reisen.leistungenreise",
+  "pk": "689806df-8e42-476f-bf5a-f985ec5b68de",
+  "fields": {
+    "reise_id": "194ea446-7b64-4bdb-9339-8c6daeb78211",
+    "leistung": "Abend mit Unterhaltungsprogramm",
+    "nichtindividual": false,
+    "leistungkurhotel": false,
+    "position": 2
+  }
+},
+{
+  "model": "reisen.leistungenreise",
+  "pk": "6a0b589f-392e-4fae-94d8-71f02f476e94",
+  "fields": {
+    "reise_id": "194ea446-7b64-4bdb-9339-8c6daeb78211",
+    "leistung": "Begleitung durch Mitarbeiter Reiseservice SN",
+    "nichtindividual": false,
+    "leistungkurhotel": false,
+    "position": 7
+  }
+},
+{
+  "model": "reisen.leistungenreise",
+  "pk": "715dba66-a57a-4dc6-9e36-90e9a2c84a38",
+  "fields": {
+    "reise_id": "b463933c-6815-449e-a420-54f86df1bd5c",
+    "leistung": "Stadtführung Rom mit Spanischer Treppe und Trevi-Brunnen",
+    "nichtindividual": false,
+    "leistungkurhotel": false,
+    "position": 4
+  }
+},
+{
+  "model": "reisen.leistungenreise",
+  "pk": "7926a7e6-b463-4f84-8b90-5d17176214f7",
+  "fields": {
+    "reise_id": "b463933c-6815-449e-a420-54f86df1bd5c",
+    "leistung": "Mini Reiseführer pro Zimmer",
+    "nichtindividual": false,
+    "leistungkurhotel": false,
+    "position": 7
+  }
+},
+{
+  "model": "reisen.leistungenreise",
+  "pk": "7cfd94a2-86c6-4108-b739-bc8adcfb35d6",
+  "fields": {
+    "reise_id": "194ea446-7b64-4bdb-9339-8c6daeb78211",
+    "leistung": "Fahrt im Reisebus",
+    "nichtindividual": false,
+    "leistungkurhotel": false,
+    "position": 0
+  }
+},
+{
+  "model": "reisen.leistungenreise",
+  "pk": "7d555635-280c-4aa3-b86b-203a9a8bc14a",
+  "fields": {
+    "reise_id": "b463933c-6815-449e-a420-54f86df1bd5c",
+    "leistung": "Kurtaxe",
+    "nichtindividual": false,
+    "leistungkurhotel": false,
+    "position": 8
+  }
+},
+{
+  "model": "reisen.leistungenreise",
+  "pk": "84e888ff-9a22-4be3-a5ea-2b22a8d2d940",
+  "fields": {
+    "reise_id": "7fe42660-eeb4-4b5a-a4f8-2dfba5712353",
+    "leistung": "Fahrt im Reisebus",
+    "nichtindividual": false,
+    "leistungkurhotel": false,
+    "position": 0
+  }
+},
+{
+  "model": "reisen.leistungenreise",
+  "pk": "85313c8f-ca07-444c-8364-8124bcd94c9d",
+  "fields": {
+    "reise_id": "7fe42660-eeb4-4b5a-a4f8-2dfba5712353",
+    "leistung": "1 x Abendessen als 3-Gang-Menü im Auerbachs Keller",
+    "nichtindividual": false,
+    "leistungkurhotel": false,
+    "position": 2
+  }
+},
+{
+  "model": "reisen.leistungenreise",
+  "pk": "b92f7c3b-c072-49e8-bee7-8a07879ae01d",
+  "fields": {
+    "reise_id": "194ea446-7b64-4bdb-9339-8c6daeb78211",
+    "leistung": "Tagesreiseleitung am 2. Tag",
+    "nichtindividual": false,
+    "leistungkurhotel": false,
+    "position": 5
+  }
+},
+{
+  "model": "reisen.leistungenreise",
+  "pk": "bb8f8405-866b-46d7-a903-09330372f885",
+  "fields": {
+    "reise_id": "c66486e3-7a5f-44b7-bece-6c0a3db92e54",
+    "leistung": "Nutzung des Swimmingpools",
+    "nichtindividual": false,
+    "leistungkurhotel": false,
+    "position": 10
+  }
+},
+{
+  "model": "reisen.leistungenreise",
+  "pk": "bcf98954-5975-44b3-8e52-a499a2141305",
+  "fields": {
+    "reise_id": "c66486e3-7a5f-44b7-bece-6c0a3db92e54",
+    "leistung": "Gepäckbeförderung Schiffsanlegestelle-Schiffskabine und zurück",
+    "nichtindividual": false,
+    "leistungkurhotel": false,
+    "position": 12
+  }
+},
+{
+  "model": "reisen.leistungenreise",
+  "pk": "bd5a969c-56c7-49e3-90bc-f7f86f75d6e2",
+  "fields": {
+    "reise_id": "c66486e3-7a5f-44b7-bece-6c0a3db92e54",
+    "leistung": "Ausflug Pinhão mit Besuch traditioneller Quinta",
+    "nichtindividual": false,
+    "leistungkurhotel": false,
+    "position": 6
+  }
+},
+{
+  "model": "reisen.leistungenreise",
+  "pk": "c7af1ac6-8bfc-4087-bf30-69b78b0baf18",
+  "fields": {
+    "reise_id": "7690921a-b795-4803-8083-0684e5c0fbfe",
+    "leistung": "Eintrittskarte PK1",
+    "nichtindividual": false,
+    "leistungkurhotel": false,
+    "position": 1
+  }
+},
+{
+  "model": "reisen.leistungenreise",
+  "pk": "dd09b2e4-7c0f-4859-9435-6ba5ce0386aa",
+  "fields": {
+    "reise_id": "b463933c-6815-449e-a420-54f86df1bd5c",
+    "leistung": "Bustransfer bis/ab Flughafen",
+    "nichtindividual": false,
+    "leistungkurhotel": false,
+    "position": 0
+  }
+},
+{
+  "model": "reisen.leistungenreise",
+  "pk": "de1adb57-cd09-4601-b8af-3186f1b4cedf",
+  "fields": {
+    "reise_id": "b463933c-6815-449e-a420-54f86df1bd5c",
+    "leistung": "Transfer Flughafen - Hotel - Flughafen",
+    "nichtindividual": false,
+    "leistungkurhotel": false,
+    "position": 2
+  }
+},
+{
+  "model": "reisen.leistungenreise",
+  "pk": "ea90dbe9-eda2-4c18-bf2b-837829cabd75",
+  "fields": {
+    "reise_id": "b463933c-6815-449e-a420-54f86df1bd5c",
+    "leistung": "3-Tage-Ticket für öffentlichen Nahverkehr in Rom",
+    "nichtindividual": false,
+    "leistungkurhotel": false,
+    "position": 6
+  }
+},
+{
+  "model": "reisen.leistungenreise",
+  "pk": "ed423888-e1ed-42cd-a3dd-867838201fae",
+  "fields": {
+    "reise_id": "c66486e3-7a5f-44b7-bece-6c0a3db92e54",
+    "leistung": "Flug Hamburg - Porto - Hamburg inkl. Flughafen-Gebühren, Zuschläge (Stand 06/24)",
+    "nichtindividual": false,
+    "leistungkurhotel": false,
+    "position": 1
+  }
+},
+{
+  "model": "reisen.leistungenreise",
+  "pk": "ed873c3d-d4a2-4e74-a29f-74b5ac9a4aab",
+  "fields": {
+    "reise_id": "c66486e3-7a5f-44b7-bece-6c0a3db92e54",
+    "leistung": "Unterhaltungsprogramm an Bord",
+    "nichtindividual": false,
+    "leistungkurhotel": false,
+    "position": 9
+  }
+},
+{
+  "model": "reisen.leistungenreise",
+  "pk": "f8d207c8-a0b1-46e9-9535-7c9df75b4c15",
+  "fields": {
+    "reise_id": "7fe42660-eeb4-4b5a-a4f8-2dfba5712353",
+    "leistung": "Beherbungssteuer Leipzig",
+    "nichtindividual": false,
+    "leistungkurhotel": false,
+    "position": 6
+  }
+},
+{
+  "model": "reisen.leistungenreise",
+  "pk": "f92eb37e-3727-4062-a1bf-9a7978fd062e",
+  "fields": {
+    "reise_id": "c66486e3-7a5f-44b7-bece-6c0a3db92e54",
+    "leistung": "festliches Gala-Dinner",
+    "nichtindividual": false,
+    "leistungkurhotel": false,
+    "position": 4
+  }
+},
+{
+  "model": "reisen.leistungenreise",
+  "pk": "f9320827-8ec2-44b9-866d-f47df55f49f8",
+  "fields": {
+    "reise_id": "194ea446-7b64-4bdb-9339-8c6daeb78211",
+    "leistung": "Stadtführung Minden, Osnabrück und Bielefeld",
+    "nichtindividual": false,
+    "leistungkurhotel": false,
+    "position": 6
+  }
+},
+{
+  "model": "reisen.leistungenreise",
+  "pk": "fa8c57f2-beb2-4400-8fc5-7c26b1f8f688",
+  "fields": {
+    "reise_id": "b463933c-6815-449e-a420-54f86df1bd5c",
+    "leistung": "4 Übernachtungen/Frühstück im 3***Hotel San Marco im Zentrum von Rom im DZ mit Bad oder Du/WC",
+    "nichtindividual": false,
+    "leistungkurhotel": false,
+    "position": 3
+  }
+}
+]

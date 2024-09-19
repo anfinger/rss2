@@ -1,0 +1,93 @@
+[
+{
+  "model": "reisen.kategorie",
+  "pk": "09851122-bee6-4b24-84c3-d79fbe4ac21c",
+  "fields": {
+    "kategorie": "Adventsreisen & Weihnachtsmärkte"
+  }
+},
+{
+  "model": "reisen.kategorie",
+  "pk": "1fc6ab88-bc40-4059-bc00-d9d89ddd1d04",
+  "fields": {
+    "kategorie": "Winterreisen"
+  }
+},
+{
+  "model": "reisen.kategorie",
+  "pk": "27fb41fe-92b4-44ec-a13c-3925c8a39d85",
+  "fields": {
+    "kategorie": "Flugreisen"
+  }
+},
+{
+  "model": "reisen.kategorie",
+  "pk": "3133877d-1117-4d3c-90bd-8b43aeab14d8",
+  "fields": {
+    "kategorie": "Flusskreuzfahrten"
+  }
+},
+{
+  "model": "reisen.kategorie",
+  "pk": "4a236cc5-c465-43ff-bc8f-ac67165e9534",
+  "fields": {
+    "kategorie": "Herbst"
+  }
+},
+{
+  "model": "reisen.kategorie",
+  "pk": "62367c8e-1913-497e-a697-c214d8d6486d",
+  "fields": {
+    "kategorie": "Musicals & Shows"
+  }
+},
+{
+  "model": "reisen.kategorie",
+  "pk": "667588f6-b01b-43fe-8f92-6dab933fa59f",
+  "fields": {
+    "kategorie": "Städtereisen"
+  }
+},
+{
+  "model": "reisen.kategorie",
+  "pk": "73815333-ea54-46a0-b00c-2a5f1de9698d",
+  "fields": {
+    "kategorie": "Frühlingsreisen"
+  }
+},
+{
+  "model": "reisen.kategorie",
+  "pk": "7f7cbc93-2d41-4339-b085-ffc2acd7f35c",
+  "fields": {
+    "kategorie": "Herbstreisen"
+  }
+},
+{
+  "model": "reisen.kategorie",
+  "pk": "9597cc1c-019a-4a6f-a83a-0dcaf73a93dc",
+  "fields": {
+    "kategorie": "kombinierte Flug- & Busreisen"
+  }
+},
+{
+  "model": "reisen.kategorie",
+  "pk": "bfea65b9-d5fe-4b0d-ab6d-4dd5b0575d3e",
+  "fields": {
+    "kategorie": "Schiffsreisen"
+  }
+},
+{
+  "model": "reisen.kategorie",
+  "pk": "e06aa442-5711-44d2-b3c2-1fcc479372d9",
+  "fields": {
+    "kategorie": "Busreisen"
+  }
+},
+{
+  "model": "reisen.kategorie",
+  "pk": "fe291127-723e-42a7-8674-6d52c73eb2cc",
+  "fields": {
+    "kategorie": "Winter"
+  }
+}
+]

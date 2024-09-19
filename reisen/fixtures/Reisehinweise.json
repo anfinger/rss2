@@ -1,0 +1,112 @@
+[
+{
+  "model": "reisen.reisehinweise",
+  "pk": "0a9699b8-5618-4226-a9f4-66b45c7dc448",
+  "fields": {
+    "reise_id": "c66486e3-7a5f-44b7-bece-6c0a3db92e54",
+    "hinweis_id": "a86aeedb-c389-4923-aa12-8cfc7d15d368",
+    "titel": "",
+    "position": 2
+  }
+},
+{
+  "model": "reisen.reisehinweise",
+  "pk": "2c653f6d-4959-4efb-9822-c717b41f0f53",
+  "fields": {
+    "reise_id": "b463933c-6815-449e-a420-54f86df1bd5c",
+    "hinweis_id": "a86aeedb-c389-4923-aa12-8cfc7d15d368",
+    "titel": "",
+    "position": 1
+  }
+},
+{
+  "model": "reisen.reisehinweise",
+  "pk": "390ddcb6-7b06-440d-b1d8-5438699e1688",
+  "fields": {
+    "reise_id": "b463933c-6815-449e-a420-54f86df1bd5c",
+    "hinweis_id": "3dcbbee2-8b23-4974-aa22-6b715f87ecd8",
+    "titel": "",
+    "position": 0
+  }
+},
+{
+  "model": "reisen.reisehinweise",
+  "pk": "43543386-155c-4df6-bdd1-a2b9884e5989",
+  "fields": {
+    "reise_id": "c66486e3-7a5f-44b7-bece-6c0a3db92e54",
+    "hinweis_id": "fb790ab6-c3c4-4174-803a-9526a35085c2",
+    "titel": "",
+    "position": 3
+  }
+},
+{
+  "model": "reisen.reisehinweise",
+  "pk": "4820d85b-f0c1-461f-9307-34e2e63445a6",
+  "fields": {
+    "reise_id": "b463933c-6815-449e-a420-54f86df1bd5c",
+    "hinweis_id": "36ee1549-340b-45be-a283-a4815c012bd3",
+    "titel": "",
+    "position": 2
+  }
+},
+{
+  "model": "reisen.reisehinweise",
+  "pk": "7c2c68ad-ad3e-4e5a-afeb-86a3b233ae7f",
+  "fields": {
+    "reise_id": "c66486e3-7a5f-44b7-bece-6c0a3db92e54",
+    "hinweis_id": "80eaf70c-1867-48a9-bd8c-26c60840fc86",
+    "titel": "",
+    "position": 1
+  }
+},
+{
+  "model": "reisen.reisehinweise",
+  "pk": "82ee8bec-d5c9-44f3-afcd-f5ad5aba64a3",
+  "fields": {
+    "reise_id": "7fe42660-eeb4-4b5a-a4f8-2dfba5712353",
+    "hinweis_id": "3dcbbee2-8b23-4974-aa22-6b715f87ecd8",
+    "titel": "",
+    "position": 0
+  }
+},
+{
+  "model": "reisen.reisehinweise",
+  "pk": "9ee2b585-d02c-4014-bbef-e7da621962c5",
+  "fields": {
+    "reise_id": "194ea446-7b64-4bdb-9339-8c6daeb78211",
+    "hinweis_id": "3dcbbee2-8b23-4974-aa22-6b715f87ecd8",
+    "titel": "",
+    "position": 0
+  }
+},
+{
+  "model": "reisen.reisehinweise",
+  "pk": "c43745d6-6ec6-419b-99b7-9db6d7d236b9",
+  "fields": {
+    "reise_id": "7690921a-b795-4803-8083-0684e5c0fbfe",
+    "hinweis_id": "3dcbbee2-8b23-4974-aa22-6b715f87ecd8",
+    "titel": "",
+    "position": 0
+  }
+},
+{
+  "model": "reisen.reisehinweise",
+  "pk": "d610cd7e-c7c7-4bef-bc0d-587f5eb051ae",
+  "fields": {
+    "reise_id": "c66486e3-7a5f-44b7-bece-6c0a3db92e54",
+    "hinweis_id": "6136a81f-3208-4c06-aa94-155e8d1e092b",
+    "titel": "",
+    "position": 0
+  }
+},
+{
+  "model": "reisen.reisehinweise",
+  "pk": "db1adebc-36ba-41e0-97e2-fd2f20474e6d",
+  "fields": {
+    "reise_id": "7690921a-b795-4803-8083-0684e5c0fbfe",
+    "hinweis_id": "14aa9d0d-b618-4eac-99e1-028600b1a70f",
+    "titel": "",
+    "position": 1
+  }
+}
+]

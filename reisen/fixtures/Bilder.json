@@ -1,0 +1,101 @@
+[
+{
+  "model": "reisen.bild",
+  "pk": "0d91be04-41b9-4b11-931a-0e83a9525283",
+  "fields": {
+    "bild": "images/hochaus_zahn.PNG",
+    "bildanbieter_id": null,
+    "titel": "Leipzig Winter Schnee Landschaft mit Hochaus Zahn",
+    "beschreibung": "Leipzig Winter Schnee Landschaft mit Hochaus Zahn",
+    "bildnummer": "",
+    "kommentar": "",
+    "copyright": "RAUSSUCHEN (Katalog 2010/2011)",
+    "url": ""
+  }
+},
+{
+  "model": "reisen.bild",
+  "pk": "67f6aa56-7cc0-4c78-9585-580d804dcfb4",
+  "fields": {
+    "bild": "images/silvester___leipzig_skyline__michael_bader_15173.jpg",
+    "bildanbieter_id": "69aab9ec-3e94-49a2-bcc1-7a3a43cbd892",
+    "titel": "Silvester Leipzig Skyline",
+    "beschreibung": "Silvester Leipzig Skyline
+
+Bitte beachten Sie bei Veröffentlichung unserer Bilder die Nutzungsbedingungen:
+- Verwendung nur für die Bewerbung von bei uns gebuchten Fahrten
+- Angabe der Quelle/des Fotografen bei jeder Verwendung. Bitte schauen Sie dazu in den Dateinamen
+- keine Weitergabe der Fotos an Dritte",
+    "bildnummer": "",
+    "kommentar": "",
+    "copyright": "Foto: Michael Bader",
+    "url": ""
+  }
+},
+{
+  "model": "reisen.bild",
+  "pk": "7d9bc88f-e27d-4a37-b40f-b61ecf3422a5",
+  "fields": {
+    "bild": "images/2_qzpHRtT.PNG",
+    "bildanbieter_id": "d8686812-a012-431e-9d05-2ab14036e39d",
+    "titel": "Silvester Sekt Sektgläser Uhr Sektflasche",
+    "beschreibung": "Silvester Sekt Sektgläser Uhr Sektflasche",
+    "bildnummer": "64690126",
+    "kommentar": "",
+    "copyright": "",
+    "url": "http://www.shutterstock.com/pic.mhtml?id=64690126"
+  }
+},
+{
+  "model": "reisen.bild",
+  "pk": "8f269c9b-48f2-47fe-816c-34a3865205c9",
+  "fields": {
+    "bild": "images/frei_GreatBarrierReef_Foto_Tom_Schulze_c_asisi.jpg",
+    "bildanbieter_id": "69aab9ec-3e94-49a2-bcc1-7a3a43cbd892",
+    "titel": "Leipzig Panometer Great Barrier Reef",
+    "beschreibung": "Leipzig Panometer Great Barrier Reef
+
+Bitte beachten Sie bei Veröffentlichung unserer Bilder die Nutzungsbedingungen:
+- Verwendung nur für die Bewerbung von bei uns gebuchten Fahrten
+- Angabe der Quelle/des Fotografen bei jeder Verwendung. Bitte schauen Sie dazu in den Dateinamen
+- keine Weitergabe der Fotos an Dritte",
+    "bildnummer": "",
+    "kommentar": "",
+    "copyright": "Foto: Tom Schulze (c) asisi",
+    "url": ""
+  }
+},
+{
+  "model": "reisen.bild",
+  "pk": "e36936f1-7bc7-46c5-bc2d-e183ec423454",
+  "fields": {
+    "bild": "images/schoenes_haus.PNG",
+    "bildanbieter_id": null,
+    "titel": "Leipzig Winter Schnee schönes altes Gebäude",
+    "beschreibung": "Leipzig Winter Schnee schönes altes Gebäude",
+    "bildnummer": "",
+    "kommentar": "",
+    "copyright": "RAUSSUSCHEN (Katalog 2010/2011)",
+    "url": ""
+  }
+},
+{
+  "model": "reisen.bild",
+  "pk": "e4cc8e32-cded-4041-8e5a-01f18739a693",
+  "fields": {
+    "bild": "images/SaebulierenKellerei_Foto_Rotkaeppchen_Mumm.jpg",
+    "bildanbieter_id": "69aab9ec-3e94-49a2-bcc1-7a3a43cbd892",
+    "titel": "Leipzig Säbulieren Kellerei Rotkäppche Mumm",
+    "beschreibung": "Leipzig Säbulieren Kellerei Rotkäppche Mumm
+
+Bitte beachten Sie bei Veröffentlichung unserer Bilder die Nutzungsbedingungen:
+- Verwendung nur für die Bewerbung von bei uns gebuchten Fahrten
+- Angabe der Quelle/des Fotografen bei jeder Verwendung. Bitte schauen Sie dazu in den Dateinamen
+- keine Weitergabe der Fotos an Dritte",
+    "bildnummer": "",
+    "kommentar": "",
+    "copyright": "Foto: Rotkäppchen Mumm",
+    "url": ""
+  }
+}
+]

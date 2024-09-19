@@ -1,0 +1,24 @@
+[
+{
+  "model": "reisen.fruehbucherrabatt",
+  "pk": "acc29045-5b3a-40dd-9f98-af4269aea631",
+  "fields": {
+    "reise_id": "c66486e3-7a5f-44b7-bece-6c0a3db92e54",
+    "rabattbezeichnung": "",
+    "datum_bis": "2024-11-30",
+    "rabatt": "150.00",
+    "position": null
+  }
+},
+{
+  "model": "reisen.fruehbucherrabatt",
+  "pk": "bb18ebd6-22de-4ded-8833-05107fb406ca",
+  "fields": {
+    "reise_id": "c66486e3-7a5f-44b7-bece-6c0a3db92e54",
+    "rabattbezeichnung": "",
+    "datum_bis": "2025-01-31",
+    "rabatt": "50.00",
+    "position": null
+  }
+}
+]

@@ -1,0 +1,32 @@
+[
+{
+  "model": "reisen.ausflugspaketpreise",
+  "pk": "47ae9faf-cf09-4b5b-973e-2dcc0cc80a7e",
+  "fields": {
+    "ausflugspaket_id": "a9ee6a0b-c270-41ca-af8c-aacec7b8ea7f",
+    "preis_id": "5549d9bd-3c16-4853-a8fa-cbfb1e262268",
+    "preis": "165.00",
+    "position": 0
+  }
+},
+{
+  "model": "reisen.ausflugspaketpreise",
+  "pk": "52fee30e-b598-4607-8dfb-7369974b5d22",
+  "fields": {
+    "ausflugspaket_id": "150431a8-4830-490b-ac11-a61ae5aa370a",
+    "preis_id": "5549d9bd-3c16-4853-a8fa-cbfb1e262268",
+    "preis": "35.00",
+    "position": 0
+  }
+},
+{
+  "model": "reisen.ausflugspaketpreise",
+  "pk": "cfcb7f07-577f-437c-ba1a-b7823e6b095e",
+  "fields": {
+    "ausflugspaket_id": "36d08e83-0f86-4d30-b94b-d4105bf479a1",
+    "preis_id": "5549d9bd-3c16-4853-a8fa-cbfb1e262268",
+    "preis": "203.00",
+    "position": 0
+  }
+}
+]

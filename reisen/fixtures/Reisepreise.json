@@ -1,0 +1,122 @@
+[
+{
+  "model": "reisen.reisepreise",
+  "pk": "0854ed9e-686d-4060-ba6c-406b9b6be833",
+  "fields": {
+    "reise_id": "4359c2aa-6352-4b35-a225-ad6182c4e76a",
+    "preis_id": "f9616002-4147-4703-bef6-ba4ee1e1da89",
+    "preis": "84.00",
+    "kommentar": "Preis Erwachsene",
+    "markierung": "",
+    "position": 0
+  }
+},
+{
+  "model": "reisen.reisepreise",
+  "pk": "34d1111a-d21e-40f7-aff0-03a21f825de4",
+  "fields": {
+    "reise_id": "b463933c-6815-449e-a420-54f86df1bd5c",
+    "preis_id": "f9616002-4147-4703-bef6-ba4ee1e1da89",
+    "preis": "1090.00",
+    "kommentar": "",
+    "markierung": "",
+    "position": 0
+  }
+},
+{
+  "model": "reisen.reisepreise",
+  "pk": "46d290da-65fe-459e-a20b-57487e7df212",
+  "fields": {
+    "reise_id": "4359c2aa-6352-4b35-a225-ad6182c4e76a",
+    "preis_id": "f9616002-4147-4703-bef6-ba4ee1e1da89",
+    "preis": "63.00",
+    "kommentar": "Kinder bis 16 Jahre",
+    "markierung": "",
+    "position": 1
+  }
+},
+{
+  "model": "reisen.reisepreise",
+  "pk": "4d57423d-2f57-4bb8-aa5f-7cd0c8215ac0",
+  "fields": {
+    "reise_id": "7690921a-b795-4803-8083-0684e5c0fbfe",
+    "preis_id": "f7c26dc7-3cf7-4354-a3d8-3719e739d99d",
+    "preis": "110.00",
+    "kommentar": "",
+    "markierung": "",
+    "position": 0
+  }
+},
+{
+  "model": "reisen.reisepreise",
+  "pk": "a646abc7-c1ae-41d1-9b21-48438ef777c8",
+  "fields": {
+    "reise_id": "c66486e3-7a5f-44b7-bece-6c0a3db92e54",
+    "preis_id": "f9616002-4147-4703-bef6-ba4ee1e1da89",
+    "preis": "2350.00",
+    "kommentar": "2-Bett Hauptdeck vorn/achtern (ca. Preise. Flugpreise lagen bei Drucklegung nicht vor.)",
+    "markierung": "",
+    "position": 0
+  }
+},
+{
+  "model": "reisen.reisepreise",
+  "pk": "c7549a2e-ef5a-41a0-956f-a347647be566",
+  "fields": {
+    "reise_id": "4359c2aa-6352-4b35-a225-ad6182c4e76a",
+    "preis_id": "f9616002-4147-4703-bef6-ba4ee1e1da89",
+    "preis": "73.00",
+    "kommentar": "Senioren ab 66 Jahre",
+    "markierung": "",
+    "position": 2
+  }
+},
+{
+  "model": "reisen.reisepreise",
+  "pk": "ce8f2d22-25c4-45d3-a0a7-62f23dca0160",
+  "fields": {
+    "reise_id": "b463933c-6815-449e-a420-54f86df1bd5c",
+    "preis_id": "c0a05af0-1858-4fcd-be53-b4bc1a260c6e",
+    "preis": "1150.00",
+    "kommentar": "Preis Stand bei Drucklegung noch nicht fest.",
+    "markierung": "*",
+    "position": 1
+  }
+},
+{
+  "model": "reisen.reisepreise",
+  "pk": "ea0922b7-bbb0-4587-9a6e-3c821714d0bc",
+  "fields": {
+    "reise_id": "208b718e-19d0-4777-beb8-21ce988caf04",
+    "preis_id": "f9616002-4147-4703-bef6-ba4ee1e1da89",
+    "preis": "85.00",
+    "kommentar": "",
+    "markierung": "",
+    "position": 0
+  }
+},
+{
+  "model": "reisen.reisepreise",
+  "pk": "eda68ce9-287d-4c7d-829a-537d2d0f2b7a",
+  "fields": {
+    "reise_id": "194ea446-7b64-4bdb-9339-8c6daeb78211",
+    "preis_id": "f9616002-4147-4703-bef6-ba4ee1e1da89",
+    "preis": "395.00",
+    "kommentar": "",
+    "markierung": "",
+    "position": 0
+  }
+},
+{
+  "model": "reisen.reisepreise",
+  "pk": "f07aa4ec-f195-494e-a30c-7b72b7a58cf5",
+  "fields": {
+    "reise_id": "7fe42660-eeb4-4b5a-a4f8-2dfba5712353",
+    "preis_id": "f9616002-4147-4703-bef6-ba4ee1e1da89",
+    "preis": "565.00",
+    "kommentar": "",
+    "markierung": "",
+    "position": 0
+  }
+}
+]

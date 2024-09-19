@@ -1,0 +1,35 @@
+[
+{
+  "model": "reisen.katalog",
+  "pk": "7ea72a2d-d81d-4c55-b1d0-6231afc30f3f",
+  "fields": {
+    "titel": "Winterreisen 2024/2025",
+    "untertitel": "",
+    "datum_beginn": "2024-06-30T22:00:00Z",
+    "datum_ende": "2025-06-29T22:00:00Z",
+    "katalogseitenanzahl": null
+  }
+},
+{
+  "model": "reisen.katalog",
+  "pk": "972c50f3-3a74-47be-9f11-fbfdceb85fc2",
+  "fields": {
+    "titel": "Reiseträume 2025",
+    "untertitel": "",
+    "datum_beginn": null,
+    "datum_ende": null,
+    "katalogseitenanzahl": null
+  }
+},
+{
+  "model": "reisen.katalog",
+  "pk": "cb73c8d6-1acc-49bf-917d-afbe6370bfb3",
+  "fields": {
+    "titel": "Reiseträume 2024",
+    "untertitel": "",
+    "datum_beginn": null,
+    "datum_ende": null,
+    "katalogseitenanzahl": null
+  }
+}
+]

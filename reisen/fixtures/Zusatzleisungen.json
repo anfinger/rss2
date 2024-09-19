@@ -1,0 +1,292 @@
+[
+{
+  "model": "reisen.zusatzleistung",
+  "pk": "00cc548c-f649-4fc1-ac21-4c47080d94c8",
+  "fields": {
+    "reise_id": "f9887e51-f4f8-4037-9072-008521961bca",
+    "titel": "Eintrittskarte PK 3\n\"Bodyguard Das Musical\"",
+    "preis": "76.00",
+    "position": 0
+  }
+},
+{
+  "model": "reisen.zusatzleistung",
+  "pk": "01e3f931-fd57-45d9-9cee-e7603d7a2069",
+  "fields": {
+    "reise_id": "7f39607b-70d9-4776-9e29-ff5f13aab3ed",
+    "titel": "Fackelwanderung mit Glühweinstand",
+    "preis": "9.00",
+    "position": 0
+  }
+},
+{
+  "model": "reisen.zusatzleistung",
+  "pk": "0314b413-7362-4be3-a37f-b871a1f4d562",
+  "fields": {
+    "reise_id": "42be0e04-effd-4f55-bd4b-acf8ffb2293a",
+    "titel": "Fackelwanderung mit Glühweinstand",
+    "preis": "9.00",
+    "position": 0
+  }
+},
+{
+  "model": "reisen.zusatzleistung",
+  "pk": "0c8e59c3-c5ff-44a7-a575-288f0665962a",
+  "fields": {
+    "reise_id": "f4b43341-d58f-43af-9eb6-fb96f26193b4",
+    "titel": "Fackelwanderung mit Glühweinstand",
+    "preis": "9.00",
+    "position": 0
+  }
+},
+{
+  "model": "reisen.zusatzleistung",
+  "pk": "174002e0-33cd-463f-b94c-95cb7c435a61",
+  "fields": {
+    "reise_id": "e2fe3840-ee34-40a1-8fa4-a4a1deeb9825",
+    "titel": "Candlelight Dinner für zwei Personen im Horse Dövre",
+    "preis": "100.00",
+    "position": 1
+  }
+},
+{
+  "model": "reisen.zusatzleistung",
+  "pk": "20de663d-d3f1-4a5d-9f51-c45a17c012e2",
+  "fields": {
+    "reise_id": "27c70104-2b16-46e4-a229-4d145ce11ca7",
+    "titel": "Eintrittskarte PK 3\n\"Bodyguard Das Musical\"",
+    "preis": "76.00",
+    "position": 0
+  }
+},
+{
+  "model": "reisen.zusatzleistung",
+  "pk": "28570af8-0c9f-4122-a6e3-c7ac239a1fb2",
+  "fields": {
+    "reise_id": "c09cf204-0482-4d4f-a817-54ecf09bfa97",
+    "titel": "2 x 2-Gang Abendesse",
+    "preis": "36.00",
+    "position": 0
+  }
+},
+{
+  "model": "reisen.zusatzleistung",
+  "pk": "2f3a370d-20df-4f1c-84b5-4f2426966013",
+  "fields": {
+    "reise_id": "61dad073-f8de-4b10-a884-db80e35deaee",
+    "titel": "Eintrittskarte PK 3\n\"Bodyguard Das Musical\"",
+    "preis": "76.00",
+    "position": 0
+  }
+},
+{
+  "model": "reisen.zusatzleistung",
+  "pk": "3896a335-be85-4a39-b216-a6b181d7b1b1",
+  "fields": {
+    "reise_id": "a15b999a-3c5e-4462-80bc-f788f3dcadd3",
+    "titel": "2 x 2-Gang Abendessen in\neinem Restaurant",
+    "preis": "39.00",
+    "position": 0
+  }
+},
+{
+  "model": "reisen.zusatzleistung",
+  "pk": "3a7f5c5a-f7c1-4051-9784-0ae171c622a2",
+  "fields": {
+    "reise_id": "da7f0829-a2b5-4705-957a-2a01ace060da",
+    "titel": "Fackelwanderung mit Glühweinstand",
+    "preis": "9.00",
+    "position": 0
+  }
+},
+{
+  "model": "reisen.zusatzleistung",
+  "pk": "468582fe-3a85-4d62-a73d-0f775ce7ca30",
+  "fields": {
+    "reise_id": "69588c7a-133d-454e-84e9-7b9779976a8f",
+    "titel": "Fackelwanderung mit Glühweinstand",
+    "preis": "9.00",
+    "position": 0
+  }
+},
+{
+  "model": "reisen.zusatzleistung",
+  "pk": "55370fee-8ba5-4ace-b25b-a665aec3366e",
+  "fields": {
+    "reise_id": "80bd657f-1f34-4f6a-8899-b8d7dfc33e09",
+    "titel": "2 x 2-Gang Abendessen in\neinem Restaurant",
+    "preis": "0.00",
+    "position": 1
+  }
+},
+{
+  "model": "reisen.zusatzleistung",
+  "pk": "5b12d8af-ba14-4b48-8672-89f9c49a11da",
+  "fields": {
+    "reise_id": "0dede789-1a58-4ce5-9dd0-6973356dee12",
+    "titel": "Fackelwanderung mit Glühweinstand",
+    "preis": "9.00",
+    "position": 0
+  }
+},
+{
+  "model": "reisen.zusatzleistung",
+  "pk": "6a29b451-75ce-4473-99d6-2570b4bb0123",
+  "fields": {
+    "reise_id": "e2fe3840-ee34-40a1-8fa4-a4a1deeb9825",
+    "titel": "Musikalischer Abend mit Fado und so",
+    "preis": "50.00",
+    "position": 0
+  }
+},
+{
+  "model": "reisen.zusatzleistung",
+  "pk": "6dee42cc-686d-4abc-97ea-0ea78be7a490",
+  "fields": {
+    "reise_id": "0cf1030f-addc-46d5-ae0a-7893d00229ba",
+    "titel": "Tag 45minütige Führung in der\nStollenbäckerei, mit Stollenverkostung und\nrustikalem Kaffee aus dem Tippel",
+    "preis": "9.00",
+    "position": 0
+  }
+},
+{
+  "model": "reisen.zusatzleistung",
+  "pk": "8eaf44e8-b9ef-4aa0-acd2-c962cbf4bb40",
+  "fields": {
+    "reise_id": "38695224-05a8-4858-945f-356a24f557a7",
+    "titel": "2 x 2-Gang Abendessen in\neinem Restaurant",
+    "preis": "39.00",
+    "position": 0
+  }
+},
+{
+  "model": "reisen.zusatzleistung",
+  "pk": "92a5ad1a-bb78-43d6-b30c-03d3e6629164",
+  "fields": {
+    "reise_id": "8222f47a-c0f0-4aef-9ccb-5266eb9013b5",
+    "titel": "2 x 2-Gang Abendesse",
+    "preis": "36.00",
+    "position": 0
+  }
+},
+{
+  "model": "reisen.zusatzleistung",
+  "pk": "988ace16-064a-44c9-93eb-ae481609ee28",
+  "fields": {
+    "reise_id": "56f02020-e855-4f12-9125-63ba7a2984f7",
+    "titel": "2 x 2-Gang Abendessen in\neinem Restaurant",
+    "preis": "39.00",
+    "position": 0
+  }
+},
+{
+  "model": "reisen.zusatzleistung",
+  "pk": "9c924203-41df-43b8-a804-e5f31dade004",
+  "fields": {
+    "reise_id": "95a34834-9d60-4376-a2cf-ba0753292d55",
+    "titel": "Tag 45minütige Führung in der\nStollenbäckerei, mit Stollenverkostung und\nrustikalem Kaffee aus dem Tippel",
+    "preis": "9.00",
+    "position": 0
+  }
+},
+{
+  "model": "reisen.zusatzleistung",
+  "pk": "9e359c62-6309-434a-bb4d-1869284bb694",
+  "fields": {
+    "reise_id": "ef83fa7e-b9ca-4342-a543-edf15d9877f1",
+    "titel": "Fackelwanderung mit Glühweinstand",
+    "preis": "9.00",
+    "position": 0
+  }
+},
+{
+  "model": "reisen.zusatzleistung",
+  "pk": "a4fa41c6-6efd-4fc2-b3e5-c274a01b1c97",
+  "fields": {
+    "reise_id": "3d7ddf82-f308-4dd4-91e4-0b4397204222",
+    "titel": "Fackelwanderung mit Glühweinstand",
+    "preis": "9.00",
+    "position": 0
+  }
+},
+{
+  "model": "reisen.zusatzleistung",
+  "pk": "a79df005-d783-46c3-be8b-b783c3b9ccc5",
+  "fields": {
+    "reise_id": "bef5c0c3-1438-4193-9276-1f71391532ec",
+    "titel": "2 x 2-Gang Abendessen in\neinem Restaurant",
+    "preis": "39.00",
+    "position": 0
+  }
+},
+{
+  "model": "reisen.zusatzleistung",
+  "pk": "b17563bd-d3fa-4dc7-a3d5-18ad89866cc7",
+  "fields": {
+    "reise_id": "765ca167-8f28-41c3-8e79-fae5bbdf9086",
+    "titel": "Eintrittskarte PK 3\n\"Bodyguard Das Musical\"",
+    "preis": "76.00",
+    "position": 0
+  }
+},
+{
+  "model": "reisen.zusatzleistung",
+  "pk": "bd0a39a2-bfa4-4d95-a6ee-f74228e4b3d8",
+  "fields": {
+    "reise_id": "d6d77d6a-9af5-4527-add3-d358f0b5bc42",
+    "titel": "Fackelwanderung mit Glühweinstand",
+    "preis": "9.00",
+    "position": 0
+  }
+},
+{
+  "model": "reisen.zusatzleistung",
+  "pk": "c47acdb3-3c65-47da-a8f8-19ccd0c01273",
+  "fields": {
+    "reise_id": "2bdcad8d-023a-4b8d-b42e-3753bf840e72",
+    "titel": "Fackelwanderung mit Glühweinstand",
+    "preis": "9.00",
+    "position": 0
+  }
+},
+{
+  "model": "reisen.zusatzleistung",
+  "pk": "c5dc140c-3548-45c1-9ae2-a2998e3f7008",
+  "fields": {
+    "reise_id": "38b73516-2428-43cc-9e7c-107600da05e4",
+    "titel": "Fackelwanderung mit Glühweinstand",
+    "preis": "9.00",
+    "position": 0
+  }
+},
+{
+  "model": "reisen.zusatzleistung",
+  "pk": "eaa5807a-bc51-4351-8b41-9fa59b1ddc7d",
+  "fields": {
+    "reise_id": "0e8fe859-14a0-44ed-9b35-fd15568271e1",
+    "titel": "Fackelwanderung mit Glühweinstand",
+    "preis": "9.00",
+    "position": 0
+  }
+},
+{
+  "model": "reisen.zusatzleistung",
+  "pk": "f4850bde-ffc1-4340-8ec7-de515c35a629",
+  "fields": {
+    "reise_id": "dc7e8c07-c045-4a84-9031-183b7ce7ae6f",
+    "titel": "2 x 2-Gang Abendessen in\neinem Restaurant",
+    "preis": "39.00",
+    "position": 0
+  }
+},
+{
+  "model": "reisen.zusatzleistung",
+  "pk": "f954e8bd-a3cb-43ad-980e-22d20d96a3bc",
+  "fields": {
+    "reise_id": "ecb15777-5b1a-4fae-9f24-44b57a301642",
+    "titel": "Tag 45minütige Führung in der\nStollenbäckerei, mit Stollenverkostung und\nrustikalem Kaffee aus dem Tippel",
+    "preis": "9.00",
+    "position": 0
+  }
+}
+]

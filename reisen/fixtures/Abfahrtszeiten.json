@@ -1,0 +1,123 @@
+[
+{
+  "model": "reisen.abfahrtszeiten",
+  "pk": "0a70ab84-93f5-494a-b452-9d8daf3a0094",
+  "fields": {
+    "reise_id": "4359c2aa-6352-4b35-a225-ad6182c4e76a",
+    "ort": "ANK",
+    "kommentar": "",
+    "zeit": "18:30:00",
+    "position": 3
+  }
+},
+{
+  "model": "reisen.abfahrtszeiten",
+  "pk": "17c245de-a8ac-4775-b064-4b1a4b89a9a3",
+  "fields": {
+    "reise_id": "208b718e-19d0-4777-beb8-21ce988caf04",
+    "ort": "VSB",
+    "kommentar": "",
+    "zeit": "08:30:00",
+    "position": 1
+  }
+},
+{
+  "model": "reisen.abfahrtszeiten",
+  "pk": "332ac291-9e4a-4b3f-98d2-f57463d667b5",
+  "fields": {
+    "reise_id": "208b718e-19d0-4777-beb8-21ce988caf04",
+    "ort": "ROG",
+    "kommentar": "",
+    "zeit": "09:10:00",
+    "position": 2
+  }
+},
+{
+  "model": "reisen.abfahrtszeiten",
+  "pk": "3accaacc-b602-4b69-8c7a-c65f01e2fa61",
+  "fields": {
+    "reise_id": "4359c2aa-6352-4b35-a225-ad6182c4e76a",
+    "ort": "ROG",
+    "kommentar": "",
+    "zeit": "07:10:00",
+    "position": 2
+  }
+},
+{
+  "model": "reisen.abfahrtszeiten",
+  "pk": "74bca4d4-c4f1-4bc2-948e-91625a65ae3e",
+  "fields": {
+    "reise_id": "4359c2aa-6352-4b35-a225-ad6182c4e76a",
+    "ort": "VSB",
+    "kommentar": "",
+    "zeit": "08:30:00",
+    "position": 1
+  }
+},
+{
+  "model": "reisen.abfahrtszeiten",
+  "pk": "76f5492f-70ed-40e6-9e8c-9bff66f31c90",
+  "fields": {
+    "reise_id": "208b718e-19d0-4777-beb8-21ce988caf04",
+    "ort": "HBF",
+    "kommentar": "",
+    "zeit": "08:00:00",
+    "position": 0
+  }
+},
+{
+  "model": "reisen.abfahrtszeiten",
+  "pk": "9bb9d7fe-66cf-4f3e-a93d-8e451dc53b45",
+  "fields": {
+    "reise_id": "7690921a-b795-4803-8083-0684e5c0fbfe",
+    "ort": "HBF",
+    "kommentar": "",
+    "zeit": "10:30:00",
+    "position": 0
+  }
+},
+{
+  "model": "reisen.abfahrtszeiten",
+  "pk": "cfc28a3f-d1de-4aa2-a288-444c7423eafd",
+  "fields": {
+    "reise_id": "4359c2aa-6352-4b35-a225-ad6182c4e76a",
+    "ort": "HBF",
+    "kommentar": "",
+    "zeit": "08:00:00",
+    "position": 0
+  }
+},
+{
+  "model": "reisen.abfahrtszeiten",
+  "pk": "d1e70afe-362e-44f5-a029-ec5ee7cde646",
+  "fields": {
+    "reise_id": "7690921a-b795-4803-8083-0684e5c0fbfe",
+    "ort": "VSB",
+    "kommentar": "",
+    "zeit": "11:00:00",
+    "position": 1
+  }
+},
+{
+  "model": "reisen.abfahrtszeiten",
+  "pk": "dcac8f14-07da-4e5a-86c7-44f30813624f",
+  "fields": {
+    "reise_id": "208b718e-19d0-4777-beb8-21ce988caf04",
+    "ort": "ANK",
+    "kommentar": "",
+    "zeit": "20:00:00",
+    "position": 3
+  }
+},
+{
+  "model": "reisen.abfahrtszeiten",
+  "pk": "f0b1d313-f0bc-4d63-9a10-42f125382081",
+  "fields": {
+    "reise_id": "7690921a-b795-4803-8083-0684e5c0fbfe",
+    "ort": "ANK",
+    "kommentar": "",
+    "zeit": "21:00:00",
+    "position": 2
+  }
+}
+]

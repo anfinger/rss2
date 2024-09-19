@@ -1,0 +1,79 @@
+[
+{
+  "model": "reisen.preis",
+  "pk": "2eaf450d-3662-43ef-ab97-6ab3ae5da7a0",
+  "fields": {
+    "titel": "2-Bett Oberdeck m. Balkon"
+  }
+},
+{
+  "model": "reisen.preis",
+  "pk": "59c95ab8-dcd5-4cf4-bc09-56b6abea3096",
+  "fields": {
+    "titel": "weitere Kabinenpreise auf Anfrage"
+  }
+},
+{
+  "model": "reisen.preis",
+  "pk": "9a77be81-43b8-4f40-addd-443e6d33ec56",
+  "fields": {
+    "titel": "2-Bett Hauptdeck"
+  }
+},
+{
+  "model": "reisen.preis",
+  "pk": "b600d265-6013-4b16-8e4d-5a3e2c58a988",
+  "fields": {
+    "titel": "2-Bett Oberdeck achtern m. Balkon"
+  }
+},
+{
+  "model": "reisen.preis",
+  "pk": "beed9f65-4cfa-4a02-b474-3875cc5c8af9",
+  "fields": {
+    "titel": "EZ-Zuschlag"
+  }
+},
+{
+  "model": "reisen.preis",
+  "pk": "c0a05af0-1858-4fcd-be53-b4bc1a260c6e",
+  "fields": {
+    "titel": "Preis p.P. ca."
+  }
+},
+{
+  "model": "reisen.preis",
+  "pk": "d22c8d60-d68d-47c6-b087-eac8c5c74dd4",
+  "fields": {
+    "titel": "Zuschlag PK 2"
+  }
+},
+{
+  "model": "reisen.preis",
+  "pk": "f7c26dc7-3cf7-4354-a3d8-3719e739d99d",
+  "fields": {
+    "titel": "Preis"
+  }
+},
+{
+  "model": "reisen.preis",
+  "pk": "f9616002-4147-4703-bef6-ba4ee1e1da89",
+  "fields": {
+    "titel": "Preis p.P."
+  }
+},
+{
+  "model": "reisen.preis",
+  "pk": "fbc7b66c-2c1a-4d83-bc30-ff666f1265b0",
+  "fields": {
+    "titel": "Zuschlag PK 3"
+  }
+},
+{
+  "model": "reisen.preis",
+  "pk": "5549d9bd-3c16-4853-a8fa-cbfb1e262268",
+  "fields": {
+    "titel": "[LEER]"
+  }
+}
+]

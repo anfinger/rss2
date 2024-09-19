@@ -1,0 +1,51 @@
+[
+{
+  "model": "reisen.hinweis",
+  "pk": "14aa9d0d-b618-4eac-99e1-028600b1a70f",
+  "fields": {
+    "hinweis": "Gebuchte Tickets können nicht storniert werden!"
+  }
+},
+{
+  "model": "reisen.hinweis",
+  "pk": "36ee1549-340b-45be-a283-a4815c012bd3",
+  "fields": {
+    "hinweis": "Für diese Reise gibt es keine Treuepunkte!"
+  }
+},
+{
+  "model": "reisen.hinweis",
+  "pk": "3dcbbee2-8b23-4974-aa22-6b715f87ecd8",
+  "fields": {
+    "hinweis": "Änderungen im Reiseablauf vorbehalten!"
+  }
+},
+{
+  "model": "reisen.hinweis",
+  "pk": "6136a81f-3208-4c06-aa94-155e8d1e092b",
+  "fields": {
+    "hinweis": "Kreuzfahrt ist auch mit Anschlussprogramm in Lissabon (11 Tage) oder Galicien (12 Tage) buchbar! Fragen Sie im Reisebüro!"
+  }
+},
+{
+  "model": "reisen.hinweis",
+  "pk": "80eaf70c-1867-48a9-bd8c-26c60840fc86",
+  "fields": {
+    "hinweis": "Änderungen im Reiseablauf und der Ausflugsprogramme vorbehalten!"
+  }
+},
+{
+  "model": "reisen.hinweis",
+  "pk": "a86aeedb-c389-4923-aa12-8cfc7d15d368",
+  "fields": {
+    "hinweis": "Gültiger Personalausweis erforderlich!"
+  }
+},
+{
+  "model": "reisen.hinweis",
+  "pk": "fb790ab6-c3c4-4174-803a-9526a35085c2",
+  "fields": {
+    "hinweis": "Badesachen nicht vergessen!"
+  }
+}
+]

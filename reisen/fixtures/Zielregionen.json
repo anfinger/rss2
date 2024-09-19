@@ -1,0 +1,37 @@
+[
+{
+  "model": "reisen.zielregion",
+  "pk": "22cc7838-cdcf-444f-9c64-b70430af58c4",
+  "fields": {
+    "name": "Spanien"
+  }
+},
+{
+  "model": "reisen.zielregion",
+  "pk": "68e4d098-d78a-450c-8e2b-b166ca9c5250",
+  "fields": {
+    "name": "Portugal"
+  }
+},
+{
+  "model": "reisen.zielregion",
+  "pk": "96db666d-5b6c-4caf-b0ce-ceb77583f3f1",
+  "fields": {
+    "name": "Italien"
+  }
+},
+{
+  "model": "reisen.zielregion",
+  "pk": "aa1bf882-a54a-4bad-a52c-2e54ece380c7",
+  "fields": {
+    "name": "Europa"
+  }
+},
+{
+  "model": "reisen.zielregion",
+  "pk": "deb53901-5a50-4d0b-8036-50e0ec91fe59",
+  "fields": {
+    "name": "Deutschland"
+  }
+}
+]

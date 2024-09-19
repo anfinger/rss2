@@ -1,0 +1,20 @@
+[
+{
+  "model": "reisen.leistungenausflugspaket",
+  "pk": "49fce518-b752-4751-9e83-87fdfb58652c",
+  "fields": {
+    "ausflugspaket_id": "a9ee6a0b-c270-41ca-af8c-aacec7b8ea7f",
+    "leistung": "4 Ausflüge lt. Reiseverlauf",
+    "position": 0
+  }
+},
+{
+  "model": "reisen.leistungenausflugspaket",
+  "pk": "701bff4a-4ad6-4b90-a724-d0affb685fb5",
+  "fields": {
+    "ausflugspaket_id": "36d08e83-0f86-4d30-b94b-d4105bf479a1",
+    "leistung": "Hauswein, Haussekt, Bier, Cocktails, Longdrinks, alkoholfreihe Getränke, Kaffee, Heiße Schokolade und Tee",
+    "position": 0
+  }
+}
+]

@@ -1,0 +1,13 @@
+[
+{
+  "model": "reisen.reisebeschreibung",
+  "pk": "29313319-e263-40d7-9067-441f2afdebc1",
+  "fields": {
+    "reise_id": "7690921a-b795-4803-8083-0684e5c0fbfe",
+    "position": 0,
+    "titel": "",
+    "beschreibung": "In Joseph Haydns lange verschollenem Cellokonzert C-Dur vereint sich spätbarocke Feierlichkeit mit dem Virtuosentum der Wiener Klassik. Hinter der eleganten Leichtigkeit des Konzerts verstecken sich nämlich hochanspruchsvolle Passagen, die dem Solisten einiges an Fingerfertigkeit abverlangen. Auch im Konzert für Orchester des polnischen Komponisten Witold Lutosławski verschmelzen verschiedene Stile miteinander. Freuen Sie sich auf zwei wunderbare Werke in der einzigartigen Elbphilharmonie.",
+    "zusatz": ""
+  }
+}
+]

@@ -1,0 +1,218 @@
+[
+{
+  "model": "reisen.reisetage",
+  "pk": "13ac66a1-b0af-487f-afa8-13b905208292",
+  "fields": {
+    "reise_id": "c66486e3-7a5f-44b7-bece-6c0a3db92e54",
+    "tagnummer": 1,
+    "tagnummertext": "",
+    "titel": "Anreise · Porto · Einschiffung",
+    "beschreibung": "Transfer zum Flughafen Hamburg und Flug nach Porto. Transfer zur Einschiffung auf die MS DOURO QUEEN.",
+    "zusatz": ""
+  }
+},
+{
+  "model": "reisen.reisetage",
+  "pk": "2e3e01ff-575e-4484-9863-dc533e1fdd37",
+  "fields": {
+    "reise_id": "194ea446-7b64-4bdb-9339-8c6daeb78211",
+    "tagnummer": 2,
+    "tagnummertext": "",
+    "titel": "Teutoburger Wald · Bielefeld · Lebkuchen",
+    "beschreibung": "Mit Reiseleitung geht es durch den nördlichen Teutoburger Wald über Bad Iburg und Bad Rothenfelde nach Bielefeld. Nach einer Besichtigung der mehr als 800-jährigen Stadt mit seinem historischen Zentrum fahren Sie über die Lebkuchenstadt Borgholzhausen mit Verkostung zurück zum Hotel, wo Sie ein geselliger Abend mit Musik und Tanz erwartet.",
+    "zusatz": ""
+  }
+},
+{
+  "model": "reisen.reisetage",
+  "pk": "2e7c6e07-6b46-450b-a64a-c2cf556872de",
+  "fields": {
+    "reise_id": "c66486e3-7a5f-44b7-bece-6c0a3db92e54",
+    "tagnummer": 5,
+    "tagnummertext": "",
+    "titel": "Barca d’Alva / Vega Terrón · Pocinho",
+    "beschreibung": "Bei einem Tagesausflug lernen Sie die spanische Universitätsstadt Salamanca kennen. Beim Stadtrundgang werden Sie feststellen, dass alle Gebäude im Stadtzentrum mit goldfarbenem Stein verkleidet sind. Sie sehen die älteste Universität Spaniens, die Plaza Mayor, das Haus der Muscheln, die gotische neue Kathedrale aus dem 16. Jahrhundert sowie die alte Kathedrale aus dem 12. Jahrhundert und vieles mehr. (Ausflug nur an Board buchbar)",
+    "zusatz": ""
+  }
+},
+{
+  "model": "reisen.reisetage",
+  "pk": "3d31c677-b85d-4c2d-8129-ac5adcb330ac",
+  "fields": {
+    "reise_id": "b463933c-6815-449e-a420-54f86df1bd5c",
+    "tagnummer": 2,
+    "tagnummertext": "",
+    "titel": "Stadtführung: Rom mit Vatikan und Engelsburg",
+    "beschreibung": "Am Vormittag erwartet Sie der Reiseleiter zu einem weiteren Stadtrundgang. Dem frühen Christentum hat Rom seine Katakomben sowie seine frühchristlichen Kirchen zu verdanken. In der Renaissance wurden unter päpstlicher Schirmherrschaft die Peterskirche, die Springbrunnen, die Statuen und die Museen Roms geschaffen. Die Vatikanstadt, Residenz des Papstes, ist der kleinste selbständige Staat der Welt und sein Herzstück ist die mächtige Peterskirche aus dem 16. Jahrhundert, deren Besichtigung teil der heutigen Führung ist.",
+    "zusatz": ""
+  }
+},
+{
+  "model": "reisen.reisetage",
+  "pk": "3df9e249-e4cd-4af4-b856-e81bb51bb0e2",
+  "fields": {
+    "reise_id": "7fe42660-eeb4-4b5a-a4f8-2dfba5712353",
+    "tagnummer": 3,
+    "tagnummertext": "",
+    "titel": "Heimreise · Halle · Stadtführung",
+    "beschreibung": "Auf der Rückfahrt nach Schwerin machen Sie Halt zu einer Führung durch die 1.200-jährige Händelstadt Halle.",
+    "zusatz": ""
+  }
+},
+{
+  "model": "reisen.reisetage",
+  "pk": "5c198d4b-61f2-4201-9142-a335fd0db5e6",
+  "fields": {
+    "reise_id": "b463933c-6815-449e-a420-54f86df1bd5c",
+    "tagnummer": 4,
+    "tagnummertext": "5. Tag",
+    "titel": "Heimreise",
+    "beschreibung": "Transfer zum Flughafen und Rückflug. Nach dem Rückflug erwartet Sie unser Bus am Flughafen und Sie treten die Heimreise an.",
+    "zusatz": ""
+  }
+},
+{
+  "model": "reisen.reisetage",
+  "pk": "6899bb42-c2c4-4d5b-9894-1146b06327f0",
+  "fields": {
+    "reise_id": "c66486e3-7a5f-44b7-bece-6c0a3db92e54",
+    "tagnummer": 4,
+    "tagnummertext": "",
+    "titel": "Pinhão · Barca d’Alva/ Vega Terrón",
+    "beschreibung": "Heute besuchen Sie Castelo Rodrigo, wegen seiner vielen Mandelbäume auch als "weiße Stadt" bekannt (sh. Ausflugspaket). Sie besichtigen die Burgruinen und den Palast, schlendern durch die Kopfsteingassen und entdecken Fassaden aus dem 16. Jahrhundert und Fensterornamente im berühmten Manuelino-Stil. Am Abend steht für alle Reisenden die Besichtigung des Bahnhofs von Pinhão, der mit seinen bekannten blau-weißen Azulejos (Kacheln) zu den schönsten des Landes gehört, auf dem Programm. Außerdem besuchen Sie eine traditionelle Quinta auf dem höchsten Plateau der Douro-Region. Das Weingut ist bekannt für die Produktion des Moscatels, einem Dessertwein Portugals, der mit seiner goldenen Farbe und dem an Orangen und Honig erinnernden Geschmack einzigartig ist.",
+    "zusatz": ""
+  }
+},
+{
+  "model": "reisen.reisetage",
+  "pk": "6e4874a2-ea4e-4c22-9055-d5fd5c04dc56",
+  "fields": {
+    "reise_id": "7fe42660-eeb4-4b5a-a4f8-2dfba5712353",
+    "tagnummer": 1,
+    "tagnummertext": "",
+    "titel": "Anreise · Halloren · Leipzig · Weihnachtsoratorium",
+    "beschreibung": "Anreise nach Leipzig mit Halt im Halloren Schokoladenmuseum. Bei einer Führung erfahren Sie mehr über die Welt der Schokolade. Natürlich dürfen Sie auch naschen und nach Herzenslust einkaufen. Das Intercity Hotel direkt am Hauptbahnhof beherbergt Sie an diesem Wochenende. Es bleibt Zeit für einen ersten Bummel über den Weihnachtsmarkt bevor Sie das Weihnachtsoratorium mit dem Gewandhausorchester und dem Thomanerchor in der Thomaskirche erwartet. Freuen Sie sich auf diesen Höhepunkt der Reise.",
+    "zusatz": ""
+  }
+},
+{
+  "model": "reisen.reisetage",
+  "pk": "74492ab3-ac2f-4d1b-8c9b-78a0d827c992",
+  "fields": {
+    "reise_id": "b463933c-6815-449e-a420-54f86df1bd5c",
+    "tagnummer": 3,
+    "tagnummertext": "3. & 4. Tag",
+    "titel": "Freizeit",
+    "beschreibung": "Der 3. und 4. Tag stehen zur freien Verfügung. Besichtigen Sie eine der vielen Sehenswürdigkeiten, wie das Kolosseum, das Forum Romanum, die Katakomben oder die Villa Borghese. Erkunden Sie das Bohème-Viertel Trastevere oder bummeln Sie durch das Zentrum und sorgen Sie für ausreichend Mitbringsel aus einem der vielen Modegeschäfte. Auch ein Ausflug nach Ostia, der Hafenstadt des antiken Roms mit Strand und antiker Ausgrabungsstätte, ist mit der S-Bahn vom Hauptbahnhof möglich.",
+    "zusatz": ""
+  }
+},
+{
+  "model": "reisen.reisetage",
+  "pk": "7824b763-c548-4a51-9ab7-650522657e4e",
+  "fields": {
+    "reise_id": "c66486e3-7a5f-44b7-bece-6c0a3db92e54",
+    "tagnummer": 3,
+    "tagnummertext": "",
+    "titel": "Caldas de Aregos · Pinhão",
+    "beschreibung": "Heute besuchen Sie Vila Real (sh. Ausflugspaket). Zwischen dem 15. und 17. Jahrhundert ließen sich hier zahlreiche Angehörige des Adels nieder. Hauptattraktion der Stadt ist der Mateuspalast, das Herrschaftshaus des letzten Grafen von Vila Real. Der barocke Bau liegt in einem liebevoll gepflegten Park mit bizarr geschnittenen Hecken und uralten Bäumen.",
+    "zusatz": ""
+  }
+},
+{
+  "model": "reisen.reisetage",
+  "pk": "916e518f-a13f-4027-833c-2851e2a2f73b",
+  "fields": {
+    "reise_id": "c66486e3-7a5f-44b7-bece-6c0a3db92e54",
+    "tagnummer": 7,
+    "tagnummertext": "",
+    "titel": "Régua · Porto",
+    "beschreibung": "Heute lernen Sie Guimarães, die „Wiege der Nation Portugals“ mit dem Palast der letzten portugiesischen Könige kennen. Oder Sie besuchen Braga, das moderne und lebendige religiöse Zentrum des Landes (beide Ausflüge nur an Board buchbar).",
+    "zusatz": ""
+  }
+},
+{
+  "model": "reisen.reisetage",
+  "pk": "aec61395-913b-4d61-bad4-88a7b6e20229",
+  "fields": {
+    "reise_id": "194ea446-7b64-4bdb-9339-8c6daeb78211",
+    "tagnummer": 1,
+    "tagnummertext": "",
+    "titel": "Anreise · Osnabrück",
+    "beschreibung": "Anreise nach Osnabrück und Stadtrundgang durch die mittelalterliche Altstadt. Dann erwartet Sie ein geselliger Abend mit Unterhaltungsprogramm im Hotel.",
+    "zusatz": ""
+  }
+},
+{
+  "model": "reisen.reisetage",
+  "pk": "b2c33b10-21b3-48b7-bd27-b03dbf65c781",
+  "fields": {
+    "reise_id": "b463933c-6815-449e-a420-54f86df1bd5c",
+    "tagnummer": 1,
+    "tagnummertext": "",
+    "titel": "Anreise · Stadtführung: Rom mit Spanischer Treppe und Trevi-Brunnen",
+    "beschreibung": "Bustransfer zum Flughafen und Flug nach Rom. Ein Reiseleiter wird Ihnen während des Transfers zum zentral gelegenen Hotel bereits einige nützliche Hinweise für Ihren Aufenthalt in Rom geben. Anschließend erwartet Sie ein Stadtrundgang durch Rom. Die historische Innenstadt kann sich vieler antiker Bauwerke rühmen, dazu gehören u.a. das Forum Romanum, das Pantheon und das Kolosseum sowie die Spanische Treppe und der Trevi-Brunnen. Der Rest des Tages steht zur freien Verfügung.",
+    "zusatz": ""
+  }
+},
+{
+  "model": "reisen.reisetage",
+  "pk": "b7b6fdd1-02a0-4db5-8c62-fa844d213c51",
+  "fields": {
+    "reise_id": "c66486e3-7a5f-44b7-bece-6c0a3db92e54",
+    "tagnummer": 6,
+    "tagnummertext": "",
+    "titel": "Pocinho · Régua",
+    "beschreibung": "Heute besteht die Möglichkeit das Pilgerstädtchen Lamego zu besuchen (sh. Ausflugspaket). Lamego entstand im portugiesischen Barock. Der Heilige von Remedies fand hier seine letzte Ruhestätte. Wer mag, kann von der Pilgerstätte auf der Freitreppe rund 600 Stufen zur Stadt hinunterlaufen. Dort ist besonders die gotische Kathedrale und das örtliche Museum mit einer beeindruckenden Gemäldesammlung sehenswert. Bekannt ist Lamego auch für diverse Spezialitäten: Geräucherter Schinken, Bola de Lamego (Brot gefüllt mit geräuchertem Schinken), geräuchertes Zicklein und den Sekt Raposeira.",
+    "zusatz": ""
+  }
+},
+{
+  "model": "reisen.reisetage",
+  "pk": "dbd2cc40-9a46-4c07-809b-4cee31300523",
+  "fields": {
+    "reise_id": "7fe42660-eeb4-4b5a-a4f8-2dfba5712353",
+    "tagnummer": 2,
+    "tagnummertext": "",
+    "titel": "Leipzig · Stadtrundfahrt · Auerbachs Keller",
+    "beschreibung": "Mit Reiseleitung unternehmen Sie eine große Stadtrundfahrt und besuchen alle wichtigen Sehenswürdigkeiten. Sie sehen die Thomaskirche, das Neue Rathaus und das Musikviertel. Weiter geht es vorbei am mdr-Gelände, dem Panometer und dem Völkerschlachtdenkmal. Der Nachmittag steht zur freien Verfügung für einen ausgiebigen Bummel über den Weihnachtsmarkt. Spazieren Sie durch die zauberhaften Passagen, durch die geschichtsträchtigen Straßen und machen mal Halt in eine der Kneipen. Das Abendessen nehmen Sie dann im bekannten Traditionsrestaurant Auerbachs Keller ein.",
+    "zusatz": ""
+  }
+},
+{
+  "model": "reisen.reisetage",
+  "pk": "dc2c653a-d2af-447e-9a76-aada01560a60",
+  "fields": {
+    "reise_id": "c66486e3-7a5f-44b7-bece-6c0a3db92e54",
+    "tagnummer": 2,
+    "tagnummertext": "",
+    "titel": "Porto · Caldas de Aregos",
+    "beschreibung": "Im 18. Jahrhundert gab Porto einem der edelsten Weine der Welt seinen Namen: dem Portwein. Sie besuchen einen typischen Portweinkeller und können eine Kostprobe nehmen. Entdecken Sie anschließend bei einer Führung die engen Gassen mit ihren Jahrhunderte alte Gebäuden sowie das Markenzeichen der Stadt, die Eisenbrücke von Gustav Eiffel. Von der Kathedrale auf dem Penaventosa-Hügel oder dem Pilar Kloster haben Sie einen atemberaubenden Blick über den Fluss (sh. Ausflugspaket).",
+    "zusatz": ""
+  }
+},
+{
+  "model": "reisen.reisetage",
+  "pk": "ece2aa92-19ae-47ef-8f6a-4ced5851ba05",
+  "fields": {
+    "reise_id": "c66486e3-7a5f-44b7-bece-6c0a3db92e54",
+    "tagnummer": 8,
+    "tagnummertext": "",
+    "titel": "Porto · Ausschiffung · Rückreise",
+    "beschreibung": "Am Morgen Ausschiffung in Porto, Transfer zum Flughafen, Flug nach Hamburg und Transfer nach Schwerin.",
+    "zusatz": ""
+  }
+},
+{
+  "model": "reisen.reisetage",
+  "pk": "feabeb3c-8a1a-4734-89dc-d43de3ffc41c",
+  "fields": {
+    "reise_id": "194ea446-7b64-4bdb-9339-8c6daeb78211",
+    "tagnummer": 3,
+    "tagnummertext": "",
+    "titel": "Westfälische Mühlenstraße · Rückreise",
+    "beschreibung": "Entlang der Westfälischen Mühlenstraße reisen Sie nach Minden mit dem romanischen Dom, dem mittelalterlichen Rathaus und den beeindruckenden Wasserstraßenkreuz von Weser und Mittellandkanal. Nach einer Stadtbesichtigung geht es zurück nach Schwerin.",
+    "zusatz": ""
+  }
+}
+]

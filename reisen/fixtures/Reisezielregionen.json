@@ -1,0 +1,101 @@
+[
+{
+  "model": "reisen.reisezielregionen",
+  "pk": "041b669e-6b19-49c4-8598-981065970dff",
+  "fields": {
+    "reise_id": "7fe42660-eeb4-4b5a-a4f8-2dfba5712353",
+    "zielregion_id": "aa1bf882-a54a-4bad-a52c-2e54ece380c7",
+    "position": 1
+  }
+},
+{
+  "model": "reisen.reisezielregionen",
+  "pk": "1617a345-e35b-492e-9279-486acabc5f27",
+  "fields": {
+    "reise_id": "b463933c-6815-449e-a420-54f86df1bd5c",
+    "zielregion_id": "96db666d-5b6c-4caf-b0ce-ceb77583f3f1",
+    "position": 0
+  }
+},
+{
+  "model": "reisen.reisezielregionen",
+  "pk": "172f964d-f3d3-4a2e-8dad-8eaff7ab37df",
+  "fields": {
+    "reise_id": "b463933c-6815-449e-a420-54f86df1bd5c",
+    "zielregion_id": "aa1bf882-a54a-4bad-a52c-2e54ece380c7",
+    "position": 1
+  }
+},
+{
+  "model": "reisen.reisezielregionen",
+  "pk": "28797dcf-7f87-42b1-b19e-9ea89327a2e9",
+  "fields": {
+    "reise_id": "c66486e3-7a5f-44b7-bece-6c0a3db92e54",
+    "zielregion_id": "22cc7838-cdcf-444f-9c64-b70430af58c4",
+    "position": 1
+  }
+},
+{
+  "model": "reisen.reisezielregionen",
+  "pk": "2e3b73b2-ca9c-4261-bd6a-b5a20a01aa29",
+  "fields": {
+    "reise_id": "194ea446-7b64-4bdb-9339-8c6daeb78211",
+    "zielregion_id": "deb53901-5a50-4d0b-8036-50e0ec91fe59",
+    "position": 0
+  }
+},
+{
+  "model": "reisen.reisezielregionen",
+  "pk": "50cf9b98-455e-4a36-a4cb-3d0896473ab6",
+  "fields": {
+    "reise_id": "7690921a-b795-4803-8083-0684e5c0fbfe",
+    "zielregion_id": "deb53901-5a50-4d0b-8036-50e0ec91fe59",
+    "position": 0
+  }
+},
+{
+  "model": "reisen.reisezielregionen",
+  "pk": "5fb128e0-75d6-41fd-9e87-deb90a04de13",
+  "fields": {
+    "reise_id": "7fe42660-eeb4-4b5a-a4f8-2dfba5712353",
+    "zielregion_id": "deb53901-5a50-4d0b-8036-50e0ec91fe59",
+    "position": 0
+  }
+},
+{
+  "model": "reisen.reisezielregionen",
+  "pk": "95e12788-bfe4-4642-9fb5-4f824ffb3e2e",
+  "fields": {
+    "reise_id": "c66486e3-7a5f-44b7-bece-6c0a3db92e54",
+    "zielregion_id": "aa1bf882-a54a-4bad-a52c-2e54ece380c7",
+    "position": 2
+  }
+},
+{
+  "model": "reisen.reisezielregionen",
+  "pk": "b03dbd6a-e84e-4b69-ae10-3facdbe865bc",
+  "fields": {
+    "reise_id": "7690921a-b795-4803-8083-0684e5c0fbfe",
+    "zielregion_id": "aa1bf882-a54a-4bad-a52c-2e54ece380c7",
+    "position": 1
+  }
+},
+{
+  "model": "reisen.reisezielregionen",
+  "pk": "d58b8848-c250-411f-a185-248f3f939404",
+  "fields": {
+    "reise_id": "c66486e3-7a5f-44b7-bece-6c0a3db92e54",
+    "zielregion_id": "68e4d098-d78a-450c-8e2b-b166ca9c5250",
+    "position": 0
+  }
+},
+{
+  "model": "reisen.reisezielregionen",
+  "pk": "fa53145f-3519-48ba-939c-794ee0fec618",
+  "fields": {
+    "reise_id": "194ea446-7b64-4bdb-9339-8c6daeb78211",
+    "zielregion_id": "aa1bf882-a54a-4bad-a52c-2e54ece380c7",
+    "position": 1
+  }
+}
+]

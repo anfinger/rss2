@@ -1,0 +1,100 @@
+[
+{
+  "model": "reisen.reisekatalogzugehoerigkeit",
+  "pk": "0ecdf2d3-444b-4a79-91db-fc9b37f87681",
+  "fields": {
+    "reise_id": "b463933c-6815-449e-a420-54f86df1bd5c",
+    "katalog_id": "cb73c8d6-1acc-49bf-917d-afbe6370bfb3",
+    "katalogseite": 107,
+    "anzahl_seiten_im_katalog": 1,
+    "position_auf_seite": 0,
+    "katalog_pdf": "kataloge/2024/einzeln/Sommer_Katalog_2024_107.pdf",
+    "titel": "",
+    "position": 1
+  }
+},
+{
+  "model": "reisen.reisekatalogzugehoerigkeit",
+  "pk": "427c14ca-516e-4020-a71f-5301a611213c",
+  "fields": {
+    "reise_id": "7fe42660-eeb4-4b5a-a4f8-2dfba5712353",
+    "katalog_id": "7ea72a2d-d81d-4c55-b1d0-6231afc30f3f",
+    "katalogseite": 15,
+    "anzahl_seiten_im_katalog": 1,
+    "position_auf_seite": 0,
+    "katalog_pdf": "kataloge/2425/einzeln/2425_15.pdf",
+    "titel": "",
+    "position": 0
+  }
+},
+{
+  "model": "reisen.reisekatalogzugehoerigkeit",
+  "pk": "6ca991d6-8754-4292-9140-8ae7e799e328",
+  "fields": {
+    "reise_id": "c66486e3-7a5f-44b7-bece-6c0a3db92e54",
+    "katalog_id": "972c50f3-3a74-47be-9f11-fbfdceb85fc2",
+    "katalogseite": 114,
+    "anzahl_seiten_im_katalog": 2,
+    "position_auf_seite": 0,
+    "katalog_pdf": "",
+    "titel": "",
+    "position": 1
+  }
+},
+{
+  "model": "reisen.reisekatalogzugehoerigkeit",
+  "pk": "993534d8-8f58-4e7e-bdd1-85535a59290e",
+  "fields": {
+    "reise_id": "194ea446-7b64-4bdb-9339-8c6daeb78211",
+    "katalog_id": "7ea72a2d-d81d-4c55-b1d0-6231afc30f3f",
+    "katalogseite": 6,
+    "anzahl_seiten_im_katalog": 0,
+    "position_auf_seite": 1,
+    "katalog_pdf": "kataloge/2425/einzeln/2425_06.pdf",
+    "titel": "",
+    "position": 0
+  }
+},
+{
+  "model": "reisen.reisekatalogzugehoerigkeit",
+  "pk": "9d4b3eaf-ffad-4bb3-b0cb-19915ced1aca",
+  "fields": {
+    "reise_id": "c66486e3-7a5f-44b7-bece-6c0a3db92e54",
+    "katalog_id": "7ea72a2d-d81d-4c55-b1d0-6231afc30f3f",
+    "katalogseite": 56,
+    "anzahl_seiten_im_katalog": 2,
+    "position_auf_seite": 0,
+    "katalog_pdf": "kataloge/2425/einzeln/2425_56-57.pdf",
+    "titel": "",
+    "position": 0
+  }
+},
+{
+  "model": "reisen.reisekatalogzugehoerigkeit",
+  "pk": "a90f593e-ded9-4c32-ad6a-72d49b039bfb",
+  "fields": {
+    "reise_id": "b463933c-6815-449e-a420-54f86df1bd5c",
+    "katalog_id": "7ea72a2d-d81d-4c55-b1d0-6231afc30f3f",
+    "katalogseite": 34,
+    "anzahl_seiten_im_katalog": 1,
+    "position_auf_seite": 0,
+    "katalog_pdf": "kataloge/2425/einzeln/2425_34.pdf",
+    "titel": "",
+    "position": 0
+  }
+},
+{
+  "model": "reisen.reisekatalogzugehoerigkeit",
+  "pk": "b2c85674-c10d-4009-9864-68556a9e7548",
+  "fields": {
+    "reise_id": "7690921a-b795-4803-8083-0684e5c0fbfe",
+    "katalog_id": "7ea72a2d-d81d-4c55-b1d0-6231afc30f3f",
+    "katalogseite": 26,
+    "anzahl_seiten_im_katalog": 0,
+    "position_auf_seite": 1,
+    "katalog_pdf": "kataloge/2425/einzeln/2425_26.pdf",
+    "titel": "",
+    "position": 0
+  }
+}
+]

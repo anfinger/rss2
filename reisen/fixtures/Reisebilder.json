@@ -1,0 +1,68 @@
+[
+{
+  "model": "reisen.reisebilder",
+  "pk": "1c61ac29-fa84-48d6-9f45-cdb8c802bfb6",
+  "fields": {
+    "reise_id": "7fe42660-eeb4-4b5a-a4f8-2dfba5712353",
+    "bild_id": "8f269c9b-48f2-47fe-816c-34a3865205c9",
+    "titel": "",
+    "zu_verwenden_in": "Web, Katalog",
+    "position": 3
+  }
+},
+{
+  "model": "reisen.reisebilder",
+  "pk": "2716c29e-1d21-4d62-a78a-d0ea1d97fd49",
+  "fields": {
+    "reise_id": "7fe42660-eeb4-4b5a-a4f8-2dfba5712353",
+    "bild_id": "e36936f1-7bc7-46c5-bc2d-e183ec423454",
+    "titel": "",
+    "zu_verwenden_in": "Web, Katalog",
+    "position": 4
+  }
+},
+{
+  "model": "reisen.reisebilder",
+  "pk": "45a77c4c-bdcd-4fbc-a527-0ae6999e3bef",
+  "fields": {
+    "reise_id": "7fe42660-eeb4-4b5a-a4f8-2dfba5712353",
+    "bild_id": "7d9bc88f-e27d-4a37-b40f-b61ecf3422a5",
+    "titel": "",
+    "zu_verwenden_in": "",
+    "position": 5
+  }
+},
+{
+  "model": "reisen.reisebilder",
+  "pk": "526b3fe0-5508-455e-957b-213230466c6a",
+  "fields": {
+    "reise_id": "7fe42660-eeb4-4b5a-a4f8-2dfba5712353",
+    "bild_id": "0d91be04-41b9-4b11-931a-0e83a9525283",
+    "titel": "",
+    "zu_verwenden_in": "Web, Katalog",
+    "position": 0
+  }
+},
+{
+  "model": "reisen.reisebilder",
+  "pk": "63e19a88-d215-44dc-8fd1-0407bb47cd98",
+  "fields": {
+    "reise_id": "7fe42660-eeb4-4b5a-a4f8-2dfba5712353",
+    "bild_id": "67f6aa56-7cc0-4c78-9585-580d804dcfb4",
+    "titel": "",
+    "zu_verwenden_in": "Web, Katalog",
+    "position": 1
+  }
+},
+{
+  "model": "reisen.reisebilder",
+  "pk": "c8614a95-32ab-4803-98f7-aec917360d48",
+  "fields": {
+    "reise_id": "7fe42660-eeb4-4b5a-a4f8-2dfba5712353",
+    "bild_id": "e4cc8e32-cded-4041-8e5a-01f18739a693",
+    "titel": "",
+    "zu_verwenden_in": "Web, Katalog",
+    "position": 2
+  }
+}
+]
