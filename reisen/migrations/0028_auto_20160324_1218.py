@@ -13,41 +13,43 @@ class Migration(migrations.Migration):
         ('reisen', '0027_auto_20160324_0132'),
     ]
 
-    operations = [
-        migrations.CreateModel(
-            name='Angebot',
-            fields=[
-                ('angebotID', models.UUIDField(default=uuid.uuid4, editable=False, primary_key=True, serialize=False)),
-                ('angebot', models.FileField(upload_to=b'angebote')),
-                ('titel', models.CharField(blank=True, default=b'', help_text=b'Geben Sie hier den Titel des Angebots ein.', max_length=256, verbose_name=b'Angebottitel')),
-            ],
-            options={
-                'verbose_name': 'Angebot',
-                'verbose_name_plural': 'Angebote',
-            },
-        ),
-        migrations.CreateModel(
-            name='Reiseangebote',
-            fields=[
-                ('reiseangebotID', models.UUIDField(default=uuid.uuid4, editable=False, primary_key=True, serialize=False)),
-                ('titel', models.TextField(blank=True, default=b'', help_text=b'Geben Sie hier einen optionalen Titel ein. (\xc3\x9cberschreibt Standard Angebottitel)', verbose_name=b'optionaler Titel')),
-                ('position', models.IntegerField(help_text=b'Position zur Bestimmung der Reihenfolge der Angebote bei der Darstellung', null=True, verbose_name=b'position')),
-                ('angebot_id', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='reisen.Angebot')),
-            ],
-            options={
-                'ordering': ['position'],
-                'verbose_name': 'Reiseangebot',
-                'verbose_name_plural': 'Reiseangebote',
-            },
-        ),
-        migrations.AlterField(
-            model_name='reise',
-            name='status',
-            field=models.CharField(choices=[(b'i', b'Idee'), (b'e', b'Entwurf'), (b'f', b'fertiggestellt')], default=b'i', help_text=b'Hier den Status einer Reise w\xc3\xa4hlen.', max_length=1, verbose_name=b'Status der Reise'),
-        ),
-        migrations.AddField(
-            model_name='reiseangebote',
-            name='reise_id',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='reisen.Reise'),
-        ),
-    ]
+
+    operations = []
+    # operations = [
+    #     migrations.CreateModel(
+    #         name='Angebot',
+    #         fields=[
+    #             ('angebotID', models.UUIDField(default=uuid.uuid4, editable=False, primary_key=True, serialize=False)),
+    #             ('angebot', models.FileField(upload_to=b'angebote')),
+    #             ('titel', models.CharField(blank=True, default=b'', help_text=b'Geben Sie hier den Titel des Angebots ein.', max_length=256, verbose_name=b'Angebottitel')),
+    #         ],
+    #         options={
+    #             'verbose_name': 'Angebot',
+    #             'verbose_name_plural': 'Angebote',
+    #         },
+    #     ),
+    #     migrations.CreateModel(
+    #         name='Reiseangebote',
+    #         fields=[
+    #             ('reiseangebotID', models.UUIDField(default=uuid.uuid4, editable=False, primary_key=True, serialize=False)),
+    #             ('titel', models.TextField(blank=True, default=b'', help_text=b'Geben Sie hier einen optionalen Titel ein. (\xc3\x9cberschreibt Standard Angebottitel)', verbose_name=b'optionaler Titel')),
+    #             ('position', models.IntegerField(help_text=b'Position zur Bestimmung der Reihenfolge der Angebote bei der Darstellung', null=True, verbose_name=b'position')),
+    #             ('angebot_id', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='reisen.Angebot')),
+    #         ],
+    #         options={
+    #             'ordering': ['position'],
+    #             'verbose_name': 'Reiseangebot',
+    #             'verbose_name_plural': 'Reiseangebote',
+    #         },
+    #     ),
+    #     migrations.AlterField(
+    #         model_name='reise',
+    #         name='status',
+    #         field=models.CharField(choices=[(b'i', b'Idee'), (b'e', b'Entwurf'), (b'f', b'fertiggestellt')], default=b'i', help_text=b'Hier den Status einer Reise w\xc3\xa4hlen.', max_length=1, verbose_name=b'Status der Reise'),
+    #     ),
+    #     migrations.AddField(
+    #         model_name='reiseangebote',
+    #         name='reise_id',
+    #         field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='reisen.Reise'),
+    #     ),
+    # ]
