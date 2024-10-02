@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
-from django.conf import settings
+#from django.conf import settings
 
 #os.environ['DJANGO_SETTINGS_MODULE'] = 'rss2.settings.production'
 
@@ -112,16 +112,30 @@ USE_L10N = True
 
 USE_TZ = True
 
+DEBUG = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
 STATIC_URL = '/static/'
 
+# STATIC_ROOT = '/var/www/reiseservice-schwerin/rss2/static/'
 STATIC_ROOT = "./static/"
+
+if DEBUG:
+    STATICFILES_DIRS = [
+        # NOTE: this should normally be the STATIC_ROOT, see above;
+        #   it currently just links to the former (cf. Dockerfile),
+        #   to make the `staticfiles` app happy for handling static
+        #   files during development...
+        #
+        '/var/www/reiseservice-schwerin/rss2/static/'
+    ]
 
 LOGIN_REDIRECT_URL = '/'
 
+# NOTE: links to local media dir; cf. Dockerfile
+#
 MEDIA_ROOT = '/var/www/reiseservice-schwerin/rss2/media/'
 #MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 

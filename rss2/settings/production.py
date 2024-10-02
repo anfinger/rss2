@@ -13,7 +13,8 @@ DATABASES = {
         'NAME': 'rss2',
         'USER': 'django',
         'PASSWORD': 'MMu9U30iL!',
-        'HOST': '127.0.0.1',
+#        'HOST': '127.0.0.1',
+        'HOST': 'rss2-db-0',
         'PORT': '3306',
     }
 }
