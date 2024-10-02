@@ -1,0 +1,16 @@
+[
+{
+  "model": "reisen.bildanbieter",
+  "pk": "69aab9ec-3e94-49a2-bcc1-7a3a43cbd892",
+  "fields": {
+    "bildanbieter": "Sachsen Incoming"
+  }
+},
+{
+  "model": "reisen.bildanbieter",
+  "pk": "d8686812-a012-431e-9d05-2ab14036e39d",
+  "fields": {
+    "bildanbieter": "shutterstock"
+  }
+}
+]
