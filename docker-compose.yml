@@ -1,0 +1,146 @@
+#volumes:
+#  rss2-db-data:
+#    external: true
+
+#networks:
+#  rss2-network: {}
+
+services:
+  app:
+    hostname: rss2-0
+#    image: rss2:0.1dev0
+    profiles: ["default"]
+    env_file:
+      - ".env"
+    build:
+      args:
+        DATABASE_URL: ${DB_DRIVER}://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:${DB_PORT}/${DB_NAME}
+#         DATABASE_URL: ${DB_DRIVER}://${CLOUD_DB_USER-$DB_USER}:${CLOUD_DB_PASSWORD-}@${CLOUD_DB_HOST-DB_HOST}:${DB_PORT}/${CLOUD_DB_NAME-DB_NAME}
+#         DATABASE_URL: ${DB_DRIVER}://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${POSTGRES_HOST}:${POSTGRES_PORT}/${POSTGRES_DB}
+        DEBUG: ${DEBUG}
+      context: .
+      dockerfile: Dockerfile
+#      target: prod-app
+      target: dev-app
+#    networks:
+#      - rss2-network
+    ports:
+      - "8000:8000"
+      - "8080:80"
+    volumes:
+      - type: bind
+        source: .
+        target: /srv/rss2
+    depends_on:
+      - db
+    links:
+      - db
+
+  db:
+    hostname: ${DB_HOST}
+    image: mysql:5.7.27
+    profiles: ["default"]
+    env_file:
+      - ".env"
+    environment:
+      - MYSQL_ALLOW_EMPTY_PASSWORD=true
+      - MYSQL_DATABASE=${DB_NAME}
+      - MYSQL_USER=${DB_USER}
+      - MYSQL_PASSWORD=${DB_PASSWORD}
+#    networks:
+#      - rss2-network
+    ports:
+      - "${DB_PORT}:${DB_PORT}"
+    volumes:
+      - type: bind
+        source: /home/tbsmbl/Projects/rss_db/data
+        target: /var/lib/mysql
+      - type: bind
+        source: /home/tbsmbl/Projects/rss_db/initdb.d
+        target: /docker-entrypoint-initdb.d
+      - type: bind
+        source: /home/tbsmbl/Projects/rss_db/conf.d
+        target: /etc/mysql/conf.d
+
+  db-backup:
+    hostname: rss2-db-backup-0
+    image: percona/percona-xtrabackup:2.4
+    profiles: ["load_backup"]
+#    networks:
+#      - rss2-network
+    environment: {}
+    env_file:
+      - ".env"
+    volumes:
+      - type: bind
+        source: /home/tbsmbl/Projects/rss_db/XtraBackup
+        target: /var/lib/XtraBackup
+      - type: bind
+        source: /home/tbsmbl/Projects/rss_db/data
+        target: /var/lib/mysql
+    command: sh -c "
+        xtrabackup
+        --prepare
+        --export
+        --apply-log-only
+        --target-dir=/var/lib/XtraBackup/base &&
+        xtrabackup
+        --prepare
+        --export
+        --target-dir=/var/lib/XtraBackup/base
+        --incremental-dir=/var/lib/XtraBackup/inc001 &&
+        xtrabackup
+        --copy-back
+        --target-dir=/var/lib/XtraBackup/base
+        --datadir=/var/lib/mysql
+      "
+
+# NOTE: add this in the middle for the <N> incremental backups:
+##      xtrabackup
+##        --prepare
+##        --apply-log-only   # NOTE: for all but the last one!
+##        --target-dir=/var/lib/XtraBackup/base
+##        --incremental-dir=/var/lib/XtraBackup/inc<N> &&
+
+#    volumes_from:
+#      - rss2-db
+#    depends_on:
+#      - rss2-db
+#    links:
+#      - rss2-db
+
+
+#   ocean-composer-pgdb:
+#     hostname: ${POSTGRES_HOST}
+#     image: postgres:alpine
+#     env_file:
+#       - ".env"
+#     networks:
+#       - ocean-composer-network
+#     ports:
+#       - "${POSTGRES_PORT}:${POSTGRES_PORT}"
+
+#  ocean-composer-crdb:
+#    hostname: ${DB_HOST}
+#    image: cockroachdb/cockroach:latest
+#    env_file:
+#      - ".env"
+#    environment:
+#      - COCKROACH_INSECURE=true
+#      - COCKROACH_DATABASE=${DB_NAME}
+#      - COCKROACH_USER=${DB_USER}
+#    networks:
+#      - ocean-composer-network
+#    ports:
+#      - "${DB_PORT}:${DB_PORT}"
+#      - "8080:8080"
+#    volumes:
+#      - type: volume
+#        source: ocean-composer-crdb-single
+#        target: /cockroach/cockroach-data
+#    command: >
+#        start-single-node
+#        --insecure
+#        --advertise-addr=${DB_HOST}:${DB_PORT}
+#        --http-addr=${DB_HOST}:8080
+#        --store=path=/cockroach/cockroach-data,ballast-size=0
