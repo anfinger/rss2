@@ -37,7 +37,7 @@
   </head>
   <body style="font-family: TrajanPro-Regular, 'Lucida Grande', sans-serif;">
     <div>
-      <h1>Reisetermine 2024</h1>
+      <h1>Reisetermine 2025</h1>
     </div>
     <div class="rTable">
       <div class="rTableHeading">
@@ -50,7 +50,7 @@
       </div>
       <div class="rTableBody">
       {% for termin in termine %}
-       {% if termin.datum_beginn|date:'Y' not in '2023' %}
+       {% if termin.datum_beginn|date:'Y' not in '2024' %}
         {% if termin.Monat %}
         <div class="rTableRow" style="background-color: #ddd;">
           <div class="rTableCell"></div>
