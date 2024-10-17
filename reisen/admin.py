@@ -442,10 +442,12 @@ class ReiseAdmin(nested_admin.NestedAdmin): #TabbedModelAdmin,
         else:
             return ''
 
-    list_display = ('titel', 'sonstigeReisebeschreibung_titel', 'welcherkatalog', 'neu', 'reisetermine', 'reisetyp', 'veranstalter', 'status', 'datum_veroeffentlichung', 'datum_verfall', 'zuletzt_bearbeitet', 'zuletzt_bearbeitet_von', 'datum_erzeugung', 'autor_id')
+    #list_display = ('titel', 'sonstigeReisebeschreibung_titel', 'welcherkatalog', 'neu', 'reisetermine', 'reisetyp', 'veranstalter', 'status', 'datum_veroeffentlichung', 'datum_verfall', 'zuletzt_bearbeitet', 'zuletzt_bearbeitet_von', 'datum_erzeugung', 'autor_id')
+    list_display = ('titel', 'sonstigeReisebeschreibung_titel', 'welcherkatalog', 'neu', 'reisetermine', 'reisetyp', 'veranstalter', 'status', 'zuletzt_bearbeitet', 'zuletzt_bearbeitet_von', 'datum_erzeugung', 'autor_id')
     #list_display_links = ('titel', 'reisetermine')
     list_editable = ('neu',)
-    list_filter = ('neu', 'titel', 'sonstigeReisebeschreibung_titel', 'reisetermine', 'status', 'datum_veroeffentlichung', 'datum_verfall', 'zuletzt_bearbeitet', 'zuletzt_bearbeitet_von', 'datum_erzeugung', 'autor_id', 'reisetyp', 'veranstalter')
+    #list_filter = ('neu', 'titel', 'sonstigeReisebeschreibung_titel', 'reisetermine', 'status', 'datum_veroeffentlichung', 'datum_verfall', 'zuletzt_bearbeitet', 'zuletzt_bearbeitet_von', 'datum_erzeugung', 'autor_id', 'reisetyp', 'veranstalter')
+    list_filter = ('neu', 'titel', 'sonstigeReisebeschreibung_titel', 'reisetermine', 'status', 'zuletzt_bearbeitet', 'zuletzt_bearbeitet_von', 'datum_erzeugung', 'autor_id', 'reisetyp', 'veranstalter')
     search_fields = ['titel','sonstigeReisebeschreibung_titel']
     #filter_vertical = ('hinweise',)
 
