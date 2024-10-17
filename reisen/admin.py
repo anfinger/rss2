@@ -131,11 +131,6 @@ class ReisekatalogzugehoerigkeitInline(GrappelliSortableHiddenMixin, admin.Tabul
     fields = ('position', 'katalog_id', 'katalogseite', 'anzahl_seiten_im_katalog', 'position_auf_seite', 'titel', 'katalog_pdf')
     classes = ('grp-collapse grp-closed',)
     extra = 0
-    
-    #def formfield_for_foreignkey(self, db_field, request, **kwargs):
-    #  if db_field.name == "katalog_id":
-    #    kwargs["queryset"] = Katalog.objects.order_by('katalog')
-    #    return super(ReisehinweiseInline, self).formfield_for_foreignkey(db_field, request, **kwargs)    
 
 class ReisekategorienInline(GrappelliSortableHiddenMixin, admin.TabularInline):
     model = Reisekategorien
@@ -147,7 +142,7 @@ class ReisekategorienInline(GrappelliSortableHiddenMixin, admin.TabularInline):
 
     def formfield_for_foreignkey(self, db_field, request, **kwargs):
       if db_field.name == "kategorie_id":
-        kwargs["queryset"] = Kategorie.objects.order_by('titel')
+        kwargs["queryset"] = Kategorie.objects.order_by('kategorie')
         return super(ReisekategorienInline, self).formfield_for_foreignkey(db_field, request, **kwargs)
 
 class ReisezielregionenInline(GrappelliSortableHiddenMixin, admin.TabularInline):
