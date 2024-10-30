@@ -2,59 +2,59 @@
 <root>
 <TERMINEKUREN>	<KURENORT>Swinemünde</KURENORT>	<KURENHOTEL>"Arstone"</KURENHOTEL>	<KURENHOTEL>"Rybniczanka"</KURENHOTEL>	<KURENHOTEL>"Interferie"</KURENHOTEL>	<KURENHOTEL>"Hamilton"</KURENHOTEL>	<KURENORT>Kolberg</KURENORT>	<KURENHOTEL>"Ikar"</KURENHOTEL>
 <KURENTABELLENKOPF>Termin	Dauer/Zuschlag	Ü/HP	Ü/VP	Ü/HP	Ü/HP	Dauer/Zuschlag	Ü/VP</KURENTABELLENKOPF>
-<KURENTERMIN>20. 01. - 27. 01. 24	8 Tage	-	555	575	595	8 Tage	550</KURENTERMIN>
-<KURENTERMINDETAILS>	Zuschlag EZ / VP	- / -	70 / -	231 / 21	174 / 66	Zuschlag EZ / gr. DZ	84 / 21</KURENTERMINDETAILS>
-<KURENTERMIN>27. 01. - 03. 02. 24	8 Tage	-	585	615	630	8 Tage	580</KURENTERMIN>
-<KURENTERMINDETAILS>	Zuschlag EZ / VP	- / -	70 / -	231 / 21	174 / 66	Zuschlag EZ / gr. DZ	84 / 21</KURENTERMINDETAILS>
-<KURENTERMIN>03. 02. - 10. 02. 24	8 Tage	-	585	615	630	8 Tage	580</KURENTERMIN>
-<KURENTERMINDETAILS>	Zuschlag EZ / VP	- / -	70 / -	231 / 21	174 / 66	Zuschlag EZ / gr. DZ	84 / 21</KURENTERMINDETAILS>
-<KURENTERMIN>10. 02. - 17. 02. 24	8 Tage	-	585	615	630	8 Tage	580</KURENTERMIN>
-<KURENTERMINDETAILS>	Zuschlag EZ / VP	- / -	70 / -	231 / 21	174 / 66	Zuschlag EZ / gr. DZ	84 / 21</KURENTERMINDETAILS>
-<KURENTERMIN>17. 02. - 24. 02. 24	8 Tage	-	585	615	630	8 Tage	580</KURENTERMIN>
-<KURENTERMINDETAILS>	Zuschlag EZ / VP	- / -	70 / -	231 / 21	174 / 66	Zuschlag EZ / gr. DZ	84 / 21</KURENTERMINDETAILS>
-<KURENTERMIN>24. 02. - 02. 03. 24	8 Tage	525	585	680	700	8 Tage	595</KURENTERMIN>
-<KURENTERMINDETAILS>	Zuschlag EZ / VP	98 / 21	70 / -	266 / 21	174 / 66	Zuschlag EZ / gr. DZ	84 / 28</KURENTERMINDETAILS>
-<KURENTERMIN>02. 03. - 09. 03. 24	8 Tage	525	635	680	700	8 Tage	595</KURENTERMIN>
-<KURENTERMINDETAILS>	Zuschlag EZ / VP	98 / 21	70 / -	266 / 21	174 / 66	Zuschlag EZ / gr. DZ	84 / 28</KURENTERMINDETAILS>
-<KURENTERMIN>09. 03. - 16. 03. 24	8 Tage	525	635	680	700	8 Tage	595</KURENTERMIN>
-<KURENTERMINDETAILS>	Zuschlag EZ / VP	98 / 21	70 / -	266 / 21	174 / 66	Zuschlag EZ / gr. DZ	84 / 28</KURENTERMINDETAILS>
-<KURENTERMIN>16. 03. - 23. 03. 24	8 Tage	525	635	680	700	8 Tage	595</KURENTERMIN>
-<KURENTERMINDETAILS>	Zuschlag EZ / VP	98 / 21	70 / -	266 / 21	174 / 66	Zuschlag EZ / gr. DZ	84 / 28</KURENTERMINDETAILS>
-<KURENTERMIN>23. 03. - 30. 03. 24	8 Tage	525	635	735	700	8 Tage	595</KURENTERMIN>
-<KURENTERMINDETAILS>	Zuschlag EZ / VP	98 / 21	70 / -	266 / 21	174 / 66	Zuschlag EZ / gr. DZ	84 / 28</KURENTERMINDETAILS>
-<KURENTERMIN>30. 03. - 06. 04. 24	8 Tage	610	685	810	815	8 Tage	680</KURENTERMIN>
-<KURENTERMINDETAILS>	Zuschlag EZ / VP	126 / 21	95 / -	266 / 21	174 / 66	Zuschlag EZ / gr. DZ	126 / 35</KURENTERMINDETAILS>
-<KURENTERMIN>06. 04. - 13. 04. 24	8 Tage	585	685	735	745	8 Tage	680</KURENTERMIN>
-<KURENTERMINDETAILS>	Zuschlag EZ / VP	126 / 21	105 / -	266 / 21	174 / 66	Zuschlag EZ / gr. DZ	126 / 35</KURENTERMINDETAILS>
-<KURENTERMIN>13. 04. - 20. 04. 24	8 Tage	585	685	735	745	8 Tage	680</KURENTERMIN>
-<KURENTERMINDETAILS>	Zuschlag EZ / VP	126 / 21	105 / -	266 / 21	174 / 66	Zuschlag EZ / gr. DZ	126 / 35</KURENTERMINDETAILS>
-<KURENTERMIN>20. 04. - 27. 04. 24	8 Tage	585	685	735	745	8 Tage	680</KURENTERMIN>
-<KURENTERMINDETAILS>	Zuschlag EZ / VP	126 / 21	105 / -	266 / 21	174 / 66	Zuschlag EZ / gr. DZ	126 / 35</KURENTERMINDETAILS>
-<KURENTERMIN>27. 04. - 04. 05. 24	8 Tage	670	715	735	845	8 Tage	760</KURENTERMIN>
-<KURENTERMINDETAILS>	Zuschlag EZ / VP	126 / 21	105 / -	266 / 21	216 / 66	Zuschlag EZ / gr. DZ	126 / 35</KURENTERMINDETAILS>
-<KURENTERMIN>04. 05. - 11. 05. 24	8 Tage	670	715	735	845	8 Tage	760</KURENTERMIN>
-<KURENTERMINDETAILS>	Zuschlag EZ / VP	126 / 21	105 / -	266 / 21	216 / 66	Zuschlag EZ / gr. DZ	126 / 35</KURENTERMINDETAILS>
-<KURENTERMIN>11. 05. - 18. 05. 24	8 Tage	670	715	785	845	8 Tage	760</KURENTERMIN>
-<KURENTERMINDETAILS>	Zuschlag EZ / VP	126 / 21	105 / -	266 / 21	216 / 66	Zuschlag EZ / gr. DZ	126 / 35</KURENTERMINDETAILS>
-<KURENTERMIN>18. 05. - 25. 05. 24	8 Tage	670	715	785	845	8 Tage	760</KURENTERMIN>
-<KURENTERMINDETAILS>	Zuschlag EZ / VP	126 / 21	105 / -	266 / 21	216 / 66	Zuschlag EZ / gr. DZ	126 / 35</KURENTERMINDETAILS>
-<KURENTERMIN>07. 09. - 14. 09. 24	8 Tage	715	875	880	910	8 Tage	815</KURENTERMIN>
-<KURENTERMINDETAILS>	Zuschlag EZ / VP	140 / 21	133 / -	266 / 21	216 / 66	Zuschlag EZ / gr. DZ	126 / 35</KURENTERMINDETAILS>
-<KURENTERMIN>14. 09. - 21. 09. 24	8 Tage	670	790	880	910	8 Tage	815</KURENTERMIN>
-<KURENTERMINDETAILS>	Zuschlag EZ / VP	140 / 21	133 / -	266 / 21	216 / 66	Zuschlag EZ / gr. DZ	126 / 35</KURENTERMINDETAILS>
-<KURENTERMIN>21. 09. - 28. 09. 24	8 Tage	670	790	880	910	8 Tage	760</KURENTERMIN>
-<KURENTERMINDETAILS>	Zuschlag EZ / VP	140 / 21	133 / -	266 / 21	216 / 66	Zuschlag EZ / gr. DZ	126 / 28</KURENTERMINDETAILS>
-<KURENTERMIN>28. 09. - 05. 10. 24	8 Tage	585	790	735	910	8 Tage	760</KURENTERMIN>
-<KURENTERMINDETAILS>	Zuschlag EZ / VP	126 / 21	133 / -	266 / 21	216 / 66	Zuschlag EZ / gr. DZ	126 / 28</KURENTERMINDETAILS>
-<KURENTERMIN>05. 10. - 12. 10. 24	8 Tage	585	685	735	835	8 Tage	760</KURENTERMIN>
-<KURENTERMINDETAILS>	Zuschlag EZ / VP	126 / 21	105 / -	266 / 21	216 / 66	Zuschlag EZ / gr. DZ	126 / 28</KURENTERMINDETAILS>
-<KURENTERMIN>12. 10. - 19. 10. 24	8 Tage	585	685	735	835	8 Tage	760</KURENTERMIN>
-<KURENTERMINDETAILS>	Zuschlag EZ / VP	126 / 21	105 / -	266 / 21	216 / 66	Zuschlag EZ / gr. DZ	126 / 28</KURENTERMINDETAILS>
-<KURENTERMIN>19. 10. - 26. 10. 24	8 Tage	525	685	735	835	8 Tage	760</KURENTERMIN>
-<KURENTERMINDETAILS>	Zuschlag EZ / VP	98 / 21	105 / -	266 / 21	216 / 66	Zuschlag EZ / gr. DZ	126 / 28</KURENTERMINDETAILS>
-<KURENTERMIN>26. 10. - 02. 11. 24	8 Tage	525	685	640	835	8 Tage	760</KURENTERMIN>
-<KURENTERMINDETAILS>	Zuschlag EZ / VP	98 / 21	105 / -	266 / 21	216 / 66	Zuschlag EZ / gr. DZ	126 / 28</KURENTERMINDETAILS></TERMINEKUREN>
-<REISEZIELUEBERSICHT><REISEZIELUEBERSICHTTITEL>Reiseübersicht 2024</REISEZIELUEBERSICHTTITEL>
+<KURENTERMIN>18. 01. - 25. 01. 25	8 Tage	-	595	660	620	8 Tage	580</KURENTERMIN>
+<KURENTERMINDETAILS>	Zuschlag EZ / VP	- / -	70 / -	245 / -	192 / 72	Zuschlag EZ / gr. DZ	84 / 28</KURENTERMINDETAILS>
+<KURENTERMIN>25. 01. - 01. 02. 25	8 Tage	-	595	690	620	8 Tage	580</KURENTERMIN>
+<KURENTERMINDETAILS>	Zuschlag EZ / VP	- / -	70 / -	245 / -	192 / 72	Zuschlag EZ / gr. DZ	84 / 28</KURENTERMINDETAILS>
+<KURENTERMIN>01. 02. - 08. 02. 25	8 Tage	-	625	690	685	8 Tage	620</KURENTERMIN>
+<KURENTERMINDETAILS>	Zuschlag EZ / VP	- / -	70 / -	245 / -	192 / 72	Zuschlag EZ / gr. DZ	84 / 28</KURENTERMINDETAILS>
+<KURENTERMIN>08. 02. - 15. 02. 25	8 Tage	-	625	690	685	8 Tage	620</KURENTERMIN>
+<KURENTERMINDETAILS>	Zuschlag EZ / VP	- / -	70 / -	245 / -	192 / 72	Zuschlag EZ / gr. DZ	84 / 28</KURENTERMINDETAILS>
+<KURENTERMIN>15. 02. - 22. 02. 25	8 Tage	-	625	690	685	8 Tage	620</KURENTERMIN>
+<KURENTERMINDETAILS>	Zuschlag EZ / VP	- / -	70 / -	245 / -	192 / 72	Zuschlag EZ / gr. DZ	84 / 28</KURENTERMINDETAILS>
+<KURENTERMIN>22. 02. - 01. 03. 25	8 Tage	555	625	765	685	8 Tage	620</KURENTERMIN>
+<KURENTERMINDETAILS>	Zuschlag EZ / VP	98 / 21	70 / -	245 / -	192 / 72	Zuschlag EZ / gr. DZ	84 / 28</KURENTERMINDETAILS>
+<KURENTERMIN>01. 03. - 08. 03. 25	8 Tage	555	625	765	735	8 Tage	635</KURENTERMIN>
+<KURENTERMINDETAILS>	Zuschlag EZ / VP	98 / 21	70 / -	280 / -	192 / 72	Zuschlag EZ / gr. DZ	84 / 28</KURENTERMINDETAILS>
+<KURENTERMIN>08. 03. - 15. 03. 25	8 Tage	555	625	765	735	8 Tage	635</KURENTERMIN>
+<KURENTERMINDETAILS>	Zuschlag EZ / VP	98 / 21	70 / -	280 / -	192 / 72	Zuschlag EZ / gr. DZ	84 / 28</KURENTERMINDETAILS>
+<KURENTERMIN>15. 03. - 22. 03. 25	8 Tage	555	625	765	735	8 Tage	635</KURENTERMIN>
+<KURENTERMINDETAILS>	Zuschlag EZ / VP	98 / 21	70 / -	280 / -	192 / 72	Zuschlag EZ / gr. DZ	84 / 28</KURENTERMINDETAILS>
+<KURENTERMIN>22. 03. - 29. 03. 25	8 Tage	555	625	820	735	8 Tage	635</KURENTERMIN>
+<KURENTERMINDETAILS>	Zuschlag EZ / VP	98 / 21	70 / -	280 / -	192 / 72	Zuschlag EZ / gr. DZ	84 / 28</KURENTERMINDETAILS>
+<KURENTERMIN>29. 03. - 05. 04. 25	8 Tage	620	725	820	735	8 Tage	725</KURENTERMIN>
+<KURENTERMINDETAILS>	Zuschlag EZ / VP	126 / 21	105 / -	280 / -	192 / 72	Zuschlag EZ / gr. DZ	126 / 35</KURENTERMINDETAILS>
+<KURENTERMIN>05. 04. - 12. 04. 25	8 Tage	620	725	820	735	8 Tage	725</KURENTERMIN>
+<KURENTERMINDETAILS>	Zuschlag EZ / VP	126 / 21	105 / -	280 / -	192 / 72	Zuschlag EZ / gr. DZ	126 / 35</KURENTERMINDETAILS>
+<KURENTERMIN>12. 04. - 19. 04. 25	8 Tage	620	725	820	735	8 Tage	725</KURENTERMIN>
+<KURENTERMINDETAILS>	Zuschlag EZ / VP	126 / 21	105 / -	280 / -	192 / 72	Zuschlag EZ / gr. DZ	126 / 35</KURENTERMINDETAILS>
+<KURENTERMIN>19. 04. - 26. 04. 25	8 Tage	645	750	890	855	8 Tage	725</KURENTERMIN>
+<KURENTERMINDETAILS>	Zuschlag EZ / VP	126 / 21	105 / -	280 / -	192 / 72	Zuschlag EZ / gr. DZ	126 / 35</KURENTERMINDETAILS>
+<KURENTERMIN>26. 04. - 03. 05. 25	8 Tage	700	770	840	780	8 Tage	820</KURENTERMIN>
+<KURENTERMINDETAILS>	Zuschlag EZ / VP	126 / 21	105 / -	280 / -	192 / 72	Zuschlag EZ / gr. DZ	126 / 35</KURENTERMINDETAILS>
+<KURENTERMIN>03. 05. - 10. 05. 25	8 Tage	700	770	840	780	8 Tage	820</KURENTERMIN>
+<KURENTERMINDETAILS>	Zuschlag EZ / VP	126 / 21	105 / -	280 / -	192 / 72	Zuschlag EZ / gr. DZ	126 / 35</KURENTERMINDETAILS>
+<KURENTERMIN>10. 05. - 17. 05. 25	8 Tage	700	770	875	780	8 Tage	820</KURENTERMIN>
+<KURENTERMINDETAILS>	Zuschlag EZ / VP	126 / 21	105 / -	280 / -	192 / 72	Zuschlag EZ / gr. DZ	126 / 35</KURENTERMINDETAILS>
+<KURENTERMIN>17. 05. - 24. 05. 25	8 Tage	700	770	875	885	8 Tage	820</KURENTERMIN>
+<KURENTERMINDETAILS>	Zuschlag EZ / VP	126 / 21	105 / -	280 / -	240 / 72	Zuschlag EZ / gr. DZ	126 / 35</KURENTERMINDETAILS>
+<KURENTERMIN>06. 09. - 13. 09. 25	8 Tage	750	845	975	1000	8 Tage	890</KURENTERMIN>
+<KURENTERMINDETAILS>	Zuschlag EZ / VP	140 / 21	133 / -	280 / -	240 / 72	Zuschlag EZ / gr. DZ	140 / 42</KURENTERMINDETAILS>
+<KURENTERMIN>13. 09. - 20. 09. 25	8 Tage	710	845	975	1000	8 Tage	890</KURENTERMIN>
+<KURENTERMINDETAILS>	Zuschlag EZ / VP	140 / 21	133 / -	280 / -	240 / 72	Zuschlag EZ / gr. DZ	140 / 42</KURENTERMINDETAILS>
+<KURENTERMIN>20. 09. - 27. 09. 25	8 Tage	710	845	975	1000	8 Tage	890</KURENTERMIN>
+<KURENTERMINDETAILS>	Zuschlag EZ / VP	140 / 21	133 / -	280 / -	240 / 72	Zuschlag EZ / gr. DZ	140 / 42</KURENTERMINDETAILS>
+<KURENTERMIN>27. 09. - 04. 10. 25	8 Tage	630	845	845	1000	8 Tage	835</KURENTERMIN>
+<KURENTERMINDETAILS>	Zuschlag EZ / VP	126 / 21	133 / -	280 / -	240 / 72	Zuschlag EZ / gr. DZ	126 / 28</KURENTERMINDETAILS>
+<KURENTERMIN>04. 10. - 11. 10. 25	8 Tage	630	735	845	915	8 Tage	835</KURENTERMIN>
+<KURENTERMINDETAILS>	Zuschlag EZ / VP	126 / 21	105 / -	280 / -	240 / 72	Zuschlag EZ / gr. DZ	126 / 28</KURENTERMINDETAILS>
+<KURENTERMIN>11. 10. - 18. 10. 25	8 Tage	630	735	845	915	8 Tage	835</KURENTERMIN>
+<KURENTERMINDETAILS>	Zuschlag EZ / VP	126 / 21	105 / -	280 / -	240 / 72	Zuschlag EZ / gr. DZ	126 / 28</KURENTERMINDETAILS>
+<KURENTERMIN>18. 10. - 25. 10. 25	8 Tage	565	735	845	915	8 Tage	835</KURENTERMIN>
+<KURENTERMINDETAILS>	Zuschlag EZ / VP	98 / 21	105 / -	280 / -	240 / 72	Zuschlag EZ / gr. DZ	126 / 28</KURENTERMINDETAILS>
+<KURENTERMIN>25. 10. - 01. 11. 25	8 Tage	565	735	735	915	8 Tage	835</KURENTERMIN>
+<KURENTERMINDETAILS>	Zuschlag EZ / VP	98 / 21	105 / -	280 / -	240 / 72	Zuschlag EZ / gr. DZ	126 / 28</KURENTERMINDETAILS></TERMINEKUREN>
+<REISEZIELUEBERSICHT><REISEZIELUEBERSICHTTITEL>Reiseübersicht 2025</REISEZIELUEBERSICHTTITEL>
 <REISEZIELUEBERSICHTKATEGORIE><BALKEN_BUSREISE></BALKEN_BUSREISE>Busreisen nach ...</REISEZIELUEBERSICHTKATEGORIE>{% for termin in termine_reisezieluebersicht %}{% if termin.kategorie %}
 {% if termin.kategorietyp = 'Kategorie' %}<REISEZIELUEBERSICHTKATEGORIE><BALKEN_{{ termin.kategorie|ohnetage }}></BALKEN_{{ termin.kategorie|ohnetage }}>{% else %}<REISEZIELUEBERSICHTZIELREGION>{% endif %}{{ termin.kategorie|zielumbenennen }}{% if termin.kategorietyp = 'Kategorie' %}</REISEZIELUEBERSICHTKATEGORIE>{% else %}</REISEZIELUEBERSICHTZIELREGION>{% endif %}{% endif %}{% if 'Kuren' not in termin.Reise and termin.Reise %}
 <REISEZIELUEBERSICHTREISE><REISEZIELUEBERSICHTNEU>{% if termin.neu %}Neu{% endif %}	</REISEZIELUEBERSICHTNEU><REISEZIELUEBERSICHTREISETITEL>{{ termin.Reise }}</REISEZIELUEBERSICHTREISETITEL>{% if termin.Tage %}	<REISEZIELUEBERSICHTTAGE>{{ termin.Tage }}</REISEZIELUEBERSICHTTAGE>{% endif %}{% if termin.Seite %}	<REISEZIELUEBERSICHTSEITE>{{ termin.Seite }}</REISEZIELUEBERSICHTSEITE>{% else %}	<REISEZIELUEBERSICHTSEITE>n.b.</REISEZIELUEBERSICHTSEITE>{% endif %}</REISEZIELUEBERSICHTREISE>{% endif %}{% endfor %}
@@ -63,20 +63,21 @@
 <REISEZIELUEBERSICHTKATEGORIE>Konzerte, Musicals &amp; Shows</REISEZIELUEBERSICHTKATEGORIE>
 <REISEZIELUEBERSICHTREISE><REISEZIELUEBERSICHTNEU></REISEZIELUEBERSICHTNEU><REISEZIELUEBERSICHTREISETITEL>in Ralswiek, Hamburg &amp; Berlin</REISEZIELUEBERSICHTREISETITEL>	<REISEZIELUEBERSICHTTAGE>1</REISEZIELUEBERSICHTTAGE>	<REISEZIELUEBERSICHTSEITE>U-Seite</REISEZIELUEBERSICHTSEITE></REISEZIELUEBERSICHTREISE></REISEZIELUEBERSICHT>
 
-<REISETERMINUEBERSICHT><REISETERMINUEBERSICHTTITEL>Reisetermine 2024</REISETERMINUEBERSICHTTITEL>{% for termin in termine_reiseterminuebersicht %}{% if termin.datum_beginn|date:'Y' not in '2023' %}{% if termin.Monat %}
+<REISETERMINUEBERSICHT><REISETERMINUEBERSICHTTITEL>Reisetermine 2025</REISETERMINUEBERSICHTTITEL>{% for termin in termine_reiseterminuebersicht %}{% if termin.datum_beginn|date:'Y' not in '2023' %}{% if termin.Monat %}
 <REISETERMINUEBERSICHTMONAT>{{ termin.Monat }}</REISETERMINUEBERSICHTMONAT>{% if termin.Monat = 'Februar' %}<REISETERMINUEBERSICHTFERIENFEIERTAGE>	Winterferien 03.02. - 18.02.2024</REISETERMINUEBERSICHTFERIENFEIERTAGE>{% elif termin.Monat = 'März' %}<REISETERMINUEBERSICHTFERIENFEIERTAGE>  Osterferien 23.03. - 03.04.2024</REISETERMINUEBERSICHTFERIENFEIERTAGE>{% elif termin.Monat = 'April' %}<REISETERMINUEBERSICHTFERIENFEIERTAGE>	Osterferien 23.03. - 03.04.2024</REISETERMINUEBERSICHTFERIENFEIERTAGE>{% elif termin.Monat = 'Mai' %}<REISETERMINUEBERSICHTFERIENFEIERTAGE>	Himmelfahrt 09.05. - 12.05.2024 &amp; Pfingstferien 17.05. - 21.05.2024</REISETERMINUEBERSICHTFERIENFEIERTAGE>{% elif termin.Monat = 'Juli' %}<REISETERMINUEBERSICHTFERIENFEIERTAGE>	Sommerferien 20.07. - 31.08.2024</REISETERMINUEBERSICHTFERIENFEIERTAGE>{% elif termin.Monat = 'August' %}<REISETERMINUEBERSICHTFERIENFEIERTAGE>	Sommerferien 20.07. - 31.08.2024</REISETERMINUEBERSICHTFERIENFEIERTAGE>{% elif termin.Monat = 'Oktober' %}<REISETERMINUEBERSICHTFERIENFEIERTAGE>	Herbstferien 03.10. - 06.10.2024 &amp; 19.10. - 27.10.2024</REISETERMINUEBERSICHTFERIENFEIERTAGE>{% endif %}{% endif %}{% if termin.Termin != '' %}
 <REISETERMINUEBERSICHTREISE><REISETERMINUEBERSICHTNEU>{% if termin.neu %}Neu{% endif %}	</REISETERMINUEBERSICHTNEU>{% if termin.Termin %}<REISETERMINUEBERSICHTTERMIN>{{ termin.Termin }}</REISETERMINUEBERSICHTTERMIN>{% endif %}{% if termin.Tage %}	<REISETERMINUEBERSICHTTAGE>{{ termin.Tage }}</REISETERMINUEBERSICHTTAGE>{% endif %}{% if termin.Reiseziel %}	<REISETERMINUEBERSICHTREISEZIEL>{% if 'Rigoletto' in termin.Reiseziel and termin.Termin == '26.03.-28.03.21' %}Rigoletto in der Semperoper in Dresden{% elif 'Rigoletto' in termin.Reiseziel and termin.Termin == '25.06.-27.06.21' %}Der Freischütz in der Semperoper in Dresden{% else %}{{ termin.Reiseziel }}{% endif %}</REISETERMINUEBERSICHTREISEZIEL>{% endif %}{% if termin.Seite %}{% if 'Kuren' in termin.Reiseziel %}	<REISETERMINUEBERSICHTSEITE>117-119</REISETERMINUEBERSICHTSEITE>{% else %}	<REISETERMINUEBERSICHTSEITE>{{ termin.Seite }}</REISETERMINUEBERSICHTSEITE>{% endif %}{% elif 'Kuren' in termin.Reiseziel %}	<REISETERMINUEBERSICHTSEITE>117-119</REISETERMINUEBERSICHTSEITE>{% else %}	<REISETERMINUEBERSICHTSEITE>n.b.</REISETERMINUEBERSICHTSEITE>{% endif %}</REISETERMINUEBERSICHTREISE>{% endif %}{% endif %}{% endfor %}
 </REISETERMINUEBERSICHT>
 {% for reise in reisen %}
 <reise_{{ reise.reiseID|ohneminus }} {% if reise.neu %}NEU="JA" {% endif %}id="{{ reise.reiseID|ohneminus }}" titel="{{ reise.titel }}{% if reise.sonstigeReisebeschreibung_titel %} - {{ reise.sonstigeReisebeschreibung_titel }}{% endif %}" seite="{{ reise.katalogseite }}" anzahl_seiten="{{ reise.anzahl_seiten_im_katalog }}" position_auf_seite="{{ reise.position_auf_seite }}" kategorie="{% for kategorie in reise.kategorien %}{{ kategorie.kategorie }}{% if not forloop.last %}, {% endif %}{% endfor %}" zielregion="{% for zielregion in reise.zielregionen %}{{ zielregion.name }}{% if not forloop.last %}, {% endif %}{% endfor %}" file="reise_{{ reise.reiseID|ohneminus }}.xml"><SPALTELEISTUNGEN><NEUEREISE>{% if reise.neu %}<NEU>NEU</NEU>{% endif %}</NEUEREISE>
+<FLAGGEN>{% for zielregion in reise.zielregionen %}{% if zielregion.name != "Europa" and zielregion.name != "Asien" and zielregion.name != "Afrika" and zielregion.name != "Balkan" and zielregion.name != "Holland / Belgien" and "web" not in zielregion.name and zielregion.name != "Madeira" %}<FLAGGE href="file://..\..\Material\_Karten\Flagge\{{ zielregion.name }}.jpg"></FLAGGE>{% endif %}{% endfor %}</FLAGGEN>
 <REISETYPDATUM>{% if reise.veranstalter = 'SH' %}<VERANSTALTER>Veranstalter:
 SH Sewert Reisen GmbH</VERANSTALTER>
 {% elif reise.veranstalter = 'RT' %}<VERANSTALTER>Veranstalter:
 R&amp;T Reisen Ludwigslust GmbH</VERANSTALTER>
 {% endif %}{% if reise.zubucher %}<ZUBUCHER>{{ reise.zubucher }}</ZUBUCHER>
-{% endif %}<BALKEN_{{ reise.reisetyp|ohnetage }}></BALKEN_{{ reise.reisetyp|ohnetage }}>{% if reise.reisetyp %}
+{% endif %}<BALKEN_{{ reise.reisetyp|ohnetage }}><RUBRIK href="file://..\..\Material\Grafiken\Rubriken\{{ reise.reisetyp|ohnetage }}.svg"></RUBRIK></BALKEN_{{ reise.reisetyp|ohnetage }}>{% if reise.reisetyp %}
 <REISETYP>{{ reise.reisetyp }}</REISETYP>
-{% endif %}<REISETERMINE>{% if reise.termine %}Termin{{ reise.termine|length|pluralize:"e" }}:	{% if reise.titel = 'Kuren an der polnischen Ostseeküste' %}sh. Tabelle S. 119{% else %}{% for termin in reise.termine %}{% if termin.datum_ende %}{{ termin.datum_beginn|date:'d. m.' }} - {{ termin.datum_ende|date:'d. m. Y' }}<REISETERMINE_MARKIERUNG>{{ termin.markierung }}</REISETERMINE_MARKIERUNG>{% else %}{{ termin.datum_beginn|date:'D. d. m. Y' }}{% endif %}{% if termin.kommentar %}
+{% endif %}<REISETERMINE>{% if reise.termine %}{% if reise.titel = 'Kuren an der polnischen Ostseeküste' %}sh. Tabelle S. 119{% else %}{% for termin in reise.termine %}{% if termin.datum_ende %}{{ termin.datum_beginn|date:'d. m.' }} - {{ termin.datum_ende|date:'d. m. Y' }}<REISETERMINE_MARKIERUNG>{{ termin.markierung }}</REISETERMINE_MARKIERUNG>{% else %}{{ termin.datum_beginn|date:'D. d. m. Y' }}{% endif %}{% if termin.kommentar %}
 <REISETERMINE_KOMMENTAR>{{ termin.kommentar }}</REISETERMINE_KOMMENTAR>{% endif %}{% if reise.termine|length > 1 and forloop.counter < reise.termine|length%}
 	{% else %}{% endif %}{% endfor %}{% endif %}{% else %}Reisetermine sind noch nicht bekannt!{% endif %}</REISETERMINE></REISETYPDATUM>{% if reise.individualreisetext or reise.individualreisetitel %}
 <INDIVIDUALBUCHBAR>{% if reise.individualbuchbar %}{{ reise.individualbuchbar }}{% else %}Auch mit individuellem Aufenthalt buchbar.{% endif %}</INDIVIDUALBUCHBAR>{% endif %}
