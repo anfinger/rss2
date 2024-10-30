@@ -193,9 +193,17 @@
                           {% for zeit in tagesfahrt.abfahrtszeiten %}
                             {% if zeit.ort != 'ANK' %}
                               {% if 'Mi' in tagesfahrt.datum_markierung and forloop.counter == 1 %}
-                                15:00 Uhr {{ zeit.ort|abfahrtsorte }}</br>
+                                13:40 Uhr {{ zeit.ort|abfahrtsorte }}</br>
                               {% elif 'Mi' in tagesfahrt.datum_markierung and forloop.counter == 2 %}
-                                15:20 Uhr {{ zeit.ort|abfahrtsorte }}</br>
+                                14:30 Uhr {{ zeit.ort|abfahrtsorte }}</br>
+                              {% elif 'Mi' in tagesfahrt.datum_markierung and forloop.counter == 3 %}
+                                15:00 Uhr {{ zeit.ort|abfahrtsorte }}</br>
+                              {% elif 'So' in tagesfahrt.datum_markierung and forloop.counter == 1 %}
+                                09:40 Uhr {{ zeit.ort|abfahrtsorte }}</br>
+                              {% elif 'So' in tagesfahrt.datum_markierung and forloop.counter == 2 %}
+                                10:30 Uhr {{ zeit.ort|abfahrtsorte }}</br>
+                              {% elif 'So' in tagesfahrt.datum_markierung and forloop.counter == 3 %}
+                                11:00 Uhr {{ zeit.ort|abfahrtsorte }}</br>
                               {% else %}
                                 {{ zeit.zeit }} Uhr {{ zeit.ort|abfahrtsorte }}</br>
                               {% endif %}
@@ -229,7 +237,9 @@
                           {% for zeit in tagesfahrt.abfahrtszeiten %}
                             {% if zeit.ort == 'ANK' %}
                               {% if 'Mi' in tagesfahrt.datum_markierung  %}
-                                ca. 00:30 Uhr in Schwerin</br>
+                                ca. 00:00 Uhr in Schwerin</br>
+                              {% elif 'So' in tagesfahrt.datum_markierung  %}
+                                ca. 21:00 Uhr in Schwerin</br>
                               {% else %}
                                 ca. {{ zeit.zeit }} Uhr in Schwerin</br>
                               {% endif %}
