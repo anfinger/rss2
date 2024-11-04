@@ -958,7 +958,47 @@ def reiseterminuebersicht(request):
 
     cursor = connection.cursor()
     cursor.execute("SET lc_time_names = 'de_DE';")
-    cursor.execute("select reisen_reise.reiseID as pk, reisen_reise.korrektur_bemerkung_intern as intern, Veranstalter, DAYOFYEAR(datum_beginn) as tmp, 0 as tmp2, 0 as bus, date_format(reisen_reisetermine.datum_beginn, '%M') as Monat, reisen_reise.individualbuchbar, reisen_reise.neu, reisen_reise.titel as Reiseziel, reisen_reisetermine.datum_beginn, reisen_reisetermine.datum_ende, CONCAT(date_format(reisen_reisetermine.datum_beginn,'%d.%m.'), '-', date_format(reisen_reisetermine.datum_ende,'%d.%m.%y')) as Termin, (to_days(reisen_reisetermine.datum_ende)-to_days(reisen_reisetermine.datum_beginn)+1) as Tage, katalogseite, anzahl_seiten_im_katalog, position_auf_seite, concat(katalogseite,if(anzahl_seiten_im_katalog>1,concat('|',katalogseite+1),'')) as Seite from reisen_reise left join reisen_reisetermine on (reisen_reise.reiseID = reisen_reisetermine.reise_id_id) left join reisen_reisekatalogzugehoerigkeit on(reisen_reise.reiseID = reisen_reisekatalogzugehoerigkeit.reise_id_id) where reisen_reisekatalogzugehoerigkeit.katalog_id_id = '972c50f33a7447be9f11fbfdceb85fc2' AND date_format(reisen_reisetermine.datum_beginn, '%Y') > 2024 order by datum_beginn, datum_ende, katalogseite, position_auf_seite;")
+    cursor.execute("""
+                    SELECT
+                      reisen_reise.reiseID AS pk,
+                      reisen_reise.korrektur_bemerkung_intern AS intern,
+                      Veranstalter,
+                      DAYOFYEAR(datum_beginn) AS tmp,
+                      0 AS tmp2,
+                      0 AS bus,
+                      DATE_FORMAT(reisen_reisetermine.datum_beginn, '%M') AS Monat,
+                      reisen_reise.individualbuchbar,
+                      reisen_reise.neu,
+                      reisen_reise.titel AS Reiseziel,
+                      reisen_reisetermine.datum_beginn,
+                      reisen_reisetermine.datum_ende,
+                      CONCAT(DATE_FORMAT(reisen_reisetermine.datum_beginn,'%d.%m.'), '-', DATE_FORMAT(reisen_reisetermine.datum_ende,'%d.%m.%y')) AS Termin,
+                      (TO_DAYS(reisen_reisetermine.datum_ende)-TO_DAYS(reisen_reisetermine.datum_beginn)+1) AS Tage,
+                      katalogseite,
+                      anzahl_seiten_im_katalog,
+                      position_auf_seite,
+                      CONCAT(katalogseite,IF(anzahl_seiten_im_katalog>1,CONCAT('|',katalogseite+1),'')) AS Seite
+                    FROM
+                      reisen_reise
+                    LEFT JOIN
+                      reisen_reisetermine
+                    ON
+                      (reisen_reise.reiseID = reisen_reisetermine.reise_id_id)
+                    LEFT JOIN
+                      reisen_reisekatalogzugehoerigkeit
+                    ON
+                      (reisen_reise.reiseID = reisen_reisekatalogzugehoerigkeit.reise_id_id)
+                    WHERE
+                      reisen_reisekatalogzugehoerigkeit.katalog_id_id = '972c50f33a7447be9f11fbfdceb85fc2'
+                    AND
+                      DATE_FORMAT(reisen_reisetermine.datum_beginn, '%Y') > 2024
+                    ORDER BY
+                      datum_beginn,
+                      datum_ende,
+                      katalogseite,
+                      position_auf_seite;
+                  """)
+    
     termine = namedtuplefetchall(cursor)
 
     month = ''
@@ -985,6 +1025,8 @@ def reiseterminuebersicht(request):
           if 'Wander' in termine[i].Reiseziel:
             break
           if 'Kuren' in termine[i].Reiseziel:
+            break
+          if 'Musicalfahrt nach Hamburg' in termine[i].Reiseziel:
             break
           if termine[i].datum_beginn > dates[k] + timedelta(days=2):
             delta = termine[i].datum_beginn - dates[k]
