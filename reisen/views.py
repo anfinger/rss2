@@ -1026,9 +1026,7 @@ def reiseterminuebersicht(request):
             break
           if 'Kuren' in termine[i].Reiseziel:
             break
-          if 'Musicalfahrt nach Hamburg' in termine[i].Reiseziel:
-            break
-          if 'Musicalfahrt nach Berlin' in termine[i].Reiseziel:
+          if 'Musicalfahrt' in termine[i].Reiseziel:
             break
           if termine[i].datum_beginn > dates[k] + timedelta(days=2):
             delta = termine[i].datum_beginn - dates[k]
