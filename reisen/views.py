@@ -1028,6 +1028,8 @@ def reiseterminuebersicht(request):
             break
           if 'Musicalfahrt' in termine[i].Reiseziel:
             break
+          if 'Elbphilharmonie' in termine[i].Reiseziel:
+            break
           if termine[i].datum_beginn > dates[k] + timedelta(days=2):
             delta = termine[i].datum_beginn - dates[k]
             termine[i] = termine[i]._replace(tmp = delta.days-1)
