@@ -103,6 +103,8 @@
             {% else %}
           <div class="rTableCell" style="text-align: right; width: 40px">{{ termin.Tage }}</div>
             {% endif %}
+          {% else %}
+          <div class="rTableCell" style="text-align: right; width: 40px">1</div>
           {% endif %}
           {% if termin.Seite %}
             <div class="rTableCell" style="text-align: right; width: 40px">{{ termin.Seite }}</div>
