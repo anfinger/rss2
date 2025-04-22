@@ -25,6 +25,7 @@ urlpatterns = [
     url(r'^winter2223/$', views.winter2223, name='winter2223'),
     url(r'^winter2324/$', views.winter2324, name='winter2324'),
     url(r'^winter2425/$', views.winter2425, name='winter2425'),
+    url(r'^winter2526/$', views.winter2526, name='winter2526'),
     url(r'^sommer17/$', views.sommer17, name='sommer17'),
     url(r'^sommer18/$', views.sommer18, name='sommer18'),
     url(r'^sommer19/$', views.sommer19, name='sommer19'),

@@ -796,8 +796,30 @@ def winter2425(request):
 
     return render(request, 'reisen/index_reisen_web_alt.html', {'termine': termine, 'dibug': dibug, 'kategorien': kategorien })
 
+##################################################################
+# Winterreisen 2025 2026                                         #
+##################################################################
+def winter2526(request):
+
+    dibug = ''
+
+    cursor = connection.cursor()
+
+    cursor.execute("SELECT DISTINCT reiseID, RP.abpreis, reisen_kategorie.kategorie, reisen_reise.untertitel, einleitung, reisetyp, KT.katalogseiten, RT.reise_id_id, reisen_reise.titel, reisen_reise.sonstigeReisebeschreibung_titel, RT.min_datum, RT.reisetermine FROM reisen_reise LEFT JOIN (SELECT reise_id_id, MIN(datum_beginn) AS min_datum, group_concat(DISTINCT CONCAT_WS(' - ', DATE_FORMAT(datum_beginn,'%d. %m. %Y'), DATE_FORMAT(datum_ende,'%d. %m. %Y')) ORDER BY datum_beginn ASC SEPARATOR '\n') AS reisetermine FROM reisen_reisetermine GROUP BY reise_id_id ORDER BY min_datum) AS RT ON (RT.reise_id_id = reiseID) LEFT JOIN (SELECT reise_id_id, group_concat(DISTINCT CONCAT_WS(' auf der Seite ', reisen_katalog.titel, katalogseite) ORDER BY position ASC SEPARATOR ' und im Katalog ') AS katalogseiten FROM reisen_reisekatalogzugehoerigkeit LEFT JOIN reisen_katalog ON (reisen_katalog.katalogID = reisen_reisekatalogzugehoerigkeit.katalog_id_id) GROUP BY reise_id_id) as KT ON (KT.reise_id_id = reiseID) LEFT JOIN reisen_reisekatalogzugehoerigkeit ON (reisen_reisekatalogzugehoerigkeit.reise_id_id = reisen_reise.reiseID) left join reisen_reisekategorien on (reiseID = reisen_reisekategorien.reise_id_id) left join reisen_kategorie on (kategorieID = kategorie_id_id) left join (select reisen_reisepreise.reise_id_id, MIN(reisen_reisepreise.preis) AS abpreis from reisen_reisepreise GROUP BY reisen_reisepreise.reise_id_id) AS RP ON (reiseID = RP.reise_id_id) WHERE reisen_reisekatalogzugehoerigkeit.katalog_id_id = '91047b6622874816af2ee870908018c7' AND reisen_kategorie.kategorie in ('Musicals & Shows','Weihnachts- & Silvesterreisen', 'Adventsreisen & Weihnachtsmärkte', 'Kuren, Gesundheits- und Wellnessreisen', 'Flusskreuzfahrten', 'Ostern', 'kombinierte Flug- & Busreisen', 'Frühlingsreisen', 'Herbstreisen', 'Winterreisen') ORDER BY RT.min_datum;")
+
+    termine = namedtuplefetchall(cursor)
+
+    cursor.close()
+
+    #kategorien = ['Herbstreisen', u'Adventsreisen & Weihnachtsmärkte', u'Weihnachts- & Silvesterreisen', 'Winterreisen', u'Frühlingsreisen', 'Ostern', u'Kuren, Gesundheits- und Wellnessreisen', 'kombinierte Flug- & Busreisen', 'Flusskreuzfahrten', 'Musicals & Shows']
+    kategorien = [u'Herbstreisen', u'Adventsreisen & Weihnachtsmärkte', u'Weihnachts- & Silvesterreisen', 'Winterreisen', u'Frühlingsreisen', u'Kuren, Gesundheits- und Wellnessreisen', 'kombinierte Flug- & Busreisen', 'Flusskreuzfahrten', 'Musicals & Shows']
+
+    #dibug = ''#DefaultStorage().location + '  :::  ' + site.storage.location + site.directory + '  :::  ' + str(FileSystemStorage().directory_permissions_mode)
+
+    return render(request, 'reisen/index_reisen_web_alt.html', {'termine': termine, 'dibug': dibug, 'kategorien': kategorien })
+
 ########################################################
-# XML Export alle Reisen nach Termin Winter 2023/24     #
+# XML Export alle Reisen nach Termin Winter 2025/26     #
 ########################################################
 def reiseuebersichtwinter(request):
 
@@ -851,7 +873,7 @@ def reiseuebersichtwinter(request):
         ON
           reisen_reise.reiseID = reisen_reisekatalogzugehoerigkeit.reise_id_id
         WHERE
-          reisen_reisekatalogzugehoerigkeit.katalog_id_id = '7ea72a2dd81d4c55b1d06231afc30f3f'
+          reisen_reisekatalogzugehoerigkeit.katalog_id_id = '91047b6622874816af2ee870908018c7'
         AND
           katalogseite > 0
         ORDER BY
@@ -889,38 +911,38 @@ def reiseuebersichtwinter(request):
       if u'Kuren an der polnischen Ostseeküste' in termine[i].Reiseziel:
         termine[i] = termine[i]._replace(Termin = '')
       if u'Blauf' in termine[i].Reiseziel and blau != True:
-        termine[i] = termine[i]._replace(Termin = 'Okt. 24')
+        termine[i] = termine[i]._replace(Termin = 'Okt. 25')
         blau = True
       elif u'Blauf' in termine[i].Reiseziel and blau != False:
         termine[i] = termine[i]._replace(Termin = '')
       if u'Azoren' in termine[i].Reiseziel and azoren != True:
-        termine[i] = termine[i]._replace(Termin = 'Okt. 23 & Apr. 24')
+        termine[i] = termine[i]._replace(Termin = 'Okt. 25 & Apr. 26')
         azoren = True
       elif u'Azoren' in termine[i].Reiseziel and azoren != False:
         termine[i] = termine[i]._replace(Termin = '')
       if u'ewige Stadt' in termine[i].Reiseziel and rom != True:
-        termine[i] = termine[i]._replace(Termin = 'Okt. 24 & 25')
+        termine[i] = termine[i]._replace(Termin = 'Okt. 25 & 26')
         rom = True
       elif u'ewige Stadt' in termine[i].Reiseziel and rom != False:
         termine[i] = termine[i]._replace(Termin = '')
       if u'Andalusien' in termine[i].Reiseziel and andalusien != True:
-        termine[i] = termine[i]._replace(Termin = 'Okt. 24 & 25')
+        termine[i] = termine[i]._replace(Termin = 'Okt. 25 & 26')
         andalusien = True
       elif u'Andalusien' in termine[i].Reiseziel and andalusien != False:
         termine[i] = termine[i]._replace(Termin = '')
       if u'Dankesch' in termine[i].Reiseziel and danke != True:
-        termine[i] = termine[i]._replace(Termin = 'Nov. 24 & Jan. 25')
+        termine[i] = termine[i]._replace(Termin = 'Nov. 25 & Jan. 26')
         danke = True
       elif u'Dankesch' in termine[i].Reiseziel and danke != False:
         termine[i] = termine[i]._replace(Termin = '')
       if u'Swinemünde' in termine[i].Reiseziel and swine != True:
-        termine[i] = termine[i]._replace(Termin = 'Okt. 24 bis März 25')
+        termine[i] = termine[i]._replace(Termin = 'Okt. 25 bis März 26')
         termine[i] = termine[i]._replace(Tage = '8')
         swine = True
       elif u'Swinemünde' in termine[i].Reiseziel and swine != False:
         termine[i] = termine[i]._replace(Termin = '')
       if u'Barcelona' in termine[i].Reiseziel and barcelona != True:
-        termine[i] = termine[i]._replace(Termin = 'Okt. 24 & 25')
+        termine[i] = termine[i]._replace(Termin = 'Okt. 25 & 26')
         barcelona = True
       elif u'Barcelona' in termine[i].Reiseziel and barcelona != False:
         termine[i] = termine[i]._replace(Termin = '')
@@ -932,7 +954,7 @@ def reiseuebersichtwinter(request):
       if not termine[i].Tage:
         termine[i] = termine[i]._replace(Termin = '')
       if u'Grünen Woche' in termine[i].Reiseziel and gruenewoche == False:
-        termine[i] = termine[i]._replace(Termin = '22. bis 27.01.24')
+        termine[i] = termine[i]._replace(Termin = '22. bis 27.01.25')
         termine[i] = termine[i]._replace(Tage = '1')
         gruenewoche = True
       elif u'Grünen Woche' in termine[i].Reiseziel and gruenewoche == True:
