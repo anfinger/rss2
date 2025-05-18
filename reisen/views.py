@@ -1334,7 +1334,7 @@ def reise_detail(request, pk):
 
     #data = serializers.serialize("xml", Reisetermine.objects.filter(reise_id=pk).order_by('datum_beginn'))
 
-    qs = Reisetermine.objects.filter(reise_id=pk).order_by('datum_beginn')
+    qs = Reisetermine.objects.filter(reise_id=pk).order_by('datum_beginn', 'datum_ende')
 
     #XMLSerializer = serializers.get_serializer("xml")
     #xml_serializer = XMLSerializer()
@@ -1346,7 +1346,7 @@ def reise_detail(request, pk):
 
     #dibug = 'NIX PASSIERT'
     reise = get_object_or_404(Reise, pk=pk)
-    termine = Reisetermine.objects.filter(reise_id=pk).order_by('datum_beginn')
+    termine = Reisetermine.objects.filter(reise_id=pk).order_by('datum_beginn', 'datum_ende')
     abfahrtszeiten = Abfahrtszeiten.objects.filter(reise_id=pk).order_by('position')
     leistungen = LeistungenReise.objects.filter(reise_id=pk).filter(nichtindividual=0).order_by('position')
     leistungennichtindividual = LeistungenReise.objects.filter(reise_id=pk).filter(nichtindividual=1).order_by('position')
