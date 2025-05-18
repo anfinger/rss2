@@ -592,6 +592,8 @@
                                           {% include "reisen/kuren-interferie-1617.html" %}
                                         {% elif 'Interferie' in reise.sonstigeReisebeschreibung_titel %}
                                           {% include "reisen/kuren-interferie.html" %}
+                                        {% elif 'Rezydent' in reise.sonstigeReisebeschreibung_titel %}
+                                          {% include "reisen/kuren-rezydent.html" %}
                                         {% elif 'IKAR' in reise.titel %}
                                           {% include "reisen/kuren-ikar-1617.html" %}
                                         {% elif 'Ikar' in reise.sonstigeReisebeschreibung_titel %}
