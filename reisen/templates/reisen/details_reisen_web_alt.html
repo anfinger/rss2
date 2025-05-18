@@ -598,6 +598,8 @@
                                           {% include "reisen/kuren-ikar-1617.html" %}
                                         {% elif 'Ikar' in reise.sonstigeReisebeschreibung_titel and 'Plaza' not in reise.sonstigeReisebeschreibung_titel %}
                                           {% include "reisen/kuren-ikar.html" %}
+                                        {% elif 'Plaza' in reise.sonstigeReisebeschreibung_titel %}
+                                          {% include "reisen/kuren-ikar-plaza.html" %}
                                         {% elif 'Hamilton' in reise.sonstigeReisebeschreibung_titel %}
                                           {% include "reisen/kuren-hamilton.html" %}
                                         {% endif %}
