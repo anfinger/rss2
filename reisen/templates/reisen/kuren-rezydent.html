@@ -36,7 +36,7 @@
                                               <td>{% dauer termin.datum_ende termin.datum_beginn %} Tage</td>
                                               <td>{{ preis.preis }} &euro;</td>
                                               {% if preis.zpreis %}
-                                              <td>{{ preis.zpreis|nurbetrag|safe }}</td>
+                                              <td>{{ preis.zpreis|nurbetrag|safe }}-{{ preis.zpreis }}</td>
                                               {% endif %}
                                                   {% endif %}
                                                 {% endfor %}
