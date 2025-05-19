@@ -175,6 +175,7 @@ def dauer(ende, beginn):
 def nurbetrag(zpreis):
     if zpreis:
       zpreis = re.sub(r'EZ-Zuschlag: ', u'', zpreis)
+      zpreis = re.sub(r'EZ-Zuschlag', u'0 €', zpreis)
       zpreis = re.sub(r'\n', u'</td><td>', zpreis)
       zpreis = re.sub(r'Zuschlag gr. DZ: ', u'', zpreis)
       zpreis = re.sub(r'VP-Zuschlag: ', u'', zpreis)
