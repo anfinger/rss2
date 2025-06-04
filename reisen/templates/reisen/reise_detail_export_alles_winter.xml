@@ -120,7 +120,7 @@ R&amp;T Reisen Ludwigslust GmbH</VERANSTALTER>
 <PREIS><PREISTITEL>Preis p.P.:</PREISTITEL>	<BETRAG>ab 625 €</BETRAG></PREIS>
 <PREISZUSATZ>siehe Preistabelle S. 61</PREISZUSATZ></PREISE>{% elif 'Trofana' in reise.sonstigeReisebeschreibung_titel and reise.titel = 'Kuren an der polnischen Ostseeküste' %}<PREISE>
 <PREIS><PREISTITEL>Preis p.P.:</PREISTITEL>	<BETRAG>ab 640 €</BETRAG></PREIS>
-<PREISZUSATZ>siehe Preistabelle S. 61</PREISZUSATZ></PREISE>{% elif 'Baginski' in reise.sonstigeReisebeschreibung_titel and reise.titel = 'Kuren an der polnischen Ostseeküste' %}<PREISE>
+<PREISZUSATZ>siehe Preistabelle S. 61</PREISZUSATZ></PREISE>{% elif 'B & C' in reise.sonstigeReisebeschreibung_titel and reise.titel = 'Kuren an der polnischen Ostseeküste' %}<PREISE>
 <PREIS><PREISTITEL>Preis p.P.:</PREISTITEL>	<BETRAG>ab 630 €</BETRAG></PREIS>
 <PREISZUSATZ>siehe Preistabelle S. 61</PREISZUSATZ></PREISE>{% elif 'Baltic' in reise.sonstigeReisebeschreibung_titel and reise.titel = 'Kuren an der polnischen Ostseeküste' %}<PREISE>
 <PREIS><PREISTITEL>Preis p.P.:</PREISTITEL>	<BETRAG>ab 615 €</BETRAG></PREIS>
