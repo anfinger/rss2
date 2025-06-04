@@ -98,16 +98,32 @@ R&amp;T Reisen Ludwigslust GmbH</VERANSTALTER>
 {% endif %}{% for zusatzleistung in reise.zusatzleistungen %}{% if zusatzleistung.kommentar_titel %}<ZLKOMMENTAR>{{ zusatzleistung.kommentar_titel }}</ZLKOMMENTAR>
 {% endif %}{% if zusatzleistung.titel %}<ZL>{{ zusatzleistung.titel }}</ZL>	{% else %}<ZL>Titel Zusatleistung nicht bekannt</ZL>	{% endif %}{% if zusatzleistung.preis %}<ZLPREIS>{% if zusatzleistung.preis_titel = 'ab' %}{{ zusatzleistung.preis_titel }} {% endif %}{{ zusatzleistung.preis|preisformat }} €</ZLPREIS>{% else %}<ZLPREIS></ZLPREIS>{% endif %}{% if zusatzleistung.kommentar %}
 <ZLABSCHLUSSKOMMENTAR>{{ zusatzleistung.kommentar }}</ZLABSCHLUSSKOMMENTAR>{% endif %}
-{% endfor %}{% if reise.zusatzleistungen_fuss_kommentar %}<ZLFUSSKOMMENTAR>{{ reise.zusatzleistungen_fuss_kommentar }}</ZLFUSSKOMMENTAR>{% endif %}</ZUSATZLEISTUNGEN>{% endif %}</LEISTUNGEN>{% if 'Ikar' in reise.sonstigeReisebeschreibung_titel and reise.titel = 'Kuren an der polnischen Ostseeküste' %}<PREISE>
-<PREIS><PREISTITEL>Preis p.P.:</PREISTITEL>	<BETRAG>ab 580 €</BETRAG></PREIS>
+{% endfor %}{% if reise.zusatzleistungen_fuss_kommentar %}<ZLFUSSKOMMENTAR>{{ reise.zusatzleistungen_fuss_kommentar }}</ZLFUSSKOMMENTAR>{% endif %}</ZUSATZLEISTUNGEN>{% endif %}</LEISTUNGEN>{% if reise.sonstigeReisebeschreibung_titel = 'Ikar' and reise.titel = 'Kuren an der polnischen Ostseeküste' %}<PREISE>
+<PREIS><PREISTITEL>Preis p.P.:</PREISTITEL>	<BETRAG>ab 605 €</BETRAG></PREIS>
 <PREISZUSATZ>siehe Preistabelle S. 61</PREISZUSATZ></PREISE>{% elif 'Arstone' in reise.sonstigeReisebeschreibung_titel and reise.titel = 'Kuren an der polnischen Ostseeküste' %}<PREISE>
-<PREIS><PREISTITEL>Preis p.P.:</PREISTITEL>	<BETRAG>ab 525 €</BETRAG></PREIS>
+<PREIS><PREISTITEL>Preis p.P.:</PREISTITEL>	<BETRAG>ab 566 €</BETRAG></PREIS>
 <PREISZUSATZ>siehe Preistabelle S. 61</PREISZUSATZ></PREISE>{% elif 'Rybniczanka' in reise.sonstigeReisebeschreibung_titel and reise.titel = 'Kuren an der polnischen Ostseeküste' %}<PREISE>
-<PREIS><PREISTITEL>Preis p.P.:</PREISTITEL>	<BETRAG>ab 595 €</BETRAG></PREIS>
+<PREIS><PREISTITEL>Preis p.P.:</PREISTITEL>	<BETRAG>ab 625 €</BETRAG></PREIS>
 <PREISZUSATZ>siehe Preistabelle S. 61</PREISZUSATZ></PREISE>{% elif 'Interferie' in reise.sonstigeReisebeschreibung_titel and reise.titel = 'Kuren an der polnischen Ostseeküste' %}<PREISE>
-<PREIS><PREISTITEL>Preis p.P.:</PREISTITEL>	<BETRAG>ab 660 €</BETRAG></PREIS>
+<PREIS><PREISTITEL>Preis p.P.:</PREISTITEL>	<BETRAG>ab 650 €</BETRAG></PREIS>
 <PREISZUSATZ>siehe Preistabelle S. 61</PREISZUSATZ></PREISE>{% elif 'Hamilton' in reise.sonstigeReisebeschreibung_titel and reise.titel = 'Kuren an der polnischen Ostseeküste' %}<PREISE>
+<PREIS><PREISTITEL>Preis p.P.:</PREISTITEL>	<BETRAG>ab 665 €</BETRAG></PREIS>
+<PREISZUSATZ>siehe Preistabelle S. 61</PREISZUSATZ></PREISE>{% elif 'Plaza' in reise.sonstigeReisebeschreibung_titel and reise.titel = 'Kuren an der polnischen Ostseeküste' %}<PREISE>
+<PREIS><PREISTITEL>Preis p.P.:</PREISTITEL>	<BETRAG>ab 625 €</BETRAG></PREIS>
+<PREISZUSATZ>siehe Preistabelle S. 61</PREISZUSATZ></PREISE>{% elif 'Platino' in reise.sonstigeReisebeschreibung_titel and reise.titel = 'Kuren an der polnischen Ostseeküste' %}<PREISE>
 <PREIS><PREISTITEL>Preis p.P.:</PREISTITEL>	<BETRAG>ab 620 €</BETRAG></PREIS>
+<PREISZUSATZ>siehe Preistabelle S. 61</PREISZUSATZ></PREISE>{% elif 'Unitral' in reise.sonstigeReisebeschreibung_titel and reise.titel = 'Kuren an der polnischen Ostseeküste' %}<PREISE>
+<PREIS><PREISTITEL>Preis p.P.:</PREISTITEL>	<BETRAG>ab 620 €</BETRAG></PREIS>
+<PREISZUSATZ>siehe Preistabelle S. 61</PREISZUSATZ></PREISE>{% elif 'Bryza' in reise.sonstigeReisebeschreibung_titel and reise.titel = 'Kuren an der polnischen Ostseeküste' %}<PREISE>
+<PREIS><PREISTITEL>Preis p.P.:</PREISTITEL>	<BETRAG>ab 510 €</BETRAG></PREIS>
+<PREISZUSATZ>siehe Preistabelle S. 61</PREISZUSATZ></PREISE>{% elif 'Rezydent' in reise.sonstigeReisebeschreibung_titel and reise.titel = 'Kuren an der polnischen Ostseeküste' %}<PREISE>
+<PREIS><PREISTITEL>Preis p.P.:</PREISTITEL>	<BETRAG>ab 625 €</BETRAG></PREIS>
+<PREISZUSATZ>siehe Preistabelle S. 61</PREISZUSATZ></PREISE>{% elif 'Trofana' in reise.sonstigeReisebeschreibung_titel and reise.titel = 'Kuren an der polnischen Ostseeküste' %}<PREISE>
+<PREIS><PREISTITEL>Preis p.P.:</PREISTITEL>	<BETRAG>ab 640 €</BETRAG></PREIS>
+<PREISZUSATZ>siehe Preistabelle S. 61</PREISZUSATZ></PREISE>{% elif 'Baginski' in reise.sonstigeReisebeschreibung_titel and reise.titel = 'Kuren an der polnischen Ostseeküste' %}<PREISE>
+<PREIS><PREISTITEL>Preis p.P.:</PREISTITEL>	<BETRAG>ab 630 €</BETRAG></PREIS>
+<PREISZUSATZ>siehe Preistabelle S. 61</PREISZUSATZ></PREISE>{% elif 'Baltic' in reise.sonstigeReisebeschreibung_titel and reise.titel = 'Kuren an der polnischen Ostseeküste' %}<PREISE>
+<PREIS><PREISTITEL>Preis p.P.:</PREISTITEL>	<BETRAG>ab 615 €</BETRAG></PREIS>
 <PREISZUSATZ>siehe Preistabelle S. 61</PREISZUSATZ></PREISE>{% else %}{% if reise.preise %}<PREISE> {% for preis in reise.preise %}
 {% if preis.titel == 'Individualpreis p.P.'%}<INDIVIDUALPREIS>{% else %}<PREIS>{% endif %}{% if preis.kommentar == 'ab' %}<PREISTITEL>{% if preis.markierung %}{{preis.markierung }}{% endif %}{{ preis.titel }}:</PREISTITEL>	<BETRAG>{{ preis.kommentar }} {{ preis.preis|floatformat:0|intcomma }} €</BETRAG>{% else %}<PREISTITEL>{% if preis.markierung %}{{preis.markierung }}{% endif %}{{ preis.titel }}:</PREISTITEL>	<BETRAG>{{ preis.preis|floatformat:0|intcomma }} €</BETRAG>{% if preis.kommentar %}
 <PREISKOMMENTAR>{{ preis.kommentar }}</PREISKOMMENTAR>{% endif %}{% endif %}{% if preis.titel == 'Individualpreis p.P.'%}</INDIVIDUALPREIS>{% else %}</PREIS>{% endif %}{% if preis.zusatzpreise %}
