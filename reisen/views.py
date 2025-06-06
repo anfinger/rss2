@@ -2219,7 +2219,7 @@ def reiseuebersichtwinter_alles(pk):
       ON
         (reisen_reise.reiseID = reisen_reisekatalogzugehoerigkeit.reise_id_id)
       WHERE
-        reisen_reisekatalogzugehoerigkeit.katalog_id_id = '" + str(pk) + "'
+        reisen_reisekatalogzugehoerigkeit.katalog_id_id = '""" + str(pk) + """'
       AND
         katalogseite > 0
       ORDER BY
