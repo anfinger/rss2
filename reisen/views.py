@@ -2132,7 +2132,7 @@ def reiseuebersichtwinter_alles(pk):
 
     cursor = connection.cursor()
     cursor.execute("SET lc_time_names = 'de_DE';")
-    cursor.execute("SELECT   reiseID, reisen_reise.korrektur_bemerkung_intern as intern, kat.groupkat as k,   reisen_reise.individualbuchbar,   reisen_reise.neu,   reisen_reise.titel as Reiseziel,   reisen_reise.sonstigeReisebeschreibung_titel as Zusatztitel,   CONCAT(     date_format(reisen_reisetermine.datum_beginn,'%d.%m.'),     '-',     date_format(reisen_reisetermine.datum_ende,'%d.%m.%y')   ) as Termin,   (to_days(reisen_reisetermine.datum_ende)-to_days(reisen_reisetermine.datum_beginn)+1) as Tage,   concat(     katalogseite,     if(anzahl_seiten_im_katalog>1,concat('|',katalogseite+1),'')   ) as Seite FROM   reisen_reise LEFT JOIN   reisen_reisetermine   ON   (reisen_reise.reiseID = reisen_reisetermine.reise_id_id) LEFT JOIN (SELECT reise_id_id, group_concat(kategorie) as groupkat from reisen_reisekategorien left join reisen_kategorie on kategorieID = kategorie_id_id where kategorie in ('kombinierte Flug- & Busreisen', 'Flusskreuzfahrten', 'Busreisen') group by reise_id_id) AS kat ON (kat.reise_id_id = reisen_reise.reiseID) LEFT JOIN   reisen_reisekatalogzugehoerigkeit   ON   (reisen_reise.reiseID = reisen_reisekatalogzugehoerigkeit.reise_id_id) WHERE   reisen_reisekatalogzugehoerigkeit.katalog_id_id = '" + str(pk) + "' AND katalogseite > 0 ORDER BY FIELD(k, 'Busreisen', 'kombinierte Flug- & Busreisen', 'Flusskreuzfahrten'),   datum_beginn,   katalogseite,   position_auf_seite,   datum_ende;")
+    cursor.execute("SELECT   reiseID, reisen_reise.korrektur_bemerkung_intern as intern, kat.groupkat as k,   reisen_reise.individualbuchbar,   reisen_reise.neu,   reisen_reise.titel as Reiseziel,   reisen_reise.sonstigeReisebeschreibung_titel as Zusatztitel,   CONCAT(     date_format(reisen_reisetermine.datum_beginn,'%d.%m.'),     '-',     date_format(reisen_reisetermine.datum_ende,'%d.%m.%y')   ) as Termin,   (to_days(reisen_reisetermine.datum_ende)-to_days(reisen_reisetermine.datum_beginn)+1) as Tage,   concat(     katalogseite,     if(anzahl_seiten_im_katalog>1,concat('|',katalogseite+1),'')   ) as Seite FROM   reisen_reise LEFT JOIN   reisen_reisetermine   ON   (reisen_reise.reiseID = reisen_reisetermine.reise_id_id) LEFT JOIN (SELECT reise_id_id, group_concat(kategorie) as groupkat from reisen_reisekategorien left join reisen_kategorie on kategorieID = kategorie_id_id where kategorie in ('kombinierte Flug- & Busreisen', 'Flusskreuzfahrten', 'Busreisen') group by reise_id_id) AS kat ON (kat.reise_id_id = reisen_reise.reiseID) LEFT JOIN   reisen_reisekatalogzugehoerigkeit   ON   (reisen_reise.reiseID = reisen_reisekatalogzugehoerigkeit.reise_id_id) WHERE   reisen_reisekatalogzugehoerigkeit.katalog_id_id = '" + str(pk) + "' AND katalogseite > 0 ORDER BY FIELD(k, 'Busreisen', 'kombinierte Flug- & Busreisen', 'Flusskreuzfahrten'),   datum_beginn,   datum_ende,   katalogseite,   position_auf_seite;")
     termine = namedtuplefetchall(cursor)
 
     swine = False
@@ -2198,7 +2198,7 @@ def reiseuebersichtwinter_alles(pk):
       if not termine[i].Tage:
         termine[i] = termine[i]._replace(Termin = '')
       if u'Grünen Woche' in termine[i].Reiseziel and gruenewoche == False:
-        termine[i] = termine[i]._replace(Termin = '20., 22., 25.01.25')
+        termine[i] = termine[i]._replace(Termin = '20., 22., 24.01.26')
         termine[i] = termine[i]._replace(Tage = '1')
         gruenewoche = True
       elif u'Grünen Woche' in termine[i].Reiseziel and gruenewoche == True:
