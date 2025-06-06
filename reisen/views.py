@@ -836,8 +836,14 @@ def reiseuebersichtwinter(request):
         reisen_reise.sonstigeReisebeschreibung_titel AS Zusatztitel,
         CONCAT(
           DATE_FORMAT(reisen_reisetermine.datum_beginn,'%d.%m.'),
-          '-',
-          DATE_FORMAT(reisen_reisetermine.datum_ende,'%d.%m.%y')
+          IF(
+            reisen_reisetermine.datum_beginn != reisen_reisetermine.datum_ende,
+            CONCAT(
+              '-',
+              DATE_FORMAT(reisen_reisetermine.datum_ende,'%d.%m.%y')
+            ),
+            ''
+          )
         ) AS Termin,
         (TO_DAYS(reisen_reisetermine.datum_ende)-TO_DAYS(reisen_reisetermine.datum_beginn)+1) AS Tage,
         CONCAT(
@@ -883,9 +889,9 @@ def reiseuebersichtwinter(request):
             'kombinierte Flug- & Busreisen',
             'Flusskreuzfahrten'
           ),
-          katalogseite,
           datum_beginn,
           datum_ende,
+          katalogseite,
           position_auf_seite;
         """)
 
