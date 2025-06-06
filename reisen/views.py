@@ -839,7 +839,7 @@ def reiseuebersichtwinter(request):
           IF(
             reisen_reisetermine.datum_beginn != reisen_reisetermine.datum_ende,
             CONCAT(
-              '-',
+              ' - ',
               DATE_FORMAT(reisen_reisetermine.datum_ende,'%d.%m.%y')
             ),
             ''
@@ -2176,7 +2176,7 @@ def reiseuebersichtwinter_alles(pk):
           IF(
             reisen_reisetermine.datum_beginn != reisen_reisetermine.datum_ende,
             CONCAT(
-              '-',
+              ' - ',
               DATE_FORMAT(reisen_reisetermine.datum_ende,'%d.%m.%y')
             ),
             ''
