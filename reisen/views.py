@@ -1869,7 +1869,7 @@ def reise_detail_export(request, pk):
 
     dibug = ''
     reise = get_object_or_404(Reise, pk=pk)
-    termine = Reisetermine.objects.filter(reise_id=pk).order_by('datum_beginn')
+    termine = Reisetermine.objects.filter(reise_id=pk).order_by('datum_beginn', 'datum_ende')
     abfahrtszeiten = Abfahrtszeiten.objects.filter(reise_id=pk).order_by('position')
 
     for abfahrtszeit in abfahrtszeiten:
@@ -2254,7 +2254,7 @@ def reise_detail_export_alles(request, pk):
         "tage": Reisetage.objects.filter(reise_id=rid.reiseID).order_by('tagnummer'),
         #"katalogseite": list(Reisekatalogzugehoerigkeit.objects.filter(katalog_id=pk).values('katalogseite')),
         #"reisedaten": get_object_or_404(Reise, pk=rid.reiseID),
-        "termine": Reisetermine.objects.filter(reise_id=rid.reiseID).order_by('datum_beginn'),
+        "termine": Reisetermine.objects.filter(reise_id=rid.reiseID).order_by('datum_beginn', 'datum_ende'),
         "kategorien": [
           {
             "kategorie": str(kategorie.kategorie_id)
