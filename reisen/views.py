@@ -884,9 +884,9 @@ def reiseuebersichtwinter(request):
             'Flusskreuzfahrten'
           ),
           katalogseite,
-          position_auf_seite,
           datum_beginn,
-          datum_ende;
+          datum_ende,
+          position_auf_seite;
         """)
 
     termine = namedtuplefetchall(cursor)
@@ -2155,12 +2155,12 @@ def reiseuebersichtwinter_alles(pk):
       if u'Kuren an der polnischen Ostseeküste' in termine[i].Reiseziel:
         termine[i] = termine[i]._replace(Termin = '')
       if u'Blauf' in termine[i].Reiseziel and blau != True:
-        termine[i] = termine[i]._replace(Termin = 'Okt. 24')
+        termine[i] = termine[i]._replace(Termin = 'Okt. 25')
         blau = True
       elif u'Blauf' in termine[i].Reiseziel and blau != False:
         termine[i] = termine[i]._replace(Termin = '')
       if u'Dankesch' in termine[i].Reiseziel and danke != True:
-        termine[i] = termine[i]._replace(Termin = 'Nov. 24 & Jan. 25')
+        termine[i] = termine[i]._replace(Termin = 'Nov. 25 & Jan. 26')
         danke = True
       elif u'Dankesch' in termine[i].Reiseziel and danke != False:
         termine[i] = termine[i]._replace(Termin = '')
@@ -2170,23 +2170,23 @@ def reiseuebersichtwinter_alles(pk):
       elif u'Azoren' in termine[i].Reiseziel and azoren != False:
         termine[i] = termine[i]._replace(Termin = '')
       if u'ewige Stadt' in termine[i].Reiseziel and rom != True:
-        termine[i] = termine[i]._replace(Termin = 'Okt. 24 & Okt. 25')
+        termine[i] = termine[i]._replace(Termin = 'Okt. 25 & Okt. 26')
         rom = True
       elif u'ewige Stadt' in termine[i].Reiseziel and rom != False:
         termine[i] = termine[i]._replace(Termin = '')
       if u'Andalusien' in termine[i].Reiseziel and andalusien != True:
-        termine[i] = termine[i]._replace(Termin = 'Okt. 24 & Okt. 25')
+        termine[i] = termine[i]._replace(Termin = 'Okt. 25 & Okt. 25')
         andalusien = True
       elif u'Andalusien' in termine[i].Reiseziel and andalusien != False:
         termine[i] = termine[i]._replace(Termin = '')
       if u'Swinemünde' in termine[i].Reiseziel and swine != True:
-        termine[i] = termine[i]._replace(Termin = 'Okt. 24 bis März 25')
+        termine[i] = termine[i]._replace(Termin = 'Okt. 25 bis März 26')
         termine[i] = termine[i]._replace(Tage = '8')
         swine = True
       elif u'Swinemünde' in termine[i].Reiseziel and swine != False:
         termine[i] = termine[i]._replace(Termin = '')
       if u'Barcelona' in termine[i].Reiseziel and barcelona != True:
-        termine[i] = termine[i]._replace(Termin = 'Okt. 24 & Okt. 25')
+        termine[i] = termine[i]._replace(Termin = 'Okt. 25 & Okt. 26')
         barcelona = True
       elif u'Barcelona' in termine[i].Reiseziel and barcelona != False:
         termine[i] = termine[i]._replace(Termin = '')
