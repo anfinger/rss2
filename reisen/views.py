@@ -954,12 +954,12 @@ def reiseuebersichtwinter(request):
         danke = True
       elif u'Dankesch' in termine[i].Reiseziel and danke != False:
         termine[i] = termine[i]._replace(Termin = '')
-      if u'Swinemünde' in termine[i].Reiseziel and swine != True:
-        termine[i] = termine[i]._replace(Termin = 'Okt. 25 bis März 26')
-        termine[i] = termine[i]._replace(Tage = '8')
-        swine = True
-      elif u'Swinemünde' in termine[i].Reiseziel and swine != False:
-        termine[i] = termine[i]._replace(Termin = '')
+      #if u'Swinemünde' in termine[i].Reiseziel and swine != True:
+      #  termine[i] = termine[i]._replace(Termin = 'Okt. 25 bis März 26')
+      #  termine[i] = termine[i]._replace(Tage = '8')
+      #  swine = True
+      #elif u'Swinemünde' in termine[i].Reiseziel and swine != False:
+      #  termine[i] = termine[i]._replace(Termin = '')
       if u'Barcelona' in termine[i].Reiseziel and barcelona != True:
         termine[i] = termine[i]._replace(Termin = 'Okt. 25 & März 26')
         barcelona = True
