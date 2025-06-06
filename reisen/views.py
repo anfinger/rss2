@@ -835,7 +835,7 @@ def reiseuebersichtwinter(request):
         reisen_reise.titel AS Reiseziel,
         reisen_reise.sonstigeReisebeschreibung_titel AS Zusatztitel,
         CONCAT(
-          DATE_FORMAT(reisen_reisetermine.datum_beginn,'%d.%m.'),
+          DATE_FORMAT(reisen_reisetermine.datum_beginn,'%d.%m.%y'),
           IF(
             reisen_reisetermine.datum_beginn != reisen_reisetermine.datum_ende,
             CONCAT(
