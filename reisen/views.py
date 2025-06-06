@@ -978,7 +978,7 @@ def reiseuebersichtwinter(request):
       if not termine[i].Tage:
         termine[i] = termine[i]._replace(Termin = '')
       if u'Grünen Woche' in termine[i].Reiseziel and gruenewoche == False:
-        termine[i] = termine[i]._replace(Termin = '22. bis 27.01.25')
+        termine[i] = termine[i]._replace(Termin = '20., 22. & 24.01.26')
         termine[i] = termine[i]._replace(Tage = '1')
         gruenewoche = True
       elif u'Grünen Woche' in termine[i].Reiseziel and gruenewoche == True:
