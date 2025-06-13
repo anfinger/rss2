@@ -99,9 +99,9 @@ R&amp;T Reisen Ludwigslust GmbH</VERANSTALTER>
 {% endif %}{% if zusatzleistung.titel %}<ZL>{{ zusatzleistung.titel }}</ZL>	{% else %}<ZL>Titel Zusatleistung nicht bekannt</ZL>	{% endif %}{% if zusatzleistung.preis %}<ZLPREIS>{% if zusatzleistung.preis_titel = 'ab' %}{{ zusatzleistung.preis_titel }} {% endif %}{{ zusatzleistung.preis|preisformat }} €</ZLPREIS>{% else %}<ZLPREIS></ZLPREIS>{% endif %}{% if zusatzleistung.kommentar %}
 <ZLABSCHLUSSKOMMENTAR>{{ zusatzleistung.kommentar }}</ZLABSCHLUSSKOMMENTAR>{% endif %}
 {% endfor %}{% if reise.zusatzleistungen_fuss_kommentar %}<ZLFUSSKOMMENTAR>{{ reise.zusatzleistungen_fuss_kommentar }}</ZLFUSSKOMMENTAR>{% endif %}</ZUSATZLEISTUNGEN>{% endif %}</LEISTUNGEN>{% if reise.sonstigeReisebeschreibung_titel = 'Ikar' and reise.titel = 'Kuren an der polnischen Ostseeküste' %}<PREISE>
-<PREIS><PREISTITEL>Preis p.P.:</PREISTITEL>	<BETRAG>ab 605 €</BETRAG></PREIS>
+<PREIS><PREISTITEL>Preis p.P.:</PREISTITEL>	<BETRAG>ab 555 €</BETRAG></PREIS>
 <PREISZUSATZ>siehe Preistabelle S. 58</PREISZUSATZ></PREISE>{% elif 'Arstone' in reise.sonstigeReisebeschreibung_titel and reise.titel = 'Kuren an der polnischen Ostseeküste' %}<PREISE>
-<PREIS><PREISTITEL>Preis p.P.:</PREISTITEL>	<BETRAG>ab 566 €</BETRAG></PREIS>
+<PREIS><PREISTITEL>Preis p.P.:</PREISTITEL>	<BETRAG>ab 576 €</BETRAG></PREIS>
 <PREISZUSATZ>siehe Preistabelle S. 58</PREISZUSATZ></PREISE>{% elif 'Rybniczanka' in reise.sonstigeReisebeschreibung_titel and reise.titel = 'Kuren an der polnischen Ostseeküste' %}<PREISE>
 <PREIS><PREISTITEL>Preis p.P.:</PREISTITEL>	<BETRAG>ab 625 €</BETRAG></PREIS>
 <PREISZUSATZ>siehe Preistabelle S. 58</PREISZUSATZ></PREISE>{% elif 'Interferie' in reise.sonstigeReisebeschreibung_titel and reise.titel = 'Kuren an der polnischen Ostseeküste' %}<PREISE>
@@ -109,11 +109,11 @@ R&amp;T Reisen Ludwigslust GmbH</VERANSTALTER>
 <PREISZUSATZ>siehe Preistabelle S. 58</PREISZUSATZ></PREISE>{% elif 'Hamilton' in reise.sonstigeReisebeschreibung_titel and reise.titel = 'Kuren an der polnischen Ostseeküste' %}<PREISE>
 <PREIS><PREISTITEL>Preis p.P.:</PREISTITEL>	<BETRAG>ab 665 €</BETRAG></PREIS>
 <PREISZUSATZ>siehe Preistabelle S. 58</PREISZUSATZ></PREISE>{% elif 'Plaza' in reise.sonstigeReisebeschreibung_titel and reise.titel = 'Kuren an der polnischen Ostseeküste' %}<PREISE>
-<PREIS><PREISTITEL>Preis p.P.:</PREISTITEL>	<BETRAG>ab 625 €</BETRAG></PREIS>
+<PREIS><PREISTITEL>Preis p.P.:</PREISTITEL>	<BETRAG>ab 575 €</BETRAG></PREIS>
 <PREISZUSATZ>siehe Preistabelle S. 58</PREISZUSATZ></PREISE>{% elif 'Platino' in reise.sonstigeReisebeschreibung_titel and reise.titel = 'Kuren an der polnischen Ostseeküste' %}<PREISE>
 <PREIS><PREISTITEL>Preis p.P.:</PREISTITEL>	<BETRAG>ab 620 €</BETRAG></PREIS>
 <PREISZUSATZ>siehe Preistabelle S. 58</PREISZUSATZ></PREISE>{% elif 'Unitral' in reise.sonstigeReisebeschreibung_titel and reise.titel = 'Kuren an der polnischen Ostseeküste' %}<PREISE>
-<PREIS><PREISTITEL>Preis p.P.:</PREISTITEL>	<BETRAG>ab 620 €</BETRAG></PREIS>
+<PREIS><PREISTITEL>Preis p.P.:</PREISTITEL>	<BETRAG>ab 600 €</BETRAG></PREIS>
 <PREISZUSATZ>siehe Preistabelle S. 58</PREISZUSATZ></PREISE>{% elif 'Bryza' in reise.sonstigeReisebeschreibung_titel and reise.titel = 'Kuren an der polnischen Ostseeküste' %}<PREISE>
 <PREIS><PREISTITEL>Preis p.P.:</PREISTITEL>	<BETRAG>ab 510 €</BETRAG></PREIS>
 <PREISZUSATZ>siehe Preistabelle S. 58</PREISZUSATZ></PREISE>{% elif 'Rezydent' in reise.sonstigeReisebeschreibung_titel and reise.titel = 'Kuren an der polnischen Ostseeküste' %}<PREISE>
