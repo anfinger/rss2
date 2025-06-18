@@ -910,6 +910,8 @@ def reiseuebersichtwinter(request):
     starlight = False
     elfi = False
     wellnesswochenende = False
+    istanbul = False
+
     kategorie = ''
     for i in range(len(termine)):
       if termine[i].k != kategorie:
@@ -939,6 +941,11 @@ def reiseuebersichtwinter(request):
         termine[i] = termine[i]._replace(Termin = 'Okt. 25 & März 26')
         wellnesswochenende = True
       elif u'Wellnesswochenende' in termine[i].Reiseziel and wellnesswochenende != False:
+        termine[i] = termine[i]._replace(Termin = '')
+      if u'Istanbul' in termine[i].Reiseziel and istanbul != True:
+        termine[i] = termine[i]._replace(Termin = 'Okt. 25 & Mai 26')
+        istanbul = True
+      elif u'Istanbul' in termine[i].Reiseziel and istanbul != False:
         termine[i] = termine[i]._replace(Termin = '')
       if u'Azoren' in termine[i].Reiseziel and azoren != True:
         termine[i] = termine[i]._replace(Termin = 'Okt. 25 & Apr. 26')
