@@ -498,12 +498,16 @@
                                     {% else %}
                                       {% if kataloge.0.titel == 'Winterreisen 2025/2026' %}
                                         <li>
-                                          <img onload="func(this);" src="{{ MEDIA_URL }}kataloge/2526/cover2526_width199.jpg" />
+                                          <a href="{{ MEDIA_URL }}{{ katalog.katalog_pdf }}">
+                                            <img onload="func(this);" src="{{ MEDIA_URL }}kataloge/2526/cover2526_width199.jpg" />
+                                          </a>
                                         </li>
                                       {% else %}
                                         <li>
                                           <!-- <img onload="func(this);" src="{{ MEDIA_URL }}images/wx200/web_fixed_height_cover19.jpg" /> -->
-                                          <img onload="func(this);" src="{{ MEDIA_URL }}kataloge/2025/sommer2025_webcover.jpg" />
+                                          <a href="{{ MEDIA_URL }}{{ katalog.katalog_pdf }}">
+                                            <img onload="func(this);" src="{{ MEDIA_URL }}kataloge/2025/sommer2025_webcover.jpg" />
+                                          </a>
                                         </li>
                                       {% endif %}
                                     {% endif %}
