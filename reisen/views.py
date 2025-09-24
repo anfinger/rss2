@@ -1381,7 +1381,7 @@ def sommer26(request):
     for termin in termine:
       termine_distinct[termin.reiseID] = termin
 
-    return render(request, 'reisen/index_sommerreisen_web_alt25.html', {'termine_distinct': termine_distinct.values(), 'termine': termine, 'dibug': dibug, 'kategorien': kategorien, 'zielregionen': zielregionen })
+    return render(request, 'reisen/index_sommerreisen_web_alt26.html', {'termine_distinct': termine_distinct.values(), 'termine': termine, 'dibug': dibug, 'kategorien': kategorien, 'zielregionen': zielregionen })
 
 ##################################################################
 # Detail Seite, Reisedetails                                     #
