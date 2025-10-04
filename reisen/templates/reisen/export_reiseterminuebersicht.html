@@ -2,7 +2,7 @@
 {% load eigene_tags %}
 <html>
   <head>
-    <title>Reisetermine 2025</title>
+    <title>Reisetermine 2026</title>
     <style>
       .rTable {
         display: table;
@@ -50,7 +50,7 @@
       </div>
       <div class="rTableBody">
       {% for termin in termine %}
-       {% if termin.datum_beginn|date:'Y' not in '2024' %}
+       {% if termin.datum_beginn|date:'Y' not in '2025' %}
         {% if termin.Monat %}
         <div class="rTableRow" style="background-color: #ddd;">
           <div class="rTableCell"></div>
