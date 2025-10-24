@@ -997,7 +997,7 @@ def reiseuebersichtwinter(request):
       elif u'Grünen Woche' in termine[i].Reiseziel and gruenewoche == True:
         termine[i] = termine[i]._replace(Termin = '')
       if termine[i].individualbuchbar != '':
-        termine[i] = termine[i]._replace(Reiseziel = termine[i].Reiseziel + ' (auch individuell buchbar)')
+        termine[i] = termine[i]._replace(Reiseziel = termine[i].Reiseziel + ' (auch individuell)')
       #if (termine[i].anzahl_seiten_im_katalog == 0) and (termine[i].position_auf_seite == 1) and termine[i-1].Reiseziel != '':
         #termine[i-1] = termine[i-1]._replace(Reiseziel = termine[i-1].Reiseziel + ' (auch individuell buchbar)')
         #termine[i] = termine[i]._replace(Termin = '')
@@ -1078,7 +1078,7 @@ def reiseterminuebersicht(request):
       if u'Kuren an der polnischen Ostseeküste' in termine[i-1].Reiseziel and u'Kuren an der polnischen Ostseeküste' in termine[i].Reiseziel and termine[i-1].Tage == termine[i].Tage:
         termine[i] = termine[i]._replace(Termin = '')
       if termine[i].individualbuchbar != '':
-        termine[i] = termine[i]._replace(Reiseziel = termine[i].Reiseziel + ' (auch individuell buchbar)')
+        termine[i] = termine[i]._replace(Reiseziel = termine[i].Reiseziel + ' (auch individuell)')
       for k in range(len(dates)):
         if termine[i].Veranstalter == 'RS':
           if 'Wander' in termine[i].Reiseziel:
@@ -1145,7 +1145,7 @@ def reisezieluebersicht(request):
       else:
         termine[i] = termine[i]._replace(kategorie = '')
       if termine[i].individualbuchbar != '':
-        termine[i] = termine[i]._replace(Reise = termine[i].Reise + ' (auch individuell buchbar)')
+        termine[i] = termine[i]._replace(Reise = termine[i].Reise + ' (auch individuell)')
       #if u'Swinemünde' in termine[i].Reise and swinemuende != True:
       #  termine[i] = termine[i]._replace(Tage = '8')
       #  swinemuende = True
@@ -2116,7 +2116,7 @@ def reisezieluebersicht_alles(pk):
       else:
         termine[i] = termine[i]._replace(kategorie = '')
       if termine[i].individualbuchbar != '':
-        termine[i] = termine[i]._replace(Reise = termine[i].Reise + ' (auch individuell buchbar)')
+        termine[i] = termine[i]._replace(Reise = termine[i].Reise + ' (auch individuell)')
       if u'Swinemünde' in termine[i].Reise and swinemuende != True:
         termine[i] = termine[i]._replace(Tage = '5/8')
         swinemuende = True
@@ -2159,7 +2159,7 @@ def reiseterminuebersicht_alles(pk):
       if u'Kuren an der polnischen Ostseeküste' in termine[i-1].Reiseziel and u'Kuren an der polnischen Ostseeküste' in termine[i].Reiseziel and termine[i-1].Tage == termine[i].Tage:
         termine[i] = termine[i]._replace(Termin = '')
       if termine[i].individualbuchbar != '':
-        termine[i] = termine[i]._replace(Reiseziel = termine[i].Reiseziel + ' (auch individuell buchbar)')
+        termine[i] = termine[i]._replace(Reiseziel = termine[i].Reiseziel + ' (auch individuell)')
       for k in range(len(dates)):
         if termine[i].Veranstalter == 'RS':
           if 'Wander' in termine[i].Reiseziel:
@@ -2365,7 +2365,7 @@ def reiseuebersichtwinter_alles(pk):
       elif u'Grünen Woche' in termine[i].Reiseziel and gruenewoche == True:
         termine[i] = termine[i]._replace(Termin = '')
       if termine[i].individualbuchbar != '':
-        termine[i] = termine[i]._replace(Reiseziel = termine[i].Reiseziel + ' (auch individuell buchbar)')
+        termine[i] = termine[i]._replace(Reiseziel = termine[i].Reiseziel + ' (auch individuell)')
       #if (termine[i].anzahl_seiten_im_katalog == 0) and (termine[i].position_auf_seite == 1) and termine[i-1].Reiseziel != '':
         #termine[i-1] = termine[i-1]._replace(Reiseziel = termine[i-1].Reiseziel + ' (auch individuell buchbar)')
         #termine[i] = termine[i]._replace(Termin = '')
