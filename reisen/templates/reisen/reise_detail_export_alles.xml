@@ -1,59 +1,60 @@
 {% load static %}{% load eigene_tags %}{% load l10n %}{% load humanize %}<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <root>
-<TERMINEKUREN>	<KURENORT>Swinemünde</KURENORT>	<KURENHOTEL>"Arstone"</KURENHOTEL>	<KURENHOTEL>"Rybniczanka"</KURENHOTEL>	<KURENHOTEL>"Interferie"</KURENHOTEL>	<KURENHOTEL>"Hamilton"</KURENHOTEL>	<KURENORT>Kolberg</KURENORT>	<KURENHOTEL>"Ikar"</KURENHOTEL>
-<KURENTABELLENKOPF>Termin	Dauer/Zuschlag	Ü/HP	Ü/VP	Ü/HP	Ü/HP	Dauer/Zuschlag	Ü/VP</KURENTABELLENKOPF>
-<KURENTERMIN>18. 01. - 25. 01. 25	8 Tage	-	595	660	620	8 Tage	580</KURENTERMIN>
-<KURENTERMINDETAILS>	Zuschlag EZ / VP	- / -	70 / -	245 / -	192 / 72	Zuschlag EZ / gr. DZ	84 / 28</KURENTERMINDETAILS>
-<KURENTERMIN>25. 01. - 01. 02. 25	8 Tage	-	595	690	620	8 Tage	580</KURENTERMIN>
-<KURENTERMINDETAILS>	Zuschlag EZ / VP	- / -	70 / -	245 / -	192 / 72	Zuschlag EZ / gr. DZ	84 / 28</KURENTERMINDETAILS>
-<KURENTERMIN>01. 02. - 08. 02. 25	8 Tage	-	625	690	685	8 Tage	620</KURENTERMIN>
-<KURENTERMINDETAILS>	Zuschlag EZ / VP	- / -	70 / -	245 / -	192 / 72	Zuschlag EZ / gr. DZ	84 / 28</KURENTERMINDETAILS>
-<KURENTERMIN>08. 02. - 15. 02. 25	8 Tage	-	625	690	685	8 Tage	620</KURENTERMIN>
-<KURENTERMINDETAILS>	Zuschlag EZ / VP	- / -	70 / -	245 / -	192 / 72	Zuschlag EZ / gr. DZ	84 / 28</KURENTERMINDETAILS>
-<KURENTERMIN>15. 02. - 22. 02. 25	8 Tage	-	625	690	685	8 Tage	620</KURENTERMIN>
-<KURENTERMINDETAILS>	Zuschlag EZ / VP	- / -	70 / -	245 / -	192 / 72	Zuschlag EZ / gr. DZ	84 / 28</KURENTERMINDETAILS>
-<KURENTERMIN>22. 02. - 01. 03. 25	8 Tage	555	625	765	685	8 Tage	620</KURENTERMIN>
-<KURENTERMINDETAILS>	Zuschlag EZ / VP	98 / 21	70 / -	245 / -	192 / 72	Zuschlag EZ / gr. DZ	84 / 28</KURENTERMINDETAILS>
-<KURENTERMIN>01. 03. - 08. 03. 25	8 Tage	555	625	765	735	8 Tage	635</KURENTERMIN>
-<KURENTERMINDETAILS>	Zuschlag EZ / VP	98 / 21	70 / -	280 / -	192 / 72	Zuschlag EZ / gr. DZ	84 / 28</KURENTERMINDETAILS>
-<KURENTERMIN>08. 03. - 15. 03. 25	8 Tage	555	625	765	735	8 Tage	635</KURENTERMIN>
-<KURENTERMINDETAILS>	Zuschlag EZ / VP	98 / 21	70 / -	280 / -	192 / 72	Zuschlag EZ / gr. DZ	84 / 28</KURENTERMINDETAILS>
-<KURENTERMIN>15. 03. - 22. 03. 25	8 Tage	555	625	765	735	8 Tage	635</KURENTERMIN>
-<KURENTERMINDETAILS>	Zuschlag EZ / VP	98 / 21	70 / -	280 / -	192 / 72	Zuschlag EZ / gr. DZ	84 / 28</KURENTERMINDETAILS>
-<KURENTERMIN>22. 03. - 29. 03. 25	8 Tage	555	625	820	735	8 Tage	635</KURENTERMIN>
-<KURENTERMINDETAILS>	Zuschlag EZ / VP	98 / 21	70 / -	280 / -	192 / 72	Zuschlag EZ / gr. DZ	84 / 28</KURENTERMINDETAILS>
-<KURENTERMIN>29. 03. - 05. 04. 25	8 Tage	620	725	820	735	8 Tage	725</KURENTERMIN>
-<KURENTERMINDETAILS>	Zuschlag EZ / VP	126 / 21	105 / -	280 / -	192 / 72	Zuschlag EZ / gr. DZ	126 / 35</KURENTERMINDETAILS>
-<KURENTERMIN>05. 04. - 12. 04. 25	8 Tage	620	725	820	735	8 Tage	725</KURENTERMIN>
-<KURENTERMINDETAILS>	Zuschlag EZ / VP	126 / 21	105 / -	280 / -	192 / 72	Zuschlag EZ / gr. DZ	126 / 35</KURENTERMINDETAILS>
-<KURENTERMIN>12. 04. - 19. 04. 25	8 Tage	620	725	820	735	8 Tage	725</KURENTERMIN>
-<KURENTERMINDETAILS>	Zuschlag EZ / VP	126 / 21	105 / -	280 / -	192 / 72	Zuschlag EZ / gr. DZ	126 / 35</KURENTERMINDETAILS>
-<KURENTERMIN>19. 04. - 26. 04. 25	8 Tage	645	750	890	855	8 Tage	725</KURENTERMIN>
-<KURENTERMINDETAILS>	Zuschlag EZ / VP	126 / 21	105 / -	280 / -	192 / 72	Zuschlag EZ / gr. DZ	126 / 35</KURENTERMINDETAILS>
-<KURENTERMIN>26. 04. - 03. 05. 25	8 Tage	700	770	840	780	8 Tage	820</KURENTERMIN>
-<KURENTERMINDETAILS>	Zuschlag EZ / VP	126 / 21	105 / -	280 / -	192 / 72	Zuschlag EZ / gr. DZ	126 / 35</KURENTERMINDETAILS>
-<KURENTERMIN>03. 05. - 10. 05. 25	8 Tage	700	770	840	780	8 Tage	820</KURENTERMIN>
-<KURENTERMINDETAILS>	Zuschlag EZ / VP	126 / 21	105 / -	280 / -	192 / 72	Zuschlag EZ / gr. DZ	126 / 35</KURENTERMINDETAILS>
-<KURENTERMIN>10. 05. - 17. 05. 25	8 Tage	700	770	875	780	8 Tage	820</KURENTERMIN>
-<KURENTERMINDETAILS>	Zuschlag EZ / VP	126 / 21	105 / -	280 / -	192 / 72	Zuschlag EZ / gr. DZ	126 / 35</KURENTERMINDETAILS>
-<KURENTERMIN>17. 05. - 24. 05. 25	8 Tage	700	770	875	885	8 Tage	820</KURENTERMIN>
-<KURENTERMINDETAILS>	Zuschlag EZ / VP	126 / 21	105 / -	280 / -	240 / 72	Zuschlag EZ / gr. DZ	126 / 35</KURENTERMINDETAILS>
-<KURENTERMIN>06. 09. - 13. 09. 25	8 Tage	750	845	975	1000	8 Tage	890</KURENTERMIN>
-<KURENTERMINDETAILS>	Zuschlag EZ / VP	140 / 21	133 / -	280 / -	240 / 72	Zuschlag EZ / gr. DZ	140 / 42</KURENTERMINDETAILS>
-<KURENTERMIN>13. 09. - 20. 09. 25	8 Tage	710	845	975	1000	8 Tage	890</KURENTERMIN>
-<KURENTERMINDETAILS>	Zuschlag EZ / VP	140 / 21	133 / -	280 / -	240 / 72	Zuschlag EZ / gr. DZ	140 / 42</KURENTERMINDETAILS>
-<KURENTERMIN>20. 09. - 27. 09. 25	8 Tage	710	845	975	1000	8 Tage	890</KURENTERMIN>
-<KURENTERMINDETAILS>	Zuschlag EZ / VP	140 / 21	133 / -	280 / -	240 / 72	Zuschlag EZ / gr. DZ	140 / 42</KURENTERMINDETAILS>
-<KURENTERMIN>27. 09. - 04. 10. 25	8 Tage	630	845	845	1000	8 Tage	835</KURENTERMIN>
-<KURENTERMINDETAILS>	Zuschlag EZ / VP	126 / 21	133 / -	280 / -	240 / 72	Zuschlag EZ / gr. DZ	126 / 28</KURENTERMINDETAILS>
-<KURENTERMIN>04. 10. - 11. 10. 25	8 Tage	630	735	845	915	8 Tage	835</KURENTERMIN>
-<KURENTERMINDETAILS>	Zuschlag EZ / VP	126 / 21	105 / -	280 / -	240 / 72	Zuschlag EZ / gr. DZ	126 / 28</KURENTERMINDETAILS>
-<KURENTERMIN>11. 10. - 18. 10. 25	8 Tage	630	735	845	915	8 Tage	835</KURENTERMIN>
-<KURENTERMINDETAILS>	Zuschlag EZ / VP	126 / 21	105 / -	280 / -	240 / 72	Zuschlag EZ / gr. DZ	126 / 28</KURENTERMINDETAILS>
-<KURENTERMIN>18. 10. - 25. 10. 25	8 Tage	565	735	845	915	8 Tage	835</KURENTERMIN>
-<KURENTERMINDETAILS>	Zuschlag EZ / VP	98 / 21	105 / -	280 / -	240 / 72	Zuschlag EZ / gr. DZ	126 / 28</KURENTERMINDETAILS>
-<KURENTERMIN>25. 10. - 01. 11. 25	8 Tage	565	735	735	915	8 Tage	835</KURENTERMIN>
-<KURENTERMINDETAILS>	Zuschlag EZ / VP	98 / 21	105 / -	280 / -	240 / 72	Zuschlag EZ / gr. DZ	126 / 28</KURENTERMINDETAILS></TERMINEKUREN>
+<TERMINEKUREN>	<KURENORT>Kurort</KURENORT>	<KURENORT>Swinemünde</KURENORT>	<KURENORT>Misdroy</KURENORT>	<KURENORT>Kolberger Deep</KURENORT>	<KURENORT>Kolberg</KURENORT>	<KURENORT>Mielno</KURENORT>							
+	<KURENHOTEL>Kurhotel</KURENHOTEL>	<KURENHOTEL>"Arstone"</KURENHOTEL>	<KURENHOTEL>"Rybniczanka"</KURENHOTEL>	<KURENHOTEL>"Interferie"</KURENHOTEL>	<KURENHOTEL>"Hamilton"</KURENHOTEL>	<KURENHOTEL>"Rezydent"</KURENHOTEL>	<KURENHOTEL>"West Baltic"</KURENHOTEL>	<KURENHOTEL>"Trofana"</KURENHOTEL>	<KURENHOTEL>"Baginski-Chabinka"</KURENHOTEL>	<KURENHOTEL>"Bryza"</KURENHOTEL>	<KURENHOTEL>"Ikar"</KURENHOTEL>	<KURENHOTEL>"Ikar Plaza"</KURENHOTEL>	<KURENHOTEL>"Unitral"</KURENHOTEL>
+<KURENTABELLENKOPF>Termin	Dauer/Zuschlag	Ü/HP	Ü/VP	Ü/VP	Ü/HP	Ü/HP	Ü/HP	Ü/HP	Ü/HP	Ü/HP	Ü/VP	Ü/HP	Ü/HP</KURENTABELLENKOPF>
+<KURENTERMIN>06. 09. - 13. 09. 25	8 Tage	761	856	986	1011	-	-	-	-	-	890	855	-</KURENTERMIN>
+<KURENTERMINDETAILS>	Zuschlag EZ / VP	140 / 21	133 / -	280 / -	240 / 72	- / -	- / -	- / -	- / -	- / -	140 / -	98 / 21	- / -</KURENTERMINDETAILS>
+<KURENTERMIN>13. 09. - 20. 09. 25	8 Tage	721	856	986	1011	-	-	-	-	-	890	855	-</KURENTERMIN>
+<KURENTERMINDETAILS>	Zuschlag EZ / VP	140 / 21	133 / -	280 / -	240 / 72	- / -	- / -	- / -	- / -	- / -	140 / -	98 / 21	- / -</KURENTERMINDETAILS>
+<KURENTERMIN>20. 09. - 27. 09. 25	8 Tage	721	856	986	1011	-	-	-	-	-	890	855	-</KURENTERMIN>
+<KURENTERMINDETAILS>	Zuschlag EZ / VP	140 / 21	133 / -	280 / -	240 / 72	- / -	- / -	- / -	- / -	- / -	140 / -	98 / 21	- / -</KURENTERMINDETAILS>
+<KURENTERMIN>27. 09. - 04. 10. 25	8 Tage	641	856	856	1011	-	-	-	-	-	835	855	-</KURENTERMIN>
+<KURENTERMINDETAILS>	Zuschlag EZ / VP	126 / 21	133 / -	280 / -	240 / 72	- / -	- / -	- / -	- / -	- / -	126 / -	98 / 21	- / -</KURENTERMINDETAILS>
+<KURENTERMIN>04. 10. - 11. 10. 25	8 Tage	641	746	856	926	-	-	-	-	-	835	755	-</KURENTERMIN>
+<KURENTERMINDETAILS>	Zuschlag EZ / VP	126 / 21	105 / -	280 / -	240 / 72	- / -	- / -	- / -	- / -	- / -	126 / -	98 / 21	- / -</KURENTERMINDETAILS>
+<KURENTERMIN>11. 10. - 18. 10. 25	8 Tage	641	746	856	926	-	-	-	-	-	835	755	-</KURENTERMIN>
+<KURENTERMINDETAILS>	Zuschlag EZ / VP	126 / 21	105 / -	280 / -	240 / 72	- / -	- / -	- / -	- / -	- / -	126 / -	98 / 21	- / -</KURENTERMINDETAILS>
+<KURENTERMIN>18. 10. - 25. 10. 25	8 Tage	576	746	856	926	-	-	-	-	-	835	755	-</KURENTERMIN>
+<KURENTERMINDETAILS>	Zuschlag EZ / VP	98 / 21	105 / -	280 / -	240 / 72	- / -	- / -	- / -	- / -	- / -	126 / -	98 / 21	- / -</KURENTERMINDETAILS>
+<KURENTERMIN>25. 10. - 01. 11. 25	8 Tage	576	746	746	926	-	-	-	-	-	835	755	-</KURENTERMIN>
+<KURENTERMINDETAILS>	Zuschlag EZ / VP	98 / 21	105 / -	280 / -	240 / 72	- / -	- / -	- / -	- / -	- / -	126 / -	98 / 21	- / -</KURENTERMINDETAILS>
+<KURENTERMIN>17. 01. - 24. 01. 26	8 Tage	-	625	650	665	625	615	640	630	510	555	575	600</KURENTERMIN>
+<KURENTERMINDETAILS>	Zuschlag EZ / VP	- / -	77 / -	245 / -	198 / 78	119 / 0	196 / 77	119 / 98	112 / 78	0 / 21	91 / -	84 / 21	42 / 105</KURENTERMINDETAILS>
+<KURENTERMIN>24. 01. - 31. 01. 26	8 Tage	-	625	680	665	625	615	640	630	510	555	575	635</KURENTERMIN>
+<KURENTERMINDETAILS>	Zuschlag EZ / VP	- / -	77 / -	245 / -	198 / 78	119 / 0	196 / 77	119 / 98	112 / 78	0 / 21	91 / -	84 / 21	42 / 105</KURENTERMINDETAILS>
+<KURENTERMIN>31. 01. - 07. 02. 26	8 Tage	-	640	680	720	650	640	640	645	510	595	575	635</KURENTERMIN>
+<KURENTERMINDETAILS>	Zuschlag EZ / VP	- / -	77 / -	245 / -	198 / 78	119 / 0	196 / 77	119 / 98	112 / 78	54 / 21	91 / -	84 / 21	42 / 105</KURENTERMINDETAILS>
+<KURENTERMIN>07. 02. - 14. 02. 26	8 Tage	-	640	680	720	650	640	640	645	510	595	575	635</KURENTERMIN>
+<KURENTERMINDETAILS>	Zuschlag EZ / VP	- / -	77 / -	245 / -	198 / 78	119 / 0	196 / 77	119 / 98	112 / 78	63 / 21	91 / -	84 / 21	42 / 105</KURENTERMINDETAILS>
+<KURENTERMIN>14. 02. - 21. 02. 26	8 Tage	-	640	680	720	650	640	640	645	510	595	575	635</KURENTERMIN>
+<KURENTERMINDETAILS>	Zuschlag EZ / VP	- / -	77 / -	245 / -	198 / 78	119 / 0	196 / 77	119 / 98	112 / 78	63 / 21	91 / -	84 / 21	42 / 105</KURENTERMINDETAILS>
+<KURENTERMIN>21. 02. - 28. 02. 26	8 Tage	585	640	755	720	650	640	640	645	550	595	575	635</KURENTERMIN>
+<KURENTERMINDETAILS>	Zuschlag EZ / VP	98 / 21	77 / -	245 / -	198 / 78	119 / 0	196 / 77	119 / 98	112 / 78	84 / 21	91 / -	84 / 21	42 / 105</KURENTERMINDETAILS>
+<KURENTERMIN>28. 02. - 07. 03. 26	8 Tage	585	655	755	775	675	665	715	675	550	620	615	635</KURENTERMIN>
+<KURENTERMINDETAILS>	Zuschlag EZ / VP	98 / 21	77 / -	275 / -	198 / 78	119 / 0	196 / 77	119 / 98	112 / 78	84 / 21	91 / -	84 / 21	42 / 105</KURENTERMINDETAILS>
+<KURENTERMIN>07. 03. - 14. 03. 26	8 Tage	585	655	755	775	675	665	715	675	550	620	615	635</KURENTERMIN>
+<KURENTERMINDETAILS>	Zuschlag EZ / VP	98 / 21	77 / -	280 / -	198 / 78	119 / 0	196 / 77	119 / 98	112 / 78	84 / 21	91 / -	84 / 21	42 / 105</KURENTERMINDETAILS>
+<KURENTERMIN>14. 03. - 21. 03. 26	8 Tage	585	655	755	775	720	665	715	675	550	620	615	635</KURENTERMIN>
+<KURENTERMINDETAILS>	Zuschlag EZ / VP	98 / 21	77 / -	280 / -	198 / 78	119 / 98	196 / 77	119 / 98	112 / 78	84 / 21	91 / -	84 / 21	42 / 105</KURENTERMINDETAILS>
+<KURENTERMIN>21. 03. - 28. 03. 26	8 Tage	585	655	755	775	720	665	715	675	550	620	615	635</KURENTERMIN>
+<KURENTERMINDETAILS>	Zuschlag EZ / VP	98 / 21	77 / -	280 / -	198 / 78	119 / 98	196 / 77	119 / 98	112 / 78	84 / 21	91 / -	84 / 21	42 / 105</KURENTERMINDETAILS>
+<KURENTERMIN>28. 03. - 04. 04. 26	8 Tage	655	755	795	775	745	705	715	675	605	710	705	650</KURENTERMIN>
+<KURENTERMINDETAILS>	Zuschlag EZ / VP	126 / 21	92 / -	280 / -	198 / 78	119 / 98	196 / 77	119 / 98	112 / 78	84 / 21	126 / -	105 / 21	42 / 105</KURENTERMINDETAILS>
+<KURENTERMIN>04. 04. - 11. 04. 26	8 Tage	685	785	845	850	745	770	815	795	640	710	705	750</KURENTERMIN>
+<KURENTERMINDETAILS>	Zuschlag EZ / VP	126 / 21	112 / -	280 / -	198 / 78	119 / 98	196 / 77	119 / 98	112 / 78	84 / 21	126 / -	105 / 21	42 / 105</KURENTERMINDETAILS>
+<KURENTERMIN>11. 04. - 18. 04. 26	8 Tage	655	755	795	775	780	705	715	675	605	710	705	650</KURENTERMIN>
+<KURENTERMINDETAILS>	Zuschlag EZ / VP	126 / 21	112 / -	280 / -	198 / 78	154 / 98	196 / 77	119 / 98	112 / 78	84 / 21	126 / -	105 / 21	42 / 105</KURENTERMINDETAILS>
+<KURENTERMIN>18. 04. - 25. 04. 26	8 Tage	655	755	795	830	780	705	715	675	605	710	705	650</KURENTERMIN>
+<KURENTERMINDETAILS>	Zuschlag EZ / VP	126 / 21	112 / -	280 / -	198 / 78	154 / 98	196 / 77	119 / 98	112 / 78	84 / 21	126 / -	105 / 21	42 / 105</KURENTERMINDETAILS>
+<KURENTERMIN>25. 04. - 02. 05. 26	8 Tage	740	835	825	830	810	780	775	685	645	800	755	700</KURENTERMIN>
+<KURENTERMINDETAILS>	Zuschlag EZ / VP	126 / 21	140 / -	280 / -	198 / 78	154 / 98	217 / 77	210 / 98	124 / 78	126 / 21	126 / -	126 / 21	56 / 105</KURENTERMINDETAILS>
+<KURENTERMIN>02. 05. - 09. 05. 26	8 Tage	740	835	825	830	810	780	775	740	645	800	755	700</KURENTERMIN>
+<KURENTERMINDETAILS>	Zuschlag EZ / VP	126 / 21	140 / -	280 / -	198 / 78	154 / 98	217 / 77	210 / 98	196 / 78	126 / 21	126 / -	126 / 21	56 / 105</KURENTERMINDETAILS>
+<KURENTERMIN>09. 05. - 16. 05. 26	8 Tage	740	835	825	830	840	780	775	740	645	800	755	700</KURENTERMIN>
+<KURENTERMINDETAILS>	Zuschlag EZ / VP	126 / 21	140 / -	280 / -	198 / 78	154 / 98	217 / 77	210 / 98	196 / 78	126 / 21	126 / -	126 / 21	56 / 105</KURENTERMINDETAILS>
+<KURENTERMIN>16. 05. - 23. 05. 26	8 Tage	740	835	855	935	840	780	775	740	645	800	755	700</KURENTERMIN>
+<KURENTERMINDETAILS>	Zuschlag EZ / VP	126 / 21	140 / -	280 / -	252 / 78	154 / 98	217 / 77	210 / 98	196 / 78	126 / 21	126 / -	126 / 21	56 / 105</KURENTERMINDETAILS></TERMINEKUREN>
 <REISEZIELUEBERSICHT><REISEZIELUEBERSICHTTITEL>Reiseübersicht 2026</REISEZIELUEBERSICHTTITEL>
 <REISEZIELUEBERSICHTKATEGORIE><BALKENINHALT_BUSREISE></BALKENINHALT_BUSREISE>Busreisen nach ...</REISEZIELUEBERSICHTKATEGORIE>{% for termin in termine_reisezieluebersicht %}{% if termin.kategorie %}
 {% if termin.kategorietyp = 'Kategorie' %}<REISEZIELUEBERSICHTKATEGORIE><BALKENINHALT_{{ termin.kategorie|ohnetage }}></BALKENINHALT_{{ termin.kategorie|ohnetage }}>{% else %}<REISEZIELUEBERSICHTZIELREGION>{% endif %}{{ termin.kategorie|zielumbenennen }}{% if termin.kategorietyp = 'Kategorie' %}</REISEZIELUEBERSICHTKATEGORIE>{% else %}</REISEZIELUEBERSICHTZIELREGION>{% endif %}{% endif %}{% if 'Kuren' not in termin.Reise and termin.Reise %}
@@ -100,16 +101,32 @@ R&amp;T Reisen Ludwigslust GmbH</VERANSTALTER>
 {% endif %}{% if zusatzleistung.titel %}<ZL>{{ zusatzleistung.titel }}</ZL>	{% else %}<ZL>Titel Zusatleistung nicht bekannt</ZL>	{% endif %}{% if zusatzleistung.preis %}<ZLPREIS>{% if zusatzleistung.preis_titel = 'ab' %}{{ zusatzleistung.preis_titel }} {% endif %}{{ zusatzleistung.preis|preisformat }} €</ZLPREIS>{% else %}<ZLPREIS></ZLPREIS>{% endif %}{% if zusatzleistung.kommentar %}
 <ZLABSCHLUSSKOMMENTAR>{{ zusatzleistung.kommentar }}</ZLABSCHLUSSKOMMENTAR>{% endif %}
 {% endfor %}{% if reise.zusatzleistungen_fuss_kommentar %}<ZLFUSSKOMMENTAR>{{ reise.zusatzleistungen_fuss_kommentar }}</ZLFUSSKOMMENTAR>{% endif %}</ZUSATZLEISTUNGEN>{% endif %}</LEISTUNGEN>{% if 'Ikar' in reise.sonstigeReisebeschreibung_titel and reise.titel = 'Kuren an der polnischen Ostseeküste' %}<PREISE>
-<PREIS><PREISTITEL>Preis p.P.:</PREISTITEL>	<BETRAG>ab 580 €</BETRAG></PREIS>
-<PREISZUSATZ>siehe Preistabelle S. 121</PREISZUSATZ></PREISE>{% elif 'Arstone' in reise.sonstigeReisebeschreibung_titel and reise.titel = 'Kuren an der polnischen Ostseeküste' %}<PREISE>
 <PREIS><PREISTITEL>Preis p.P.:</PREISTITEL>	<BETRAG>ab 555 €</BETRAG></PREIS>
-<PREISZUSATZ>siehe Preistabelle S. 121</PREISZUSATZ></PREISE>{% elif 'Rybniczanka' in reise.sonstigeReisebeschreibung_titel and reise.titel = 'Kuren an der polnischen Ostseeküste' %}<PREISE>
-<PREIS><PREISTITEL>Preis p.P.:</PREISTITEL>	<BETRAG>ab 595 €</BETRAG></PREIS>
-<PREISZUSATZ>siehe Preistabelle S. 121</PREISZUSATZ></PREISE>{% elif 'Interferie' in reise.sonstigeReisebeschreibung_titel and reise.titel = 'Kuren an der polnischen Ostseeküste' %}<PREISE>
-<PREIS><PREISTITEL>Preis p.P.:</PREISTITEL>	<BETRAG>ab 660 €</BETRAG></PREIS>
-<PREISZUSATZ>siehe Preistabelle S. 121</PREISZUSATZ></PREISE>{% elif 'Hamilton' in reise.sonstigeReisebeschreibung_titel and reise.titel = 'Kuren an der polnischen Ostseeküste' %}<PREISE>
+<PREISZUSATZ>siehe Preistabelle S. 58</PREISZUSATZ></PREISE>{% elif 'Arstone' in reise.sonstigeReisebeschreibung_titel and reise.titel = 'Kuren an der polnischen Ostseeküste' %}<PREISE>
+<PREIS><PREISTITEL>Preis p.P.:</PREISTITEL>	<BETRAG>ab 576 €</BETRAG></PREIS>
+<PREISZUSATZ>siehe Preistabelle S. 58</PREISZUSATZ></PREISE>{% elif 'Rybniczanka' in reise.sonstigeReisebeschreibung_titel and reise.titel = 'Kuren an der polnischen Ostseeküste' %}<PREISE>
+<PREIS><PREISTITEL>Preis p.P.:</PREISTITEL>	<BETRAG>ab 625 €</BETRAG></PREIS>
+<PREISZUSATZ>siehe Preistabelle S. 58</PREISZUSATZ></PREISE>{% elif 'Interferie' in reise.sonstigeReisebeschreibung_titel and reise.titel = 'Kuren an der polnischen Ostseeküste' %}<PREISE>
+<PREIS><PREISTITEL>Preis p.P.:</PREISTITEL>	<BETRAG>ab 650 €</BETRAG></PREIS>
+<PREISZUSATZ>siehe Preistabelle S. 58</PREISZUSATZ></PREISE>{% elif 'Hamilton' in reise.sonstigeReisebeschreibung_titel and reise.titel = 'Kuren an der polnischen Ostseeküste' %}<PREISE>
+<PREIS><PREISTITEL>Preis p.P.:</PREISTITEL>	<BETRAG>ab 665 €</BETRAG></PREIS>
+<PREISZUSATZ>siehe Preistabelle S. 58</PREISZUSATZ></PREISE>{% elif 'Plaza' in reise.sonstigeReisebeschreibung_titel and reise.titel = 'Kuren an der polnischen Ostseeküste' %}<PREISE>
+<PREIS><PREISTITEL>Preis p.P.:</PREISTITEL>	<BETRAG>ab 575 €</BETRAG></PREIS>
+<PREISZUSATZ>siehe Preistabelle S. 58</PREISZUSATZ></PREISE>{% elif 'Platino' in reise.sonstigeReisebeschreibung_titel and reise.titel = 'Kuren an der polnischen Ostseeküste' %}<PREISE>
 <PREIS><PREISTITEL>Preis p.P.:</PREISTITEL>	<BETRAG>ab 620 €</BETRAG></PREIS>
-<PREISZUSATZ>siehe Preistabelle S. 121</PREISZUSATZ></PREISE>{% else %}{% if reise.preise %}<PREISE> {% for preis in reise.preise %}
+<PREISZUSATZ>siehe Preistabelle S. 58</PREISZUSATZ></PREISE>{% elif 'Unitral' in reise.sonstigeReisebeschreibung_titel and reise.titel = 'Kuren an der polnischen Ostseeküste' %}<PREISE>
+<PREIS><PREISTITEL>Preis p.P.:</PREISTITEL>	<BETRAG>ab 600 €</BETRAG></PREIS>
+<PREISZUSATZ>siehe Preistabelle S. 58</PREISZUSATZ></PREISE>{% elif 'Bryza' in reise.sonstigeReisebeschreibung_titel and reise.titel = 'Kuren an der polnischen Ostseeküste' %}<PREISE>
+<PREIS><PREISTITEL>Preis p.P.:</PREISTITEL>	<BETRAG>ab 510 €</BETRAG></PREIS>
+<PREISZUSATZ>siehe Preistabelle S. 58</PREISZUSATZ></PREISE>{% elif 'Rezydent' in reise.sonstigeReisebeschreibung_titel and reise.titel = 'Kuren an der polnischen Ostseeküste' %}<PREISE>
+<PREIS><PREISTITEL>Preis p.P.:</PREISTITEL>	<BETRAG>ab 625 €</BETRAG></PREIS>
+<PREISZUSATZ>siehe Preistabelle S. 58</PREISZUSATZ></PREISE>{% elif 'Trofana' in reise.sonstigeReisebeschreibung_titel and reise.titel = 'Kuren an der polnischen Ostseeküste' %}<PREISE>
+<PREIS><PREISTITEL>Preis p.P.:</PREISTITEL>	<BETRAG>ab 640 €</BETRAG></PREIS>
+<PREISZUSATZ>siehe Preistabelle S. 58</PREISZUSATZ></PREISE>{% elif 'B & C' in reise.sonstigeReisebeschreibung_titel and reise.titel = 'Kuren an der polnischen Ostseeküste' %}<PREISE>
+<PREIS><PREISTITEL>Preis p.P.:</PREISTITEL>	<BETRAG>ab 630 €</BETRAG></PREIS>
+<PREISZUSATZ>siehe Preistabelle S. 58</PREISZUSATZ></PREISE>{% elif 'Baltic' in reise.sonstigeReisebeschreibung_titel and reise.titel = 'Kuren an der polnischen Ostseeküste' %}<PREISE>
+<PREIS><PREISTITEL>Preis p.P.:</PREISTITEL>	<BETRAG>ab 615 €</BETRAG></PREIS>
+<PREISZUSATZ>siehe Preistabelle S. 58</PREISZUSATZ></PREISE>{% else %}{% if reise.preise %}<PREISE> {% for preis in reise.preise %}
 {% if preis.titel == 'Individualpreis p.P.'%}<INDIVIDUALPREIS>{% else %}<PREIS>{% endif %}{% if preis.kommentar == 'ab' %}<PREISTITEL>{% if preis.markierung %}{{preis.markierung }}{% endif %}{{ preis.titel }}:</PREISTITEL>	<BETRAG>{{ preis.kommentar }} {{ preis.preis|floatformat:0|intcomma }} €</BETRAG>{% else %}<PREISTITEL>{% if preis.markierung %}{{preis.markierung }}{% endif %}{{ preis.titel }}:</PREISTITEL>	<BETRAG>{{ preis.preis|floatformat:0|intcomma }} €</BETRAG>{% if preis.kommentar %}
 <PREISKOMMENTAR>{{ preis.kommentar }}</PREISKOMMENTAR>{% endif %}{% endif %}{% if preis.titel == 'Individualpreis p.P.'%}</INDIVIDUALPREIS>{% else %}</PREIS>{% endif %}{% if preis.zusatzpreise %}
 {% if preis.titel == 'Individualpreis p.P.'%}<PREISZUSATZINDIVIDUAL>{% for zusatzpreis in preis.zusatzpreise %}{{ zusatzpreis.zusatzpreis_titel }}{% if zusatzpreis.zusatzpreis > 0 %}:	{{ zusatzpreis.zusatzpreis|floatformat:0|intcomma }} €{% endif %}{% if not forloop.last %}
