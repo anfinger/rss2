@@ -2390,6 +2390,7 @@ def reise_detail_export_alles(request, pk):
     reisen = [
       {
         "reiseID": rid.reiseID,
+        "intern": rid.korrektur_bemerkung_intern,
         "titel": rid.titel,
         "untertitel": rid.untertitel,
         "einleitung": rid.einleitung,
