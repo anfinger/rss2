@@ -2198,11 +2198,7 @@ def reisezieluebersicht_alles(pk):
                            ON
                              reisen_reise.reiseID = RP.reise_id_id
                            WHERE
-                             reisen_reisekatalogzugehoerigkeit.katalog_id_id = '
-                           """
-                               + str(pk) + 
-                           """
-                             '
+                             reisen_reisekatalogzugehoerigkeit.katalog_id_id = '""" + str(pk) +"""'
                            AND
                              DATE_FORMAT(reisen_reisetermine.datum_beginn, '%Y') > 2025
                            AND
@@ -2300,11 +2296,7 @@ def reisezieluebersicht_alles(pk):
                            ON
                              reisen_reise.reiseID = RP.reise_id_id
                            WHERE
-                             reisen_reisekatalogzugehoerigkeit.katalog_id_id = '
-                             """
-                               + str(pk) +
-                             """
-                             '
+                             reisen_reisekatalogzugehoerigkeit.katalog_id_id = '""" + str(pk) + """'
                            AND
                              DATE_FORMAT(reisen_reisetermine.datum_beginn, '%Y') > 2025
                            AND
