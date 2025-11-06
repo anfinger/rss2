@@ -41,7 +41,7 @@
     </div>
     <div class="rTable">
       <div class="rTableHeading">
-        <div class="rTableHead"></div>
+        <div class="rTableHead">&nbsp;&nbsp;&nbsp;</div>
         <div class="rTableHead">Termin</div>
         <div class="rTableHead">Tage</div>
         <div class="rTableHead">Reiseziel</div>
@@ -53,7 +53,7 @@
        {% if termin.datum_beginn|date:'Y' not in '2025' %}
         {% if termin.Monat %}
         <div class="rTableRow" style="background-color: #ddd;">
-          <div class="rTableCell"></div>
+          <div class="rTableCell">&nbsp;&nbsp;&nbsp;</div>
           <div class="rTableCell"><b>{{ termin.Monat }}</b></div>
           {% if termin.Monat = 'Februar' %}
             <div class="rTableCell"></div><div class="rTableCell"><b>(Winterferien 07.02. - 22.02.2026)</b></div><div class="rTableCell"></div><div class="rTableCell"></div>
@@ -77,7 +77,7 @@
         {% endif %}
         {% if termin.Termin != '' %}
         <div class="rTableRow">
-          <div class="rTableCell">{% if termin.neu %}Neu{% endif %}</div>
+          <div class="rTableCell">{% if termin.neu %}Neu{% else %}&nbsp;&nbsp;&nbsp;{% endif %}</div>
           {% if termin.Termin %}
           <div class="rTableCell">{{ termin.Termin }}</div>
           {% endif %}
