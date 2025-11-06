@@ -46,7 +46,7 @@
         <div class="rTableHead">Tage</div>
         <div class="rTableHead">Reiseziel</div>
         <div class="rTableHead">Seite</div>
-        <div class="rTableHead">Setzen</div>
+        <!-- <div class="rTableHead">Setzen</div> -->
       </div>
       <div class="rTableBody">
       {% for termin in termine %}
@@ -104,11 +104,13 @@
           {% else %}
           <div class="rTableCell" style="text-align: right; width: 40px">n.b.</div>
           {% endif %}
+          <!--
           {% if 'mmgd' in termin.intern %}
           <div class="rTableCell" style="text-align: right; width: 40px">jupp</div>
           {% else %}
           <div class="rTableCell" style="text-align: right; width: 40px">n&ouml;</div>
           {% endif %}
+          -->
         </div>
         {% endif %}
        {% endif %}
