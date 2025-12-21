@@ -1372,7 +1372,7 @@ def sommer26(request):
     termine = namedtuplefetchall(cursor)
     cursor.close()
 
-    kategorien = [ u'Wanderreisen', u'kombinierte Flug- & Busreisen', u'Kuren, Gesundheits- und Wellnessreisen', u'Flusskreuzfahrten']
+    kategorien = [ u'kombinierte Flug- & Busreisen', u'Kuren, Gesundheits- und Wellnessreisen', u'Flusskreuzfahrten']
     zielregionen = [ u'Deutschland', u'Österreich', u'Slowenien / Kroatien', u'Schweiz', u'Italien', u'Frankreich / Spanien / Andorra', u'Britische Inseln', u'Holland / Belgien', u'Skandinavien / Baltikum', u'Polen / Tschechien / Slovakei']
 
     dibug = ''#DefaultStorage().location + '  :::  ' + site.storage.location + site.directory + '  :::  ' + str(FileSystemStorage().directory_permissions_mode)
