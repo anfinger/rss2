@@ -1,4 +1,4 @@
-﻿{% load static %}{% load eigene_tags %}<?xml version="1.0" encoding="UTF-8"?>
+﻿{% load static %}{% load reisen_tags %}<?xml version="1.0" encoding="UTF-8"?>
 <rb24 xmlns="http://www.reisebus24.de/export" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.reisebus24.de/export rb24.xsd">
   <reisen>
   {% for reise in reisen %}{% if reise.reisedaten.veranstalter == 'RS' and reise.reisedaten.zubucher == '' %}

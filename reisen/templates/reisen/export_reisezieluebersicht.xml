@@ -1,4 +1,4 @@
-{% load static %}{% load eigene_tags %}<?xml version="1.0" encoding="UTF-8"?>
+{% load static %}{% load reisen_tags %}<?xml version="1.0" encoding="UTF-8"?>
 <REISEZIELUEBERSICHT><REISEZIELUEBERSICHTTITEL>Reiseübersicht 2022</REISEZIELUEBERSICHTTITEL>
 <REISEZIELUEBERSICHTKATEGORIE><BALKEN_BUSREISE></BALKEN_BUSREISE>Busreisen nach ...</REISEZIELUEBERSICHTKATEGORIE>{% for termin in termine %}{% if termin.kategorie %}
 {% if termin.kategorietyp = 'Kategorie' %}<REISEZIELUEBERSICHTKATEGORIE><BALKEN_{{ termin.kategorie|ohnetage }}></BALKEN_{{ termin.kategorie|ohnetage }}>{% else %}<REISEZIELUEBERSICHTZIELREGION>{% endif %}{{ termin.kategorie|zielumbenennen }}{% if termin.kategorietyp = 'Kategorie' %}</REISEZIELUEBERSICHTKATEGORIE>{% else %}</REISEZIELUEBERSICHTZIELREGION>{% endif %}{% endif %}{% if 'Kuren' not in termin.Reise and termin.Reise %}

@@ -1,4 +1,4 @@
-{% load static %}{% load eigene_tags %}<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+{% load static %}{% load reisen_tags %}<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <tagesfahrten_advent titel="Advents- und Weihnachtsmärkte, Musicals und Shows" seite="2|3" anzahl_seiten="2" kategorie="Tagesfahrten im Advent" zielregion="Deutschland" file="tagesfahrten_advent.xml">{% for tagesfahrt in tagesfahrten %}<ADVENTHEAD>{% if tagesfahrt.datum_beginn %}{{ tagesfahrt.datum_beginn|date:"D. d.m." }}{% endif %}	{{ tagesfahrt.reisedaten.titel }}</ADVENTHEAD>
 <ADVENTFLIESS>{% if tagesfahrt.reisedaten.untertitel %}{{ tagesfahrt.reisedaten.untertitel }} {% endif %}{% if tagesfahrt.reisedaten.einleitung %}{{ tagesfahrt.reisedaten.einleitung }}{% endif %}</ADVENTFLIESS>
 <ADVENTABFAHRT>Abfahrt: {% for zeit in tagesfahrt.abfahrtszeiten %}{% if zeit.ort != 'ANK' %}{{ zeit.zeit }} Uhr {{ zeit.ort|abfahrtsorte }}{% if forloop.counter == 1 %}, {% endif %}{% endif %}{% endfor %}

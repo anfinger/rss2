@@ -1,4 +1,4 @@
-{% load static %}{% load eigene_tags %}{% load l10n %}{% load humanize %}<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+{% load static %}{% load reisen_tags %}{% load l10n %}{% load humanize %}<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <root>
 <TERMINEKUREN>	<KURENORT>Swinemünde</KURENORT>	<KURENHOTEL>"Arstone"</KURENHOTEL>	<KURENHOTEL>"Rybniczanka"</KURENHOTEL>	<KURENHOTEL>"Interferie"</KURENHOTEL>	<KURENHOTEL>"Hamilton"</KURENHOTEL>	<KURENORT>Kolberg</KURENORT>	<KURENHOTEL>"Ikar"</KURENHOTEL>
 <KURENTABELLENKOPF>Termin	Dauer/Zuschlag	Ü/HP	Ü/VP	Ü/HP	Ü/HP	Dauer/Zuschlag	Ü/VP</KURENTABELLENKOPF>

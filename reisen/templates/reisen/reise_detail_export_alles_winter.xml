@@ -1,4 +1,4 @@
-{% load static %}{% load eigene_tags %}{% load l10n %}{% load humanize %}<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+{% load static %}{% load reisen_tags %}{% load l10n %}{% load humanize %}<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <root>
 <TERMINEKUREN>	<KURENORT>Kurort</KURENORT>	<KURENORT>Swinemünde</KURENORT>	<KURENORT>Misdroy</KURENORT>	<KURENORT>Kolberger Deep</KURENORT>	<KURENORT>Kolberg</KURENORT>	<KURENORT>Mielno</KURENORT>							
 	<KURENHOTEL>Kurhotel</KURENHOTEL>	<KURENHOTEL>"Arstone"</KURENHOTEL>	<KURENHOTEL>"Rybniczanka"</KURENHOTEL>	<KURENHOTEL>"Interferie"</KURENHOTEL>	<KURENHOTEL>"Hamilton"</KURENHOTEL>	<KURENHOTEL>"Rezydent"</KURENHOTEL>	<KURENHOTEL>"West Baltic"</KURENHOTEL>	<KURENHOTEL>"Trofana"</KURENHOTEL>	<KURENHOTEL>"Baginski-Chabinka"</KURENHOTEL>	<KURENHOTEL>"Bryza"</KURENHOTEL>	<KURENHOTEL>"Ikar"</KURENHOTEL>	<KURENHOTEL>"Ikar Plaza"</KURENHOTEL>	<KURENHOTEL>"Unitral"</KURENHOTEL>
