@@ -145,6 +145,7 @@ def sternweg(leistung):
       #leistung = re.sub(r'\*', u'', leistung)
       str(leistung)[0] = ''
       return leistung
+      #return leistung[1:]
     else:
       return ''
 
@@ -246,7 +247,7 @@ def mittageklein(reisetyp):
     elif 'Schiffsreise' in reisetyp:
       return reisetyp
     elif 'Fluss' in reisetyp:
-      return reistyp
+      return reisetyp
     else:
       return ''
 
@@ -280,4 +281,3 @@ def land(reiseziel):
    #   return reisetyp
     else:
       return reiseziel
-

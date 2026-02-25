@@ -226,8 +226,8 @@ def neustart(request):
     if version == 'ich':
       return render(request, 'home/neustartneu.html', {'aktuelles': aktuelles})
     elif version == 'nicepage':
-      #return render(request, 'home/Start.html', {'aktuelles': aktuelles})
-      return render(request, 'home/Start.html', {'reisen': reisen})
+      #return render(request, 'home/_start.html', {'aktuelles': aktuelles})
+      return render(request, 'home/_start.html', {'reisen': reisen})
     else:
       return render(request, 'home/neustart.html', {'aktuelles': aktuelles})
 
@@ -282,7 +282,7 @@ def mehrtagesfahrten(request):
         'reisezielregionen__zielregion_id__name'
       ).distinct()
 
-    return render(request, 'home/Mehrtagesfahrten.html', {'mehrtagesfahrten': mehrtagesfahrten })
+    return render(request, 'home/_mehrtagesfahrten.html', {'mehrtagesfahrten': mehrtagesfahrten })
 
 @csrf_exempt
 def tagesfahrten(request):
@@ -406,14 +406,14 @@ def kontakt(request):
 #        form = ContactForm(request.POST)
 #        if form.is_valid():
 #            form.save()
-#            return render(request, 'home/Start.html')
+#            return render(request, 'home/_start.html')
 #    form = ContactForm(
 #	initial = {
 #   		'anrede': 'FR'
 #	}
 #    )
 #
-#    return render(request, 'home/Kontakt.html', {'form': form})
+#    return render(request, 'home/_kontakt.html', {'form': form})
 
     if request.method == 'POST':
       form = BuchungsanfrageForm(request.POST)
@@ -424,13 +424,13 @@ def kontakt(request):
           'Email': form.cleaned_data['email'], 
           'Nachricht':form.cleaned_data['nachricht'], 
         }
-	message = "\n".join(body.values())
+        message = "\n".join(body.values())
         try:
           #send_mail(subject, message, 'info@heebeegeebees.de', ['info@heebeegeebees.de']) 
           return HttpResponse('Invalid header found.')
         except BadHeaderError:
           return HttpResponse('Invalid header found.')
-	return redirect ("home:tagesfahrten")
+      return redirect ("home:tagesfahrten")
       
     form = ContactForm()
     return render(request, "home/Tagesfahrten.html", {'form':form})
@@ -510,7 +510,7 @@ def detail(request, pk):
 #        form = ContactForm(request.POST)
 #        if form.is_valid():
 #            form.save()
-#            return render(request, 'home/Start.html')
+#            return render(request, 'home/_start.html')
 #    form = ContactForm(
 #        initial = {
 #                'anrede': 'FR'
@@ -623,7 +623,7 @@ def detail(request, pk):
 
     return render(
       request,
-      'home/Reise.html',
+      'home/_reise.html',
       {
         'datum_markierung': datum_markierung,
         'datum_ende': datum_ende,

@@ -14,11 +14,14 @@ Including another URLconf
     2. Add a URL to urlpatterns:  url(r'^blog/', include(blog_urls))
 """
 from __future__ import absolute_import, unicode_literals, division
+import os
 from django.conf.urls import include, url
 from django.contrib import admin
 from django.conf import settings
 from filebrowser.sites import site
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+from django.conf.urls.static import static
+from django.views.static import serve
 import django.contrib.auth.views
 
 admin.autodiscover()
@@ -31,6 +34,7 @@ js_info_dict = {
 
 urlpatterns = [
     url(r'^$', include('home.urls')),
+    #url(r'^', include('home.urls')),
     url(r'^reisen/', include('reisen.urls')),
     url(r'^home/', include('home.urls')),
     #url(r'^locking/', include('locking.urls')),
@@ -44,3 +48,21 @@ urlpatterns = [
     url(r'^accounts/login/$', django.contrib.auth.views.login),
     url(r'^accounts/logout/$', django.contrib.auth.views.logout, {'next_page': '/'}),
 ]
+
+# --- DIESER TEIL IST NEU UND WICHTIG FÜR DOCKER ---
+if settings.DEBUG:
+    # 1. Standard Statics
+    urlpatterns += staticfiles_urlpatterns()
+    
+    # 2. Media Files (Reisebilder) - Hier war der NameError
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    
+    # 3. Die Umleitung für die verirrten Muse-Pfade (/home/css/...)
+    urlpatterns += [
+        # Diese Zeile ist jetzt entscheidend:
+        url(r'^home/scripts/(?P<path>.*)$', serve, {'document_root': os.path.join(settings.BASE_DIR, 'static/scripts')}),
+        
+        # Die anderen können bleiben:
+        url(r'^home/css/(?P<path>.*)$', serve, {'document_root': os.path.join(settings.BASE_DIR, 'static/css')}),
+        url(r'^home/images/(?P<path>.*)$', serve, {'document_root': os.path.join(settings.BASE_DIR, 'static/images')}),
+    ]

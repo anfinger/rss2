@@ -32,7 +32,7 @@
                                               {% endif %}
                                               {% if preise %}
                                                 {% for preis in preise %}
-                                                  {% if termin.markierung = preis.markierung %}
+                                                  {% if termin.markierung == preis.markierung %}
                                               <td>{% dauer termin.datum_ende termin.datum_beginn %} Tage</td>
                                               <td>{{ preis.preis }} &euro;</td>
                                               {% if preis.zpreis %}

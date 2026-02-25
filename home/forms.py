@@ -140,14 +140,14 @@ class BuchungsanfrageForm(ModelForm):
                 }),
         }
 
-	def clean(self):
+        def clean(self):
 
-		cleaned_data = super().clean()
+                cleaned_data = super().clean()
 
-		telefon = cleaned_data.get("telefon")
-		email = cleaned_data.get("email")
+                telefon = cleaned_data.get("telefon")
+                email = cleaned_data.get("email")
 
-		if not (telefon or email):
-			raise forms.ValidationError(
+                if not (telefon or email):
+                        raise forms.ValidationError(
 				"Sie muessen eine Email-Addresse oder Telefonnummer angeben!"
 			)

@@ -229,14 +229,14 @@ class Bild(models.Model):
             informationen = titel + r"<br><br>" + beschreibung + r"<br><br>" + keywordsString + r'<br><br><a href ="' + bildIDURL + r'">' + bildIDURL + r'</a><br><br>' + bildID
             return html.mark_safe(informationen)
         except Exception as inst:
-	    return html.mark_safe(inst)
+            return html.mark_safe(inst)
 
     def vorschau(self):
         path = os.path.split(str(self.bild))[0]
         filename = os.path.split(str(self.bild))[1]
 	#return html.mark_safe('<img src="/media/%sthumbnails/thumbnail_%s" width="300" />' % (os.path.split(str(self.bild))[0], os.path.split(str(self.bild))[1]))
 	#return html.mark_safe('<img src="/media/%s/thumbnails/thumbnail_%s" />' % (path, filename))
-	return html.mark_safe('<a href="/media/%s"><img src="/media/%s/thumbnails/thumbnail_%s" /></a>' % (self.bild, path, filename))
+        return html.mark_safe('<a href="/media/%s"><img src="/media/%s/thumbnails/thumbnail_%s" /></a>' % (self.bild, path, filename))
 	#return html.mark_safe('<img src="/media/%s" width="300" />' % (self.bild))
 #	return html.mark_safe('<img src="{url}" width="{width}" height={height} />'.format(
 #        	url = self.url,

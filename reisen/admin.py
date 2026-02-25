@@ -328,7 +328,14 @@ class ReisepreiseInline(GrappelliSortableHiddenMixin, nested_admin.NestedStacked
         kwargs["queryset"] = Preis.objects.order_by('titel')
         return super(ReisepreiseInline, self).formfield_for_foreignkey(db_field, request, **kwargs)
 
-class ReiseAdmin(nested_admin.NestedAdmin): #TabbedModelAdmin,
+# Wir prüfen, welcher Name in dieser Version existiert
+if hasattr(nested_admin, 'NestedModelAdmin'):
+    NestedAdminBase = nested_admin.NestedModelAdmin
+else:
+    NestedAdminBase = nested_admin.NestedAdmin
+
+class ReiseAdmin(NestedAdminBase):
+#ALT -> class ReiseAdmin(nested_admin.NestedAdmin): #TabbedModelAdmin,
 
 #    class Media:
 #        js = [

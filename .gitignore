@@ -15,3 +15,14 @@ reisen.json
 *~
 */migrations/*
 */static/*
+# Docker
+.docker/
+mysql_data/
+*.db
+*.log
+docker-compose.override.yml
+Dockerfile
+docker-compose.yml
+django-inplaceeditform-1.5.0.tar.gz
+init-db/
+inplaceeditform/

@@ -3,7 +3,8 @@
 from django import template
 from django.template.defaultfilters import stringfilter
 from django.contrib.humanize.templatetags.humanize import intcomma
-from collections import OrderedDict 
+from collections import OrderedDict
+from django.template.loader import render_to_string
 import re
 #import locale
 
@@ -126,15 +127,83 @@ def zielumbenennen(zielregion):
 @register.filter
 @stringfilter
 def sternweg(leistung):
-    if str(leistung)[0] == '*':
-      #leistung = re.sub(r'\*', u'', leistung)
-      str(leistung)[0] = ''
-      return leistung
-    else:
-      return ''
+#    if str(leistung)[0] == '*':
+#      #leistung = re.sub(r'\*', u'', leistung)
+#      str(leistung)[0] = ''
+#      return leistung
+#    else:
+#       return ''
+    if leistung and leistung.startswith('*'):
+        return leistung[1:]
+    return leistung
 
 @register.filter
 @stringfilter
 def loadtemplate(templatename):
     return render_to_string('filter.html')
 
+@register.filter
+@stringfilter
+def ohnetageklein(reisetyp):
+    if 'Flug- & Busreise' in reisetyp:
+      return 'Flugreise'
+    elif 'Busreise' in reisetyp:
+      return 'Busreise'
+    elif 'Flugreise' in reisetyp:
+      return 'Flugreise'
+    elif 'anderreise' in reisetyp:
+      return 'Wanderreise'
+    elif 'Kurreise' in reisetyp:
+      return 'Kurreise'
+    elif 'Schiffsreise' in reisetyp:
+      return 'Schiffsreise'
+    elif 'Fluss' in reisetyp:
+      return 'Schiffsreise'
+    else:
+      return ''
+
+@register.filter
+@stringfilter
+def reisetypfarbe(reisetyp):
+    if 'Flug- & Busreise' in reisetyp:
+      return 'u-palette-1-light-1'
+    elif 'Busreise' in reisetyp:
+      return 'u-palette-2-base'
+    elif 'Flugreise' in reisetyp:
+      return 'u-palette-1-light-1'
+    elif 'anderreise' in reisetyp:
+      return 'u-custom-color-1'
+    elif 'Kurreise' in reisetyp:
+      return 'u-palette-4-base'
+    elif 'Schiffsreise' in reisetyp:
+      return 'u-palette-1-base'
+    elif 'Fluss' in reisetyp:
+      return 'u-palette-1-base'
+    else:
+      return ''
+    
+@register.filter
+@stringfilter
+def mittageklein(reisetyp):
+    if 'Flug- & Busreise' in reisetyp:
+      return re.sub(r'Flug- & Busreise', u'Flugreise', reisetyp)
+    elif 'Busreise' in reisetyp:
+      return reisetyp
+    elif 'Flugreise' in reisetyp:
+      return reisetyp
+    elif 'Bus- & Radwanderreise' in reisetyp:
+      return re.sub(r'Bus- & Radwanderreise', u'Radwanderreise', reisetyp)
+    if 'Bus- & Wanderreise' in reisetyp:
+      return re.sub(r'Bus- & Wanderreise', u'Wanderreise', reisetyp)
+    elif 'Wanderreise' in reisetyp:
+      return reisetyp
+    elif 'Kurreise' in reisetyp:
+      return reisetyp
+    if 'Bus- & Schiffsreise' in reisetyp:
+      return re.sub(r'Bus- & Schiffsreise', u'Schiffsreise', reisetyp)
+    elif 'Schiffsreise' in reisetyp:
+      return reisetyp
+    elif 'Fluss' in reisetyp:
+      return reisetyp
+    else:
+      return ''

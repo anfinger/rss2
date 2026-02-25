@@ -21,11 +21,23 @@ import time
 from docx import *
 from docx.enum.section import WD_ORIENT
 from docx.shared import Inches, Pt, RGBColor
-from StringIO import StringIO
+#from StringIO import StringIO
+try:
+    # Python 2
+    from StringIO import StringIO
+except ImportError:
+    # Python 3
+    from io import StringIO
 from django.contrib.staticfiles.templatetags.staticfiles import static
 import mysql.connector
 import json
-from HTMLParser import HTMLParser
+#from HTMLParser import HTMLParser
+try:
+    # Python 2
+    from HTMLParser import HTMLParser
+except ImportError:
+    # Python 3
+    from html.parser import HTMLParser
 
 from django.utils.encoding import python_2_unicode_compatible
 
@@ -1954,17 +1966,17 @@ def reise_detail_export(request, pk):
     pkquery = re.sub(r'[-]', '', str(pk))
 
     for idx, tag in enumerate(tage):
-      	tag.reisetagID = str(tag.reisetagID).replace('-','')
-        if tag.tagnummertext:
-          tag.nummerntext = tag.tagnummertext + ' '
-        else:
-          naechster_tag = tage[(idx+1) % len(tage)]
-          if len(tage) == 1:
-              tag.nummerntext = ''
-          elif (naechster_tag.tagnummer == (tag.tagnummer + 1)) or (idx == (len(tage)-1)):
-              tag.nummerntext = str(tag.tagnummer) + '. Tag: '
-          else:
-              tag.nummerntext = str(tag.tagnummer) + '. - ' + str(naechster_tag.tagnummer-1) + '. Tag: '
+      tag.reisetagID = str(tag.reisetagID).replace('-','')
+      if tag.tagnummertext:
+        tag.nummerntext = tag.tagnummertext + ' '
+      else:
+        naechster_tag = tage[(idx+1) % len(tage)]
+      if len(tage) == 1:
+        tag.nummerntext = ''
+      elif (naechster_tag.tagnummer == (tag.tagnummer + 1)) or (idx == (len(tage)-1)):
+        tag.nummerntext = str(tag.tagnummer) + '. Tag: '
+      else:
+        tag.nummerntext = str(tag.tagnummer) + '. - ' + str(naechster_tag.tagnummer-1) + '. Tag: '
 
     cursor = connection.cursor()
     cursor.execute("SELECT reise_id_id, reisepreisID, hauptpreis.titel, REPLACE(FORMAT(reisen_reisepreise.preis, 0),',','.') as preis, reisen_reisepreise.markierung, kommentar, subpreise.zpreis FROM reisen_reisepreise LEFT JOIN reisen_preis AS hauptpreis ON (hauptpreis.preisID = reisen_reisepreise.preis_id_id) LEFT JOIN (SELECT reisepreis_id_id, GROUP_CONCAT(IF(reisen_reisepreiszusatz.preis > 0, CONCAT(CONCAT_WS(':	', subpreis.titel, replace(FORMAT(reisen_reisepreiszusatz.preis, 0),',','.')), ' €'), subpreis.titel) ORDER BY reisen_reisepreiszusatz.position ASC SEPARATOR '\n') as zpreis from reisen_reisepreiszusatz LEFT JOIN reisen_preis AS subpreis ON (subpreis.preisID = reisen_reisepreiszusatz.preis_id_id) GROUP BY reisepreis_id_id) AS subpreise ON (reisepreisID = reisepreis_id_id) WHERE reisen_reisepreise.reise_id_id = '" + pkquery + "' ORDER BY reisen_reisepreise.position;");
