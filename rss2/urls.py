@@ -46,23 +46,5 @@ urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     #url(r'^admin/ajax/', include('locking.urls')),
     url(r'^accounts/login/$', django.contrib.auth.views.login),
-    url(r'^accounts/logout/$', django.contrib.auth.views.logout, {'next_page': '/'}),
+    url(r'^accounts/logout/$', django.contrib.auth.views.logout, {'next_page': '/'})
 ]
-
-# --- DIESER TEIL IST NEU UND WICHTIG FÜR DOCKER ---
-#if settings.DEBUG:
-    # 1. Standard Statics
-#    urlpatterns += staticfiles_urlpatterns()
-    
-    # 2. Media Files (Reisebilder) - Hier war der NameError
-#    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-    
-    # 3. Die Umleitung für die verirrten Muse-Pfade (/home/css/...)
-#    urlpatterns += [
-        # Diese Zeile ist jetzt entscheidend:
-#        url(r'^home/scripts/(?P<path>.*)$', serve, {'document_root': os.path.join(settings.BASE_DIR, 'static/scripts')}),
-        
-        # Die anderen können bleiben:
-#        url(r'^home/css/(?P<path>.*)$', serve, {'document_root': os.path.join(settings.BASE_DIR, 'static/css')}),
-#        url(r'^home/images/(?P<path>.*)$', serve, {'document_root': os.path.join(settings.BASE_DIR, 'static/images')}),
- #   ]
