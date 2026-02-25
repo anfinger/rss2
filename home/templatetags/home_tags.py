@@ -207,3 +207,13 @@ def mittageklein(reisetyp):
       return reisetyp
     else:
       return ''
+
+@register.filter
+@stringfilter
+def land(reiseziel):
+    if 'web' in reiseziel:
+      return re.sub(r'web', u'', reiseziel)
+   # elif 'Busreise' in reisetyp:
+   #   return reisetyp
+    else:
+      return reiseziel
