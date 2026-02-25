@@ -144,6 +144,62 @@ def loadtemplate(templatename):
 
 @register.filter
 @stringfilter
+def abfahrtsorte(ort):
+    if ort:
+      ort = re.sub(r'HBF', u'Hbf Schwerin', ort)
+      ort = re.sub(r'VSB', u'HAST v. Stauffenberg Str.', ort)
+      ort = re.sub(r'GAR', u'Gartenstadt', ort)
+      ort = re.sub(r'WIS', u'ZOB Wismar', ort)
+      ort = re.sub(r'ROG', u'Gadebusch Roggendorfer Str.', ort)
+      ort = re.sub(r'ANK', u'Ankunft', ort)
+      return ort
+    else:
+      return ''
+
+@register.simple_tag
+def dauer(ende, beginn):
+    if ende:
+      tage = ende - beginn
+      return tage.days + 1
+    else:
+      return 1
+
+@register.filter
+@stringfilter
+def nurbetrag(zpreis):
+    if zpreis:
+      zpreis = re.sub(r'EZ-Zuschlag: ', u'', zpreis)
+      zpreis = re.sub(r'EZ-Zuschlag', u'0 €', zpreis)
+      zpreis = re.sub(r'\n', u'</td><td>', zpreis)
+      zpreis = re.sub(r'Zuschlag gr. DZ: ', u'', zpreis)
+      zpreis = re.sub(r'VP-Zuschlag: ', u'', zpreis)
+      zpreis = re.sub(r'VP-Zuschlag', u'0 €', zpreis)
+      return zpreis
+    else:
+      return ''
+
+@register.filter
+@stringfilter
+def ohnetage(reisetyp):
+    if 'Flug- & Busreise' in reisetyp:
+      return 'FLUGREISE'
+    elif 'Busreise' in reisetyp:
+      return 'BUSREISE'
+    elif 'Flugreise' in reisetyp:
+      return 'FLUGREISE'
+    elif 'anderreise' in reisetyp:
+      return 'WANDERREISE'
+    elif 'Kurreise' in reisetyp:
+      return 'KURREISE'
+    elif 'Schiffsreise' in reisetyp:
+      return 'SCHIFFSREISE'
+    elif 'Fluss' in reisetyp:
+      return 'SCHIFFSREISE'
+    else:
+      return ''
+
+@register.filter
+@stringfilter
 def ohnetageklein(reisetyp):
     if 'Flug- & Busreise' in reisetyp:
       return 'Flugreise'
