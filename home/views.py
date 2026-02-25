@@ -374,7 +374,7 @@ def tagesfahrten(request):
     form = BuchungsanfrageForm()
 
     #return JsonResponse(data)
-    return render(request, 'home/Tagesfahrten.html', {'tagesfahrten': tagesfahrten, 'form': form })
+    return render(request, 'home/_tagesfahrten.html', {'tagesfahrten': tagesfahrten, 'form': form })
 
 def musicals(request):
     res = loader.get_template('home/musicals.html')
@@ -389,7 +389,7 @@ def zusatzangebote(request):
 def reiseberatung(request):
     res = 'Pauschalreisen, Mietwagen, Flüge, Kreuzfahrten, ...'
     #return HttpResponse(res)
-    return render(request, 'home/Reiseberatung.html', {'res': res})
+    return render(request, 'home/_reiseberatung.html', {'res': res})
 
 
 def service(request):
@@ -433,7 +433,7 @@ def kontakt(request):
       return redirect ("home:tagesfahrten")
       
     form = ContactForm()
-    return render(request, "home/Tagesfahrten.html", {'form':form})
+    return render(request, "home/_tagesfahrten.html", {'form':form})
 
 def aktuelles(request):
     aktuelles1 = 'Hier kommt Kontakt und die Anfahrt ...'
