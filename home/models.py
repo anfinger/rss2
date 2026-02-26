@@ -1,16 +1,15 @@
 from django.db import models
 from django.utils import timezone
-from django.utils.encoding import python_2_unicode_compatible
 from django.core.validators import RegexValidator
 
 # Create your models here.
 
-@python_2_unicode_compatible # For Python 3.4 and 2.7
 class Aktuelles(models.Model):
     class Meta:
 	    verbose_name_plural = "Aktuelles"
 
-    author = models.ForeignKey('auth.User')
+    author = models.ForeignKey('auth.User', on_delete=models.CASCADE, verbose_name='Author')
+
     title = models.CharField(max_length=200)
     text = models.TextField()
     reiselink = models.URLField(
@@ -38,7 +37,6 @@ class Aktuelles(models.Model):
     def __str__(self):
         return self.title
 
-@python_2_unicode_compatible # For Python 3.4 and 2.7
 class Contact(models.Model):
 
     FRAU = 'FR'
@@ -91,7 +89,6 @@ class Contact(models.Model):
     def __str__(self):
         return self.email
 
-@python_2_unicode_compatible # For Python 3.4 and 2.7
 class Buchungsanfrage(models.Model):
 
     reise = models.CharField(

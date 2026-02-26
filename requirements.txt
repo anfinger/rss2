@@ -1,0 +1,21 @@
+# Basis
+Django>=4.2,<4.3
+mysqlclient>=2.2.8
+python-dotenv>=1.0.1
+
+# Bildverarbeitung & Medien
+Pillow>=10.2.0
+django-filer>=3.4.4
+easy-thumbnails>=2.10
+django-mptt>=0.18
+
+# Admin-Oberfläche & Struktur
+django-grappelli>=4.0
+django-filebrowser-no-grappelli>=4.0
+django-nested-admin>=4.1.6
+
+# Formulare & Helfer
+# Korrigierter Name für inplaceeditform:
+#django-inplaceeditform-bootstrap>=2.0.2
+django-humanize
+#PyExifTool>=0.5.6

@@ -5,12 +5,20 @@ from django.contrib import admin
 from django.utils import timezone
 from django.db import models
 import django.utils.encoding
-from django.utils.encoding import python_2_unicode_compatible
 from django.contrib.auth.models import User
 import re
 import uuid
 from django.core.validators import MinValueValidator #, MaxValueValidator
-import exiftool
+try:
+    import exiftool
+except ImportError:
+    try:
+        # Manche Versionen von PyExifTool brauchen diesen Pfad
+        from exiftool import exiftool 
+    except ImportError:
+        # Falls es gar nicht geht, verhindern wir den Absturz beim Start
+        exiftool = None
+        print("WARNUNG: exiftool konnte nicht geladen werden!")
 import os
 import glob
 
@@ -53,7 +61,6 @@ def get_path(instance, filename):
 ################
 # Bildanbieter #
 ################
-@python_2_unicode_compatible # For Python 3.4 and 2.7
 class Bildanbieter(models.Model):
 
     # Titel für das Admin Backend
@@ -79,7 +86,6 @@ class Bildanbieter(models.Model):
 ###########
 # Bild    #
 ###########
-@python_2_unicode_compatible # For Python 3.4 and 2.7
 class Bild(models.Model):
 
     # Titel für das Admin Backend
@@ -251,7 +257,6 @@ class Bild(models.Model):
 ###############
 # Angebot     #
 ###############
-@python_2_unicode_compatible # For Python 3.4 and 2.7
 class Angebot(models.Model):
 
     # Titel für das Admin Backend
@@ -280,7 +285,6 @@ class Angebot(models.Model):
 ############################
 # Auftragsbestaetigung     #
 ############################
-@python_2_unicode_compatible # For Python 3.4 and 2.7
 class Auftragsbestaetigung(models.Model):
 
     # Titel für das Admin Backend
@@ -309,7 +313,6 @@ class Auftragsbestaetigung(models.Model):
 ###########
 # Katalog #
 ###########
-@python_2_unicode_compatible # For Python 3.4 and 2.7
 class Katalog(models.Model):
 
     # Titel für das Admin Backend
@@ -352,7 +355,6 @@ class Katalog(models.Model):
 ###########
 # Hinweis #
 ###########
-@python_2_unicode_compatible # For Python 3.4 and 2.7
 class Hinweis(models.Model):
 
     # Titel für das Admin Backend
@@ -379,7 +381,6 @@ class Hinweis(models.Model):
 #############
 # Kategorie #
 #############
-@python_2_unicode_compatible # For Python 3.4 and 2.7
 class Kategorie(models.Model):
 
     # Titel für das Admin Backend
@@ -406,7 +407,6 @@ class Kategorie(models.Model):
 ##############
 # Zielregion #
 ##############
-@python_2_unicode_compatible # For Python 3.4 and 2.7
 class Zielregion(models.Model):
 
     # Titel für das Admin Backend
@@ -434,7 +434,6 @@ class Zielregion(models.Model):
 ##############
 # Preis      #
 ##############
-@python_2_unicode_compatible # For Python 3.4 and 2.7
 class Preis(models.Model):
 
     # Titel für das Admin Backend
@@ -462,7 +461,6 @@ class Preis(models.Model):
 #########
 # Reise #
 #########
-@python_2_unicode_compatible # For Python 3.4 and 2.7
 class Reise(models.Model):
 
     # Auswahlmöglichkeiten Veranstalter
@@ -487,6 +485,8 @@ class Reise(models.Model):
         help_text="Geben Sie hier einen evtl. abweichenden URL-String ein.")
     autor_id = models.ForeignKey(
         User,
+        on_delete=models.CASCADE,
+        verbose_name='Autor',
         related_name='reisen',
         blank = True,
         null = True)
@@ -654,7 +654,6 @@ class Reise(models.Model):
 #############
 # Reisetage #
 #############
-@python_2_unicode_compatible # For Python 3.4 and 2.7
 class Reisetage(models.Model):
 
     # Titel für das Admin Backend
@@ -705,7 +704,6 @@ class Reisetage(models.Model):
 ##############################
 # sonstige Reisebeschreibung #
 ##############################
-@python_2_unicode_compatible # For Python 3.4 and 2.7
 class Reisebeschreibung(models.Model):
 
     # Titel für das Admin Backend
@@ -751,7 +749,6 @@ class Reisebeschreibung(models.Model):
 ################
 # Reisetermine #
 ################
-@python_2_unicode_compatible # For Python 3.4 and 2.7
 class Reisetermine(models.Model):
 
     # Titel für das Admin Backend
@@ -804,7 +801,6 @@ class Reisetermine(models.Model):
 ###########################
 # Abfahrtszeiten, Ankunft #
 ###########################
-@python_2_unicode_compatible # For Python 3.4 and 2.7
 class Abfahrtszeiten(models.Model):
 
     # Auswahlmöglichkeiten Zeiten
@@ -868,7 +864,6 @@ class Abfahrtszeiten(models.Model):
 ########################
 # Leistungen der Reise #
 ########################
-@python_2_unicode_compatible # For Python 3.4 and 2.7
 class LeistungenReise(models.Model):
 
     # Titel für das Admin Backend
@@ -912,7 +907,6 @@ class LeistungenReise(models.Model):
 ##############################
 # Frühbucherrabatt zur Reise #
 ##############################
-@python_2_unicode_compatible # For Python 3.4 and 2.7
 class Fruehbucherrabatt(models.Model):
 
     # Titel für das Admin Backend
@@ -956,7 +950,6 @@ class Fruehbucherrabatt(models.Model):
 ##############################
 # Zusatzleistungen zur Reise #
 ##############################
-@python_2_unicode_compatible # For Python 3.4 and 2.7
 class Zusatzleistung(models.Model):
 
     # Titel für das Admin Backend
@@ -995,7 +988,6 @@ class Zusatzleistung(models.Model):
 ##############################
 # Reisekatalogzugehoerigkeit #
 ##############################
-@python_2_unicode_compatible # For Python 3.4 and 2.7
 class Reisekatalogzugehoerigkeit(models.Model):
 
     # Titel für das Admin Backend
@@ -1050,7 +1042,6 @@ class Reisekatalogzugehoerigkeit(models.Model):
 ##############################
 # Reisehinweise zur Reise    #
 ##############################
-@python_2_unicode_compatible # For Python 3.4 and 2.7
 class Reisehinweise(models.Model):
 
     # Titel für das Admin Backend
@@ -1089,7 +1080,6 @@ class Reisehinweise(models.Model):
 ##############################
 # Bilder zur Reise           #
 ##############################
-@python_2_unicode_compatible # For Python 3.4 and 2.7
 class Reisebilder(models.Model):
 
     # Titel für das Admin Backend
@@ -1136,7 +1126,6 @@ class Reisebilder(models.Model):
 ##############################
 # Angebote zur Reise         #
 ##############################
-@python_2_unicode_compatible # For Python 3.4 and 2.7
 class Reiseangebote(models.Model):
 
     # Titel für das Admin Backend
@@ -1173,7 +1162,6 @@ class Reiseangebote(models.Model):
 #######################################
 # Auftragsbestaetigung zur Reise      #
 #######################################
-@python_2_unicode_compatible # For Python 3.4 and 2.7
 class Reiseauftragsbestaetigungen(models.Model):
 
     # Titel für das Admin Backend
@@ -1210,7 +1198,6 @@ class Reiseauftragsbestaetigungen(models.Model):
 ###########################
 # Kategorien zur Reise    #
 ###########################
-@python_2_unicode_compatible # For Python 3.4 and 2.7
 class Reisekategorien(models.Model):
 
     # Titel für das Admin Backend
@@ -1244,9 +1231,7 @@ class Reisekategorien(models.Model):
 #############################
 # Zielregionen zur Reise    #
 #############################
-@python_2_unicode_compatible # For Python 3.4 and 2.7
 class Reisezielregionen(models.Model):
-
     # Titel für das Admin Backend
     class Meta:
         verbose_name = "Zielregion"
@@ -1278,7 +1263,6 @@ class Reisezielregionen(models.Model):
 #############################
 # Zielregionen zur Reise    #
 #############################
-@python_2_unicode_compatible # For Python 3.4 and 2.7
 class Bildzielregionen(models.Model):
 
     # Titel für das Admin Backend
@@ -1313,7 +1297,6 @@ class Bildzielregionen(models.Model):
 #############################################
 # Ausflugspakete/Zusatzleistungen zur Reise #
 #############################################
-@python_2_unicode_compatible # For Python 3.4 and 2.7
 class Ausflugspakete(models.Model):
 
     # Titel für das Admin Backend
@@ -1361,7 +1344,6 @@ class Ausflugspakete(models.Model):
 # Leistungen zu Ausflugspaket                                                   #
 # Wenn keine Leistungen vorhanden dann ist es kein AP sonder Zusatzleistung !!! #
 #################################################################################
-@python_2_unicode_compatible # For Python 3.4 and 2.7
 class LeistungenAusflugspaket(models.Model):
 
     # Titel für das Admin Backend
@@ -1395,7 +1377,6 @@ class LeistungenAusflugspaket(models.Model):
 ############################################
 # Preise zu Ausflugspaket/Zusatzleistung   #
 ############################################
-@python_2_unicode_compatible # For Python 3.4 and 2.7
 class Ausflugspaketpreise(models.Model):
 
     # Titel für das Admin Backend
@@ -1439,7 +1420,6 @@ class Ausflugspaketpreise(models.Model):
 ####################################################
 # Ausflugspakete/Zusatzleistungen zu Reisetagen    #
 ####################################################
-@python_2_unicode_compatible # For Python 3.4 and 2.7
 class AusflugspaketeZuReisetagen(models.Model):
 
     # Titel für das Admin Backend
@@ -1486,7 +1466,6 @@ class AusflugspaketeZuReisetagen(models.Model):
 #############################
 # Preise zur Reise          #
 #############################
-@python_2_unicode_compatible # For Python 3.4 and 2.7
 class Reisepreise(models.Model):
 
     # Titel für das Admin Backend
@@ -1535,7 +1514,6 @@ class Reisepreise(models.Model):
 #############################
 # Detailpreise zur Reise    #
 #############################
-@python_2_unicode_compatible # For Python 3.4 and 2.7
 class ReisepreisZusatz(models.Model):
 
     # Titel für das Admin Backend

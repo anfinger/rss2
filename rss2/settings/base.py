@@ -13,19 +13,21 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 from django.conf import settings
+from pathlib import Path
+from dotenv import load_dotenv # Paket zum Laden der .env
 
 #os.environ['DJANGO_SETTINGS_MODULE'] = 'rss2.settings.production'
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/
+# Lade die Umgebungsvariablen aus der .env-Datei
+load_dotenv(os.path.join(BASE_DIR, '.env'))
 
-
+# Jetzt kannst du sie benutzen:
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '3+^l!tg8b3hf)iii=05g$ij_(cjag@(w(k)g(@+t)7jwm5e#)3'
-
-ALLOWED_HOSTS = ['*']
+SECRET_KEY = os.environ.get('SECRET_KEY')
+DEBUG = os.environ.get('DEBUG', 'False') == 'True'
+ALLOWED_HOSTS = [h.strip() for h in os.environ.get('ALLOWED_HOSTS', '*').split(',')]
 
 # Application definition
 
@@ -36,7 +38,7 @@ INSTALLED_APPS = (
     #'django-concurrency',
     #'admin_locking',
     'reisen',
-    'inplaceeditform',
+    #'inplaceeditform',
     'grappelli',
     'easy_thumbnails',
     'filer',
@@ -55,7 +57,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.humanize',
     'fibu',
-    'test_without_migrations',
+    #'test_without_migrations',
     'home',
     #'contact',
     #'imagestore',

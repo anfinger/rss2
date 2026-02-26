@@ -39,8 +39,6 @@ except ImportError:
     # Python 3
     from html.parser import HTMLParser
 
-from django.utils.encoding import python_2_unicode_compatible
-
 #from django.core.files.storage import DefaultStorage
 #from filebrowser.sites import FileBrowserSite
 #from filebrowser.sites import site
@@ -399,7 +397,6 @@ def winter2016_17_export(request):
 ##################################################################
 # Winterreisen 2016 2017                                         #
 ##################################################################
-#@python_2_unicode_compatible # For Python 3.4 and 2.7
 def winter1617(request):
     dibug = ''
     cursor = connection.cursor()
@@ -416,7 +413,6 @@ def winter1617(request):
 ##################################################################
 # Winterreisen 2016 2017                                         #
 ##################################################################
-#@python_2_unicode_compatible # For Python 3.4 and 2.7
 def winter1718(request):
     dibug = ''
     cursor = connection.cursor()
@@ -563,7 +559,6 @@ def winter1718(request):
 ##################################################################
 # Reisebus24 Export                                              #
 ##################################################################
-#@python_2_unicode_compatible # For Python 3.4 and 2.7
 def rb24(request):
 
     dibug = ''
@@ -1178,7 +1173,6 @@ def reisezieluebersicht(request):
 ##################################################################
 # Sommer 2017                                         #
 ##################################################################
-#@python_2_unicode_compatible # For Python 3.4 and 2.7
 def sommer17(request):
     dibug = ''
     cursor = connection.cursor()
@@ -1200,7 +1194,6 @@ def sommer17(request):
 ##################################################################
 # Sommer 2018                                         #
 ##################################################################
-#@python_2_unicode_compatible # For Python 3.4 and 2.7
 def sommer18(request):
     dibug = ''
     cursor = connection.cursor()
@@ -1222,7 +1215,6 @@ def sommer18(request):
 ##################################################################
 # Sommer 2019                                                    #
 ##################################################################
-#@python_2_unicode_compatible # For Python 3.4 and 2.7
 def sommer19(request):
     dibug = ''
     cursor = connection.cursor()
@@ -1244,7 +1236,6 @@ def sommer19(request):
 ##################################################################
 # Sommer 2020                                                    #
 ##################################################################
-#@python_2_unicode_compatible # For Python 3.4 and 2.7
 def sommer20(request):
     dibug = ''
     cursor = connection.cursor()
@@ -1266,7 +1257,6 @@ def sommer20(request):
 ##################################################################
 # Sommer 2021                                                    #
 ##################################################################
-#@python_2_unicode_compatible # For Python 3.4 and 2.7
 def sommer21(request):
     dibug = ''
     cursor = connection.cursor()
@@ -1288,7 +1278,6 @@ def sommer21(request):
 ##################################################################
 # Sommer 2022                                                    #
 ##################################################################
-#@python_2_unicode_compatible # For Python 3.4 and 2.7
 def sommer22(request):
     dibug = ''
     cursor = connection.cursor()
@@ -1310,7 +1299,6 @@ def sommer22(request):
 ##################################################################
 # Sommer 2023                                                    #
 ##################################################################
-#@python_2_unicode_compatible # For Python 3.4 and 2.7
 def sommer23(request):
     dibug = ''
     cursor = connection.cursor()
@@ -1332,7 +1320,6 @@ def sommer23(request):
 ##################################################################
 # Sommer 2024                                                    #
 ##################################################################
-#@python_2_unicode_compatible # For Python 3.4 and 2.7
 def sommer24(request):
     dibug = ''
     cursor = connection.cursor()
@@ -1354,7 +1341,6 @@ def sommer24(request):
 ##################################################################
 # Sommer 2025                                                    #
 ##################################################################
-#@python_2_unicode_compatible # For Python 3.4 and 2.7
 def sommer25(request):
     dibug = ''
     cursor = connection.cursor()
@@ -1376,7 +1362,6 @@ def sommer25(request):
 ##################################################################
 # Sommer 2026                                                    #
 ##################################################################
-#@python_2_unicode_compatible # For Python 3.4 and 2.7
 def sommer26(request):
     dibug = ''
     cursor = connection.cursor()
@@ -3088,7 +3073,6 @@ def neu(request):
 
     return render(request, 'reisen/neu.html', {'neu': neu })
 
-#@python_2_unicode_compatible # For Python 3.4 and 2.7
 @csrf_exempt
 def printZubringer(request):
 
