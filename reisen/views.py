@@ -326,6 +326,7 @@ def tagesfahrten(request):
             p = document.add_paragraph()
             p.add_run(unicode(hinweis['hinweis'], "utf-8")).italic = True
         for idx, abfahrtszeit in enumerate(tagesfahrt['abfahrtszeiten']):
+          font.bold = False
           if idx == 0:
             p = document.add_paragraph()
             font.bold = True
