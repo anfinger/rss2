@@ -328,7 +328,9 @@ def tagesfahrten(request):
         if tagesfahrt['hinweise']:
           for hinweis in tagesfahrt['hinweise']:
             p = document.add_paragraph()
-            p.add_run(unicode(hinweis['hinweis'], "utf-8")).italic = True
+            run = p.add_run(unicode(hinweis['hinweis'], "utf-8"))
+            run.italic = True
+            run.bold= True
         for idx, abfahrtszeit in enumerate(tagesfahrt['abfahrtszeiten']):
           if idx == 0:
             p = document.add_paragraph()
@@ -351,7 +353,7 @@ def tagesfahrten(request):
               if newparagraph:
                 p = document.add_paragraph()
               newparagraph = True
-              p.add_run('\n' + unicode(preis['preistitel'], "utf-8")[:-5] + ':\t').bold = True
+              p.add_run('\n' + unicode(preis['preistitel'], "utf-8")[:-5] + ':\t\t').bold = True
               if preis['kommentar']:
                 p.add_run(preis['kommentar'] + ' ').bold = True
               p.add_run(str(int(preis['preis'])) + u' €').bold = True
@@ -359,7 +361,7 @@ def tagesfahrten(request):
             if newparagraph:
               p = document.add_paragraph()
             newparagraph = True
-            p.add_run('\n' + unicode(preis['preistitel'], "utf-8")[:-5] + ':\t').bold = True
+            p.add_run('\n' + unicode(preis['preistitel'], "utf-8")[:-5] + ':\t\t').bold = True
             if preis['kommentar']:
               p.add_run(preis['kommentar'] + ' ').bold = True
             p.add_run(str(int(preis['preis'])) + u' €').bold = True
