@@ -328,11 +328,13 @@ def tagesfahrten(request):
         for idx, abfahrtszeit in enumerate(tagesfahrt['abfahrtszeiten']):
           if idx == 0:
             p = document.add_paragraph()
-            p.add_run('Abfahrt: ').name = 'Submariner R24 light'
+            p.add_run('Abfahrt:\t').name = 'Submariner R24 Bold'
           if idx == (len(tagesfahrt['abfahrtszeiten'])-1):
             p = document.add_paragraph()
-            p.add_run('Ankunft: ').name = 'Submariner R24 light'
+            p.add_run('Ankunft:\t').name = 'Submariner R24 Bold'
           p.add_run(str(abfahrtszeit.zeit)[:5] + ' Uhr ' + orte[abfahrtszeit.ort]).name = 'Submariner R24 light'
+          if idx == (len(tagesfahrt['abfahrtszeiten'])-1):
+            p.add_run(' in Schwerin').name = 'Submariner R24 light'
           if idx < (len(tagesfahrt['abfahrtszeiten'])-2):
             p.add_run(', ').name = 'Submariner R24 light'
 
