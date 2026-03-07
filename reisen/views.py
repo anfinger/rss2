@@ -314,10 +314,12 @@ def tagesfahrten(request):
         if tagesfahrt['reisedaten'].untertitel or tagesfahrt['reisedaten'].einleitung:
           p = document.add_paragraph()
         if tagesfahrt['reisedaten'].untertitel:
-          run = p.add_run('\t\t' + tagesfahrt['reisedaten'].untertitel + ' ').italic = True
+          run = p.add_run('\t\t' + tagesfahrt['reisedaten'].untertitel + ' ')
+          run.italic = True
           run.bold = True
         if  tagesfahrt['reisedaten'].einleitung:
-          run = p.add_run(tagesfahrt['reisedaten'].einleitung).italic = True
+          run = p.add_run(tagesfahrt['reisedaten'].einleitung)
+          run.italic = True
           run.bold = True
         if tagesfahrt['reisedaten'].veranstalter != 'RS':
           if tagesfahrt['reisedaten'].veranstalter == 'SH':
