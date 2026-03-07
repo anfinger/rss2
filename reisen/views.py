@@ -351,18 +351,18 @@ def tagesfahrten(request):
               if newparagraph:
                 p = document.add_paragraph()
               newparagraph = True
-              p.add_run('\n' + unicode(preis['preistitel'], "utf-8") + ':\t').bold = True
+              p.add_run('\n' + unicode(preis['preistitel'], "utf-8") + ':\t')[:-3].bold = True
               if preis['kommentar']:
                 p.add_run(preis['kommentar'] + ' ').bold = True
-              p.add_run(str(preis['preis']) + u' €').bold = True
+              p.add_run(str(int(preis['preis'])) + u' €').bold = True
           else:
             if newparagraph:
               p = document.add_paragraph()
             newparagraph = True
-            p.add_run('\n' + unicode(preis['preistitel'], "utf-8") + ':\t').bold = True
+            p.add_run('\n' + unicode(preis['preistitel'], "utf-8") + ':\t')[:-3].bold = True
             if preis['kommentar']:
               p.add_run(preis['kommentar'] + ' ').bold = True
-            p.add_run(str(preis['preis']) + u' €').bold = True
+            p.add_run(str(int(preis['preis'])) + u' €').bold = True
             
         p = document.add_paragraph()
         p.add_run().size = Pt(8)
