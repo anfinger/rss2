@@ -326,15 +326,16 @@ def tagesfahrten(request):
             p = document.add_paragraph()
             p.add_run(unicode(hinweis['hinweis'], "utf-8")).italic = True
         for idx, abfahrtszeit in enumerate(tagesfahrt['abfahrtszeiten']):
-          font.bold = False
           if idx == 0:
             p = document.add_paragraph()
             font.bold = True
             p.add_run('Abfahrt:\t').name = 'Submariner R24'
+            font.bold = False
           if idx == (len(tagesfahrt['abfahrtszeiten'])-1):
             p = document.add_paragraph()
             font.bold = True
             p.add_run('Ankunft:\t').name = 'Submariner R24'
+            font.bold = False
           p.add_run(str(abfahrtszeit.zeit)[:5] + ' Uhr ' + orte[abfahrtszeit.ort]).name = 'Submariner R24 light'
           if idx == (len(tagesfahrt['abfahrtszeiten'])-1):
             p.add_run(' in Schwerin').name = 'Submariner R24 light'
