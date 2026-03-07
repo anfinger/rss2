@@ -314,9 +314,11 @@ def tagesfahrten(request):
         if tagesfahrt['reisedaten'].untertitel or tagesfahrt['reisedaten'].einleitung:
           p = document.add_paragraph()
         if tagesfahrt['reisedaten'].untertitel:
-          p.add_run(tagesfahrt['reisedaten'].untertitel + ' ').italic = True
+          run = p.add_run('\t\t' + tagesfahrt['reisedaten'].untertitel + ' ').italic = True
+          run.bold = True
         if  tagesfahrt['reisedaten'].einleitung:
-          p.add_run(tagesfahrt['reisedaten'].einleitung).italic = True
+          run = p.add_run(tagesfahrt['reisedaten'].einleitung).italic = True
+          run.bold = True
         if tagesfahrt['reisedaten'].veranstalter != 'RS':
           if tagesfahrt['reisedaten'].veranstalter == 'SH':
             p = document.add_paragraph()
@@ -347,7 +349,7 @@ def tagesfahrten(request):
               if newparagraph:
                 p = document.add_paragraph()
               newparagraph = True
-              p.add_run('\t\t' + unicode(preis['preistitel'], "utf-8") + ': ').bold = True
+              p.add_run('\n' + unicode(preis['preistitel'], "utf-8") + ': ').bold = True
               if preis['kommentar']:
                 p.add_run(preis['kommentar'] + ' ').bold = True
               p.add_run(str(preis['preis']) + u' €').bold = True
@@ -355,7 +357,7 @@ def tagesfahrten(request):
             if newparagraph:
               p = document.add_paragraph()
             newparagraph = True
-            p.add_run('\t\t' + unicode(preis['preistitel'], "utf-8") + ': ').bold = True
+            p.add_run('\n' + unicode(preis['preistitel'], "utf-8") + ': ').bold = True
             if preis['kommentar']:
               p.add_run(preis['kommentar'] + ' ').bold = True
             p.add_run(str(preis['preis']) + u' €').bold = True
