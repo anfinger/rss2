@@ -314,9 +314,9 @@ def tagesfahrten(request):
         if tagesfahrt['reisedaten'].untertitel or tagesfahrt['reisedaten'].einleitung:
           p = document.add_paragraph()
         if tagesfahrt['reisedaten'].untertitel:
-          p.add_run(tagesfahrt['reisedaten'].untertitel + ' ')
+          p.add_run(tagesfahrt['reisedaten'].untertitel + ' ').italic = True
         if  tagesfahrt['reisedaten'].einleitung:
-          p.add_run(tagesfahrt['reisedaten'].einleitung)
+          p.add_run(tagesfahrt['reisedaten'].einleitung).italic = True
         if tagesfahrt['reisedaten'].veranstalter != 'RS':
           if tagesfahrt['reisedaten'].veranstalter == 'SH':
             p = document.add_paragraph()
@@ -328,14 +328,12 @@ def tagesfahrten(request):
         for idx, abfahrtszeit in enumerate(tagesfahrt['abfahrtszeiten']):
           if idx == 0:
             p = document.add_paragraph()
-            font.bold = True
-            p.add_run('Abfahrt:\t').name = 'Submariner R24'
-            font.bold = False
+            #p.add_run('Abfahrt:\t').name = 'Submariner R24'
+            p.add_run('Abfahrt:\t').bold = True
           if idx == (len(tagesfahrt['abfahrtszeiten'])-1):
             p = document.add_paragraph()
-            font.bold = True
-            p.add_run('Ankunft:\t').name = 'Submariner R24'
-            font.bold = False
+            #p.add_run('Ankunft:\t').name = 'Submariner R24'
+            p.add_run('Ankunft:\t').bold = True
           p.add_run(str(abfahrtszeit.zeit)[:5] + ' Uhr ' + orte[abfahrtszeit.ort]).name = 'Submariner R24 light'
           if idx == (len(tagesfahrt['abfahrtszeiten'])-1):
             p.add_run(' in Schwerin').name = 'Submariner R24 light'
