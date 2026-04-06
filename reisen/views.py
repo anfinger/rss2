@@ -28,7 +28,7 @@ try:
 except ImportError:
     # Python 3
     from io import StringIO
-from django.contrib.staticfiles.templatetags.staticfiles import static
+from django.templatetags.static import static
 import mysql.connector
 import json
 #from HTMLParser import HTMLParser

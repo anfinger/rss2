@@ -1,6 +1,5 @@
 {% load static %}
 {% load home_tags %}
-{% load inplace_edit %}
 
 <!DOCTYPE html>
 <html style="font-size: 16px;" lang="de-DE">
@@ -334,7 +333,7 @@
 
     <section class="u-clearfix u-section-2" id="sec-467e">
       <div class="u-clearfix u-sheet u-sheet-1">
-        <h1 class="u-align-center u-text u-text-1"> {% inplace_edit "reise.titel" auto_height=5, auto_width=5 %}&nbsp;</h1>
+        <h1 class="u-align-center u-text u-text-1"> {{ reise.titel }}&nbsp;</h1>
         <h3 class="u-align-center u-text u-text-2"> {{ reise.untertitel }}</h3>
         <p class="u-align-center u-large-text u-text u-text-variant u-text-3"> {{ reise.einleitung }}&nbsp;</p>
       </div>
@@ -515,7 +514,7 @@
 
               {% if preise %}
                 {% for preis in preise %}
-                  {% if preis.markierung = datum_markierung and preis.titel != 'Individualpreis p.P.' %}
+                  {% if preis.markierung == datum_markierung and preis.titel != 'Individualpreis p.P.' %}
                     {% if preis.kommentar == 'ab' %}
                   <!--  ab Preise -->
                   <p id="preisTitel" class="u-align-left u-text u-text-3">{{ preis.titel }}</p>

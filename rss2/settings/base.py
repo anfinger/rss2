@@ -18,7 +18,10 @@ from dotenv import load_dotenv # Paket zum Laden der .env
 
 #os.environ['DJANGO_SETTINGS_MODULE'] = 'rss2.settings.production'
 
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+#BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+# Da die Datei in rss2/settings/ liegt, müssen wir 3 Ebenen hoch, 
+# um zum Hauptverzeichnis (/app) zu gelangen:
+BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
 # Lade die Umgebungsvariablen aus der .env-Datei
 load_dotenv(os.path.join(BASE_DIR, '.env'))
@@ -31,59 +34,42 @@ ALLOWED_HOSTS = [h.strip() for h in os.environ.get('ALLOWED_HOSTS', '*').split('
 
 # Application definition
 
-INSTALLED_APPS = (
-    #'suit',
-    #'tabbed_admin',
-    #'front',
-    #'django-concurrency',
-    #'admin_locking',
-    'reisen',
-    #'inplaceeditform',
+INSTALLED_APPS = [
     'grappelli',
-    'easy_thumbnails',
-    'filer',
-    'mptt',
     'filebrowser',
-    'nested_admin',
-    #'locking',
-    'django.contrib.contenttypes',
-    #'grappelli.dashboard',
-    #'super_inlines',
-    #'super_inlines.grappelli_integration',
-    'django.contrib.admin',
+    'django.contrib.admin', # Muss nach grappelli und filebrowser kommen!
     'django.contrib.auth',
+    'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.humanize',
+    'reisen',
+    'easy_thumbnails',
+    'filer',
+    'mptt',
+    'nested_admin',
     'fibu',
-    #'test_without_migrations',
     'home',
-    #'contact',
-    #'imagestore',
-    #'mptt',
-    #'media_tree',
-)
+]
 
-MIDDLEWARE_CLASSES = (
-    #'debug_toolbar.middleware.DebugToolbarMiddleware',
+MIDDLEWARE = [
+    'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    #'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
+    'django.contrib.auth.middleware.AuthenticationMiddleware',  # <--- DIESE ZEILE FEHLTE (aktiviert)
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'django.middleware.security.SecurityMiddleware',
-)
+]
 
 ROOT_URLCONF = 'rss2.urls'
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        #'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
                 'context_processors': [
@@ -120,14 +106,22 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATIC_ROOT = "./static/"
+#WICHTIG: Füge diesen Block hinzu, damit Django den Ordner auf deinem Mac findet:
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+]
+
+# STATIC_ROOT sollte ein ANDERER Ordner sein, nicht der gleiche wie oben!
+# Üblicherweise nennt man ihn 'staticfiles'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+#STATIC_ROOT = "./static/"
 
 LOGIN_REDIRECT_URL = '/'
 
-MEDIA_ROOT = '/var/www/reiseservice-schwerin/rss2/media/'
-#MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-
 MEDIA_URL = '/media/'
+#MEDIA_ROOT = '/var/www/reiseservice-schwerin/rss2/media/'
+# Korrigiere den Pfad auf den lokalen Projektordner:
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 TABBED_ADMIN_USE_JQUERY_UI = True
 
@@ -187,15 +181,15 @@ FILEBROWSER_VERSIONS_BASEDIR = MEDIA_ROOT + '_versionen/'
 #    MIGRATION_MODULES = DisableMigrations()
 
 
-ADAPTOR_INPLACEEDIT_EDIT = 'inplaceeditform.perms.AdminDjangoPermEditInline'
-INPLACEEDIT_EDIT_EMPTY_VALUE = 'Doppelklick zum editieren'
-INPLACEEDIT_AUTO_SAVE = True
-INPLACEEDIT_EVENT = "dblclick"
-INPLACEEDIT_DISABLE_CLICK = True  # For inplace edit text into a link tag
+#ADAPTOR_INPLACEEDIT_EDIT = 'inplaceeditform.perms.AdminDjangoPermEditInline'
+#INPLACEEDIT_EDIT_EMPTY_VALUE = 'Doppelklick zum editieren'
+#INPLACEEDIT_AUTO_SAVE = True
+#INPLACEEDIT_EVENT = "dblclick"
+#INPLACEEDIT_DISABLE_CLICK = True  # For inplace edit text into a link tag
 #INPLACEEDIT_EDIT_MESSAGE_TRANSLATION = 'Schreiben Sie eine Uebersetzung' # transmeta option
-INPLACEEDIT_SUCCESS_TEXT = 'Erfolgreich gespeichert!'
-INPLACEEDIT_UNSAVED_TEXT = 'Sie haben ungesicherte Aenderungen!'
-INPLACE_ENABLE_CLASS = 'enable'
+#INPLACEEDIT_SUCCESS_TEXT = 'Erfolgreich gespeichert!'
+#INPLACEEDIT_UNSAVED_TEXT = 'Sie haben ungesicherte Aenderungen!'
+#INPLACE_ENABLE_CLASS = 'enable'
 #DEFAULT_INPLACE_EDIT_OPTIONS = {} # dictionnary of the optionals parameters that the templatetag can receive to change its behavior (see the Advanced usage section)
 #DEFAULT_INPLACE_EDIT_OPTIONS_ONE_BY_ONE = True # modify the behavior of the DEFAULT_INPLACE_EDIT_OPTIONS usage, if True then it use the default values not specified in your template, if False it uses these options only when the dictionnary is empty (when you do put any options in your template)
 #ADAPTOR_INPLACEEDIT_EDIT = 'app_name.perms.MyAdaptorEditInline' # Explain in Permission Adaptor API
@@ -203,3 +197,4 @@ INPLACE_ENABLE_CLASS = 'enable'
 #INPLACE_GET_FIELD_URL = None # to change the url where django-inplaceedit use to get a field
 #INPLACE_SAVE_URL = None # to change the url where django-inplaceedit use to save a field
 
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

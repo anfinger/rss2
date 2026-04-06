@@ -26,3 +26,6 @@ docker-compose.yml
 django-inplaceeditform-1.5.0.tar.gz
 init-db/
 inplaceeditform/
+.env
+20260219_rss2_mysqldump.sql
+20260404_rss2_mysqldump.sql

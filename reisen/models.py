@@ -524,8 +524,9 @@ class Reise(models.Model):
         default=timezone.now)
     zuletzt_bearbeitet_von = models.ForeignKey(
         User,
+        on_delete=models.SET_NULL,
         related_name='reisen_bearbeiter',
-        default = '',
+        default = None,
         blank=True,
         null = True)
     datum_veroeffentlichung = models.DateTimeField(

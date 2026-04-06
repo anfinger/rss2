@@ -2,14 +2,28 @@
 
 {% block content %}
   {% for aktuell in aktuelles %}
-  <div class="aktuelles">
-    <div class="date">
-      <p>published: {{ aktuell.published_date }}</p>
+    <div class="aktuelles">
+      <div class="date">
+        <p>Veröffentlicht am: {{ aktuell.published_date|default:"Nicht veröffentlicht" }}</p>
+      </div>
+
+      <h3>
+        {% if aktuell.pk %}
+          <a href="{% url 'aktuell_detail' pk=aktuell.pk %}">{{ aktuell.title }}</a>
+        {% else %}
+          {{ aktuell.title|default:"Unbenannter Eintrag" }}
+        {% endif %}
+      </h3>
+
+      <p>{{ aktuell.text|linebreaks }}</p>
+      
+      {% if aktuell.reiselink %}
+        Details zur Reise finden Sie <a href="{{ aktuell.reiselink }}">hier</a>.
+      {% endif %}
     </div>
-    <h3><a href="{% url 'aktuell_detail' pk=aktuell.pk %}">{{ aktuell.title }}</a></h3>
-    <p>{{ aktuell.text|linebreaks }}</p>
-    Details zur Reise finden Sie
-    <a href="{{aktuell.reiselink}}">hier</a>.
-  </div>
   {% endfor %}
+  
+  {% if not aktuelles %}
+    <p>Aktuell liegen keine neuen Meldungen vor.</p>
+  {% endif %}
 {% endblock %}

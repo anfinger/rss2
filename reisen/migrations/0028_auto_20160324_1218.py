@@ -43,7 +43,7 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='reise',
             name='status',
-            field=models.CharField(choices=[(b'i', b'Idee'), (b'e', b'Entwurf'), (b'f', b'fertiggestellt')], default=b'i', help_text=b'Hier den Status einer Reise w\xc3\xa4hlen.', max_length=1, verbose_name=b'Status der Reise'),
+            field=models.CharField(choices=[('i', 'Idee'), ('e', 'Entwurf'), ('f', 'fertiggestellt')], null=True, blank=True, max_length=1, verbose_name='Status der Reise'),
         ),
         migrations.AddField(
             model_name='reiseangebote',

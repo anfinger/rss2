@@ -78,7 +78,10 @@ def hol_markierung_ajax(request):
             }
             return JsonResponse(data)'''
         #return JsonResponse(list(data), safe = False) 
-        return JsonResponse(list(preis), safe = False) 
+        #return JsonResponse(list(preis), safe = False) 
+        return JsonResponse(preis._asdict(), safe=False)
+        # Falls preis eine Liste von Ergebnissen ist, nutze:
+        #return JsonResponse([p._asdict() for p in preise], safe=False)
 
 @csrf_exempt
 def gibReisen(request):
@@ -250,7 +253,7 @@ def reisen(request):
     for termin in termine:
         termine_distinct[termin.reiseID] = termin
 
-    return JsonResponse({'termine_distinct': termine_distinct.values(),'termine': termine,'kategorien': kategorien,'zielregionen': zielregionen})
+    return JsonResponse({'termine_distinct': list(termine_distinct.values()),'termine': termine,'kategorien': kategorien,'zielregionen': zielregionen})
 
 
 def mehrtagesfahrten(request):
@@ -636,8 +639,8 @@ def detail(request, pk):
         'reisebeschreibung': reisebeschreibung,
         'preise': preise,
         'aps': aps,
-        'aps_distinct': aps_distinct.values(),
-        'zusatzleistungen_distinct': zusatzleistungen_distinct.values(),
+        'aps_distinct': list(aps_distinct.values()),
+        'zusatzleistungen_distinct': list(zusatzleistungen_distinct.values()),
         'hinweise': hinweise,
         'kategorien': kategorien,
         'kategorie_aktuell': kategorie_aktuell,

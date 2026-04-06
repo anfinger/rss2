@@ -1,7 +1,5 @@
 {% extends 'reisen/base.html' %}
 {% load static %}
-{% load inplace_edit %}
-
 {% block content %}
   <div class="aktuelles">
     <p><h3><a href="{{ request.META.HTTP_REFERER }}">zurück</a></h3></p></br>
@@ -21,7 +19,7 @@
     <font color="#FF0000">
       <p>
         <b>Korrektur{{ reise.korrektur_bemerkung_intern|length|pluralize:"en" }}:</b></br>
-          {% inplace_edit "reise.korrektur_bemerkung_intern|linebreaksbr" auto_height=5, auto_width=5 %}
+          {{ reise.korrektur_bemerkung_intern|linebreaksbr }}
       </p>
     </font>
     {% endif %}
@@ -58,26 +56,26 @@
     {% endif %}
 
     {% if reise.titel %}
-      <p><h1>{% inplace_edit "reise.titel" auto_height=5, auto_width=5 %}</h1></p>
+      <p><h1>{{ reise.titel }}</h1></p>
     {% endif %}
     {% if reise.zubucher %}
-      <p><h4>{% inplace_edit "reise.zubucher" auto_height=5, auto_width=5 %}</h1></p>
+      <p><h4>{{ reise.zubucher }}</h4></p>
     {% endif %}
     {% if reise.untertitel %}
-      <p><h4>{% inplace_edit "reise.untertitel|linebreaksbr" auto_height=5, auto_width=5 %}</h4></p>
+      <p><h4>{{ reise.untertitel|linebreaksbr }}</h4></p>
     {% endif %}
     {% if reise.reisetyp %}
-      <p><b>{% inplace_edit "reise.reisetyp" auto_height=5, auto_width=5%}</b></p>
+      <p><b>{{ reise.reisetyp }}</b></p>
     {% endif %}
     {% if reise.individualreisetext or reise.individualreisetitel %}
       {% if reise.individualbuchbar %}
-        <p><b><i>{% inplace_edit "reise.individualbuchbar" auto_height=5, auto_width=5%}</i></b></p>
+        <p><b><i>{{ reise.individualbuchbar }}</i></b></p>
       {% else %}
         <p><b><i>Auch mit individuellem Aufenthalt buchbar.</i></b></p>
       {% endif %}
     {% endif %}
     {% if reise.einleitung %}
-      <p><b>{% inplace_edit "reise.einleitung|linebreaksbr" auto_height=5, auto_width=5 %}</b></p>
+      <p><b>{{ reise.einleitung|linebreaksbr }}</b></p>
     {% endif %}
     <p>
       {% for katalog in kataloge %}
@@ -90,12 +88,12 @@
         <dt>
           {% for termin in termine %}
             {% if termin.datum_ende %}
-              <dd>{% inplace_edit "termin.datum_beginn|date:'d. m. Y'" %} - {% inplace_edit "termin.datum_ende|date:'d. m. Y'" %}<sup>{{ termin.markierung }}</sup>
+              <dd>{{ termin.datum_beginn|date:'d. m. Y' }} - {{ termin.datum_ende|date:'d. m. Y' }}<sup>{{ termin.markierung }}</sup>
             {% else %}
-              <dd>{% inplace_edit "termin.datum_beginn|date:'D. d. m. Y'" %}
+              <dd>{{ termin.datum_beginn|date:'D. d. m. Y' }}
             {% endif %}
             {% if termin.kommentar %}
-              ({% inplace_edit "termin.kommentar" auto_height=5, auto_width=5 %})</dd>
+              ({{ termin.kommentar }})</dd>
             {% endif %}
           {% endfor %}
     {% else %}
@@ -108,9 +106,9 @@
         <dt>
           {% for abfahrtszeit in abfahrtszeiten %}
             {% if abfahrtszeit.zeit %}
-              <dd>{% inplace_edit "abfahrtszeit.ort" %}: {% inplace_edit "abfahrtszeit.zeit|date:'H:i'" %} Uhr {{ abfahrtszeit.kommentar }}
+              <dd>{{ abfahrtszeit.ort }}: {{ abfahrtszeit.zeit|date:'H:i' }} Uhr {{ abfahrtszeit.kommentar }}
             {% else %}
-              <dd>Die genaue Zeit für "{% inplace_edit "abfahrtszeit.ort" %}" erfragen Sie bitte im Reisebüro.
+              <dd>Die genaue Zeit für "{{ abfahrtszeit.ort }}" erfragen Sie bitte im Reisebüro.
             {% endif %}
           {% endfor %}
     {% elif reise.reisetyp == 'TAGESFAHRT' %}
@@ -381,5 +379,5 @@
 <!--
   <script src="//code.jquery.com/jquery-2.1.4.js" type="text/javascript"></script>
 -->
-  {% inplace_js 1 0 %} {% comment %} or inplace_js 1 1 {% endcomment %}
+
 {% endblock %}

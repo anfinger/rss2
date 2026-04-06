@@ -15,6 +15,6 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='reise',
             name='welcher_katalog',
-            field=models.CharField(choices=[(b'w', b'Winterkatalog'), (b's', b'Sommerkatalog'), (b'a', b'Winter- und Sommerkatalog'), (b'n', b'nicht zugeordnet')], default=b'n', help_text=b'Hier Katalog f\xc3\xbcr eine Reise w\xc3\xa4hlen.', max_length=1, verbose_name=b'Welcher katalog?'),
+            field=models.CharField(null=True, blank=True, max_length=255, verbose_name='Welcher Katalog'),
         ),
     ]

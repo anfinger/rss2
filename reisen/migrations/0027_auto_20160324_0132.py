@@ -21,12 +21,12 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='reise',
             name='status',
-            field=models.CharField(choices=[(b'i', b'Idee'), (b'e', b'Entwurf'), (b'f', b'fertiggestellt')], default=b'i', help_text=b'Hier den Status einer Reise w\xc3\xa4hlen.', max_length=1, verbose_name=b'Status einer Reise'),
+            field=models.CharField(choices=[('i', 'Idee'), ('e', 'Entwurf'), ('f', 'fertiggestellt')], null=True, blank=True, max_length=1, verbose_name='Status einer Reise'),
         ),
         migrations.AlterField(
             model_name='reise',
             name='welcher_katalog',
-            field=models.CharField(choices=[(b'w', b'Winterkatalog'), (b's', b'Sommerkatalog'), (b'a', b'Winter- und Sommerkatalog'), (b'n', b'nicht zugeordnet')], default=b'n', help_text=b'Hier Katalog f\xc3\xbcr eine Reise w\xc3\xa4hlen.', max_length=1, verbose_name=b'Welcher Katalog?'),
+            field=models.CharField(choices=[('w', 'Winterkatalog'), ('s', 'Sommerkatalog'), ('a', 'Winter- und Sommerkatalog'), ('n', 'nicht zugeordnet')], null=True, blank=True, max_length=1, verbose_name='Welcher Katalog?'),
         ),
         migrations.AlterField(
             model_name='reisehinweise',

@@ -10,12 +10,12 @@ import datetime
 
 register = template.Library()
 
-@register.assignment_tag
+@register.simple_tag
 def reise_kategorie_alt(kategorie, termine):
     gefilterte_reisen = [termin for termin in termine if termin.kategorie == kategorie]
     return gefilterte_reisen if gefilterte_reisen else None
 
-@register.assignment_tag
+@register.simple_tag
 def reise_kategorie(kategorie, termine):
     gefilterte_reisen = OrderedDict()
     for termin in termine:
@@ -23,7 +23,7 @@ def reise_kategorie(kategorie, termine):
         gefilterte_reisen[termin.reiseID] = termin
     return gefilterte_reisen.values() if gefilterte_reisen.values() else None
 
-@register.assignment_tag
+@register.simple_tag
 def reise_zielregion(zielregion, termine):
     gefilterte_reisen = OrderedDict()
     for termin in termine:
@@ -31,7 +31,7 @@ def reise_zielregion(zielregion, termine):
         gefilterte_reisen[termin.reiseID] = termin
     return gefilterte_reisen.values() if gefilterte_reisen.values() else None
 
-@register.assignment_tag
+@register.simple_tag
 def reise_webZielregion(zielregion, termine):
     gefilterte_reisen = OrderedDict()
     for termin in termine:
@@ -66,7 +66,7 @@ def reise_webZielregion(zielregion, termine):
         gefilterte_reisen[termin.reiseID] = termin
     return gefilterte_reisen.values() if gefilterte_reisen.values() else None
 
-@register.assignment_tag
+@register.simple_tag
 def bilder_web(keyword, bilder):
     gefilterte_bilder = [bild for bild in bilder if keyword in bild.zu_verwenden_in]
     return gefilterte_bilder if gefilterte_bilder else None
