@@ -5,12 +5,13 @@ from . import views
 #app_name = "home"
 
 urlpatterns = [
+    url(r'^$', views.neustart, name='neustart'),
     url(r'^$', views.aktuelles, name='aktuelles'),
     url(r'^index', views.index, name='index'),
     url(r'^hol_markierung_ajax', views.hol_markierung_ajax, name='hol_markierung_ajax'),
     url(r'^gibReisen/$', views.gibReisen, name='gibReisen'),
     url(r'^ajax', views.ajax, name='ajax'),
-    url(r'^neustart', views.neustart, name='neustart'),
+    #url(r'^neustart', views.neustart, name='neustart'),
     url(r'^start', views.start, name='start'),
     url(r'^reisen', views.reisen, name='reisen'),
     url(r'^tagesfahrten', views.tagesfahrten, name='tagesfahrten'),

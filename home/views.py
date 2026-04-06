@@ -228,9 +228,11 @@ def neustart(request):
     version = request.GET.get('version')
     if version == 'ich':
       return render(request, 'home/neustartneu.html', {'aktuelles': aktuelles})
-    elif version == 'nicepage':
+    elif version == 'nicepage' or version is None:
+        return render(request, 'home/_start.html', {'reisen': reisen})
+    #elif version == 'nicepage':
       #return render(request, 'home/_start.html', {'aktuelles': aktuelles})
-      return render(request, 'home/_start.html', {'reisen': reisen})
+      #return render(request, 'home/_start.html', {'reisen': reisen})
     else:
       return render(request, 'home/neustart.html', {'aktuelles': aktuelles})
 
