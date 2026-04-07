@@ -1723,7 +1723,7 @@ a { font-size: 1.125rem; line-height: 1.6; }
  html { font-size: 16px; }
  /*end-variables base-font-size*/
  .u-section-1 {
-  background-image: url("../../../Header-Startseite.jpg");
+  background-image: url("http://178.104.134.239/static/home/images/Header-Startseite.jpg");
   background-position: 50% 50%;
 }
 
