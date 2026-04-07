@@ -1,42 +1,15 @@
 {% load static %}
-<div class="menu-collapse" style="font-size: 1rem; letter-spacing: 0px; font-weight: 500;">
-    <a class="u-button-style u-custom-active-border-color u-custom-active-color u-custom-border u-custom-border-color u-custom-borders u-custom-hover-border-color u-custom-hover-color u-custom-left-right-menu-spacing u-custom-padding-bottom u-custom-text-active-color u-custom-text-color u-custom-text-decoration u-custom-text-hover-color u-custom-top-bottom-menu-spacing u-hamburger-link u-nav-link u-hamburger-link-1" href="#" tabindex="-1" aria-label="Open menu" aria-controls="5761">
-        <svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 302 302"><use xlink:href="#svg-8a8f"></use></svg>
-        <svg id="svg-8a8f" viewBox="0 0 302 302" class="u-svg-content"><g><rect y="36" width="302" height="30"></rect><rect y="236" width="302" height="30"></rect><rect y="136" width="302" height="30"></rect></g></svg>
+<header class="Header u-align-center-sm u-align-center-xs u-clearfix u-header u-header" id="menu">
+  <div class="u-clearfix u-sheet u-valign-middle-sm u-sheet-1">
+    <a href="/" class="u-image u-logo u-image-1">
+      <img src="{% static 'images/LogoRSS2021_LogoGold.png' %}" class="u-logo-image u-logo-image-1">
     </a>
-</div>
+    
+    <nav class="u-align-left u-dropdown-icon u-menu u-menu-dropdown u-offcanvas u-menu-1">
+       </nav>
 
-<div class="u-custom-menu u-nav-container">
-    <ul role="menubar" class="menu u-nav u-spacing-2 u-unstyled u-nav-1">
-        <li role="none" class="u-nav-item">
-            <a tabindex="-1" role="menuitem" class="u-border-1 u-border-active-palette-1-base u-border-hover-palette-1-light-1 u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-1-base u-text-palette-1-base u-nav-link-2" aria-haspopup="true">Unsere Fahrten</a>
-            <div class="u-nav-popup">
-                <ul role="menu" class="u-h-spacing-20 u-nav u-unstyled u-v-spacing-10 u-nav-2">
-                    <li role="none" class="u-nav-item"><a role="menuitem" class="u-active-palette-2-light-2 u-nav-link u-white" href="{% url 'mehrtagesfahrten' %}">Mehrtagesfahrten</a></li>
-                    <li role="none" class="u-nav-item"><a role="menuitem" class="u-active-palette-2-light-2 u-nav-link u-white" href="{% url 'tagesfahrten' %}">Tagesfahrten</a></li>
-                    <li role="none" class="u-nav-item"><a role="menuitem" class="u-active-palette-2-light-2 u-nav-link u-white" href="{% url 'musicals' %}">Musicals</a></li>
-                </ul>
-            </div>
-        </li>
-        <li role="none" class="u-nav-item">
-            <a role="menuitem" class="u-border-1 u-border-active-palette-1-base u-border-hover-palette-1-light-1 u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-1-base u-text-palette-1-base u-nav-link-2" href="/">Startseite</a>
-        </li>
-        <li role="none" class="u-nav-item">
-            <a role="menuitem" class="u-border-1 u-border-active-palette-1-base u-border-hover-palette-1-light-1 u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-1-base u-text-palette-1-base u-nav-link-2" href="{% url 'kontakt' %}">Service & Kontakt</a>
-        </li>
-    </ul>
-</div>
-
-<div class="u-custom-menu u-nav-container-collapse" id="5761">
-    <div class="u-align-center u-container-style u-inner-container-layout u-opacity u-opacity-95 u-palette-1-base u-sidenav">
-        <div class="u-inner-container-layout u-sidenav-overflow">
-            <div class="u-menu-close"></div>
-            <ul class="u-align-left u-nav u-popupmenu-items u-unstyled u-nav-4">
-                <li class="u-nav-item"><a class="u-button-style u-nav-link" href="/">Startseite</a></li>
-                <li class="u-nav-item"><a class="u-button-style u-nav-link" href="{% url 'mehrtagesfahrten' %}">Mehrtagesfahrten</a></li>
-                <li class="u-nav-item"><a class="u-button-style u-nav-link" href="{% url 'kontakt' %}">Kontakt</a></li>
-            </ul>
-        </div>
-    </div>
-    <div class="u-menu-overlay u-opacity u-opacity-70 u-palette-1-base"></div>
-</div>
+    <a href="tel:03855910333" class="u-active-none u-btn u-button-style u-hidden-sm u-hidden-xs u-text-palette-1-base u-btn-1">
+      03 85 - 59 10 333
+    </a>
+  </div>
+</header>

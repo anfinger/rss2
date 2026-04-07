@@ -1,25 +1,50 @@
-{% extends "home/_base.html" %}
+{% extends "home/base.html" %}
 {% load static %}
 
 {% block content %}
-    <section class="Header ..."> ... </section>
-    <section class="News ..."> ... </section>
+    <section class="Header u-clearfix u-image u-parallax u-section-1" id="head" 
+             style="background-image: url('{% static 'images/Header-Startseite.jpg' %}');">
+        </section>
+
+    <section class="News u-clearfix u-palette-1-base u-section-2" id="aktuell">
+        </section>
+
     <section class="u-clearfix u-section-3" id="reisen">
-      <section class="u-section-3" id="reise-liste">
-        <div class="u-sheet">
-            <div class="u-layout-row">
-                {% for reise in reisen %}
-                    <div class="u-container-style u-layout-cell">
-                        <h3>{{ reise.titel }}</h3>
-                        <p>{{ reise.beschreibung|truncatewords:20 }}</p>
-                        <p>Preis: {{ reise.preis }} €</p>
-                        <a href="{% url 'reise_detail' reise.slug %}">Mehr Infos</a>
-                    </div>
-                {% empty %}
-                    <p>Aktuell sind keine Reisen verfügbar.</p>
-                {% endfor %}
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <h2 class="u-text u-text-default u-text-1">Aktuelle Reisen</h2>
+        <div class="REISE u-expanded-width u-list u-list-1">
+          <div class="u-repeater u-repeater-1">
+            
+            {% for reise in reisen %}
+            <div class="u-border-1 u-border-grey-50 u-container-style u-list-item u-repeater-item u-shape-rectangle">
+              <div class="u-container-layout u-similar-container u-container-layout-1">
+                
+                <img class="FLAGGE u-image u-image-default u-preserve-proportions u-image-1" 
+                     src="{% if reise.land_flagge %}{{ reise.land_flagge.url }}{% else %}{% static 'images/Deutschland.jpg' %}{% endif %}">
+                
+                <div class="BALKEN_BUSREISE u-container-style u-expanded-width u-group u-palette-3-base u-group-1">
+                  <div class="u-container-layout u-container-layout-2">
+                    <p class="REISETYP u-text u-text-2">{{ reise.dauer }} Tage {{ reise.kategorie }}</p>
+                    <p class="REISETERMINE u-text u-text-3">{{ reise.termin_start|date:"d.m." }} - {{ reise.termin_ende|date:"d.m.Y" }}</p>
+                  </div>
+                </div>
+
+                {% if reise.hauptbild %}
+                    <img class="BILD u-expanded-width u-image u-image-default u-image-3" src="{{ reise.hauptbild.url }}">
+                {% endif %}
+
+                <h3 class="REISETITEL u-text u-text-palette-2-dark-1 u-text-4">{{ reise.titel }}</h3>
+                <p class="REISEUNTERTITEL u-text u-text-5">{{ reise.untertitel|default:"" }}</p>
+                
+                <a href="{% url 'reise_detail' reise.slug %}" class="BETRAG u-align-right u-btn u-btn-round u-palette-2-light-1 u-radius u-btn-1">
+                    ab {{ reise.preis }} €
+                </a>
+              </div>
             </div>
+            {% endfor %}
+
+          </div>
         </div>
-    </section>
+      </div>
     </section>
 {% endblock %}
