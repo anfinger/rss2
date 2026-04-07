@@ -1,50 +1,98 @@
 {% extends "home/base.html" %}
 {% load static %}
+{% load home_tags %} {% block content %}
+<section class="u-align-center u-clearfix u-image u-section-1" id="sec-header" data-image-width="1600" data-image-height="754" style="background-image: url('{% static 'images/Header-Startseite.jpg' %}');">
+  <div class="u-clearfix u-sheet u-sheet-1">
+    <div class="u-expanded-width u-list u-list-1">
+      <div class="u-repeater u-repeater-1">
+        <div class="u-container-style u-list-item u-repeater-item u-white u-radius-5">
+          <div class="u-container-layout u-container-layout-1">
+            <h2 class="u-align-center u-text-1">Mehrtagesfahrten</h2>
+            <img class="u-expanded-width u-image-1" src="{% static 'images/header_Reisen.jpg' %}">
+            <p class="u-align-center u-text-2">Entdecken Sie Europa mit unseren komfortablen Fernreisebussen.</p>
+            <a href="mehrtagesfahrten" class="u-btn u-button-style u-none u-text-palette-1-base">weiter</a>
+          </div>
+        </div>
+        </div>
+    </div>
+  </div>
+</section>
 
-{% block content %}
-    <section class="Header u-clearfix u-image u-parallax u-section-1" id="head" 
-             style="background-image: url('{% static 'images/Header-Startseite.jpg' %}');">
-        </section>
-
-    <section class="News u-clearfix u-palette-1-base u-section-2" id="aktuell">
-        </section>
-
-    <section class="u-clearfix u-section-3" id="reisen">
-      <div class="u-clearfix u-sheet u-sheet-1">
-        <h2 class="u-text u-text-default u-text-1">Aktuelle Reisen</h2>
-        <div class="REISE u-expanded-width u-list u-list-1">
-          <div class="u-repeater u-repeater-1">
-            
-            {% for reise in reisen %}
-            <div class="u-border-1 u-border-grey-50 u-container-style u-list-item u-repeater-item u-shape-rectangle">
-              <div class="u-container-layout u-similar-container u-container-layout-1">
-                
-                <img class="FLAGGE u-image u-image-default u-preserve-proportions u-image-1" 
-                     src="{% if reise.land_flagge %}{{ reise.land_flagge.url }}{% else %}{% static 'images/Deutschland.jpg' %}{% endif %}">
-                
-                <div class="BALKEN_BUSREISE u-container-style u-expanded-width u-group u-palette-3-base u-group-1">
-                  <div class="u-container-layout u-container-layout-2">
-                    <p class="REISETYP u-text u-text-2">{{ reise.dauer }} Tage {{ reise.kategorie }}</p>
-                    <p class="REISETERMINE u-text u-text-3">{{ reise.termin_start|date:"d.m." }} - {{ reise.termin_ende|date:"d.m.Y" }}</p>
-                  </div>
-                </div>
-
-                {% if reise.hauptbild %}
-                    <img class="BILD u-expanded-width u-image u-image-default u-image-3" src="{{ reise.hauptbild.url }}">
-                {% endif %}
-
-                <h3 class="REISETITEL u-text u-text-palette-2-dark-1 u-text-4">{{ reise.titel }}</h3>
-                <p class="REISEUNTERTITEL u-text u-text-5">{{ reise.untertitel|default:"" }}</p>
-                
-                <a href="{% url 'reise_detail' reise.slug %}" class="BETRAG u-align-right u-btn u-btn-round u-palette-2-light-1 u-radius u-btn-1">
-                    ab {{ reise.preis }} €
-                </a>
-              </div>
+<section class="u-clearfix u-palette-3-light-3 u-section-2" id="sec-news">
+  <div class="u-clearfix u-sheet u-sheet-1">
+    <h2 class="u-text-1">Aktuell</h2>
+    <div class="u-clearfix u-expanded-width u-layout-wrap">
+      <div class="u-layout">
+        <div class="u-layout-row">
+          <div class="u-container-style u-layout-cell u-size-30">
+            <div class="u-container-layout">
+              <img class="u-image u-image-round u-radius-10" src="{% static 'images/Katalog_00161.jpg' %}">
             </div>
-            {% endfor %}
-
+          </div>
+          <div class="u-container-style u-layout-cell u-size-30">
+            <div class="u-container-layout">
+              <h5 class="u-text-2">Der neue Katalog</h5>
+              <p>Winterreisen & Adventsfahrten - jetzt als PDF verfügbar.</p>
+              <a href="{{ MEDIA_URL }}kataloge/2223/Winter-Katalog_2223.pdf" class="u-btn u-palette-3-base">PDF herunterladen</a>
+            </div>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </div>
+</section>
+
+<section class="u-clearfix u-section-3" id="sec-reisen">
+  <div class="u-clearfix u-sheet u-sheet-1">
+    <h2 class="u-text-default u-text-1">Aktuelle Reisen</h2>
+    
+    {% for reise in reisen %}
+    <div class="u-clearfix u-expanded-width u-gutter-20 u-layout-wrap u-margin-top-20">
+      <div class="u-layout">
+        <div class="u-layout-row">
+          
+          <div class="u-container-style u-layout-cell u-size-20">
+            <div class="u-container-layout">
+              <div class="u-container-style u-group {{ reise.reisetyp|reisetypfarbe }} u-expanded-width">
+                <div class="u-container-layout u-valign-middle">
+                  <img class="u-image u-image-contain" style="width: 40px;" 
+                       src="{% static 'images/Logo-' %}{{ reise.reisetyp|ohnetageklein }}.png">
+                  <img class="u-image u-image-contain" style="width: 60px; float: right;" 
+                       src="{% static 'images/' %}{{ reise.reisezielregionen__zielregion_id__name|land }}.png">
+                </div>
+              </div>
+              <img class="u-image u-expanded-width u-image-round u-radius-5" 
+                   src="{% static 'images/dc02bbfa0dfddc84e07f1df389dba9211fee6c790e80a26a156833e9aa9574450ef2c41572eaaa90559f9dbe9930a4ed9d5b365a114e27a7dc4086_1280.jpg' %}">
+            </div>
+          </div>
+
+          <div class="u-container-style u-layout-cell u-size-40">
+            <div class="u-container-layout">
+              <div class="u-container-style u-group {{ reise.reisetyp|reisetypfarbe }} u-expanded-width">
+                <div class="u-container-layout">
+                  <h6 class="u-text-body-alt-color u-margin-left-10">
+                    {{ reise.reisetyp|mittageklein }}, {{ reise.reisetermine__datum_beginn|date:'d.m.' }} - {{ reise.reisetermine__datum_ende|date:'d.m.Y' }}
+                  </h6>
+                </div>
+              </div>
+              <h4 class="u-text-palette-1-base u-margin-top-10">{{ reise.titel }}</h4>
+              <p class="u-text-grey-50">{{ reise.einleitung }}</p>
+              
+              <a href="detail/{{ reise.reiseID|ohneminus }}" 
+                 class="u-btn u-button-style u-hover-palette-3-light-2 u-palette-3-base">
+                ab {{ reise.reisepreise__preis }} €
+              </a>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+    {% if not forloop.last %}
+    <div class="u-border-1 u-border-grey-15 u-line u-line-horizontal u-expanded-width"></div>
+    {% endif %}
+    {% endfor %}
+
+  </div>
+</section>
 {% endblock %}
