@@ -1,28 +1,46 @@
+# --- Python / Django ---
 *.pyc
 __pycache__
 myvenv
 db.sqlite3
-/static
-/static12
-/static_OLD
-/media
-/uploads
-/reisen/static
-/home/static
-db.json
-reisen.json
 .DS_Store
 *~
-*/static/*
-# Docker
-.docker/
-mysql_data/
 *.db
 *.log
-docker-compose.override.yml
-django-inplaceeditform-1.5.0.tar.gz
-init-db/
-inplaceeditform/
 .env
-20260219_rss2_mysqldump.sql
-20260404_rss2_mysqldump.sql
+
+# --- Statische Dateien & Medien ---
+# Wir ignorieren NUR das Sammelverzeichnis (collectstatic Ziel)
+# und die hochgeladenen User-Bilder.
+/staticfiles/
+/static/
+/static12/
+/static_OLD/
+/media/
+/uploads/
+
+# WICHTIG: Die folgenden Zeilen LÖSCHEN oder AUSKOMMENTIEREN, 
+# damit deine Designs im Git landen:
+# /home/static  <-- WEG DAMIT
+# /reisen/static <-- WEG DAMIT
+# */static/* <-- WEG DAMIT
+
+# --- WICHTIG: Erlaube explizit die Statics in den Apps ---
+# Damit stellst du sicher, dass dein Nicepage-Design TROTZ der obigen Regeln im Git landet:
+!/home/static/
+!/reisen/static/
+
+# --- Docker & Daten ---
+mysql_data/
+docker-compose.override.yml
+.docker/
+init-db/
+
+# --- Dumps & Archive ---
+*.sql
+*.tar.gz
+db.json
+reisen.json
+
+django-inplaceeditform-1.5.0.tar.gz
+inplaceeditform/

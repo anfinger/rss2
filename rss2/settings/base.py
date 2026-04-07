@@ -114,6 +114,7 @@ STATICFILES_DIRS = [
 # STATIC_ROOT sollte ein ANDERER Ordner sein, nicht der gleiche wie oben!
 # Üblicherweise nennt man ihn 'staticfiles'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
 #STATIC_ROOT = "./static/"
 
 LOGIN_REDIRECT_URL = '/'

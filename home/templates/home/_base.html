@@ -1,0 +1,57 @@
+{% load static %}
+<!DOCTYPE html>
+<html style="font-size: 16px;" lang="de">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <title>{% block title %}Willkommen beim Reiseservice Schwerin{% endblock %}</title>
+    
+    <link rel="stylesheet" href="{% static 'home/css/index.css' %}" media="screen">
+    <link rel="stylesheet" href="{% static 'home/css/Startseite-fonts.css' %}">
+    
+    <script src="https://unpkg.com/htmx.org@1.9.11"></script>
+    
+    <script class="u-script" type="text/javascript" src="{% static 'home/js/jquery.js' %}" defer=""></script>
+    <script class="u-script" type="text/javascript" src="{% static 'home/js/autor.js' %}" defer=""></script>
+    
+    <meta name="theme-color" content="#1c4c79">
+    {% block extra_head %}{% endblock %}
+</head>
+
+<body class="u-body u-clearfix u-xl-mode" data-lang="de">
+    
+    <header class="Header u-align-center-sm u-align-center-xs u-clearfix u-header u-header" id="menu">
+        <div class="u-clearfix u-sheet u-valign-middle-sm u-sheet-1">
+            <a href="/" class="u-image u-logo u-image-1">
+                <img src="{% static 'home/images/LogoRSS2021_LogoGold.png' %}" class="u-logo-image u-logo-image-1">
+            </a>
+            
+            <nav class="u-menu u-menu-dropdown u-offcanvas u-menu-1">
+                {% include "home/partials/navigation.html" %}
+            </nav>
+
+            <a href="tel:03855910333" class="u-active-none u-btn u-button-style u-hidden-sm u-hidden-xs u-hover-none u-none u-text-palette-1-base u-btn-1">
+                <span class="u-icon">
+                    <svg viewBox="0 0 405.333 405.333" style="width: 1em; height: 1em;"><path d="M373.333,266.88c-25.003,0-49.493-3.904-72.704-11.563c-11.328-3.904-24.192-0.896-31.637,6.699l-46.016,34.752 c-52.8-28.181-86.592-61.952-114.389-114.368l33.813-44.928c8.512-8.512,11.563-20.971,7.915-32.64 C142.592,81.472,138.667,56.96,138.667,32c0-17.643-14.357-32-32-32H32C14.357,0,0,14.357,0,32 c0,205.845,167.488,373.333,373.333,373.333c17.643,0,32-14.357,32-32V298.88C405.333,281.237,390.976,266.88,373.333,266.88z"></path></svg>
+                </span>&nbsp;03 85 - 59 10 333
+            </a>
+        </div>
+    </header>
+
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <footer class="u-align-center u-clearfix u-footer u-palette-1-base u-footer" id="footer">
+        <div class="u-clearfix u-sheet u-sheet-1">
+            <div class="u-layout-row">
+                <div class="u-container-layout-1">
+                    <p class="u-text-1"><b>Reiseservice Schwerin GmbH</b><br>Klöresgang 1, 19053 Schwerin</p>
+                </div>
+                </div>
+        </div>
+    </footer>
+
+</body>
+</html>
