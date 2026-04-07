@@ -5,6 +5,21 @@
     <section class="Header ..."> ... </section>
     <section class="News ..."> ... </section>
     <section class="u-clearfix u-section-3" id="reisen">
-      
+      <section class="u-section-3" id="reise-liste">
+        <div class="u-sheet">
+            <div class="u-layout-row">
+                {% for reise in reisen %}
+                    <div class="u-container-style u-layout-cell">
+                        <h3>{{ reise.titel }}</h3>
+                        <p>{{ reise.beschreibung|truncatewords:20 }}</p>
+                        <p>Preis: {{ reise.preis }} €</p>
+                        <a href="{% url 'reise_detail' reise.slug %}">Mehr Infos</a>
+                    </div>
+                {% empty %}
+                    <p>Aktuell sind keine Reisen verfügbar.</p>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
     </section>
 {% endblock %}
