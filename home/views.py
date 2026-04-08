@@ -215,6 +215,7 @@ def neustart(request):
       ).values(
         'reiseID',
         'titel',
+        'untertitel',
         'einleitung',
         'reisetyp',
         'reisetermine__datum_beginn',
@@ -223,13 +224,14 @@ def neustart(request):
         'reisepreise__preis',
         'reisepreise__preis_id__titel',
         'reisezielregionen__zielregion_id__name'
-      ).distinct()[:5]
+      ).distinct()[:6]
 
     version = request.GET.get('version')
     if version == 'ich':
       return render(request, 'home/neustartneu.html', {'aktuelles': aktuelles})
     elif version == 'nicepage' or version is None:
-        return render(request, 'home/_start.html', {'reisen': reisen})
+        #return render(request, 'home/_start.html', {'reisen': reisen})
+        return render(request, 'home/__index.html', {'reisen': reisen})
     #elif version == 'nicepage':
       #return render(request, 'home/_start.html', {'aktuelles': aktuelles})
       #return render(request, 'home/_start.html', {'reisen': reisen})
