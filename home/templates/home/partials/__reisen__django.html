@@ -1,5 +1,27 @@
 {% load static %}
 {% load home_tags %}
+{% load humanize %} 
+
+<style>
+/* Nur Container innerhalb der Reise-Übersicht ansprechen */
+.REISE_UEBERSICHT .u-list-item .u-container-layout {
+    display: flex !important;
+    flex-direction: column !important;
+    /* Wir überschreiben nicht das Padding, nur das Layout-Verhalten */
+}
+
+/* Den neuen Text-Wrapper (den du im HTML einfügst) flexibel machen */
+.kachel-text-bereich {
+    flex-grow: 1 !important;
+    display: flex !important;
+    flex-direction: column !important;
+}
+
+/* Den Button nach unten drücken */
+.REISE_UEBERSICHT .BETRAG {
+    margin-top: auto !important;
+}
+</style>
 
 <section class="REISE u-clearfix u-section-4" id="reisen">
  <div class="u-clearfix u-sheet u-sheet-1">
@@ -16,59 +38,54 @@
     <div class="u-border-1 u-border-grey-50 u-container-style u-list-item u-repeater-item u-shape-rectangle">
      <div class="u-container-layout u-similar-container u-container-layout-1">
 <!-- FLAGGEN -->
-      {% for zielregion in reise.zielregionen %}
-        {% if zielregion.name != "Europa" and zielregion.name != "Nordeuropa" and zielregion.name != "Asien" and zielregion.name != "Afrika" and zielregion.name != "Britische Inseln" and zielregion.name != "Benelux" and zielregion.name != "Balkan" and " / " not in zielregion.name and "web" not in zielregion.name and zielregion.name != "Madeira" and zielregion.name != "Oesterreich" and zielregion.name != "Daenemark" and zielregion.name != "Tuerkei" and zielregion.name != "Grossbritannien" and zielregion.name != "Rumaenien" %}
-      <img alt="" class="FLAGGE u-image u-image-default u-preserve-proportions u-image-1" data-image-height="59" data-image-width="94" src="{% static 'home/images/Flagge/' %}{{reise.reisezielregionen__zielregion_id__name|land}}.jpg"/>
-        {% endif %}
-        {% if zielregion.name == "Daenemark" %}
-      <img alt="" class="FLAGGE u-image u-image-default u-preserve-proportions u-image-1" data-image-height="59" data-image-width="94" src="{% static 'home/images/Flagge/' %}Dänemark.jpg"/>
-        {% endif %}
-        {% if zielregion.name == "Oesterreich" %}
-      <img alt="" class="FLAGGE u-image u-image-default u-preserve-proportions u-image-1" data-image-height="59" data-image-width="94" src="{% static 'home/images/Flagge/' %}Österreich.jpg"/>
-        {% endif %}{% if zielregion.name == "Tuerkei" %}
-      <img alt="" class="FLAGGE u-image u-image-default u-preserve-proportions u-image-1" data-image-height="59" data-image-width="94" src="{% static 'home/images/Flagge/' %}Türkei.jpg"/>
-        {% endif %}{% if zielregion.name == "webItalien" %}
-      <img alt="" class="FLAGGE u-image u-image-default u-preserve-proportions u-image-1" data-image-height="59" data-image-width="94" src="{% static 'home/images/Flagge/' %}Italien.jpg"/>
-        {% endif %}
-        {% if zielregion.name == "webDeutschland" %}
-      <img alt="" class="FLAGGE u-image u-image-default u-preserve-proportions u-image-1" data-image-height="59" data-image-width="94" src="{% static 'home/images/Flagge/' %}Deutschland.jpg"/>
-        {% endif %}
-        {% if zielregion.name == "Grossbritannien" %}
-      <img alt="" class="FLAGGE u-image u-image-default u-preserve-proportions u-image-1" data-image-height="59" data-image-width="94" src="{% static 'home/images/Flagge/' %}Großbritannien.jpg"/>
-        {% endif %}
-        {% if zielregion.name == "Rumaenien" %}
-      <img alt="" class="FLAGGE u-image u-image-default u-preserve-proportions u-image-1" data-image-height="59" data-image-width="94" src="{% static 'home/images/Flagge/' %}Rumänien.jpg"/>
-        {% endif %}
-      {% endfor %}
+        {% with region=reise.hauptregion.0 %}
+            {% if region %}
+                {# Hier nutzen wir deinen vorhandenen 'land' Filter oder ein Mapping #}
+      <img  alt="{{ region.zielregion_id.name }}" 
+            class="FLAGGE u-image u-image-default u-preserve-proportions u-image-1" 
+            src="{% static 'home/images/Flagge/' %}{{ region.zielregion_id.name|land }}.jpg"/>
+            {% endif %}
+        {% endwith %}
 <!-- BALKEN -->
+        {# 'reisetyp' ist jetzt ein Attribut des Objekts #}
       <div class="BALKEN_{{ reise.reisetyp|ohnetage }} u-container-style u-expanded-width u-group u-palette-3-base u-group-1">
        <div class="u-container-layout u-container-layout-2">
 <!-- REISETYP -->
-        <img alt="" class="RUBRIK custom-expanded u-image u-image-default u-preserve-proportions u-image-2" data-image-height="150" data-image-width="150" src="{% static 'home/images/' %}{{reise.reisetyp|ohnetageklein}}.svg"/>
+        <img    alt=""
+                class="RUBRIK custom-expanded u-image u-image-default u-preserve-proportions u-image-2"
+                data-image-height="150"
+                data-image-width="150" 
+                src="{% static 'home/images/' %}{{ reise.reisetyp|ohnetageklein }}.svg"/>
         <p class="REISETYP u-text u-text-default u-text-1">
-         {{ reise.reisetyp|mittageklein }}
+        {{ reise.reisetyp|mittageklein }}
         </p>
+        {# Termine aus dem 'kommende_termine' Attribut (vom Prefetch im View) #}
+        {% with termin=reise.kommende_termine.0 %}
         <p class="REISETERMINE u-text u-text-default u-text-2">
-         {{ reise.reisetermine__datum_beginn|date:'d. m.' }} - {{ reise.reisetermine__datum_ende|date:'d. m. Y' }}
+         {{ termin.datum_beginn|date:'d. m.' }} - {{ termin.datum_ende|date:'d. m. Y' }}
         </p>
+        {% endwith %}
        </div>
       </div>
-      <img alt="" class="BILD u-expanded-width u-image u-image-default u-image-3" data-image-height="1125" data-image-width="1500" src="{% static 'home/images/FMS_Markkleeberg_2025.jpg' %}"/>
+      <img  alt="{{ reise.titel }}" class="BILD u-expanded-width u-image u-image-default u-image-3"
+            data-image-height="1125"
+            data-image-width="1500"
+            src="{% static 'home/images/FMS_Markkleeberg_2025.jpg' %}"/>
+    <div class="kachel-text-bereich">
       <h3 class="REISETITEL u-text u-text-default u-text-palette-2-dark-1 u-text-3">
-       {{ reise.titel }}
+        {{ reise.titel }}
       </h3>
       <p class="REISEUNTERTITEL u-text u-text-default u-text-4">
-       {{ reise.untertitel }}
+        {{ reise.untertitel }}
        <br/>
       </p>
-      <a class="BETRAG u-align-right u-border-none u-btn u-btn-round u-button-style u-hover-palette-2-light-2 u-palette-2-light-1 u-radius u-btn-1" href="detail/{{ reise.reiseID|ohneminus }}">
-       ab {{ reise.reisepreise__preis }} €
+    </div>
+      <a class="BETRAG u-align-right u-border-none u-btn u-btn-round u-button-style u-hover-palette-2-light-2 u-palette-2-light-1 u-radius u-btn-1" href="{% url 'detail_by_slug' reise.slug %}">
+       {{ reise.button_text }}
       </a>
      </div>
     </div>
-
     {% endfor %}
-
    </div>
   </div>
   <div class="u-clearfix u-custom-html u-expanded-width u-custom-html-2">

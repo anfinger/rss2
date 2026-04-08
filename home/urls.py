@@ -30,7 +30,11 @@ urlpatterns = [
     url(r'^drafts/$', views.aktuell_draft_list, name='aktuell_draft_list'),
     url(r'^aktuell/(?P<pk>[0-9]+)/publish/$', views.aktuell_publish, name='aktuell_publish'),
     url(r'^aktuell/(?P<pk>[0-9]+)/remove/$', views.aktuell_remove, name='aktuell_remove'),
-    url(r'^detail/(?P<pk>[\w]+)/$', views.detail, name='detail'),
-    url(r'^detail(?P<slug>[-_\w]+)/', views.detail, name='detail'),
+    # Die Slug-Variante (für die schönen Links)
+    url(r'^detail/(?P<slug>[-_\w]+)/$', views.detail, name='detail_by_slug'),
+    # Die alte PK-Variante (für Notfälle/Abwärtskompatibilität)
+    url(r'^detail/id/(?P<pk>[a-f0-9-]{36})/$', views.detail, name='detail'),
+    #url(r'^detail/(?P<pk>[\w]+)/$', views.detail, name='detail'),
+    #url(r'^detail(?P<slug>[-_\w]+)/', views.detail, name='detail'),
     #url(r'^detail/(?P<slug>[-_\w]+),(?P<pk>[\w]+)/', views.detail, name='detail'),
 ]

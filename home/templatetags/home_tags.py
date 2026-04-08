@@ -267,9 +267,17 @@ def mittageklein(reisetyp):
 @register.filter
 @stringfilter
 def land(reiseziel):
-    if 'web' in reiseziel:
-      return re.sub(r'web', u'', reiseziel)
-   # elif 'Busreise' in reisetyp:
-   #   return reisetyp
-    else:
-      return reiseziel
+  # 1. "web" entfernen
+  name = reiseziel.replace('web', '')    
+  # 2. Mapping für Spezialfälle (Datenbank -> Dateiname)
+  # Hier kannst du alles eintragen, was im HTML als 'if' stand
+  mapping = {
+    'Daenemark': 'Dänemark',
+    'Oesterreich': 'Österreich',
+    'Tuerkei': 'Türkei',
+    'Grossbritannien': 'Großbritannien',
+    'Rumaenien': 'Rumänien',
+  # 'Europa': 'Europa_Special', # Falls du doch ein Bild für Europa hättest
+  }
+  # Wenn der Name im Mapping ist, nimm den korrigierten Namen, sonst das Original
+  return mapping.get(name, name)

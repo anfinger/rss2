@@ -15,7 +15,7 @@ from django.core import serializers
 from django.core.mail import send_mail, BadHeaderError
 from django.template.loader import render_to_string
 from datetime import datetime
-from django.db.models import Min, F, Value as V
+from django.db.models import Prefetch, Min, F, Value as V
 from django.views.decorators.csrf import csrf_exempt
 from django.db.models import Q
 from django.db.models import Count
@@ -23,7 +23,7 @@ from .models import Aktuelles
 from reisen.models import Reise, Reisetermine, Kategorie, Reisekategorien, Reisehinweise, Zielregion, Reisezielregionen, Ausflugspakete, Ausflugspaketpreise, AusflugspaketeZuReisetagen, LeistungenAusflugspaket, Abfahrtszeiten, LeistungenReise, Reisebeschreibung, Reisetage, Reisepreise, Preis, ReisepreisZusatz, Zusatzleistung, Fruehbucherrabatt, Reisebilder, Reisekatalogzugehoerigkeit, Katalog
 from .forms import ContactForm, BuchungsanfrageForm
 from reisen.querysets import get_detail_hinweise_queryset, get_detail_angebote_queryset, get_detail_auftragsbestaetigungen_queryset
-
+from django.views.decorators.http import require_safe
 
 def namedtuplefetchall(cursor):
     """Return all rows from a cursor as a namedtuple"""
@@ -194,49 +194,114 @@ def gibReisen(request):
 
     return JsonResponse(data)
 
-
+@require_safe
 def neustart(request):
+
+    heute = timezone.now().date()
+
+    # 1. Präzise Prefetches für Termine, Preise und die Haupt-Region
+    termine_prefetch = Prefetch(
+        'reisetermine_set',
+        queryset=Reisetermine.objects.filter(datum_beginn__gte=heute).order_by('datum_beginn'),
+        to_attr='kommende_termine'
+    )
+
+    preise_prefetch = Prefetch(
+        'reisepreise_set',
+        queryset=Reisepreise.objects.filter(preis_id__titel='Preis p.P.').order_by('preis'),
+        to_attr='reisen_preise'
+    )
+
+    region_prefetch = Prefetch(
+        'reisezielregionen_set',
+        queryset=Reisezielregionen.objects.filter(position=0).select_related('zielregion_id'),
+        to_attr='hauptregion'
+    )
+
+    # 2. Die Haupt-Query
+    reisen = Reise.objects.filter(
+        status='f',
+        reisetermine__datum_beginn__gte=heute,
+        reisezielregionen__position=0
+    ).prefetch_related(
+        termine_prefetch,
+        preise_prefetch,
+        region_prefetch
+    ).distinct()[:6]
+
+    for reise in reisen:
+      # 1. Den ersten Termin holen
+      termin = reise.kommende_termine[0] if reise.kommende_termine else None
+    
+      # 2. Den passenden Preis finden
+      display_preis = ""
+      if termin:
+        # Wir suchen in den zugehörigen Preisen nach der Markierung
+        passender_p = reise.reisepreise_set.filter(markierung=termin.markierung).first()
+    
+        if passender_p and passender_p.preis:
+          # :.0f entfernt Nachkommastellen
+          # :, fügt Tausender-Trenner hinzu (wird erst als Komma gerendert)
+          # .replace(",", ".") macht daraus den deutschen Punkt
+          formatiert = f"{passender_p.preis:,.0f}".replace(",", ".")
+          display_preis = f"ab {formatiert} €"
+
+        else:
+          # Termin gefunden, aber kein Preis hinterlegt
+          display_preis = "n.b."
+      else:
+        # Gar kein Termin gefunden
+        display_preis = "n.b."
+
+      # 3. Das Ergebnis direkt an das Reise-Objekt "kleben"
+      reise.button_text = display_preis
 
     aktuelles = Aktuelles.objects.filter(published_date__lte=timezone.now()).order_by('start_date')
 
-    reisen = Reise.objects.select_related().filter(
-        reisetermine__datum_beginn__gte=timezone.now(),
-        status='f',
-        reisetermine__datum_ende__isnull=False,
-        reisepreise__preis_id__titel='Preis p.P.',
-        reisepreise__markierung=F('reisetermine__markierung'),
-        #reisekategorien__kategorie_id__kategorie__in=reisekat,
-        #reisezielregionen__zielregion_id__name__in=reiseziel
-        reisezielregionen__position=0
-      ).order_by(
-        'reisetermine__datum_beginn',
-        'reisetermine__datum_ende',
-        'reisepreise__preis'
-      ).values(
-        'reiseID',
-        'titel',
-        'untertitel',
-        'einleitung',
-        'reisetyp',
-        'reisetermine__datum_beginn',
-        'reisetermine__datum_ende',
-        'reisetermine__markierung',
-        'reisepreise__preis',
-        'reisepreise__preis_id__titel',
-        'reisezielregionen__zielregion_id__name'
-      ).distinct()[:6]
+    #reisen = Reise.objects.select_related().filter(
+    #    reisetermine__datum_beginn__gte=timezone.now(),
+    #    status='f',
+    #    reisetermine__datum_ende__isnull=False,
+    #    reisepreise__preis_id__titel='Preis p.P.',
+    #    reisepreise__markierung=F('reisetermine__markierung'),
+    #    #reisekategorien__kategorie_id__kategorie__in=reisekat,
+    #    #reisezielregionen__zielregion_id__name__in=reiseziel
+    #    reisezielregionen__position=0
+    #  ).order_by(
+    #    'reisetermine__datum_beginn',
+    #    'reisetermine__datum_ende',
+    #    'reisepreise__preis'
+    #  ).values(
+    #    'reiseID',
+    #    'titel',
+    #    'untertitel',
+    #    'einleitung',
+    #    'reisetyp',
+    #    'reisetermine__datum_beginn',
+    #    'reisetermine__datum_ende',
+    #    'reisetermine__markierung',
+    #    'reisepreise__preis',
+    #    'reisepreise__preis_id__titel',
+    #    'reisezielregionen__zielregion_id__name'
+    #  ).distinct()[:6]
 
-    version = request.GET.get('version')
-    if version == 'ich':
-      return render(request, 'home/neustartneu.html', {'aktuelles': aktuelles})
-    elif version == 'nicepage' or version is None:
-        #return render(request, 'home/_start.html', {'reisen': reisen})
-        return render(request, 'home/__index.html', {'reisen': reisen})
-    #elif version == 'nicepage':
-      #return render(request, 'home/_start.html', {'aktuelles': aktuelles})
-      #return render(request, 'home/_start.html', {'reisen': reisen})
-    else:
-      return render(request, 'home/neustart.html', {'aktuelles': aktuelles})
+    # Template-Logik
+    version = request.GET.get('version', 'nicepage')
+    template_path = 'home/__index.html' if version == 'nicepage' else 'home/neustartneu.html'
+
+    return render(request, template_path, {'reisen': reisen})
+
+    #version = request.GET.get('version')
+    #if version == 'ich':
+    #  return render(request, 'home/neustartneu.html', {'aktuelles': aktuelles})
+    #elif version == 'nicepage' or version is None:
+    #    #return render(request, 'home/_start.html', {'reisen': reisen})
+    #    return render(request, 'home/__index.html', {'reisen': reisen})
+    ##elif version == 'nicepage':
+    #  #return render(request, 'home/_start.html', {'aktuelles': aktuelles})
+    #  #return render(request, 'home/_start.html', {'reisen': reisen})
+    #else:
+    #  return render(request, 'home/neustart.html', {'aktuelles': aktuelles})
 
 
 def start(request):
@@ -509,7 +574,14 @@ def aktuell_remove(request, pk):
 ##################################################################
 # Detail Seite, Reisedetails                                     #
 ##################################################################
-def detail(request, pk):
+def detail(request, pk=None, slug=None):
+    
+    # 1. Die Reise finden (entweder per Slug oder per PK)
+    if slug:
+        reise = get_object_or_404(Reise, slug=slug)
+        pk = reise.reiseID # Wir setzen die pk für die restlichen SQL-Queries
+    else:
+        reise = get_object_or_404(Reise, pk=pk)
 
     dibug = request.method
 
@@ -558,6 +630,19 @@ def detail(request, pk):
     cursor.execute("SELECT reise_id_id, reisepreisID, hauptpreis.titel, REPLACE(FORMAT(reisen_reisepreise.preis, 0),',','.') as preis, reisen_reisepreise.markierung, kommentar, subpreise.zpreis FROM reisen_reisepreise LEFT JOIN reisen_preis AS hauptpreis ON (hauptpreis.preisID = reisen_reisepreise.preis_id_id) LEFT JOIN (SELECT reisepreis_id_id, GROUP_CONCAT(IF(reisen_reisepreiszusatz.preis > 0, CONCAT(CONCAT_WS(': ', subpreis.titel, replace(FORMAT(reisen_reisepreiszusatz.preis, 0),',','.')), ' €'), subpreis.titel) ORDER BY reisen_reisepreiszusatz.position ASC SEPARATOR '\n') as zpreis from reisen_reisepreiszusatz LEFT JOIN reisen_preis AS subpreis ON (subpreis.preisID = reisen_reisepreiszusatz.preis_id_id) GROUP BY reisepreis_id_id) AS subpreise ON (reisepreisID = reisepreis_id_id) WHERE reisen_reisepreise.reise_id_id = '" + str(pk) + "' ORDER BY reisen_reisepreise.position;");
     preise = namedtuplefetchall(cursor)
     cursor.close()
+
+    # Wir definieren, wie die Zusatzpreise mitgeladen werden sollen
+#    zusatzpreise_prefetch = Prefetch(
+#      'reisepreiszusatz_set', # Das ist die Relation zu deinen Zusatzpreisen
+#      queryset=Reisepreiszusatz.objects.select_related('preis_id').order_by('position'),
+#      to_attr='alle_zusatzpreise' # Unter diesem Namen sind sie am Hauptpreis-Objekt verfügbar
+#    )
+
+    # Die Hauptabfrage für die Reisepreise
+#    preise = Reisepreise.objects.filter(reise_id=pk)\
+#      .select_related('preis_id')\
+#      .prefetch_related(zusatzpreise_prefetch)\
+#      .order_by('position')
 
     cursor = connection.cursor()
     cursor.execute("SELECT ausflugspaketID, ausflugspaket_text, reisetag_id_id, reisen_ausflugspakete.titel AS aptitel, erscheint_in, kommentar_titel, kommentar, reisen_ausflugspakete.position, reisen_preis.titel as ptitel, tagnummer, reisen_reisetage.titel as rtitel, preis, apleistungen.leistungen FROM reisen_ausflugspakete LEFT JOIN (SELECT ausflugspaket_id_id, group_concat(leistung ORDER BY position ASC SEPARATOR '\n') AS leistungen FROM reisen_leistungenausflugspaket group by ausflugspaket_id_id) AS apleistungen ON (reisen_ausflugspakete.ausflugspaketID = apleistungen.ausflugspaket_id_id) LEFT JOIN reisen_ausflugspaketpreise ON (reisen_ausflugspakete.ausflugspaketID = reisen_ausflugspaketpreise.ausflugspaket_id_id) LEFT JOIN reisen_preis ON (reisen_preis.preisID = reisen_ausflugspaketpreise.preis_id_id) LEFT JOIN reisen_ausflugspaketezureisetagen ON (reisen_ausflugspakete.ausflugspaketID = reisen_ausflugspaketezureisetagen.ausflugspaket_id_id) LEFT JOIN reisen_reisetage ON (reisen_reisetage.reisetagID = reisen_ausflugspaketezureisetagen.reisetag_id_id) WHERE reisen_ausflugspakete.reise_id_id = '" + str(pk) + "' ORDER BY reisen_ausflugspakete.position;");
