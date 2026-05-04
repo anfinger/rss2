@@ -2808,10 +2808,11 @@ def reise_detail_export_alles(request, pk):
 def zustiege(request):
 
     conn = mysql.connector.connect(
-      host="localhost",
+      host="127.0.0.1",
       user="django",
       database="deltaplan",
-      passwd="MMu9U30iL!"
+      passwd="MMu9U30iL!",
+      ssl_disabled=True
     )
 
     #conn = MySQLdb.connect("connection info here")
@@ -2830,10 +2831,11 @@ def zustiege(request):
 def aktuelleReisen(request):
 
     conn = mysql.connector.connect(
-      host="localhost",
+      host="127.0.0.1",
       user="django",
       database="deltaplan",
-      passwd="MMu9U30iL!"
+      passwd="MMu9U30iL!",
+      ssl_disabled=True
     )
 
     #conn = MySQLdb.connect("connection info here")
