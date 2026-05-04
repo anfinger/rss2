@@ -2910,7 +2910,7 @@ def zubringer(request):
           ORDER BY
             Namen.ZZeit,
             Namen.ZOrt,
-            Namen.Bnr,
+            Namen.Name,
             Namen.PaxNr
           """
 
