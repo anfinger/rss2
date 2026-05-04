@@ -277,7 +277,7 @@
                       <font size="3" face="Verdana" color="blue">
                         <b>Zubringerliste R{{ rnr }}/{{ jahr }}: "{{ reiseinfos.0.ziel }}" vom {{ reiseinfos.0.vom }} bis {{ reiseinfos.0.bis }}</b></br></br>
                         <span id="sortedList"></span>
-                        <button type="button" onclick="generate()">Click to generate document</button>
+                        <button type="button" onclick="generate()">Zustiegsliste erstellen (word, automatischer download)</button>
                       </font>
                     </td>
                   </tr>
@@ -290,7 +290,7 @@
                           {% for uebergabe in uebergabeliste %}
                             {% if not uebergabe.selberort %}{% if forloop.counter > 1 %}</li>{% endif %}<li id="uebergabe_{{ forloop.counter }}" class="ui-state-default"><div class="ort"><b>{% if uebergabe.ortkurz %}{{ uebergabe.ort }}{% else %}kein Zustieg vergeben{% endif %} um {{ uebergabe.zeit }}</b></div>{% endif %}
                             {% if not uebergabe.selbebnr %}</br><div class="bnr">B{{ uebergabe.bnr }}</div>{% if uebergabe.option %}<div id="option">&nbsp;({{ uebergabe.option }})</div>{% endif %}{% if uebergabe.warteliste %}<div id="warteliste">&nbsp;({{ uebergabe.warteliste }})</div>{% endif %}{% endif %}
-                            <div id="pax">{{ forloop.counter }}: {{ uebergabe.anrede }} {{ uebergabe.vorname }} {{ uebergabe.name }}</div>
+                            <div id="pax">{{ forloop.counter }}: {{ uebergabe.anrede }} {{ uebergabe.vorname }} {{ uebergabe.name }}, Busplatz: {{ uebergabe.busplatz }}</div>
                             {% if forloop.last %}</li>{% endif %}
                           {% endfor %}
                         </ul>
@@ -303,7 +303,7 @@
                           {% for zubringer in zubringerliste %}
                             {% if not zubringer.selberort %}{% if forloop.counter > 1 %}</li>{% endif %}<li id="zubringer_{{ forloop.counter }}" class="ui-state-highlight"><div id="ort"><b>{% if zubringer.ortkurz %}{{ zubringer.ort }}{% else %}kein Zustieg vergeben{% endif %} um {{ zubringer.zeit }} mit {{ zubringer.taxiname1 }} ({{ zubringer.taxitel1 }})</b></div>{% endif %}
                             {% if not zubringer.selbebnr %}</br><div="bnr">B{{ zubringer.bnr }}</div>{% if zubringer.option %}<div id="option">&nbsp;({{ zubringer.option }})</div>{% endif %}{% if zubringer.warteliste %}<div id="warteliste">&nbsp;({{ zubringer.warteliste }})</div>{% endif %}{% endif %}
-                            <div id="pax">{{ uebergabeliste|length|add:forloop.counter }}: {{ zubringer.anrede }} {{ zubringer.vorname }} {{ zubringer.name }}</div>
+                            <div id="pax">{{ uebergabeliste|length|add:forloop.counter }}: {{ zubringer.anrede }} {{ zubringer.vorname }} {{ zubringer.name }}, Busplatz: {{ zubringer.busplatz }}</div>
                             {% if forloop.last %}</li>{% endif %}
                           {% endfor %}
                         </ul>

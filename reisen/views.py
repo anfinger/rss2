@@ -2877,6 +2877,7 @@ def zubringer(request):
           IF(Warteliste = 0, '', 'Warteliste') AS Warteliste,
           Namen.Bnr AS Bnr,
           Namen.ZOrt AS Ortkurz,
+          Namen.BusPlatz AS Busplatz,
           Zustiege.Ort AS Ort,
           IF(
             CHAR_LENGTH(Namen.ZZeit) < 4 AND CHAR_LENGTH(Namen.ZZeit) > 1,
@@ -2929,8 +2930,9 @@ def zubringer(request):
           "bnr": ub[5],
           "selberort": True if i > 0 and ub[6] == uebergabe[i-1][6] else False,
           "ortkurz": ub[6],
-          "ort": ub[7],
-          "zeit": ub[8],
+          "busplatz": ub[7],
+          "ort": ub[8],
+          "zeit": ub[9],
         }
         for i, ub in enumerate(uebergabe)
       ]
@@ -2944,6 +2946,7 @@ def zubringer(request):
           IF(Warteliste = 0, '', 'Warteliste') AS Warteliste,
           Namen.Bnr AS Bnr,
           Namen.ZOrt AS Ortkurz,
+          Namen.BusPlatz AS Busplatz,
           Zustiege.Ort AS Ort,
           IF(
             CHAR_LENGTH(Namen.ZZeit) < 4 AND CHAR_LENGTH(Namen.ZZeit) > 1,
@@ -2989,7 +2992,7 @@ def zubringer(request):
           ORDER BY
             Namen.ZZeit,
             Namen.ZOrt,
-            Namen.Bnr,
+            Namen.Name,
             Namen.PaxNr
           """
 
@@ -3008,16 +3011,17 @@ def zubringer(request):
           "bnr": zb[5],
           "selberort": True if i > 0 and zb[6] == zubringer[i-1][6] else False,
           "ortkurz": zb[6],
-          "ort": zb[7],
-          "zeit": zb[8],
-          "taxiname1": zb[9],
-          "taxiname2": zb[10],
-          "taxistrasse": zb[11],
-          "taxiort": zb[12],
-          "taxitel1": zb[13],
-          "taxitel2": zb[14],
-          "taxifax": zb[15],
-          "taxiemail": zb[16],
+          "busplatz": zb[7],
+          "ort": zb[8],
+          "zeit": zb[9],
+          "taxiname1": zb[10],
+          "taxiname2": zb[11],
+          "taxistrasse": zb[12],
+          "taxiort": zb[13],
+          "taxitel1": zb[14],
+          "taxitel2": zb[15],
+          "taxifax": zb[16],
+          "taxiemail": zb[17]
         }
         for i, zb in enumerate(zubringer)
       ]
