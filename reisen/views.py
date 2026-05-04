@@ -2852,10 +2852,11 @@ def aktuelleReisen(request):
 def zubringer(request):
 
     conn = mysql.connector.connect(
-      host="localhost",
+      host="127.0.0.1",
       user="django",
       database="deltaplan",
-      passwd="MMu9U30iL!"
+      passwd="MMu9U30iL!",
+      ssl_disabled=True
     )
 
     rnr = request.GET.get('rnr')
