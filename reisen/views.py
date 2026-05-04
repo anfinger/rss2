@@ -3089,10 +3089,11 @@ def zubringer(request):
 def neu(request):
 
     conn = mysql.connector.connect(
-      host="localhost",
+      host="127.0.0.1",
       user="django",
       database="deltaplan",
-      passwd="MMu9U30iL!"
+      passwd="MMu9U30iL!",
+      ssl_disabled=True
     )
 
     #conn = MySQLdb.connect("connection info here")
@@ -3208,7 +3209,7 @@ def printZubringer(request):
                 p.add_run(' (' + ul[k-1]['warteliste'] + ')')
               p.add_run("\n")
             #p.add_run(str(k-1)+ ' - ' + str(ul[k-1]['id']) + ': ' + ul[k-1]['name'] + ', ' + ul[k-1]['vorname'])
-            p.add_run(ul[k-1]['anrede'] + ' ' + ul[k-1]['name'] + ', ' + ul[k-1]['vorname'])
+            p.add_run(ul[k-1]['anrede'] + ' ' + ul[k-1]['name'] + ', ' + ul[k-1]['vorname'] + ', Busplatz: ' + str(ul[k-1]['busplatz']))
             p.add_run("\n")
             k += 1
           #p.add_run("\n")
@@ -3218,7 +3219,7 @@ def printZubringer(request):
             p.add_run('B' + str(ul[k-1]['bnr']))
             p.add_run("\n")
           #p.add_run(str(k-1)+ ' - ' + str(ul[k-1]['id']) + ': ' + ul[k-1]['name'] + ', ' + ul[k-1]['vorname'])
-          p.add_run(ul[k-1]['anrede'] + ' ' + ul[k-1]['name'] + ', ' + ul[k-1]['vorname'])
+          p.add_run(ul[k-1]['anrede'] + ' ' + ul[k-1]['name'] + ', ' + ul[k-1]['vorname'] + ', Busplatz: ' + str(ul[k-1]['busplatz']))
           p.add_run("\n")
         else:
           p.add_run("\n")
@@ -3235,7 +3236,7 @@ def printZubringer(request):
               p.add_run('B' + str(zl[k-1]['bnr']))
               p.add_run("\n")
             #p.add_run(str(k-1)+ ' - ' + str(zl[k-1]['id']) + ': ' + zl[k-1]['name'] + ', ' + zl[k-1]['vorname'])
-            p.add_run(zl[k-1]['anrede'] + ' ' + zl[k-1]['name'] + ', ' + zl[k-1]['vorname'])
+            p.add_run(zl[k-1]['anrede'] + ' ' + zl[k-1]['name'] + ', ' + zl[k-1]['vorname'] + ', Busplatz: ' + str(zl[k-1]['busplatz']))
             p.add_run("\n")
             k += 1
           #p.add_run("\n")
@@ -3245,7 +3246,7 @@ def printZubringer(request):
             p.add_run('B' + str(zl[k-1]['bnr']))
             p.add_run("\n")
           #p.add_run(str(k-1)+ ' - ' + str(zl[k-1]['id']) + ': ' + zl[k-1]['name'] + ', ' + zl[k-1]['vorname'])
-          p.add_run(zl[k-1]['anrede'] + ' ' + zl[k-1]['name'] + ', ' + zl[k-1]['vorname'])
+          p.add_run(zl[k-1]['anrede'] + ' ' + zl[k-1]['name'] + ', ' + zl[k-1]['vorname'] + ', Busplatz: ' + str(zl[k-1]['busplatz']))
           p.add_run("\n")
       except (IndexError):
         p.add_run("INDEXERROR: " + str(k))
@@ -3283,10 +3284,11 @@ def printZubringer(request):
 def ablauf(request):
 
     conn = mysql.connector.connect(
-      host="localhost",
+      host="127.0.0.1",
       user="django",
       database="deltaplan",
-      passwd="MMu9U30iL!"
+      passwd="MMu9U30iL!",
+      ssl_disabled=True
     )
 
     rnr = request.GET.get('rnr')
