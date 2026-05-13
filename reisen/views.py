@@ -840,6 +840,28 @@ def winter2526(request):
 
     return render(request, 'reisen/index_reisen_web_alt.html', {'termine': termine, 'dibug': dibug, 'kategorien': kategorien })
 
+##################################################################
+# Winterreisen 2026 2027                                         #
+##################################################################
+def winter2627(request):
+
+    dibug = ''
+
+    cursor = connection.cursor()
+
+    cursor.execute("SELECT DISTINCT reiseID, RP.abpreis, reisen_kategorie.kategorie, reisen_reise.untertitel, einleitung, reisetyp, KT.katalogseiten, RT.reise_id_id, reisen_reise.titel, reisen_reise.sonstigeReisebeschreibung_titel, RT.min_datum, RT.reisetermine FROM reisen_reise LEFT JOIN (SELECT reise_id_id, MIN(datum_beginn) AS min_datum, group_concat(DISTINCT CONCAT_WS(' - ', DATE_FORMAT(datum_beginn,'%d. %m. %Y'), DATE_FORMAT(datum_ende,'%d. %m. %Y')) ORDER BY datum_beginn, datum_ende ASC SEPARATOR '\n') AS reisetermine FROM reisen_reisetermine GROUP BY reise_id_id ORDER BY min_datum) AS RT ON (RT.reise_id_id = reiseID) LEFT JOIN (SELECT reise_id_id, group_concat(DISTINCT CONCAT_WS(' auf der Seite ', reisen_katalog.titel, katalogseite) ORDER BY position ASC SEPARATOR ' und im Katalog ') AS katalogseiten FROM reisen_reisekatalogzugehoerigkeit LEFT JOIN reisen_katalog ON (reisen_katalog.katalogID = reisen_reisekatalogzugehoerigkeit.katalog_id_id) GROUP BY reise_id_id) as KT ON (KT.reise_id_id = reiseID) LEFT JOIN reisen_reisekatalogzugehoerigkeit ON (reisen_reisekatalogzugehoerigkeit.reise_id_id = reisen_reise.reiseID) left join reisen_reisekategorien on (reiseID = reisen_reisekategorien.reise_id_id) left join reisen_kategorie on (kategorieID = kategorie_id_id) left join (select reisen_reisepreise.reise_id_id, MIN(reisen_reisepreise.preis) AS abpreis from reisen_reisepreise GROUP BY reisen_reisepreise.reise_id_id) AS RP ON (reiseID = RP.reise_id_id) WHERE reisen_reisekatalogzugehoerigkeit.katalog_id_id = '0badfa52ada24554a6d7ebfb9ec650a9' AND reisen_kategorie.kategorie in ('Musicals & Shows','Weihnachts- & Silvesterreisen', 'Adventsreisen & Weihnachtsmärkte', 'Kuren, Gesundheits- und Wellnessreisen', 'Flusskreuzfahrten', 'Ostern', 'kombinierte Flug- & Busreisen', 'Frühlingsreisen', 'Herbstreisen', 'Winterreisen') ORDER BY RT.min_datum;")
+
+    termine = namedtuplefetchall(cursor)
+
+    cursor.close()
+
+    #kategorien = ['Herbstreisen', u'Adventsreisen & Weihnachtsmärkte', u'Weihnachts- & Silvesterreisen', 'Winterreisen', u'Frühlingsreisen', 'Ostern', u'Kuren, Gesundheits- und Wellnessreisen', 'kombinierte Flug- & Busreisen', 'Flusskreuzfahrten', 'Musicals & Shows']
+    kategorien = [u'Herbstreisen', u'Adventsreisen & Weihnachtsmärkte', u'Weihnachts- & Silvesterreisen', 'Winterreisen', u'Frühlingsreisen', u'Kuren, Gesundheits- und Wellnessreisen', 'kombinierte Flug- & Busreisen', 'Flusskreuzfahrten', 'Musicals & Shows']
+
+    #dibug = ''#DefaultStorage().location + '  :::  ' + site.storage.location + site.directory + '  :::  ' + str(FileSystemStorage().directory_permissions_mode)
+
+    return render(request, 'reisen/index_reisen_web_alt.html', {'termine': termine, 'dibug': dibug, 'kategorien': kategorien })
+
 ########################################################
 # XML Export alle Reisen nach Termin Winter 2025/26     #
 ########################################################
