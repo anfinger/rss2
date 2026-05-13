@@ -3,6 +3,8 @@ __pycache__
 myvenv
 db.sqlite3
 /static
+*.sql
+staticfiles/
 /static12
 /static_OLD
 /media
@@ -26,3 +28,4 @@ docker-compose.yml
 django-inplaceeditform-1.5.0.tar.gz
 init-db/
 inplaceeditform/
+20260404_rss2_mysqldump.sql

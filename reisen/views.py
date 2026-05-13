@@ -923,7 +923,7 @@ def reiseuebersichtwinter(request):
         ON
           reisen_reise.reiseID = reisen_reisekatalogzugehoerigkeit.reise_id_id
         WHERE
-          reisen_reisekatalogzugehoerigkeit.katalog_id_id = '91047b6622874816af2ee870908018c7'
+          reisen_reisekatalogzugehoerigkeit.katalog_id_id = '0badfa52ada24554a6d7ebfb9ec650a9'
         AND
           katalogseite > 0
         ORDER BY
