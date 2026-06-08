@@ -103,9 +103,17 @@
           <div class="rTableCell" style="text-align: right; width: 40px"><a href="{% url 'reise_detail' pk=termin.reiseID %}?version=docx" style="font-weight:bold; font-size:10pt; text-decoration:none;">{{ termin.Seite }}</a></div>
         {% endif %}
         {% if 'mmgd' in termin.intern %}
-          <div class="rTableCell" style="text-align: right; width: 40px">jupp</div>
+          <div class="rTableCell" style="text-align: right; width: 40px">
+            <a href="http://www.reiseservice-schwerin.de/rss2/admin/reisen/reise/{{ termin.reiseID|slice:":8" }}-{{ termin.reiseID|slice:"8:12" }}-{{ termin.reiseID|slice:"12:16" }}-{{ termin.reiseID|slice:"16:20" }}-{{ termin.reiseID|slice:"20:" }}/change" style="text-decoration:none;" target="_blank">
+              jupp
+            </a>
+          </div>
         {% else %}
-          <div class="rTableCell" style="text-align: right; width: 40px">n&ouml;</div>
+          <div class="rTableCell" style="text-align: right; width: 40px">
+            <a href="http://www.reiseservice-schwerin.de/rss2/admin/reisen/reise/{{ termin.reiseID|slice:":8" }}-{{ termin.reiseID|slice:"8:12" }}-{{ termin.reiseID|slice:"12:16" }}-{{ termin.reiseID|slice:"16:20" }}-{{ termin.reiseID|slice:"20:" }}/change" style="text-decoration:none;" target="_blank">
+              n&ouml;
+            </a>
+          </div>
         {% endif %}
 
         </div>
