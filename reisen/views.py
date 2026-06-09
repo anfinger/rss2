@@ -977,7 +977,7 @@ def reiseuebersichtwinter(request):
       elif u'Starlight' in termine[i].Reiseziel and starlight != False:
         termine[i] = termine[i]._replace(Termin = '')
       if u'Elbphil' in termine[i].Reiseziel and elfi != True:
-        termine[i] = termine[i]._replace(Termin = 'Dez. 26 & Apr. 27')
+        termine[i] = termine[i]._replace(Termin = 'Dez. 26 & März 27')
         elfi = True
       elif u'Elbphil' in termine[i].Reiseziel and elfi != False:
         termine[i] = termine[i]._replace(Termin = '')
@@ -1002,7 +1002,7 @@ def reiseuebersichtwinter(request):
       elif u'ewige Stadt' in termine[i].Reiseziel and rom != False:
         termine[i] = termine[i]._replace(Termin = '')
       if u'Andalusien' in termine[i].Reiseziel and andalusien != True:
-        termine[i] = termine[i]._replace(Termin = 'Okt. 25 & März 26')
+        termine[i] = termine[i]._replace(Termin = 'Okt. 26 & März 27')
         andalusien = True
       elif u'Andalusien' in termine[i].Reiseziel and andalusien != False:
         termine[i] = termine[i]._replace(Termin = '')
@@ -1035,7 +1035,7 @@ def reiseuebersichtwinter(request):
       if not termine[i].Tage:
         termine[i] = termine[i]._replace(Termin = '')
       if u'Grünen Woche' in termine[i].Reiseziel and gruenewoche == False:
-        termine[i] = termine[i]._replace(Termin = '20., 22. & 24.01.27')
+        termine[i] = termine[i]._replace(Termin = '19., 21. & 23.01.27')
         termine[i] = termine[i]._replace(Tage = '1')
         gruenewoche = True
       elif u'Grünen Woche' in termine[i].Reiseziel and gruenewoche == True:
