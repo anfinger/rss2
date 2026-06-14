@@ -2567,22 +2567,22 @@ def reiseuebersichtwinter_alles(pk):
       if u'Kuren an der polnischen Ostseeküste' in termine[i].Reiseziel:
         termine[i] = termine[i]._replace(Termin = '')
       if u'Blauf' in termine[i].Reiseziel and blau != True:
-        termine[i] = termine[i]._replace(Termin = 'Okt. 25')
+        termine[i] = termine[i]._replace(Termin = 'Okt. 26')
         blau = True
       elif u'Blauf' in termine[i].Reiseziel and blau != False:
         termine[i] = termine[i]._replace(Termin = '')
-      if u'Starlight' in termine[i].Reiseziel and starlight != True:
-        termine[i] = termine[i]._replace(Termin = 'Okt. 25 & 26')
-        starlight = True
-      elif u'Starlight' in termine[i].Reiseziel and starlight != False:
-        termine[i] = termine[i]._replace(Termin = '')
+      #if u'Starlight' in termine[i].Reiseziel and starlight != True:
+      #  termine[i] = termine[i]._replace(Termin = 'Okt. 25 & 26')
+      #  starlight = True
+      #elif u'Starlight' in termine[i].Reiseziel and starlight != False:
+      #  termine[i] = termine[i]._replace(Termin = '')
       if u'Elbphil' in termine[i].Reiseziel and elfi != True:
-        termine[i] = termine[i]._replace(Termin = 'Dez. 25 & Apr. 26')
+        termine[i] = termine[i]._replace(Termin = 'Dez. 26 & Apr. 27')
         elfi = True
       elif u'Elbphil' in termine[i].Reiseziel and elfi != False:
         termine[i] = termine[i]._replace(Termin = '')
       if u'Wellnesswochenende' in termine[i].Reiseziel and wellnesswochenende != True:
-        termine[i] = termine[i]._replace(Termin = 'Okt. 25 & März 26')
+        termine[i] = termine[i]._replace(Termin = 'Okt. 26 & März 27')
         wellnesswochenende = True
       elif u'Wellnesswochenende' in termine[i].Reiseziel and wellnesswochenende != False:
         termine[i] = termine[i]._replace(Termin = '')
@@ -2592,7 +2592,7 @@ def reiseuebersichtwinter_alles(pk):
       elif u'Istanbul' in termine[i].Reiseziel and istanbul != False:
         termine[i] = termine[i]._replace(Termin = '')
       if u'Dankesch' in termine[i].Reiseziel and danke != True:
-        termine[i] = termine[i]._replace(Termin = 'Nov. 25 & Jan. 26')
+        termine[i] = termine[i]._replace(Termin = 'Nov. 26 & Jan. 27')
         danke = True
       elif u'Dankesch' in termine[i].Reiseziel and danke != False:
         termine[i] = termine[i]._replace(Termin = '')
@@ -2607,23 +2607,23 @@ def reiseuebersichtwinter_alles(pk):
       elif u'ewige Stadt' in termine[i].Reiseziel and rom != False:
         termine[i] = termine[i]._replace(Termin = '')
       if u'Andalusien' in termine[i].Reiseziel and andalusien != True:
-        termine[i] = termine[i]._replace(Termin = 'Okt. 25 & März 26')
+        termine[i] = termine[i]._replace(Termin = 'Okt. 26 & März 27')
         andalusien = True
       elif u'Andalusien' in termine[i].Reiseziel and andalusien != False:
         termine[i] = termine[i]._replace(Termin = '')
       #if u'Swinemünde' in termine[i].Reiseziel and swine != True:
-      #  termine[i] = termine[i]._replace(Termin = 'Okt. 25 bis März 26')
+      #  termine[i] = termine[i]._replace(Termin = 'Okt. 26 bis März 27')
       #  termine[i] = termine[i]._replace(Tage = '8')
       #  swine = True
       #elif u'Swinemünde' in termine[i].Reiseziel and swine != False:
       #  termine[i] = termine[i]._replace(Termin = '')
       if u'Barcelona' in termine[i].Reiseziel and barcelona != True:
-        termine[i] = termine[i]._replace(Termin = 'Okt. 25 & März 26')
+        termine[i] = termine[i]._replace(Termin = 'Okt. 26 & März 27')
         barcelona = True
       elif u'Barcelona' in termine[i].Reiseziel and barcelona != False:
         termine[i] = termine[i]._replace(Termin = '')
       if u'Lissabon' in termine[i].Reiseziel and lissabon != True:
-        termine[i] = termine[i]._replace(Termin = 'Okt. 25 & Mai 26')
+        termine[i] = termine[i]._replace(Termin = 'Okt. 26 & Mai 27')
         lissabon = True
       elif u'Lissabon' in termine[i].Reiseziel and lissabon != False:
         termine[i] = termine[i]._replace(Termin = '')
@@ -2635,7 +2635,7 @@ def reiseuebersichtwinter_alles(pk):
       if not termine[i].Tage:
         termine[i] = termine[i]._replace(Termin = '')
       if u'Grünen Woche' in termine[i].Reiseziel and gruenewoche == False:
-        termine[i] = termine[i]._replace(Termin = '20., 22., 24.01.26')
+        termine[i] = termine[i]._replace(Termin = '19., 21., 23.01.27')
         termine[i] = termine[i]._replace(Tage = '1')
         gruenewoche = True
       elif u'Grünen Woche' in termine[i].Reiseziel and gruenewoche == True:
