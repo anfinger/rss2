@@ -2602,7 +2602,7 @@ def reiseuebersichtwinter_alles(pk):
       elif u'Azoren' in termine[i].Reiseziel and azoren != False:
         termine[i] = termine[i]._replace(Termin = '')
       if u'ewige Stadt' in termine[i].Reiseziel and rom != True:
-        termine[i] = termine[i]._replace(Termin = 'Okt. 25 & 26')
+        termine[i] = termine[i]._replace(Termin = 'Okt. 26 & 27')
         rom = True
       elif u'ewige Stadt' in termine[i].Reiseziel and rom != False:
         termine[i] = termine[i]._replace(Termin = '')
