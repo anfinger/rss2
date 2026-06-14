@@ -17,7 +17,7 @@
 <KURENTERMINDETAILS>	Zuschlag EZ / VP	126 / 21	105 / -	280 / -	240 / 72	- / -	- / -	- / -	- / -	- / -	126 / -	98 / 21	- / -</KURENTERMINDETAILS>
 <KURENTERMIN>18. 10. - 25. 10. 25	8 Tage	576	746	856	926	-	-	-	-	-	835	755	-</KURENTERMIN>
 <KURENTERMINDETAILS>	Zuschlag EZ / VP	98 / 21	105 / -	280 / -	240 / 72	- / -	- / -	- / -	- / -	- / -	126 / -	98 / 21	- / -</KURENTERMINDETAILS>
-<KURENTERMIN>25. 10. - 01. 11. 25	8 Tage	576	746	746	926	-	-	-	-	-	835	755	-</KURENTERMIN>
+<KURENTERMIN>25. 10. - 01. 11. 25	8 Tage	576	746	746	926	-	-	-	-	-	835	755	-</KURENTERMIN>	
 <KURENTERMINDETAILS>	Zuschlag EZ / VP	98 / 21	105 / -	280 / -	240 / 72	- / -	- / -	- / -	- / -	- / -	126 / -	98 / 21	- / -</KURENTERMINDETAILS>
 <KURENTERMIN>17. 01. - 24. 01. 26	8 Tage	-	625	650	665	625	615	640	630	510	555	575	600</KURENTERMIN>
 <KURENTERMINDETAILS>	Zuschlag EZ / VP	- / -	77 / -	245 / -	198 / 78	119 / 0	196 / 77	119 / 98	112 / 78	0 / 21	91 / -	84 / 21	42 / 105</KURENTERMINDETAILS>
@@ -124,7 +124,7 @@ R&amp;T Reisen Ludwigslust GmbH</VERANSTALTER>
 <PREIS><PREISTITEL>Preis p.P.:</PREISTITEL>	<BETRAG>ab 630 €</BETRAG></PREIS>
 <PREISZUSATZ>siehe Preistabelle S. 66</PREISZUSATZ></PREISE>{% elif 'Baltic' in reise.sonstigeReisebeschreibung_titel and reise.titel = 'Kuren an der polnischen Ostseeküste' %}<PREISE>
 <PREIS><PREISTITEL>Preis p.P.:</PREISTITEL>	<BETRAG>ab 615 €</BETRAG></PREIS>
-< PREISZUSATZ>siehe Preistabelle S. 66</ PREISZUSATZ></PREISE>{% else %}{% if reise.preise %}< PREISE> {% for preis in reise.preise %}
+< PREISZUSATZ>siehe Preistabelle S. 66</ PREISZUSATZ></PREISE>{% else %}{% if reise.preise %}<PREISE> {% for preis in reise.preise %}
 {% if preis.titel == 'Individualpreis p.P.'%}<INDIVIDUALPREIS>{% else %}<PREIS>{% endif %}{% if preis.kommentar == 'ab' %}<PREISTITEL>{% if preis.markierung %}{{preis.markierung }}{% endif %}{{ preis.titel }}:</PREISTITEL>	<BETRAG>{{ preis.kommentar }} {{ preis.preis|floatformat:0|intcomma }} €</BETRAG>{% else %}<PREISTITEL>{% if preis.markierung %}{{preis.markierung }}{% endif %}{{ preis.titel }}:</PREISTITEL>	<BETRAG>{{ preis.preis|floatformat:0|intcomma }} €</BETRAG>{% if preis.kommentar %}
 <PREISKOMMENTAR>{{ preis.kommentar }}</PREISKOMMENTAR>{% endif %}{% endif %}{% if preis.titel == 'Individualpreis p.P.'%}</INDIVIDUALPREIS>{% else %}</PREIS>{% endif %}{% if preis.zusatzpreise %}
 {% if preis.titel == 'Individualpreis p.P.'%}<PREISZUSATZINDIVIDUAL>{% for zusatzpreis in preis.zusatzpreise %}{{ zusatzpreis.zusatzpreis_titel }}{% if zusatzpreis.zusatzpreis > 0 %}:	{{ zusatzpreis.zusatzpreis|floatformat:0|intcomma }} €{% endif %}{% if not forloop.last %}
