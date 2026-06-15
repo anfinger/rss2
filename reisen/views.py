@@ -2561,7 +2561,7 @@ def reiseuebersichtwinter_alles(pk):
           )
         ) AS Termin,
         (TO_DAYS(reisen_reisetermine.datum_ende)-TO_DAYS(reisen_reisetermine.datum_beginn)+1) AS Tage,
-        katalogseite AS Seite,
+        katalogseite AS Seite
       FROM
         reisen_reise
       LEFT JOIN
