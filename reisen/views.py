@@ -1023,7 +1023,7 @@ def reiseuebersichtwinter(request):
       elif u'Barcelona' in termine[i].Reiseziel and barcelona != False:
         termine[i] = termine[i]._replace(Termin = '')
       if u'Lissabon' in termine[i].Reiseziel and lissabon != True:
-        termine[i] = termine[i]._replace(Termin = 'Okt. 26 & Mai 27')
+        termine[i] = termine[i]._replace(Termin = 'Okt. 26 & April 27')
         lissabon = True
       elif u'Lissabon' in termine[i].Reiseziel and lissabon != False:
         termine[i] = termine[i]._replace(Termin = '')
@@ -2689,7 +2689,7 @@ def reiseuebersichtwinter_alles(pk):
       elif u'Barcelona' in termine[i].Reiseziel and barcelona != False:
         termine[i] = termine[i]._replace(Termin = '')
       if u'Lissabon' in termine[i].Reiseziel and lissabon != True:
-        termine[i] = termine[i]._replace(Termin = 'Okt. 26 & Mai 27')
+        termine[i] = termine[i]._replace(Termin = 'Okt. 26 & April 27')
         lissabon = True
       elif u'Lissabon' in termine[i].Reiseziel and lissabon != False:
         termine[i] = termine[i]._replace(Termin = '')
