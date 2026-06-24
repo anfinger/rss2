@@ -98,7 +98,7 @@ R&amp;T Reisen Ludwigslust GmbH</VERANSTALTER>
 {% endif %}{% for zusatzleistung in reise.zusatzleistungen %}{% if zusatzleistung.kommentar_titel %}<ZLKOMMENTAR>{{ zusatzleistung.kommentar_titel }}</ZLKOMMENTAR>
 {% endif %}{% if zusatzleistung.titel %}<ZL>{{ zusatzleistung.titel }}</ZL>	{% else %}<ZL>Titel Zusatleistung nicht bekannt</ZL>	{% endif %}{% if zusatzleistung.preis %}<ZLPREIS>{% if zusatzleistung.preis_titel = 'ab' %}{{ zusatzleistung.preis_titel }} {% endif %}{{ zusatzleistung.preis|preisformat }} €</ZLPREIS>{% else %}<ZLPREIS></ZLPREIS>{% endif %}{% if zusatzleistung.kommentar %}
 <ZLABSCHLUSSKOMMENTAR>{{ zusatzleistung.kommentar }}</ZLABSCHLUSSKOMMENTAR>{% endif %}
-{% endfor %}{% if reise.zusatzleistungen_fuss_kommentar %}<ZLFUSSKOMMENTAR>{{ reise.zusatzleistungen_fuss_kommentar }}</ZLFUSSKOMMENTAR>{% endif %}</ZUSATZLEISTUNGEN>{% endif %}</LEISTUNGEN>{% if 'Ikar' in reise.sonstigeReisebeschreibung_titel and reise.titel = 'Kuren an der polnischen Ostseeküste' %}<PREISE>
+{% endfor %}{% if reise.zusatzleistungen_fuss_kommentar %}<ZLFUSSKOMMENTAR>{{ reise.zusatzleistungen_fuss_kommentar }}</ZLFUSSKOMMENTAR>{% endif %}</ZUSATZLEISTUNGEN>{% endif %}</LEISTUNGEN>{% if reise.sonstigeReisebeschreibung_titel == 'Ikar' and reise.titel == 'Kuren an der polnischen Ostseeküste' %}<PREISE>
 <PREIS><PREISTITEL>Preis p.P.:</PREISTITEL>	<BETRAG>ab 600 €</BETRAG></PREIS>
 <PREISZUSATZ>siehe Preistabelle S. 66</PREISZUSATZ></PREISE>{% elif 'Wodnik' in reise.sonstigeReisebeschreibung_titel and reise.titel = 'Kuren an der polnischen Ostseeküste' %}<PREISE>
 <PREIS><PREISTITEL>Preis p.P.:</PREISTITEL>	<BETRAG>ab 595 €</BETRAG></PREIS>
