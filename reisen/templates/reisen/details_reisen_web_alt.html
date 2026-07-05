@@ -418,11 +418,9 @@
                                   {% endif %}
 
                                   {% if abfahrtszeiten %}
-                                    {% if reise.titel == 'Musicalfahrt nach Hamburg' %}
-                                    {% else %}
                                   <div class="abfahrtszeiten"><!--Abfahrtszeit{{ abfahrtszeiten|length|pluralize:"en" }}:<br/>-->
                                     {% for abfahrtszeit in abfahrtszeiten %}
-                                      {% if abfahrtszeit.zeit and reise.titel != 'Musicalfahrt nach Hamburg'%}
+                                      {% if abfahrtszeit.zeit and reise.titel == 'Musicalfahrt nach Hamburg'%}
                                         <!-- {% inplace_edit "abfahrtszeit.ort" %}: {% inplace_edit "abfahrtszeit.zeit|date:'H:i'" %} Uhr {{ abfahrtszeit.kommentar }}<br/> -->
                                         {% inplace_edit "abfahrtszeit.zeit|date:'H:i'" %} Uhr {% inplace_edit "abfahrtszeit.ort" %} {{ abfahrtszeit.kommentar }}<br/>
                                       {% else %}
