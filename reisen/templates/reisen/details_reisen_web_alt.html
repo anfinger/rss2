@@ -434,7 +434,7 @@
 
                                   <br/>
 
-                                  {% if preise %}
+                                  {% if preise and reise.titel != 'Musicalfahrt nach Hamburg' %}
                                     <!-- <h4>Preis{{ preise|length|pluralize:"e" }}:</h4> -->
                                     {% if preise|length > 2 %}
                                       <div class="reisepreismehrere">
@@ -466,7 +466,7 @@
                                     {% endfor %}
                                       </div>
                                   {% else %}
-                                    <div class="reisepreis">Der Preis ist noch nicht bekannt.</div>
+                                    <div class="reisepreis">Preise erfrafgen Sie bitte in unserem Reisebüro!</div>
                                   {% endif %}
 
                                 {% endif %}
