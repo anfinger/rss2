@@ -428,8 +428,8 @@
                                       {% endif %}
                                     {% endfor %}
                                   </div>
-                                  {% elif reise.reisetyp == 'Tagesfahrt' %}
-                                  <div class="abfahrtszeiten">Die Abfahrtszeiten erfragen SIe bitte in unserem Reisebüro!</div>
+                                  {% elif reise.reisetyp == 'Tagesfahrt' or reise.reisetyp == 'Musicalfahrt' %}
+                                  <div class="abfahrtszeiten">Die Abfahrtszeiten erfragen Sie bitte in unserem Reisebüro!</div>
                                   {% endif %}
 
                                   <br/>
