@@ -263,6 +263,12 @@ def tagesfahrten(request):
       }
       for i, termin in enumerate(termine)
     ]
+    
+    # Filtert die spezifische Fahrt direkt aus der Liste heraus
+    tagesfahrten = [
+      fahrt for fahrt in tagesfahrten
+        if fahrt["reisedaten"].titel != 'Musicalfahrt nach Hamburg im Advent'
+    ]
 
     ausgabeformat = request.GET.get('format')
 
