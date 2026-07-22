@@ -181,9 +181,12 @@ def dauer(ende, beginn):
 @stringfilter
 def nurbetrag(zpreis):
     if zpreis:
+      print(f"DEBUG VORHER: {repr(zpreis)}")
       # Prüfen, ob VP-Zuschlag fehlt, und Text anhängen
       if 'VP-Zuschlag' not in zpreis:
         zpreis += '\nVP-Zuschlag: nicht buchbar'
+      # Debug-Ausgabe nach der Änderung
+      print(f"DEBUG NACHHER: {repr(zpreis)}")
       zpreis = re.sub(r'EZ-Zuschlag: ', u'', zpreis)
       zpreis = re.sub(r'EZ-Zuschlag', u'0 €', zpreis)
       zpreis = re.sub(r'\n', u'</td><td>', zpreis)
