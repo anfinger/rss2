@@ -37,6 +37,7 @@ urlpatterns = [
     url(r'^sommer24/$', views.sommer24, name='sommer24'),
     url(r'^sommer25/$', views.sommer25, name='sommer25'),
     url(r'^sommer26/$', views.sommer26, name='sommer26'),
+    url(r'^sommer27/$', views.sommer27, name='sommer27'),
     url(r'^tagesfahrten/$', views.tagesfahrten, name='tagesfahrten'),
     url(r'^winter2016_17_export/$', views.winter2016_17_export, name='winter2016_17_export'),
     url(r'^reiseterminuebersicht/$', views.reiseterminuebersicht, name='reiseterminuebersicht'),
