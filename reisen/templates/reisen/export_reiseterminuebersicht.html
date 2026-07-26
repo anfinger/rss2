@@ -51,7 +51,7 @@
       </div>
       <div class="rTableBody">
       {% for termin in termine %}
-       {% if termin.datum_beginn|date:'Y' not in '2025' %}
+       {% if termin.datum_beginn|date:'Y' not in '2026' %}
         {% if termin.Monat %}
         <div class="rTableRow" style="background-color: #ddd;">
           <div class="rTableCell"></div>
@@ -59,17 +59,17 @@
           {% if termin.Monat = 'Februar' %}
             <div class="rTableCell"></div><div class="rTableCell"><b>(Winterferien 06.02. - 21.02.2027)</b></div><div class="rTableCell"></div><!--<div class="rTableCell"></div>-->
           {% elif termin.Monat = 'März' %}
-            <div class="rTableCell"></div><div class="rTableCell"><b>(Osterferien 28.03. - 08.04.2026)</b></div><div class="rTableCell"></div><!--<div class="rTableCell"></div>-->
+            <div class="rTableCell"></div><div class="rTableCell"><b>(Osterferien 24.03. - 04.04.2027)</b></div><div class="rTableCell"></div><!--<div class="rTableCell"></div>-->
           {% elif termin.Monat = 'April' %}
-            <div class="rTableCell"></div><div class="rTableCell"><b>(Osterferien 28.03. - 08.04.2026)</b></div><div class="rTableCell"></div><!--<div class="rTableCell"></div>-->
+            <div class="rTableCell"></div><div class="rTableCell"><b>(Osterferien 24.03. - 04.04.2027)</b></div><div class="rTableCell"></div><!--<div class="rTableCell"></div>-->
           {% elif termin.Monat = 'Mai' %}
-            <div class="rTableCell"></div><div class="rTableCell"><b>(Himmelfahrt 14. - 17.05.2026 &amp; Pfingstferien 22. - 26.05.2026)</b></div><div class="rTableCell"></div><!--<div class="rTableCell"></div>-->
+            <div class="rTableCell"></div><div class="rTableCell"><b>(Himmelfahrt 06. - 09.05.2027 &amp; Pfingstferien 14. - 18.05.2027)</b></div><div class="rTableCell"></div><!--<div class="rTableCell"></div>-->
           {% elif termin.Monat = 'Juli' %}
-            <div class="rTableCell"></div><div class="rTableCell"><b>(Sommerferien 11.07. - 23.08.2026)</b></div><div class="rTableCell"></div><!--<div class="rTableCell"></div>-->
+            <div class="rTableCell"></div><div class="rTableCell"><b>(Sommerferien 03.07. - 15.08.2027)</b></div><div class="rTableCell"></div><!--<div class="rTableCell"></div>-->
           {% elif termin.Monat = 'August' %}
-            <div class="rTableCell"></div><div class="rTableCell"><b>(Sommerferien 11.07. - 23.08.2026)</b></div><div class="rTableCell"></div><!--<div class="rTableCell"></div>-->
+            <div class="rTableCell"></div><div class="rTableCell"><b>(Sommerferien 03.07. - 15.08.2027)</b></div><div class="rTableCell"></div><!--<div class="rTableCell"></div>-->
           {% elif termin.Monat = 'Oktober' %}
-            <div class="rTableCell"></div><div class="rTableCell"><b>(Herbstferien 15.10. - 25.10.2026)</b></div><div class="rTableCell"></div><!--<div class="rTableCell"></div>-->
+            <div class="rTableCell"></div><div class="rTableCell"><b>(Herbstferien 14.10. - 24.10.2027)</b></div><div class="rTableCell"></div><!--<div class="rTableCell"></div>-->
           {% else %}
             <div class="rTableCell"></div><div class="rTableCell"></div><div class="rTableCell"></div><!--<div class="rTableCell"></div>-->
           {% endif %}
