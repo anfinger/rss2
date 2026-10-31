@@ -2414,6 +2414,8 @@ def reisezieluebersicht_alles(pk):
     kategorie = ''
     swinemuende = False
     for i in range(len(termine)):
+      if isinstance(termine[i].kategorie, str):
+        termine[i] = termine[i]._replace(kategorie = termine[i].kategorie.decode('utf-8'))
       if termine[i].kategorie != kategorie:
         kategorie = termine[i].kategorie
       else:
