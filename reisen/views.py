@@ -2274,7 +2274,7 @@ def reisezieluebersicht_alles(pk):
                            AND
                              DATE_FORMAT(reisen_reisetermine.datum_beginn, '%Y') > 2026
                            AND
-                             reisen_kategorie.kategorie IN ('Wanderreisen', 'kombinierte Flug- & Busreisen', 'Flusskreuzfahrten')
+                             reisen_kategorie.kategorie IN ('Ostern','Wanderreisen', 'kombinierte Flug- & Busreisen', 'Flusskreuzfahrten')
                            ORDER BY
                              reisen_kategorie.kategorie,
                              Seite
