@@ -51,6 +51,8 @@ from .models import Reise, Reisetermine, Reisezielregionen, Zielregion, Reisekat
 
 from .querysets import get_detail_hinweise_queryset, get_detail_angebote_queryset, get_detail_auftragsbestaetigungen_queryset
 
+import ast
+
 # Create your views here.
 
 #site = FileBrowserSite(name='huhu', storage=DefaultStorage())
@@ -2414,8 +2416,17 @@ def reisezieluebersicht_alles(pk):
     kategorie = ''
     swinemuende = False
     for i in range(len(termine)):
-      if isinstance(termine[i].kategorie, str):
-        termine[i] = termine[i]._replace(kategorie = termine[i].kategorie.decode('utf-8'))
+      # REPARATUR-BLOCK FÜR DEN DICTIONARY-STRING
+      wert = termine[i].kategorie
+      if wert and isinstance(wert, basestring) and wert.startswith("{'name':"):
+        try:
+          # Macht aus dem String "{'name': 'F\xc3\xa4r\xc3\xb6er'}" ein echtes Python-Dict
+          echtes_dict = ast.literal_eval(wert)
+          # Holt den Wert und dekodiert die UTF-8-Bytes sauber zu Unicode
+          sauberer_name = echtes_dict['name'].decode('utf-8')
+          termine[i] = termine[i]._replace(kategorie=sauberer_name)
+        except Exception:
+          pass  # Falls der String mal nicht dem Schema entspricht, Fehler abfangen
       if termine[i].kategorie != kategorie:
         kategorie = termine[i].kategorie
       else:
