@@ -103,8 +103,8 @@ R&amp;T Reisen Ludwigslust GmbH</VERANSTALTER>
 <PREISZUSATZ>siehe Preistabelle S. 122</PREISZUSATZ></PREISE>{% elif 'Bryza' in reise.sonstigeReisebeschreibung_titel and reise.titel = 'Kuren an der polnischen Ostseeküste' %}<PREISE>
 <PREIS><PREISTITEL>Preis p.P.:</PREISTITEL>	<BETRAG>ab 510 €</BETRAG></PREIS>
 <PREISZUSATZ>siehe Preistabelle S. 122</PREISZUSATZ></PREISE>{% elif 'Rezydent' in reise.sonstigeReisebeschreibung_titel and reise.titel = 'Kuren an der polnischen Ostseeküste' %}<PREISE>
-<PREIS><PREISTITEL>Preis p.P.:</PREISTITEL>	<BETRAG>ab 625 €</BETRAG></ PREIS>
-<PREISZUSATZ>siehe Preistabelle S. 122</ PREISZUSATZ></ PREISE>{% elif 'Trofana' in reise.sonstigeReisebeschreibung_titel and reise.titel = 'Kuren an der polnischen Ostseeküste' %}<PREISE>
+<PREIS><PREISTITEL>Preis p.P.:</PREISTITEL>	<BETRAG>ab 625 €</BETRAG></PREIS>
+<PREISZUSATZ>siehe Preistabelle S. 122</PREISZUSATZ></PREISE>{% elif 'Trofana' in reise.sonstigeReisebeschreibung_titel and reise.titel = 'Kuren an der polnischen Ostseeküste' %}<PREISE>
 <PREIS><PREISTITEL>Preis p.P.:</PREISTITEL>	<BETRAG>ab 640 €</BETRAG></PREIS>
 <PREISZUSATZ>siehe Preistabelle S. 122</PREISZUSATZ></PREISE>{% elif 'B & C' in reise.sonstigeReisebeschreibung_titel and reise.titel = 'Kuren an der polnischen Ostseeküste' %}<PREISE>
 <PREIS><PREISTITEL>Preis p.P.:</PREISTITEL>	<BETRAG>ab 630 €</BETRAG></PREIS>
