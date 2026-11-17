@@ -230,13 +230,160 @@
                       <td colspan="3" align="right" width="768">
 
                         <!-- interaktive Europakarte -->
-                        <div align="center">
-                          <span class="ht1">
-                            <!-- <img src="{{ MEDIA_URL }}images/europa_regionen19.gif" usemap="#Europa" align="right" border="0" height="243" width="289"> -->
-                            <!-- <img src="{{ MEDIA_URL }}images/europa2020_grau.png" usemap="#Europa" align="right"> -->
-                            <img src="{{ MEDIA_URL }}images/europa2026_klein.png" usemap="#Europa" align="right">
-                          </span>
-                        </div>
+
+<style>
+  .europa-svg-400 {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    display: block;
+    background: #eef4f8;
+    border-radius: 8px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  }
+  .europa-svg-400 .inactive {
+    fill: #d5dce2;
+    stroke: #ffffff;
+    stroke-width: 0.7;
+    stroke-linejoin: round;
+  }
+  .europa-svg-400 a.opener {
+    cursor: pointer;
+    text-decoration: none;
+    transition: filter 0.2s ease;
+  }
+  .europa-svg-400 a.opener path,
+  .europa-svg-400 a.opener circle {
+    stroke: #ffffff;
+    stroke-width: 0.8;
+    stroke-linejoin: round;
+  }
+  .europa-svg-400 a.opener:hover {
+    filter: brightness(0.88);
+  }
+  .europa-svg-400 .label {
+    font-size: 7.5px;
+    font-weight: 700;
+    fill: #1e293b;
+    text-anchor: middle;
+    pointer-events: none;
+    paint-order: stroke;
+    stroke: rgba(255, 255, 255, 0.9);
+    stroke-width: 2px;
+    stroke-linejoin: round;
+  }
+</style>
+
+<svg class="europa-svg-400" viewBox="0 0 400 400" width="400" height="400" xmlns="http://w3.org" role="img" aria-label="Interaktive Europakarte der Reiseziele">
+  <!-- Ausgegraute Nicht-Katalogländer -->
+  <g class="inactive">
+    <!-- Portugal -->
+    <path d="M 30,295 L 43,296 L 44,308 L 41,322 L 42,338 L 31,341 L 27,328 L 29,311 Z" />
+    <!-- Ungarn, Rumänien, Bulgarien, Griechenland, Serbien, Albanien, Nordmazedonien -->
+    <path d="M 216,238 L 235,235 L 252,232 L 268,226 L 284,234 L 295,248 L 292,262 L 298,272 L 288,284 L 268,286 L 265,296 L 256,304 L 252,318 L 245,326 L 236,322 L 233,308 L 226,298 L 222,282 L 214,272 L 210,256 L 214,245 Z" />
+    <!-- Kreta & Peloponnes -->
+    <path d="M 244,335 L 260,336 L 258,340 L 243,339 Z" />
+    <!-- Belarus, Ukraine, Moldau, Russland (West) -->
+    <path d="M 262,115 L 345,105 L 375,185 L 352,225 L 312,232 L 284,234 L 268,226 L 264,195 L 258,162 Z" />
+    <!-- Türkei (West) -->
+    <path d="M 285,292 L 355,290 L 358,325 L 282,324 L 278,306 Z" />
+  </g>
+
+  <!-- 1) Deutschland -->
+  <a class="opener" data-panel="1" href="#Deutschland" title="Deutschland">
+    <path fill="#f59e0b" d="M 168,164 L 175,163 L 178,169 L 188,168 L 195,172 L 198,182 L 195,193 L 188,198 L 194,206 L 198,216 L 191,222 L 181,221 L 176,225 L 165,224 L 159,221 L 161,211 L 156,204 L 157,192 L 161,182 L 164,172 Z" />
+    <text class="label" x="176" y="198">Deutschland</text>
+  </a>
+
+  <!-- 2) Österreich -->
+  <a class="opener" data-panel="2" href="#&Ouml;sterreich" title="Österreich">
+    <path fill="#ef4444" d="M 176,225 L 181,221 L 191,222 L 198,216 L 208,216 L 217,219 L 218,228 L 212,235 L 198,236 L 186,233 L 174,233 L 171,229 Z" />
+    <text class="label" x="200" y="229">Österreich</text>
+  </a>
+
+  <!-- 3) Slowenien / Kroatien / Montenegro / Bosnien und Herzegowina -->
+  <a class="opener" data-panel="3" href="#Slowenien / Kroatien / Montenegro / Bosnien und Herzegowina" title="Slowenien / Kroatien / Montenegro / Bosnien und Herzegowina">
+    <path fill="#14b8a6" d="M 188,234 L 198,236 L 212,235 L 216,242 L 214,254 L 222,265 L 226,276 L 219,282 L 211,274 L 202,262 L 194,252 L 189,246 L 185,240 Z" />
+    <text class="label" x="210" y="256">SLO / HR</text>
+    <text class="label" x="213" y="264">BiH / MNE</text>
+  </a>
+
+  <!-- 4) Schweiz -->
+  <a class="opener" data-panel="4" href="#Schweiz" title="Schweiz">
+    <path fill="#ec4899" d="M 159,221 L 165,224 L 174,226 L 174,233 L 168,237 L 161,235 L 155,237 L 152,231 L 156,226 Z" />
+    <text class="label" x="164" y="232">Schweiz</text>
+  </a>
+
+  <!-- 5) Italien -->
+  <a class="opener" data-panel="5" href="#Italien" title="Italien">
+    <!-- Festland -->
+    <path fill="#10b981" d="M 155,237 L 161,235 L 168,237 L 174,233 L 186,233 L 189,241 L 185,248 L 192,258 L 204,270 L 218,282 L 225,288 L 218,295 L 211,294 L 206,306 L 201,314 L 195,312 L 194,302 L 186,292 L 176,278 L 166,265 L 158,256 L 151,252 L 150,244 Z" />
+    <!-- Sizilien -->
+    <path fill="#10b981" d="M 183,315 L 198,314 L 195,323 L 185,321 Z" />
+    <!-- Sardinien -->
+    <path fill="#10b981" d="M 156,282 L 165,281 L 164,299 L 155,298 Z" />
+    <text class="label" x="184" y="278">Italien</text>
+  </a>
+
+  <!-- 6) Frankreich / Spanien / Andorra -->
+  <a class="opener" data-panel="6" href="#Frankreich / Spanien / Andorra" title="Frankreich / Spanien / Andorra">
+    <!-- Frankreich & Korsika -->
+    <path fill="#3b82f6" d="M 118,195 L 132,193 L 144,203 L 157,208 L 159,221 L 152,231 L 155,237 L 150,244 L 151,254 L 141,258 L 131,262 L 122,258 L 112,257 L 114,242 L 111,226 L 98,221 L 97,212 L 112,208 Z" />
+    <path fill="#3b82f6" d="M 158,266 L 163,265 L 163,276 L 158,275 Z" />
+    <!-- Spanien & Andorra -->
+    <path fill="#3b82f6" d="M 33,278 L 54,276 L 78,282 L 106,284 L 115,287 L 106,302 L 94,314 L 88,328 L 72,338 L 52,341 L 42,338 L 41,322 L 44,308 L 43,296 L 30,295 L 28,285 Z" />
+    <!-- Balearen -->
+    <path fill="#3b82f6" d="M 106,312 L 113,310 L 112,316 L 105,316 Z" />
+    <text class="label" x="132" y="232">Frankreich</text>
+    <text class="label" x="72" y="308">Spanien / Andorra</text>
+  </a>
+
+  <!-- 7) Holland / Belgien -->
+  <a class="opener" data-panel="7" href="#Holland / Belgien" title="Holland / Belgien">
+    <path fill="#8b5cf6" d="M 146,180 L 159,179 L 161,188 L 156,198 L 157,208 L 144,203 L 138,196 L 141,188 Z" />
+    <text class="label" x="148" y="195">NL / BE</text>
+  </a>
+
+  <!-- 8) Britische Inseln inkl. Jersey -->
+  <a class="opener" data-panel="8" href="#Britische Inseln" title="Britische Inseln inkl. Jersey">
+    <!-- Großbritannien -->
+    <path fill="#06b6d4" d="M 96,112 L 111,111 L 114,124 L 109,134 L 118,148 L 125,164 L 128,176 L 122,184 L 104,186 L 91,188 L 96,178 L 103,172 L 98,162 L 104,152 L 98,138 L 93,124 Z" />
+    <!-- Irland -->
+    <path fill="#06b6d4" d="M 72,144 L 88,141 L 91,154 L 87,168 L 73,172 L 68,162 L 70,151 Z" />
+    <!-- Jersey -->
+    <circle fill="#06b6d4" cx="104" cy="196" r="3" />
+    <text class="label" x="103" y="156">Britische Inseln</text>
+    <text class="label" x="104" y="205">Jersey</text>
+  </a>
+
+  <!-- 9) Skandinavien / Baltikum inkl. Island und Färöer -->
+  <a class="opener" data-panel="9" href="#Skandinavien / Baltikum" title="Skandinavien / Baltikum inkl. Island und Färöer">
+    <!-- Norwegen, Schweden, Finnland -->
+    <path fill="#6366f1" d="M 162,72 L 182,48 L 212,26 L 242,22 L 258,34 L 254,52 L 266,74 L 268,96 L 254,106 L 236,105 L 228,92 L 226,68 L 218,62 L 214,88 L 208,116 L 198,138 L 186,142 L 181,124 L 172,126 L 160,122 L 154,104 Z" />
+    <!-- Dänemark & Inseln -->
+    <path fill="#6366f1" d="M 165,142 L 175,141 L 176,158 L 166,159 Z" />
+    <path fill="#6366f1" d="M 178,151 L 184,151 L 184,158 L 178,158 Z" />
+    <!-- Gotland & Öland -->
+    <path fill="#6366f1" d="M 213,122 L 216,122 L 215,132 L 212,132 Z" />
+    <!-- Baltikum (Estland, Lettland, Litauen) -->
+    <path fill="#6366f1" d="M 234,112 L 262,111 L 264,126 L 258,138 L 254,152 L 232,152 L 229,141 L 236,132 L 232,121 Z" />
+    <!-- Island -->
+    <path fill="#6366f1" d="M 28,34 L 46,31 L 64,34 L 72,44 L 66,54 L 48,57 L 31,54 L 26,44 Z" />
+    <!-- Färöer -->
+    <circle fill="#6366f1" cx="88" cy="82" r="3" />
+    <text class="label" x="49" y="47">Island</text>
+    <text class="label" x="88" y="92">Färöer</text>
+    <text class="label" x="208" y="84">Skandinavien</text>
+    <text class="label" x="247" y="135">Baltikum</text>
+  </a>
+
+  <!-- 10) Polen / Tschechien / Slowakei -->
+  <a class="opener" data-panel="10" href="#Polen / Tschechien / Slowakei" title="Polen / Tschechien / Slowakei">
+    <path fill="#eab308" d="M 195,164 L 228,156 L 254,156 L 262,174 L 264,195 L 252,208 L 238,216 L 217,219 L 208,216 L 198,216 L 194,206 L 188,198 L 195,193 L 198,182 Z" />
+    <text class="label" x="228" y="188">Polen / CZ / SK</text>
+  </a>
+</svg>
+
                         <!-- Art der Reise -->
                         <div align="left">
                           <p>
