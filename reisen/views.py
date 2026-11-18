@@ -1445,7 +1445,7 @@ def sommer27(request):
     cursor.close()
 
     kategorien = [ u'Ostern', u'kombinierte Flug- & Busreisen', u'Kuren, Gesundheits- und Wellnessreisen', u'Flusskreuzfahrten']
-    zielregionen = [ u'Deutschland', u'Österreich', u'Slowenien / Kroatien / Montenegro / Bosnien und Herzegowina', u'Schweiz', u'Italien', u'Frankreich / Spanien / Andorra', u'Britische Inseln', u'Holland / Belgien', u'Skandinavien / Baltikum', u'Polen / Tschechien / Slowakei']
+    zielregionen = [ u'Deutschland', u'Österreich', u'Slowenien / Kroatien / Montenegro / Bosnien und Herzegowina', u'Schweiz', u'Italien', u'Frankreich / Spanien / Andorra', u'Holland / Belgien', u'Britische Inseln', u'Skandinavien / Baltikum', u'Polen / Tschechien / Slowakei']
 
     dibug = ''#DefaultStorage().location + '  :::  ' + site.storage.location + site.directory + '  :::  ' + str(FileSystemStorage().directory_permissions_mode)
 
